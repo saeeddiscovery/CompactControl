@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ApplicationIcon>Resources\CC.ico</ApplicationIcon>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0A404CA9-C81E-46CE-8C75-7B7E6EA71B9B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Compact_Control</RootNamespace>
+    <AssemblyName>Compact Control</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.Compatibility" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>.\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\Form_License.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_License.Designer.cs">
+      <DependentUpon>Form_License.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Main.designer.cs">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_TrialReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_TrialReport.Designer.cs">
+      <DependentUpon>Form_TrialReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\BarcodeScan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\BarcodeScan.Designer.cs">
+      <DependentUpon>BarcodeScan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Class_PatientData.cs" />
+    <Compile Include="Forms\Form_Fields.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Fields.Designer.cs">
+      <DependentUpon>Form_Fields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Login.Designer.cs">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_NewField.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_NewField.Designer.cs">
+      <DependentUpon>Form_NewField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_NewPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_NewPatient.Designer.cs">
+      <DependentUpon>Form_NewPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_PatientList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_PatientList.Designer.cs">
+      <DependentUpon>Form_PatientList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Form_Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_Settings.Designer.cs">
+      <DependentUpon>Form_Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\HashPass.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User Controls\ClientControls.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\ClientControls.designer.cs">
+      <DependentUpon>ClientControls.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\Form_License.resx">
+      <DependentUpon>Form_License.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Main.resx">
+      <DependentUpon>Form_Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_TrialReport.resx">
+      <DependentUpon>Form_TrialReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\BarcodeScan.resx">
+      <DependentUpon>BarcodeScan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Fields.resx">
+      <DependentUpon>Form_Fields.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Login.resx">
+      <DependentUpon>Form_Login.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_NewField.resx">
+      <DependentUpon>Form_NewField.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_NewPatient.resx">
+      <DependentUpon>Form_NewPatient.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_PatientList.resx">
+      <DependentUpon>Form_PatientList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_Settings.resx">
+      <DependentUpon>Form_Settings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="User Controls\ClientControls.resx">
+      <DependentUpon>ClientControls.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Request.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExiButton_MouseOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ExitButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogOffButton_MouseOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogOffButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SettingButton_MouseOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SettingButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConnectButton_Connected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConnectButton_MouseOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ConnectButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginButton_MouseOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LoginButton.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\green_sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\red_sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_PatientList_MouseOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_PatientList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_AcceptPatient_MouseOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_AcceptPatient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_DeletePatient_MouseOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_DeletePatient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_AddPatient_MouseOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_AddPatient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barcode_MouseOver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Barcode_Normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BarcodeScan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_AcceptPatient_Disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\CC.ico" />
+    <None Include="Resources\Setting.png" />
+    <None Include="Resources\Setting_mouseOver.png" />
+    <None Include="Resources\Exit2.png" />
+    <None Include="Resources\Exit_mouseOver2.png" />
+    <None Include="Resources\Logout.png" />
+    <None Include="Resources\Logout_mouseOver.png" />
+    <None Include="Resources\Exit1.png" />
+    <None Include="Resources\Exit_mouseOver1.png" />
+    <None Include="Resources\Shutdown.png" />
+    <None Include="Resources\Shutdown_mouseOver.png" />
+    <None Include="Resources\Restart.png" />
+    <None Include="Resources\Restart_mouseOver.png" />
+    <None Include="Resources\Exit.png" />
+    <None Include="Resources\Exit_mouseOver.png" />
+    <None Include="Resources\ExitButton_Disabled.png" />
+    <None Include="Resources\ExitButton_MouseOver.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
