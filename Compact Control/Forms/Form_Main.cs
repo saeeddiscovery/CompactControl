@@ -1513,7 +1513,7 @@ namespace Compact_Control
 
         private void picBtn_Connect_MouseEnter(object sender, EventArgs e)
         {
-            picBtnToolTip.SetToolTip(picBtn_Connect, "Connect");
+            //picBtnToolTip.SetToolTip(picBtn_Connect, "Connect");
             picBtn_Connect.BackgroundImage = Resources.ConnectButton_MouseOver;
         }
 
