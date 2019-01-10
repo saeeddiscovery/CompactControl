@@ -1282,10 +1282,11 @@ namespace Compact_Control
                 {
                     string appPath = Application.StartupPath;
                     string dataPath = System.IO.Path.Combine(appPath, "Calib.dat");
-                    string[] lines = { gant_gain.ToString(), gant_offset.ToString(), collim_gain.ToString(), collim_offset.ToString(),
+                    string[] values = { gant_gain.ToString(), gant_offset.ToString(), collim_gain.ToString(), collim_offset.ToString(),
                                  x1_gain.ToString(), x1_offset.ToString(), x2_gain.ToString(), x2_offset.ToString(),
                                  y1_gain.ToString(), y1_offset.ToString(), y2_gain.ToString(), y2_offset.ToString()};
-                    System.IO.File.WriteAllLines(dataPath, lines);
+                    //System.IO.File.WriteAllLines(dataPath, lines);
+                    HashPass.writeCalibJson(dataPath, values);
                 }
                 catch (Exception ex)
                 {
@@ -1430,8 +1431,9 @@ namespace Compact_Control
                         {
                             string appPath = Application.StartupPath;
                             string dataPath = System.IO.Path.Combine(appPath, "Learn.dat");
-                            string[] lines = { gant_zpnt, gant_length, gant_fine_length, collim_zpnt, collim_length, collim_fine_length };
-                            System.IO.File.WriteAllLines(dataPath, lines);
+                            string[] values = { gant_zpnt, gant_length, gant_fine_length, collim_zpnt, collim_length, collim_fine_length };
+                            //System.IO.File.WriteAllLines(dataPath, lines);
+                            HashPass.writeLearnJson(dataPath, values);
                         }
                         catch (Exception ex)
                         {
@@ -1454,8 +1456,9 @@ namespace Compact_Control
                         {
                             string appPath = Application.StartupPath;
                             string dataPath = System.IO.Path.Combine(appPath, "Learn.dat");
-                            string[] lines = { gant_zpnt, gant_length, gant_fine_length, collim_zpnt, collim_length, collim_fine_length };
-                            System.IO.File.WriteAllLines(dataPath, lines);
+                            string[] values = { gant_zpnt, gant_length, gant_fine_length, collim_zpnt, collim_length, collim_fine_length };
+                            //System.IO.File.WriteAllLines(dataPath, lines);
+                            HashPass.writeLearnJson(dataPath, values);
                         }
                         catch (Exception ex)
                         {
@@ -1694,19 +1697,34 @@ namespace Compact_Control
                         Application.Exit();
                         return;
                     }
-                    string[] lines = System.IO.File.ReadAllLines(dataPath);
-                    gant_gain = double.Parse(lines[0]);
-                    gant_offset = double.Parse(lines[1]);
-                    collim_gain = double.Parse(lines[2]);
-                    collim_offset = double.Parse(lines[3]);
-                    x1_gain = double.Parse(lines[4]);
-                    x1_offset = double.Parse(lines[5]);
-                    x2_gain = double.Parse(lines[6]);
-                    x2_offset = double.Parse(lines[7]);
-                    y1_gain = double.Parse(lines[8]);
-                    y1_offset = double.Parse(lines[9]);
-                    y2_gain = double.Parse(lines[10]);
-                    y2_offset = double.Parse(lines[11]);
+                    //string[] lines = System.IO.File.ReadAllLines(dataPath);
+                    //gant_gain = double.Parse(lines[0]);
+                    //gant_offset = double.Parse(lines[1]);
+                    //collim_gain = double.Parse(lines[2]);
+                    //collim_offset = double.Parse(lines[3]);
+                    //x1_gain = double.Parse(lines[4]);
+                    //x1_offset = double.Parse(lines[5]);
+                    //x2_gain = double.Parse(lines[6]);
+                    //x2_offset = double.Parse(lines[7]);
+                    //y1_gain = double.Parse(lines[8]);
+                    //y1_offset = double.Parse(lines[9]);
+                    //y2_gain = double.Parse(lines[10]);
+                    //y2_offset = double.Parse(lines[11]);
+
+                    HashPass.CalibData values = HashPass.readCalibJson(dataPath);
+                    gant_gain = double.Parse(values.gant_gain);
+                    gant_offset = double.Parse(values.gant_offset);
+                    collim_gain = double.Parse(values.collim_gain);
+                    collim_offset = double.Parse(values.collim_offset);
+                    x1_gain = double.Parse(values.x1_gain);
+                    x1_offset = double.Parse(values.x1_offset);
+                    x2_gain = double.Parse(values.x2_gain);
+                    x2_offset = double.Parse(values.x2_offset);
+                    y1_gain = double.Parse(values.y1_gain);
+                    y1_offset = double.Parse(values.y1_offset);
+                    y2_gain = double.Parse(values.y2_gain);
+                    y2_offset = double.Parse(values.y2_offset);
+
                 }
                 catch (Exception ex)
                 {
@@ -1725,13 +1743,21 @@ namespace Compact_Control
                         return;
                     }
 
-                    string[] lines = System.IO.File.ReadAllLines(dataPath);
-                    gant_zpnt = lines[0];
-                    gant_length = lines[2];
-                    gant_fine_length = lines[4];
-                    collim_zpnt = lines[6];
-                    collim_length = lines[8];
-                    collim_fine_length = lines[10];
+                    //string[] lines = System.IO.File.ReadAllLines(dataPath);
+                    //gant_zpnt = lines[0];
+                    //gant_length = lines[2];
+                    //gant_fine_length = lines[4];
+                    //collim_zpnt = lines[6];
+                    //collim_length = lines[8];
+                    //collim_fine_length = lines[10];
+                    
+                    HashPass.LearnData values = HashPass.readLearnJson(dataPath);
+                    gant_zpnt = values.gant_zpnt;
+                    gant_length = values.gant_length;
+                    gant_fine_length = values.gant_fine_length;
+                    collim_zpnt = values.collim_zpnt;
+                    collim_length = values.collim_length;
+                    collim_fine_length = values.collim_fine_length;
                 }
                 catch (Exception ex)
                 {

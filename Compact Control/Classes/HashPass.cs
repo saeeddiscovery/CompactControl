@@ -387,10 +387,104 @@ namespace Compact_Control
             return value;
         }
 
+        public class CalibData
+        {
+            public string gant_gain { get; set; }
+            public string gant_offset { get; set; }
+            public string collim_gain { get; set; }
+            public string collim_offset { get; set; }
+            public string x1_gain { get; set; }
+            public string x1_offset { get; set; }
+            public string x2_gain { get; set; }
+            public string x2_offset { get; set; }
+            public string y1_gain { get; set; }
+            public string y1_offset { get; set; }
+            public string y2_gain { get; set; }
+            public string y2_offset { get; set; }
+        }
+        public class LearnData
+        {
+            public string gant_zpnt { get; set; }
+            public string gant_length { get; set; }
+            public string gant_fine_length { get; set; }
+            public string collim_zpnt { get; set; }
+            public string collim_length { get; set; }
+            public string collim_fine_length { get; set; }
+        }
+
+        public class ParametersData
+        {
+            public string gant_tol0 { get; set; }
+            public string gant_tol1 { get; set; }
+            public string gant_tol2 { get; set; }
+            public string gant_v1 { get; set; }
+            public string gant_v2 { get; set; }
+            public string gant_v3 { get; set; }
+            public string collim_tol0 { get; set; }
+            public string collim_tol1 { get; set; }
+            public string collim_tol2 { get; set; }
+            public string collim_v1 { get; set; }
+            public string collim_v2 { get; set; }
+            public string collim_v3 { get; set; }
+            public string x1_tol0 { get; set; }
+            public string x1_tol1 { get; set; }
+            public string x1_tol2 { get; set; }
+            public string x1_v1 { get; set; }
+            public string x1_v2 { get; set; }
+            public string x1_v3 { get; set; }
+            public string x2_tol0 { get; set; }
+            public string x2_tol1 { get; set; }
+            public string x2_tol2 { get; set; }
+            public string x2_v1 { get; set; }
+            public string x2_v2 { get; set; }
+            public string x2_v3 { get; set; }
+            public string y1_tol0 { get; set; }
+            public string y1_tol1 { get; set; }
+            public string y1_tol2 { get; set; }
+            public string y1_v1 { get; set; }
+            public string y1_v2 { get; set; }
+            public string y1_v3 { get; set; }
+            public string y2_tol0 { get; set; }
+            public string y2_tol1 { get; set; }
+            public string y2_tol2 { get; set; }
+            public string y2_v1 { get; set; }
+            public string y2_v2 { get; set; }
+            public string y2_v3 { get; set; }
+        }
+
         public class PortSettings
         {
             //public string Port { get; set; }
             public string Baudrate { get; set; }
+        }
+
+        public static CalibData readCalibJson(string fileName)
+        {
+            using (StreamReader r = new StreamReader(fileName))
+            {
+                var json = r.ReadToEnd();
+                CalibData deserializedSettings = JsonConvert.DeserializeObject<CalibData>(json);
+                return deserializedSettings;
+            }
+        }
+        public static LearnData readLearnJson(string fileName)
+        {
+            using (StreamReader r = new StreamReader(fileName))
+            {
+                var json = r.ReadToEnd();
+                LearnData deserializedSettings = JsonConvert.DeserializeObject<LearnData>(json);
+                return deserializedSettings;
+            }
+        }
+
+        public static ParametersData readParametersJson(string fileName)
+        {
+            using (StreamReader r = new StreamReader(fileName))
+            {
+                var json = r.ReadToEnd();
+                ParametersData deserializedSettings = JsonConvert.DeserializeObject<ParametersData>(json);
+                return deserializedSettings;
+            }
         }
 
         public static PortSettings readSettingsJson(string fileName)
@@ -402,6 +496,76 @@ namespace Compact_Control
                 return deserializedSettings;
             }
         }
+
+        public static void writeCalibJson(string fileName, string[] values)
+        {
+            StreamWriter sw = new StreamWriter(fileName);
+            string[] lines = { "gant_gain", "gant_offset", "collim_gain", "collim_offset",
+                                 "x1_gain", "x1_offset", "x2_gain", "x2_offset",
+                                 "y1_gain", "y1_offset", "y2_gain", "y2_offset"};
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                writer.Formatting = Formatting.Indented;
+
+                writer.WriteStartObject();
+
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    writer.WritePropertyName(lines[i]);
+                    writer.WriteValue(values[i]);
+                }
+
+                writer.WriteEndObject();
+            }
+        }
+
+        public static void writeLearnJson(string fileName, string[] values)
+        {
+            StreamWriter sw = new StreamWriter(fileName);
+            string[] lines = { "gant_zpnt", "gant_length", "gant_fine_length",
+                "collim_zpnt", "collim_length", "collim_fine_length" };
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                writer.Formatting = Formatting.Indented;
+
+                writer.WriteStartObject();
+
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    writer.WritePropertyName(lines[i]);
+                    writer.WriteValue(values[i]); 
+                }
+
+                writer.WriteEndObject();
+            }
+        }
+
+        public static void writeParametersJson(string fileName, string[] values)
+        {
+            StreamWriter sw = new StreamWriter(fileName);
+            string[] lines = {"gant_tol0", "gant_tol1", "gant_tol2", "gant_v1", "gant_v2", "gant_v3",
+                "collim_tol0", "collim_tol1", "collim_tol2", "collim_v1", "collim_v2", "collim_v3",
+                "x1_tol0", "x1_tol1", "x1_tol2", "x1_v1", "x1_v2", "x1_v3",
+                "x2_tol0", "x2_tol1", "x2_tol2", "x2_v1", "x2_v2", "x2_v3",
+                "y1_tol0", "y1_tol1", "y1_tol2", "y1_v1", "y1_v2", "y1_v3",
+                "y2_tol0", "y2_tol1", "y2_tol2", "y2_v1", "y2_v2", "y2_v3" };
+
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                writer.Formatting = Formatting.Indented;
+
+                writer.WriteStartObject();
+
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    writer.WritePropertyName(lines[i]);
+                    writer.WriteValue(values[i]);
+                }
+
+                writer.WriteEndObject();
+            }
+        }
+
         public static void writeSettingsJson(string fileName, string port, string baudrate)
         {
             StreamWriter sw = new StreamWriter(fileName);
