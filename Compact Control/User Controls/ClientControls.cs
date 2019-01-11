@@ -44,6 +44,7 @@ namespace Compact_Control
         public static string x2_tol0, x2_tol1, x2_tol2, x2_v1, x2_v2, x2_v3;
         public static string y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
         public static string y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
+        public static bool sendParametersFlag = false;
 
         string x1_co;
         double x1_gain, x1_offset;
@@ -119,7 +120,25 @@ namespace Compact_Control
             btn_ClearField.Enabled = true;
         }
          */ 
-
+        
+        public void sendParameters()
+        {
+            serialPort1.Write("w");
+            serialPort1.Write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
+            serialPort1.Write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
+            serialPort1.Write(gant_tol0 + "/" + gant_tol1 + "/" + gant_tol2 + "/");
+            serialPort1.Write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
+            serialPort1.Write(collim_tol0 + "/" + collim_tol1 + "/" + collim_tol2 + "/");
+            serialPort1.Write(collim_v1 + "/" + collim_v2 + "/" + collim_v3 + "/");
+            serialPort1.Write(x1_tol0 + "/" + x1_tol1 + "/" + x1_tol2 + "/");
+            serialPort1.Write(x1_v1 + "/" + x1_v2 + "/" + x1_v3 + "/");
+            serialPort1.Write(x2_tol0 + "/" + x2_tol1 + "/" + x2_tol2 + "/");
+            serialPort1.Write(x2_v1 + "/" + x2_v2 + "/" + x2_v3 + "/");
+            serialPort1.Write(y1_tol0 + "/" + y1_tol1 + "/" + y1_tol2 + "/");
+            serialPort1.Write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
+            serialPort1.Write(y2_tol0 + "/" + y2_tol1 + "/" + y2_tol2 + "/");
+            serialPort1.Write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
+        }
         public void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
             string a = "";
@@ -136,21 +155,7 @@ namespace Compact_Control
                 switch (a.Substring(0, 3))
                 {
                     case "init":
-                        serialPort1.Write("w");
-                        serialPort1.Write(gant_zpnt  + "/" + gant_length + "/" + gant_fine_length + "/");
-                        serialPort1.Write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
-                        serialPort1.Write(gant_tol0 + "/" + gant_tol1 + "/" + gant_tol2 + "/");
-                        serialPort1.Write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
-                        serialPort1.Write(collim_tol0 + "/" + collim_tol1 + "/" + collim_tol2 + "/");
-                        serialPort1.Write(collim_v1 + "/" + collim_v2 + "/" + collim_v3 + "/");
-                        serialPort1.Write(x1_tol0 + "/" + x1_tol1 + "/" + x1_tol2 + "/");
-                        serialPort1.Write(x1_v1 + "/" + x1_v2 + "/" + x1_v3 + "/");
-                        serialPort1.Write(x2_tol0 + "/" + x2_tol1 + "/" + x2_tol2 + "/");
-                        serialPort1.Write(x2_v1 + "/" + x2_v2 + "/" + x2_v3 + "/");
-                        serialPort1.Write(y1_tol0 + "/" + y1_tol1 + "/" + y1_tol2 + "/");
-                        serialPort1.Write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
-                        serialPort1.Write(y2_tol0 + "/" + y2_tol1 + "/" + y2_tol2 + "/");
-                        serialPort1.Write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
+                        sendParameters();
                         break;
                     case "gfn":
                         gant_cofin = a.Substring(3, a.Length - 3);
@@ -231,6 +236,12 @@ namespace Compact_Control
         private double y1dv, y2dv, xa, x1dv, x2dv, ya;
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (sendParametersFlag == true)
+            {
+                sendParametersFlag = false;
+                sendParameters();
+                MessageBox.Show("Parameters Save & Send successful!");
+            }
             if (gant_gain == 0 || double.IsNaN(gant_gain))
             {
                 try

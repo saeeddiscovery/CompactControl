@@ -2109,6 +2109,7 @@ namespace Compact_Control
                 string appPath = Application.StartupPath;
                 string dataPath = System.IO.Path.Combine(appPath, "Parameters.dat");
                 HashPass.writeParametersJson(dataPath, values);
+                ClientControls.sendParametersFlag = true;
             }
             catch(Exception ex)
             {

@@ -2022,7 +2022,7 @@
             this.btn_saveParameters.Name = "btn_saveParameters";
             this.btn_saveParameters.Size = new System.Drawing.Size(150, 30);
             this.btn_saveParameters.TabIndex = 43;
-            this.btn_saveParameters.Text = "Save";
+            this.btn_saveParameters.Text = "Save && Send";
             this.btn_saveParameters.UseVisualStyleBackColor = true;
             this.btn_saveParameters.Click += new System.EventHandler(this.btn_saveParameters_Click);
             // 
