@@ -38,12 +38,12 @@ namespace Compact_Control
         string cld;
         string collim_zpnt, collim_length, collim_fine_length;
 
-        string gant_tol0, gant_tol1, gant_tol2, gant_v1, gant_v2, gant_v3;
-        string collim_tol0, collim_tol1, collim_tol2, collim_v1, collim_v2, collim_v3;
-        string x1_tol0, x1_tol1, x1_tol2, x1_v1, x1_v2, x1_v3;
-        string x2_tol0, x2_tol1, x2_tol2, x2_v1, x2_v2, x2_v3;
-        string y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
-        string y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
+        public static string gant_tol0, gant_tol1, gant_tol2, gant_v1, gant_v2, gant_v3;
+        public static string collim_tol0, collim_tol1, collim_tol2, collim_v1, collim_v2, collim_v3;
+        public static string x1_tol0, x1_tol1, x1_tol2, x1_v1, x1_v2, x1_v3;
+        public static string x2_tol0, x2_tol1, x2_tol2, x2_v1, x2_v2, x2_v3;
+        public static string y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
+        public static string y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
 
         string x1_co;
         double x1_gain, x1_offset;

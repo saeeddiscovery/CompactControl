@@ -1764,6 +1764,72 @@ namespace Compact_Control
                     MessageBox.Show("Error reading from file\n" + ex.Message);
                 }
 
+                try
+                {
+                    string appPath = Application.StartupPath;
+                    string dataPath = System.IO.Path.Combine(appPath, "Parameters.dat");
+                    if (!System.IO.File.Exists(dataPath))
+                    {
+                        timer1.Stop();
+                        timer1.Enabled = false;
+                        MessageBox.Show("Can not connect to port!\n''Parameters.dat'' file not found!", "Parameters file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Application.Exit();
+                        return;
+                    }
+                    HashPass.ParametersData values = HashPass.readParametersJson(dataPath);
+                    string[] prms = new string[36];
+                    prms[0]  = ClientControls.gant_tol0 = values.gant_tol0;
+                    prms[1]  = ClientControls.gant_tol1 = values.gant_tol1;	
+                    prms[2]  = ClientControls.gant_tol2 = values.gant_tol2;	
+                    prms[3]  = ClientControls.gant_v1 = values.gant_v1;
+                    prms[4]  = ClientControls.gant_v2 = values.gant_v2;
+                    prms[5]  = ClientControls.gant_v3 = values.gant_v3;
+                    prms[6]  = ClientControls.collim_tol0 = values.collim_tol0;
+                    prms[7]  = ClientControls.collim_tol1 = values.collim_tol1;
+                    prms[8]  = ClientControls.collim_tol2 = values.collim_tol2;  
+                    prms[9]  = ClientControls.collim_v1 = values.collim_v1;
+                    prms[10] = ClientControls.collim_v2 = values.collim_v2;
+                    prms[11] = ClientControls.collim_v3 = values.collim_v3;
+                    prms[12] = ClientControls.x1_tol0 = values.x1_tol0;
+                    prms[13] = ClientControls.x1_tol1 = values.x1_tol1;
+                    prms[14] = ClientControls.x1_tol2 = values.x1_tol2;
+                    prms[15] = ClientControls.x1_v1 =  values.x1_v1;
+                    prms[16] = ClientControls.x1_v2 =  values.x1_v2;
+                    prms[17] = ClientControls.x1_v3 =  values.x1_v3;
+                    prms[18] = ClientControls.x2_tol0 = values.x2_tol0;
+                    prms[19] = ClientControls.x2_tol1 = values.x2_tol1;
+                    prms[20] = ClientControls.x2_tol2 = values.x2_tol2;
+                    prms[21] = ClientControls.x2_v1 =  values.x2_v1;
+                    prms[22] = ClientControls.x2_v2 =  values.x2_v2;
+                    prms[23] = ClientControls.x2_v3 =  values.x2_v3;
+                    prms[24] = ClientControls.y1_tol0 = values.y1_tol0;
+                    prms[25] = ClientControls.y1_tol1 = values.y1_tol1;
+                    prms[26] = ClientControls.y1_tol2 = values.y1_tol2;
+                    prms[27] = ClientControls.y1_v1 =  values.y1_v1;
+                    prms[28] = ClientControls.y1_v2 =  values.y1_v2;
+                    prms[29] = ClientControls.y1_v3 =  values.y1_v3;
+                    prms[30] = ClientControls.y2_tol0 = values.y2_tol0;
+                    prms[31] = ClientControls.y2_tol1 = values.y2_tol1;
+                    prms[32] = ClientControls.y2_tol2 = values.y2_tol2;
+                    prms[33] = ClientControls.y2_v1 =  values.y2_v1;
+                    prms[34] = ClientControls.y2_v2 =  values.y2_v2;
+                    prms[35] = ClientControls.y2_v3 =  values.y2_v3;
+
+                    int i = 0;
+                    foreach (Control tb in gb_parameters.Controls)
+                    {
+                        if (tb is TextBox)
+                        {
+                            tb.Text = prms[tb.TabIndex - 7];
+                            i = i + 1;
+                        }
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Error reading from file\n" + ex.Message);
+                }
+
                 panel_AdminControls.Enabled = true;
                 panel_ClientControls.Enabled = true;
                 picBtn_Connect.BackgroundImage = Resources.ConnectButton_Connected;
@@ -2023,6 +2089,30 @@ namespace Compact_Control
             if (e.Modifiers == Keys.Shift && e.KeyCode == Keys.Left)
             {
                 Application.Exit();
+            }
+        }
+
+        private void btn_saveParameters_Click(object sender, EventArgs e)
+        {
+            string[] values = new string[36];
+            int i = 0;
+            foreach (Control tb in gb_parameters.Controls)
+            {
+                if (tb is TextBox)
+                {
+                    values[tb.TabIndex-7] = tb.Text;
+                    i = i + 1;
+                }
+            }
+            try
+            {
+                string appPath = Application.StartupPath;
+                string dataPath = System.IO.Path.Combine(appPath, "Parameters.dat");
+                HashPass.writeParametersJson(dataPath, values);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error saving parameters to file" + Environment.NewLine + ex.ToString());
             }
         }
     }
