@@ -1,6 +1,13 @@
 theme: jekyll-theme-leap-day
+encoding: "utf-8"
 title: Compact Control
 description: Download: Latest Release->(zip) | Source code->(tar)
 github:
         zip_url: https://github.com/saeedmhq/CompactControl/releases/download/v1.2.01/Release-2019-01-11.zip
 show_downloads: true
+
+author:
+email            : "saeed.discovery@gmail.com"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope-square"
