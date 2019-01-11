@@ -1,1 +1,6 @@
 theme: jekyll-theme-time-machine
+title: Compact Control
+description: Download->>> Source code->(tar.gz)  |  Latest Release->(.zip)
+github:
+        zip_url: https://github.com/saeedmhq/CompactControl/releases/download/v1.2.01/Release-2019-01-11.zip
+show_downloads: true
