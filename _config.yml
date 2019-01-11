@@ -7,7 +7,7 @@ github:
 show_downloads: true
 
 author:
-email            : "saeed.discovery@gmail.com"
+email: "saeed.discovery@gmail.com"
   links:
-    - label: "Email"
+      label: "Email"
       icon: "fas fa-fw fa-envelope-square"
