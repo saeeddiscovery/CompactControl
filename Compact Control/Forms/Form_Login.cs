@@ -360,6 +360,10 @@ namespace Compact_Control
             }
             //CheckLicense();
 
+            //Temporary login in Service mode directly!
+            cmbBx_User.SelectedIndex = 1;
+            txtBx_Pass.Text = "service";
+
         }
 
         private int clicked = 0;

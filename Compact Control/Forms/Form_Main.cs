@@ -135,7 +135,8 @@ namespace Compact_Control
             string[] ports = SerialPort.GetPortNames();
             if (ports.Length == 0)
             {
-                MessageBox.Show("No Serial port detected!", "COM Port error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                label_ConnectStatus.Text = "No Serial port detected!";
+                //MessageBox.Show("No Serial port detected!", "COM Port error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if (ports.Length >= 1)
             {
@@ -496,6 +497,20 @@ namespace Compact_Control
                     //if (textBox16.Enabled & textBox16.ReadOnly == false & checkBox2.Checked == false)
                     textBox16.Text = y2_dv;
                     break;
+            }
+
+            if (lbl_init.Visible == true)
+            {
+                if (initStatus == true)
+                {
+                    lbl_init.Text = "Initialized";
+                    lbl_init.ForeColor = Color.Green;
+                }
+                else
+                {
+                    lbl_init.Text = "Initialization Failed";
+                    lbl_init.ForeColor = Color.Red;
+                }
             }
         }
 
@@ -1290,7 +1305,7 @@ namespace Compact_Control
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error saving to file\n" + ex.Message);
+                    MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
                 }
             }
             groupBox4.Enabled = false;
@@ -1437,7 +1452,7 @@ namespace Compact_Control
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Error saving to file\n" + ex.Message);
+                            MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
                         }
                         break;
                     case "c46":
@@ -1462,7 +1477,7 @@ namespace Compact_Control
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show("Error saving to file\n" + ex.Message);
+                            MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
                         }
                         break;
                     case "gnd":
@@ -1728,7 +1743,7 @@ namespace Compact_Control
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error reading from file\n" + ex.Message);
+                    MessageBox.Show("Error reading from file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
                 }
                 try
                 {
@@ -1761,7 +1776,7 @@ namespace Compact_Control
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error reading from file\n" + ex.Message);
+                    MessageBox.Show("Error reading from file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
                 }
 
                 try
@@ -1777,7 +1792,9 @@ namespace Compact_Control
                         return;
                     }
                     HashPass.ParametersData values = HashPass.readParametersJson(dataPath);
+
                     string[] prms = new string[36];
+
                     prms[0]  = ClientControls.gant_tol0 = values.gant_tol0;
                     prms[1]  = ClientControls.gant_tol1 = values.gant_tol1;	
                     prms[2]  = ClientControls.gant_tol2 = values.gant_tol2;	
@@ -1824,10 +1841,24 @@ namespace Compact_Control
                             i = i + 1;
                         }
                     }
+
+                    string[] ourParams = new string[42];
+                    ourParams[0] = gant_zpnt;
+                    ourParams[1] = gant_length;
+                    ourParams[2] = gant_fine_length;
+                    ourParams[3] = collim_zpnt;
+                    ourParams[4] = collim_length;
+                    ourParams[5] = collim_fine_length;
+                    Array.Copy(prms, 0, ourParams, 6, prms.Length);
+                    ClientControls.ourParameters = ourParams;
+                    lbl_init.Visible = true;
+                    lbl_init.Text = "Initializing...";
+                    lbl_init.ForeColor = Color.Green;
+                    ClientControls.sendParametersFlag = true;
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show("Error reading from file\n" + ex.Message);
+                    MessageBox.Show("Error reading from file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
                 }
 
                 panel_AdminControls.Enabled = true;
@@ -1839,7 +1870,7 @@ namespace Compact_Control
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Connection error!", "An error occured during connection!\n\n" + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Connection error!", "An error occured during connection!\n" + Environment.NewLine + ex.ToString().Split('\n')[0], MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ConnectToPort();
             }
         }
@@ -2092,8 +2123,12 @@ namespace Compact_Control
             }
         }
 
+        public static bool initStatus = false;
         private void btn_saveParameters_Click(object sender, EventArgs e)
         {
+            lbl_init.Visible = true;
+            lbl_init.Text = "Initializing...";
+            lbl_init.ForeColor = Color.Green;
             string[] values = new string[36];
             int i = 0;
             foreach (Control tb in gb_parameters.Controls)
@@ -2109,11 +2144,24 @@ namespace Compact_Control
                 string appPath = Application.StartupPath;
                 string dataPath = System.IO.Path.Combine(appPath, "Parameters.dat");
                 HashPass.writeParametersJson(dataPath, values);
+
+                string[] ourParams = new string[42];
+                ourParams[0] = gant_zpnt;
+                ourParams[1] = gant_length;
+                ourParams[2] = gant_fine_length;
+                ourParams[3] = collim_zpnt;
+                ourParams[4] = collim_length;
+                ourParams[5] = collim_fine_length;
+                Array.Copy(values, 0, ourParams, 6, values.Length);
+                ClientControls.ourParameters = ourParams;
+                lbl_init.Visible = true;
+                lbl_init.Text = "Initializing...";
+                lbl_init.ForeColor = Color.Green;
                 ClientControls.sendParametersFlag = true;
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Error saving parameters to file" + Environment.NewLine + ex.ToString());
+                MessageBox.Show("Error saving parameters to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
             }
         }
     }

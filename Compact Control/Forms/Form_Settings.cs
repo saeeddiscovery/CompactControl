@@ -76,6 +76,12 @@ namespace Compact_Control
             if (comboBox_Ports.Text == "" || comboBox_Ports.Text == "No Serial Port!")
                 portName = "Null";
             Form1.portName = portName;
+
+            string filename = "portSettings.json";
+            string baudrate = comboBox_Baudrate.Text;
+            if (File.Exists(filename))
+                File.Delete(filename);
+            HashPass.writeSettingsJson(filename, portName, baudrate);
             Form1.curr_baudRate = comboBox_Baudrate.Text;
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Close();
@@ -196,21 +202,6 @@ namespace Compact_Control
                 File.Delete(filename);
 
             HashPass.writeSettingsJson(filename, port, baudrate);
-        }
-
-        private void comboBox_Baudrate_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string filename = "portSettings.json";
-
-            string port = comboBox_Ports.Text;
-            string baudrate = comboBox_Baudrate.Text;
-
-            if (File.Exists(filename))
-                File.Delete(filename);
-
-            HashPass.writeSettingsJson(filename, port, baudrate);
-            HashPass.WriteBaudrateToReg(baudrate);
-            Form1.curr_baudRate = baudrate;
         }
 
         private void Form_Settings_Load(object sender, EventArgs e)

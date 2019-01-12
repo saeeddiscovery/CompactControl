@@ -30,13 +30,13 @@ namespace Compact_Control
         double gant_gain, gant_offset;
         string gant_dv = "0";
         string gnd;
-        string gant_zpnt, gant_length, gant_fine_length;
+        public static string gant_zpnt, gant_length, gant_fine_length;
 
         string collim_cofin;
         double collim_gain, collim_offset;
         string collim_dv = "0";
         string cld;
-        string collim_zpnt, collim_length, collim_fine_length;
+        public static string collim_zpnt, collim_length, collim_fine_length;
 
         public static string gant_tol0, gant_tol1, gant_tol2, gant_v1, gant_v2, gant_v3;
         public static string collim_tol0, collim_tol1, collim_tol2, collim_v1, collim_v2, collim_v3;
@@ -119,28 +119,54 @@ namespace Compact_Control
             btn_ShowFields.Enabled = true;
             btn_ClearField.Enabled = true;
         }
-         */ 
-        
-        public void sendParameters()
+         */
+        public static string[] ourParameters = new string[42];
+        public bool compareParameters(string[] microParams, string[] ourParams)
         {
-            serialPort1.Write("w");
-            serialPort1.Write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
-            serialPort1.Write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
-            serialPort1.Write(gant_tol0 + "/" + gant_tol1 + "/" + gant_tol2 + "/");
-            serialPort1.Write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
-            serialPort1.Write(collim_tol0 + "/" + collim_tol1 + "/" + collim_tol2 + "/");
-            serialPort1.Write(collim_v1 + "/" + collim_v2 + "/" + collim_v3 + "/");
-            serialPort1.Write(x1_tol0 + "/" + x1_tol1 + "/" + x1_tol2 + "/");
-            serialPort1.Write(x1_v1 + "/" + x1_v2 + "/" + x1_v3 + "/");
-            serialPort1.Write(x2_tol0 + "/" + x2_tol1 + "/" + x2_tol2 + "/");
-            serialPort1.Write(x2_v1 + "/" + x2_v2 + "/" + x2_v3 + "/");
-            serialPort1.Write(y1_tol0 + "/" + y1_tol1 + "/" + y1_tol2 + "/");
-            serialPort1.Write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
-            serialPort1.Write(y2_tol0 + "/" + y2_tol1 + "/" + y2_tol2 + "/");
-            serialPort1.Write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
+            bool equal = true;
+            for (int i=0; i<microParams.Length; i++)
+            {
+                if (microParams[i] != ourParams[i])
+                {
+                    equal = false;
+                    break;
+                }
+            }
+            return equal;
         }
+        public bool sendParameters()
+        {
+            try
+            {
+                serialPort1.Write("w");
+                serialPort1.Write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
+                serialPort1.Write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
+                serialPort1.Write(gant_tol0 + "/" + gant_tol1 + "/" + gant_tol2 + "/");
+                serialPort1.Write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
+                serialPort1.Write(collim_tol0 + "/" + collim_tol1 + "/" + collim_tol2 + "/");
+                serialPort1.Write(collim_v1 + "/" + collim_v2 + "/" + collim_v3 + "/");
+                serialPort1.Write(x1_tol0 + "/" + x1_tol1 + "/" + x1_tol2 + "/");
+                serialPort1.Write(x1_v1 + "/" + x1_v2 + "/" + x1_v3 + "/");
+                serialPort1.Write(x2_tol0 + "/" + x2_tol1 + "/" + x2_tol2 + "/");
+                serialPort1.Write(x2_v1 + "/" + x2_v2 + "/" + x2_v3 + "/");
+                serialPort1.Write(y1_tol0 + "/" + y1_tol1 + "/" + y1_tol2 + "/");
+                serialPort1.Write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
+                serialPort1.Write(y2_tol0 + "/" + y2_tol1 + "/" + y2_tol2 + "/");
+                serialPort1.Write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
+                return true;
+
+            }
+            catch(Exception ex)
+            {
+                Form1.initStatus = false;
+                MessageBox.Show("Unable to send parameters!" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+                return false;
+            }
+        }
+
         public void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
+            string[] microParameters = new string[42];
             string a = "";
             try
             {
@@ -156,6 +182,136 @@ namespace Compact_Control
                 {
                     case "init":
                         sendParameters();
+                        break;
+                    case "c01":
+                        microParameters[0] = a.Substring(3, a.Length - 3); 
+                        break;
+                    case "c02":
+                        microParameters[1] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c03":
+                        microParameters[2] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c04":
+                        microParameters[3] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c05":
+                        microParameters[4] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c06":
+                        microParameters[5] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c07":
+                        microParameters[6] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c08":
+                        microParameters[7] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c09":
+                        microParameters[8] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c10":
+                        microParameters[9] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c11":
+                        microParameters[10] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c12":
+                        microParameters[11] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c13":
+                        microParameters[12] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c14":
+                        microParameters[13] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c15":
+                        microParameters[14] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c16":
+                        microParameters[15] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c17":
+                        microParameters[16] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c18":
+                        microParameters[17] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c19":
+                        microParameters[18] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c20":
+                        microParameters[19] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c21":
+                        microParameters[20] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c22":
+                        microParameters[21] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c23":
+                        microParameters[22] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c24":
+                        microParameters[23] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c25":
+                        microParameters[24] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c26":
+                        microParameters[25] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c27":
+                        microParameters[26] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c28":
+                        microParameters[27] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c29":
+                        microParameters[28] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c30":
+                        microParameters[29] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c31":
+                        microParameters[30] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c32":
+                        microParameters[31] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c33":
+                        microParameters[32] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c34":
+                        microParameters[33] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c35":
+                        microParameters[34] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c36":
+                        microParameters[35] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c37":
+                        microParameters[36] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c38":
+                        microParameters[37] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c39":
+                        microParameters[38] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c40":
+                        microParameters[39] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c41":
+                        microParameters[40] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c42":
+                        microParameters[41] = a.Substring(3, a.Length - 3);
+                        if (compareParameters(microParameters, ourParameters) == true)
+                            Form1.initStatus = true;
+                        else
+                            Form1.initStatus = false;
                         break;
                     case "gfn":
                         gant_cofin = a.Substring(3, a.Length - 3);
@@ -239,8 +395,10 @@ namespace Compact_Control
             if (sendParametersFlag == true)
             {
                 sendParametersFlag = false;
-                sendParameters();
-                MessageBox.Show("Parameters Save & Send successful!");
+                if (sendParameters() == true)
+                {
+                    MessageBox.Show("Parameters Save & Send successful!");
+                }
             }
             if (gant_gain == 0 || double.IsNaN(gant_gain))
             {
@@ -288,7 +446,7 @@ namespace Compact_Control
                 {
                     timer1.Stop();
                     timer1.Enabled = false;
-                    MessageBox.Show("Error reading from Calib.dat file\n" + ex.Message);
+                    MessageBox.Show("Error reading from Calib.dat file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
                     Application.Exit();
                     return;
                 }
@@ -323,7 +481,7 @@ namespace Compact_Control
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error reading from Learn.dat file\n" + ex.Message);
+                    MessageBox.Show("Error reading from Learn.dat file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
                 }
             }
 
