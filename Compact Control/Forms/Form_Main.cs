@@ -411,7 +411,7 @@ namespace Compact_Control
                 sendParametersFlag = false;
                 if (sendParameters() == true)
                 {
-                    MessageBox.Show("Parameters Save & Send successful!");
+                    //MessageBox.Show("Parameters Save & Send successful!");
                 }
             }
             double m;
@@ -1411,6 +1411,7 @@ namespace Compact_Control
                 if (microParams[i] != ourParams[i])
                 {
                     equal = false;
+                    MessageBox.Show("Parameter " + i.ToString() + " not equal > from micro: " + microParams[i] + " != ours: " + ourParams[i]);
                     break;
                 }
             }
@@ -1597,6 +1598,7 @@ namespace Compact_Control
                         }
                         else
                         {
+                            GlobalSerialPort.Write("$");
                             initState = 2;
                         }
                         break;
