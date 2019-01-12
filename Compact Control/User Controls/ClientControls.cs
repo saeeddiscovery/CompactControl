@@ -186,7 +186,7 @@ namespace Compact_Control
             {
                 switch (a.Substring(0, 3))
                 {
-                    case "init":
+                    case "ini":
                         Form1.initState = 0;
                         sendParameters();
                         break;

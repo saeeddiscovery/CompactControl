@@ -1420,22 +1420,21 @@ namespace Compact_Control
         {
             try
             {
-                //serialPort1.Open();
-                serialPort1.Write("w");
-                serialPort1.Write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
-                serialPort1.Write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
-                serialPort1.Write(gant_tol0 + "/" + gant_tol1 + "/" + gant_tol2 + "/");
-                serialPort1.Write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
-                serialPort1.Write(collim_tol0 + "/" + collim_tol1 + "/" + collim_tol2 + "/");
-                serialPort1.Write(collim_v1 + "/" + collim_v2 + "/" + collim_v3 + "/");
-                serialPort1.Write(x1_tol0 + "/" + x1_tol1 + "/" + x1_tol2 + "/");
-                serialPort1.Write(x1_v1 + "/" + x1_v2 + "/" + x1_v3 + "/");
-                serialPort1.Write(x2_tol0 + "/" + x2_tol1 + "/" + x2_tol2 + "/");
-                serialPort1.Write(x2_v1 + "/" + x2_v2 + "/" + x2_v3 + "/");
-                serialPort1.Write(y1_tol0 + "/" + y1_tol1 + "/" + y1_tol2 + "/");
-                serialPort1.Write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
-                serialPort1.Write(y2_tol0 + "/" + y2_tol1 + "/" + y2_tol2 + "/");
-                serialPort1.Write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
+                GlobalSerialPort.Write("w");
+                GlobalSerialPort.Write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
+                GlobalSerialPort.Write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
+                GlobalSerialPort.Write(gant_tol0 + "/" + gant_tol1 + "/" + gant_tol2 + "/");
+                GlobalSerialPort.Write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
+                GlobalSerialPort.Write(collim_tol0 + "/" + collim_tol1 + "/" + collim_tol2 + "/");
+                GlobalSerialPort.Write(collim_v1 + "/" + collim_v2 + "/" + collim_v3 + "/");
+                GlobalSerialPort.Write(x1_tol0 + "/" + x1_tol1 + "/" + x1_tol2 + "/");
+                GlobalSerialPort.Write(x1_v1 + "/" + x1_v2 + "/" + x1_v3 + "/");
+                GlobalSerialPort.Write(x2_tol0 + "/" + x2_tol1 + "/" + x2_tol2 + "/");
+                GlobalSerialPort.Write(x2_v1 + "/" + x2_v2 + "/" + x2_v3 + "/");
+                GlobalSerialPort.Write(y1_tol0 + "/" + y1_tol1 + "/" + y1_tol2 + "/");
+                GlobalSerialPort.Write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
+                GlobalSerialPort.Write(y2_tol0 + "/" + y2_tol1 + "/" + y2_tol2 + "/");
+                GlobalSerialPort.Write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
                 return true;
 
             }
@@ -1462,7 +1461,7 @@ namespace Compact_Control
             {
                 switch (a.Substring(0, 3))
                 {
-                    case "init":
+                    case "ini":
                         initState = 0;
                         sendParameters();
                         break;
@@ -1593,7 +1592,7 @@ namespace Compact_Control
                         microParameters[41] = a.Substring(3, a.Length - 3);
                         if (compareParameters(microParameters, ourParameters) == true)
                         {
-                            serialPort1.Write("/");
+                            GlobalSerialPort.Write("/");
                             initState = 1;
                         }
                         else
@@ -2360,9 +2359,7 @@ namespace Compact_Control
         public static int initState = -1;
         private void btn_saveParameters_Click(object sender, EventArgs e)
         {
-            lbl_init.Visible = true;
-            lbl_init.Text = "Initializing...";
-            lbl_init.ForeColor = Color.Green;
+            initState = 0 ;
             string[] values = new string[36];
             int i = 0;
             foreach (Control tb in gb_parameters.Controls)
@@ -2389,6 +2386,7 @@ namespace Compact_Control
                 Array.Copy(values, 0, ourParams, 6, values.Length);
                 ourParameters = ourParams;
                 ClientControls.ourParameters = ourParams;
+                sendParametersFlag = true;
             }
             catch(Exception ex)
             {
