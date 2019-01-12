@@ -380,7 +380,8 @@
             // 
             // serialPort1
             // 
-            this.serialPort1.BaudRate = 19200;
+            this.serialPort1.BaudRate = 57600;
+            this.serialPort1.PortName = "COM3";
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
             // imageList1

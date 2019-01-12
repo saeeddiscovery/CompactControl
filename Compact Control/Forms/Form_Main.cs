@@ -47,6 +47,14 @@ namespace Compact_Control
         string collim_length;
         string collim_fine_length;
 
+        string gant_tol0, gant_tol1, gant_tol2, gant_v1, gant_v2, gant_v3;
+        string collim_tol0, collim_tol1, collim_tol2, collim_v1, collim_v2, collim_v3;
+        string x1_tol0, x1_tol1, x1_tol2, x1_v1, x1_v2, x1_v3;
+        string x2_tol0, x2_tol1, x2_tol2, x2_v1, x2_v2, x2_v3;
+        string y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
+        string y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
+        bool sendParametersFlag = false;
+
         string x1_co;
         double x1_co_temp1;
         double x1_co_temp2;
@@ -143,9 +151,16 @@ namespace Compact_Control
                 if (GlobalSerialPort.IsOpen == false)
                 {
                     if (portName != "Null" && portName != "")
+                    {
                         GlobalSerialPort.PortName = portName;
+                        ClientControls.curr_port = portName;
+                    }
+
                     else
+                    {
                         GlobalSerialPort.PortName = ports[0];
+                        ClientControls.curr_port = ports[0];
+                    }
                     int BaudRate = 0;
                     string filename = "portSettings.json";
                     try
@@ -156,14 +171,16 @@ namespace Compact_Control
                             HashPass.PortSettings pSettings = HashPass.readSettingsJson(filename);
                             HashPass.WriteBaudrateToReg(pSettings.Baudrate);
                             GlobalSerialPort.BaudRate = int.Parse(pSettings.Baudrate);
+                            ClientControls.curr_baudrate = int.Parse(pSettings.Baudrate);
                         }
                     }
                     catch
                     {
                         MessageBox.Show("Error reading Baudrate from file!");
                     }
-                    if (int.TryParse(HashPass.ReadBaudRateFromReg(), out BaudRate) == true && BaudRate != 0)
-                        GlobalSerialPort.BaudRate = BaudRate;
+                    //if (int.TryParse(HashPass.ReadBaudRateFromReg(), out BaudRate) == true && BaudRate != 0)
+                    //    GlobalSerialPort.BaudRate = BaudRate;
+                    //    ClientControls.curr_baudrate = BaudRate;
                     //ConnectToPort();
                 }
             }
@@ -389,6 +406,14 @@ namespace Compact_Control
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (sendParametersFlag == true)
+            {
+                sendParametersFlag = false;
+                if (sendParameters() == true)
+                {
+                    MessageBox.Show("Parameters Save & Send successful!");
+                }
+            }
             double m;
             double n;
             textBox1.Text = gant_co;
@@ -499,26 +524,32 @@ namespace Compact_Control
                     break;
             }
 
-            if (lbl_init.Visible == true)
+
+            if (initState == 0)
             {
-                if (initStatus == true)
-                {
-                    lbl_init.Text = "Initialized";
-                    lbl_init.ForeColor = Color.Green;
-                }
-                else
-                {
-                    lbl_init.Text = "Initialization Failed";
-                    lbl_init.ForeColor = Color.Red;
-                }
+                lbl_init.Visible = true;
+                lbl_init.Text = "Initializing";
+                lbl_init.ForeColor = Color.Orange;
             }
+            else if (initState == 1)
+            {
+                lbl_init.Visible = true;
+                lbl_init.Text = "Initialized";
+                lbl_init.ForeColor = Color.Green;
+            }
+            else if (initState == 2)
+            {
+                lbl_init.Visible = true;
+                lbl_init.Text = "Initialization Failed";
+                lbl_init.ForeColor = Color.Red;
+            }
+            else if (initState == -1)
+            {
+                lbl_init.Visible = false;
+                initState = -2;
+            }
+
         }
-
-        private void GlobalSerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
-        {
-
-        }
-
 
         private void button16_Click(object sender, EventArgs e)
         {
@@ -1371,8 +1402,53 @@ namespace Compact_Control
             }
         }
 
+        public static string[] ourParameters = new string[42];
+        public bool compareParameters(string[] microParams, string[] ourParams)
+        {
+            bool equal = true;
+            for (int i = 0; i < microParams.Length; i++)
+            {
+                if (microParams[i] != ourParams[i])
+                {
+                    equal = false;
+                    break;
+                }
+            }
+            return equal;
+        }
+        public bool sendParameters()
+        {
+            try
+            {
+                //serialPort1.Open();
+                serialPort1.Write("w");
+                serialPort1.Write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
+                serialPort1.Write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
+                serialPort1.Write(gant_tol0 + "/" + gant_tol1 + "/" + gant_tol2 + "/");
+                serialPort1.Write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
+                serialPort1.Write(collim_tol0 + "/" + collim_tol1 + "/" + collim_tol2 + "/");
+                serialPort1.Write(collim_v1 + "/" + collim_v2 + "/" + collim_v3 + "/");
+                serialPort1.Write(x1_tol0 + "/" + x1_tol1 + "/" + x1_tol2 + "/");
+                serialPort1.Write(x1_v1 + "/" + x1_v2 + "/" + x1_v3 + "/");
+                serialPort1.Write(x2_tol0 + "/" + x2_tol1 + "/" + x2_tol2 + "/");
+                serialPort1.Write(x2_v1 + "/" + x2_v2 + "/" + x2_v3 + "/");
+                serialPort1.Write(y1_tol0 + "/" + y1_tol1 + "/" + y1_tol2 + "/");
+                serialPort1.Write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
+                serialPort1.Write(y2_tol0 + "/" + y2_tol1 + "/" + y2_tol2 + "/");
+                serialPort1.Write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                initState = 2;
+                MessageBox.Show("Unable to send parameters!" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+                return false;
+            }
+        }
         private void serialPort1_DataReceived_1(object sender, SerialDataReceivedEventArgs e)
         {
+            string[] microParameters = new string[42];
             string a = "";
             try
             {
@@ -1386,6 +1462,145 @@ namespace Compact_Control
             {
                 switch (a.Substring(0, 3))
                 {
+                    case "init":
+                        initState = 0;
+                        sendParameters();
+                        break;
+                    case "c01":
+                        microParameters[0] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c02":
+                        microParameters[1] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c03":
+                        microParameters[2] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c04":
+                        microParameters[3] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c05":
+                        microParameters[4] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c06":
+                        microParameters[5] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c07":
+                        microParameters[6] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c08":
+                        microParameters[7] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c09":
+                        microParameters[8] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c10":
+                        microParameters[9] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c11":
+                        microParameters[10] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c12":
+                        microParameters[11] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c13":
+                        microParameters[12] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c14":
+                        microParameters[13] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c15":
+                        microParameters[14] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c16":
+                        microParameters[15] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c17":
+                        microParameters[16] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c18":
+                        microParameters[17] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c19":
+                        microParameters[18] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c20":
+                        microParameters[19] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c21":
+                        microParameters[20] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c22":
+                        microParameters[21] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c23":
+                        microParameters[22] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c24":
+                        microParameters[23] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c25":
+                        microParameters[24] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c26":
+                        microParameters[25] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c27":
+                        microParameters[26] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c28":
+                        microParameters[27] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c29":
+                        microParameters[28] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c30":
+                        microParameters[29] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c31":
+                        microParameters[30] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c32":
+                        microParameters[31] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c33":
+                        microParameters[32] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c34":
+                        microParameters[33] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c35":
+                        microParameters[34] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c36":
+                        microParameters[35] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c37":
+                        microParameters[36] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c38":
+                        microParameters[37] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c39":
+                        microParameters[38] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c40":
+                        microParameters[39] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c41":
+                        microParameters[40] = a.Substring(3, a.Length - 3);
+                        break;
+                    case "c42":
+                        microParameters[41] = a.Substring(3, a.Length - 3);
+                        if (compareParameters(microParameters, ourParameters) == true)
+                        {
+                            serialPort1.Write("/");
+                            initState = 1;
+                        }
+                        else
+                        {
+                            initState = 2;
+                        }
+                        break;
                     case "gco":
                         gant_co = a.Substring(3, a.Length - 3);
                         break;
@@ -1618,7 +1833,10 @@ namespace Compact_Control
             if (GlobalSerialPort.IsOpen == false)
                 SetConnection(true);
             else
+            {
+                initState = -1;
                 SetConnection(false);
+            }
         }
 
         private void SetConnection(bool connect)
@@ -1645,13 +1863,23 @@ namespace Compact_Control
             if (connect)
             {
                 if (portName != "Null" && portName != "")
+                {
                     GlobalSerialPort.PortName = portName;
+                    ClientControls.curr_port = portName;
+                }
                 else
+                {
                     GlobalSerialPort.PortName = ports[0];
+                    ClientControls.curr_port = ports[0];
+                }
 
                 int BaudRate = 0;
                 if (int.TryParse(HashPass.ReadBaudRateFromReg(), out BaudRate) == true && BaudRate != 0)
+                {
                     GlobalSerialPort.BaudRate = BaudRate;
+                    ClientControls.curr_baudrate = BaudRate;
+                }
+
 
                 DisconnectPort();
                 Thread.Sleep(200);
@@ -1795,42 +2023,43 @@ namespace Compact_Control
 
                     string[] prms = new string[36];
 
-                    prms[0]  = ClientControls.gant_tol0 = values.gant_tol0;
-                    prms[1]  = ClientControls.gant_tol1 = values.gant_tol1;	
-                    prms[2]  = ClientControls.gant_tol2 = values.gant_tol2;	
-                    prms[3]  = ClientControls.gant_v1 = values.gant_v1;
-                    prms[4]  = ClientControls.gant_v2 = values.gant_v2;
-                    prms[5]  = ClientControls.gant_v3 = values.gant_v3;
-                    prms[6]  = ClientControls.collim_tol0 = values.collim_tol0;
-                    prms[7]  = ClientControls.collim_tol1 = values.collim_tol1;
-                    prms[8]  = ClientControls.collim_tol2 = values.collim_tol2;  
-                    prms[9]  = ClientControls.collim_v1 = values.collim_v1;
-                    prms[10] = ClientControls.collim_v2 = values.collim_v2;
-                    prms[11] = ClientControls.collim_v3 = values.collim_v3;
-                    prms[12] = ClientControls.x1_tol0 = values.x1_tol0;
-                    prms[13] = ClientControls.x1_tol1 = values.x1_tol1;
-                    prms[14] = ClientControls.x1_tol2 = values.x1_tol2;
-                    prms[15] = ClientControls.x1_v1 =  values.x1_v1;
-                    prms[16] = ClientControls.x1_v2 =  values.x1_v2;
-                    prms[17] = ClientControls.x1_v3 =  values.x1_v3;
-                    prms[18] = ClientControls.x2_tol0 = values.x2_tol0;
-                    prms[19] = ClientControls.x2_tol1 = values.x2_tol1;
-                    prms[20] = ClientControls.x2_tol2 = values.x2_tol2;
-                    prms[21] = ClientControls.x2_v1 =  values.x2_v1;
-                    prms[22] = ClientControls.x2_v2 =  values.x2_v2;
-                    prms[23] = ClientControls.x2_v3 =  values.x2_v3;
-                    prms[24] = ClientControls.y1_tol0 = values.y1_tol0;
-                    prms[25] = ClientControls.y1_tol1 = values.y1_tol1;
-                    prms[26] = ClientControls.y1_tol2 = values.y1_tol2;
-                    prms[27] = ClientControls.y1_v1 =  values.y1_v1;
-                    prms[28] = ClientControls.y1_v2 =  values.y1_v2;
-                    prms[29] = ClientControls.y1_v3 =  values.y1_v3;
-                    prms[30] = ClientControls.y2_tol0 = values.y2_tol0;
-                    prms[31] = ClientControls.y2_tol1 = values.y2_tol1;
-                    prms[32] = ClientControls.y2_tol2 = values.y2_tol2;
-                    prms[33] = ClientControls.y2_v1 =  values.y2_v1;
-                    prms[34] = ClientControls.y2_v2 =  values.y2_v2;
-                    prms[35] = ClientControls.y2_v3 =  values.y2_v3;
+
+                    prms[0]  = gant_tol0 = ClientControls.gant_tol0 = values.gant_tol0;
+                    prms[1]  = gant_tol1 = ClientControls.gant_tol1 = values.gant_tol1;	
+                    prms[2]  = gant_tol2 = ClientControls.gant_tol2 = values.gant_tol2;	
+                    prms[3]  = gant_v1 = ClientControls.gant_v1 = values.gant_v1;
+                    prms[4]  = gant_v2 = ClientControls.gant_v2 = values.gant_v2;
+                    prms[5]  = gant_v3 = ClientControls.gant_v3 = values.gant_v3;
+                    prms[6]  = collim_tol0 = ClientControls.collim_tol0 = values.collim_tol0;
+                    prms[7]  = collim_tol1 = ClientControls.collim_tol1 = values.collim_tol1;
+                    prms[8]  = collim_tol2 = ClientControls.collim_tol2 = values.collim_tol2;  
+                    prms[9]  = collim_v1 =ClientControls.collim_v1 = values.collim_v1;
+                    prms[10] = collim_v2 =ClientControls.collim_v2 = values.collim_v2;
+                    prms[11] = collim_v3 =ClientControls.collim_v3 = values.collim_v3;
+                    prms[12] = x1_tol0 = ClientControls.x1_tol0 = values.x1_tol0;
+                    prms[13] = x1_tol1 = ClientControls.x1_tol1 = values.x1_tol1;
+                    prms[14] = x1_tol2 = ClientControls.x1_tol2 = values.x1_tol2;
+                    prms[15] = x1_v1 = ClientControls.x1_v1 =  values.x1_v1;
+                    prms[16] = x1_v2 = ClientControls.x1_v2 =  values.x1_v2;
+                    prms[17] = x1_v3 = ClientControls.x1_v3 =  values.x1_v3;
+                    prms[18] = x2_tol0 = ClientControls.x2_tol0 = values.x2_tol0;
+                    prms[19] = x2_tol1 = ClientControls.x2_tol1 = values.x2_tol1;
+                    prms[20] = x2_tol2 = ClientControls.x2_tol2 = values.x2_tol2;
+                    prms[21] = x2_v1 = ClientControls.x2_v1 =  values.x2_v1;
+                    prms[22] = x2_v2 = ClientControls.x2_v2 =  values.x2_v2;
+                    prms[23] = x2_v3 = ClientControls.x2_v3 =  values.x2_v3;
+                    prms[24] = y1_tol0 = ClientControls.y1_tol0 = values.y1_tol0;
+                    prms[25] = y1_tol1 = ClientControls.y1_tol1 = values.y1_tol1;
+                    prms[26] = y1_tol2 = ClientControls.y1_tol2 = values.y1_tol2;
+                    prms[27] = y1_v1 = ClientControls.y1_v1 =  values.y1_v1;
+                    prms[28] = y1_v2 = ClientControls.y1_v2 =  values.y1_v2;
+                    prms[29] = y1_v3 = ClientControls.y1_v3 =  values.y1_v3;
+                    prms[30] = y2_tol0 = ClientControls.y2_tol0 = values.y2_tol0;
+                    prms[31] = y2_tol1 = ClientControls.y2_tol1 = values.y2_tol1;
+                    prms[32] = y2_tol2 = ClientControls.y2_tol2 = values.y2_tol2;
+                    prms[33] = y2_v1 = ClientControls.y2_v1 =  values.y2_v1;
+                    prms[34] = y2_v2 = ClientControls.y2_v2 =  values.y2_v2;
+                    prms[35] = y2_v3 = ClientControls.y2_v3 =  values.y2_v3;
 
                     int i = 0;
                     foreach (Control tb in gb_parameters.Controls)
@@ -1850,11 +2079,9 @@ namespace Compact_Control
                     ourParams[4] = collim_length;
                     ourParams[5] = collim_fine_length;
                     Array.Copy(prms, 0, ourParams, 6, prms.Length);
+                    ourParameters = ourParams;
                     ClientControls.ourParameters = ourParams;
-                    lbl_init.Visible = true;
-                    lbl_init.Text = "Initializing...";
-                    lbl_init.ForeColor = Color.Green;
-                    ClientControls.sendParametersFlag = true;
+                    //ClientControls.sendParametersFlag = true;
                 }
                 catch(Exception ex)
                 {
@@ -1896,7 +2123,9 @@ namespace Compact_Control
                     DisconnectPort();
                     Thread.Sleep(200);
                     GlobalSerialPort.PortName = portName;
+                    ClientControls.curr_port = portName;
                     GlobalSerialPort.BaudRate = int.Parse(curr_baudRate);
+                    ClientControls.curr_baudrate = int.Parse(curr_baudRate);
                     HashPass.WriteBaudrateToReg(curr_baudRate);
                     ConnectToPort();
                 }
@@ -1941,11 +2170,16 @@ namespace Compact_Control
                         if (GlobalSerialPort.IsOpen == false)
                         {
                             if (portName != "Null" && portName != "")
+                            {
                                 GlobalSerialPort.PortName = portName;
+                                ClientControls.curr_port = portName;
+                            }
                             else
+                            {
                                 GlobalSerialPort.PortName = ports[0];
-                            //ConnectToPort();
-                        }
+                            }
+                                //ConnectToPort();
+                            }
                     }
                 }
                 else
@@ -2123,7 +2357,7 @@ namespace Compact_Control
             }
         }
 
-        public static bool initStatus = false;
+        public static int initState = -1;
         private void btn_saveParameters_Click(object sender, EventArgs e)
         {
             lbl_init.Visible = true;
@@ -2153,11 +2387,8 @@ namespace Compact_Control
                 ourParams[4] = collim_length;
                 ourParams[5] = collim_fine_length;
                 Array.Copy(values, 0, ourParams, 6, values.Length);
+                ourParameters = ourParams;
                 ClientControls.ourParameters = ourParams;
-                lbl_init.Visible = true;
-                lbl_init.Text = "Initializing...";
-                lbl_init.ForeColor = Color.Green;
-                ClientControls.sendParametersFlag = true;
             }
             catch(Exception ex)
             {

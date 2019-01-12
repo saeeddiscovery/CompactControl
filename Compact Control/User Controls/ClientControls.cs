@@ -44,8 +44,7 @@ namespace Compact_Control
         public static string x2_tol0, x2_tol1, x2_tol2, x2_v1, x2_v2, x2_v3;
         public static string y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
         public static string y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
-        public static bool sendParametersFlag = false;
-
+        
         string x1_co;
         double x1_gain, x1_offset;
         string x1_dv = "0";
@@ -76,6 +75,9 @@ namespace Compact_Control
         string y2_set="0";
 
         string adc;
+
+        public static int curr_baudrate = 19200;
+        public static string curr_port;
 
         public ClientControls()
         {
@@ -138,6 +140,10 @@ namespace Compact_Control
         {
             try
             {
+                serialPort1.BaudRate = curr_baudrate;
+                if (serialPort1.IsOpen == false)
+                    serialPort1.Open();
+                //serialPort1.Open();
                 serialPort1.Write("w");
                 serialPort1.Write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
                 serialPort1.Write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
@@ -158,7 +164,7 @@ namespace Compact_Control
             }
             catch(Exception ex)
             {
-                Form1.initStatus = false;
+                Form1.initState = 2;
                 MessageBox.Show("Unable to send parameters!" + Environment.NewLine + ex.ToString().Split('\n')[0]);
                 return false;
             }
@@ -181,6 +187,7 @@ namespace Compact_Control
                 switch (a.Substring(0, 3))
                 {
                     case "init":
+                        Form1.initState = 0;
                         sendParameters();
                         break;
                     case "c01":
@@ -309,9 +316,14 @@ namespace Compact_Control
                     case "c42":
                         microParameters[41] = a.Substring(3, a.Length - 3);
                         if (compareParameters(microParameters, ourParameters) == true)
-                            Form1.initStatus = true;
+                        {
+                            serialPort1.Write("/");
+                            Form1.initState = 1;
+                        }
                         else
-                            Form1.initStatus = false;
+                        {
+                            Form1.initState = 2;
+                        }
                         break;
                     case "gfn":
                         gant_cofin = a.Substring(3, a.Length - 3);
@@ -392,14 +404,6 @@ namespace Compact_Control
         private double y1dv, y2dv, xa, x1dv, x2dv, ya;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (sendParametersFlag == true)
-            {
-                sendParametersFlag = false;
-                if (sendParameters() == true)
-                {
-                    MessageBox.Show("Parameters Save & Send successful!");
-                }
-            }
             if (gant_gain == 0 || double.IsNaN(gant_gain))
             {
                 try

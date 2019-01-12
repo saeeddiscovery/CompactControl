@@ -243,6 +243,7 @@
             this.picBtn_Connect = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_init = new System.Windows.Forms.Label();
             this.label_shamsiDate = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.label_date = new System.Windows.Forms.Label();
@@ -256,7 +257,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel_ClientControls = new System.Windows.Forms.Panel();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.lbl_init = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -2665,6 +2665,23 @@
             this.panel1.Size = new System.Drawing.Size(1118, 36);
             this.panel1.TabIndex = 14;
             // 
+            // lbl_init
+            // 
+            this.lbl_init.AutoSize = true;
+            this.lbl_init.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_init.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbl_init.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl_init.ForeColor = System.Drawing.Color.Orange;
+            this.lbl_init.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_init.Location = new System.Drawing.Point(112, 0);
+            this.lbl_init.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_init.Name = "lbl_init";
+            this.lbl_init.Padding = new System.Windows.Forms.Padding(5, 8, 10, 0);
+            this.lbl_init.Size = new System.Drawing.Size(114, 25);
+            this.lbl_init.TabIndex = 18;
+            this.lbl_init.Text = "Not Initialized !";
+            this.lbl_init.Visible = false;
+            // 
             // label_shamsiDate
             // 
             this.label_shamsiDate.AutoSize = true;
@@ -2812,23 +2829,6 @@
             this.timer2.Enabled = true;
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick_1);
-            // 
-            // lbl_init
-            // 
-            this.lbl_init.AutoSize = true;
-            this.lbl_init.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_init.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbl_init.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbl_init.ForeColor = System.Drawing.Color.Orange;
-            this.lbl_init.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl_init.Location = new System.Drawing.Point(112, 0);
-            this.lbl_init.Margin = new System.Windows.Forms.Padding(0);
-            this.lbl_init.Name = "lbl_init";
-            this.lbl_init.Padding = new System.Windows.Forms.Padding(5, 8, 10, 0);
-            this.lbl_init.Size = new System.Drawing.Size(114, 25);
-            this.lbl_init.TabIndex = 18;
-            this.lbl_init.Text = "Not Initialized !";
-            this.lbl_init.Visible = false;
             // 
             // Form1
             // 
