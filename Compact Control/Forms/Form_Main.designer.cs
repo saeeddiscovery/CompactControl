@@ -257,6 +257,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel_ClientControls = new System.Windows.Forms.Panel();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.tb_terminal = new System.Windows.Forms.TextBox();
+            this.label48 = new System.Windows.Forms.Label();
+            this.btn_clearTerminal = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -1659,6 +1662,9 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.splitContainer4.Panel2.Controls.Add(this.btn_clearTerminal);
+            this.splitContainer4.Panel2.Controls.Add(this.label48);
+            this.splitContainer4.Panel2.Controls.Add(this.tb_terminal);
             this.splitContainer4.Panel2.Controls.Add(this.gb_parameters);
             this.splitContainer4.Size = new System.Drawing.Size(1114, 605);
             this.splitContainer4.SplitterDistance = 581;
@@ -2830,6 +2836,38 @@
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick_1);
             // 
+            // tb_terminal
+            // 
+            this.tb_terminal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.tb_terminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tb_terminal.ForeColor = System.Drawing.Color.Cyan;
+            this.tb_terminal.Location = new System.Drawing.Point(3, 435);
+            this.tb_terminal.Multiline = true;
+            this.tb_terminal.Name = "tb_terminal";
+            this.tb_terminal.Size = new System.Drawing.Size(521, 132);
+            this.tb_terminal.TabIndex = 25;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label48.Location = new System.Drawing.Point(3, 414);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(73, 18);
+            this.label48.TabIndex = 26;
+            this.label48.Text = "Terminal";
+            // 
+            // btn_clearTerminal
+            // 
+            this.btn_clearTerminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_clearTerminal.Location = new System.Drawing.Point(414, 570);
+            this.btn_clearTerminal.Name = "btn_clearTerminal";
+            this.btn_clearTerminal.Size = new System.Drawing.Size(109, 30);
+            this.btn_clearTerminal.TabIndex = 44;
+            this.btn_clearTerminal.Text = "Clear Terminal";
+            this.btn_clearTerminal.UseVisualStyleBackColor = true;
+            this.btn_clearTerminal.Click += new System.EventHandler(this.btn_clearTerminal_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2890,6 +2928,7 @@
             this.tabPage3.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel2.ResumeLayout(false);
+            this.splitContainer4.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
@@ -3148,6 +3187,9 @@
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label60;
         public System.Windows.Forms.Label lbl_init;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.TextBox tb_terminal;
+        private System.Windows.Forms.Button btn_clearTerminal;
     }
 }
 

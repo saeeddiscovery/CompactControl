@@ -170,9 +170,9 @@ namespace Compact_Control
             }
         }
 
+        string[] microParameters = new string[42];
         public void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            string[] microParameters = new string[42];
             string a = "";
             try
             {

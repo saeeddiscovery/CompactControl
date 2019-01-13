@@ -1446,14 +1446,19 @@ namespace Compact_Control
                 return false;
             }
         }
+        string[] microParameters = new string[42];
         private void serialPort1_DataReceived_1(object sender, SerialDataReceivedEventArgs e)
         {
-            string[] microParameters = new string[42];
+            
             string a = "";
             try
             {
                 if (GlobalSerialPort.IsOpen)
+                {
                     a = GlobalSerialPort.ReadLine();
+                    tb_terminal.Text = tb_terminal.Text + Environment.NewLine + a;
+                }
+                    
             }
             catch
             {
@@ -1798,6 +1803,11 @@ namespace Compact_Control
         private void picBtn_Exit_MouseLeave(object sender, EventArgs e)
         {
             picBtn_Exit.BackgroundImage = Resources.Exit2;
+        }
+
+        private void btn_clearTerminal_Click(object sender, EventArgs e)
+        {
+            tb_terminal.Clear();
         }
 
         private void picBtn_LogOff_Click(object sender, EventArgs e)
