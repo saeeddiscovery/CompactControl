@@ -179,6 +179,9 @@
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.textBox37 = new System.Windows.Forms.TextBox();
+            this.btn_clearTerminal = new System.Windows.Forms.Button();
+            this.label48 = new System.Windows.Forms.Label();
+            this.tb_terminal_out = new System.Windows.Forms.TextBox();
             this.gb_parameters = new System.Windows.Forms.GroupBox();
             this.btn_saveParameters = new System.Windows.Forms.Button();
             this.textBox79 = new System.Windows.Forms.TextBox();
@@ -257,9 +260,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel_ClientControls = new System.Windows.Forms.Panel();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.tb_terminal = new System.Windows.Forms.TextBox();
-            this.label48 = new System.Windows.Forms.Label();
-            this.btn_clearTerminal = new System.Windows.Forms.Button();
+            this.label51 = new System.Windows.Forms.Label();
+            this.tb_terminal_in = new System.Windows.Forms.TextBox();
+            this.btn_clearTerminal_in = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -314,7 +317,7 @@
             // 
             // serialPort1
             // 
-            this.serialPort1.BaudRate = 19200;
+            this.serialPort1.BaudRate = 57600;
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived_1);
             // 
             // timer1
@@ -1662,9 +1665,12 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.splitContainer4.Panel2.Controls.Add(this.btn_clearTerminal_in);
+            this.splitContainer4.Panel2.Controls.Add(this.label51);
+            this.splitContainer4.Panel2.Controls.Add(this.tb_terminal_in);
             this.splitContainer4.Panel2.Controls.Add(this.btn_clearTerminal);
             this.splitContainer4.Panel2.Controls.Add(this.label48);
-            this.splitContainer4.Panel2.Controls.Add(this.tb_terminal);
+            this.splitContainer4.Panel2.Controls.Add(this.tb_terminal_out);
             this.splitContainer4.Panel2.Controls.Add(this.gb_parameters);
             this.splitContainer4.Size = new System.Drawing.Size(1114, 605);
             this.splitContainer4.SplitterDistance = 581;
@@ -1964,6 +1970,41 @@
             this.textBox37.Name = "textBox37";
             this.textBox37.Size = new System.Drawing.Size(80, 24);
             this.textBox37.TabIndex = 4;
+            // 
+            // btn_clearTerminal
+            // 
+            this.btn_clearTerminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_clearTerminal.Location = new System.Drawing.Point(129, 570);
+            this.btn_clearTerminal.Name = "btn_clearTerminal";
+            this.btn_clearTerminal.Size = new System.Drawing.Size(109, 30);
+            this.btn_clearTerminal.TabIndex = 44;
+            this.btn_clearTerminal.Text = "Clear";
+            this.btn_clearTerminal.UseVisualStyleBackColor = true;
+            this.btn_clearTerminal.Click += new System.EventHandler(this.btn_clearTerminal_Click);
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label48.Location = new System.Drawing.Point(3, 414);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(114, 18);
+            this.label48.TabIndex = 26;
+            this.label48.Text = "Terminal (out)";
+            // 
+            // tb_terminal_out
+            // 
+            this.tb_terminal_out.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.tb_terminal_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tb_terminal_out.ForeColor = System.Drawing.Color.Cyan;
+            this.tb_terminal_out.Location = new System.Drawing.Point(3, 435);
+            this.tb_terminal_out.Multiline = true;
+            this.tb_terminal_out.Name = "tb_terminal_out";
+            this.tb_terminal_out.ReadOnly = true;
+            this.tb_terminal_out.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tb_terminal_out.Size = new System.Drawing.Size(234, 132);
+            this.tb_terminal_out.TabIndex = 25;
+            this.tb_terminal_out.TextChanged += new System.EventHandler(this.tb_terminal_TextChanged);
             // 
             // gb_parameters
             // 
@@ -2832,41 +2873,42 @@
             // 
             // timer2
             // 
-            this.timer2.Enabled = true;
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick_1);
             // 
-            // tb_terminal
+            // label51
             // 
-            this.tb_terminal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.tb_terminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tb_terminal.ForeColor = System.Drawing.Color.Cyan;
-            this.tb_terminal.Location = new System.Drawing.Point(3, 435);
-            this.tb_terminal.Multiline = true;
-            this.tb_terminal.Name = "tb_terminal";
-            this.tb_terminal.Size = new System.Drawing.Size(521, 132);
-            this.tb_terminal.TabIndex = 25;
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label51.Location = new System.Drawing.Point(242, 414);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(103, 18);
+            this.label51.TabIndex = 46;
+            this.label51.Text = "Terminal (in)";
             // 
-            // label48
+            // tb_terminal_in
             // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label48.Location = new System.Drawing.Point(3, 414);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(73, 18);
-            this.label48.TabIndex = 26;
-            this.label48.Text = "Terminal";
+            this.tb_terminal_in.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.tb_terminal_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tb_terminal_in.ForeColor = System.Drawing.Color.Cyan;
+            this.tb_terminal_in.Location = new System.Drawing.Point(242, 435);
+            this.tb_terminal_in.Multiline = true;
+            this.tb_terminal_in.Name = "tb_terminal_in";
+            this.tb_terminal_in.ReadOnly = true;
+            this.tb_terminal_in.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tb_terminal_in.Size = new System.Drawing.Size(234, 132);
+            this.tb_terminal_in.TabIndex = 45;
             // 
-            // btn_clearTerminal
+            // btn_clearTerminal_in
             // 
-            this.btn_clearTerminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_clearTerminal.Location = new System.Drawing.Point(414, 570);
-            this.btn_clearTerminal.Name = "btn_clearTerminal";
-            this.btn_clearTerminal.Size = new System.Drawing.Size(109, 30);
-            this.btn_clearTerminal.TabIndex = 44;
-            this.btn_clearTerminal.Text = "Clear Terminal";
-            this.btn_clearTerminal.UseVisualStyleBackColor = true;
-            this.btn_clearTerminal.Click += new System.EventHandler(this.btn_clearTerminal_Click);
+            this.btn_clearTerminal_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_clearTerminal_in.Location = new System.Drawing.Point(367, 570);
+            this.btn_clearTerminal_in.Name = "btn_clearTerminal_in";
+            this.btn_clearTerminal_in.Size = new System.Drawing.Size(109, 30);
+            this.btn_clearTerminal_in.TabIndex = 47;
+            this.btn_clearTerminal_in.Text = "Clear";
+            this.btn_clearTerminal_in.UseVisualStyleBackColor = true;
+            this.btn_clearTerminal_in.Click += new System.EventHandler(this.btn_clearTerminal_in_Click);
             // 
             // Form1
             // 
@@ -3188,8 +3230,11 @@
         private System.Windows.Forms.Label label60;
         public System.Windows.Forms.Label lbl_init;
         private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.TextBox tb_terminal;
+        private System.Windows.Forms.TextBox tb_terminal_out;
         private System.Windows.Forms.Button btn_clearTerminal;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.TextBox tb_terminal_in;
+        private System.Windows.Forms.Button btn_clearTerminal_in;
     }
 }
 

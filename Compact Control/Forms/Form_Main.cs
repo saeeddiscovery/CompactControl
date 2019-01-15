@@ -237,6 +237,12 @@ namespace Compact_Control
         {
         }
 
+        public void write(string data)
+        {
+            GlobalSerialPort.Write(data);
+            tb_terminal_out.AppendText(data + Environment.NewLine);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
@@ -248,24 +254,24 @@ namespace Compact_Control
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("a");
-            GlobalSerialPort.Write(trackBar1.Value.ToString());
+            write("a");
+            write(trackBar1.Value.ToString());
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("b");
-            GlobalSerialPort.Write(trackBar2.Value.ToString());
+            write("b");
+            write(trackBar2.Value.ToString());
         }
 
         private void button6_MouseDown(object sender, MouseEventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("c");
-            GlobalSerialPort.Write(trackBar3.Value.ToString());
+            write("c");
+            write(trackBar3.Value.ToString());
         }
 
 
@@ -273,8 +279,8 @@ namespace Compact_Control
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("d");
-            GlobalSerialPort.Write(trackBar4.Value.ToString());
+            write("d");
+            write(trackBar4.Value.ToString());
         }
 
 
@@ -282,64 +288,64 @@ namespace Compact_Control
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("e");
-            GlobalSerialPort.Write(trackBar5.Value.ToString());
+            write("e");
+            write(trackBar5.Value.ToString());
         }
 
         private void button11_MouseDown(object sender, MouseEventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("f");
-            GlobalSerialPort.Write(trackBar6.Value.ToString());
+            write("f");
+            write(trackBar6.Value.ToString());
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("g");
-            GlobalSerialPort.Write(trackBar1.Value.ToString());
+            write("g");
+            write(trackBar1.Value.ToString());
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("h");
-            GlobalSerialPort.Write(trackBar2.Value.ToString());
+            write("h");
+            write(trackBar2.Value.ToString());
         }
 
         private void button7_MouseDown(object sender, MouseEventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("i");
-            GlobalSerialPort.Write(trackBar3.Value.ToString());
+            write("i");
+            write(trackBar3.Value.ToString());
         }
 
         private void button9_MouseDown(object sender, MouseEventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("j");
-            GlobalSerialPort.Write(trackBar4.Value.ToString());
+            write("j");
+            write(trackBar4.Value.ToString());
         }
 
         private void button12_MouseDown(object sender, MouseEventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("k");
-            GlobalSerialPort.Write(trackBar5.Value.ToString());
+            write("k");
+            write(trackBar5.Value.ToString());
         }
 
         private void button13_MouseDown(object sender, MouseEventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("l");
-            GlobalSerialPort.Write(trackBar6.Value.ToString());
+            write("l");
+            write(trackBar6.Value.ToString());
         }
 
 
@@ -387,7 +393,7 @@ namespace Compact_Control
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("s");
+            write("s");
         }
 
 
@@ -395,7 +401,7 @@ namespace Compact_Control
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("s");
+            write("s");
         }
 
         //private void button15_Click(object sender, EventArgs e)
@@ -414,6 +420,9 @@ namespace Compact_Control
                     //MessageBox.Show("Parameters Save & Send successful!");
                 }
             }
+            if (initState != 1)
+                return;
+
             double m;
             double n;
             textBox1.Text = gant_co;
@@ -618,9 +627,9 @@ namespace Compact_Control
                     if (GlobalSerialPort.IsOpen == false)
                         GlobalSerialPort.Open();
                     if (comboBox1.Text == "Gantry")
-                        GlobalSerialPort.Write("t");
+                        write("t");
                     if (comboBox1.Text == "Collimator")
-                        GlobalSerialPort.Write("u");
+                        write("u");
                 }
         }
 
@@ -1411,9 +1420,25 @@ namespace Compact_Control
                 if (microParams[i] != ourParams[i])
                 {
                     equal = false;
+                    write("$");
+                    initState = 2;
                     MessageBox.Show("Parameter " + i.ToString() + " not equal > from micro: " + microParams[i] + " != ours: " + ourParams[i]);
-                    break;
+                    //break;
                 }
+            }
+            return equal;
+        }
+        public bool compareData(string microParam, string ourParam)
+        {
+            bool equal = true;
+            if (microParam.ToLower() != ourParam.ToLower())
+            {
+                equal = false;
+                write("$");
+                sendParameters();
+                initState = 2;
+                MessageBox.Show("Parameter not equal > from micro: " + microParam + " != ours: " + ourParam);
+                //break;
             }
             return equal;
         }
@@ -1421,21 +1446,21 @@ namespace Compact_Control
         {
             try
             {
-                GlobalSerialPort.Write("w");
-                GlobalSerialPort.Write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
-                GlobalSerialPort.Write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
-                GlobalSerialPort.Write(gant_tol0 + "/" + gant_tol1 + "/" + gant_tol2 + "/");
-                GlobalSerialPort.Write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
-                GlobalSerialPort.Write(collim_tol0 + "/" + collim_tol1 + "/" + collim_tol2 + "/");
-                GlobalSerialPort.Write(collim_v1 + "/" + collim_v2 + "/" + collim_v3 + "/");
-                GlobalSerialPort.Write(x1_tol0 + "/" + x1_tol1 + "/" + x1_tol2 + "/");
-                GlobalSerialPort.Write(x1_v1 + "/" + x1_v2 + "/" + x1_v3 + "/");
-                GlobalSerialPort.Write(x2_tol0 + "/" + x2_tol1 + "/" + x2_tol2 + "/");
-                GlobalSerialPort.Write(x2_v1 + "/" + x2_v2 + "/" + x2_v3 + "/");
-                GlobalSerialPort.Write(y1_tol0 + "/" + y1_tol1 + "/" + y1_tol2 + "/");
-                GlobalSerialPort.Write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
-                GlobalSerialPort.Write(y2_tol0 + "/" + y2_tol1 + "/" + y2_tol2 + "/");
-                GlobalSerialPort.Write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
+                write("w");
+                write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
+                write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
+                write(gant_tol0 + "/" + gant_tol1 + "/" + gant_tol2 + "/");
+                write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
+                write(collim_tol0 + "/" + collim_tol1 + "/" + collim_tol2 + "/");
+                write(collim_v1 + "/" + collim_v2 + "/" + collim_v3 + "/");
+                write(x1_tol0 + "/" + x1_tol1 + "/" + x1_tol2 + "/");
+                write(x1_v1 + "/" + x1_v2 + "/" + x1_v3 + "/");
+                write(x2_tol0 + "/" + x2_tol1 + "/" + x2_tol2 + "/");
+                write(x2_v1 + "/" + x2_v2 + "/" + x2_v3 + "/");
+                write(y1_tol0 + "/" + y1_tol1 + "/" + y1_tol2 + "/");
+                write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
+                write(y2_tol0 + "/" + y2_tol1 + "/" + y2_tol2 + "/");
+                write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
                 return true;
 
             }
@@ -1456,7 +1481,7 @@ namespace Compact_Control
                 if (GlobalSerialPort.IsOpen)
                 {
                     a = GlobalSerialPort.ReadLine();
-                    tb_terminal.Text = tb_terminal.Text + Environment.NewLine + a;
+                    tb_terminal_in.AppendText(a + Environment.NewLine);
                 }
                     
             }
@@ -1473,138 +1498,176 @@ namespace Compact_Control
                         break;
                     case "c01":
                         microParameters[0] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[0], ourParameters[0]);
                         break;
                     case "c02":
                         microParameters[1] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[1], ourParameters[1]);
                         break;
                     case "c03":
                         microParameters[2] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[2], ourParameters[2]);
                         break;
                     case "c04":
                         microParameters[3] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[3], ourParameters[3]);
                         break;
                     case "c05":
                         microParameters[4] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[4], ourParameters[4]);
                         break;
                     case "c06":
                         microParameters[5] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[5], ourParameters[5]);
                         break;
                     case "c07":
                         microParameters[6] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[6], ourParameters[6]);
                         break;
                     case "c08":
                         microParameters[7] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[7], ourParameters[7]);
                         break;
                     case "c09":
                         microParameters[8] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[8], ourParameters[8]);
                         break;
                     case "c10":
                         microParameters[9] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[9], ourParameters[9]);
                         break;
                     case "c11":
                         microParameters[10] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[10], ourParameters[10]); 
                         break;
                     case "c12":
                         microParameters[11] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[11], ourParameters[11]);
                         break;
                     case "c13":
                         microParameters[12] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[12], ourParameters[12]);
                         break;
                     case "c14":
                         microParameters[13] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[13], ourParameters[13]);
                         break;
                     case "c15":
                         microParameters[14] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[14], ourParameters[14]);
                         break;
                     case "c16":
                         microParameters[15] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[15], ourParameters[15]);
                         break;
                     case "c17":
                         microParameters[16] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[16], ourParameters[16]);
                         break;
                     case "c18":
                         microParameters[17] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[17], ourParameters[17]);
                         break;
                     case "c19":
                         microParameters[18] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[18], ourParameters[18]);
                         break;
                     case "c20":
                         microParameters[19] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[19], ourParameters[19]);
                         break;
                     case "c21":
                         microParameters[20] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[20], ourParameters[20]);
                         break;
                     case "c22":
                         microParameters[21] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[21], ourParameters[21]);
                         break;
                     case "c23":
                         microParameters[22] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[22], ourParameters[22]);
                         break;
                     case "c24":
                         microParameters[23] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[23], ourParameters[23]);
                         break;
                     case "c25":
                         microParameters[24] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[24], ourParameters[24]);
                         break;
                     case "c26":
                         microParameters[25] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[25], ourParameters[25]);
                         break;
                     case "c27":
                         microParameters[26] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[26], ourParameters[26]);
                         break;
                     case "c28":
                         microParameters[27] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[27], ourParameters[27]);
                         break;
                     case "c29":
                         microParameters[28] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[28], ourParameters[28]);
                         break;
                     case "c30":
                         microParameters[29] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[29], ourParameters[29]);
                         break;
                     case "c31":
                         microParameters[30] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[30], ourParameters[30]);
                         break;
                     case "c32":
                         microParameters[31] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[31], ourParameters[31]);
                         break;
                     case "c33":
                         microParameters[32] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[32], ourParameters[32]);
                         break;
                     case "c34":
                         microParameters[33] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[33], ourParameters[33]);
                         break;
                     case "c35":
                         microParameters[34] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[34], ourParameters[34]);
                         break;
                     case "c36":
                         microParameters[35] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[35], ourParameters[35]);
                         break;
                     case "c37":
                         microParameters[36] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[36], ourParameters[36]);
                         break;
                     case "c38":
                         microParameters[37] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[37], ourParameters[37]);
                         break;
                     case "c39":
                         microParameters[38] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[38], ourParameters[38]);
                         break;
                     case "c40":
                         microParameters[39] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[39], ourParameters[39]);
                         break;
                     case "c41":
                         microParameters[40] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[40], ourParameters[40]);
                         break;
                     case "c42":
                         microParameters[41] = a.Substring(3, a.Length - 3);
+                        compareData(microParameters[41], ourParameters[41]);
                         if (compareParameters(microParameters, ourParameters) == true)
                         {
-                            GlobalSerialPort.Write("/");
+                            write("/");
                             initState = 1;
-                        }
-                        else
-                        {
-                            GlobalSerialPort.Write("$");
-                            initState = 2;
+                            timer2.Enabled = true;
                         }
                         break;
                     case "gco":
@@ -1661,8 +1724,8 @@ namespace Compact_Control
                         break;
                     case "c45":
                         gant_fine_length = a.Substring(3, a.Length - 3);
-                        //GlobalSerialPort.Write(gant_zpnt + (gant_zpnt.Length + 1).ToString() + "/" + gant_length + (gant_length.Length + 1).ToString() + "/" + gant_fine_length + (gant_fine_length.Length + 1).ToString() + "/");
-                        GlobalSerialPort.Write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
+                        //write(gant_zpnt + (gant_zpnt.Length + 1).ToString() + "/" + gant_length + (gant_length.Length + 1).ToString() + "/" + gant_fine_length + (gant_fine_length.Length + 1).ToString() + "/");
+                        write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
                         try
                         {
                             string appPath = Application.StartupPath;
@@ -1684,10 +1747,10 @@ namespace Compact_Control
                         break;
                     case "c48":
                         collim_fine_length = a.Substring(3, a.Length - 3);
-                        GlobalSerialPort.Write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
-                        //GlobalSerialPort.Write(collim_zpnt + (collim_zpnt.Length + 1).ToString() + "/");
-                        //GlobalSerialPort.Write(collim_length + (collim_length.Length + 1).ToString() + "/");
-                        //GlobalSerialPort.Write(collim_fine_length + (collim_fine_length.Length + 1).ToString() + "/");
+                        write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
+                        //write(collim_zpnt + (collim_zpnt.Length + 1).ToString() + "/");
+                        //write(collim_length + (collim_length.Length + 1).ToString() + "/");
+                        //write(collim_fine_length + (collim_fine_length.Length + 1).ToString() + "/");
                         try
                         {
                             string appPath = Application.StartupPath;
@@ -1722,17 +1785,17 @@ namespace Compact_Control
                     case "adc":
                         adc = a.Substring(3, a.Length - 3);
                         if (gant_set != gnd)
-                            GlobalSerialPort.Write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
+                            write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
                         if (collim_set != cld)
-                            GlobalSerialPort.Write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
+                            write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
                         if (x1_set != x1d)
-                            GlobalSerialPort.Write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
+                            write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
                         if (x2_set != x2d)
-                            GlobalSerialPort.Write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
+                            write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
                         if (y1_set != y1d)
-                            GlobalSerialPort.Write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
+                            write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
                         if (y2_set != y2d)
-                            GlobalSerialPort.Write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
+                            write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
                         if (quit == true)
                         {
                             ClosePort();
@@ -1807,7 +1870,16 @@ namespace Compact_Control
 
         private void btn_clearTerminal_Click(object sender, EventArgs e)
         {
-            tb_terminal.Clear();
+            tb_terminal_out.Clear();
+        }
+
+        private void tb_terminal_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void btn_clearTerminal_in_Click(object sender, EventArgs e)
+        {
+            tb_terminal_in.Clear();
         }
 
         private void picBtn_LogOff_Click(object sender, EventArgs e)
@@ -2335,7 +2407,6 @@ namespace Compact_Control
             label_time.Text = time;
             label_date.Text = miladiDate;
             label_shamsiDate.Text = shamsiDate;
-
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
