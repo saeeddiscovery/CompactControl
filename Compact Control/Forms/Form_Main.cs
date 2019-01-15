@@ -1412,26 +1412,26 @@ namespace Compact_Control
         }
 
         public static string[] ourParameters = new string[42];
-        public bool compareParameters(string[] microParams, string[] ourParams)
-        {
-            bool equal = true;
-            for (int i = 0; i < microParams.Length; i++)
-            {
-                if (microParams[i] != ourParams[i])
-                {
-                    equal = false;
-                    write("$");
-                    initState = 2;
-                    MessageBox.Show("Parameter " + i.ToString() + " not equal > from micro: " + microParams[i] + " != ours: " + ourParams[i]);
-                    //break;
-                }
-            }
-            return equal;
-        }
+        //public bool compareParameters(string[] microParams, string[] ourParams)
+        //{
+        //    bool equal = true;
+        //    for (int i = 0; i < microParams.Length; i++)
+        //    {
+        //        if (microParams[i] != ourParams[i])
+        //        {
+        //            equal = false;
+        //            write("$");
+        //            initState = 2;
+        //            MessageBox.Show("Parameter " + i.ToString() + " not equal > from micro: " + microParams[i] + " != ours: " + ourParams[i]);
+        //            //break;
+        //        }
+        //    }
+        //    return equal;
+        //}
         public bool compareData(string microParam, string ourParam)
         {
             bool equal = true;
-            if (microParam.ToLower() != ourParam.ToLower())
+            if (int.Parse(microParam) != int.Parse(ourParam))
             {
                 equal = false;
                 write("$");
@@ -1662,8 +1662,7 @@ namespace Compact_Control
                         break;
                     case "c42":
                         microParameters[41] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[41], ourParameters[41]);
-                        if (compareParameters(microParameters, ourParameters) == true)
+                        if (compareData(microParameters[41], ourParameters[41]) == true)
                         {
                             write("/");
                             initState = 1;
