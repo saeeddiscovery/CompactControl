@@ -1440,6 +1440,8 @@ namespace Compact_Control
                 MessageBox.Show("Parameter not equal > from micro: " + microParam + " != ours: " + ourParam);
                 //break;
             }
+            else
+                write(".");
             return equal;
         }
         public bool sendParameters()
@@ -1664,7 +1666,6 @@ namespace Compact_Control
                         microParameters[41] = a.Substring(3, a.Length - 3);
                         if (compareData(microParameters[41], ourParameters[41]) == true)
                         {
-                            write("/");
                             initState = 1;
                             timer2.Enabled = true;
                         }
