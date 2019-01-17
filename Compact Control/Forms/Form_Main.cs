@@ -1428,22 +1428,22 @@ namespace Compact_Control
         //    }
         //    return equal;
         //}
-        public bool compareData(string microParam, string ourParam)
-        {
-            bool equal = true;
-            if (int.Parse(microParam) != int.Parse(ourParam))
-            {
-                equal = false;
-                write("$");
-                sendParameters();
-                initState = 2;
-                MessageBox.Show("Parameter not equal > from micro: " + microParam + " != ours: " + ourParam);
-                //break;
-            }
-            else
-                write(".");
-            return equal;
-        }
+        //public bool compareData(string microParam, string ourParam)
+        //{
+        //    bool equal = true;
+        //    if (int.Parse(microParam) != int.Parse(ourParam))
+        //    {
+        //        equal = false;
+        //        write("$");
+        //        sendParameters();
+        //        initState = 2;
+        //        MessageBox.Show("Parameter not equal > from micro: " + microParam + " != ours: " + ourParam);
+        //        //break;
+        //    }
+        //    else
+        //        write(".");
+        //    return equal;
+        //}
         public bool sendParameters()
         {
             try
@@ -1464,7 +1464,6 @@ namespace Compact_Control
                 write(y2_tol0 + "/" + y2_tol1 + "/" + y2_tol2 + "/");
                 write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
                 return true;
-
             }
             catch (Exception ex)
             {
@@ -1472,6 +1471,14 @@ namespace Compact_Control
                 MessageBox.Show("Unable to send parameters!" + Environment.NewLine + ex.ToString().Split('\n')[0]);
                 return false;
             }
+        }
+
+        private bool checkSum(int microSum, int ourSum)
+        {
+            bool equal = false;
+            if (microSum == ourSum)
+                equal = true;
+            return equal;
         }
         string[] microParameters = new string[42];
         private void serialPort1_DataReceived_1(object sender, SerialDataReceivedEventArgs e)
@@ -1498,178 +1505,190 @@ namespace Compact_Control
                         initState = 0;
                         sendParameters();
                         break;
-                    case "c01":
-                        microParameters[0] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[0], ourParameters[0]);
-                        break;
-                    case "c02":
-                        microParameters[1] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[1], ourParameters[1]);
-                        break;
-                    case "c03":
-                        microParameters[2] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[2], ourParameters[2]);
-                        break;
-                    case "c04":
-                        microParameters[3] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[3], ourParameters[3]);
-                        break;
-                    case "c05":
-                        microParameters[4] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[4], ourParameters[4]);
-                        break;
-                    case "c06":
-                        microParameters[5] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[5], ourParameters[5]);
-                        break;
-                    case "c07":
-                        microParameters[6] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[6], ourParameters[6]);
-                        break;
-                    case "c08":
-                        microParameters[7] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[7], ourParameters[7]);
-                        break;
-                    case "c09":
-                        microParameters[8] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[8], ourParameters[8]);
-                        break;
-                    case "c10":
-                        microParameters[9] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[9], ourParameters[9]);
-                        break;
-                    case "c11":
-                        microParameters[10] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[10], ourParameters[10]); 
-                        break;
-                    case "c12":
-                        microParameters[11] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[11], ourParameters[11]);
-                        break;
-                    case "c13":
-                        microParameters[12] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[12], ourParameters[12]);
-                        break;
-                    case "c14":
-                        microParameters[13] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[13], ourParameters[13]);
-                        break;
-                    case "c15":
-                        microParameters[14] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[14], ourParameters[14]);
-                        break;
-                    case "c16":
-                        microParameters[15] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[15], ourParameters[15]);
-                        break;
-                    case "c17":
-                        microParameters[16] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[16], ourParameters[16]);
-                        break;
-                    case "c18":
-                        microParameters[17] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[17], ourParameters[17]);
-                        break;
-                    case "c19":
-                        microParameters[18] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[18], ourParameters[18]);
-                        break;
-                    case "c20":
-                        microParameters[19] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[19], ourParameters[19]);
-                        break;
-                    case "c21":
-                        microParameters[20] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[20], ourParameters[20]);
-                        break;
-                    case "c22":
-                        microParameters[21] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[21], ourParameters[21]);
-                        break;
-                    case "c23":
-                        microParameters[22] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[22], ourParameters[22]);
-                        break;
-                    case "c24":
-                        microParameters[23] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[23], ourParameters[23]);
-                        break;
-                    case "c25":
-                        microParameters[24] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[24], ourParameters[24]);
-                        break;
-                    case "c26":
-                        microParameters[25] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[25], ourParameters[25]);
-                        break;
-                    case "c27":
-                        microParameters[26] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[26], ourParameters[26]);
-                        break;
-                    case "c28":
-                        microParameters[27] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[27], ourParameters[27]);
-                        break;
-                    case "c29":
-                        microParameters[28] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[28], ourParameters[28]);
-                        break;
-                    case "c30":
-                        microParameters[29] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[29], ourParameters[29]);
-                        break;
-                    case "c31":
-                        microParameters[30] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[30], ourParameters[30]);
-                        break;
-                    case "c32":
-                        microParameters[31] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[31], ourParameters[31]);
-                        break;
-                    case "c33":
-                        microParameters[32] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[32], ourParameters[32]);
-                        break;
-                    case "c34":
-                        microParameters[33] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[33], ourParameters[33]);
-                        break;
-                    case "c35":
-                        microParameters[34] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[34], ourParameters[34]);
-                        break;
-                    case "c36":
-                        microParameters[35] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[35], ourParameters[35]);
-                        break;
-                    case "c37":
-                        microParameters[36] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[36], ourParameters[36]);
-                        break;
-                    case "c38":
-                        microParameters[37] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[37], ourParameters[37]);
-                        break;
-                    case "c39":
-                        microParameters[38] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[38], ourParameters[38]);
-                        break;
-                    case "c40":
-                        microParameters[39] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[39], ourParameters[39]);
-                        break;
-                    case "c41":
-                        microParameters[40] = a.Substring(3, a.Length - 3);
-                        compareData(microParameters[40], ourParameters[40]);
-                        break;
-                    case "c42":
-                        microParameters[41] = a.Substring(3, a.Length - 3);
-                        if (compareData(microParameters[41], ourParameters[41]) == true)
+                    case "sum":
+                        string microSum = a.Substring(3, a.Length - 3);
+                        if (checkSum(int.Parse(microSum), ourSum) == true)
                         {
                             initState = 1;
                             timer2.Enabled = true;
                         }
+                        else
+                        {
+                            sendParameters();
+                        }
                         break;
+                    //case "c01":
+                    //    microParameters[0] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[0], ourParameters[0]);
+                    //    break;
+                    //case "c02":
+                    //    microParameters[1] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[1], ourParameters[1]);
+                    //    break;
+                    //case "c03":
+                    //    microParameters[2] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[2], ourParameters[2]);
+                    //    break;
+                    //case "c04":
+                    //    microParameters[3] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[3], ourParameters[3]);
+                    //    break;
+                    //case "c05":
+                    //    microParameters[4] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[4], ourParameters[4]);
+                    //    break;
+                    //case "c06":
+                    //    microParameters[5] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[5], ourParameters[5]);
+                    //    break;
+                    //case "c07":
+                    //    microParameters[6] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[6], ourParameters[6]);
+                    //    break;
+                    //case "c08":
+                    //    microParameters[7] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[7], ourParameters[7]);
+                    //    break;
+                    //case "c09":
+                    //    microParameters[8] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[8], ourParameters[8]);
+                    //    break;
+                    //case "c10":
+                    //    microParameters[9] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[9], ourParameters[9]);
+                    //    break;
+                    //case "c11":
+                    //    microParameters[10] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[10], ourParameters[10]); 
+                    //    break;
+                    //case "c12":
+                    //    microParameters[11] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[11], ourParameters[11]);
+                    //    break;
+                    //case "c13":
+                    //    microParameters[12] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[12], ourParameters[12]);
+                    //    break;
+                    //case "c14":
+                    //    microParameters[13] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[13], ourParameters[13]);
+                    //    break;
+                    //case "c15":
+                    //    microParameters[14] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[14], ourParameters[14]);
+                    //    break;
+                    //case "c16":
+                    //    microParameters[15] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[15], ourParameters[15]);
+                    //    break;
+                    //case "c17":
+                    //    microParameters[16] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[16], ourParameters[16]);
+                    //    break;
+                    //case "c18":
+                    //    microParameters[17] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[17], ourParameters[17]);
+                    //    break;
+                    //case "c19":
+                    //    microParameters[18] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[18], ourParameters[18]);
+                    //    break;
+                    //case "c20":
+                    //    microParameters[19] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[19], ourParameters[19]);
+                    //    break;
+                    //case "c21":
+                    //    microParameters[20] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[20], ourParameters[20]);
+                    //    break;
+                    //case "c22":
+                    //    microParameters[21] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[21], ourParameters[21]);
+                    //    break;
+                    //case "c23":
+                    //    microParameters[22] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[22], ourParameters[22]);
+                    //    break;
+                    //case "c24":
+                    //    microParameters[23] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[23], ourParameters[23]);
+                    //    break;
+                    //case "c25":
+                    //    microParameters[24] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[24], ourParameters[24]);
+                    //    break;
+                    //case "c26":
+                    //    microParameters[25] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[25], ourParameters[25]);
+                    //    break;
+                    //case "c27":
+                    //    microParameters[26] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[26], ourParameters[26]);
+                    //    break;
+                    //case "c28":
+                    //    microParameters[27] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[27], ourParameters[27]);
+                    //    break;
+                    //case "c29":
+                    //    microParameters[28] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[28], ourParameters[28]);
+                    //    break;
+                    //case "c30":
+                    //    microParameters[29] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[29], ourParameters[29]);
+                    //    break;
+                    //case "c31":
+                    //    microParameters[30] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[30], ourParameters[30]);
+                    //    break;
+                    //case "c32":
+                    //    microParameters[31] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[31], ourParameters[31]);
+                    //    break;
+                    //case "c33":
+                    //    microParameters[32] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[32], ourParameters[32]);
+                    //    break;
+                    //case "c34":
+                    //    microParameters[33] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[33], ourParameters[33]);
+                    //    break;
+                    //case "c35":
+                    //    microParameters[34] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[34], ourParameters[34]);
+                    //    break;
+                    //case "c36":
+                    //    microParameters[35] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[35], ourParameters[35]);
+                    //    break;
+                    //case "c37":
+                    //    microParameters[36] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[36], ourParameters[36]);
+                    //    break;
+                    //case "c38":
+                    //    microParameters[37] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[37], ourParameters[37]);
+                    //    break;
+                    //case "c39":
+                    //    microParameters[38] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[38], ourParameters[38]);
+                    //    break;
+                    //case "c40":
+                    //    microParameters[39] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[39], ourParameters[39]);
+                    //    break;
+                    //case "c41":
+                    //    microParameters[40] = a.Substring(3, a.Length - 3);
+                    //    compareData(microParameters[40], ourParameters[40]);
+                    //    break;
+                    //case "c42":
+                    //    microParameters[41] = a.Substring(3, a.Length - 3);
+                    //    if (compareData(microParameters[41], ourParameters[41]) == true)
+                    //    {
+                    //        initState = 1;
+                    //        timer2.Enabled = true;
+                    //    }
+                    //    break;
                     case "gco":
                         gant_co = a.Substring(3, a.Length - 3);
                         break;
@@ -2164,6 +2183,11 @@ namespace Compact_Control
                     Array.Copy(prms, 0, ourParams, 6, prms.Length);
                     ourParameters = ourParams;
                     ClientControls.ourParameters = ourParams;
+                    ourSum = 0;
+                    foreach (string param in ourParams)
+                    {
+                        ourSum = ourSum + int.Parse(param);
+                    }
                     //ClientControls.sendParametersFlag = true;
                 }
                 catch(Exception ex)
@@ -2440,6 +2464,7 @@ namespace Compact_Control
         }
 
         public static int initState = -1;
+        public static int ourSum = 0;
         private void btn_saveParameters_Click(object sender, EventArgs e)
         {
             initState = 0 ;
@@ -2469,6 +2494,11 @@ namespace Compact_Control
                 Array.Copy(values, 0, ourParams, 6, values.Length);
                 ourParameters = ourParams;
                 ClientControls.ourParameters = ourParams;
+                ourSum = 0;
+                foreach (string param in ourParams)
+                {
+                    ourSum = ourSum + int.Parse(param);
+                }
                 sendParametersFlag = true;
             }
             catch(Exception ex)
