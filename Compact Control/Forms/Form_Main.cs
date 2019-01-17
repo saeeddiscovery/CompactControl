@@ -1509,11 +1509,13 @@ namespace Compact_Control
                         string microSum = a.Substring(3, a.Length - 3);
                         if (checkSum(int.Parse(microSum), ourSum) == true)
                         {
+                            write(".");
                             initState = 1;
                             timer2.Enabled = true;
                         }
                         else
                         {
+                            write("$");
                             sendParameters();
                         }
                         break;
