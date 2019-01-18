@@ -2478,9 +2478,9 @@
             this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label53.Location = new System.Drawing.Point(39, 179);
             this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(27, 18);
+            this.label53.Size = new System.Drawing.Size(28, 18);
             this.label53.TabIndex = 7;
-            this.label53.Text = "Y2";
+            this.label53.Text = "X2";
             // 
             // label54
             // 
@@ -2488,9 +2488,9 @@
             this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label54.Location = new System.Drawing.Point(39, 138);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(27, 18);
+            this.label54.Size = new System.Drawing.Size(28, 18);
             this.label54.TabIndex = 6;
-            this.label54.Text = "Y1";
+            this.label54.Text = "X1";
             // 
             // label55
             // 
@@ -2498,9 +2498,9 @@
             this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label55.Location = new System.Drawing.Point(38, 261);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(28, 18);
+            this.label55.Size = new System.Drawing.Size(27, 18);
             this.label55.TabIndex = 5;
-            this.label55.Text = "X2";
+            this.label55.Text = "Y2";
             // 
             // label56
             // 
@@ -2508,9 +2508,9 @@
             this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label56.Location = new System.Drawing.Point(38, 220);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(28, 18);
+            this.label56.Size = new System.Drawing.Size(27, 18);
             this.label56.TabIndex = 4;
-            this.label56.Text = "X1";
+            this.label56.Text = "Y1";
             // 
             // label57
             // 

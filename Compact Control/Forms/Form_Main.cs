@@ -415,13 +415,17 @@ namespace Compact_Control
             if (sendParametersFlag == true)
             {
                 sendParametersFlag = false;
-                if (sendParameters() == true)
-                {
-                    //MessageBox.Show("Parameters Save & Send successful!");
-                }
+                sendParameters();
+                //if (sendParameters() == true)
+                //{
+                //    MessageBox.Show("Parameters Save & Send successful!");
+                //}
             }
-            if (initState != 1)
-                return;
+            if (initState == 1)
+            {
+                timer2.Enabled = true;
+            }
+
 
             double m;
             double n;
@@ -1483,7 +1487,9 @@ namespace Compact_Control
         string[] microParameters = new string[42];
         private void serialPort1_DataReceived_1(object sender, SerialDataReceivedEventArgs e)
         {
-            
+            //string all = GlobalSerialPort.ReadExisting();
+            //string[] lines = all.Split('\n');
+            //foreach (string a in lines)
             string a = "";
             try
             {
@@ -1503,7 +1509,8 @@ namespace Compact_Control
                 {
                     case "ini":
                         initState = 0;
-                        sendParameters();
+                        sendParametersFlag = true;
+                        //sendParameters();
                         break;
                     case "sum":
                         string microSum = a.Substring(3, a.Length - 3);
@@ -1511,12 +1518,12 @@ namespace Compact_Control
                         {
                             write(".");
                             initState = 1;
-                            timer2.Enabled = true;
                         }
                         else
                         {
                             write("$");
-                            sendParameters();
+                            sendParametersFlag = true;
+                            //sendParameters();
                         }
                         break;
                     //case "c01":
@@ -2480,6 +2487,42 @@ namespace Compact_Control
                     i = i + 1;
                 }
             }
+            gant_tol0 = ClientControls.gant_tol0 = values[0];
+            gant_tol1 = ClientControls.gant_tol1 = values[1];
+            gant_tol2 = ClientControls.gant_tol2 = values[2];
+            gant_v1 = ClientControls.gant_v1 = values[3];
+            gant_v2 = ClientControls.gant_v2 = values[4];
+            gant_v3 = ClientControls.gant_v3 = values[5];
+            collim_tol0 = ClientControls.collim_tol0 = values[6];
+            collim_tol1 = ClientControls.collim_tol1 = values[7];
+            collim_tol2 = ClientControls.collim_tol2 = values[8];
+            collim_v1 = ClientControls.collim_v1 = values[9];
+            collim_v2 = ClientControls.collim_v2 = values[10];
+            collim_v3 = ClientControls.collim_v3 = values[11];
+            x1_tol0 = ClientControls.x1_tol0 = values[12];
+            x1_tol1 = ClientControls.x1_tol1 = values[13];
+            x1_tol2 = ClientControls.x1_tol2 = values[14];
+            x1_v1 = ClientControls.x1_v1 = values[15];
+            x1_v2 = ClientControls.x1_v2 = values[16];
+            x1_v3 = ClientControls.x1_v3 = values[17];
+            x2_tol0 = ClientControls.x2_tol0 = values[18];
+            x2_tol1 = ClientControls.x2_tol1 = values[19];
+            x2_tol2 = ClientControls.x2_tol2 = values[20];
+            x2_v1 = ClientControls.x2_v1 = values[21];
+            x2_v2 = ClientControls.x2_v2 = values[22];
+            x2_v3 = ClientControls.x2_v3 = values[23];
+            y1_tol0 = ClientControls.y1_tol0 = values[24];
+            y1_tol1 = ClientControls.y1_tol1 = values[25];
+            y1_tol2 = ClientControls.y1_tol2 = values[26];
+            y1_v1 = ClientControls.y1_v1 = values[27];
+            y1_v2 = ClientControls.y1_v2 = values[28];
+            y1_v3 = ClientControls.y1_v3 = values[29];
+            y2_tol0 = ClientControls.y2_tol0 = values[30];
+            y2_tol1 = ClientControls.y2_tol1 = values[31];
+            y2_tol2 = ClientControls.y2_tol2 = values[32];
+            y2_v1 = ClientControls.y2_v1 = values[33];
+            y2_v2 = ClientControls.y2_v2 = values[34];
+            y2_v3 = ClientControls.y2_v3 = values[35];
             try
             {
                 string appPath = Application.StartupPath;
