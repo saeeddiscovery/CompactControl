@@ -263,6 +263,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.panel_ClientControls = new System.Windows.Forms.Panel();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -2910,6 +2911,11 @@
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick_1);
             // 
+            // timer3
+            // 
+            this.timer3.Enabled = true;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3235,6 +3241,7 @@
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.TextBox tb_terminal_in;
         private System.Windows.Forms.Button btn_clearTerminal_in;
+        private System.Windows.Forms.Timer timer3;
     }
 }
 

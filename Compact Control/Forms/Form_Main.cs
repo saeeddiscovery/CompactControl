@@ -8,6 +8,8 @@ using Compact_Control.Properties;
 using System.Diagnostics;
 using System.Globalization;
 using Microsoft.Win32;
+using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 
 namespace Compact_Control
@@ -1484,358 +1486,26 @@ namespace Compact_Control
                 equal = true;
             return equal;
         }
+        public Queue<string> receiveQ = new Queue<string>();
         string[] microParameters = new string[42];
         private void serialPort1_DataReceived_1(object sender, SerialDataReceivedEventArgs e)
         {
-            //string all = GlobalSerialPort.ReadExisting();
-            //string[] lines = all.Split('\n');
-            //foreach (string a in lines)
-            string a = "";
-            try
-            {
-                if (GlobalSerialPort.IsOpen)
-                {
-                    a = GlobalSerialPort.ReadLine();
-                    tb_terminal_in.AppendText(a + Environment.NewLine);
-                }
+            string currReceived = GlobalSerialPort.ReadExisting();
+            receiveQ.Enqueue(currReceived);
+            //string a = "";
+            //try
+            //{
+            //    if (GlobalSerialPort.IsOpen)
+            //    {
+            //        a = GlobalSerialPort.ReadLine();
+            //        tb_terminal_in.AppendText(a + Environment.NewLine);
+            //    }
                     
-            }
-            catch
-            {
-            }
-            try
-            {
-                switch (a.Substring(0, 3))
-                {
-                    case "ini":
-                        initState = 0;
-                        sendParametersFlag = true;
-                        //sendParameters();
-                        break;
-                    case "sum":
-                        string microSum = a.Substring(3, a.Length - 3);
-                        if (checkSum(int.Parse(microSum), ourSum) == true)
-                        {
-                            write(".");
-                            initState = 1;
-                        }
-                        else
-                        {
-                            write("$");
-                            sendParametersFlag = true;
-                            //sendParameters();
-                        }
-                        break;
-                    //case "c01":
-                    //    microParameters[0] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[0], ourParameters[0]);
-                    //    break;
-                    //case "c02":
-                    //    microParameters[1] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[1], ourParameters[1]);
-                    //    break;
-                    //case "c03":
-                    //    microParameters[2] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[2], ourParameters[2]);
-                    //    break;
-                    //case "c04":
-                    //    microParameters[3] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[3], ourParameters[3]);
-                    //    break;
-                    //case "c05":
-                    //    microParameters[4] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[4], ourParameters[4]);
-                    //    break;
-                    //case "c06":
-                    //    microParameters[5] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[5], ourParameters[5]);
-                    //    break;
-                    //case "c07":
-                    //    microParameters[6] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[6], ourParameters[6]);
-                    //    break;
-                    //case "c08":
-                    //    microParameters[7] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[7], ourParameters[7]);
-                    //    break;
-                    //case "c09":
-                    //    microParameters[8] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[8], ourParameters[8]);
-                    //    break;
-                    //case "c10":
-                    //    microParameters[9] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[9], ourParameters[9]);
-                    //    break;
-                    //case "c11":
-                    //    microParameters[10] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[10], ourParameters[10]); 
-                    //    break;
-                    //case "c12":
-                    //    microParameters[11] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[11], ourParameters[11]);
-                    //    break;
-                    //case "c13":
-                    //    microParameters[12] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[12], ourParameters[12]);
-                    //    break;
-                    //case "c14":
-                    //    microParameters[13] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[13], ourParameters[13]);
-                    //    break;
-                    //case "c15":
-                    //    microParameters[14] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[14], ourParameters[14]);
-                    //    break;
-                    //case "c16":
-                    //    microParameters[15] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[15], ourParameters[15]);
-                    //    break;
-                    //case "c17":
-                    //    microParameters[16] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[16], ourParameters[16]);
-                    //    break;
-                    //case "c18":
-                    //    microParameters[17] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[17], ourParameters[17]);
-                    //    break;
-                    //case "c19":
-                    //    microParameters[18] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[18], ourParameters[18]);
-                    //    break;
-                    //case "c20":
-                    //    microParameters[19] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[19], ourParameters[19]);
-                    //    break;
-                    //case "c21":
-                    //    microParameters[20] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[20], ourParameters[20]);
-                    //    break;
-                    //case "c22":
-                    //    microParameters[21] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[21], ourParameters[21]);
-                    //    break;
-                    //case "c23":
-                    //    microParameters[22] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[22], ourParameters[22]);
-                    //    break;
-                    //case "c24":
-                    //    microParameters[23] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[23], ourParameters[23]);
-                    //    break;
-                    //case "c25":
-                    //    microParameters[24] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[24], ourParameters[24]);
-                    //    break;
-                    //case "c26":
-                    //    microParameters[25] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[25], ourParameters[25]);
-                    //    break;
-                    //case "c27":
-                    //    microParameters[26] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[26], ourParameters[26]);
-                    //    break;
-                    //case "c28":
-                    //    microParameters[27] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[27], ourParameters[27]);
-                    //    break;
-                    //case "c29":
-                    //    microParameters[28] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[28], ourParameters[28]);
-                    //    break;
-                    //case "c30":
-                    //    microParameters[29] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[29], ourParameters[29]);
-                    //    break;
-                    //case "c31":
-                    //    microParameters[30] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[30], ourParameters[30]);
-                    //    break;
-                    //case "c32":
-                    //    microParameters[31] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[31], ourParameters[31]);
-                    //    break;
-                    //case "c33":
-                    //    microParameters[32] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[32], ourParameters[32]);
-                    //    break;
-                    //case "c34":
-                    //    microParameters[33] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[33], ourParameters[33]);
-                    //    break;
-                    //case "c35":
-                    //    microParameters[34] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[34], ourParameters[34]);
-                    //    break;
-                    //case "c36":
-                    //    microParameters[35] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[35], ourParameters[35]);
-                    //    break;
-                    //case "c37":
-                    //    microParameters[36] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[36], ourParameters[36]);
-                    //    break;
-                    //case "c38":
-                    //    microParameters[37] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[37], ourParameters[37]);
-                    //    break;
-                    //case "c39":
-                    //    microParameters[38] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[38], ourParameters[38]);
-                    //    break;
-                    //case "c40":
-                    //    microParameters[39] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[39], ourParameters[39]);
-                    //    break;
-                    //case "c41":
-                    //    microParameters[40] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[40], ourParameters[40]);
-                    //    break;
-                    //case "c42":
-                    //    microParameters[41] = a.Substring(3, a.Length - 3);
-                    //    if (compareData(microParameters[41], ourParameters[41]) == true)
-                    //    {
-                    //        initState = 1;
-                    //        timer2.Enabled = true;
-                    //    }
-                    //    break;
-                    case "gco":
-                        gant_co = a.Substring(3, a.Length - 3);
-                        break;
-                    case "gf1":
-                        gant_f1 = a.Substring(3, a.Length - 3);
-                        break;
-                    case "gf2":
-                        gant_f2 = a.Substring(3, a.Length - 3);
-                        break;
-                    case "gfn":
-                        gant_cofin = a.Substring(3, a.Length - 3);
-                        break;
-                    case "cco":
-                        collim_co = a.Substring(3, a.Length - 3);
-                        break;
-                    case "cf1":
-                        collim_f1 = a.Substring(3, a.Length - 3);
-                        break;
-                    case "cf2":
-                        collim_f2 = a.Substring(3, a.Length - 3);
-                        break;
-                    case "cfn":
-                        collim_cofin = a.Substring(3, a.Length - 3);
-                        break;
-                    case "wco":
-                        x1_co = a.Substring(3, a.Length - 3);
-                        break;
-                    case "xco":
-                        x2_co = a.Substring(3, a.Length - 3);
-                        break;
-                    case "yco":
-                        y1_co = a.Substring(3, a.Length - 3);
-                        break;
-                    case "zco":
-                        y2_co = a.Substring(3, a.Length - 3);
-                        break;
-                    case "lok":
-                        MessageBox.Show("Learning was succesfull");
-                        break;
-                    case "sok":
-                        MessageBox.Show("Saving was succesfull!");
-                        break;
-                    case "snk":
-                        MessageBox.Show("Error: Saving was not succesfull!");
-                        break;
-
-                    case "c43":
-                        gant_zpnt = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c44":
-                        gant_length = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c45":
-                        gant_fine_length = a.Substring(3, a.Length - 3);
-                        //write(gant_zpnt + (gant_zpnt.Length + 1).ToString() + "/" + gant_length + (gant_length.Length + 1).ToString() + "/" + gant_fine_length + (gant_fine_length.Length + 1).ToString() + "/");
-                        write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
-                        try
-                        {
-                            string appPath = Application.StartupPath;
-                            string dataPath = System.IO.Path.Combine(appPath, "Learn.dat");
-                            string[] values = { gant_zpnt, gant_length, gant_fine_length, collim_zpnt, collim_length, collim_fine_length };
-                            //System.IO.File.WriteAllLines(dataPath, lines);
-                            HashPass.writeLearnJson(dataPath, values);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
-                        }
-                        break;
-                    case "c46":
-                        collim_zpnt = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c47":
-                        collim_length = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c48":
-                        collim_fine_length = a.Substring(3, a.Length - 3);
-                        write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
-                        //write(collim_zpnt + (collim_zpnt.Length + 1).ToString() + "/");
-                        //write(collim_length + (collim_length.Length + 1).ToString() + "/");
-                        //write(collim_fine_length + (collim_fine_length.Length + 1).ToString() + "/");
-                        try
-                        {
-                            string appPath = Application.StartupPath;
-                            string dataPath = System.IO.Path.Combine(appPath, "Learn.dat");
-                            string[] values = { gant_zpnt, gant_length, gant_fine_length, collim_zpnt, collim_length, collim_fine_length };
-                            //System.IO.File.WriteAllLines(dataPath, lines);
-                            HashPass.writeLearnJson(dataPath, values);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
-                        }
-                        break;
-                    case "gnd":
-                        gnd = a.Substring(3, a.Length - 3);
-                        break;
-                    case "cld":
-                        cld = a.Substring(3, a.Length - 3);
-                        break;
-                    case "x1d":
-                        x1d = a.Substring(3, a.Length - 3);
-                        break;
-                    case "x2d":
-                        x2d = a.Substring(3, a.Length - 3);
-                        break;
-                    case "y1d":
-                        y1d = a.Substring(3, a.Length - 3);
-                        break;
-                    case "y2d":
-                        y2d = a.Substring(3, a.Length - 3);
-                        break;
-                    case "adc":
-                        adc = a.Substring(3, a.Length - 3);
-                        if (gant_set != gnd)
-                            write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
-                        if (collim_set != cld)
-                            write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
-                        if (x1_set != x1d)
-                            write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
-                        if (x2_set != x2d)
-                            write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
-                        if (y1_set != y1d)
-                            write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
-                        if (y2_set != y2d)
-                            write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
-                        if (quit == true)
-                        {
-                            ClosePort();
-                            Application.Exit();
-                            break;
-                        }
-                        break;
-                }
-            }
-            catch
-            {
-            }
+            //}
+            //catch
+            //{
+            //}
+            
         }
 
         private void picBtn_Connect_MouseEnter(object sender, EventArgs e)
@@ -1927,6 +1597,351 @@ namespace Compact_Control
             //Form_Login.ShowForm();
             Application.Restart();
             }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            if (receiveQ.Count == 0)
+                return;
+            string currData = receiveQ.Dequeue();
+            string[] lines = currData.Split('\n');
+            tb_terminal_in.AppendText(currData + Environment.NewLine);
+            foreach (string a in lines)
+            {
+                try
+                {
+                    switch (a.Substring(0, 3))
+                    {
+                        case "ini":
+                            initState = 0;
+                            sendParametersFlag = true;
+                            //sendParameters();
+                            break;
+                        case "sum":
+                            string microSum = a.Substring(3, a.Length - 3);
+                            if (checkSum(int.Parse(microSum), ourSum) == true)
+                            {
+                                write(".");
+                                initState = 1;
+                            }
+                            else
+                            {
+                                write("$");
+                                sendParametersFlag = true;
+                                //sendParameters();
+                            }
+                            break;
+                        //case "c01":
+                        //    microParameters[0] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[0], ourParameters[0]);
+                        //    break;
+                        //case "c02":
+                        //    microParameters[1] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[1], ourParameters[1]);
+                        //    break;
+                        //case "c03":
+                        //    microParameters[2] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[2], ourParameters[2]);
+                        //    break;
+                        //case "c04":
+                        //    microParameters[3] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[3], ourParameters[3]);
+                        //    break;
+                        //case "c05":
+                        //    microParameters[4] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[4], ourParameters[4]);
+                        //    break;
+                        //case "c06":
+                        //    microParameters[5] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[5], ourParameters[5]);
+                        //    break;
+                        //case "c07":
+                        //    microParameters[6] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[6], ourParameters[6]);
+                        //    break;
+                        //case "c08":
+                        //    microParameters[7] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[7], ourParameters[7]);
+                        //    break;
+                        //case "c09":
+                        //    microParameters[8] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[8], ourParameters[8]);
+                        //    break;
+                        //case "c10":
+                        //    microParameters[9] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[9], ourParameters[9]);
+                        //    break;
+                        //case "c11":
+                        //    microParameters[10] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[10], ourParameters[10]); 
+                        //    break;
+                        //case "c12":
+                        //    microParameters[11] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[11], ourParameters[11]);
+                        //    break;
+                        //case "c13":
+                        //    microParameters[12] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[12], ourParameters[12]);
+                        //    break;
+                        //case "c14":
+                        //    microParameters[13] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[13], ourParameters[13]);
+                        //    break;
+                        //case "c15":
+                        //    microParameters[14] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[14], ourParameters[14]);
+                        //    break;
+                        //case "c16":
+                        //    microParameters[15] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[15], ourParameters[15]);
+                        //    break;
+                        //case "c17":
+                        //    microParameters[16] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[16], ourParameters[16]);
+                        //    break;
+                        //case "c18":
+                        //    microParameters[17] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[17], ourParameters[17]);
+                        //    break;
+                        //case "c19":
+                        //    microParameters[18] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[18], ourParameters[18]);
+                        //    break;
+                        //case "c20":
+                        //    microParameters[19] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[19], ourParameters[19]);
+                        //    break;
+                        //case "c21":
+                        //    microParameters[20] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[20], ourParameters[20]);
+                        //    break;
+                        //case "c22":
+                        //    microParameters[21] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[21], ourParameters[21]);
+                        //    break;
+                        //case "c23":
+                        //    microParameters[22] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[22], ourParameters[22]);
+                        //    break;
+                        //case "c24":
+                        //    microParameters[23] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[23], ourParameters[23]);
+                        //    break;
+                        //case "c25":
+                        //    microParameters[24] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[24], ourParameters[24]);
+                        //    break;
+                        //case "c26":
+                        //    microParameters[25] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[25], ourParameters[25]);
+                        //    break;
+                        //case "c27":
+                        //    microParameters[26] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[26], ourParameters[26]);
+                        //    break;
+                        //case "c28":
+                        //    microParameters[27] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[27], ourParameters[27]);
+                        //    break;
+                        //case "c29":
+                        //    microParameters[28] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[28], ourParameters[28]);
+                        //    break;
+                        //case "c30":
+                        //    microParameters[29] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[29], ourParameters[29]);
+                        //    break;
+                        //case "c31":
+                        //    microParameters[30] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[30], ourParameters[30]);
+                        //    break;
+                        //case "c32":
+                        //    microParameters[31] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[31], ourParameters[31]);
+                        //    break;
+                        //case "c33":
+                        //    microParameters[32] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[32], ourParameters[32]);
+                        //    break;
+                        //case "c34":
+                        //    microParameters[33] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[33], ourParameters[33]);
+                        //    break;
+                        //case "c35":
+                        //    microParameters[34] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[34], ourParameters[34]);
+                        //    break;
+                        //case "c36":
+                        //    microParameters[35] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[35], ourParameters[35]);
+                        //    break;
+                        //case "c37":
+                        //    microParameters[36] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[36], ourParameters[36]);
+                        //    break;
+                        //case "c38":
+                        //    microParameters[37] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[37], ourParameters[37]);
+                        //    break;
+                        //case "c39":
+                        //    microParameters[38] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[38], ourParameters[38]);
+                        //    break;
+                        //case "c40":
+                        //    microParameters[39] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[39], ourParameters[39]);
+                        //    break;
+                        //case "c41":
+                        //    microParameters[40] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[40], ourParameters[40]);
+                        //    break;
+                        //case "c42":
+                        //    microParameters[41] = a.Substring(3, a.Length - 3);
+                        //    if (compareData(microParameters[41], ourParameters[41]) == true)
+                        //    {
+                        //        initState = 1;
+                        //        timer2.Enabled = true;
+                        //    }
+                        //    break;
+                        case "gco":
+                            gant_co = a.Substring(3, a.Length - 3);
+                            break;
+                        case "gf1":
+                            gant_f1 = a.Substring(3, a.Length - 3);
+                            break;
+                        case "gf2":
+                            gant_f2 = a.Substring(3, a.Length - 3);
+                            break;
+                        case "gfn":
+                            gant_cofin = a.Substring(3, a.Length - 3);
+                            break;
+                        case "cco":
+                            collim_co = a.Substring(3, a.Length - 3);
+                            break;
+                        case "cf1":
+                            collim_f1 = a.Substring(3, a.Length - 3);
+                            break;
+                        case "cf2":
+                            collim_f2 = a.Substring(3, a.Length - 3);
+                            break;
+                        case "cfn":
+                            collim_cofin = a.Substring(3, a.Length - 3);
+                            break;
+                        case "wco":
+                            x1_co = a.Substring(3, a.Length - 3);
+                            break;
+                        case "xco":
+                            x2_co = a.Substring(3, a.Length - 3);
+                            break;
+                        case "yco":
+                            y1_co = a.Substring(3, a.Length - 3);
+                            break;
+                        case "zco":
+                            y2_co = a.Substring(3, a.Length - 3);
+                            break;
+                        case "lok":
+                            MessageBox.Show("Learning was succesfull");
+                            break;
+                        case "sok":
+                            MessageBox.Show("Saving was succesfull!");
+                            break;
+                        case "snk":
+                            MessageBox.Show("Error: Saving was not succesfull!");
+                            break;
+
+                        case "c43":
+                            gant_zpnt = a.Substring(3, a.Length - 3);
+                            break;
+                        case "c44":
+                            gant_length = a.Substring(3, a.Length - 3);
+                            break;
+                        case "c45":
+                            gant_fine_length = a.Substring(3, a.Length - 3);
+                            //write(gant_zpnt + (gant_zpnt.Length + 1).ToString() + "/" + gant_length + (gant_length.Length + 1).ToString() + "/" + gant_fine_length + (gant_fine_length.Length + 1).ToString() + "/");
+                            write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
+                            try
+                            {
+                                string appPath = Application.StartupPath;
+                                string dataPath = System.IO.Path.Combine(appPath, "Learn.dat");
+                                string[] values = { gant_zpnt, gant_length, gant_fine_length, collim_zpnt, collim_length, collim_fine_length };
+                                //System.IO.File.WriteAllLines(dataPath, lines);
+                                HashPass.writeLearnJson(dataPath, values);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+                            }
+                            break;
+                        case "c46":
+                            collim_zpnt = a.Substring(3, a.Length - 3);
+                            break;
+                        case "c47":
+                            collim_length = a.Substring(3, a.Length - 3);
+                            break;
+                        case "c48":
+                            collim_fine_length = a.Substring(3, a.Length - 3);
+                            write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
+                            //write(collim_zpnt + (collim_zpnt.Length + 1).ToString() + "/");
+                            //write(collim_length + (collim_length.Length + 1).ToString() + "/");
+                            //write(collim_fine_length + (collim_fine_length.Length + 1).ToString() + "/");
+                            try
+                            {
+                                string appPath = Application.StartupPath;
+                                string dataPath = System.IO.Path.Combine(appPath, "Learn.dat");
+                                string[] values = { gant_zpnt, gant_length, gant_fine_length, collim_zpnt, collim_length, collim_fine_length };
+                                //System.IO.File.WriteAllLines(dataPath, lines);
+                                HashPass.writeLearnJson(dataPath, values);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+                            }
+                            break;
+                        case "gnd":
+                            gnd = a.Substring(3, a.Length - 3);
+                            break;
+                        case "cld":
+                            cld = a.Substring(3, a.Length - 3);
+                            break;
+                        case "x1d":
+                            x1d = a.Substring(3, a.Length - 3);
+                            break;
+                        case "x2d":
+                            x2d = a.Substring(3, a.Length - 3);
+                            break;
+                        case "y1d":
+                            y1d = a.Substring(3, a.Length - 3);
+                            break;
+                        case "y2d":
+                            y2d = a.Substring(3, a.Length - 3);
+                            break;
+                        case "adc":
+                            adc = a.Substring(3, a.Length - 3);
+                            if (gant_set != gnd)
+                                write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
+                            if (collim_set != cld)
+                                write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
+                            if (x1_set != x1d)
+                                write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
+                            if (x2_set != x2d)
+                                write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
+                            if (y1_set != y1d)
+                                write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
+                            if (y2_set != y2d)
+                                write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
+                            if (quit == true)
+                            {
+                                ClosePort();
+                                Application.Exit();
+                                break;
+                            }
+                            break;
+                    }
+                }
+                catch
+                {
+                }
+            }
+        }
 
         private void picBtn_Exit_Click(object sender, EventArgs e)
         {
