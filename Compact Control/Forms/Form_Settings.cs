@@ -158,8 +158,9 @@ namespace Compact_Control
             if (ports.Length > 0)
             {
                 for (int i = 0; i < ports.Length; i++)
-                    comboBox_Ports.Items.Add(ports[0]);
-                comboBox_Ports.SelectedIndex = 0;
+                    comboBox_Ports.Items.Add(ports[i]);
+                //comboBox_Ports.SelectedIndex = 0;
+                comboBox_Ports.Text = Form1.portName;
                 comboBox_Baudrate.Text = Form1.curr_baudRate;
             }
             else

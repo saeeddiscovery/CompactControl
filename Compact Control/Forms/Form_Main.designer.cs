@@ -2117,6 +2117,7 @@
             this.textBox79.Name = "textBox79";
             this.textBox79.Size = new System.Drawing.Size(50, 24);
             this.textBox79.TabIndex = 30;
+            this.textBox79.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox80
             // 
@@ -2126,6 +2127,7 @@
             this.textBox80.Name = "textBox80";
             this.textBox80.Size = new System.Drawing.Size(50, 24);
             this.textBox80.TabIndex = 24;
+            this.textBox80.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox81
             // 
@@ -2135,6 +2137,7 @@
             this.textBox81.Name = "textBox81";
             this.textBox81.Size = new System.Drawing.Size(50, 24);
             this.textBox81.TabIndex = 42;
+            this.textBox81.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox82
             // 
@@ -2144,6 +2147,7 @@
             this.textBox82.Name = "textBox82";
             this.textBox82.Size = new System.Drawing.Size(50, 24);
             this.textBox82.TabIndex = 36;
+            this.textBox82.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox83
             // 
@@ -2153,6 +2157,7 @@
             this.textBox83.Name = "textBox83";
             this.textBox83.Size = new System.Drawing.Size(50, 24);
             this.textBox83.TabIndex = 18;
+            this.textBox83.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox84
             // 
@@ -2162,6 +2167,7 @@
             this.textBox84.Name = "textBox84";
             this.textBox84.Size = new System.Drawing.Size(50, 24);
             this.textBox84.TabIndex = 12;
+            this.textBox84.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox85
             // 
@@ -2171,6 +2177,7 @@
             this.textBox85.Name = "textBox85";
             this.textBox85.Size = new System.Drawing.Size(50, 24);
             this.textBox85.TabIndex = 29;
+            this.textBox85.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox86
             // 
@@ -2180,6 +2187,7 @@
             this.textBox86.Name = "textBox86";
             this.textBox86.Size = new System.Drawing.Size(50, 24);
             this.textBox86.TabIndex = 23;
+            this.textBox86.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox87
             // 
@@ -2189,6 +2197,7 @@
             this.textBox87.Name = "textBox87";
             this.textBox87.Size = new System.Drawing.Size(50, 24);
             this.textBox87.TabIndex = 41;
+            this.textBox87.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox88
             // 
@@ -2198,6 +2207,7 @@
             this.textBox88.Name = "textBox88";
             this.textBox88.Size = new System.Drawing.Size(50, 24);
             this.textBox88.TabIndex = 35;
+            this.textBox88.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox89
             // 
@@ -2207,6 +2217,7 @@
             this.textBox89.Name = "textBox89";
             this.textBox89.Size = new System.Drawing.Size(50, 24);
             this.textBox89.TabIndex = 17;
+            this.textBox89.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox90
             // 
@@ -2216,6 +2227,7 @@
             this.textBox90.Name = "textBox90";
             this.textBox90.Size = new System.Drawing.Size(50, 24);
             this.textBox90.TabIndex = 11;
+            this.textBox90.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // label52
             // 
@@ -2245,6 +2257,7 @@
             this.textBox55.Name = "textBox55";
             this.textBox55.Size = new System.Drawing.Size(50, 24);
             this.textBox55.TabIndex = 28;
+            this.textBox55.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox56
             // 
@@ -2254,6 +2267,7 @@
             this.textBox56.Name = "textBox56";
             this.textBox56.Size = new System.Drawing.Size(50, 24);
             this.textBox56.TabIndex = 22;
+            this.textBox56.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox57
             // 
@@ -2263,6 +2277,7 @@
             this.textBox57.Name = "textBox57";
             this.textBox57.Size = new System.Drawing.Size(50, 24);
             this.textBox57.TabIndex = 40;
+            this.textBox57.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox58
             // 
@@ -2272,6 +2287,7 @@
             this.textBox58.Name = "textBox58";
             this.textBox58.Size = new System.Drawing.Size(50, 24);
             this.textBox58.TabIndex = 34;
+            this.textBox58.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox59
             // 
@@ -2281,6 +2297,7 @@
             this.textBox59.Name = "textBox59";
             this.textBox59.Size = new System.Drawing.Size(50, 24);
             this.textBox59.TabIndex = 16;
+            this.textBox59.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox60
             // 
@@ -2290,6 +2307,7 @@
             this.textBox60.Name = "textBox60";
             this.textBox60.Size = new System.Drawing.Size(50, 24);
             this.textBox60.TabIndex = 10;
+            this.textBox60.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox61
             // 
@@ -2299,6 +2317,7 @@
             this.textBox61.Name = "textBox61";
             this.textBox61.Size = new System.Drawing.Size(50, 24);
             this.textBox61.TabIndex = 27;
+            this.textBox61.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             // 
             // textBox62
             // 
@@ -2308,6 +2327,7 @@
             this.textBox62.Name = "textBox62";
             this.textBox62.Size = new System.Drawing.Size(50, 24);
             this.textBox62.TabIndex = 21;
+            this.textBox62.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             // 
             // textBox63
             // 
@@ -2317,6 +2337,7 @@
             this.textBox63.Name = "textBox63";
             this.textBox63.Size = new System.Drawing.Size(50, 24);
             this.textBox63.TabIndex = 39;
+            this.textBox63.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             // 
             // textBox64
             // 
@@ -2326,6 +2347,7 @@
             this.textBox64.Name = "textBox64";
             this.textBox64.Size = new System.Drawing.Size(50, 24);
             this.textBox64.TabIndex = 33;
+            this.textBox64.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             // 
             // textBox77
             // 
@@ -2335,6 +2357,7 @@
             this.textBox77.Name = "textBox77";
             this.textBox77.Size = new System.Drawing.Size(50, 24);
             this.textBox77.TabIndex = 15;
+            this.textBox77.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             // 
             // textBox78
             // 
@@ -2344,6 +2367,7 @@
             this.textBox78.Name = "textBox78";
             this.textBox78.Size = new System.Drawing.Size(50, 24);
             this.textBox78.TabIndex = 9;
+            this.textBox78.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             // 
             // label49
             // 
@@ -2373,6 +2397,7 @@
             this.textBox65.Name = "textBox65";
             this.textBox65.Size = new System.Drawing.Size(50, 24);
             this.textBox65.TabIndex = 26;
+            this.textBox65.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             // 
             // textBox66
             // 
@@ -2382,6 +2407,7 @@
             this.textBox66.Name = "textBox66";
             this.textBox66.Size = new System.Drawing.Size(50, 24);
             this.textBox66.TabIndex = 20;
+            this.textBox66.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             // 
             // textBox67
             // 
@@ -2391,6 +2417,7 @@
             this.textBox67.Name = "textBox67";
             this.textBox67.Size = new System.Drawing.Size(50, 24);
             this.textBox67.TabIndex = 38;
+            this.textBox67.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             // 
             // textBox68
             // 
@@ -2400,6 +2427,7 @@
             this.textBox68.Name = "textBox68";
             this.textBox68.Size = new System.Drawing.Size(50, 24);
             this.textBox68.TabIndex = 32;
+            this.textBox68.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             // 
             // textBox69
             // 
@@ -2409,6 +2437,7 @@
             this.textBox69.Name = "textBox69";
             this.textBox69.Size = new System.Drawing.Size(50, 24);
             this.textBox69.TabIndex = 14;
+            this.textBox69.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             // 
             // textBox70
             // 
@@ -2418,6 +2447,7 @@
             this.textBox70.Name = "textBox70";
             this.textBox70.Size = new System.Drawing.Size(50, 24);
             this.textBox70.TabIndex = 8;
+            this.textBox70.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             // 
             // textBox71
             // 
@@ -2427,6 +2457,7 @@
             this.textBox71.Name = "textBox71";
             this.textBox71.Size = new System.Drawing.Size(50, 24);
             this.textBox71.TabIndex = 25;
+            this.textBox71.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             // 
             // textBox72
             // 
@@ -2436,6 +2467,7 @@
             this.textBox72.Name = "textBox72";
             this.textBox72.Size = new System.Drawing.Size(50, 24);
             this.textBox72.TabIndex = 19;
+            this.textBox72.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             // 
             // textBox73
             // 
@@ -2445,6 +2477,7 @@
             this.textBox73.Name = "textBox73";
             this.textBox73.Size = new System.Drawing.Size(50, 24);
             this.textBox73.TabIndex = 37;
+            this.textBox73.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             // 
             // textBox74
             // 
@@ -2454,6 +2487,7 @@
             this.textBox74.Name = "textBox74";
             this.textBox74.Size = new System.Drawing.Size(50, 24);
             this.textBox74.TabIndex = 31;
+            this.textBox74.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             // 
             // textBox75
             // 
@@ -2463,6 +2497,7 @@
             this.textBox75.Name = "textBox75";
             this.textBox75.Size = new System.Drawing.Size(50, 24);
             this.textBox75.TabIndex = 13;
+            this.textBox75.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             // 
             // textBox76
             // 
@@ -2472,6 +2507,8 @@
             this.textBox76.Name = "textBox76";
             this.textBox76.Size = new System.Drawing.Size(50, 24);
             this.textBox76.TabIndex = 7;
+            this.textBox76.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
+            this.textBox76.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // label53
             // 

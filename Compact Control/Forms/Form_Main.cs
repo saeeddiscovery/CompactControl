@@ -11,6 +11,7 @@ using Microsoft.Win32;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 
 namespace Compact_Control
 {
@@ -1943,6 +1944,49 @@ namespace Compact_Control
             }
         }
 
+        private void textBox76_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar) || e.KeyChar == '.' && ((sender as TextBox).Text.IndexOf('.') == -1))
+            {
+                if (Regex.IsMatch((sender as TextBox).Text, "^\\d*\\.\\d{2}$")) e.Handled = true;
+            }
+            else e.Handled = e.KeyChar != (char)Keys.Back;
+        }
+
+        private void Validate_Text_tol(object sender, CancelEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb != null)
+            {
+                float f;
+                if (float.TryParse(tb.Text, out f))
+                {
+                    if (Regex.IsMatch((sender as TextBox).Text, "^\\d*\\.\\d{2}$"))
+                        return;
+                }
+            }
+            MessageBox.Show("Invalid input\nValue must be a number with maximum 2 decimal places");
+            tb.SelectAll();
+            e.Cancel = true;
+        }
+
+        private void Validate_Text_V(object sender, CancelEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb != null)
+            {
+                int i;
+                if (int.TryParse(tb.Text, out i))
+                {
+                    if (i >= 0 && i < 128)
+                        return;
+                }
+            }
+            MessageBox.Show("Invalid input\nValue must be a number between 0 and 127");
+            tb.SelectAll();
+            e.Cancel = true;
+        }
+
         private void picBtn_Exit_Click(object sender, EventArgs e)
         {
             quit = true;
@@ -1998,6 +2042,7 @@ namespace Compact_Control
                     GlobalSerialPort.PortName = ports[0];
                     ClientControls.curr_port = ports[0];
                 }
+                portName = GlobalSerialPort.PortName;
 
                 int BaudRate = 0;
                 if (int.TryParse(HashPass.ReadBaudRateFromReg(), out BaudRate) == true && BaudRate != 0)
