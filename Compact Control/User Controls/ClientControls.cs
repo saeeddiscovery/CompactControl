@@ -185,21 +185,21 @@ namespace Compact_Control
                          double.Parse(gant_zpnt) + double.Parse(gant_length) + double.Parse(gant_fine_length) +
                          double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length);
 
-                serialPort1.Write("w");
-                serialPort1.Write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
-                serialPort1.Write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
-                serialPort1.Write(gant_tol0_t + "/" + gant_tol1_t + "/" + gant_tol2_t + "/");
-                serialPort1.Write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
-                serialPort1.Write(collim_tol0_t + "/" + collim_tol1_t + "/" + collim_tol2_t + "/");
-                serialPort1.Write(collim_v1 + "/" + collim_v2 + "/" + collim_v3 + "/");
-                serialPort1.Write(x1_tol0_t + "/" + x1_tol1_t + "/" + x1_tol2_t + "/");
-                serialPort1.Write(x1_v1 + "/" + x1_v2 + "/" + x1_v3 + "/");
-                serialPort1.Write(x2_tol0_t + "/" + x2_tol1_t + "/" + x2_tol2_t + "/");
-                serialPort1.Write(x2_v1 + "/" + x2_v2 + "/" + x2_v3 + "/");
-                serialPort1.Write(y1_tol0_t + "/" + y1_tol1_t + "/" + y1_tol2_t + "/");
-                serialPort1.Write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
-                serialPort1.Write(y2_tol0_t + "/" + y2_tol1_t + "/" + y2_tol2_t + "/");
-                serialPort1.Write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
+                write("w");
+                write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
+                write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
+                write(gant_tol0_t + "/" + gant_tol1_t + "/" + gant_tol2_t + "/");
+                write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
+                write(collim_tol0_t + "/" + collim_tol1_t + "/" + collim_tol2_t + "/");
+                write(collim_v1 + "/" + collim_v2 + "/" + collim_v3 + "/");
+                write(x1_tol0_t + "/" + x1_tol1_t + "/" + x1_tol2_t + "/");
+                write(x1_v1 + "/" + x1_v2 + "/" + x1_v3 + "/");
+                write(x2_tol0_t + "/" + x2_tol1_t + "/" + x2_tol2_t + "/");
+                write(x2_v1 + "/" + x2_v2 + "/" + x2_v3 + "/");
+                write(y1_tol0_t + "/" + y1_tol1_t + "/" + y1_tol2_t + "/");
+                write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
+                write(y2_tol0_t + "/" + y2_tol1_t + "/" + y2_tol2_t + "/");
+                write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
                 return true;
 
             }
@@ -230,11 +230,27 @@ namespace Compact_Control
 
         private double y1dv, y2dv, xa, x1dv, x2dv, ya;
 
+        private void btn_clearTerminal_Click(object sender, EventArgs e)
+        {
+            tb_terminal_out.Clear();
+        }
+
+        private void btn_clearTerminal_in_Click(object sender, EventArgs e)
+        {
+            tb_terminal_in.Clear();
+        }
+
+        public void write(string data)
+        {
+            serialPort1.Write(data);
+            tb_terminal_out.AppendText(data + Environment.NewLine);
+        }
+
         public double ourSum = 0;
         private bool checkSum(double microSum, double ourSum)
         {
             bool equal = false;
-            if (microSum == ourSum)
+            if (microSum == ourSum)tb_terminal_out.Clear();
                 equal = true;
             return equal;
         }
@@ -246,6 +262,7 @@ namespace Compact_Control
                     return;
                 string currData = receiveQ.Dequeue();
                 string[] lines = currData.Split('\n');
+                tb_terminal_in.AppendText(currData + Environment.NewLine);
                 foreach (string a in lines)
                 {
                     switch (a.Substring(0, 3))
@@ -259,12 +276,12 @@ namespace Compact_Control
                             string microSum = a.Substring(3, a.Length - 3);
                             if (checkSum(double.Parse(microSum), ourSum) == true)
                             {
-                                serialPort1.Write("{|}~");
+                                write("{|}~");
                                 Form1.initState = 1;
                             }
                             else
                             {
-                                //serialPort1.Write("$");
+                                //write("$");
                                 //sendParametersFlag = true;
                                 //sendParameters();
                             }
@@ -323,17 +340,17 @@ namespace Compact_Control
                                 Reading_Error.Text = "";
                             }
                             if (gant_set != gnd)
-                                serialPort1.Write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
+                                write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
                             if (collim_set != cld)
-                                serialPort1.Write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
+                                write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
                             if (x1_set != x1d)
-                                serialPort1.Write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
+                                write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
                             if (x2_set != x2d)
-                                serialPort1.Write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
+                                write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
                             if (y1_set != y1d)
-                                serialPort1.Write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
+                                write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
                             if (y2_set != y2d)
-                                serialPort1.Write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
+                                write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
                             break;
                     }
                     if (Class_PatientData.isBoardReadWrite)
