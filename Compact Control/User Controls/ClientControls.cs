@@ -251,12 +251,12 @@ namespace Compact_Control
                             string microSum = a.Substring(3, a.Length - 3);
                             if (checkSum(double.Parse(microSum), ourSum) == true)
                             {
-                                serialPort1.Write("|");
+                                serialPort1.Write("{|}~");
                                 Form1.initState = 1;
                             }
                             else
                             {
-                                serialPort1.Write("$");
+                                serialPort1.Write("$%&'");
                                 sendParametersFlag = true;
                                 //sendParameters();
                             }

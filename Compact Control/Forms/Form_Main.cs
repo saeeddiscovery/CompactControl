@@ -1331,7 +1331,6 @@ namespace Compact_Control
 
         private void button18_Click(object sender, EventArgs e)
         {
-
             button18.Enabled = false;
 
             if (GlobalSerialPort.IsOpen == false)
@@ -1494,7 +1493,7 @@ namespace Compact_Control
                          double.Parse(gant_zpnt) + double.Parse(gant_length) + double.Parse(gant_fine_length) +
                          double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length);
 
-                MessageBox.Show(ourSum.ToString());
+                //MessageBox.Show(ourSum.ToString());
                 write("w");
                 write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
                 write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
@@ -1661,12 +1660,12 @@ namespace Compact_Control
                             string microSum = a.Substring(3, a.Length - 3);
                             if (checkSum(double.Parse(microSum), ourSum) == true)
                             {
-                                write("|");
+                                write("{|}~");
                                 initState = 1;
                             }
                             else
                             {
-                                write("$");
+                                write("$%&'");
                                 sendParametersFlag = true;
                                 //sendParameters();
                             }
