@@ -424,10 +424,10 @@ namespace Compact_Control
                 //    MessageBox.Show("Parameters Save & Send successful!");
                 //}
             }
-            if (initState == 1)
-            {
-                timer2.Enabled = true;
-            }
+            //if (initState == 1)
+            //{
+            //    timer2.Enabled = true;
+            //}
 
 
             double m;
@@ -1395,6 +1395,13 @@ namespace Compact_Control
 
         private void ClosePort()
         {
+            if (GlobalSerialPort.IsOpen == true)
+            {
+                GlobalSerialPort.DiscardOutBuffer();
+                GlobalSerialPort.DiscardInBuffer();
+                GlobalSerialPort.Dispose();
+                GlobalSerialPort.Close();
+            }
             if (serialPort1.IsOpen == true)
             {
                 serialPort1.DiscardOutBuffer();
@@ -1408,13 +1415,6 @@ namespace Compact_Control
                 clientFrm.serialPort1.DiscardInBuffer();
                 clientFrm.serialPort1.Dispose();
                 clientFrm.serialPort1.Close();
-            }
-            if (GlobalSerialPort.IsOpen == true)
-            {
-                GlobalSerialPort.DiscardOutBuffer();
-                GlobalSerialPort.DiscardInBuffer();
-                GlobalSerialPort.Dispose();
-                GlobalSerialPort.Close();
             }
         }
 

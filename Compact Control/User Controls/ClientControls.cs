@@ -44,7 +44,8 @@ namespace Compact_Control
         public static string x2_tol0, x2_tol1, x2_tol2, x2_v1, x2_v2, x2_v3;
         public static string y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
         public static string y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
-        
+        bool sendParametersFlag = false;
+
         string x1_co;
         double x1_gain, x1_offset;
         string x1_dv = "0";
@@ -171,229 +172,131 @@ namespace Compact_Control
         }
 
         string[] microParameters = new string[42];
+        public Queue<string> receiveQ = new Queue<string>();
         public void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            string a = "";
+            string currReceived = serialPort1.ReadExisting();
+            receiveQ.Enqueue(currReceived);
+            //string a = "";
+            //try
+            //{
+            //    if (serialPort1.IsOpen)
+            //        a = serialPort1.ReadLine();
+            //}
+            //catch
+            //{                               
+            //}
+        }
+
+        private double y1dv, y2dv, xa, x1dv, x2dv, ya;
+        private bool checkSum(int microSum, int ourSum)
+        {
+            bool equal = false;
+            if (microSum == ourSum)
+                equal = true;
+            return equal;
+        }
+        private void timer3_Tick(object sender, EventArgs e)
+        {
             try
             {
-                if (serialPort1.IsOpen)
-                    a = serialPort1.ReadLine();
-            }
-            catch
-            {                               
-            }
-            try
-            {
-                switch (a.Substring(0, 3))
+                if (receiveQ.Count == 0)
+                    return;
+                string currData = receiveQ.Dequeue();
+                string[] lines = currData.Split('\n');
+                foreach (string a in lines)
                 {
-                    case "ini":
-                        Form1.initState = 0;
-                        sendParameters();
-                        break;
-                    case "c01":
-                        microParameters[0] = a.Substring(3, a.Length - 3); 
-                        break;
-                    case "c02":
-                        microParameters[1] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c03":
-                        microParameters[2] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c04":
-                        microParameters[3] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c05":
-                        microParameters[4] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c06":
-                        microParameters[5] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c07":
-                        microParameters[6] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c08":
-                        microParameters[7] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c09":
-                        microParameters[8] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c10":
-                        microParameters[9] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c11":
-                        microParameters[10] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c12":
-                        microParameters[11] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c13":
-                        microParameters[12] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c14":
-                        microParameters[13] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c15":
-                        microParameters[14] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c16":
-                        microParameters[15] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c17":
-                        microParameters[16] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c18":
-                        microParameters[17] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c19":
-                        microParameters[18] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c20":
-                        microParameters[19] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c21":
-                        microParameters[20] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c22":
-                        microParameters[21] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c23":
-                        microParameters[22] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c24":
-                        microParameters[23] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c25":
-                        microParameters[24] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c26":
-                        microParameters[25] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c27":
-                        microParameters[26] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c28":
-                        microParameters[27] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c29":
-                        microParameters[28] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c30":
-                        microParameters[29] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c31":
-                        microParameters[30] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c32":
-                        microParameters[31] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c33":
-                        microParameters[32] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c34":
-                        microParameters[33] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c35":
-                        microParameters[34] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c36":
-                        microParameters[35] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c37":
-                        microParameters[36] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c38":
-                        microParameters[37] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c39":
-                        microParameters[38] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c40":
-                        microParameters[39] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c41":
-                        microParameters[40] = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c42":
-                        microParameters[41] = a.Substring(3, a.Length - 3);
-                        if (compareParameters(microParameters, ourParameters) == true)
-                        {
-                            serialPort1.Write("/");
-                            Form1.initState = 1;
-                        }
-                        else
-                        {
-                            Form1.initState = 2;
-                        }
-                        break;
-                    case "gfn":
-                        gant_cofin = a.Substring(3, a.Length - 3);
-                        break;
-                    case "cfn":
-                        collim_cofin = a.Substring(3, a.Length - 3);
-                        break;
-                    case "wco":
-                        x1_co = a.Substring(3, a.Length - 3);
-                        break;
-                    case "xco":
-                        x2_co = a.Substring(3, a.Length - 3);
-                        break;
-                    case "yco":
-                        y1_co = a.Substring(3, a.Length - 3);
-                        break;
-                    case "zco":
-                        y2_co = a.Substring(3, a.Length - 3);                     
-                        break;                    
-                    case "gnd":
-                        gnd = a.Substring(3, a.Length - 3);
-                        break;
-                    case "cld":
-                        cld = a.Substring(3, a.Length - 3);
-                        break;
-                    case "x1d":
-                        x1d = a.Substring(3, a.Length - 3);
-                        break;
-                    case "x2d":
-                        x2d = a.Substring(3, a.Length - 3);
-                        break;
-                    case "y1d":
-                        y1d = a.Substring(3, a.Length - 3);
-                        break;
-                    case "y2d":
-                        y2d = a.Substring(3, a.Length - 3);
-                        break;
-                    case "adc":
-                        adc = a.Substring(3, a.Length - 3);
-                        //adc = "1999";
-                        if (int.Parse(adc) < 2000 || int.Parse(adc) > 2100)
-                        {
-                            gant_set = "0";
-                            collim_set = "0";
-                            x1_set = "0";
-                            x2_set = "0";
-                            y1_set = "0";
-                            y2_set = "0";
-                            Reading_Error.Text = "Reading Error";                          
-                        }
-                        else
-                        {
-                            Reading_Error.Text="";
-                        }
-                        if (gant_set != gnd)
-                            serialPort1.Write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
-                        if (collim_set!=cld)
-                            serialPort1.Write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
-                        if (x1_set!=x1d)
-                            serialPort1.Write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
-                        if(x2_set!=x2d)
-                            serialPort1.Write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
-                        if(y1_set!=y1d)
-                            serialPort1.Write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
-                        if (y2_set!=y2d)
-                            serialPort1.Write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
-                        break;
-                }
-                if (Class_PatientData.isBoardReadWrite)
-                {
+                    switch (a.Substring(0, 3))
+                    {
+                        case "ini":
+                            Form1.initState = 0;
+                            sendParametersFlag = true;
+                            //sendParameters();
+                            break;
+                        case "sum":
+                            string microSum = a.Substring(3, a.Length - 3);
+                            if (checkSum(int.Parse(microSum), Form1.ourSum) == true)
+                            {
+                                serialPort1.Write(".");
+                                Form1.initState = 1;
+                            }
+                            else
+                            {
+                                serialPort1.Write("$");
+                                sendParametersFlag = true;
+                                //sendParameters();
+                            }
+                            break;
+                        case "gfn":
+                            gant_cofin = a.Substring(3, a.Length - 3);
+                            break;
+                        case "cfn":
+                            collim_cofin = a.Substring(3, a.Length - 3);
+                            break;
+                        case "wco":
+                            x1_co = a.Substring(3, a.Length - 3);
+                            break;
+                        case "xco":
+                            x2_co = a.Substring(3, a.Length - 3);
+                            break;
+                        case "yco":
+                            y1_co = a.Substring(3, a.Length - 3);
+                            break;
+                        case "zco":
+                            y2_co = a.Substring(3, a.Length - 3);
+                            break;
+                        case "gnd":
+                            gnd = a.Substring(3, a.Length - 3);
+                            break;
+                        case "cld":
+                            cld = a.Substring(3, a.Length - 3);
+                            break;
+                        case "x1d":
+                            x1d = a.Substring(3, a.Length - 3);
+                            break;
+                        case "x2d":
+                            x2d = a.Substring(3, a.Length - 3);
+                            break;
+                        case "y1d":
+                            y1d = a.Substring(3, a.Length - 3);
+                            break;
+                        case "y2d":
+                            y2d = a.Substring(3, a.Length - 3);
+                            break;
+                        case "adc":
+                            adc = a.Substring(3, a.Length - 3);
+                            //adc = "1999";
+                            if (int.Parse(adc) < 2000 || int.Parse(adc) > 2100)
+                            {
+                                gant_set = "0";
+                                collim_set = "0";
+                                x1_set = "0";
+                                x2_set = "0";
+                                y1_set = "0";
+                                y2_set = "0";
+                                Reading_Error.Text = "Reading Error";
+                            }
+                            else
+                            {
+                                Reading_Error.Text = "";
+                            }
+                            if (gant_set != gnd)
+                                serialPort1.Write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
+                            if (collim_set != cld)
+                                serialPort1.Write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
+                            if (x1_set != x1d)
+                                serialPort1.Write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
+                            if (x2_set != x2d)
+                                serialPort1.Write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
+                            if (y1_set != y1d)
+                                serialPort1.Write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
+                            if (y2_set != y2d)
+                                serialPort1.Write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
+                            break;
+                    }
+                    if (Class_PatientData.isBoardReadWrite)
+                    {
+                    }
                 }
             }
             catch
@@ -401,9 +304,17 @@ namespace Compact_Control
             }
         }
 
-        private double y1dv, y2dv, xa, x1dv, x2dv, ya;
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (sendParametersFlag == true)
+            {
+                sendParametersFlag = false;
+                sendParameters();
+                //if (sendParameters() == true)
+                //{
+                //    MessageBox.Show("Parameters Save & Send successful!");
+                //}
+            }
             if (gant_gain == 0 || double.IsNaN(gant_gain))
             {
                 try
