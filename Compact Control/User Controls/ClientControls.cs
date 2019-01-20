@@ -176,6 +176,12 @@ namespace Compact_Control
                          double.Parse(x2_tol0_t) + double.Parse(x2_tol1_t) + double.Parse(x2_tol2_t) +
                          double.Parse(y1_tol0_t) + double.Parse(y1_tol1_t) + double.Parse(y1_tol2_t) +
                          double.Parse(y2_tol0_t) + double.Parse(y2_tol1_t) + double.Parse(y2_tol2_t) +
+                         double.Parse(gant_v1) + double.Parse(gant_v2) + double.Parse(gant_v3) +
+                         double.Parse(collim_v1) + double.Parse(collim_v2) + double.Parse(collim_v3) +
+                         double.Parse(x1_v1) + double.Parse(x1_v2) + double.Parse(x1_v3) +
+                         double.Parse(x2_v1) + double.Parse(x2_v2) + double.Parse(x2_v3) +
+                         double.Parse(y1_v1) + double.Parse(y1_v2) + double.Parse(y1_v3) +
+                         double.Parse(y2_v1) + double.Parse(y2_v2) + double.Parse(y2_v3) +
                          double.Parse(gant_zpnt) + double.Parse(gant_length) + double.Parse(gant_fine_length) +
                          double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length);
 
