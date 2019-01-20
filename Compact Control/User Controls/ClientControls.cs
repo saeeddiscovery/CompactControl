@@ -45,6 +45,7 @@ namespace Compact_Control
         public static string y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
         public static string y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
         bool sendParametersFlag = false;
+        bool sendParametersFlag_again = false;
 
         string x1_co;
         public static double x1_gain, x1_offset;
@@ -222,6 +223,16 @@ namespace Compact_Control
         }
 
         private double y1dv, y2dv, xa, x1dv, x2dv, ya;
+
+        private void timer4_Tick(object sender, EventArgs e)
+        {
+            if (sendParametersFlag_again == true)
+            {
+                sendParametersFlag_again = false;
+                sendParameters();
+            }
+        }
+
         public double ourSum = 0;
         private bool checkSum(double microSum, double ourSum)
         {
@@ -245,6 +256,7 @@ namespace Compact_Control
                         case "ini":
                             Form1.initState = 0;
                             sendParametersFlag = true;
+                            timer4.Enabled = true;
                             //sendParameters();
                             break;
                         case "sum":
@@ -253,11 +265,12 @@ namespace Compact_Control
                             {
                                 serialPort1.Write("{|}~");
                                 Form1.initState = 1;
+                                timer4.Enabled = false;
                             }
                             else
                             {
-                                serialPort1.Write("$%&'");
-                                sendParametersFlag = true;
+                                serialPort1.Write("$");
+                                sendParametersFlag_again = true;
                                 //sendParameters();
                             }
                             break;
