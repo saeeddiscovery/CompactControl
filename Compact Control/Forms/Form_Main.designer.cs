@@ -264,7 +264,6 @@
             this.panel_ClientControls = new System.Windows.Forms.Panel();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -2973,12 +2972,6 @@
             this.timer3.Interval = 5;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
-            // timer4
-            // 
-            this.timer4.Enabled = true;
-            this.timer4.Interval = 1500;
-            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3305,7 +3298,6 @@
         private System.Windows.Forms.TextBox tb_terminal_in;
         private System.Windows.Forms.Button btn_clearTerminal_in;
         private System.Windows.Forms.Timer timer3;
-        private System.Windows.Forms.Timer timer4;
     }
 }
 
