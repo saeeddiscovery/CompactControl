@@ -1479,6 +1479,22 @@ namespace Compact_Control
                 string y2_tol1_t = Math.Round(Math.Abs((double.Parse(y2_tol1) - y2_offset) / y2_gain)).ToString();
                 string y2_tol2_t = Math.Round(Math.Abs((double.Parse(y2_tol2) - y2_offset) / y2_gain)).ToString();
 
+                ourSum = double.Parse(gant_tol0_t) + double.Parse(gant_tol1_t) + double.Parse(gant_tol2_t) +
+                         double.Parse(collim_tol0_t) + double.Parse(collim_tol1_t) + double.Parse(collim_tol2_t) +
+                         double.Parse(x1_tol0_t) + double.Parse(x1_tol1_t) + double.Parse(x1_tol2_t) +
+                         double.Parse(x2_tol0_t) + double.Parse(x2_tol1_t) + double.Parse(x2_tol2_t) +
+                         double.Parse(y1_tol0_t) + double.Parse(y1_tol1_t) + double.Parse(y1_tol2_t) +
+                         double.Parse(y2_tol0_t) + double.Parse(y2_tol1_t) + double.Parse(y2_tol2_t) +
+                         double.Parse(gant_v1) + double.Parse(gant_v2) + double.Parse(gant_v3) +
+                         double.Parse(collim_v1) + double.Parse(collim_v2) + double.Parse(collim_v3) +
+                         double.Parse(x1_v1) + double.Parse(x1_v2) + double.Parse(x1_v3) +
+                         double.Parse(x2_v1) + double.Parse(x2_v2) + double.Parse(x2_v3) +
+                         double.Parse(y1_v1) + double.Parse(y1_v2) + double.Parse(y1_v3) +
+                         double.Parse(y2_v1) + double.Parse(y2_v2) + double.Parse(y2_v3) +
+                         double.Parse(gant_zpnt) + double.Parse(gant_length) + double.Parse(gant_fine_length) +
+                         double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length);
+
+                MessageBox.Show(ourSum.ToString());
                 write("w");
                 write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
                 write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
@@ -1645,7 +1661,7 @@ namespace Compact_Control
                             string microSum = a.Substring(3, a.Length - 3);
                             if (checkSum(double.Parse(microSum), ourSum) == true)
                             {
-                                write(".");
+                                write("|");
                                 initState = 1;
                             }
                             else
@@ -1985,7 +2001,9 @@ namespace Compact_Control
                 float f;
                 if (float.TryParse(tb.Text, out f))
                 {
-                    if (Regex.IsMatch((sender as TextBox).Text, "^\\d*\\.\\d{2}$"))
+                    if ((Regex.IsMatch((sender as TextBox).Text, "^\\d*\\.\\d{2}$")) ||
+                        (Regex.IsMatch((sender as TextBox).Text, "^\\d*\\.\\d{1}$")) ||
+                        (Regex.IsMatch((sender as TextBox).Text, "^\\d*$")))
                         return;
                 }
             }
@@ -2275,11 +2293,11 @@ namespace Compact_Control
                     Array.Copy(prms, 0, ourParams, 6, prms.Length);
                     ourParameters = ourParams;
                     ClientControls.ourParameters = ourParams;
-                    ourSum = 0;
-                    foreach (string param in ourParams)
-                    {
-                        ourSum = ourSum + double.Parse(param);
-                    }
+                    //ourSum = 0;
+                    //foreach (string param in ourParams)
+                    //{
+                    //    ourSum = ourSum + double.Parse(param);
+                    //}
                     //ClientControls.sendParametersFlag = true;
                 }
                 catch(Exception ex)
@@ -2622,11 +2640,11 @@ namespace Compact_Control
                 Array.Copy(values, 0, ourParams, 6, values.Length);
                 ourParameters = ourParams;
                 ClientControls.ourParameters = ourParams;
-                ourSum = 0;
-                foreach (string param in ourParams)
-                {
-                    ourSum = ourSum + double.Parse(param);
-                }
+                //ourSum = 0;
+                //foreach (string param in ourParams)
+                //{
+                //    ourSum = ourSum + double.Parse(param);
+                //}
                 sendParametersFlag = true;
             }
             catch(Exception ex)

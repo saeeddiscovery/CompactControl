@@ -2318,6 +2318,7 @@
             this.textBox61.Size = new System.Drawing.Size(50, 24);
             this.textBox61.TabIndex = 27;
             this.textBox61.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
+            this.textBox61.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox62
             // 
@@ -2328,6 +2329,7 @@
             this.textBox62.Size = new System.Drawing.Size(50, 24);
             this.textBox62.TabIndex = 21;
             this.textBox62.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
+            this.textBox62.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox63
             // 
@@ -2338,6 +2340,7 @@
             this.textBox63.Size = new System.Drawing.Size(50, 24);
             this.textBox63.TabIndex = 39;
             this.textBox63.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
+            this.textBox63.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox64
             // 
@@ -2348,6 +2351,7 @@
             this.textBox64.Size = new System.Drawing.Size(50, 24);
             this.textBox64.TabIndex = 33;
             this.textBox64.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
+            this.textBox64.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox77
             // 
@@ -2358,6 +2362,7 @@
             this.textBox77.Size = new System.Drawing.Size(50, 24);
             this.textBox77.TabIndex = 15;
             this.textBox77.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
+            this.textBox77.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox78
             // 
@@ -2368,6 +2373,7 @@
             this.textBox78.Size = new System.Drawing.Size(50, 24);
             this.textBox78.TabIndex = 9;
             this.textBox78.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
+            this.textBox78.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // label49
             // 
@@ -2398,6 +2404,7 @@
             this.textBox65.Size = new System.Drawing.Size(50, 24);
             this.textBox65.TabIndex = 26;
             this.textBox65.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
+            this.textBox65.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox66
             // 
@@ -2408,6 +2415,7 @@
             this.textBox66.Size = new System.Drawing.Size(50, 24);
             this.textBox66.TabIndex = 20;
             this.textBox66.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
+            this.textBox66.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox67
             // 
@@ -2418,6 +2426,7 @@
             this.textBox67.Size = new System.Drawing.Size(50, 24);
             this.textBox67.TabIndex = 38;
             this.textBox67.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
+            this.textBox67.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox68
             // 
@@ -2428,6 +2437,7 @@
             this.textBox68.Size = new System.Drawing.Size(50, 24);
             this.textBox68.TabIndex = 32;
             this.textBox68.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
+            this.textBox68.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox69
             // 
@@ -2438,6 +2448,7 @@
             this.textBox69.Size = new System.Drawing.Size(50, 24);
             this.textBox69.TabIndex = 14;
             this.textBox69.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
+            this.textBox69.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox70
             // 
@@ -2448,6 +2459,7 @@
             this.textBox70.Size = new System.Drawing.Size(50, 24);
             this.textBox70.TabIndex = 8;
             this.textBox70.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
+            this.textBox70.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox71
             // 
@@ -2458,6 +2470,7 @@
             this.textBox71.Size = new System.Drawing.Size(50, 24);
             this.textBox71.TabIndex = 25;
             this.textBox71.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
+            this.textBox71.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox72
             // 
@@ -2468,6 +2481,7 @@
             this.textBox72.Size = new System.Drawing.Size(50, 24);
             this.textBox72.TabIndex = 19;
             this.textBox72.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
+            this.textBox72.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox73
             // 
@@ -2478,6 +2492,7 @@
             this.textBox73.Size = new System.Drawing.Size(50, 24);
             this.textBox73.TabIndex = 37;
             this.textBox73.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
+            this.textBox73.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox74
             // 
@@ -2488,6 +2503,7 @@
             this.textBox74.Size = new System.Drawing.Size(50, 24);
             this.textBox74.TabIndex = 31;
             this.textBox74.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
+            this.textBox74.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox75
             // 
@@ -2498,6 +2514,7 @@
             this.textBox75.Size = new System.Drawing.Size(50, 24);
             this.textBox75.TabIndex = 13;
             this.textBox75.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
+            this.textBox75.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox76
             // 
@@ -2952,6 +2969,7 @@
             // timer3
             // 
             this.timer3.Enabled = true;
+            this.timer3.Interval = 5;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // Form1
