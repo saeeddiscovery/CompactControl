@@ -1438,7 +1438,7 @@ namespace Compact_Control
         //public bool compareData(string microParam, string ourParam)
         //{
         //    bool equal = true;
-        //    if (int.Parse(microParam) != int.Parse(ourParam))
+        //    if (double.Parse(microParam) != double.Parse(ourParam))
         //    {
         //        equal = false;
         //        write("$");
@@ -1455,20 +1455,44 @@ namespace Compact_Control
         {
             try
             {
+                string gant_tol0_t = Math.Round(Math.Abs((double.Parse(gant_tol0) - gant_offset) / gant_gain)).ToString();
+                string gant_tol1_t = Math.Round(Math.Abs((double.Parse(gant_tol1) - gant_offset) / gant_gain)).ToString();
+                string gant_tol2_t = Math.Round(Math.Abs((double.Parse(gant_tol2) - gant_offset) / gant_gain)).ToString();
+                 
+                string collim_tol0_t = Math.Round(Math.Abs((double.Parse(collim_tol0) - collim_offset) / collim_gain)).ToString();
+                string collim_tol1_t = Math.Round(Math.Abs((double.Parse(collim_tol1) - collim_offset) / collim_gain)).ToString();
+                string collim_tol2_t = Math.Round(Math.Abs((double.Parse(collim_tol2) - collim_offset) / collim_gain)).ToString();
+                
+                string x1_tol0_t = Math.Round(Math.Abs((double.Parse(x1_tol0) - x1_offset) / x1_gain)).ToString();
+                string x1_tol1_t = Math.Round(Math.Abs((double.Parse(x1_tol1) - x1_offset) / x1_gain)).ToString();
+                string x1_tol2_t = Math.Round(Math.Abs((double.Parse(x1_tol2) - x1_offset) / x1_gain)).ToString();
+                                                                                          
+                string x2_tol0_t = Math.Round(Math.Abs((double.Parse(x2_tol0) - x2_offset) / x2_gain)).ToString();
+                string x2_tol1_t = Math.Round(Math.Abs((double.Parse(x2_tol1) - x2_offset) / x2_gain)).ToString();
+                string x2_tol2_t = Math.Round(Math.Abs((double.Parse(x2_tol2) - x2_offset) / x2_gain)).ToString();
+                                                                                          
+                string y1_tol0_t = Math.Round(Math.Abs((double.Parse(y1_tol0) - y1_offset) / y1_gain)).ToString();
+                string y1_tol1_t = Math.Round(Math.Abs((double.Parse(y1_tol1) - y1_offset) / y1_gain)).ToString();
+                string y1_tol2_t = Math.Round(Math.Abs((double.Parse(y1_tol2) - y1_offset) / y1_gain)).ToString();
+                                                                                          
+                string y2_tol0_t = Math.Round(Math.Abs((double.Parse(y2_tol0) - y2_offset) / y2_gain)).ToString();
+                string y2_tol1_t = Math.Round(Math.Abs((double.Parse(y2_tol1) - y2_offset) / y2_gain)).ToString();
+                string y2_tol2_t = Math.Round(Math.Abs((double.Parse(y2_tol2) - y2_offset) / y2_gain)).ToString();
+
                 write("w");
                 write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
                 write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
-                write(gant_tol0 + "/" + gant_tol1 + "/" + gant_tol2 + "/");
+                write(gant_tol0_t + "/" + gant_tol1_t + "/" + gant_tol2_t + "/");
                 write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
-                write(collim_tol0 + "/" + collim_tol1 + "/" + collim_tol2 + "/");
+                write(collim_tol0_t + "/" + collim_tol1_t + "/" + collim_tol2_t + "/");
                 write(collim_v1 + "/" + collim_v2 + "/" + collim_v3 + "/");
-                write(x1_tol0 + "/" + x1_tol1 + "/" + x1_tol2 + "/");
+                write(x1_tol0_t + "/" + x1_tol1_t + "/" + x1_tol2_t + "/");
                 write(x1_v1 + "/" + x1_v2 + "/" + x1_v3 + "/");
-                write(x2_tol0 + "/" + x2_tol1 + "/" + x2_tol2 + "/");
+                write(x2_tol0_t + "/" + x2_tol1_t + "/" + x2_tol2_t + "/");
                 write(x2_v1 + "/" + x2_v2 + "/" + x2_v3 + "/");
-                write(y1_tol0 + "/" + y1_tol1 + "/" + y1_tol2 + "/");
+                write(y1_tol0_t + "/" + y1_tol1_t + "/" + y1_tol2_t + "/");
                 write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
-                write(y2_tol0 + "/" + y2_tol1 + "/" + y2_tol2 + "/");
+                write(y2_tol0_t + "/" + y2_tol1_t + "/" + y2_tol2_t + "/");
                 write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
                 return true;
             }
@@ -1480,7 +1504,7 @@ namespace Compact_Control
             }
         }
 
-        private bool checkSum(int microSum, int ourSum)
+        private bool checkSum(double microSum, double ourSum)
         {
             bool equal = false;
             if (microSum == ourSum)
@@ -1619,7 +1643,7 @@ namespace Compact_Control
                             break;
                         case "sum":
                             string microSum = a.Substring(3, a.Length - 3);
-                            if (checkSum(int.Parse(microSum), ourSum) == true)
+                            if (checkSum(double.Parse(microSum), ourSum) == true)
                             {
                                 write(".");
                                 initState = 1;
@@ -2126,19 +2150,18 @@ namespace Compact_Control
                     //y2_offset = double.Parse(lines[11]);
 
                     HashPass.CalibData values = HashPass.readCalibJson(dataPath);
-                    gant_gain = double.Parse(values.gant_gain);
-                    gant_offset = double.Parse(values.gant_offset);
-                    collim_gain = double.Parse(values.collim_gain);
-                    collim_offset = double.Parse(values.collim_offset);
-                    x1_gain = double.Parse(values.x1_gain);
-                    x1_offset = double.Parse(values.x1_offset);
-                    x2_gain = double.Parse(values.x2_gain);
-                    x2_offset = double.Parse(values.x2_offset);
-                    y1_gain = double.Parse(values.y1_gain);
-                    y1_offset = double.Parse(values.y1_offset);
-                    y2_gain = double.Parse(values.y2_gain);
-                    y2_offset = double.Parse(values.y2_offset);
-
+                    ClientControls.gant_gain = gant_gain = double.Parse(values.gant_gain);
+                    ClientControls.gant_offset =gant_offset = double.Parse(values.gant_offset);
+                    ClientControls.collim_gain =collim_gain = double.Parse(values.collim_gain);
+                    ClientControls.collim_offset = collim_offset = double.Parse(values.collim_offset);
+                    ClientControls.x1_gain = x1_gain = double.Parse(values.x1_gain);
+                    ClientControls.x1_offset = x1_offset = double.Parse(values.x1_offset);
+                    ClientControls.x2_gain = x2_gain = double.Parse(values.x2_gain);
+                    ClientControls.x2_offset = x2_offset = double.Parse(values.x2_offset);
+                    ClientControls.y1_gain = y1_gain = double.Parse(values.y1_gain);
+                    ClientControls.y1_offset = y1_offset = double.Parse(values.y1_offset);
+                    ClientControls.y2_gain = y2_gain = double.Parse(values.y2_gain);
+                    ClientControls.y2_offset = y2_offset = double.Parse(values.y2_offset);
                 }
                 catch (Exception ex)
                 {
@@ -2166,12 +2189,12 @@ namespace Compact_Control
                     //collim_fine_length = lines[10];
                     
                     HashPass.LearnData values = HashPass.readLearnJson(dataPath);
-                    gant_zpnt = values.gant_zpnt;
-                    gant_length = values.gant_length;
-                    gant_fine_length = values.gant_fine_length;
-                    collim_zpnt = values.collim_zpnt;
-                    collim_length = values.collim_length;
-                    collim_fine_length = values.collim_fine_length;
+                    ClientControls.gant_zpnt = gant_zpnt = values.gant_zpnt;
+                    ClientControls.gant_length = gant_length = values.gant_length;
+                    ClientControls.gant_fine_length = gant_fine_length = values.gant_fine_length;
+                    ClientControls.collim_zpnt = collim_zpnt = values.collim_zpnt;
+                    ClientControls.collim_length = collim_length = values.collim_length;
+                    ClientControls.collim_fine_length = collim_fine_length = values.collim_fine_length;
                 }
                 catch (Exception ex)
                 {
@@ -2255,7 +2278,7 @@ namespace Compact_Control
                     ourSum = 0;
                     foreach (string param in ourParams)
                     {
-                        ourSum = ourSum + int.Parse(param);
+                        ourSum = ourSum + double.Parse(param);
                     }
                     //ClientControls.sendParametersFlag = true;
                 }
@@ -2533,7 +2556,7 @@ namespace Compact_Control
         }
 
         public static int initState = -1;
-        public static int ourSum = 0;
+        public static double ourSum = 0;
         private void btn_saveParameters_Click(object sender, EventArgs e)
         {
             initState = 0 ;
@@ -2602,7 +2625,7 @@ namespace Compact_Control
                 ourSum = 0;
                 foreach (string param in ourParams)
                 {
-                    ourSum = ourSum + int.Parse(param);
+                    ourSum = ourSum + double.Parse(param);
                 }
                 sendParametersFlag = true;
             }

@@ -27,13 +27,13 @@ namespace Compact_Control
         //    }
         //}
         string gant_cofin;
-        double gant_gain, gant_offset;
+        public static double gant_gain, gant_offset;
         string gant_dv = "0";
         string gnd;
         public static string gant_zpnt, gant_length, gant_fine_length;
 
         string collim_cofin;
-        double collim_gain, collim_offset;
+        public static double collim_gain, collim_offset;
         string collim_dv = "0";
         string cld;
         public static string collim_zpnt, collim_length, collim_fine_length;
@@ -47,22 +47,22 @@ namespace Compact_Control
         bool sendParametersFlag = false;
 
         string x1_co;
-        double x1_gain, x1_offset;
+        public static double x1_gain, x1_offset;
         string x1_dv = "0";
         string x1d;
 
         string x2_co;
-        double x2_gain, x2_offset;
+        public static double x2_gain, x2_offset;
         string x2_dv = "0";
         string x2d;
 
         string y1_co;
-        double y1_gain, y1_offset;
+        public static double y1_gain, y1_offset;
         string y1_dv = "0";
         string y1d;
 
         string y2_co;
-        double y2_gain, y2_offset;
+        public static double y2_gain, y2_offset;
         string y2_dv = "0";
         string y2d;
 
@@ -145,20 +145,44 @@ namespace Compact_Control
                 if (serialPort1.IsOpen == false)
                     serialPort1.Open();
                 //serialPort1.Open();
+                string gant_tol0_t = Math.Round(Math.Abs((double.Parse(gant_tol0) - gant_offset) / gant_gain)).ToString();
+                string gant_tol1_t = Math.Round(Math.Abs((double.Parse(gant_tol1) - gant_offset) / gant_gain)).ToString();
+                string gant_tol2_t = Math.Round(Math.Abs((double.Parse(gant_tol2) - gant_offset) / gant_gain)).ToString();
+
+                string collim_tol0_t = Math.Round(Math.Abs((double.Parse(collim_tol0) - collim_offset) / collim_gain)).ToString();
+                string collim_tol1_t = Math.Round(Math.Abs((double.Parse(collim_tol1) - collim_offset) / collim_gain)).ToString();
+                string collim_tol2_t = Math.Round(Math.Abs((double.Parse(collim_tol2) - collim_offset) / collim_gain)).ToString();
+
+                string x1_tol0_t = Math.Round(Math.Abs((double.Parse(x1_tol0) - x1_offset) / x1_gain)).ToString();
+                string x1_tol1_t = Math.Round(Math.Abs((double.Parse(x1_tol1) - x1_offset) / x1_gain)).ToString();
+                string x1_tol2_t = Math.Round(Math.Abs((double.Parse(x1_tol2) - x1_offset) / x1_gain)).ToString();
+
+                string x2_tol0_t = Math.Round(Math.Abs((double.Parse(x2_tol0) - x2_offset) / x2_gain)).ToString();
+                string x2_tol1_t = Math.Round(Math.Abs((double.Parse(x2_tol1) - x2_offset) / x2_gain)).ToString();
+                string x2_tol2_t = Math.Round(Math.Abs((double.Parse(x2_tol2) - x2_offset) / x2_gain)).ToString();
+
+                string y1_tol0_t = Math.Round(Math.Abs((double.Parse(y1_tol0) - y1_offset) / y1_gain)).ToString();
+                string y1_tol1_t = Math.Round(Math.Abs((double.Parse(y1_tol1) - y1_offset) / y1_gain)).ToString();
+                string y1_tol2_t = Math.Round(Math.Abs((double.Parse(y1_tol2) - y1_offset) / y1_gain)).ToString();
+
+                string y2_tol0_t = Math.Round(Math.Abs((double.Parse(y2_tol0) - y2_offset) / y2_gain)).ToString();
+                string y2_tol1_t = Math.Round(Math.Abs((double.Parse(y2_tol1) - y2_offset) / y2_gain)).ToString();
+                string y2_tol2_t = Math.Round(Math.Abs((double.Parse(y2_tol2) - y2_offset) / y2_gain)).ToString();
+
                 serialPort1.Write("w");
                 serialPort1.Write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
                 serialPort1.Write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
-                serialPort1.Write(gant_tol0 + "/" + gant_tol1 + "/" + gant_tol2 + "/");
+                serialPort1.Write(gant_tol0_t + "/" + gant_tol1_t + "/" + gant_tol2_t + "/");
                 serialPort1.Write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
-                serialPort1.Write(collim_tol0 + "/" + collim_tol1 + "/" + collim_tol2 + "/");
+                serialPort1.Write(collim_tol0_t + "/" + collim_tol1_t + "/" + collim_tol2_t + "/");
                 serialPort1.Write(collim_v1 + "/" + collim_v2 + "/" + collim_v3 + "/");
-                serialPort1.Write(x1_tol0 + "/" + x1_tol1 + "/" + x1_tol2 + "/");
+                serialPort1.Write(x1_tol0_t + "/" + x1_tol1_t + "/" + x1_tol2_t + "/");
                 serialPort1.Write(x1_v1 + "/" + x1_v2 + "/" + x1_v3 + "/");
-                serialPort1.Write(x2_tol0 + "/" + x2_tol1 + "/" + x2_tol2 + "/");
+                serialPort1.Write(x2_tol0_t + "/" + x2_tol1_t + "/" + x2_tol2_t + "/");
                 serialPort1.Write(x2_v1 + "/" + x2_v2 + "/" + x2_v3 + "/");
-                serialPort1.Write(y1_tol0 + "/" + y1_tol1 + "/" + y1_tol2 + "/");
+                serialPort1.Write(y1_tol0_t + "/" + y1_tol1_t + "/" + y1_tol2_t + "/");
                 serialPort1.Write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
-                serialPort1.Write(y2_tol0 + "/" + y2_tol1 + "/" + y2_tol2 + "/");
+                serialPort1.Write(y2_tol0_t + "/" + y2_tol1_t + "/" + y2_tol2_t + "/");
                 serialPort1.Write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
                 return true;
 
@@ -189,7 +213,7 @@ namespace Compact_Control
         }
 
         private double y1dv, y2dv, xa, x1dv, x2dv, ya;
-        private bool checkSum(int microSum, int ourSum)
+        private bool checkSum(double microSum, double ourSum)
         {
             bool equal = false;
             if (microSum == ourSum)
@@ -215,7 +239,7 @@ namespace Compact_Control
                             break;
                         case "sum":
                             string microSum = a.Substring(3, a.Length - 3);
-                            if (checkSum(int.Parse(microSum), Form1.ourSum) == true)
+                            if (checkSum(double.Parse(microSum), Form1.ourSum) == true)
                             {
                                 serialPort1.Write(".");
                                 Form1.initState = 1;
@@ -343,19 +367,19 @@ namespace Compact_Control
                     //y2_gain = double.Parse(lines[10]);
                     //y2_offset = double.Parse(lines[11]);
 
-                    HashPass.CalibData values = HashPass.readCalibJson(dataPath);
-                    gant_gain = double.Parse(values.gant_gain);
-                    gant_offset = double.Parse(values.gant_offset);
-                    collim_gain = double.Parse(values.collim_gain);
-                    collim_offset = double.Parse(values.collim_offset);
-                    x1_gain = double.Parse(values.x1_gain);
-                    x1_offset = double.Parse(values.x1_offset);
-                    x2_gain = double.Parse(values.x2_gain);
-                    x2_offset = double.Parse(values.x2_offset);
-                    y1_gain = double.Parse(values.y1_gain);
-                    y1_offset = double.Parse(values.y1_offset);
-                    y2_gain = double.Parse(values.y2_gain);
-                    y2_offset = double.Parse(values.y2_offset);
+                    //HashPass.CalibData values = HashPass.readCalibJson(dataPath);
+                    //gant_gain = double.Parse(values.gant_gain);
+                    //gant_offset = double.Parse(values.gant_offset);
+                    //collim_gain = double.Parse(values.collim_gain);
+                    //collim_offset = double.Parse(values.collim_offset);
+                    //x1_gain = double.Parse(values.x1_gain);
+                    //x1_offset = double.Parse(values.x1_offset);
+                    //x2_gain = double.Parse(values.x2_gain);
+                    //x2_offset = double.Parse(values.x2_offset);
+                    //y1_gain = double.Parse(values.y1_gain);
+                    //y1_offset = double.Parse(values.y1_offset);
+                    //y2_gain = double.Parse(values.y2_gain);
+                    //y2_offset = double.Parse(values.y2_offset);
                 }
                 catch (Exception ex)
                 {
@@ -386,13 +410,13 @@ namespace Compact_Control
                     //collim_length= lines[4];
                     //collim_fine_length = lines[5];         
 
-                    HashPass.LearnData values = HashPass.readLearnJson(dataPath);
-                    gant_zpnt = values.gant_zpnt;
-                    gant_length = values.gant_length;
-                    gant_fine_length = values.gant_fine_length;
-                    collim_zpnt = values.collim_zpnt;
-                    collim_length = values.collim_length;
-                    collim_fine_length = values.collim_fine_length;
+                    //HashPass.LearnData values = HashPass.readLearnJson(dataPath);
+                    //gant_zpnt = values.gant_zpnt;
+                    //gant_length = values.gant_length;
+                    //gant_fine_length = values.gant_fine_length;
+                    //collim_zpnt = values.collim_zpnt;
+                    //collim_length = values.collim_length;
+                    //collim_fine_length = values.collim_fine_length;
                 }
                 catch (Exception ex)
                 {
