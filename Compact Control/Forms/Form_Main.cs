@@ -653,7 +653,7 @@ namespace Compact_Control
                 {
                     MessageBox.Show("Wrong Number!");
                     checkBox1.Checked = false;
-                    goto ff;
+                    return;
                 }
 
                 try
@@ -681,7 +681,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The Gantry angle muste be different in step1 and step2");
                                     checkBox1.Checked = false;
-                                    goto ff;
+                                    return;
                                 }
                                 gant_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (gant_cofin_temp2 - gant_cofin_temp1);
                                 gant_offset_temp = double.Parse(textBox15.Text) - (gant_gain_temp * gant_cofin_temp2);
@@ -693,7 +693,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The Collimator angle muste be different in step1 and step2");
                                     checkBox1.Checked = false;
-                                    goto ff;
+                                    return;
                                 }
                                 collim_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (collim_cofin_temp2 - collim_cofin_temp1);
                                 collim_offset_temp = double.Parse(textBox15.Text) - (collim_gain_temp * collim_cofin_temp2);
@@ -705,7 +705,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The X1 Position muste be different in step1 and step2");
                                     checkBox1.Checked = false;
-                                    goto ff;
+                                    return;
                                 }
                                 x1_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (x1_co_temp2 - x1_co_temp1);
                                 x1_offset_temp = double.Parse(textBox15.Text) - (x1_gain_temp * x1_co_temp2);
@@ -717,7 +717,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The X2 Position muste be different in step1 and step2");
                                     checkBox1.Checked = false;
-                                    goto ff;
+                                    return;
                                 }
                                 x2_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (x2_co_temp2 - x2_co_temp1);
                                 x2_offset_temp = double.Parse(textBox15.Text) - (x2_gain_temp * x2_co_temp2);
@@ -729,7 +729,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The Y1 Position muste be different in step1 and step2");
                                     checkBox1.Checked = false;
-                                    goto ff;
+                                    return;
                                 }
                                 y1_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (y1_co_temp2 - y1_co_temp1);
                                 y1_offset_temp = double.Parse(textBox15.Text) - (y1_gain_temp * y1_co_temp2);
@@ -741,7 +741,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The Y2 Position muste be different in step1 and step2");
                                     checkBox1.Checked = false;
-                                    goto ff;
+                                    return;
                                 }
                                 y2_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (y2_co_temp2 - y2_co_temp1);
                                 y2_offset_temp = double.Parse(textBox15.Text) - (y2_gain_temp * y2_co_temp2);
@@ -757,9 +757,6 @@ namespace Compact_Control
                         checkBox2.Checked = false;
                     }
                     button16.Enabled = true;
-                }
-            ff:
-                {
                 }
             }
             else
@@ -783,7 +780,7 @@ namespace Compact_Control
                 {
                     MessageBox.Show("Wrong Number!");
                     checkBox2.Checked = false;
-                    goto gg;
+                    return;
                 }
 
                 try
@@ -810,7 +807,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The Gantry angle muste be different in step1 and step2");
                                     checkBox2.Checked = false;
-                                    goto gg;
+                                    return;
                                 }
                                 gant_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (gant_cofin_temp2 - gant_cofin_temp1);
                                 gant_offset_temp = double.Parse(textBox15.Text) - (gant_gain_temp * gant_cofin_temp2);
@@ -822,7 +819,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The Collimator angle muste be different in step1 and step2");
                                     checkBox2.Checked = false;
-                                    goto gg;
+                                    return;
                                 }
                                 collim_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (collim_cofin_temp2 - collim_cofin_temp1);
                                 collim_offset_temp = double.Parse(textBox15.Text) - (collim_gain_temp * collim_cofin_temp2);
@@ -834,7 +831,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The X1 Position muste be different in step1 and step2");
                                     checkBox2.Checked = false;
-                                    goto gg;
+                                    return;
                                 }
                                 x1_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (x1_co_temp2 - x1_co_temp1);
                                 x1_offset_temp = double.Parse(textBox15.Text) - (x1_gain_temp * x1_co_temp2);
@@ -846,7 +843,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The X2 Position muste be different in step1 and step2");
                                     checkBox2.Checked = false;
-                                    goto gg;
+                                    return;
                                 }
                                 x2_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (x2_co_temp2 - x2_co_temp1);
                                 x2_offset_temp = double.Parse(textBox15.Text) - (x2_gain_temp * x2_co_temp2);
@@ -858,7 +855,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The Y1 Position muste be different in step1 and step2");
                                     checkBox2.Checked = false;
-                                    goto gg;
+                                    return;
                                 }
                                 y1_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (y1_co_temp2 - y1_co_temp1);
                                 y1_offset_temp = double.Parse(textBox15.Text) - (y1_gain_temp * y1_co_temp2);
@@ -870,7 +867,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The Y2 Position muste be different in step1 and step2");
                                     checkBox2.Checked = false;
-                                    goto gg;
+                                    return;
                                 }
                                 y2_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (y2_co_temp2 - y2_co_temp1);
                                 y2_offset_temp = double.Parse(textBox15.Text) - (y2_gain_temp * y2_co_temp2);
@@ -887,9 +884,6 @@ namespace Compact_Control
                         checkBox2.Checked = false;
                     }
                     button16.Enabled = true;
-                }
-            gg:
-                {
                 }
             }
             else
@@ -976,7 +970,7 @@ namespace Compact_Control
                 gant_set = "0";
                 pictureBox1.Hide();
                 pictureBox1.BackgroundImage = requestImage;
-                goto ff;
+                return;
             }
 
             double a;
@@ -989,14 +983,14 @@ namespace Compact_Control
                 gant_set = "0";
                 pictureBox1.BackgroundImage = errorImage;
                 pictureBox1.Show();
-                goto ff;
+                return;
             }
             if (a < -180 | a > 180)
             {
                 gant_set = "0";
                 pictureBox1.BackgroundImage = errorImage;
                 pictureBox1.Show();
-                goto ff;
+                return;
             }
             if (gant_dv != null)
             {
@@ -1013,10 +1007,6 @@ namespace Compact_Control
                     pictureBox1.BackgroundImage = requestImage;
                 }
             }
-
-        ff:
-            {
-            }
         }
 
         private void textBox41_TextChanged(object sender, EventArgs e)
@@ -1026,7 +1016,7 @@ namespace Compact_Control
                 collim_set = "0";
                 pictureBox2.Hide();
                 pictureBox2.BackgroundImage = requestImage;
-                goto ff;
+                return;
             }
 
             double a;
@@ -1039,14 +1029,14 @@ namespace Compact_Control
                 collim_set = "0";
                 pictureBox2.BackgroundImage = errorImage;
                 pictureBox2.Show();
-                goto ff;
+                return;
             }
             if (a < -180 | a > 180)
             {
                 collim_set = "0";
                 pictureBox2.BackgroundImage = errorImage;
                 pictureBox2.Show();
-                goto ff;
+                return;
             }
             if (collim_dv != null)
             {
@@ -1063,9 +1053,6 @@ namespace Compact_Control
                     pictureBox2.BackgroundImage = requestImage;
                 }
             }
-        ff:
-            {
-            }
         }
 
         private void textBox40_TextChanged(object sender, EventArgs e)
@@ -1075,7 +1062,7 @@ namespace Compact_Control
                 x1_set = "0";
                 pictureBox3.Hide();
                 pictureBox3.BackgroundImage = requestImage;
-                goto ff;
+                return;
             }
             double a;
             try
@@ -1087,21 +1074,21 @@ namespace Compact_Control
                 x1_set = "0";
                 pictureBox3.BackgroundImage = errorImage;
                 pictureBox3.Show();
-                goto ff;
+                return;
             }
             if (a < 0 | a > 20)
             {
                 x1_set = "0";
                 pictureBox3.BackgroundImage = errorImage;
                 pictureBox3.Show();
-                goto ff;
+                return;
             }
             if (-a > double.Parse(x2_dv) - 1)
             {
                 x1_set = "0";
                 pictureBox6.BackgroundImage = Resources.Error;
                 pictureBox6.Show();
-                goto ff;
+                return;
             }
             if (x2_set != "0")
                 if (-a > double.Parse(textBox39.Text) - 1)
@@ -1109,7 +1096,7 @@ namespace Compact_Control
                     x1_set = "0";
                     pictureBox6.BackgroundImage = Resources.Error;
                     pictureBox6.Show();
-                    goto ff;
+                    return;
                 }
             if (x1_dv != null)
             {
@@ -1126,9 +1113,6 @@ namespace Compact_Control
                     pictureBox3.BackgroundImage = requestImage;
                 }
             }
-        ff:
-            {
-            }
         }
 
         private void textBox39_TextChanged(object sender, EventArgs e)
@@ -1138,7 +1122,7 @@ namespace Compact_Control
                 x2_set = "0";
                 pictureBox4.Hide();
                 pictureBox4.BackgroundImage = requestImage;
-                goto ff;
+                return;
             }
 
             double a;
@@ -1151,14 +1135,14 @@ namespace Compact_Control
                 x2_set = "0";
                 pictureBox4.BackgroundImage = errorImage;
                 pictureBox4.Show();
-                goto ff;
+                return;
             }
             if (a < 0 | a > 20)
             {
                 x2_set = "0";
                 pictureBox4.BackgroundImage = errorImage;
                 pictureBox4.Show();
-                goto ff;
+                return;
             }
             double x1double;
             double.TryParse(x1_dv, out x1double);
@@ -1167,7 +1151,7 @@ namespace Compact_Control
                 x2_set = "0";
                 pictureBox6.BackgroundImage = Resources.Error;
                 pictureBox6.Show();
-                goto ff;
+                return;
             }
             if (x1_set != "0")
             {
@@ -1178,7 +1162,7 @@ namespace Compact_Control
                     x2_set = "0";
                     pictureBox6.BackgroundImage = Resources.Error;
                     pictureBox6.Show();
-                    goto ff;
+                    return;
                 }
             }
             if (x2_dv != null)
@@ -1196,9 +1180,6 @@ namespace Compact_Control
                     pictureBox4.BackgroundImage = requestImage;
                 }
             }
-        ff:
-            {
-            }
         }
 
         private void textBox38_TextChanged(object sender, EventArgs e)
@@ -1208,7 +1189,7 @@ namespace Compact_Control
                 y1_set = "0";
                 pictureBox5.Hide();
                 pictureBox5.BackgroundImage = requestImage;
-                goto ff;
+                return;
             }
 
             double a;
@@ -1221,21 +1202,21 @@ namespace Compact_Control
                 y1_set = "0";
                 pictureBox5.BackgroundImage = errorImage;
                 pictureBox5.Show();
-                goto ff;
+                return;
             }
             if (a < -12.5 | a > 20)
             {
                 y1_set = "0";
                 pictureBox5.BackgroundImage = errorImage;
                 pictureBox5.Show();
-                goto ff;
+                return;
             }
             if (-a > double.Parse(y2_dv) - 1)
             {
                 y1_set = "0";
                 pictureBox6.BackgroundImage = Resources.Error;
                 pictureBox6.Show();
-                goto ff;
+                return;
             }
             if (y2_set != "0")
                 if (-a > double.Parse(textBox37.Text) - 1)
@@ -1243,7 +1224,7 @@ namespace Compact_Control
                     y1_set = "0";
                     pictureBox6.BackgroundImage = Resources.Error;
                     pictureBox6.Show();
-                    goto ff;
+                    return;
                 }
             if (y1_dv != null)
             {
@@ -1260,9 +1241,6 @@ namespace Compact_Control
                     pictureBox5.BackgroundImage = requestImage;
                 }
             }
-        ff:
-            {
-            }
         }
 
         private void textBox37_TextChanged(object sender, EventArgs e)
@@ -1272,7 +1250,7 @@ namespace Compact_Control
                 y2_set = "0";
                 pictureBox6.Hide();
                 pictureBox6.BackgroundImage = requestImage;
-                goto ff;
+                return;
             }
 
             double a;
@@ -1285,21 +1263,21 @@ namespace Compact_Control
                 y2_set = "0";
                 pictureBox6.BackgroundImage = errorImage;
                 pictureBox6.Show();
-                goto ff;
+                return;
             }
             if (a < -12.5 | a > 20)
             {
                 y2_set = "0";
                 pictureBox6.BackgroundImage = errorImage;
                 pictureBox6.Show();
-                goto ff;
+                return;
             }
             if (-a > double.Parse(y1_dv) - 1)
             {
                 y2_set = "0";
                 pictureBox6.BackgroundImage = Resources.Error;
                 pictureBox6.Show();
-                goto ff;
+                return;
             }
             if (y1_set != "0")
                 if (-a > double.Parse(textBox38.Text) - 1)
@@ -1307,7 +1285,7 @@ namespace Compact_Control
                     y2_set = "0";
                     pictureBox6.BackgroundImage = Resources.Error;
                     pictureBox6.Show();
-                    goto ff;
+                    return;
                 }
             if (y2_dv != null)
             {
@@ -1323,9 +1301,6 @@ namespace Compact_Control
                     pictureBox6.Hide();
                     pictureBox6.BackgroundImage = requestImage;
                 }
-            }
-        ff:
-            {
             }
         }
 
@@ -1968,13 +1943,13 @@ namespace Compact_Control
                                 write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
                             if (y2_set != y2d)
                                 write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
-                            if (quit == true)
-                            {
-                                ClosePort();
-                                Application.Exit();
-                                break;
-                            }
                             break;
+                    }
+                    if (quit == true)
+                    {
+                        ClosePort();
+                        Application.Exit();
+                        break;
                     }
                 }
                 catch

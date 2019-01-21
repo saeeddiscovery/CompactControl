@@ -380,90 +380,6 @@ namespace Compact_Control
                 //    MessageBox.Show("Parameters Save & Send successful!");
                 //}
             }
-            if (gant_gain == 0 || double.IsNaN(gant_gain))
-            {
-                try
-                {
-                    string appPath = Application.StartupPath;
-                    string dataPath = System.IO.Path.Combine(appPath, "Calib.dat");
-                    if (!System.IO.File.Exists(dataPath))
-                    {
-                        timer1.Stop();
-                        timer1.Enabled = false;
-                        MessageBox.Show("Can not connect to port!\n''Calib.dat'' file not found!", "Calibration file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Application.Exit();
-                        return;
-                    }
-                    //string[] lines = System.IO.File.ReadAllLines(dataPath);
-                    //gant_gain = double.Parse(lines[0]);
-                    //gant_offset = double.Parse(lines[1]);
-                    //collim_gain = double.Parse(lines[2]);
-                    //collim_offset = double.Parse(lines[3]);
-                    //x1_gain = double.Parse(lines[4]);
-                    //x1_offset = double.Parse(lines[5]);
-                    //x2_gain = double.Parse(lines[6]);
-                    //x2_offset = double.Parse(lines[7]);
-                    //y1_gain = double.Parse(lines[8]);
-                    //y1_offset = double.Parse(lines[9]);
-                    //y2_gain = double.Parse(lines[10]);
-                    //y2_offset = double.Parse(lines[11]);
-
-                    //HashPass.CalibData values = HashPass.readCalibJson(dataPath);
-                    //gant_gain = double.Parse(values.gant_gain);
-                    //gant_offset = double.Parse(values.gant_offset);
-                    //collim_gain = double.Parse(values.collim_gain);
-                    //collim_offset = double.Parse(values.collim_offset);
-                    //x1_gain = double.Parse(values.x1_gain);
-                    //x1_offset = double.Parse(values.x1_offset);
-                    //x2_gain = double.Parse(values.x2_gain);
-                    //x2_offset = double.Parse(values.x2_offset);
-                    //y1_gain = double.Parse(values.y1_gain);
-                    //y1_offset = double.Parse(values.y1_offset);
-                    //y2_gain = double.Parse(values.y2_gain);
-                    //y2_offset = double.Parse(values.y2_offset);
-                }
-                catch (Exception ex)
-                {
-                    timer1.Stop();
-                    timer1.Enabled = false;
-                    MessageBox.Show("Error reading from Calib.dat file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
-                    Application.Exit();
-                    return;
-                }
-
-                try
-                {
-                    string appPath = Application.StartupPath;
-                    string dataPath = System.IO.Path.Combine(appPath, "Learn.dat");
-                    if (!System.IO.File.Exists(dataPath))
-                    {
-                        MessageBox.Show("Can not connect to port!\n''Learn.dat'' file not found!", "Learn file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        timer1.Stop();
-                        timer1.Enabled = false;
-                        Application.Exit();
-                        return;
-                    }
-                    //string[] lines = System.IO.File.ReadAllLines(dataPath);
-                    //gant_zpnt = lines[0];
-                    //gant_length = lines[1];
-                    //gant_fine_length = lines[2];
-                    //collim_zpnt = lines[3];
-                    //collim_length= lines[4];
-                    //collim_fine_length = lines[5];         
-
-                    //HashPass.LearnData values = HashPass.readLearnJson(dataPath);
-                    //gant_zpnt = values.gant_zpnt;
-                    //gant_length = values.gant_length;
-                    //gant_fine_length = values.gant_fine_length;
-                    //collim_zpnt = values.collim_zpnt;
-                    //collim_length = values.collim_length;
-                    //collim_fine_length = values.collim_fine_length;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error reading from Learn.dat file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
-                }
-            }
 
             double a;
             try
@@ -821,7 +737,7 @@ namespace Compact_Control
                 pictureBox4.Hide();
                 pictureBox4.BackgroundImage = Resources.Request;
                 y1err = false;
-                goto ff;
+                return;
             }
             else if (!xy_isTextChangedFromCode)
             {
@@ -856,7 +772,7 @@ namespace Compact_Control
                 pictureBox4.BackgroundImage = Resources.Error;
                 y1err = true;
                 pictureBox4.Show();
-                goto ff;
+                return;
             }
             if (a < -20 || a > 0)
             {
@@ -864,7 +780,7 @@ namespace Compact_Control
                 pictureBox4.BackgroundImage = Resources.Error;
                 y1err = true;
                 pictureBox4.Show();
-                goto ff;
+                return;
             }
             if (a > double.Parse(x1_dv) - 1)
             {
@@ -872,7 +788,7 @@ namespace Compact_Control
                 pictureBox6.BackgroundImage = Resources.Error;
                 x1err = true;
                 pictureBox6.Show();
-                goto ff;
+                return;
             }
             if (x1_set != "0")
                 try
@@ -883,11 +799,11 @@ namespace Compact_Control
                         pictureBox6.BackgroundImage = Resources.Error;
                         x1err = true;
                         pictureBox6.Show();
-                        goto ff;
+                        return;
                     }
                 }
             catch
-                { goto ff; }
+                { return; }
             if (x2_dv != null)
             {
                 x2_set = ((int)((-a - x2_offset) / x2_gain)).ToString();
@@ -904,9 +820,6 @@ namespace Compact_Control
                     pictureBox4.Hide();
                     pictureBox4.BackgroundImage = Resources.Request;
                 }
-            }
-        ff:
-            {
             }
         }
 
@@ -934,7 +847,7 @@ namespace Compact_Control
                 pictureBox3.Hide();
                 pictureBox3.BackgroundImage = Resources.Request;
                 y2err = false;
-                goto ff;
+                return;
             }
             else if (!xy_isTextChangedFromCode)
             {
@@ -969,7 +882,7 @@ namespace Compact_Control
                 pictureBox3.BackgroundImage = Resources.Error;
                 y2err = true;
                 pictureBox3.Show();
-                goto ff;
+                return;
             }
             if (a < 0 || a > 20)
             {
@@ -977,7 +890,7 @@ namespace Compact_Control
                 pictureBox3.BackgroundImage = Resources.Error;
                 y2err = true;
                 pictureBox3.Show();
-                goto ff;
+                return;
             }
             double x2_dvo;
             double.TryParse(x2_dv, out x2_dvo);
@@ -987,7 +900,7 @@ namespace Compact_Control
                 pictureBox6.BackgroundImage = Resources.Error;
                 x1err = true;
                 pictureBox6.Show();
-                goto ff;
+                return;
             }
             if (x2_set != "0")
                 try
@@ -998,11 +911,11 @@ namespace Compact_Control
                         pictureBox6.BackgroundImage = Resources.Error;
                         x1err = true;
                         pictureBox6.Show();
-                        goto ff;
+                        return;
                     }
                 }
             catch
-                { goto ff; }
+                { return; }
             if (x1_dv != null)
             {
                 x1_set = ((int)((a - x1_offset) / x1_gain)).ToString();
@@ -1021,9 +934,7 @@ namespace Compact_Control
                     pictureBox3.BackgroundImage = Resources.Request;
                 }
             }
-        ff:
-            {
-            }
+
         }
 
         private void txt_x1_s_KeyPress(object sender, KeyPressEventArgs e)
@@ -1050,7 +961,7 @@ namespace Compact_Control
                 pictureBox6.Hide();
                 pictureBox6.BackgroundImage = Resources.Request;
                 x1err = false;
-                goto ff;
+                return;
             }
             else if (!xy_isTextChangedFromCode)
             {
@@ -1085,7 +996,7 @@ namespace Compact_Control
                 pictureBox6.BackgroundImage = Resources.Error;
                 x1err = true;
                 pictureBox6.Show();
-                goto ff;
+                return;
             }
             if (a < -20 || a > 12.5)
             {
@@ -1093,7 +1004,7 @@ namespace Compact_Control
                 pictureBox6.BackgroundImage = Resources.Error;
                 x1err = true;
                 pictureBox6.Show();
-                goto ff;
+                return;
             }
             try
             {
@@ -1103,7 +1014,7 @@ namespace Compact_Control
                     pictureBox6.BackgroundImage = Resources.Error;
                     x1err = true;
                     pictureBox6.Show();
-                    goto ff;
+                    return;
                 }
             }
             catch
@@ -1118,11 +1029,11 @@ namespace Compact_Control
                         pictureBox6.BackgroundImage = Resources.Error;
                         x1err = true;
                         pictureBox6.Show();
-                        goto ff;
+                        return;
                     }
                 }
             catch
-                { goto ff; }
+                { return; }
             if (y2_dv != null)
             {
                 y2_set = ((int)((-a - y2_offset) / y2_gain)).ToString();
@@ -1140,9 +1051,6 @@ namespace Compact_Control
                     pictureBox6.Hide();
                     pictureBox6.BackgroundImage = Resources.Request;
                 }
-            }
-        ff:
-            {
             }
         }
 
@@ -1170,7 +1078,7 @@ namespace Compact_Control
                 pictureBox5.Hide();
                 pictureBox5.BackgroundImage = Resources.Request;
                 x2err = false;
-                goto ff;
+                return;
             }
             else if (!xy_isTextChangedFromCode)
             {
@@ -1205,7 +1113,7 @@ namespace Compact_Control
                 pictureBox5.BackgroundImage = Resources.Error;
                 x2err = true;
                 pictureBox5.Show();
-                goto ff;
+                return;
             }
             if (a < -12.5 || a > 20)
             {
@@ -1213,7 +1121,7 @@ namespace Compact_Control
                 pictureBox5.BackgroundImage = Resources.Error;
                 x2err = true;
                 pictureBox5.Show();
-                goto ff;
+                return;
             }
             double y2double;
             double.TryParse(y2_dv, out y2double);
@@ -1223,7 +1131,7 @@ namespace Compact_Control
                 pictureBox6.BackgroundImage = Resources.Error;
                 pictureBox6.Show();
                 x1err = true;
-                goto ff;
+                return;
             }
             if (y2_set != "0")
                 try
@@ -1234,11 +1142,11 @@ namespace Compact_Control
                         pictureBox6.BackgroundImage = Resources.Error;
                         x1err = true;
                         pictureBox6.Show();
-                        goto ff;
+                        return;
                     }
                 }
             catch
-                { goto ff; }
+                { return; }
             if (y1_dv != null)
             {
                 y1_set = ((int)((a - y1_offset) / y1_gain)).ToString();
@@ -1256,9 +1164,6 @@ namespace Compact_Control
                     pictureBox5.Hide();
                     pictureBox5.BackgroundImage = Resources.Request;
                 }
-            }
-        ff:
-            {
             }
         }
 
@@ -1290,7 +1195,7 @@ namespace Compact_Control
                 gant_set = "0";
                 pictureBox1.Hide();
                 pictureBox1.BackgroundImage = Resources.Request;
-                goto ff;
+                return;
             }
 
             double a;
@@ -1303,14 +1208,14 @@ namespace Compact_Control
                 gant_set = "0";
                 pictureBox1.BackgroundImage = Resources.Error;
                 pictureBox1.Show();
-                goto ff;
+                return;
             }
             if (a < 0 || a >= 360)
             {
                 gant_set = "0";
                 pictureBox1.BackgroundImage = Resources.Error;
                 pictureBox1.Show();
-                goto ff;
+                return;
             }
             //if (gant_dv != null)
             {
@@ -1337,10 +1242,6 @@ namespace Compact_Control
                     pictureBox1.BackgroundImage = Resources.Request;
                 }
             }
-
-        ff:
-            {
-            }
         }
 
         private void txt_coli_s_KeyPress(object sender, KeyPressEventArgs e)
@@ -1363,7 +1264,7 @@ namespace Compact_Control
                 collim_set = "0";
                 pictureBox2.Hide();
                 pictureBox2.BackgroundImage = Resources.Request;
-                goto ff;
+                return;
             }
 
             double a;
@@ -1376,14 +1277,14 @@ namespace Compact_Control
                 collim_set = "0";
                 pictureBox2.BackgroundImage = Resources.Error;
                 pictureBox2.Show();
-                goto ff;
+                return;
             }
             if (a < 0 || a >= 360)
             {
                 collim_set = "0";
                 pictureBox2.BackgroundImage = Resources.Error;
                 pictureBox2.Show();
-                goto ff;
+                return;
             }
             if (collim_dv != null)
             {
@@ -1406,9 +1307,6 @@ namespace Compact_Control
                     pictureBox2.Hide();
                     pictureBox2.BackgroundImage = Resources.Request;
                 }
-            }
-        ff:
-            {
             }
         } 
     }
