@@ -86,6 +86,12 @@ namespace Compact_Control
             InitializeComponent();
         }
 
+        public void TimerStatus(bool enabled)
+        {
+            timer1.Enabled = enabled;
+            timer3.Enabled = enabled;
+        }
+
         public void FillValues()
         {
             System.Threading.Thread.CurrentThread.Priority = System.Threading.ThreadPriority.Highest;

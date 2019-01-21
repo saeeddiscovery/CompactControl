@@ -2136,10 +2136,14 @@ namespace Compact_Control
                 if (isInServiceMode == true)
                 {
                     panel_AdminControls.Enabled = true;
+                    timer1.Enabled = true;
+                    timer3.Enabled = true;
                 }
                 else
                 {
                     panel_ClientControls.Enabled = true;
+                    timer1.Enabled = false;
+                    timer3.Enabled = false;
                 }
                 try
                 {
@@ -2365,6 +2369,14 @@ namespace Compact_Control
 
         private void Form1_VisibleChanged(object sender, EventArgs e)
         {
+            if (isInServiceMode)
+            {
+                clientFrm.TimerStatus(false);
+            }
+            else
+            {
+                clientFrm.TimerStatus(true);
+            }
             //ClientControls clientFrm = new ClientControls();
             if (this.Visible == true)
             {
@@ -2375,9 +2387,11 @@ namespace Compact_Control
                         //GlobalSerialPort = clientFrm.serialPort1;
                         //GlobalSerialPort.DataReceived += clientFrm.serialPort1_DataReceived;
                         panel_ClientControls.Controls.Add(clientFrm);
+
                     }
                     else
                     {
+
                         //GlobalSerialPort = serialPort1;
                         //GlobalSerialPort.DataReceived += serialPort1_DataReceived_1;
                     }
