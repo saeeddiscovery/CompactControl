@@ -8,7 +8,10 @@ using Compact_Control.Properties;
 using System.Diagnostics;
 using System.Globalization;
 using Microsoft.Win32;
+using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 
 namespace Compact_Control
 {
@@ -46,6 +49,14 @@ namespace Compact_Control
         string collim_zpnt;
         string collim_length;
         string collim_fine_length;
+
+        string gant_tol0, gant_tol1, gant_tol2, gant_v1, gant_v2, gant_v3;
+        string collim_tol0, collim_tol1, collim_tol2, collim_v1, collim_v2, collim_v3;
+        string x1_tol0, x1_tol1, x1_tol2, x1_v1, x1_v2, x1_v3;
+        string x2_tol0, x2_tol1, x2_tol2, x2_v1, x2_v2, x2_v3;
+        string y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
+        string y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
+        bool sendParametersFlag = false;
 
         string x1_co;
         double x1_co_temp1;
@@ -87,8 +98,6 @@ namespace Compact_Control
         double y2_offset_temp;
         string y2_dv;
         string y2d;
-
-        string exp_perm;
 
         string gant_set;
         string collim_set;
@@ -135,17 +144,24 @@ namespace Compact_Control
             string[] ports = SerialPort.GetPortNames();
             if (ports.Length == 0)
             {
-                MessageBox.Show("No Serial port detected!", "COM Port error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                label_ConnectStatus.Text = "No Serial port detected!";
+                //MessageBox.Show("No Serial port detected!", "COM Port error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if (ports.Length >= 1)
             {
                 if (GlobalSerialPort.IsOpen == false)
                 {
                     if (portName != "Null" && portName != "")
+                    {
                         GlobalSerialPort.PortName = portName;
+                        ClientControls.curr_port = portName;
+                    }
+
                     else
+                    {
                         GlobalSerialPort.PortName = ports[0];
-                    int BaudRate = 0;
+                        ClientControls.curr_port = ports[0];
+                    }
                     string filename = "portSettings.json";
                     try
                     {
@@ -155,14 +171,16 @@ namespace Compact_Control
                             HashPass.PortSettings pSettings = HashPass.readSettingsJson(filename);
                             HashPass.WriteBaudrateToReg(pSettings.Baudrate);
                             GlobalSerialPort.BaudRate = int.Parse(pSettings.Baudrate);
+                            ClientControls.curr_baudrate = int.Parse(pSettings.Baudrate);
                         }
                     }
                     catch
                     {
                         MessageBox.Show("Error reading Baudrate from file!");
                     }
-                    if (int.TryParse(HashPass.ReadBaudRateFromReg(), out BaudRate) == true && BaudRate != 0)
-                        GlobalSerialPort.BaudRate = BaudRate;
+                    //if (int.TryParse(HashPass.ReadBaudRateFromReg(), out BaudRate) == true && BaudRate != 0)
+                    //    GlobalSerialPort.BaudRate = BaudRate;
+                    //    ClientControls.curr_baudrate = BaudRate;
                     //ConnectToPort();
                 }
             }
@@ -219,6 +237,12 @@ namespace Compact_Control
         {
         }
 
+        public void write(string data)
+        {
+            GlobalSerialPort.Write(data);
+            tb_terminal_out.AppendText(data + Environment.NewLine);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
@@ -230,24 +254,24 @@ namespace Compact_Control
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("a");
-            GlobalSerialPort.Write(trackBar1.Value.ToString());
+            write("a");
+            write(trackBar1.Value.ToString());
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("b");
-            GlobalSerialPort.Write(trackBar2.Value.ToString());
+            write("b");
+            write(trackBar2.Value.ToString());
         }
 
         private void button6_MouseDown(object sender, MouseEventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("c");
-            GlobalSerialPort.Write(trackBar3.Value.ToString());
+            write("c");
+            write(trackBar3.Value.ToString());
         }
 
 
@@ -255,8 +279,8 @@ namespace Compact_Control
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("d");
-            GlobalSerialPort.Write(trackBar4.Value.ToString());
+            write("d");
+            write(trackBar4.Value.ToString());
         }
 
 
@@ -264,64 +288,64 @@ namespace Compact_Control
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("e");
-            GlobalSerialPort.Write(trackBar5.Value.ToString());
+            write("e");
+            write(trackBar5.Value.ToString());
         }
 
         private void button11_MouseDown(object sender, MouseEventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("f");
-            GlobalSerialPort.Write(trackBar6.Value.ToString());
+            write("f");
+            write(trackBar6.Value.ToString());
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("g");
-            GlobalSerialPort.Write(trackBar1.Value.ToString());
+            write("g");
+            write(trackBar1.Value.ToString());
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("h");
-            GlobalSerialPort.Write(trackBar2.Value.ToString());
+            write("h");
+            write(trackBar2.Value.ToString());
         }
 
         private void button7_MouseDown(object sender, MouseEventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("i");
-            GlobalSerialPort.Write(trackBar3.Value.ToString());
+            write("i");
+            write(trackBar3.Value.ToString());
         }
 
         private void button9_MouseDown(object sender, MouseEventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("j");
-            GlobalSerialPort.Write(trackBar4.Value.ToString());
+            write("j");
+            write(trackBar4.Value.ToString());
         }
 
         private void button12_MouseDown(object sender, MouseEventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("k");
-            GlobalSerialPort.Write(trackBar5.Value.ToString());
+            write("k");
+            write(trackBar5.Value.ToString());
         }
 
         private void button13_MouseDown(object sender, MouseEventArgs e)
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("l");
-            GlobalSerialPort.Write(trackBar6.Value.ToString());
+            write("l");
+            write(trackBar6.Value.ToString());
         }
 
 
@@ -369,7 +393,7 @@ namespace Compact_Control
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("s");
+            write("s");
         }
 
 
@@ -377,7 +401,7 @@ namespace Compact_Control
         {
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-            GlobalSerialPort.Write("s");
+            write("s");
         }
 
         //private void button15_Click(object sender, EventArgs e)
@@ -388,6 +412,21 @@ namespace Compact_Control
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if (sendParametersFlag == true)
+            {
+                sendParametersFlag = false;
+                sendParameters();
+                //if (sendParameters() == true)
+                //{
+                //    MessageBox.Show("Parameters Save & Send successful!");
+                //}
+            }
+            //if (initState == 1)
+            //{
+            //    timer2.Enabled = true;
+            //}
+
+
             double m;
             double n;
             textBox1.Text = gant_co;
@@ -497,13 +536,33 @@ namespace Compact_Control
                     textBox16.Text = y2_dv;
                     break;
             }
+
+
+            if (initState == 0)
+            {
+                lbl_init.Visible = true;
+                lbl_init.Text = "Initializing";
+                lbl_init.ForeColor = Color.Orange;
+            }
+            else if (initState == 1)
+            {
+                lbl_init.Visible = true;
+                lbl_init.Text = "Initialized";
+                lbl_init.ForeColor = Color.Green;
+            }
+            else if (initState == 2)
+            {
+                lbl_init.Visible = true;
+                lbl_init.Text = "Initialization Failed";
+                lbl_init.ForeColor = Color.Red;
+            }
+            else if (initState == -1)
+            {
+                lbl_init.Visible = false;
+                initState = -2;
+            }
+
         }
-
-        private void GlobalSerialPort_DataReceived(object sender, SerialDataReceivedEventArgs e)
-        {
-
-        }
-
 
         private void button16_Click(object sender, EventArgs e)
         {
@@ -572,9 +631,9 @@ namespace Compact_Control
                     if (GlobalSerialPort.IsOpen == false)
                         GlobalSerialPort.Open();
                     if (comboBox1.Text == "Gantry")
-                        GlobalSerialPort.Write("t");
+                        write("t");
                     if (comboBox1.Text == "Collimator")
-                        GlobalSerialPort.Write("u");
+                        write("u");
                 }
         }
 
@@ -591,7 +650,7 @@ namespace Compact_Control
                 {
                     MessageBox.Show("Wrong Number!");
                     checkBox1.Checked = false;
-                    goto ff;
+                    return;
                 }
 
                 try
@@ -619,7 +678,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The Gantry angle muste be different in step1 and step2");
                                     checkBox1.Checked = false;
-                                    goto ff;
+                                    return;
                                 }
                                 gant_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (gant_cofin_temp2 - gant_cofin_temp1);
                                 gant_offset_temp = double.Parse(textBox15.Text) - (gant_gain_temp * gant_cofin_temp2);
@@ -631,7 +690,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The Collimator angle muste be different in step1 and step2");
                                     checkBox1.Checked = false;
-                                    goto ff;
+                                    return;
                                 }
                                 collim_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (collim_cofin_temp2 - collim_cofin_temp1);
                                 collim_offset_temp = double.Parse(textBox15.Text) - (collim_gain_temp * collim_cofin_temp2);
@@ -643,7 +702,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The X1 Position muste be different in step1 and step2");
                                     checkBox1.Checked = false;
-                                    goto ff;
+                                    return;
                                 }
                                 x1_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (x1_co_temp2 - x1_co_temp1);
                                 x1_offset_temp = double.Parse(textBox15.Text) - (x1_gain_temp * x1_co_temp2);
@@ -655,7 +714,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The X2 Position muste be different in step1 and step2");
                                     checkBox1.Checked = false;
-                                    goto ff;
+                                    return;
                                 }
                                 x2_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (x2_co_temp2 - x2_co_temp1);
                                 x2_offset_temp = double.Parse(textBox15.Text) - (x2_gain_temp * x2_co_temp2);
@@ -667,7 +726,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The Y1 Position muste be different in step1 and step2");
                                     checkBox1.Checked = false;
-                                    goto ff;
+                                    return;
                                 }
                                 y1_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (y1_co_temp2 - y1_co_temp1);
                                 y1_offset_temp = double.Parse(textBox15.Text) - (y1_gain_temp * y1_co_temp2);
@@ -679,7 +738,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The Y2 Position muste be different in step1 and step2");
                                     checkBox1.Checked = false;
-                                    goto ff;
+                                    return;
                                 }
                                 y2_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (y2_co_temp2 - y2_co_temp1);
                                 y2_offset_temp = double.Parse(textBox15.Text) - (y2_gain_temp * y2_co_temp2);
@@ -695,9 +754,6 @@ namespace Compact_Control
                         checkBox2.Checked = false;
                     }
                     button16.Enabled = true;
-                }
-            ff:
-                {
                 }
             }
             else
@@ -721,7 +777,7 @@ namespace Compact_Control
                 {
                     MessageBox.Show("Wrong Number!");
                     checkBox2.Checked = false;
-                    goto gg;
+                    return;
                 }
 
                 try
@@ -748,7 +804,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The Gantry angle muste be different in step1 and step2");
                                     checkBox2.Checked = false;
-                                    goto gg;
+                                    return;
                                 }
                                 gant_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (gant_cofin_temp2 - gant_cofin_temp1);
                                 gant_offset_temp = double.Parse(textBox15.Text) - (gant_gain_temp * gant_cofin_temp2);
@@ -760,7 +816,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The Collimator angle muste be different in step1 and step2");
                                     checkBox2.Checked = false;
-                                    goto gg;
+                                    return;
                                 }
                                 collim_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (collim_cofin_temp2 - collim_cofin_temp1);
                                 collim_offset_temp = double.Parse(textBox15.Text) - (collim_gain_temp * collim_cofin_temp2);
@@ -772,7 +828,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The X1 Position muste be different in step1 and step2");
                                     checkBox2.Checked = false;
-                                    goto gg;
+                                    return;
                                 }
                                 x1_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (x1_co_temp2 - x1_co_temp1);
                                 x1_offset_temp = double.Parse(textBox15.Text) - (x1_gain_temp * x1_co_temp2);
@@ -784,7 +840,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The X2 Position muste be different in step1 and step2");
                                     checkBox2.Checked = false;
-                                    goto gg;
+                                    return;
                                 }
                                 x2_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (x2_co_temp2 - x2_co_temp1);
                                 x2_offset_temp = double.Parse(textBox15.Text) - (x2_gain_temp * x2_co_temp2);
@@ -796,7 +852,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The Y1 Position muste be different in step1 and step2");
                                     checkBox2.Checked = false;
-                                    goto gg;
+                                    return;
                                 }
                                 y1_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (y1_co_temp2 - y1_co_temp1);
                                 y1_offset_temp = double.Parse(textBox15.Text) - (y1_gain_temp * y1_co_temp2);
@@ -808,7 +864,7 @@ namespace Compact_Control
                                 {
                                     MessageBox.Show("The Y2 Position muste be different in step1 and step2");
                                     checkBox2.Checked = false;
-                                    goto gg;
+                                    return;
                                 }
                                 y2_gain_temp = (double.Parse(textBox15.Text) - double.Parse(textBox14.Text)) / (y2_co_temp2 - y2_co_temp1);
                                 y2_offset_temp = double.Parse(textBox15.Text) - (y2_gain_temp * y2_co_temp2);
@@ -825,9 +881,6 @@ namespace Compact_Control
                         checkBox2.Checked = false;
                     }
                     button16.Enabled = true;
-                }
-            gg:
-                {
                 }
             }
             else
@@ -914,7 +967,7 @@ namespace Compact_Control
                 gant_set = "0";
                 pictureBox1.Hide();
                 pictureBox1.BackgroundImage = requestImage;
-                goto ff;
+                return;
             }
 
             double a;
@@ -927,14 +980,14 @@ namespace Compact_Control
                 gant_set = "0";
                 pictureBox1.BackgroundImage = errorImage;
                 pictureBox1.Show();
-                goto ff;
+                return;
             }
             if (a < -180 | a > 180)
             {
                 gant_set = "0";
                 pictureBox1.BackgroundImage = errorImage;
                 pictureBox1.Show();
-                goto ff;
+                return;
             }
             if (gant_dv != null)
             {
@@ -951,10 +1004,6 @@ namespace Compact_Control
                     pictureBox1.BackgroundImage = requestImage;
                 }
             }
-
-        ff:
-            {
-            }
         }
 
         private void textBox41_TextChanged(object sender, EventArgs e)
@@ -964,7 +1013,7 @@ namespace Compact_Control
                 collim_set = "0";
                 pictureBox2.Hide();
                 pictureBox2.BackgroundImage = requestImage;
-                goto ff;
+                return;
             }
 
             double a;
@@ -977,14 +1026,14 @@ namespace Compact_Control
                 collim_set = "0";
                 pictureBox2.BackgroundImage = errorImage;
                 pictureBox2.Show();
-                goto ff;
+                return;
             }
             if (a < -180 | a > 180)
             {
                 collim_set = "0";
                 pictureBox2.BackgroundImage = errorImage;
                 pictureBox2.Show();
-                goto ff;
+                return;
             }
             if (collim_dv != null)
             {
@@ -1001,9 +1050,6 @@ namespace Compact_Control
                     pictureBox2.BackgroundImage = requestImage;
                 }
             }
-        ff:
-            {
-            }
         }
 
         private void textBox40_TextChanged(object sender, EventArgs e)
@@ -1013,7 +1059,7 @@ namespace Compact_Control
                 x1_set = "0";
                 pictureBox3.Hide();
                 pictureBox3.BackgroundImage = requestImage;
-                goto ff;
+                return;
             }
             double a;
             try
@@ -1025,21 +1071,21 @@ namespace Compact_Control
                 x1_set = "0";
                 pictureBox3.BackgroundImage = errorImage;
                 pictureBox3.Show();
-                goto ff;
+                return;
             }
             if (a < 0 | a > 20)
             {
                 x1_set = "0";
                 pictureBox3.BackgroundImage = errorImage;
                 pictureBox3.Show();
-                goto ff;
+                return;
             }
             if (-a > double.Parse(x2_dv) - 1)
             {
                 x1_set = "0";
                 pictureBox6.BackgroundImage = Resources.Error;
                 pictureBox6.Show();
-                goto ff;
+                return;
             }
             if (x2_set != "0")
                 if (-a > double.Parse(textBox39.Text) - 1)
@@ -1047,7 +1093,7 @@ namespace Compact_Control
                     x1_set = "0";
                     pictureBox6.BackgroundImage = Resources.Error;
                     pictureBox6.Show();
-                    goto ff;
+                    return;
                 }
             if (x1_dv != null)
             {
@@ -1064,9 +1110,6 @@ namespace Compact_Control
                     pictureBox3.BackgroundImage = requestImage;
                 }
             }
-        ff:
-            {
-            }
         }
 
         private void textBox39_TextChanged(object sender, EventArgs e)
@@ -1076,7 +1119,7 @@ namespace Compact_Control
                 x2_set = "0";
                 pictureBox4.Hide();
                 pictureBox4.BackgroundImage = requestImage;
-                goto ff;
+                return;
             }
 
             double a;
@@ -1089,14 +1132,14 @@ namespace Compact_Control
                 x2_set = "0";
                 pictureBox4.BackgroundImage = errorImage;
                 pictureBox4.Show();
-                goto ff;
+                return;
             }
             if (a < 0 | a > 20)
             {
                 x2_set = "0";
                 pictureBox4.BackgroundImage = errorImage;
                 pictureBox4.Show();
-                goto ff;
+                return;
             }
             double x1double;
             double.TryParse(x1_dv, out x1double);
@@ -1105,7 +1148,7 @@ namespace Compact_Control
                 x2_set = "0";
                 pictureBox6.BackgroundImage = Resources.Error;
                 pictureBox6.Show();
-                goto ff;
+                return;
             }
             if (x1_set != "0")
             {
@@ -1116,7 +1159,7 @@ namespace Compact_Control
                     x2_set = "0";
                     pictureBox6.BackgroundImage = Resources.Error;
                     pictureBox6.Show();
-                    goto ff;
+                    return;
                 }
             }
             if (x2_dv != null)
@@ -1134,9 +1177,6 @@ namespace Compact_Control
                     pictureBox4.BackgroundImage = requestImage;
                 }
             }
-        ff:
-            {
-            }
         }
 
         private void textBox38_TextChanged(object sender, EventArgs e)
@@ -1146,7 +1186,7 @@ namespace Compact_Control
                 y1_set = "0";
                 pictureBox5.Hide();
                 pictureBox5.BackgroundImage = requestImage;
-                goto ff;
+                return;
             }
 
             double a;
@@ -1159,21 +1199,21 @@ namespace Compact_Control
                 y1_set = "0";
                 pictureBox5.BackgroundImage = errorImage;
                 pictureBox5.Show();
-                goto ff;
+                return;
             }
             if (a < -12.5 | a > 20)
             {
                 y1_set = "0";
                 pictureBox5.BackgroundImage = errorImage;
                 pictureBox5.Show();
-                goto ff;
+                return;
             }
             if (-a > double.Parse(y2_dv) - 1)
             {
                 y1_set = "0";
                 pictureBox6.BackgroundImage = Resources.Error;
                 pictureBox6.Show();
-                goto ff;
+                return;
             }
             if (y2_set != "0")
                 if (-a > double.Parse(textBox37.Text) - 1)
@@ -1181,7 +1221,7 @@ namespace Compact_Control
                     y1_set = "0";
                     pictureBox6.BackgroundImage = Resources.Error;
                     pictureBox6.Show();
-                    goto ff;
+                    return;
                 }
             if (y1_dv != null)
             {
@@ -1198,9 +1238,6 @@ namespace Compact_Control
                     pictureBox5.BackgroundImage = requestImage;
                 }
             }
-        ff:
-            {
-            }
         }
 
         private void textBox37_TextChanged(object sender, EventArgs e)
@@ -1210,7 +1247,7 @@ namespace Compact_Control
                 y2_set = "0";
                 pictureBox6.Hide();
                 pictureBox6.BackgroundImage = requestImage;
-                goto ff;
+                return;
             }
 
             double a;
@@ -1223,21 +1260,21 @@ namespace Compact_Control
                 y2_set = "0";
                 pictureBox6.BackgroundImage = errorImage;
                 pictureBox6.Show();
-                goto ff;
+                return;
             }
             if (a < -12.5 | a > 20)
             {
                 y2_set = "0";
                 pictureBox6.BackgroundImage = errorImage;
                 pictureBox6.Show();
-                goto ff;
+                return;
             }
             if (-a > double.Parse(y1_dv) - 1)
             {
                 y2_set = "0";
                 pictureBox6.BackgroundImage = Resources.Error;
                 pictureBox6.Show();
-                goto ff;
+                return;
             }
             if (y1_set != "0")
                 if (-a > double.Parse(textBox38.Text) - 1)
@@ -1245,7 +1282,7 @@ namespace Compact_Control
                     y2_set = "0";
                     pictureBox6.BackgroundImage = Resources.Error;
                     pictureBox6.Show();
-                    goto ff;
+                    return;
                 }
             if (y2_dv != null)
             {
@@ -1262,14 +1299,10 @@ namespace Compact_Control
                     pictureBox6.BackgroundImage = requestImage;
                 }
             }
-        ff:
-            {
-            }
         }
 
         private void button18_Click(object sender, EventArgs e)
         {
-
             button18.Enabled = false;
 
             if (GlobalSerialPort.IsOpen == false)
@@ -1290,7 +1323,7 @@ namespace Compact_Control
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error saving to file\n" + ex.Message);
+                    MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
                 }
             }
             groupBox4.Enabled = false;
@@ -1333,6 +1366,13 @@ namespace Compact_Control
 
         private void ClosePort()
         {
+            if (GlobalSerialPort.IsOpen == true)
+            {
+                GlobalSerialPort.DiscardOutBuffer();
+                GlobalSerialPort.DiscardInBuffer();
+                GlobalSerialPort.Dispose();
+                GlobalSerialPort.Close();
+            }
             if (serialPort1.IsOpen == true)
             {
                 serialPort1.DiscardOutBuffer();
@@ -1347,173 +1387,142 @@ namespace Compact_Control
                 clientFrm.serialPort1.Dispose();
                 clientFrm.serialPort1.Close();
             }
-            if (GlobalSerialPort.IsOpen == true)
+        }
+
+        public static string[] ourParameters = new string[42];
+        //public bool compareParameters(string[] microParams, string[] ourParams)
+        //{
+        //    bool equal = true;
+        //    for (int i = 0; i < microParams.Length; i++)
+        //    {
+        //        if (microParams[i] != ourParams[i])
+        //        {
+        //            equal = false;
+        //            write("$");
+        //            initState = 2;
+        //            MessageBox.Show("Parameter " + i.ToString() + " not equal > from micro: " + microParams[i] + " != ours: " + ourParams[i]);
+        //            //break;
+        //        }
+        //    }
+        //    return equal;
+        //}
+        //public bool compareData(string microParam, string ourParam)
+        //{
+        //    bool equal = true;
+        //    if (double.Parse(microParam) != double.Parse(ourParam))
+        //    {
+        //        equal = false;
+        //        write("$");
+        //        sendParameters();
+        //        initState = 2;
+        //        MessageBox.Show("Parameter not equal > from micro: " + microParam + " != ours: " + ourParam);
+        //        //break;
+        //    }
+        //    else
+        //        write(".");
+        //    return equal;
+        //}
+        public bool sendParameters()
+        {
+            try
             {
-                GlobalSerialPort.DiscardOutBuffer();
-                GlobalSerialPort.DiscardInBuffer();
-                GlobalSerialPort.Dispose();
-                GlobalSerialPort.Close();
+                string gant_tol0_t = Math.Round(Math.Abs((double.Parse(gant_tol0) - gant_offset) / gant_gain)).ToString();
+                string gant_tol1_t = Math.Round(Math.Abs((double.Parse(gant_tol1) - gant_offset) / gant_gain)).ToString();
+                string gant_tol2_t = Math.Round(Math.Abs((double.Parse(gant_tol2) - gant_offset) / gant_gain)).ToString();
+                 
+                string collim_tol0_t = Math.Round(Math.Abs((double.Parse(collim_tol0) - collim_offset) / collim_gain)).ToString();
+                string collim_tol1_t = Math.Round(Math.Abs((double.Parse(collim_tol1) - collim_offset) / collim_gain)).ToString();
+                string collim_tol2_t = Math.Round(Math.Abs((double.Parse(collim_tol2) - collim_offset) / collim_gain)).ToString();
+                
+                string x1_tol0_t = Math.Round(Math.Abs((double.Parse(x1_tol0) - x1_offset) / x1_gain)).ToString();
+                string x1_tol1_t = Math.Round(Math.Abs((double.Parse(x1_tol1) - x1_offset) / x1_gain)).ToString();
+                string x1_tol2_t = Math.Round(Math.Abs((double.Parse(x1_tol2) - x1_offset) / x1_gain)).ToString();
+                                                                                          
+                string x2_tol0_t = Math.Round(Math.Abs((double.Parse(x2_tol0) - x2_offset) / x2_gain)).ToString();
+                string x2_tol1_t = Math.Round(Math.Abs((double.Parse(x2_tol1) - x2_offset) / x2_gain)).ToString();
+                string x2_tol2_t = Math.Round(Math.Abs((double.Parse(x2_tol2) - x2_offset) / x2_gain)).ToString();
+                                                                                          
+                string y1_tol0_t = Math.Round(Math.Abs((double.Parse(y1_tol0) - y1_offset) / y1_gain)).ToString();
+                string y1_tol1_t = Math.Round(Math.Abs((double.Parse(y1_tol1) - y1_offset) / y1_gain)).ToString();
+                string y1_tol2_t = Math.Round(Math.Abs((double.Parse(y1_tol2) - y1_offset) / y1_gain)).ToString();
+                                                                                          
+                string y2_tol0_t = Math.Round(Math.Abs((double.Parse(y2_tol0) - y2_offset) / y2_gain)).ToString();
+                string y2_tol1_t = Math.Round(Math.Abs((double.Parse(y2_tol1) - y2_offset) / y2_gain)).ToString();
+                string y2_tol2_t = Math.Round(Math.Abs((double.Parse(y2_tol2) - y2_offset) / y2_gain)).ToString();
+
+                ourSum = double.Parse(gant_tol0_t) + double.Parse(gant_tol1_t) + double.Parse(gant_tol2_t) +
+                         double.Parse(collim_tol0_t) + double.Parse(collim_tol1_t) + double.Parse(collim_tol2_t) +
+                         double.Parse(x1_tol0_t) + double.Parse(x1_tol1_t) + double.Parse(x1_tol2_t) +
+                         double.Parse(x2_tol0_t) + double.Parse(x2_tol1_t) + double.Parse(x2_tol2_t) +
+                         double.Parse(y1_tol0_t) + double.Parse(y1_tol1_t) + double.Parse(y1_tol2_t) +
+                         double.Parse(y2_tol0_t) + double.Parse(y2_tol1_t) + double.Parse(y2_tol2_t) +
+                         double.Parse(gant_v1) + double.Parse(gant_v2) + double.Parse(gant_v3) +
+                         double.Parse(collim_v1) + double.Parse(collim_v2) + double.Parse(collim_v3) +
+                         double.Parse(x1_v1) + double.Parse(x1_v2) + double.Parse(x1_v3) +
+                         double.Parse(x2_v1) + double.Parse(x2_v2) + double.Parse(x2_v3) +
+                         double.Parse(y1_v1) + double.Parse(y1_v2) + double.Parse(y1_v3) +
+                         double.Parse(y2_v1) + double.Parse(y2_v2) + double.Parse(y2_v3) +
+                         double.Parse(gant_zpnt) + double.Parse(gant_length) + double.Parse(gant_fine_length) +
+                         double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length);
+
+                //MessageBox.Show(ourSum.ToString());
+                write("w");
+                write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
+                write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
+                write(gant_tol0_t + "/" + gant_tol1_t + "/" + gant_tol2_t + "/");
+                write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
+                write(collim_tol0_t + "/" + collim_tol1_t + "/" + collim_tol2_t + "/");
+                write(collim_v1 + "/" + collim_v2 + "/" + collim_v3 + "/");
+                write(x1_tol0_t + "/" + x1_tol1_t + "/" + x1_tol2_t + "/");
+                write(x1_v1 + "/" + x1_v2 + "/" + x1_v3 + "/");
+                write(x2_tol0_t + "/" + x2_tol1_t + "/" + x2_tol2_t + "/");
+                write(x2_v1 + "/" + x2_v2 + "/" + x2_v3 + "/");
+                write(y1_tol0_t + "/" + y1_tol1_t + "/" + y1_tol2_t + "/");
+                write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
+                write(y2_tol0_t + "/" + y2_tol1_t + "/" + y2_tol2_t + "/");
+                write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
+                return true;
+            }
+            catch (Exception ex)
+            {
+                initState = 2;
+                MessageBox.Show("Unable to send parameters!" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+                return false;
             }
         }
 
+        private bool checkSum(double microSum, double ourSum)
+        {
+            bool equal = false;
+            if (microSum == ourSum)
+                equal = true;
+            return equal;
+        }
+        public Queue<string> receiveQ = new Queue<string>();
+        string[] microParameters = new string[42];
         private void serialPort1_DataReceived_1(object sender, SerialDataReceivedEventArgs e)
         {
-            string a = "";
-            try
-            {
-                if (GlobalSerialPort.IsOpen)
-                    a = GlobalSerialPort.ReadLine();
-            }
-            catch
-            {
-            }
-            try
-            {
-                switch (a.Substring(0, 3))
-                {
-                    case "gco":
-                        gant_co = a.Substring(3, a.Length - 3);
-                        break;
-                    case "gf1":
-                        gant_f1 = a.Substring(3, a.Length - 3);
-                        break;
-                    case "gf2":
-                        gant_f2 = a.Substring(3, a.Length - 3);
-                        break;
-                    case "gfn":
-                        gant_cofin = a.Substring(3, a.Length - 3);
-                        break;
-                    case "cco":
-                        collim_co = a.Substring(3, a.Length - 3);
-                        break;
-                    case "cf1":
-                        collim_f1 = a.Substring(3, a.Length - 3);
-                        break;
-                    case "cf2":
-                        collim_f2 = a.Substring(3, a.Length - 3);
-                        break;
-                    case "cfn":
-                        collim_cofin = a.Substring(3, a.Length - 3);
-                        break;
-                    case "wco":
-                        x1_co = a.Substring(3, a.Length - 3);
-                        break;
-                    case "xco":
-                        x2_co = a.Substring(3, a.Length - 3);
-                        break;
-                    case "yco":
-                        y1_co = a.Substring(3, a.Length - 3);
-                        break;
-                    case "zco":
-                        y2_co = a.Substring(3, a.Length - 3);
-                        break;
-                    case "lok":
-                        MessageBox.Show("Learning was succesfull");
-                        break;
-                    case "sok":
-                        MessageBox.Show("Saving was succesfull!");
-                        break;
-                    case "snk":
-                        MessageBox.Show("Error: Saving was not succesfull!");
-                        break;
-
-                    case "c43":
-                        gant_zpnt = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c44":
-                        gant_length = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c45":
-                        gant_fine_length = a.Substring(3, a.Length - 3);
-                        //GlobalSerialPort.Write(gant_zpnt + (gant_zpnt.Length + 1).ToString() + "/" + gant_length + (gant_length.Length + 1).ToString() + "/" + gant_fine_length + (gant_fine_length.Length + 1).ToString() + "/");
-                        GlobalSerialPort.Write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
-                        try
-                        {
-                            string appPath = Application.StartupPath;
-                            string dataPath = System.IO.Path.Combine(appPath, "Learn.dat");
-                            string[] values = { gant_zpnt, gant_length, gant_fine_length, collim_zpnt, collim_length, collim_fine_length };
-                            //System.IO.File.WriteAllLines(dataPath, lines);
-                            HashPass.writeLearnJson(dataPath, values);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error saving to file\n" + ex.Message);
-                        }
-                        break;
-                    case "c46":
-                        collim_zpnt = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c47":
-                        collim_length = a.Substring(3, a.Length - 3);
-                        break;
-                    case "c48":
-                        collim_fine_length = a.Substring(3, a.Length - 3);
-                        GlobalSerialPort.Write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
-                        //GlobalSerialPort.Write(collim_zpnt + (collim_zpnt.Length + 1).ToString() + "/");
-                        //GlobalSerialPort.Write(collim_length + (collim_length.Length + 1).ToString() + "/");
-                        //GlobalSerialPort.Write(collim_fine_length + (collim_fine_length.Length + 1).ToString() + "/");
-                        try
-                        {
-                            string appPath = Application.StartupPath;
-                            string dataPath = System.IO.Path.Combine(appPath, "Learn.dat");
-                            string[] values = { gant_zpnt, gant_length, gant_fine_length, collim_zpnt, collim_length, collim_fine_length };
-                            //System.IO.File.WriteAllLines(dataPath, lines);
-                            HashPass.writeLearnJson(dataPath, values);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error saving to file\n" + ex.Message);
-                        }
-                        break;
-                    case "gnd":
-                        gnd = a.Substring(3, a.Length - 3);
-                        break;
-                    case "cld":
-                        cld = a.Substring(3, a.Length - 3);
-                        break;
-                    case "x1d":
-                        x1d = a.Substring(3, a.Length - 3);
-                        break;
-                    case "x2d":
-                        x2d = a.Substring(3, a.Length - 3);
-                        break;
-                    case "y1d":
-                        y1d = a.Substring(3, a.Length - 3);
-                        break;
-                    case "y2d":
-                        y2d = a.Substring(3, a.Length - 3);
-                        break;
-                    case "adc":
-                        adc = a.Substring(3, a.Length - 3);
-                        if (gant_set != gnd)
-                            GlobalSerialPort.Write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
-                        if (collim_set != cld)
-                            GlobalSerialPort.Write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
-                        if (x1_set != x1d)
-                            GlobalSerialPort.Write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
-                        if (x2_set != x2d)
-                            GlobalSerialPort.Write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
-                        if (y1_set != y1d)
-                            GlobalSerialPort.Write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
-                        if (y2_set != y2d)
-                            GlobalSerialPort.Write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
-                        if (quit == true)
-                        {
-                            ClosePort();
-                            Application.Exit();
-                            break;
-                        }
-                        break;
-                }
-            }
-            catch
-            {
-            }
+            string currReceived = GlobalSerialPort.ReadExisting();
+            receiveQ.Enqueue(currReceived);
+            //string a = "";
+            //try
+            //{
+            //    if (GlobalSerialPort.IsOpen)
+            //    {
+            //        a = GlobalSerialPort.ReadLine();
+            //        tb_terminal_in.AppendText(a + Environment.NewLine);
+            //    }
+                    
+            //}
+            //catch
+            //{
+            //}
+            
         }
 
         private void picBtn_Connect_MouseEnter(object sender, EventArgs e)
         {
-            picBtnToolTip.SetToolTip(picBtn_Connect, "Connect");
+            //picBtnToolTip.SetToolTip(picBtn_Connect, "Connect");
             picBtn_Connect.BackgroundImage = Resources.ConnectButton_MouseOver;
         }
 
@@ -1569,6 +1578,20 @@ namespace Compact_Control
             picBtn_Exit.BackgroundImage = Resources.Exit2;
         }
 
+        private void btn_clearTerminal_Click(object sender, EventArgs e)
+        {
+            tb_terminal_out.Clear();
+        }
+
+        private void tb_terminal_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void btn_clearTerminal_in_Click(object sender, EventArgs e)
+        {
+            tb_terminal_in.Clear();
+        }
+
         private void picBtn_LogOff_Click(object sender, EventArgs e)
         {
             string appPath = Application.StartupPath;
@@ -1587,6 +1610,410 @@ namespace Compact_Control
             Application.Restart();
             }
 
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            if (receiveQ.Count == 0)
+                return;
+            string currData = receiveQ.Dequeue();
+            string[] lines = currData.Split('\n');
+            tb_terminal_in.AppendText(currData + Environment.NewLine);
+            foreach (string a in lines)
+            {
+                try
+                {
+                    switch (a.Substring(0, 3))
+                    {
+                        case "ini":
+                            initState = 0;
+                            sendParametersFlag = true;
+                            //sendParameters();
+                            break;
+                        case "sum":
+                            string microSum = a.Substring(3, a.Length - 3);
+                            if (checkSum(double.Parse(microSum), ourSum) == true)
+                            {
+                                write("{|}~");
+                                initState = 1;
+                            }
+                            else
+                            {
+                                //write("$");
+                                //sendParametersFlag = true;
+                                //sendParameters();
+                            }
+                            break;
+                        //case "c01":
+                        //    microParameters[0] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[0], ourParameters[0]);
+                        //    break;
+                        //case "c02":
+                        //    microParameters[1] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[1], ourParameters[1]);
+                        //    break;
+                        //case "c03":
+                        //    microParameters[2] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[2], ourParameters[2]);
+                        //    break;
+                        //case "c04":
+                        //    microParameters[3] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[3], ourParameters[3]);
+                        //    break;
+                        //case "c05":
+                        //    microParameters[4] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[4], ourParameters[4]);
+                        //    break;
+                        //case "c06":
+                        //    microParameters[5] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[5], ourParameters[5]);
+                        //    break;
+                        //case "c07":
+                        //    microParameters[6] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[6], ourParameters[6]);
+                        //    break;
+                        //case "c08":
+                        //    microParameters[7] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[7], ourParameters[7]);
+                        //    break;
+                        //case "c09":
+                        //    microParameters[8] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[8], ourParameters[8]);
+                        //    break;
+                        //case "c10":
+                        //    microParameters[9] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[9], ourParameters[9]);
+                        //    break;
+                        //case "c11":
+                        //    microParameters[10] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[10], ourParameters[10]); 
+                        //    break;
+                        //case "c12":
+                        //    microParameters[11] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[11], ourParameters[11]);
+                        //    break;
+                        //case "c13":
+                        //    microParameters[12] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[12], ourParameters[12]);
+                        //    break;
+                        //case "c14":
+                        //    microParameters[13] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[13], ourParameters[13]);
+                        //    break;
+                        //case "c15":
+                        //    microParameters[14] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[14], ourParameters[14]);
+                        //    break;
+                        //case "c16":
+                        //    microParameters[15] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[15], ourParameters[15]);
+                        //    break;
+                        //case "c17":
+                        //    microParameters[16] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[16], ourParameters[16]);
+                        //    break;
+                        //case "c18":
+                        //    microParameters[17] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[17], ourParameters[17]);
+                        //    break;
+                        //case "c19":
+                        //    microParameters[18] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[18], ourParameters[18]);
+                        //    break;
+                        //case "c20":
+                        //    microParameters[19] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[19], ourParameters[19]);
+                        //    break;
+                        //case "c21":
+                        //    microParameters[20] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[20], ourParameters[20]);
+                        //    break;
+                        //case "c22":
+                        //    microParameters[21] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[21], ourParameters[21]);
+                        //    break;
+                        //case "c23":
+                        //    microParameters[22] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[22], ourParameters[22]);
+                        //    break;
+                        //case "c24":
+                        //    microParameters[23] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[23], ourParameters[23]);
+                        //    break;
+                        //case "c25":
+                        //    microParameters[24] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[24], ourParameters[24]);
+                        //    break;
+                        //case "c26":
+                        //    microParameters[25] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[25], ourParameters[25]);
+                        //    break;
+                        //case "c27":
+                        //    microParameters[26] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[26], ourParameters[26]);
+                        //    break;
+                        //case "c28":
+                        //    microParameters[27] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[27], ourParameters[27]);
+                        //    break;
+                        //case "c29":
+                        //    microParameters[28] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[28], ourParameters[28]);
+                        //    break;
+                        //case "c30":
+                        //    microParameters[29] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[29], ourParameters[29]);
+                        //    break;
+                        //case "c31":
+                        //    microParameters[30] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[30], ourParameters[30]);
+                        //    break;
+                        //case "c32":
+                        //    microParameters[31] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[31], ourParameters[31]);
+                        //    break;
+                        //case "c33":
+                        //    microParameters[32] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[32], ourParameters[32]);
+                        //    break;
+                        //case "c34":
+                        //    microParameters[33] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[33], ourParameters[33]);
+                        //    break;
+                        //case "c35":
+                        //    microParameters[34] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[34], ourParameters[34]);
+                        //    break;
+                        //case "c36":
+                        //    microParameters[35] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[35], ourParameters[35]);
+                        //    break;
+                        //case "c37":
+                        //    microParameters[36] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[36], ourParameters[36]);
+                        //    break;
+                        //case "c38":
+                        //    microParameters[37] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[37], ourParameters[37]);
+                        //    break;
+                        //case "c39":
+                        //    microParameters[38] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[38], ourParameters[38]);
+                        //    break;
+                        //case "c40":
+                        //    microParameters[39] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[39], ourParameters[39]);
+                        //    break;
+                        //case "c41":
+                        //    microParameters[40] = a.Substring(3, a.Length - 3);
+                        //    compareData(microParameters[40], ourParameters[40]);
+                        //    break;
+                        //case "c42":
+                        //    microParameters[41] = a.Substring(3, a.Length - 3);
+                        //    if (compareData(microParameters[41], ourParameters[41]) == true)
+                        //    {
+                        //        initState = 1;
+                        //        timer2.Enabled = true;
+                        //    }
+                        //    break;
+                        case "gco":
+                            gant_co = a.Substring(3, a.Length - 3);
+                            break;
+                        case "gf1":
+                            gant_f1 = a.Substring(3, a.Length - 3);
+                            break;
+                        case "gf2":
+                            gant_f2 = a.Substring(3, a.Length - 3);
+                            break;
+                        case "gfn":
+                            gant_cofin = a.Substring(3, a.Length - 3);
+                            break;
+                        case "cco":
+                            collim_co = a.Substring(3, a.Length - 3);
+                            break;
+                        case "cf1":
+                            collim_f1 = a.Substring(3, a.Length - 3);
+                            break;
+                        case "cf2":
+                            collim_f2 = a.Substring(3, a.Length - 3);
+                            break;
+                        case "cfn":
+                            collim_cofin = a.Substring(3, a.Length - 3);
+                            break;
+                        case "wco":
+                            x1_co = a.Substring(3, a.Length - 3);
+                            break;
+                        case "xco":
+                            x2_co = a.Substring(3, a.Length - 3);
+                            break;
+                        case "yco":
+                            y1_co = a.Substring(3, a.Length - 3);
+                            break;
+                        case "zco":
+                            y2_co = a.Substring(3, a.Length - 3);
+                            break;
+                        case "lok":
+                            MessageBox.Show("Learning was succesfull");
+                            break;
+                        case "sok":
+                            MessageBox.Show("Saving was succesfull!");
+                            break;
+                        case "snk":
+                            MessageBox.Show("Error: Saving was not succesfull!");
+                            break;
+
+                        case "c43":
+                            gant_zpnt = a.Substring(3, a.Length - 3);
+                            break;
+                        case "c44":
+                            gant_length = a.Substring(3, a.Length - 3);
+                            break;
+                        case "c45":
+                            gant_fine_length = a.Substring(3, a.Length - 3);
+                            //write(gant_zpnt + (gant_zpnt.Length + 1).ToString() + "/" + gant_length + (gant_length.Length + 1).ToString() + "/" + gant_fine_length + (gant_fine_length.Length + 1).ToString() + "/");
+                            write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
+                            try
+                            {
+                                string appPath = Application.StartupPath;
+                                string dataPath = System.IO.Path.Combine(appPath, "Learn.dat");
+                                string[] values = { gant_zpnt, gant_length, gant_fine_length, collim_zpnt, collim_length, collim_fine_length };
+                                //System.IO.File.WriteAllLines(dataPath, lines);
+                                HashPass.writeLearnJson(dataPath, values);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+                            }
+                            break;
+                        case "c46":
+                            collim_zpnt = a.Substring(3, a.Length - 3);
+                            break;
+                        case "c47":
+                            collim_length = a.Substring(3, a.Length - 3);
+                            break;
+                        case "c48":
+                            collim_fine_length = a.Substring(3, a.Length - 3);
+                            write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
+                            //write(collim_zpnt + (collim_zpnt.Length + 1).ToString() + "/");
+                            //write(collim_length + (collim_length.Length + 1).ToString() + "/");
+                            //write(collim_fine_length + (collim_fine_length.Length + 1).ToString() + "/");
+                            try
+                            {
+                                string appPath = Application.StartupPath;
+                                string dataPath = System.IO.Path.Combine(appPath, "Learn.dat");
+                                string[] values = { gant_zpnt, gant_length, gant_fine_length, collim_zpnt, collim_length, collim_fine_length };
+                                //System.IO.File.WriteAllLines(dataPath, lines);
+                                HashPass.writeLearnJson(dataPath, values);
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+                            }
+                            break;
+                        case "gnd":
+                            gnd = a.Substring(3, a.Length - 3);
+                            break;
+                        case "cld":
+                            cld = a.Substring(3, a.Length - 3);
+                            break;
+                        case "x1d":
+                            x1d = a.Substring(3, a.Length - 3);
+                            break;
+                        case "x2d":
+                            x2d = a.Substring(3, a.Length - 3);
+                            break;
+                        case "y1d":
+                            y1d = a.Substring(3, a.Length - 3);
+                            break;
+                        case "y2d":
+                            y2d = a.Substring(3, a.Length - 3);
+                            break;
+                        case "adc":
+                            int i = int.Parse(lbl_in_cnt.Text);
+                            i = i + 1;
+                            lbl_in_cnt.Text = i.ToString();
+                            adc = a.Substring(3, a.Length - 3);
+                            if (gant_set != gnd)
+                                write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
+                            if (collim_set != cld)
+                                write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
+                            if (x1_set != x1d)
+                                write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
+                            if (x2_set != x2d)
+                                write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
+                            if (y1_set != y1d)
+                                write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
+                            if (y2_set != y2d)
+                                write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
+                            int o = int.Parse(lbl_out_cnt.Text);
+                            o = o + 1;
+                            lbl_out_cnt.Text = o.ToString();
+                            break;
+                        default:
+                            tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
+                            break;
+                    }
+                    if (quit == true)
+                    {
+                        ClosePort();
+                        Application.Exit();
+                        break;
+                    }
+                }
+                catch
+                {
+                }
+            }
+        }
+
+        private void textBox76_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar) || e.KeyChar == '.' && ((sender as TextBox).Text.IndexOf('.') == -1))
+            {
+                if (Regex.IsMatch((sender as TextBox).Text, "^\\d*\\.\\d{2}$")) e.Handled = true;
+            }
+            else e.Handled = e.KeyChar != (char)Keys.Back;
+        }
+
+        private void Validate_Text_tol(object sender, CancelEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb != null)
+            {
+                float f;
+                if (float.TryParse(tb.Text, out f))
+                {
+                    if ((Regex.IsMatch((sender as TextBox).Text, "^\\d*\\.\\d{2}$")) ||
+                        (Regex.IsMatch((sender as TextBox).Text, "^\\d*\\.\\d{1}$")) ||
+                        (Regex.IsMatch((sender as TextBox).Text, "^\\d*$")))
+                        return;
+                }
+            }
+            MessageBox.Show("Invalid input\nValue must be a number with maximum 2 decimal places");
+            tb.SelectAll();
+            e.Cancel = true;
+        }
+
+        private void Validate_Text_V(object sender, CancelEventArgs e)
+        {
+            TextBox tb = sender as TextBox;
+            if (tb != null)
+            {
+                int i;
+                if (int.TryParse(tb.Text, out i))
+                {
+                    if (i >= 0 && i < 128)
+                        return;
+                }
+            }
+            MessageBox.Show("Invalid input\nValue must be a number between 0 and 127");
+            tb.SelectAll();
+            e.Cancel = true;
+        }
+
+        private void btn_clearTerminal_oth_Click(object sender, EventArgs e)
+        {
+            tb_terminal_oth.Clear();
+        }
+
         private void picBtn_Exit_Click(object sender, EventArgs e)
         {
             quit = true;
@@ -1603,7 +2030,10 @@ namespace Compact_Control
             if (GlobalSerialPort.IsOpen == false)
                 SetConnection(true);
             else
+            {
+                initState = -1;
                 SetConnection(false);
+            }
         }
 
         private void SetConnection(bool connect)
@@ -1630,13 +2060,24 @@ namespace Compact_Control
             if (connect)
             {
                 if (portName != "Null" && portName != "")
+                {
                     GlobalSerialPort.PortName = portName;
+                    ClientControls.curr_port = portName;
+                }
                 else
+                {
                     GlobalSerialPort.PortName = ports[0];
+                    ClientControls.curr_port = ports[0];
+                }
+                portName = GlobalSerialPort.PortName;
 
                 int BaudRate = 0;
                 if (int.TryParse(HashPass.ReadBaudRateFromReg(), out BaudRate) == true && BaudRate != 0)
+                {
                     GlobalSerialPort.BaudRate = BaudRate;
+                    ClientControls.curr_baudrate = BaudRate;
+                }
+
 
                 DisconnectPort();
                 Thread.Sleep(200);
@@ -1680,10 +2121,14 @@ namespace Compact_Control
                 if (isInServiceMode == true)
                 {
                     panel_AdminControls.Enabled = true;
+                    timer1.Enabled = true;
+                    timer3.Enabled = true;
                 }
                 else
                 {
                     panel_ClientControls.Enabled = true;
+                    timer1.Enabled = false;
+                    timer3.Enabled = false;
                 }
                 try
                 {
@@ -1712,23 +2157,22 @@ namespace Compact_Control
                     //y2_offset = double.Parse(lines[11]);
 
                     HashPass.CalibData values = HashPass.readCalibJson(dataPath);
-                    gant_gain = double.Parse(values.gant_gain);
-                    gant_offset = double.Parse(values.gant_offset);
-                    collim_gain = double.Parse(values.collim_gain);
-                    collim_offset = double.Parse(values.collim_offset);
-                    x1_gain = double.Parse(values.x1_gain);
-                    x1_offset = double.Parse(values.x1_offset);
-                    x2_gain = double.Parse(values.x2_gain);
-                    x2_offset = double.Parse(values.x2_offset);
-                    y1_gain = double.Parse(values.y1_gain);
-                    y1_offset = double.Parse(values.y1_offset);
-                    y2_gain = double.Parse(values.y2_gain);
-                    y2_offset = double.Parse(values.y2_offset);
-
+                    ClientControls.gant_gain = gant_gain = double.Parse(values.gant_gain);
+                    ClientControls.gant_offset =gant_offset = double.Parse(values.gant_offset);
+                    ClientControls.collim_gain =collim_gain = double.Parse(values.collim_gain);
+                    ClientControls.collim_offset = collim_offset = double.Parse(values.collim_offset);
+                    ClientControls.x1_gain = x1_gain = double.Parse(values.x1_gain);
+                    ClientControls.x1_offset = x1_offset = double.Parse(values.x1_offset);
+                    ClientControls.x2_gain = x2_gain = double.Parse(values.x2_gain);
+                    ClientControls.x2_offset = x2_offset = double.Parse(values.x2_offset);
+                    ClientControls.y1_gain = y1_gain = double.Parse(values.y1_gain);
+                    ClientControls.y1_offset = y1_offset = double.Parse(values.y1_offset);
+                    ClientControls.y2_gain = y2_gain = double.Parse(values.y2_gain);
+                    ClientControls.y2_offset = y2_offset = double.Parse(values.y2_offset);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error reading from file\n" + ex.Message);
+                    MessageBox.Show("Error reading from file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
                 }
                 try
                 {
@@ -1752,16 +2196,102 @@ namespace Compact_Control
                     //collim_fine_length = lines[10];
                     
                     HashPass.LearnData values = HashPass.readLearnJson(dataPath);
-                    gant_zpnt = values.gant_zpnt;
-                    gant_length = values.gant_length;
-                    gant_fine_length = values.gant_fine_length;
-                    collim_zpnt = values.collim_zpnt;
-                    collim_length = values.collim_length;
-                    collim_fine_length = values.collim_fine_length;
+                    ClientControls.gant_zpnt = gant_zpnt = values.gant_zpnt;
+                    ClientControls.gant_length = gant_length = values.gant_length;
+                    ClientControls.gant_fine_length = gant_fine_length = values.gant_fine_length;
+                    ClientControls.collim_zpnt = collim_zpnt = values.collim_zpnt;
+                    ClientControls.collim_length = collim_length = values.collim_length;
+                    ClientControls.collim_fine_length = collim_fine_length = values.collim_fine_length;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error reading from file\n" + ex.Message);
+                    MessageBox.Show("Error reading from file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+                }
+
+                try
+                {
+                    string appPath = Application.StartupPath;
+                    string dataPath = System.IO.Path.Combine(appPath, "Parameters.dat");
+                    if (!System.IO.File.Exists(dataPath))
+                    {
+                        timer1.Stop();
+                        timer1.Enabled = false;
+                        MessageBox.Show("Can not connect to port!\n''Parameters.dat'' file not found!", "Parameters file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Application.Exit();
+                        return;
+                    }
+                    HashPass.ParametersData values = HashPass.readParametersJson(dataPath);
+
+                    string[] prms = new string[36];
+
+
+                    prms[0]  = gant_tol0 = ClientControls.gant_tol0 = values.gant_tol0;
+                    prms[1]  = gant_tol1 = ClientControls.gant_tol1 = values.gant_tol1;	
+                    prms[2]  = gant_tol2 = ClientControls.gant_tol2 = values.gant_tol2;	
+                    prms[3]  = gant_v1 = ClientControls.gant_v1 = values.gant_v1;
+                    prms[4]  = gant_v2 = ClientControls.gant_v2 = values.gant_v2;
+                    prms[5]  = gant_v3 = ClientControls.gant_v3 = values.gant_v3;
+                    prms[6]  = collim_tol0 = ClientControls.collim_tol0 = values.collim_tol0;
+                    prms[7]  = collim_tol1 = ClientControls.collim_tol1 = values.collim_tol1;
+                    prms[8]  = collim_tol2 = ClientControls.collim_tol2 = values.collim_tol2;  
+                    prms[9]  = collim_v1 =ClientControls.collim_v1 = values.collim_v1;
+                    prms[10] = collim_v2 =ClientControls.collim_v2 = values.collim_v2;
+                    prms[11] = collim_v3 =ClientControls.collim_v3 = values.collim_v3;
+                    prms[12] = x1_tol0 = ClientControls.x1_tol0 = values.x1_tol0;
+                    prms[13] = x1_tol1 = ClientControls.x1_tol1 = values.x1_tol1;
+                    prms[14] = x1_tol2 = ClientControls.x1_tol2 = values.x1_tol2;
+                    prms[15] = x1_v1 = ClientControls.x1_v1 =  values.x1_v1;
+                    prms[16] = x1_v2 = ClientControls.x1_v2 =  values.x1_v2;
+                    prms[17] = x1_v3 = ClientControls.x1_v3 =  values.x1_v3;
+                    prms[18] = x2_tol0 = ClientControls.x2_tol0 = values.x2_tol0;
+                    prms[19] = x2_tol1 = ClientControls.x2_tol1 = values.x2_tol1;
+                    prms[20] = x2_tol2 = ClientControls.x2_tol2 = values.x2_tol2;
+                    prms[21] = x2_v1 = ClientControls.x2_v1 =  values.x2_v1;
+                    prms[22] = x2_v2 = ClientControls.x2_v2 =  values.x2_v2;
+                    prms[23] = x2_v3 = ClientControls.x2_v3 =  values.x2_v3;
+                    prms[24] = y1_tol0 = ClientControls.y1_tol0 = values.y1_tol0;
+                    prms[25] = y1_tol1 = ClientControls.y1_tol1 = values.y1_tol1;
+                    prms[26] = y1_tol2 = ClientControls.y1_tol2 = values.y1_tol2;
+                    prms[27] = y1_v1 = ClientControls.y1_v1 =  values.y1_v1;
+                    prms[28] = y1_v2 = ClientControls.y1_v2 =  values.y1_v2;
+                    prms[29] = y1_v3 = ClientControls.y1_v3 =  values.y1_v3;
+                    prms[30] = y2_tol0 = ClientControls.y2_tol0 = values.y2_tol0;
+                    prms[31] = y2_tol1 = ClientControls.y2_tol1 = values.y2_tol1;
+                    prms[32] = y2_tol2 = ClientControls.y2_tol2 = values.y2_tol2;
+                    prms[33] = y2_v1 = ClientControls.y2_v1 =  values.y2_v1;
+                    prms[34] = y2_v2 = ClientControls.y2_v2 =  values.y2_v2;
+                    prms[35] = y2_v3 = ClientControls.y2_v3 =  values.y2_v3;
+
+                    int i = 0;
+                    foreach (Control tb in gb_parameters.Controls)
+                    {
+                        if (tb is TextBox)
+                        {
+                            tb.Text = prms[tb.TabIndex - 7];
+                            i = i + 1;
+                        }
+                    }
+
+                    string[] ourParams = new string[42];
+                    ourParams[0] = gant_zpnt;
+                    ourParams[1] = gant_length;
+                    ourParams[2] = gant_fine_length;
+                    ourParams[3] = collim_zpnt;
+                    ourParams[4] = collim_length;
+                    ourParams[5] = collim_fine_length;
+                    Array.Copy(prms, 0, ourParams, 6, prms.Length);
+                    ourParameters = ourParams;
+                    ClientControls.ourParameters = ourParams;
+                    //ourSum = 0;
+                    //foreach (string param in ourParams)
+                    //{
+                    //    ourSum = ourSum + double.Parse(param);
+                    //}
+                    //ClientControls.sendParametersFlag = true;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Error reading from file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
                 }
 
                 panel_AdminControls.Enabled = true;
@@ -1773,7 +2303,7 @@ namespace Compact_Control
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Connection error!", "An error occured during connection!\n\n" + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Connection error!", "An error occured during connection!\n" + Environment.NewLine + ex.ToString().Split('\n')[0], MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ConnectToPort();
             }
         }
@@ -1799,7 +2329,9 @@ namespace Compact_Control
                     DisconnectPort();
                     Thread.Sleep(200);
                     GlobalSerialPort.PortName = portName;
+                    ClientControls.curr_port = portName;
                     GlobalSerialPort.BaudRate = int.Parse(curr_baudRate);
+                    ClientControls.curr_baudrate = int.Parse(curr_baudRate);
                     HashPass.WriteBaudrateToReg(curr_baudRate);
                     ConnectToPort();
                 }
@@ -1822,6 +2354,14 @@ namespace Compact_Control
 
         private void Form1_VisibleChanged(object sender, EventArgs e)
         {
+            if (isInServiceMode)
+            {
+                clientFrm.TimerStatus(false);
+            }
+            else
+            {
+                clientFrm.TimerStatus(true);
+            }
             //ClientControls clientFrm = new ClientControls();
             if (this.Visible == true)
             {
@@ -1832,9 +2372,11 @@ namespace Compact_Control
                         //GlobalSerialPort = clientFrm.serialPort1;
                         //GlobalSerialPort.DataReceived += clientFrm.serialPort1_DataReceived;
                         panel_ClientControls.Controls.Add(clientFrm);
+
                     }
                     else
                     {
+
                         //GlobalSerialPort = serialPort1;
                         //GlobalSerialPort.DataReceived += serialPort1_DataReceived_1;
                     }
@@ -1844,11 +2386,16 @@ namespace Compact_Control
                         if (GlobalSerialPort.IsOpen == false)
                         {
                             if (portName != "Null" && portName != "")
+                            {
                                 GlobalSerialPort.PortName = portName;
+                                ClientControls.curr_port = portName;
+                            }
                             else
+                            {
                                 GlobalSerialPort.PortName = ports[0];
-                            //ConnectToPort();
-                        }
+                            }
+                                //ConnectToPort();
+                            }
                     }
                 }
                 else
@@ -1993,7 +2540,6 @@ namespace Compact_Control
             label_time.Text = time;
             label_date.Text = miladiDate;
             label_shamsiDate.Text = shamsiDate;
-
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -2023,6 +2569,86 @@ namespace Compact_Control
             if (e.Modifiers == Keys.Shift && e.KeyCode == Keys.Left)
             {
                 Application.Exit();
+            }
+        }
+
+        public static int initState = -1;
+        public static double ourSum = 0;
+        private void btn_saveParameters_Click(object sender, EventArgs e)
+        {
+            initState = 0 ;
+            string[] values = new string[36];
+            int i = 0;
+            foreach (Control tb in gb_parameters.Controls)
+            {
+                if (tb is TextBox)
+                {
+                    values[tb.TabIndex-7] = tb.Text;
+                    i = i + 1;
+                }
+            }
+            gant_tol0 = ClientControls.gant_tol0 = values[0];
+            gant_tol1 = ClientControls.gant_tol1 = values[1];
+            gant_tol2 = ClientControls.gant_tol2 = values[2];
+            gant_v1 = ClientControls.gant_v1 = values[3];
+            gant_v2 = ClientControls.gant_v2 = values[4];
+            gant_v3 = ClientControls.gant_v3 = values[5];
+            collim_tol0 = ClientControls.collim_tol0 = values[6];
+            collim_tol1 = ClientControls.collim_tol1 = values[7];
+            collim_tol2 = ClientControls.collim_tol2 = values[8];
+            collim_v1 = ClientControls.collim_v1 = values[9];
+            collim_v2 = ClientControls.collim_v2 = values[10];
+            collim_v3 = ClientControls.collim_v3 = values[11];
+            x1_tol0 = ClientControls.x1_tol0 = values[12];
+            x1_tol1 = ClientControls.x1_tol1 = values[13];
+            x1_tol2 = ClientControls.x1_tol2 = values[14];
+            x1_v1 = ClientControls.x1_v1 = values[15];
+            x1_v2 = ClientControls.x1_v2 = values[16];
+            x1_v3 = ClientControls.x1_v3 = values[17];
+            x2_tol0 = ClientControls.x2_tol0 = values[18];
+            x2_tol1 = ClientControls.x2_tol1 = values[19];
+            x2_tol2 = ClientControls.x2_tol2 = values[20];
+            x2_v1 = ClientControls.x2_v1 = values[21];
+            x2_v2 = ClientControls.x2_v2 = values[22];
+            x2_v3 = ClientControls.x2_v3 = values[23];
+            y1_tol0 = ClientControls.y1_tol0 = values[24];
+            y1_tol1 = ClientControls.y1_tol1 = values[25];
+            y1_tol2 = ClientControls.y1_tol2 = values[26];
+            y1_v1 = ClientControls.y1_v1 = values[27];
+            y1_v2 = ClientControls.y1_v2 = values[28];
+            y1_v3 = ClientControls.y1_v3 = values[29];
+            y2_tol0 = ClientControls.y2_tol0 = values[30];
+            y2_tol1 = ClientControls.y2_tol1 = values[31];
+            y2_tol2 = ClientControls.y2_tol2 = values[32];
+            y2_v1 = ClientControls.y2_v1 = values[33];
+            y2_v2 = ClientControls.y2_v2 = values[34];
+            y2_v3 = ClientControls.y2_v3 = values[35];
+            try
+            {
+                string appPath = Application.StartupPath;
+                string dataPath = System.IO.Path.Combine(appPath, "Parameters.dat");
+                HashPass.writeParametersJson(dataPath, values);
+
+                string[] ourParams = new string[42];
+                ourParams[0] = gant_zpnt;
+                ourParams[1] = gant_length;
+                ourParams[2] = gant_fine_length;
+                ourParams[3] = collim_zpnt;
+                ourParams[4] = collim_length;
+                ourParams[5] = collim_fine_length;
+                Array.Copy(values, 0, ourParams, 6, values.Length);
+                ourParameters = ourParams;
+                ClientControls.ourParameters = ourParams;
+                //ourSum = 0;
+                //foreach (string param in ourParams)
+                //{
+                //    ourSum = ourSum + double.Parse(param);
+                //}
+                sendParametersFlag = true;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error saving parameters to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
             }
         }
     }

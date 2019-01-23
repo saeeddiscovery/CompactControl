@@ -584,7 +584,6 @@ namespace Compact_Control
         }
 
         public static string licenseName;
-        public static string remMinutes;
         public static string licenseType;
         public static bool isExpired = false;
         public static void refreshLicInfo()

@@ -8,7 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using Compact_Control.Properties;
-using System.Windows.Forms;
 
 namespace Compact_Control
 {

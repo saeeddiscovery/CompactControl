@@ -296,12 +296,13 @@
             "19200",
             "28800",
             "38400",
-            "56000"});
+            "57600",
+            "115200",
+            "128000"});
             this.comboBox_Baudrate.Location = new System.Drawing.Point(74, 52);
             this.comboBox_Baudrate.Name = "comboBox_Baudrate";
             this.comboBox_Baudrate.Size = new System.Drawing.Size(132, 21);
             this.comboBox_Baudrate.TabIndex = 23;
-            this.comboBox_Baudrate.SelectedIndexChanged += new System.EventHandler(this.comboBox_Baudrate_SelectedIndexChanged);
             // 
             // button3
             // 
