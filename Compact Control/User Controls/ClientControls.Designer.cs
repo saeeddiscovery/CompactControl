@@ -78,6 +78,10 @@
             this.btn_clearTerminal = new System.Windows.Forms.Button();
             this.label48 = new System.Windows.Forms.Label();
             this.tb_terminal_out = new System.Windows.Forms.TextBox();
+            this.lbl_out_cnt = new System.Windows.Forms.Label();
+            this.lbl_in_cnt = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -628,10 +632,54 @@
             this.tb_terminal_out.Size = new System.Drawing.Size(234, 132);
             this.tb_terminal_out.TabIndex = 108;
             // 
+            // lbl_out_cnt
+            // 
+            this.lbl_out_cnt.AutoSize = true;
+            this.lbl_out_cnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_out_cnt.Location = new System.Drawing.Point(1127, 180);
+            this.lbl_out_cnt.Name = "lbl_out_cnt";
+            this.lbl_out_cnt.Size = new System.Drawing.Size(18, 20);
+            this.lbl_out_cnt.TabIndex = 114;
+            this.lbl_out_cnt.Text = "0";
+            // 
+            // lbl_in_cnt
+            // 
+            this.lbl_in_cnt.AutoSize = true;
+            this.lbl_in_cnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_in_cnt.Location = new System.Drawing.Point(1127, 358);
+            this.lbl_in_cnt.Name = "lbl_in_cnt";
+            this.lbl_in_cnt.Size = new System.Drawing.Size(18, 20);
+            this.lbl_in_cnt.TabIndex = 115;
+            this.lbl_in_cnt.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(1092, 179);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 20);
+            this.label1.TabIndex = 116;
+            this.label1.Text = "out:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(1092, 357);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(27, 20);
+            this.label2.TabIndex = 117;
+            this.label2.Text = "in:";
+            // 
             // ClientControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_in_cnt);
+            this.Controls.Add(this.lbl_out_cnt);
             this.Controls.Add(this.btn_clearTerminal_in);
             this.Controls.Add(this.label51);
             this.Controls.Add(this.tb_terminal_in);
@@ -711,5 +759,9 @@
         private System.Windows.Forms.Button btn_clearTerminal;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.TextBox tb_terminal_out;
+        private System.Windows.Forms.Label lbl_out_cnt;
+        private System.Windows.Forms.Label lbl_in_cnt;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

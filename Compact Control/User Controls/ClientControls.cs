@@ -45,7 +45,6 @@ namespace Compact_Control
         public static string y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
         public static string y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
         bool sendParametersFlag = false;
-        bool sendParametersFlag_again = false;
 
         string x1_co;
         public static double x1_gain, x1_offset;
@@ -66,8 +65,6 @@ namespace Compact_Control
         public static double y2_gain, y2_offset;
         string y2_dv = "0";
         string y2d;
-
-        string exp_perm;
 
         string gant_set="0";
         string collim_set="0";
@@ -329,6 +326,9 @@ namespace Compact_Control
                             y2d = a.Substring(3, a.Length - 3);
                             break;
                         case "adc":
+                            int i = int.Parse(lbl_in_cnt.Text);
+                            i = i + 1;
+                            lbl_in_cnt.Text = i.ToString();
                             adc = a.Substring(3, a.Length - 3);
                             //adc = "1999";
                             if (int.Parse(adc) < 2000 || int.Parse(adc) > 2100)
@@ -357,6 +357,9 @@ namespace Compact_Control
                                 write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
                             if (y2_set != y2d)
                                 write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
+                            int o = int.Parse(lbl_out_cnt.Text);
+                            o = o + 1;
+                            lbl_out_cnt.Text = o.ToString();
                             break;
                     }
                     if (Class_PatientData.isBoardReadWrite)
@@ -451,31 +454,7 @@ namespace Compact_Control
             if (isX1Set)
                 x1Set();
             if (isX2Set)
-                x2Set();
-
-            //txt_gant_s_TextChanged(sender, e);
-            //textBox41_TextChanged(sender, e);
-            //textBox40_TextChanged(sender, e);
-            //textBox39_TextChanged(sender, e);
-            //textBox38_TextChanged(sender, e);
-            //textBox37_TextChanged(sender, e);
-            //textBox9_TextChanged(sender, e);
-            //textBox1_TextChanged(sender, e);
-            //textBox2_TextChanged(sender, e);
-            //textBox3_TextChanged(sender, e);
-            //textBox4_TextChanged(sender, e);
-            //textBox11_TextChanged(sender, e);
-
-            if (pictureBox1.Visible || pictureBox2.Visible || pictureBox1.Visible ||
-               pictureBox4.Visible || pictureBox5.Visible || pictureBox6.Visible ||
-               pictureBox14.Visible || pictureBox15.Visible)
-            {
-                exp_perm = "0";
-            }
-            else
-            {
-                exp_perm = "1";
-            }            
+                x2Set();        
         }
 
 

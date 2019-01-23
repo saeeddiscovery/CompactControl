@@ -99,8 +99,6 @@ namespace Compact_Control
         string y2_dv;
         string y2d;
 
-        string exp_perm;
-
         string gant_set;
         string collim_set;
         string x1_set;
@@ -164,7 +162,6 @@ namespace Compact_Control
                         GlobalSerialPort.PortName = ports[0];
                         ClientControls.curr_port = ports[0];
                     }
-                    int BaudRate = 0;
                     string filename = "portSettings.json";
                     try
                     {

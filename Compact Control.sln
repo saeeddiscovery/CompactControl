@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Compact Control", "Compact Control\Compact Control.csproj", "{0A404CA9-C81E-46CE-8C75-7B7E6EA71B9B}"
 EndProject
 Global
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -21,15 +24,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {974917D6-F712-4F95-A760-136E7DDD4608}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 1
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://saeeddiscovery.visualstudio.com/DefaultCollection
-		SccProjectUniqueName0 = Compact\u0020Control\\Compact\u0020Control.csproj
-		SccProjectName0 = Compact\u0020Control
-		SccAuxPath0 = https://saeeddiscovery.visualstudio.com/defaultcollection
-		SccLocalPath0 = Compact\u0020Control
-		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 	EndGlobalSection
 EndGlobal
