@@ -350,17 +350,17 @@ namespace Compact_Control
                             {
                                 Reading_Error.Text = "";
                             }
-                            if (gant_set != gnd)
+                            if (int.Parse(gant_set) != int.Parse(gnd))
                                 write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
-                            if (collim_set != cld)
+                            if (int.Parse(collim_set) != int.Parse(cld))
                                 write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
-                            if (x1_set != x1d)
+                            if (int.Parse(x1_set) != int.Parse(x1d))
                                 write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
-                            if (x2_set != x2d)
+                            if (int.Parse(x2_set) != int.Parse(x2d))
                                 write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
-                            if (y1_set != y1d)
+                            if (int.Parse(y1_set) != int.Parse(y1d))
                                 write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
-                            if (y2_set != y2d)
+                            if (int.Parse(y2_set) != int.Parse(y2d))
                                 write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
                             int o = int.Parse(lbl_out_cnt.Text);
                             o = o + 1;
@@ -793,7 +793,7 @@ namespace Compact_Control
                 { return; }
             if (x2_dv != null)
             {
-                x2_set = ((int)((-a - x2_offset) / x2_gain)).ToString();
+                x2_set = Math.Abs((int)((-a - x2_offset) / x2_gain)).ToString();
                 if (int.Parse(x2_set) > 65534 | int.Parse(y2_set) < 0)
                     x2_set = "0";
                 pictureBox4.BackgroundImage = Resources.Request;
@@ -905,7 +905,7 @@ namespace Compact_Control
                 { return; }
             if (x1_dv != null)
             {
-                x1_set = ((int)((a - x1_offset) / x1_gain)).ToString();
+                x1_set = Math.Abs((int)((a - x1_offset) / x1_gain)).ToString();
                 if (int.Parse(x1_set) > 65534 | int.Parse(y2_set) < 0)
                     x1_set = "0";
                 pictureBox3.BackgroundImage = Resources.Request;
@@ -1023,7 +1023,7 @@ namespace Compact_Control
                 { return; }
             if (y2_dv != null)
             {
-                y2_set = ((int)((-a - y2_offset) / y2_gain)).ToString();
+                y2_set = Math.Abs((int)((-a - y2_offset) / y2_gain)).ToString();
                 if (int.Parse(y2_set) > 65534 | int.Parse(y2_set) < 0)
                     y2_set = "0";
                 pictureBox6.BackgroundImage = Resources.Request;
@@ -1136,7 +1136,7 @@ namespace Compact_Control
                 { return; }
             if (y1_dv != null)
             {
-                y1_set = ((int)((a - y1_offset) / y1_gain)).ToString();
+                y1_set = Math.Abs((int)((a - y1_offset) / y1_gain)).ToString();
                 if (int.Parse(y1_set) > 65534 | int.Parse(y2_set) < 0)
                     y1_set = "0";
                 pictureBox5.BackgroundImage = Resources.Request;
@@ -1211,7 +1211,7 @@ namespace Compact_Control
                 //    a = 180.05;
                 if (a > 180)
                     a = a - 360;
-                gant_set = ((int)((a - gant_offset) / gant_gain)).ToString();
+                gant_set = Math.Abs((int)((a - gant_offset) / gant_gain)).ToString();
                 double gant_t2 = double.Parse(txt_gant_s.Text);
                 double gant_d2 = double.Parse(gant_dv);
                 if (gant_t2 > 180)
@@ -1277,7 +1277,7 @@ namespace Compact_Control
             {
                 if (a > 180)
                     a = a - 360;
-                collim_set = ((int)((a - collim_offset) / collim_gain)).ToString();
+                collim_set = Math.Abs((int)((a - collim_offset) / collim_gain)).ToString();
                 double collim_t2 = double.Parse(txt_coli_s.Text);
                 double collim_d2 = double.Parse(collim_dv);
                 if (collim_t2 > 180)
