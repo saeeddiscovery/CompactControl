@@ -1927,6 +1927,9 @@ namespace Compact_Control
                             y2d = a.Substring(3, a.Length - 3);
                             break;
                         case "adc":
+                            int i = int.Parse(lbl_in_cnt.Text);
+                            i = i + 1;
+                            lbl_in_cnt.Text = i.ToString();
                             adc = a.Substring(3, a.Length - 3);
                             if (gant_set != gnd)
                                 write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
@@ -1940,6 +1943,10 @@ namespace Compact_Control
                                 write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
                             if (y2_set != y2d)
                                 write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
+                            break;
+                            int o = int.Parse(lbl_out_cnt.Text);
+                            o = o + 1;
+                            lbl_out_cnt.Text = o.ToString();
                             break;
                     }
                     if (quit == true)

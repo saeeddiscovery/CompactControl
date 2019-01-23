@@ -264,6 +264,10 @@
             this.panel_ClientControls = new System.Windows.Forms.Panel();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.label62 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.lbl_in_cnt = new System.Windows.Forms.Label();
+            this.lbl_out_cnt = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -1666,6 +1670,10 @@
             // splitContainer4.Panel2
             // 
             this.splitContainer4.Panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.splitContainer4.Panel2.Controls.Add(this.label62);
+            this.splitContainer4.Panel2.Controls.Add(this.label63);
+            this.splitContainer4.Panel2.Controls.Add(this.lbl_in_cnt);
+            this.splitContainer4.Panel2.Controls.Add(this.lbl_out_cnt);
             this.splitContainer4.Panel2.Controls.Add(this.btn_clearTerminal_in);
             this.splitContainer4.Panel2.Controls.Add(this.label51);
             this.splitContainer4.Panel2.Controls.Add(this.tb_terminal_in);
@@ -2971,6 +2979,46 @@
             this.timer3.Interval = 5;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.Location = new System.Drawing.Point(397, 412);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(27, 20);
+            this.label62.TabIndex = 121;
+            this.label62.Text = "in:";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label63.Location = new System.Drawing.Point(163, 412);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(37, 20);
+            this.label63.TabIndex = 120;
+            this.label63.Text = "out:";
+            // 
+            // lbl_in_cnt
+            // 
+            this.lbl_in_cnt.AutoSize = true;
+            this.lbl_in_cnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_in_cnt.Location = new System.Drawing.Point(432, 413);
+            this.lbl_in_cnt.Name = "lbl_in_cnt";
+            this.lbl_in_cnt.Size = new System.Drawing.Size(18, 20);
+            this.lbl_in_cnt.TabIndex = 119;
+            this.lbl_in_cnt.Text = "0";
+            // 
+            // lbl_out_cnt
+            // 
+            this.lbl_out_cnt.AutoSize = true;
+            this.lbl_out_cnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_out_cnt.Location = new System.Drawing.Point(198, 413);
+            this.lbl_out_cnt.Name = "lbl_out_cnt";
+            this.lbl_out_cnt.Size = new System.Drawing.Size(18, 20);
+            this.lbl_out_cnt.TabIndex = 118;
+            this.lbl_out_cnt.Text = "0";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3297,6 +3345,10 @@
         private System.Windows.Forms.TextBox tb_terminal_in;
         private System.Windows.Forms.Button btn_clearTerminal_in;
         private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Label lbl_in_cnt;
+        private System.Windows.Forms.Label lbl_out_cnt;
     }
 }
 

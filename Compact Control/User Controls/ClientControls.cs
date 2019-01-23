@@ -259,14 +259,14 @@ namespace Compact_Control
         }
         private void timer3_Tick(object sender, EventArgs e)
         {
-            try
+            if (receiveQ.Count == 0)
+                return;
+            string currData = receiveQ.Dequeue();
+            string[] lines = currData.Split('\n');
+            tb_terminal_in.AppendText(currData + Environment.NewLine);
+            foreach (string a in lines)
             {
-                if (receiveQ.Count == 0)
-                    return;
-                string currData = receiveQ.Dequeue();
-                string[] lines = currData.Split('\n');
-                tb_terminal_in.AppendText(currData + Environment.NewLine);
-                foreach (string a in lines)
+                try
                 {
                     switch (a.Substring(0, 3))
                     {
@@ -366,9 +366,9 @@ namespace Compact_Control
                     {
                     }
                 }
-            }
-            catch
-            {
+                catch
+                {
+                }
             }
         }
 
