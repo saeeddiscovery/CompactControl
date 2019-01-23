@@ -268,6 +268,9 @@
             this.label63 = new System.Windows.Forms.Label();
             this.lbl_in_cnt = new System.Windows.Forms.Label();
             this.lbl_out_cnt = new System.Windows.Forms.Label();
+            this.btn_clearTerminal_oth = new System.Windows.Forms.Button();
+            this.label64 = new System.Windows.Forms.Label();
+            this.tb_terminal_oth = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -1663,7 +1666,10 @@
             // 
             // splitContainer4.Panel1
             // 
+            this.splitContainer4.Panel1.Controls.Add(this.btn_clearTerminal_oth);
             this.splitContainer4.Panel1.Controls.Add(this.groupBox8);
+            this.splitContainer4.Panel1.Controls.Add(this.tb_terminal_oth);
+            this.splitContainer4.Panel1.Controls.Add(this.label64);
             this.splitContainer4.Panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.splitContainer4.Panel1MinSize = 500;
             // 
@@ -3019,6 +3025,40 @@
             this.lbl_out_cnt.TabIndex = 118;
             this.lbl_out_cnt.Text = "0";
             // 
+            // btn_clearTerminal_oth
+            // 
+            this.btn_clearTerminal_oth.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_clearTerminal_oth.Location = new System.Drawing.Point(458, 570);
+            this.btn_clearTerminal_oth.Name = "btn_clearTerminal_oth";
+            this.btn_clearTerminal_oth.Size = new System.Drawing.Size(109, 30);
+            this.btn_clearTerminal_oth.TabIndex = 124;
+            this.btn_clearTerminal_oth.Text = "Clear";
+            this.btn_clearTerminal_oth.UseVisualStyleBackColor = true;
+            this.btn_clearTerminal_oth.Click += new System.EventHandler(this.btn_clearTerminal_oth_Click);
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label64.Location = new System.Drawing.Point(330, 414);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(129, 18);
+            this.label64.TabIndex = 123;
+            this.label64.Text = "Terminal (other)";
+            // 
+            // tb_terminal_oth
+            // 
+            this.tb_terminal_oth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.tb_terminal_oth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tb_terminal_oth.ForeColor = System.Drawing.Color.Cyan;
+            this.tb_terminal_oth.Location = new System.Drawing.Point(333, 435);
+            this.tb_terminal_oth.Multiline = true;
+            this.tb_terminal_oth.Name = "tb_terminal_oth";
+            this.tb_terminal_oth.ReadOnly = true;
+            this.tb_terminal_oth.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tb_terminal_oth.Size = new System.Drawing.Size(234, 132);
+            this.tb_terminal_oth.TabIndex = 122;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3078,6 +3118,7 @@
             this.groupBox13.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel1.PerformLayout();
             this.splitContainer4.Panel2.ResumeLayout(false);
             this.splitContainer4.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
@@ -3349,6 +3390,9 @@
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Label lbl_in_cnt;
         private System.Windows.Forms.Label lbl_out_cnt;
+        private System.Windows.Forms.Button btn_clearTerminal_oth;
+        private System.Windows.Forms.TextBox tb_terminal_oth;
+        private System.Windows.Forms.Label label64;
     }
 }
 

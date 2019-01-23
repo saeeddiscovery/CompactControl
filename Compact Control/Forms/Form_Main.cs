@@ -1943,10 +1943,12 @@ namespace Compact_Control
                                 write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
                             if (y2_set != y2d)
                                 write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
-                            break;
                             int o = int.Parse(lbl_out_cnt.Text);
                             o = o + 1;
                             lbl_out_cnt.Text = o.ToString();
+                            break;
+                        default:
+                            tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
                             break;
                     }
                     if (quit == true)
@@ -2007,6 +2009,10 @@ namespace Compact_Control
             e.Cancel = true;
         }
 
+        private void btn_clearTerminal_oth_Click(object sender, EventArgs e)
+        {
+            tb_terminal_oth.Clear();
+        }
 
         private void picBtn_Exit_Click(object sender, EventArgs e)
         {

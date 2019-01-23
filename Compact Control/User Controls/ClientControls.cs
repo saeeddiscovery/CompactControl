@@ -249,6 +249,11 @@ namespace Compact_Control
             tb_terminal_out.AppendText(data + Environment.NewLine);
         }
 
+        private void btn_clearTerminal_oth_Click(object sender, EventArgs e)
+        {
+            tb_terminal_oth.Clear();
+        }
+
         public double ourSum = 0;
         private bool checkSum(double microSum, double ourSum)
         {
@@ -360,6 +365,9 @@ namespace Compact_Control
                             int o = int.Parse(lbl_out_cnt.Text);
                             o = o + 1;
                             lbl_out_cnt.Text = o.ToString();
+                            break;
+                        default:
+                            tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
                             break;
                     }
                     if (Class_PatientData.isBoardReadWrite)
