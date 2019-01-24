@@ -1502,8 +1502,14 @@ namespace Compact_Control
         string[] microParameters = new string[42];
         private void serialPort1_DataReceived_1(object sender, SerialDataReceivedEventArgs e)
         {
-            string currReceived = GlobalSerialPort.ReadExisting();
-            receiveQ.Enqueue(currReceived);
+            while (GlobalSerialPort.BytesToRead > 0)
+            {
+                string currReceived = GlobalSerialPort.ReadLine();
+                receiveQ.Enqueue(currReceived);
+            }
+            //string currReceived = GlobalSerialPort.ReadExisting();
+
+
             //string a = "";
             //try
             //{
@@ -1512,12 +1518,12 @@ namespace Compact_Control
             //        a = GlobalSerialPort.ReadLine();
             //        tb_terminal_in.AppendText(a + Environment.NewLine);
             //    }
-                    
+
             //}
             //catch
             //{
             //}
-            
+
         }
 
         private void picBtn_Connect_MouseEnter(object sender, EventArgs e)
@@ -1615,10 +1621,11 @@ namespace Compact_Control
             if (receiveQ.Count == 0)
                 return;
             string currData = receiveQ.Dequeue();
-            string[] lines = currData.Split('\n');
+            //string[] lines = currData.Split('\n');
             tb_terminal_in.AppendText(currData + Environment.NewLine);
-            foreach (string a in lines)
-            {
+            string a = currData;
+            //foreach (string a in lines)
+            //{
                 try
                 {
                     switch (a.Substring(0, 3))
@@ -1955,13 +1962,12 @@ namespace Compact_Control
                     {
                         ClosePort();
                         Application.Exit();
-                        break;
                     }
                 }
                 catch
                 {
                 }
-            }
+            //}
         }
 
         private void textBox76_KeyPress(object sender, KeyPressEventArgs e)

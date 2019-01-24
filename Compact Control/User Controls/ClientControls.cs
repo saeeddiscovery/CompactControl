@@ -218,8 +218,13 @@ namespace Compact_Control
         public Queue<string> receiveQ = new Queue<string>();
         public void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            string currReceived = serialPort1.ReadExisting();
-            receiveQ.Enqueue(currReceived);
+            while (serialPort1.BytesToRead > 0)
+            {
+                string currReceived = serialPort1.ReadLine();
+                receiveQ.Enqueue(currReceived);
+            }
+            //string currReceived = serialPort1.ReadExisting();
+
             //string a = "";
             //try
             //{
@@ -267,10 +272,11 @@ namespace Compact_Control
             if (receiveQ.Count == 0)
                 return;
             string currData = receiveQ.Dequeue();
-            string[] lines = currData.Split('\n');
+            //string[] lines = currData.Split('\n');
             tb_terminal_in.AppendText(currData + Environment.NewLine);
-            foreach (string a in lines)
-            {
+            string a = currData;
+            //foreach (string a in lines)
+            //{
                 try
                 {
                     switch (a.Substring(0, 3))
@@ -377,7 +383,7 @@ namespace Compact_Control
                 catch
                 {
                 }
-            }
+            //}
         }
 
         private void timer1_Tick(object sender, EventArgs e)
