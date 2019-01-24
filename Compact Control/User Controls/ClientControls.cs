@@ -372,7 +372,19 @@ namespace Compact_Control
                             o = o + 1;
                             lbl_out_cnt.Text = o.ToString();
                             break;
-                        default:
+                        case "gco":
+                            break;
+                        case "gf1":
+                            break;
+                        case "gf2":
+                            break;
+                        case "cco":
+                            break;
+                        case "cf1":
+                            break;
+                        case "cf2":
+                            break;
+                    default:
                             tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
                             break;
                     }
