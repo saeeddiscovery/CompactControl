@@ -83,11 +83,9 @@
             this.button6 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button16 = new System.Windows.Forms.Button();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
@@ -271,6 +269,8 @@
             this.panel_ClientControls = new System.Windows.Forms.Panel();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.btn_learn = new System.Windows.Forms.Button();
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -888,7 +888,6 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.checkBox4);
             this.splitContainer2.Panel1.Controls.Add(this.groupBox4);
             this.splitContainer2.Panel1.Controls.Add(this.button17);
             this.splitContainer2.Panel1.Controls.Add(this.button18);
@@ -904,23 +903,11 @@
             this.splitContainer2.SplitterDistance = 581;
             this.splitContainer2.TabIndex = 24;
             // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.checkBox4.Location = new System.Drawing.Point(355, 516);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(132, 22);
-            this.checkBox4.TabIndex = 23;
-            this.checkBox4.Text = "Save to board";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
-            // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btn_learn);
             this.groupBox4.Controls.Add(this.comboBox1);
             this.groupBox4.Controls.Add(this.button16);
-            this.groupBox4.Controls.Add(this.checkBox3);
             this.groupBox4.Controls.Add(this.textBox12);
             this.groupBox4.Controls.Add(this.textBox18);
             this.groupBox4.Controls.Add(this.textBox17);
@@ -970,19 +957,6 @@
             this.button16.Text = "Set Ref";
             this.button16.UseVisualStyleBackColor = true;
             this.button16.Click += new System.EventHandler(this.button16_Click);
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Enabled = false;
-            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.checkBox3.Location = new System.Drawing.Point(40, 406);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(69, 22);
-            this.checkBox3.TabIndex = 17;
-            this.checkBox3.Text = "Learn";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // textBox12
             // 
@@ -3059,6 +3033,24 @@
             this.timer3.Interval = 5;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
+            // btn_learn
+            // 
+            this.btn_learn.Enabled = false;
+            this.btn_learn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_learn.Location = new System.Drawing.Point(71, 401);
+            this.btn_learn.Name = "btn_learn";
+            this.btn_learn.Size = new System.Drawing.Size(72, 30);
+            this.btn_learn.TabIndex = 20;
+            this.btn_learn.Text = "Learn";
+            this.btn_learn.UseVisualStyleBackColor = true;
+            this.btn_learn.Click += new System.EventHandler(this.btn_learn_Click);
+            // 
+            // timer4
+            // 
+            this.timer4.Enabled = true;
+            this.timer4.Interval = 3000;
+            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3102,7 +3094,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel1.PerformLayout();
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
@@ -3233,11 +3224,9 @@
         public System.IO.Ports.SerialPort serialPort1;
         public System.Windows.Forms.PictureBox picBtn_Close;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.TextBox textBox17;
@@ -3393,6 +3382,8 @@
         private System.Windows.Forms.Button btn_clearTerminal_oth;
         private System.Windows.Forms.TextBox tb_terminal_oth;
         private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Button btn_learn;
+        private System.Windows.Forms.Timer timer4;
     }
 }
 
