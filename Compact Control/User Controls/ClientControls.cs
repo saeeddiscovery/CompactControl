@@ -241,11 +241,13 @@ namespace Compact_Control
         private void btn_clearTerminal_Click(object sender, EventArgs e)
         {
             tb_terminal_out.Clear();
+            lbl_out_cnt.Text = "0";
         }
 
         private void btn_clearTerminal_in_Click(object sender, EventArgs e)
         {
             tb_terminal_in.Clear();
+            lbl_in_cnt.Text = "0";
         }
 
         public void write(string data)

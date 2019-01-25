@@ -393,6 +393,7 @@ namespace Compact_Control
         {
             if (btn_start_stop.Text == "Start")
             {
+                write("S");
                 btn_start_stop.Text = "Stop";
                 groupBox7.Enabled = true;
                 timer1.Stop();
@@ -457,19 +458,19 @@ namespace Compact_Control
             tb_y1_co.Text = y1_co;
             tb_y2_co.Text = y2_co;
 
-            textBox19.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
-            textBox20.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
-            textBox21.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
-            textBox22.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
-            textBox23.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
-            textBox24.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
+            tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
+            tb_coli_gain.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
+            tb_x1_gain.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
+            tb_x2_gain.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
+            tb_y1_gain.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
+            tb_y2_gain.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
 
-            textBox25.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
-            textBox26.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
-            textBox27.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
-            textBox28.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
-            textBox29.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
-            textBox30.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
+            tb_gant_offset.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
+            tb_coli_offset.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
+            tb_x1_offset.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
+            tb_x2_offset.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
+            tb_y1_offset.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
+            tb_y2_offset.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
 
             try
             {
@@ -1317,8 +1318,6 @@ namespace Compact_Control
 
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
-
-
             else
             {
                 try
@@ -1436,29 +1435,29 @@ namespace Compact_Control
         {
             try
             {
-                string gant_tol0_t = Math.Round(Math.Abs((double.Parse(gant_tol0) - gant_offset) / gant_gain)).ToString();
-                string gant_tol1_t = Math.Round(Math.Abs((double.Parse(gant_tol1) - gant_offset) / gant_gain)).ToString();
-                string gant_tol2_t = Math.Round(Math.Abs((double.Parse(gant_tol2) - gant_offset) / gant_gain)).ToString();
+                string gant_tol0_t = Math.Round(double.Parse(gant_tol0)/ gant_gain).ToString();
+                string gant_tol1_t = Math.Round(double.Parse(gant_tol1) / gant_gain).ToString();
+                string gant_tol2_t = Math.Round(double.Parse(gant_tol2)/ gant_gain).ToString();
                  
-                string collim_tol0_t = Math.Round(Math.Abs((double.Parse(collim_tol0) - collim_offset) / collim_gain)).ToString();
-                string collim_tol1_t = Math.Round(Math.Abs((double.Parse(collim_tol1) - collim_offset) / collim_gain)).ToString();
-                string collim_tol2_t = Math.Round(Math.Abs((double.Parse(collim_tol2) - collim_offset) / collim_gain)).ToString();
+                string collim_tol0_t = Math.Round(double.Parse(collim_tol0) / collim_gain).ToString();
+                string collim_tol1_t = Math.Round(double.Parse(collim_tol1) / collim_gain).ToString();
+                string collim_tol2_t = Math.Round(double.Parse(collim_tol2) / collim_gain).ToString();
                 
-                string x1_tol0_t = Math.Round(Math.Abs((double.Parse(x1_tol0) - x1_offset) / x1_gain)).ToString();
-                string x1_tol1_t = Math.Round(Math.Abs((double.Parse(x1_tol1) - x1_offset) / x1_gain)).ToString();
-                string x1_tol2_t = Math.Round(Math.Abs((double.Parse(x1_tol2) - x1_offset) / x1_gain)).ToString();
-                                                                                          
-                string x2_tol0_t = Math.Round(Math.Abs((double.Parse(x2_tol0) - x2_offset) / x2_gain)).ToString();
-                string x2_tol1_t = Math.Round(Math.Abs((double.Parse(x2_tol1) - x2_offset) / x2_gain)).ToString();
-                string x2_tol2_t = Math.Round(Math.Abs((double.Parse(x2_tol2) - x2_offset) / x2_gain)).ToString();
-                                                                                          
-                string y1_tol0_t = Math.Round(Math.Abs((double.Parse(y1_tol0) - y1_offset) / y1_gain)).ToString();
-                string y1_tol1_t = Math.Round(Math.Abs((double.Parse(y1_tol1) - y1_offset) / y1_gain)).ToString();
-                string y1_tol2_t = Math.Round(Math.Abs((double.Parse(y1_tol2) - y1_offset) / y1_gain)).ToString();
-                                                                                          
-                string y2_tol0_t = Math.Round(Math.Abs((double.Parse(y2_tol0) - y2_offset) / y2_gain)).ToString();
-                string y2_tol1_t = Math.Round(Math.Abs((double.Parse(y2_tol1) - y2_offset) / y2_gain)).ToString();
-                string y2_tol2_t = Math.Round(Math.Abs((double.Parse(y2_tol2) - y2_offset) / y2_gain)).ToString();
+                string x1_tol0_t = Math.Round(double.Parse(x1_tol0) / x1_gain).ToString();
+                string x1_tol1_t = Math.Round(double.Parse(x1_tol1) / x1_gain).ToString();
+                string x1_tol2_t = Math.Round(double.Parse(x1_tol2) / x1_gain).ToString();
+                                                                   
+                string x2_tol0_t = Math.Round(double.Parse(x2_tol0) / x2_gain).ToString();
+                string x2_tol1_t = Math.Round(double.Parse(x2_tol1) / x2_gain).ToString();
+                string x2_tol2_t = Math.Round(double.Parse(x2_tol2) / x2_gain).ToString();
+                                                                   
+                string y1_tol0_t = Math.Round(double.Parse(y1_tol0) / y1_gain).ToString();
+                string y1_tol1_t = Math.Round(double.Parse(y1_tol1) / y1_gain).ToString();
+                string y1_tol2_t = Math.Round(double.Parse(y1_tol2) / y1_gain).ToString();
+                                                                   
+                string y2_tol0_t = Math.Round(double.Parse(y2_tol0) / y2_gain).ToString();
+                string y2_tol1_t = Math.Round(double.Parse(y2_tol1) / y2_gain).ToString();
+                string y2_tol2_t = Math.Round(double.Parse(y2_tol2) / y2_gain).ToString();
 
                 ourSum = double.Parse(gant_tol0_t) + double.Parse(gant_tol1_t) + double.Parse(gant_tol2_t) +
                          double.Parse(collim_tol0_t) + double.Parse(collim_tol1_t) + double.Parse(collim_tol2_t) +
@@ -1598,6 +1597,7 @@ namespace Compact_Control
         private void btn_clearTerminal_Click(object sender, EventArgs e)
         {
             tb_terminal_out.Clear();
+            lbl_out_cnt.Text = "0";
         }
 
         private void tb_terminal_TextChanged(object sender, EventArgs e)
@@ -1607,6 +1607,7 @@ namespace Compact_Control
         private void btn_clearTerminal_in_Click(object sender, EventArgs e)
         {
             tb_terminal_in.Clear();
+            lbl_in_cnt.Text = "0";
         }
 
         private void picBtn_LogOff_Click(object sender, EventArgs e)
@@ -1873,7 +1874,37 @@ namespace Compact_Control
                         y2_co = a.Substring(3, a.Length - 3);
                         break;
                     case "lok":
-                        MessageBox.Show("Learning was succesfull");
+                        tb_gant_gain.Text = gant_gain.ToString();
+                        tb_gant_offset.Text = gant_offset.ToString();
+                        tb_coli_gain.Text = collim_gain.ToString();
+                        tb_coli_offset.Text = collim_offset.ToString();
+                        tb_x1_gain.Text = x1_gain.ToString();
+                        tb_x1_offset.Text = x1_offset.ToString();
+                        tb_x2_gain.Text = x2_gain.ToString();
+                        tb_x2_offset.Text = x2_offset.ToString();
+                        tb_y1_gain.Text = y1_gain.ToString();
+                        tb_y1_offset.Text = y1_offset.ToString();
+                        tb_y2_gain.Text = y2_gain.ToString();
+                        tb_y2_offset.Text = y2_offset.ToString();
+                        tb_gant_zpnt.Text = gant_zpnt;
+                        tb_gant_len.Text = gant_length;
+                        tb_gant_flen.Text = gant_fine_length;
+                        tb_coli_zpnt.Text = collim_zpnt;
+                        tb_coli_len.Text = collim_length;
+                        tb_coli_flen.Text = collim_fine_length;
+                        try
+                        {
+                            string appPath = Application.StartupPath;
+                            string dataPath = System.IO.Path.Combine(appPath, "Learn.dat");
+                            string[] values = { gant_zpnt, gant_length, gant_fine_length, collim_zpnt, collim_length, collim_fine_length };
+                            //System.IO.File.WriteAllLines(dataPath, lines);
+                            HashPass.writeLearnJson(dataPath, values);
+                            MessageBox.Show("Learning was succesfull");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+                        }
                         break;
                     case "sok":
                         MessageBox.Show("Saving was succesfull!");
@@ -1881,7 +1912,6 @@ namespace Compact_Control
                     case "snk":
                         MessageBox.Show("Error: Saving was not succesfull!");
                         break;
-
                     case "c43":
                         gant_zpnt = a.Substring(3, a.Length - 3);
                         break;
@@ -1892,18 +1922,6 @@ namespace Compact_Control
                         gant_fine_length = a.Substring(3, a.Length - 3);
                         //write(gant_zpnt + (gant_zpnt.Length + 1).ToString() + "/" + gant_length + (gant_length.Length + 1).ToString() + "/" + gant_fine_length + (gant_fine_length.Length + 1).ToString() + "/");
                         write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
-                        try
-                        {
-                            string appPath = Application.StartupPath;
-                            string dataPath = System.IO.Path.Combine(appPath, "Learn.dat");
-                            string[] values = { gant_zpnt, gant_length, gant_fine_length, collim_zpnt, collim_length, collim_fine_length };
-                            //System.IO.File.WriteAllLines(dataPath, lines);
-                            HashPass.writeLearnJson(dataPath, values);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
-                        }
                         break;
                     case "c46":
                         collim_zpnt = a.Substring(3, a.Length - 3);
@@ -1917,18 +1935,6 @@ namespace Compact_Control
                         //write(collim_zpnt + (collim_zpnt.Length + 1).ToString() + "/");
                         //write(collim_length + (collim_length.Length + 1).ToString() + "/");
                         //write(collim_fine_length + (collim_fine_length.Length + 1).ToString() + "/");
-                        try
-                        {
-                            string appPath = Application.StartupPath;
-                            string dataPath = System.IO.Path.Combine(appPath, "Learn.dat");
-                            string[] values = { gant_zpnt, gant_length, gant_fine_length, collim_zpnt, collim_length, collim_fine_length };
-                            //System.IO.File.WriteAllLines(dataPath, lines);
-                            HashPass.writeLearnJson(dataPath, values);
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
-                        }
                         break;
                     case "gnd":
                         gnd = a.Substring(3, a.Length - 3);
