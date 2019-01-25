@@ -269,6 +269,7 @@ namespace Compact_Control
         }
         private void timer3_Tick(object sender, EventArgs e)
         {
+            bool noWrite = false;
             if (receiveQ.Count == 0)
                 return;
             string currData = receiveQ.Dequeue();
@@ -281,109 +282,114 @@ namespace Compact_Control
                 {
                     switch (a.Substring(0, 3))
                     {
-                        case "ini":
-                            Form1.initState = 0;
-                            sendParametersFlag = true;
+                    case "ini":
+                        Form1.initState = 0;
+                        sendParametersFlag = true;
+                        //sendParameters();
+                        break;
+                    case "sum":
+                        string microSum = a.Substring(3, a.Length - 3);
+                        if (checkSum(double.Parse(microSum), ourSum) == true)
+                        {
+                            write("{|}~");
+                            Form1.initState = 1;
+                        }
+                        else
+                        {
+                            //write("$");
+                            //sendParametersFlag = true;
                             //sendParameters();
-                            break;
-                        case "sum":
-                            string microSum = a.Substring(3, a.Length - 3);
-                            if (checkSum(double.Parse(microSum), ourSum) == true)
-                            {
-                                write("{|}~");
-                                Form1.initState = 1;
-                            }
-                            else
-                            {
-                                //write("$");
-                                //sendParametersFlag = true;
-                                //sendParameters();
-                            }
-                            break;
-                        case "gfn":
-                            gant_cofin = a.Substring(3, a.Length - 3);
-                            break;
-                        case "cfn":
-                            collim_cofin = a.Substring(3, a.Length - 3);
-                            break;
-                        case "wco":
-                            x1_co = a.Substring(3, a.Length - 3);
-                            break;
-                        case "xco":
-                            x2_co = a.Substring(3, a.Length - 3);
-                            break;
-                        case "yco":
-                            y1_co = a.Substring(3, a.Length - 3);
-                            break;
-                        case "zco":
-                            y2_co = a.Substring(3, a.Length - 3);
-                            break;
-                        case "gnd":
-                            gnd = a.Substring(3, a.Length - 3);
-                            break;
-                        case "cld":
-                            cld = a.Substring(3, a.Length - 3);
-                            break;
-                        case "x1d":
-                            x1d = a.Substring(3, a.Length - 3);
-                            break;
-                        case "x2d":
-                            x2d = a.Substring(3, a.Length - 3);
-                            break;
-                        case "y1d":
-                            y1d = a.Substring(3, a.Length - 3);
-                            break;
-                        case "y2d":
-                            y2d = a.Substring(3, a.Length - 3);
-                            break;
-                        case "adc":
-                            int i = int.Parse(lbl_in_cnt.Text);
-                            i = i + 1;
-                            lbl_in_cnt.Text = i.ToString();
-                            adc = a.Substring(3, a.Length - 3);
-                            //adc = "1999";
-                            if (int.Parse(adc) < 2000 || int.Parse(adc) > 2100)
-                            {
-                                gant_set = "0";
-                                collim_set = "0";
-                                x1_set = "0";
-                                x2_set = "0";
-                                y1_set = "0";
-                                y2_set = "0";
-                                Reading_Error.Text = "Reading Error";
-                            }
-                            else
-                            {
-                                Reading_Error.Text = "";
-                            }
-                            if (int.Parse(gant_set) != int.Parse(gnd))
-                                write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
-                            if (int.Parse(collim_set) != int.Parse(cld))
-                                write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
-                            if (int.Parse(x1_set) != int.Parse(x1d))
-                                write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
-                            if (int.Parse(x2_set) != int.Parse(x2d))
-                                write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
-                            if (int.Parse(y1_set) != int.Parse(y1d))
-                                write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
-                            if (int.Parse(y2_set) != int.Parse(y2d))
-                                write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
+                        }
+                        break;
+                    case "gfn":
+                        gant_cofin = a.Substring(3, a.Length - 3);
+                        break;
+                    case "cfn":
+                        collim_cofin = a.Substring(3, a.Length - 3);
+                        break;
+                    case "wco":
+                        x1_co = a.Substring(3, a.Length - 3);
+                        break;
+                    case "xco":
+                        x2_co = a.Substring(3, a.Length - 3);
+                        break;
+                    case "yco":
+                        y1_co = a.Substring(3, a.Length - 3);
+                        break;
+                    case "zco":
+                        y2_co = a.Substring(3, a.Length - 3);
+                        break;
+                    case "gnd":
+                        gnd = a.Substring(3, a.Length - 3);
+                        break;
+                    case "cld":
+                        cld = a.Substring(3, a.Length - 3);
+                        break;
+                    case "x1d":
+                        x1d = a.Substring(3, a.Length - 3);
+                        break;
+                    case "x2d":
+                        x2d = a.Substring(3, a.Length - 3);
+                        break;
+                    case "y1d":
+                        y1d = a.Substring(3, a.Length - 3);
+                        break;
+                    case "y2d":
+                        y2d = a.Substring(3, a.Length - 3);
+                        break;
+                    case "adc":
+                        int i = int.Parse(lbl_in_cnt.Text);
+                        i = i + 1;
+                        lbl_in_cnt.Text = i.ToString();
+                        adc = a.Substring(3, a.Length - 3);
+                        //adc = "1999";
+                        if (int.Parse(adc) < 2000 || int.Parse(adc) > 2100)
+                        {
+                            gant_set = "0";
+                            collim_set = "0";
+                            x1_set = "0";
+                            x2_set = "0";
+                            y1_set = "0";
+                            y2_set = "0";
+                            Reading_Error.Text = "Reading Error";
+                        }
+                        else
+                        {
+                            Reading_Error.Text = "";
+                        }
+                        if (int.Parse(gant_set) != int.Parse(gnd))
+                            write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
+                        else if (int.Parse(collim_set) != int.Parse(cld))
+                            write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
+                        else if (int.Parse(x1_set) != int.Parse(x1d))
+                            write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
+                        else if (int.Parse(x2_set) != int.Parse(x2d))
+                            write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
+                        else if (int.Parse(y1_set) != int.Parse(y1d))
+                            write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
+                        else if (int.Parse(y2_set) != int.Parse(y2d))
+                            write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
+                        else
+                            noWrite = true;
+                        if (noWrite == false)
+                        {
                             int o = int.Parse(lbl_out_cnt.Text);
                             o = o + 1;
                             lbl_out_cnt.Text = o.ToString();
-                            break;
-                        case "gco":
-                            break;
-                        case "gf1":
-                            break;
-                        case "gf2":
-                            break;
-                        case "cco":
-                            break;
-                        case "cf1":
-                            break;
-                        case "cf2":
-                            break;
+                        }
+                        break;
+                    case "gco":
+                        break;
+                    case "gf1":
+                        break;
+                    case "gf2":
+                        break;
+                    case "cco":
+                        break;
+                    case "cf1":
+                        break;
+                    case "cf2":
+                        break;
                     default:
                             tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
                             break;

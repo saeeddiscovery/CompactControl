@@ -918,26 +918,32 @@ namespace Compact_Control
             switch (comboBox1.Text)
             {
                 case "Gantry":
+                    btn_learn.Enabled = true;
                     textBox11.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
                     textBox12.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
                     break;
                 case "Collimator":
+                    btn_learn.Enabled = true;
                     textBox11.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
                     textBox12.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
                     break;
                 case "X1":
+                    btn_learn.Enabled = false;
                     textBox11.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
                     textBox12.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
                     break;
                 case "X2":
+                    btn_learn.Enabled = false;
                     textBox11.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
                     textBox12.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
                     break;
                 case "Y1":
+                    btn_learn.Enabled = false;
                     textBox11.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
                     textBox12.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
                     break;
                 case "Y2":
+                    btn_learn.Enabled = false;
                     textBox11.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
                     textBox12.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
                     break;
