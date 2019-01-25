@@ -255,7 +255,7 @@ namespace Compact_Control
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
             write("a");
-            write(trackBar1.Value.ToString());
+            write(trackBar_gant.Value.ToString());
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -263,7 +263,7 @@ namespace Compact_Control
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
             write("b");
-            write(trackBar2.Value.ToString());
+            write(trackBar_coli.Value.ToString());
         }
 
         private void button6_MouseDown(object sender, MouseEventArgs e)
@@ -271,7 +271,7 @@ namespace Compact_Control
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
             write("c");
-            write(trackBar3.Value.ToString());
+            write(trackBar_x1.Value.ToString());
         }
 
 
@@ -280,7 +280,7 @@ namespace Compact_Control
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
             write("d");
-            write(trackBar4.Value.ToString());
+            write(trackBar_x2.Value.ToString());
         }
 
 
@@ -289,7 +289,7 @@ namespace Compact_Control
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
             write("e");
-            write(trackBar5.Value.ToString());
+            write(trackBar_y1.Value.ToString());
         }
 
         private void button11_MouseDown(object sender, MouseEventArgs e)
@@ -297,7 +297,7 @@ namespace Compact_Control
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
             write("f");
-            write(trackBar6.Value.ToString());
+            write(trackBar_y2.Value.ToString());
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -305,7 +305,7 @@ namespace Compact_Control
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
             write("g");
-            write(trackBar1.Value.ToString());
+            write(trackBar_gant.Value.ToString());
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -313,7 +313,7 @@ namespace Compact_Control
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
             write("h");
-            write(trackBar2.Value.ToString());
+            write(trackBar_coli.Value.ToString());
         }
 
         private void button7_MouseDown(object sender, MouseEventArgs e)
@@ -321,7 +321,7 @@ namespace Compact_Control
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
             write("i");
-            write(trackBar3.Value.ToString());
+            write(trackBar_x1.Value.ToString());
         }
 
         private void button9_MouseDown(object sender, MouseEventArgs e)
@@ -329,7 +329,7 @@ namespace Compact_Control
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
             write("j");
-            write(trackBar4.Value.ToString());
+            write(trackBar_x2.Value.ToString());
         }
 
         private void button12_MouseDown(object sender, MouseEventArgs e)
@@ -337,7 +337,7 @@ namespace Compact_Control
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
             write("k");
-            write(trackBar5.Value.ToString());
+            write(trackBar_y1.Value.ToString());
         }
 
         private void button13_MouseDown(object sender, MouseEventArgs e)
@@ -345,7 +345,7 @@ namespace Compact_Control
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
             write("l");
-            write(trackBar6.Value.ToString());
+            write(trackBar_y2.Value.ToString());
         }
 
 
@@ -391,9 +391,21 @@ namespace Compact_Control
 
         private void button14_Click(object sender, EventArgs e)
         {
-            if (GlobalSerialPort.IsOpen == false)
-                GlobalSerialPort.Open();
-            write("s");
+            if (btn_start_stop.Text == "Start")
+            {
+                btn_start_stop.Text = "Stop";
+                groupBox7.Enabled = true;
+                timer1.Stop();
+            }
+            else
+            {
+                if (GlobalSerialPort.IsOpen == false)
+                    GlobalSerialPort.Open();
+                write("s");
+                btn_start_stop.Text = "Start";
+                groupBox7.Enabled = false;
+                timer1.Start();
+            }
         }
 
 
@@ -440,10 +452,10 @@ namespace Compact_Control
             textBox10.Text = collim_f2;
             textBox44.Text = collim_cofin;
 
-            textBox3.Text = x1_co;
-            textBox4.Text = x2_co;
-            textBox5.Text = y1_co;
-            textBox6.Text = y2_co;
+            tb_x1_co.Text = x1_co;
+            tb_x2_co.Text = x2_co;
+            tb_y1_co.Text = y1_co;
+            tb_y2_co.Text = y2_co;
 
             textBox19.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
             textBox20.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
