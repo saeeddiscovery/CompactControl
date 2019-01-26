@@ -110,8 +110,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.button17 = new System.Windows.Forms.Button();
-            this.button18 = new System.Windows.Forms.Button();
+            this.btn_edit = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tb_coli_flen = new System.Windows.Forms.TextBox();
             this.tb_coli_len = new System.Windows.Forms.TextBox();
@@ -282,6 +282,7 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.btn_cancelLearn = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -357,6 +358,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1122, 636);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -902,8 +904,8 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.groupBox4);
-            this.splitContainer2.Panel1.Controls.Add(this.button17);
-            this.splitContainer2.Panel1.Controls.Add(this.button18);
+            this.splitContainer2.Panel1.Controls.Add(this.btn_edit);
+            this.splitContainer2.Panel1.Controls.Add(this.btn_save);
             this.splitContainer2.Panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.splitContainer2.Panel1MinSize = 500;
             // 
@@ -918,6 +920,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.btn_cancelLearn);
             this.groupBox4.Controls.Add(this.btn_learn);
             this.groupBox4.Controls.Add(this.comboBox1);
             this.groupBox4.Controls.Add(this.button16);
@@ -944,7 +947,7 @@
             // 
             this.btn_learn.Enabled = false;
             this.btn_learn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_learn.Location = new System.Drawing.Point(71, 401);
+            this.btn_learn.Location = new System.Drawing.Point(138, 401);
             this.btn_learn.Name = "btn_learn";
             this.btn_learn.Size = new System.Drawing.Size(72, 30);
             this.btn_learn.TabIndex = 20;
@@ -975,7 +978,7 @@
             // 
             this.button16.Enabled = false;
             this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.button16.Location = new System.Drawing.Point(183, 401);
+            this.button16.Location = new System.Drawing.Point(216, 401);
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(72, 30);
             this.button16.TabIndex = 18;
@@ -1218,28 +1221,28 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Calibration Part";
             // 
-            // button17
+            // btn_edit
             // 
-            this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.button17.Location = new System.Drawing.Point(353, 450);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(150, 30);
-            this.button17.TabIndex = 19;
-            this.button17.Text = "Edit";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
+            this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_edit.Location = new System.Drawing.Point(353, 450);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(150, 30);
+            this.btn_edit.TabIndex = 19;
+            this.btn_edit.Text = "Edit";
+            this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.button17_Click);
             // 
-            // button18
+            // btn_save
             // 
-            this.button18.Enabled = false;
-            this.button18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.button18.Location = new System.Drawing.Point(353, 486);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(150, 30);
-            this.button18.TabIndex = 20;
-            this.button18.Text = "Save";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
+            this.btn_save.Enabled = false;
+            this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_save.Location = new System.Drawing.Point(353, 486);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(150, 30);
+            this.btn_save.TabIndex = 20;
+            this.btn_save.Text = "Save";
+            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.button18_Click);
             // 
             // groupBox3
             // 
@@ -3185,6 +3188,18 @@
             this.timer4.Interval = 3000;
             this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
+            // btn_cancelLearn
+            // 
+            this.btn_cancelLearn.Enabled = false;
+            this.btn_cancelLearn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_cancelLearn.Location = new System.Drawing.Point(61, 401);
+            this.btn_cancelLearn.Name = "btn_cancelLearn";
+            this.btn_cancelLearn.Size = new System.Drawing.Size(72, 30);
+            this.btn_cancelLearn.TabIndex = 21;
+            this.btn_cancelLearn.Text = "Cancel";
+            this.btn_cancelLearn.UseVisualStyleBackColor = true;
+            this.btn_cancelLearn.Click += new System.EventHandler(this.btn_cancelLearn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3384,8 +3399,8 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Button btn_edit;
+        private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.Label label45;
@@ -3529,6 +3544,7 @@
         private System.Windows.Forms.TextBox tb_coli_zpnt;
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.Button btn_cancelLearn;
     }
 }
 

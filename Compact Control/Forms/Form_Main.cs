@@ -461,19 +461,19 @@ namespace Compact_Control
             tb_y1_co.Text = y1_co;
             tb_y2_co.Text = y2_co;
 
-            tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
-            tb_coli_gain.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
-            tb_x1_gain.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
-            tb_x2_gain.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
-            tb_y1_gain.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
-            tb_y2_gain.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
+            //tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
+            //tb_coli_gain.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
+            //tb_x1_gain.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
+            //tb_x2_gain.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
+            //tb_y1_gain.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
+            //tb_y2_gain.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
 
-            tb_gant_offset.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
-            tb_coli_offset.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
-            tb_x1_offset.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
-            tb_x2_offset.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
-            tb_y1_offset.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
-            tb_y2_offset.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
+            //tb_gant_offset.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
+            //tb_coli_offset.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
+            //tb_x1_offset.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
+            //tb_x2_offset.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
+            //tb_y1_offset.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
+            //tb_y2_offset.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
 
             try
             {
@@ -596,46 +596,70 @@ namespace Compact_Control
                     switch (comboBox1.Text)
                     {
                         case "Gantry":
-                            gant_gain = gant_gain_temp;
-                            gant_offset = gant_offset_temp;
+                            ClientControls.gant_gain = gant_gain = gant_gain_temp;
+                            ClientControls.gant_offset = gant_offset = gant_offset_temp;
                             gant_dv = (gant_gain * double.Parse(gant_cofin) + gant_offset).ToString();
                             textBox11.Text = gant_gain.ToString();
                             textBox12.Text = gant_offset.ToString();
+
+                            tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
+                            tb_gant_offset.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
+
                             break;
                         case "Collimator":
-                            collim_gain = collim_gain_temp;
-                            collim_offset = collim_offset_temp;
+                            ClientControls.collim_gain = collim_gain = collim_gain_temp;
+                            ClientControls.collim_offset = collim_offset = collim_offset_temp;
                             collim_dv = (collim_gain * double.Parse(collim_cofin) + collim_offset).ToString();
                             textBox11.Text = collim_gain.ToString();
                             textBox12.Text = collim_offset.ToString();
+
+                            tb_coli_gain.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
+                            tb_coli_offset.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
+
                             break;
                         case "X1":
-                            x1_gain = x1_gain_temp;
-                            x1_offset = x1_offset_temp;
+                            ClientControls.x1_gain = x1_gain = x1_gain_temp;
+                            ClientControls.x1_offset = x1_offset = x1_offset_temp;
                             x1_dv = (x1_gain * double.Parse(x1_co) + x1_offset).ToString();
                             textBox11.Text = x1_gain.ToString();
                             textBox12.Text = x1_offset.ToString();
+
+                            tb_x1_gain.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
+                            tb_x1_offset.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
+
                             break;
                         case "X2":
-                            x2_gain = x2_gain_temp;
-                            x2_offset = x2_offset_temp;
+                            ClientControls.x2_gain = x2_gain = x2_gain_temp;
+                            ClientControls.x2_offset = x2_offset = x2_offset_temp;
                             x2_dv = (x2_gain * double.Parse(x2_co) + x2_offset).ToString();
                             textBox11.Text = x2_gain.ToString();
                             textBox12.Text = x2_offset.ToString();
+
+                            tb_x2_gain.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
+                            tb_x2_offset.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
+
                             break;
                         case "Y1":
-                            y1_gain = y1_gain_temp;
-                            y1_offset = y1_offset_temp;
+                            ClientControls.y1_gain = y1_gain = y1_gain_temp;
+                            ClientControls.y1_offset = y1_offset = y1_offset_temp;
                             y1_dv = (y1_gain * double.Parse(y1_co) + y1_offset).ToString();
                             textBox11.Text = y1_gain.ToString();
                             textBox12.Text = y1_offset.ToString();
+
+                            tb_y1_gain.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
+                            tb_y1_offset.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
+
                             break;
                         case "Y2":
-                            y2_gain = y2_gain_temp;
-                            y2_offset = y2_offset_temp;
+                            ClientControls.y2_gain = y2_gain = y2_gain_temp;
+                            ClientControls.y2_offset = y2_offset = y2_offset_temp;
                             y2_dv = (y2_gain * double.Parse(y2_co) + y2_offset).ToString();
                             textBox11.Text = y2_gain.ToString();
                             textBox12.Text = y2_offset.ToString();
+
+                            tb_y2_gain.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
+                            tb_y2_offset.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
+
                             break;
                     }
                 }
@@ -971,7 +995,8 @@ namespace Compact_Control
             groupBox4.Enabled = true;
             comboBox1.Enabled = true;
             label11.Enabled = true;
-            button18.Enabled = true;
+            
+            btn_edit.Enabled = false;
         }
 
         private void textBox42_TextChanged(object sender, EventArgs e)
@@ -1315,30 +1340,53 @@ namespace Compact_Control
             }
         }
 
+        void SaveCalibFile()
+        {
+            try
+            {
+                string appPath = Application.StartupPath;
+                string dataPath = System.IO.Path.Combine(appPath, "Calib.dat");
+                string[] values = { gant_gain.ToString(), gant_offset.ToString(), collim_gain.ToString(), collim_offset.ToString(),
+                                 x1_gain.ToString(), x1_offset.ToString(), x2_gain.ToString(), x2_offset.ToString(),
+                                 y1_gain.ToString(), y1_offset.ToString(), y2_gain.ToString(), y2_offset.ToString()};
+                //System.IO.File.WriteAllLines(dataPath, lines);
+                HashPass.writeCalibJson(dataPath, values);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving to Calib file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+            }
+        }
+
+        public void SaveLearnFile()
+        {
+            try
+            {
+                string appPath = Application.StartupPath;
+                string dataPath = System.IO.Path.Combine(appPath, "Learn.dat");
+                string[] values = { gant_zpnt, gant_length, gant_fine_length, collim_zpnt, collim_length, collim_fine_length };
+                //System.IO.File.WriteAllLines(dataPath, lines);
+                HashPass.writeLearnJson(dataPath, values);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error saving to Learn file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+            }
+        }
+
         private void button18_Click(object sender, EventArgs e)
         {
-            button18.Enabled = false;
+            btn_save.Enabled = false;
 
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
             else
             {
-                try
-                {
-                    string appPath = Application.StartupPath;
-                    string dataPath = System.IO.Path.Combine(appPath, "Calib.dat");
-                    string[] values = { gant_gain.ToString(), gant_offset.ToString(), collim_gain.ToString(), collim_offset.ToString(),
-                                 x1_gain.ToString(), x1_offset.ToString(), x2_gain.ToString(), x2_offset.ToString(),
-                                 y1_gain.ToString(), y1_offset.ToString(), y2_gain.ToString(), y2_offset.ToString()};
-                    //System.IO.File.WriteAllLines(dataPath, lines);
-                    HashPass.writeCalibJson(dataPath, values);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
-                }
+                SaveCalibFile();
+                SaveLearnFile();
             }
             groupBox4.Enabled = false;
+            btn_edit.Enabled = true;
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -1615,6 +1663,11 @@ namespace Compact_Control
 
         private void picBtn_LogOff_Click(object sender, EventArgs e)
         {
+            if (btn_start_stop.Text == "Stop")
+            {
+                button14_Click(sender, e);
+            }
+
             string appPath = Application.StartupPath;
             string tempFile = System.IO.Path.Combine(appPath, Form_Login.tempFile);
             if (System.IO.File.Exists(tempFile))
@@ -1876,18 +1929,20 @@ namespace Compact_Control
                         y2_co = a.Substring(3, a.Length - 3);
                         break;
                     case "lok":
-                        tb_gant_gain.Text = gant_gain.ToString();
-                        tb_gant_offset.Text = gant_offset.ToString();
-                        tb_coli_gain.Text = collim_gain.ToString();
-                        tb_coli_offset.Text = collim_offset.ToString();
-                        tb_x1_gain.Text = x1_gain.ToString();
-                        tb_x1_offset.Text = x1_offset.ToString();
-                        tb_x2_gain.Text = x2_gain.ToString();
-                        tb_x2_offset.Text = x2_offset.ToString();
-                        tb_y1_gain.Text = y1_gain.ToString();
-                        tb_y1_offset.Text = y1_offset.ToString();
-                        tb_y2_gain.Text = y2_gain.ToString();
-                        tb_y2_offset.Text = y2_offset.ToString();
+                        tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
+                        tb_coli_gain.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
+                        tb_x1_gain.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
+                        tb_x2_gain.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
+                        tb_y1_gain.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
+                        tb_y2_gain.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
+
+                        tb_gant_offset.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
+                        tb_coli_offset.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
+                        tb_x1_offset.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
+                        tb_x2_offset.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
+                        tb_y1_offset.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
+                        tb_y2_offset.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
+
                         tb_gant_zpnt.Text = gant_zpnt;
                         tb_gant_len.Text = gant_length;
                         tb_gant_flen.Text = gant_fine_length;
@@ -1896,12 +1951,9 @@ namespace Compact_Control
                         tb_coli_flen.Text = collim_fine_length;
                         try
                         {
-                            string appPath = Application.StartupPath;
-                            string dataPath = System.IO.Path.Combine(appPath, "Learn.dat");
-                            string[] values = { gant_zpnt, gant_length, gant_fine_length, collim_zpnt, collim_length, collim_fine_length };
-                            //System.IO.File.WriteAllLines(dataPath, lines);
-                            HashPass.writeLearnJson(dataPath, values);
-                            MessageBox.Show("Learning was succesfull");
+                            MessageBox.Show("Learning was succesfull\nUse the Save button to save the results");
+                            btn_cancelLearn.Enabled = true;
+                            btn_save.Enabled = true;
                         }
                         catch (Exception ex)
                         {
@@ -2044,6 +2096,8 @@ namespace Compact_Control
         {
             if (MessageBox.Show("Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
+                
+                btn_learn.Enabled = false;
                 if (GlobalSerialPort.IsOpen == false)
                     GlobalSerialPort.Open();
                 if (comboBox1.Text == "Gantry")
@@ -2059,8 +2113,40 @@ namespace Compact_Control
             timer4.Stop();
         }
 
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex != 0)
+            {
+                if (btn_start_stop.Text == "Stop")
+                {
+                    button14_Click(sender, e);
+                }
+            }
+        }
+
+        private void btn_cancelLearn_Click(object sender, EventArgs e)
+        {
+            groupBox4.Enabled = false;
+            comboBox1.Enabled = false;
+            label11.Enabled = false;
+            btn_save.Enabled = false;
+            btn_edit.Enabled = true;
+            btn_cancelLearn.Enabled = false;
+            btn_learn.Enabled = true;
+
+            ReadCalibFile();
+            ReadLearnFile();
+
+            MessageBox.Show("Learn process is cancelled\nAll parameters reverted back to their previous values");
+        }
+
         private void picBtn_Exit_Click(object sender, EventArgs e)
         {
+            if (btn_start_stop.Text == "Stop")
+            {
+                button14_Click(sender, e);
+            }
+
             quit = true;
             //ClosePort();
             if (GlobalSerialPort.IsOpen == true)
@@ -2152,6 +2238,158 @@ namespace Compact_Control
             ClosePort();
         }
 
+        public void ReadCalibFile()
+        {
+            try
+            {
+                string appPath = Application.StartupPath;
+                string dataPath = System.IO.Path.Combine(appPath, "Calib.dat");
+                if (!System.IO.File.Exists(dataPath))
+                {
+                    timer1.Stop();
+                    timer1.Enabled = false;
+                    MessageBox.Show("Can not connect to port!\n''Calib.dat'' file not found!", "Calibration file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
+                    return;
+                }
+
+                HashPass.CalibData values = HashPass.readCalibJson(dataPath);
+                ClientControls.gant_gain = gant_gain = double.Parse(values.gant_gain);
+                ClientControls.gant_offset = gant_offset = double.Parse(values.gant_offset);
+                ClientControls.collim_gain = collim_gain = double.Parse(values.collim_gain);
+                ClientControls.collim_offset = collim_offset = double.Parse(values.collim_offset);
+                ClientControls.x1_gain = x1_gain = double.Parse(values.x1_gain);
+                ClientControls.x1_offset = x1_offset = double.Parse(values.x1_offset);
+                ClientControls.x2_gain = x2_gain = double.Parse(values.x2_gain);
+                ClientControls.x2_offset = x2_offset = double.Parse(values.x2_offset);
+                ClientControls.y1_gain = y1_gain = double.Parse(values.y1_gain);
+                ClientControls.y1_offset = y1_offset = double.Parse(values.y1_offset);
+                ClientControls.y2_gain = y2_gain = double.Parse(values.y2_gain);
+                ClientControls.y2_offset = y2_offset = double.Parse(values.y2_offset);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error reading from Calib file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+            }
+        }
+
+        public void ReadLearnFile()
+        {
+            try
+            {
+                string appPath = Application.StartupPath;
+                string dataPath = System.IO.Path.Combine(appPath, "Learn.dat");
+                if (!System.IO.File.Exists(dataPath))
+                {
+                    timer1.Stop();
+                    timer1.Enabled = false;
+                    MessageBox.Show("Can not connect to port!\n''Learn.dat'' file not found!", "Learn file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
+                    return;
+                }
+                HashPass.LearnData values = HashPass.readLearnJson(dataPath);
+                tb_gant_zpnt.Text = ClientControls.gant_zpnt = gant_zpnt = values.gant_zpnt;
+                tb_gant_len.Text = ClientControls.gant_length = gant_length = values.gant_length;
+                tb_gant_flen.Text = ClientControls.gant_fine_length = gant_fine_length = values.gant_fine_length;
+                tb_coli_zpnt.Text = ClientControls.collim_zpnt = collim_zpnt = values.collim_zpnt;
+                tb_coli_len.Text = ClientControls.collim_length = collim_length = values.collim_length;
+                tb_coli_flen.Text = ClientControls.collim_fine_length = collim_fine_length = values.collim_fine_length;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error reading from Learn file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+            }
+        }
+
+        public void ReadParametersFile()
+        {
+            try
+            {
+                string appPath = Application.StartupPath;
+                string dataPath = System.IO.Path.Combine(appPath, "Parameters.dat");
+                if (!System.IO.File.Exists(dataPath))
+                {
+                    timer1.Stop();
+                    timer1.Enabled = false;
+                    MessageBox.Show("Can not connect to port!\n''Parameters.dat'' file not found!", "Parameters file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Application.Exit();
+                    return;
+                }
+                HashPass.ParametersData values = HashPass.readParametersJson(dataPath);
+
+                string[] prms = new string[36];
+
+
+                prms[0] = gant_tol0 = ClientControls.gant_tol0 = values.gant_tol0;
+                prms[1] = gant_tol1 = ClientControls.gant_tol1 = values.gant_tol1;
+                prms[2] = gant_tol2 = ClientControls.gant_tol2 = values.gant_tol2;
+                prms[3] = gant_v1 = ClientControls.gant_v1 = values.gant_v1;
+                prms[4] = gant_v2 = ClientControls.gant_v2 = values.gant_v2;
+                prms[5] = gant_v3 = ClientControls.gant_v3 = values.gant_v3;
+                prms[6] = collim_tol0 = ClientControls.collim_tol0 = values.collim_tol0;
+                prms[7] = collim_tol1 = ClientControls.collim_tol1 = values.collim_tol1;
+                prms[8] = collim_tol2 = ClientControls.collim_tol2 = values.collim_tol2;
+                prms[9] = collim_v1 = ClientControls.collim_v1 = values.collim_v1;
+                prms[10] = collim_v2 = ClientControls.collim_v2 = values.collim_v2;
+                prms[11] = collim_v3 = ClientControls.collim_v3 = values.collim_v3;
+                prms[12] = x1_tol0 = ClientControls.x1_tol0 = values.x1_tol0;
+                prms[13] = x1_tol1 = ClientControls.x1_tol1 = values.x1_tol1;
+                prms[14] = x1_tol2 = ClientControls.x1_tol2 = values.x1_tol2;
+                prms[15] = x1_v1 = ClientControls.x1_v1 = values.x1_v1;
+                prms[16] = x1_v2 = ClientControls.x1_v2 = values.x1_v2;
+                prms[17] = x1_v3 = ClientControls.x1_v3 = values.x1_v3;
+                prms[18] = x2_tol0 = ClientControls.x2_tol0 = values.x2_tol0;
+                prms[19] = x2_tol1 = ClientControls.x2_tol1 = values.x2_tol1;
+                prms[20] = x2_tol2 = ClientControls.x2_tol2 = values.x2_tol2;
+                prms[21] = x2_v1 = ClientControls.x2_v1 = values.x2_v1;
+                prms[22] = x2_v2 = ClientControls.x2_v2 = values.x2_v2;
+                prms[23] = x2_v3 = ClientControls.x2_v3 = values.x2_v3;
+                prms[24] = y1_tol0 = ClientControls.y1_tol0 = values.y1_tol0;
+                prms[25] = y1_tol1 = ClientControls.y1_tol1 = values.y1_tol1;
+                prms[26] = y1_tol2 = ClientControls.y1_tol2 = values.y1_tol2;
+                prms[27] = y1_v1 = ClientControls.y1_v1 = values.y1_v1;
+                prms[28] = y1_v2 = ClientControls.y1_v2 = values.y1_v2;
+                prms[29] = y1_v3 = ClientControls.y1_v3 = values.y1_v3;
+                prms[30] = y2_tol0 = ClientControls.y2_tol0 = values.y2_tol0;
+                prms[31] = y2_tol1 = ClientControls.y2_tol1 = values.y2_tol1;
+                prms[32] = y2_tol2 = ClientControls.y2_tol2 = values.y2_tol2;
+                prms[33] = y2_v1 = ClientControls.y2_v1 = values.y2_v1;
+                prms[34] = y2_v2 = ClientControls.y2_v2 = values.y2_v2;
+                prms[35] = y2_v3 = ClientControls.y2_v3 = values.y2_v3;
+
+                int i = 0;
+                foreach (Control tb in gb_parameters.Controls)
+                {
+                    if (tb is TextBox)
+                    {
+                        tb.Text = prms[tb.TabIndex - 7];
+                        i = i + 1;
+                    }
+                }
+
+                string[] ourParams = new string[42];
+                ourParams[0] = gant_zpnt;
+                ourParams[1] = gant_length;
+                ourParams[2] = gant_fine_length;
+                ourParams[3] = collim_zpnt;
+                ourParams[4] = collim_length;
+                ourParams[5] = collim_fine_length;
+                Array.Copy(prms, 0, ourParams, 6, prms.Length);
+                ourParameters = ourParams;
+                ClientControls.ourParameters = ourParams;
+                //ourSum = 0;
+                //foreach (string param in ourParams)
+                //{
+                //    ourSum = ourSum + double.Parse(param);
+                //}
+                //ClientControls.sendParametersFlag = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error reading from Parameters file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+            }
+        }
+
         private void ConnectToPort()
         {
             try
@@ -2175,169 +2413,10 @@ namespace Compact_Control
                     timer1.Enabled = false;
                     timer3.Enabled = false;
                 }
-                try
-                {
-                    string appPath = Application.StartupPath;
-                    string dataPath = System.IO.Path.Combine(appPath, "Calib.dat");
-                    if (!System.IO.File.Exists(dataPath))
-                    {
-                        timer1.Stop();
-                        timer1.Enabled = false;
-                        MessageBox.Show("Can not connect to port!\n''Calib.dat'' file not found!", "Calibration file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Application.Exit();
-                        return;
-                    }
-                    //string[] lines = System.IO.File.ReadAllLines(dataPath);
-                    //gant_gain = double.Parse(lines[0]);
-                    //gant_offset = double.Parse(lines[1]);
-                    //collim_gain = double.Parse(lines[2]);
-                    //collim_offset = double.Parse(lines[3]);
-                    //x1_gain = double.Parse(lines[4]);
-                    //x1_offset = double.Parse(lines[5]);
-                    //x2_gain = double.Parse(lines[6]);
-                    //x2_offset = double.Parse(lines[7]);
-                    //y1_gain = double.Parse(lines[8]);
-                    //y1_offset = double.Parse(lines[9]);
-                    //y2_gain = double.Parse(lines[10]);
-                    //y2_offset = double.Parse(lines[11]);
 
-                    HashPass.CalibData values = HashPass.readCalibJson(dataPath);
-                    ClientControls.gant_gain = gant_gain = double.Parse(values.gant_gain);
-                    ClientControls.gant_offset =gant_offset = double.Parse(values.gant_offset);
-                    ClientControls.collim_gain =collim_gain = double.Parse(values.collim_gain);
-                    ClientControls.collim_offset = collim_offset = double.Parse(values.collim_offset);
-                    ClientControls.x1_gain = x1_gain = double.Parse(values.x1_gain);
-                    ClientControls.x1_offset = x1_offset = double.Parse(values.x1_offset);
-                    ClientControls.x2_gain = x2_gain = double.Parse(values.x2_gain);
-                    ClientControls.x2_offset = x2_offset = double.Parse(values.x2_offset);
-                    ClientControls.y1_gain = y1_gain = double.Parse(values.y1_gain);
-                    ClientControls.y1_offset = y1_offset = double.Parse(values.y1_offset);
-                    ClientControls.y2_gain = y2_gain = double.Parse(values.y2_gain);
-                    ClientControls.y2_offset = y2_offset = double.Parse(values.y2_offset);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error reading from file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
-                }
-                try
-                {
-                    string appPath = Application.StartupPath;
-                    string dataPath = System.IO.Path.Combine(appPath, "Learn.dat");
-                    if (!System.IO.File.Exists(dataPath))
-                    {
-                        timer1.Stop();
-                        timer1.Enabled = false;
-                        MessageBox.Show("Can not connect to port!\n''Learn.dat'' file not found!", "Learn file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Application.Exit();
-                        return;
-                    }
-
-                    //string[] lines = System.IO.File.ReadAllLines(dataPath);
-                    //gant_zpnt = lines[0];
-                    //gant_length = lines[2];
-                    //gant_fine_length = lines[4];
-                    //collim_zpnt = lines[6];
-                    //collim_length = lines[8];
-                    //collim_fine_length = lines[10];
-                    
-                    HashPass.LearnData values = HashPass.readLearnJson(dataPath);
-                    tb_gant_zpnt.Text = ClientControls.gant_zpnt = gant_zpnt = values.gant_zpnt;
-                    tb_gant_len.Text = ClientControls.gant_length = gant_length = values.gant_length;
-                    tb_gant_flen.Text = ClientControls.gant_fine_length = gant_fine_length = values.gant_fine_length;
-                    tb_coli_zpnt.Text = ClientControls.collim_zpnt = collim_zpnt = values.collim_zpnt;
-                    tb_coli_len.Text = ClientControls.collim_length = collim_length = values.collim_length;
-                    tb_coli_flen.Text = ClientControls.collim_fine_length = collim_fine_length = values.collim_fine_length;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error reading from file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
-                }
-
-                try
-                {
-                    string appPath = Application.StartupPath;
-                    string dataPath = System.IO.Path.Combine(appPath, "Parameters.dat");
-                    if (!System.IO.File.Exists(dataPath))
-                    {
-                        timer1.Stop();
-                        timer1.Enabled = false;
-                        MessageBox.Show("Can not connect to port!\n''Parameters.dat'' file not found!", "Parameters file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        Application.Exit();
-                        return;
-                    }
-                    HashPass.ParametersData values = HashPass.readParametersJson(dataPath);
-
-                    string[] prms = new string[36];
-
-
-                    prms[0]  = gant_tol0 = ClientControls.gant_tol0 = values.gant_tol0;
-                    prms[1]  = gant_tol1 = ClientControls.gant_tol1 = values.gant_tol1;	
-                    prms[2]  = gant_tol2 = ClientControls.gant_tol2 = values.gant_tol2;	
-                    prms[3]  = gant_v1 = ClientControls.gant_v1 = values.gant_v1;
-                    prms[4]  = gant_v2 = ClientControls.gant_v2 = values.gant_v2;
-                    prms[5]  = gant_v3 = ClientControls.gant_v3 = values.gant_v3;
-                    prms[6]  = collim_tol0 = ClientControls.collim_tol0 = values.collim_tol0;
-                    prms[7]  = collim_tol1 = ClientControls.collim_tol1 = values.collim_tol1;
-                    prms[8]  = collim_tol2 = ClientControls.collim_tol2 = values.collim_tol2;  
-                    prms[9]  = collim_v1 =ClientControls.collim_v1 = values.collim_v1;
-                    prms[10] = collim_v2 =ClientControls.collim_v2 = values.collim_v2;
-                    prms[11] = collim_v3 =ClientControls.collim_v3 = values.collim_v3;
-                    prms[12] = x1_tol0 = ClientControls.x1_tol0 = values.x1_tol0;
-                    prms[13] = x1_tol1 = ClientControls.x1_tol1 = values.x1_tol1;
-                    prms[14] = x1_tol2 = ClientControls.x1_tol2 = values.x1_tol2;
-                    prms[15] = x1_v1 = ClientControls.x1_v1 =  values.x1_v1;
-                    prms[16] = x1_v2 = ClientControls.x1_v2 =  values.x1_v2;
-                    prms[17] = x1_v3 = ClientControls.x1_v3 =  values.x1_v3;
-                    prms[18] = x2_tol0 = ClientControls.x2_tol0 = values.x2_tol0;
-                    prms[19] = x2_tol1 = ClientControls.x2_tol1 = values.x2_tol1;
-                    prms[20] = x2_tol2 = ClientControls.x2_tol2 = values.x2_tol2;
-                    prms[21] = x2_v1 = ClientControls.x2_v1 =  values.x2_v1;
-                    prms[22] = x2_v2 = ClientControls.x2_v2 =  values.x2_v2;
-                    prms[23] = x2_v3 = ClientControls.x2_v3 =  values.x2_v3;
-                    prms[24] = y1_tol0 = ClientControls.y1_tol0 = values.y1_tol0;
-                    prms[25] = y1_tol1 = ClientControls.y1_tol1 = values.y1_tol1;
-                    prms[26] = y1_tol2 = ClientControls.y1_tol2 = values.y1_tol2;
-                    prms[27] = y1_v1 = ClientControls.y1_v1 =  values.y1_v1;
-                    prms[28] = y1_v2 = ClientControls.y1_v2 =  values.y1_v2;
-                    prms[29] = y1_v3 = ClientControls.y1_v3 =  values.y1_v3;
-                    prms[30] = y2_tol0 = ClientControls.y2_tol0 = values.y2_tol0;
-                    prms[31] = y2_tol1 = ClientControls.y2_tol1 = values.y2_tol1;
-                    prms[32] = y2_tol2 = ClientControls.y2_tol2 = values.y2_tol2;
-                    prms[33] = y2_v1 = ClientControls.y2_v1 =  values.y2_v1;
-                    prms[34] = y2_v2 = ClientControls.y2_v2 =  values.y2_v2;
-                    prms[35] = y2_v3 = ClientControls.y2_v3 =  values.y2_v3;
-
-                    int i = 0;
-                    foreach (Control tb in gb_parameters.Controls)
-                    {
-                        if (tb is TextBox)
-                        {
-                            tb.Text = prms[tb.TabIndex - 7];
-                            i = i + 1;
-                        }
-                    }
-
-                    string[] ourParams = new string[42];
-                    ourParams[0] = gant_zpnt;
-                    ourParams[1] = gant_length;
-                    ourParams[2] = gant_fine_length;
-                    ourParams[3] = collim_zpnt;
-                    ourParams[4] = collim_length;
-                    ourParams[5] = collim_fine_length;
-                    Array.Copy(prms, 0, ourParams, 6, prms.Length);
-                    ourParameters = ourParams;
-                    ClientControls.ourParameters = ourParams;
-                    //ourSum = 0;
-                    //foreach (string param in ourParams)
-                    //{
-                    //    ourSum = ourSum + double.Parse(param);
-                    //}
-                    //ClientControls.sendParametersFlag = true;
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show("Error reading from file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
-                }
+                ReadCalibFile();
+                ReadLearnFile();
+                ReadParametersFile();
 
                 panel_AdminControls.Enabled = true;
                 panel_ClientControls.Enabled = true;
@@ -2588,7 +2667,10 @@ namespace Compact_Control
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            if (btn_start_stop.Text == "Stop")
+            {
+                button14_Click(sender, e);
+            }
         }
 
         private void picBtn_Close_Click(object sender, EventArgs e)
@@ -2688,7 +2770,7 @@ namespace Compact_Control
                 //{
                 //    ourSum = ourSum + double.Parse(param);
                 //}
-                sendParametersFlag = true;
+                sendParameters();
                 btn_saveParameters.Enabled = false;
             }
             catch(Exception ex)
