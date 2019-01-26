@@ -241,6 +241,9 @@ namespace Compact_Control
         {
             GlobalSerialPort.Write(data);
             tb_terminal_out.AppendText(data + Environment.NewLine);
+            int o = int.Parse(lbl_out_cnt.Text);
+            o = o + 1;
+            lbl_out_cnt.Text = o.ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -1630,7 +1633,6 @@ namespace Compact_Control
 
         private void timer3_Tick(object sender, EventArgs e)
         {
-            bool noWrite = false;
             if (receiveQ.Count == 0)
                 return;
             string currData = receiveQ.Dequeue();
@@ -1639,7 +1641,7 @@ namespace Compact_Control
             string a = currData;
             //foreach (string a in lines)
             //{
-                try
+            try
                 {
                     switch (a.Substring(0, 3))
                     {
@@ -1971,14 +1973,6 @@ namespace Compact_Control
                             write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
                         else if (int.Parse(y2_set) != int.Parse(y2d))
                             write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
-                        else
-                            noWrite = true;
-                        if (noWrite == false)
-                        {
-                            int o = int.Parse(lbl_out_cnt.Text);
-                            o = o + 1;
-                            lbl_out_cnt.Text = o.ToString();
-                        }
                         break;
                     default:
                         tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
@@ -2247,12 +2241,12 @@ namespace Compact_Control
                     //collim_fine_length = lines[10];
                     
                     HashPass.LearnData values = HashPass.readLearnJson(dataPath);
-                    ClientControls.gant_zpnt = gant_zpnt = values.gant_zpnt;
-                    ClientControls.gant_length = gant_length = values.gant_length;
-                    ClientControls.gant_fine_length = gant_fine_length = values.gant_fine_length;
-                    ClientControls.collim_zpnt = collim_zpnt = values.collim_zpnt;
-                    ClientControls.collim_length = collim_length = values.collim_length;
-                    ClientControls.collim_fine_length = collim_fine_length = values.collim_fine_length;
+                    tb_gant_zpnt.Text = ClientControls.gant_zpnt = gant_zpnt = values.gant_zpnt;
+                    tb_gant_len.Text = ClientControls.gant_length = gant_length = values.gant_length;
+                    tb_gant_flen.Text = ClientControls.gant_fine_length = gant_fine_length = values.gant_fine_length;
+                    tb_coli_zpnt.Text = ClientControls.collim_zpnt = collim_zpnt = values.collim_zpnt;
+                    tb_coli_len.Text = ClientControls.collim_length = collim_length = values.collim_length;
+                    tb_coli_flen.Text = ClientControls.collim_fine_length = collim_fine_length = values.collim_fine_length;
                 }
                 catch (Exception ex)
                 {
