@@ -253,7 +253,7 @@ namespace Compact_Control
         public void write(string data)
         {
             serialPort1.Write(data);
-            tb_terminal_out.AppendText(data + Environment.NewLine);
+            //tb_terminal_out.AppendText(data + Environment.NewLine);
         }
 
         private void btn_clearTerminal_oth_Click(object sender, EventArgs e)
@@ -265,7 +265,7 @@ namespace Compact_Control
         private bool checkSum(double microSum, double ourSum)
         {
             bool equal = false;
-            if (microSum == ourSum)tb_terminal_out.Clear();
+            if (microSum == ourSum)
                 equal = true;
             return equal;
         }
@@ -276,7 +276,7 @@ namespace Compact_Control
                 return;
             string currData = receiveQ.Dequeue();
             //string[] lines = currData.Split('\n');
-            tb_terminal_in.AppendText(currData + Environment.NewLine);
+            //tb_terminal_in.AppendText(currData + Environment.NewLine);
             string a = currData;
             //foreach (string a in lines)
             //{
@@ -393,7 +393,7 @@ namespace Compact_Control
                     case "cf2":
                         break;
                     default:
-                            tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
+                            //tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
                             break;
                     }
                     if (Class_PatientData.isBoardReadWrite)
