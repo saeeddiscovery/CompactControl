@@ -995,8 +995,6 @@ namespace Compact_Control
             groupBox4.Enabled = true;
             comboBox1.Enabled = true;
             label11.Enabled = true;
-            
-            btn_edit.Enabled = false;
         }
 
         private void textBox42_TextChanged(object sender, EventArgs e)
@@ -1376,8 +1374,6 @@ namespace Compact_Control
 
         private void button18_Click(object sender, EventArgs e)
         {
-            btn_save.Enabled = false;
-
             if (GlobalSerialPort.IsOpen == false)
                 GlobalSerialPort.Open();
             else
@@ -1386,7 +1382,6 @@ namespace Compact_Control
                 SaveLearnFile();
             }
             groupBox4.Enabled = false;
-            btn_edit.Enabled = true;
         }
 
         private void timer2_Tick(object sender, EventArgs e)
@@ -1953,7 +1948,6 @@ namespace Compact_Control
                         {
                             MessageBox.Show("Learning was succesfull\nUse the Save button to save the results");
                             btn_cancelLearn.Enabled = true;
-                            btn_save.Enabled = true;
                         }
                         catch (Exception ex)
                         {
@@ -2097,7 +2091,6 @@ namespace Compact_Control
             if (MessageBox.Show("Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 
-                btn_learn.Enabled = false;
                 if (GlobalSerialPort.IsOpen == false)
                     GlobalSerialPort.Open();
                 if (comboBox1.Text == "Gantry")
@@ -2129,10 +2122,6 @@ namespace Compact_Control
             groupBox4.Enabled = false;
             comboBox1.Enabled = false;
             label11.Enabled = false;
-            btn_save.Enabled = false;
-            btn_edit.Enabled = true;
-            btn_cancelLearn.Enabled = false;
-            btn_learn.Enabled = true;
 
             ReadCalibFile();
             ReadLearnFile();
@@ -2266,6 +2255,20 @@ namespace Compact_Control
                 ClientControls.y1_offset = y1_offset = double.Parse(values.y1_offset);
                 ClientControls.y2_gain = y2_gain = double.Parse(values.y2_gain);
                 ClientControls.y2_offset = y2_offset = double.Parse(values.y2_offset);
+
+                tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
+                tb_coli_gain.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
+                tb_x1_gain.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
+                tb_x2_gain.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
+                tb_y1_gain.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
+                tb_y2_gain.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
+
+                tb_gant_offset.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
+                tb_coli_offset.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
+                tb_x1_offset.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
+                tb_x2_offset.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
+                tb_y1_offset.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
+                tb_y2_offset.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
             }
             catch (Exception ex)
             {

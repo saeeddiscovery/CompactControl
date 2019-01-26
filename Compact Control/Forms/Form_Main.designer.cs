@@ -903,6 +903,7 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.btn_cancelLearn);
             this.splitContainer2.Panel1.Controls.Add(this.groupBox4);
             this.splitContainer2.Panel1.Controls.Add(this.btn_edit);
             this.splitContainer2.Panel1.Controls.Add(this.btn_save);
@@ -920,7 +921,6 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.btn_cancelLearn);
             this.groupBox4.Controls.Add(this.btn_learn);
             this.groupBox4.Controls.Add(this.comboBox1);
             this.groupBox4.Controls.Add(this.button16);
@@ -1226,7 +1226,7 @@
             this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btn_edit.Location = new System.Drawing.Point(353, 450);
             this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(150, 30);
+            this.btn_edit.Size = new System.Drawing.Size(160, 30);
             this.btn_edit.TabIndex = 19;
             this.btn_edit.Text = "Edit";
             this.btn_edit.UseVisualStyleBackColor = true;
@@ -1234,11 +1234,10 @@
             // 
             // btn_save
             // 
-            this.btn_save.Enabled = false;
             this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_save.Location = new System.Drawing.Point(353, 486);
+            this.btn_save.Location = new System.Drawing.Point(436, 482);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(150, 30);
+            this.btn_save.Size = new System.Drawing.Size(77, 30);
             this.btn_save.TabIndex = 20;
             this.btn_save.Text = "Save";
             this.btn_save.UseVisualStyleBackColor = true;
@@ -3190,11 +3189,10 @@
             // 
             // btn_cancelLearn
             // 
-            this.btn_cancelLearn.Enabled = false;
             this.btn_cancelLearn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_cancelLearn.Location = new System.Drawing.Point(61, 401);
+            this.btn_cancelLearn.Location = new System.Drawing.Point(353, 482);
             this.btn_cancelLearn.Name = "btn_cancelLearn";
-            this.btn_cancelLearn.Size = new System.Drawing.Size(72, 30);
+            this.btn_cancelLearn.Size = new System.Drawing.Size(77, 30);
             this.btn_cancelLearn.TabIndex = 21;
             this.btn_cancelLearn.Text = "Cancel";
             this.btn_cancelLearn.UseVisualStyleBackColor = true;
