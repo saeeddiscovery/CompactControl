@@ -2119,14 +2119,17 @@ namespace Compact_Control
 
         private void btn_cancelLearn_Click(object sender, EventArgs e)
         {
-            groupBox4.Enabled = false;
-            comboBox1.Enabled = false;
-            label11.Enabled = false;
+            if (MessageBox.Show("Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                groupBox4.Enabled = false;
+                comboBox1.Enabled = false;
+                label11.Enabled = false;
 
-            ReadCalibFile();
-            ReadLearnFile();
+                ReadCalibFile();
+                ReadLearnFile();
 
-            MessageBox.Show("Learn process is cancelled\nAll parameters reverted back to their previous values");
+                MessageBox.Show("Learn process is cancelled\nAll parameters reverted back to their previous values");
+            }
         }
 
         private void picBtn_Exit_Click(object sender, EventArgs e)

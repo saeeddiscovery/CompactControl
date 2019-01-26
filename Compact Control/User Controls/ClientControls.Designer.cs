@@ -577,6 +577,7 @@
             this.btn_clearTerminal_in.TabIndex = 113;
             this.btn_clearTerminal_in.Text = "Clear";
             this.btn_clearTerminal_in.UseVisualStyleBackColor = true;
+            this.btn_clearTerminal_in.Visible = false;
             this.btn_clearTerminal_in.Click += new System.EventHandler(this.btn_clearTerminal_in_Click);
             // 
             // label51
@@ -588,6 +589,7 @@
             this.label51.Size = new System.Drawing.Size(103, 18);
             this.label51.TabIndex = 112;
             this.label51.Text = "Terminal (in)";
+            this.label51.Visible = false;
             // 
             // tb_terminal_in
             // 
@@ -601,6 +603,7 @@
             this.tb_terminal_in.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tb_terminal_in.Size = new System.Drawing.Size(234, 132);
             this.tb_terminal_in.TabIndex = 111;
+            this.tb_terminal_in.Visible = false;
             // 
             // btn_clearTerminal
             // 
@@ -611,6 +614,7 @@
             this.btn_clearTerminal.TabIndex = 110;
             this.btn_clearTerminal.Text = "Clear";
             this.btn_clearTerminal.UseVisualStyleBackColor = true;
+            this.btn_clearTerminal.Visible = false;
             this.btn_clearTerminal.Click += new System.EventHandler(this.btn_clearTerminal_Click);
             // 
             // label48
@@ -622,6 +626,7 @@
             this.label48.Size = new System.Drawing.Size(114, 18);
             this.label48.TabIndex = 109;
             this.label48.Text = "Terminal (out)";
+            this.label48.Visible = false;
             // 
             // tb_terminal_out
             // 
@@ -635,6 +640,7 @@
             this.tb_terminal_out.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tb_terminal_out.Size = new System.Drawing.Size(234, 132);
             this.tb_terminal_out.TabIndex = 108;
+            this.tb_terminal_out.Visible = false;
             // 
             // lbl_out_cnt
             // 
@@ -645,6 +651,7 @@
             this.lbl_out_cnt.Size = new System.Drawing.Size(18, 20);
             this.lbl_out_cnt.TabIndex = 114;
             this.lbl_out_cnt.Text = "0";
+            this.lbl_out_cnt.Visible = false;
             // 
             // lbl_in_cnt
             // 
@@ -655,6 +662,7 @@
             this.lbl_in_cnt.Size = new System.Drawing.Size(18, 20);
             this.lbl_in_cnt.TabIndex = 115;
             this.lbl_in_cnt.Text = "0";
+            this.lbl_in_cnt.Visible = false;
             // 
             // label1
             // 
@@ -665,6 +673,7 @@
             this.label1.Size = new System.Drawing.Size(37, 20);
             this.label1.TabIndex = 116;
             this.label1.Text = "out:";
+            this.label1.Visible = false;
             // 
             // label2
             // 
@@ -675,6 +684,7 @@
             this.label2.Size = new System.Drawing.Size(27, 20);
             this.label2.TabIndex = 117;
             this.label2.Text = "in:";
+            this.label2.Visible = false;
             // 
             // label3
             // 
@@ -685,6 +695,7 @@
             this.label3.Size = new System.Drawing.Size(129, 18);
             this.label3.TabIndex = 119;
             this.label3.Text = "Terminal (other)";
+            this.label3.Visible = false;
             // 
             // tb_terminal_oth
             // 
@@ -698,6 +709,7 @@
             this.tb_terminal_oth.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.tb_terminal_oth.Size = new System.Drawing.Size(234, 58);
             this.tb_terminal_oth.TabIndex = 118;
+            this.tb_terminal_oth.Visible = false;
             // 
             // btn_clearTerminal_oth
             // 
@@ -708,6 +720,7 @@
             this.btn_clearTerminal_oth.TabIndex = 120;
             this.btn_clearTerminal_oth.Text = "Clear";
             this.btn_clearTerminal_oth.UseVisualStyleBackColor = true;
+            this.btn_clearTerminal_oth.Visible = false;
             this.btn_clearTerminal_oth.Click += new System.EventHandler(this.btn_clearTerminal_oth_Click);
             // 
             // ClientControls

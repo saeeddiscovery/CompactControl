@@ -782,6 +782,7 @@ namespace Compact_Control
             catch
             {
                 x2_set = "0";
+                txt_y1_s.Text = "0";
                 pictureBox4.BackgroundImage = Resources.Error;
                 y1err = true;
                 pictureBox4.Show();
@@ -892,6 +893,7 @@ namespace Compact_Control
             catch
             {
                 x1_set = "0";
+                txt_y2_s.Text = "0";
                 pictureBox3.BackgroundImage = Resources.Error;
                 y2err = true;
                 pictureBox3.Show();
@@ -1006,6 +1008,7 @@ namespace Compact_Control
             catch
             {
                 y2_set = "0";
+                txt_x1_s.Text = "0";
                 pictureBox6.BackgroundImage = Resources.Error;
                 x1err = true;
                 pictureBox6.Show();
@@ -1123,6 +1126,7 @@ namespace Compact_Control
             catch
             {
                 y1_set = "0";
+                txt_x2_s.Text = "0";
                 pictureBox5.BackgroundImage = Resources.Error;
                 x2err = true;
                 pictureBox5.Show();
@@ -1184,17 +1188,28 @@ namespace Compact_Control
         {
             if (!string.IsNullOrWhiteSpace(txt_gant_s.Text))
             {
-                double aa = double.Parse(txt_gant_s.Text);
-                double gentValueActual = double.Parse(gant_dv);
-                if (gentValueActual > 180 && aa == 180)
+                try
                 {
-                    gant_isTextChangedFromCode = true;
-                    txt_gant_s.Text = "180.05";
-                    gant_isTextChangedFromCode = false;
+                    double aa = double.Parse(txt_gant_s.Text);
+                    double gentValueActual = double.Parse(gant_dv);
+                    if (gentValueActual > 180 && aa == 180)
+                    {
+                        gant_isTextChangedFromCode = true;
+                        txt_gant_s.Text = "180.05";
+                        gant_isTextChangedFromCode = false;
+                    }
+                    gantSet();
+                    txt_gant_s.BackColor = Color.LightGreen;
+
                 }
-                gantSet();
-                txt_gant_s.BackColor = Color.LightGreen;
-                
+                catch
+                {
+                    gant_set = "0";
+                    txt_gant_s.Text = gant_set;
+                    pictureBox1.BackgroundImage = Resources.Error;
+                    pictureBox1.Show();
+                    return;
+                }
             }
             if (e.KeyChar == (char)Keys.Enter)
                 txt_coli_s.Focus();
@@ -1288,6 +1303,7 @@ namespace Compact_Control
             catch
             {
                 collim_set = "0";
+                txt_coli_s.Text = collim_set;
                 pictureBox2.BackgroundImage = Resources.Error;
                 pictureBox2.Show();
                 return;
