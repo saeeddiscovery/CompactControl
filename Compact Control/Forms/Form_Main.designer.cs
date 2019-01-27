@@ -83,6 +83,7 @@
             this.btn_x1_in = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.btn_cancelLearn = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btn_learn = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -282,7 +283,6 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
-            this.btn_cancelLearn = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -918,6 +918,17 @@
             this.splitContainer2.Size = new System.Drawing.Size(1108, 599);
             this.splitContainer2.SplitterDistance = 581;
             this.splitContainer2.TabIndex = 24;
+            // 
+            // btn_cancelLearn
+            // 
+            this.btn_cancelLearn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_cancelLearn.Location = new System.Drawing.Point(353, 482);
+            this.btn_cancelLearn.Name = "btn_cancelLearn";
+            this.btn_cancelLearn.Size = new System.Drawing.Size(77, 30);
+            this.btn_cancelLearn.TabIndex = 21;
+            this.btn_cancelLearn.Text = "Cancel";
+            this.btn_cancelLearn.UseVisualStyleBackColor = true;
+            this.btn_cancelLearn.Click += new System.EventHandler(this.btn_cancelLearn_Click);
             // 
             // groupBox4
             // 
@@ -3186,17 +3197,6 @@
             this.timer4.Enabled = true;
             this.timer4.Interval = 3000;
             this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
-            // 
-            // btn_cancelLearn
-            // 
-            this.btn_cancelLearn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_cancelLearn.Location = new System.Drawing.Point(353, 482);
-            this.btn_cancelLearn.Name = "btn_cancelLearn";
-            this.btn_cancelLearn.Size = new System.Drawing.Size(77, 30);
-            this.btn_cancelLearn.TabIndex = 21;
-            this.btn_cancelLearn.Text = "Cancel";
-            this.btn_cancelLearn.UseVisualStyleBackColor = true;
-            this.btn_cancelLearn.Click += new System.EventHandler(this.btn_cancelLearn_Click);
             // 
             // Form1
             // 

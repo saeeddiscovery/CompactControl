@@ -454,7 +454,7 @@ namespace Compact_Control
 
         public class PortSettings
         {
-            //public string Port { get; set; }
+            public string Port { get; set; }
             public string Baudrate { get; set; }
         }
 
@@ -575,8 +575,8 @@ namespace Compact_Control
                 writer.Formatting = Formatting.Indented;
 
                 writer.WriteStartObject();
-                //writer.WritePropertyName("Port");
-                //writer.WriteValue(port);
+                writer.WritePropertyName("Port");
+                writer.WriteValue(port);
                 writer.WritePropertyName("Baudrate");
                 writer.WriteValue(baudrate);
                 writer.WriteEndObject();

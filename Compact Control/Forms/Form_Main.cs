@@ -170,8 +170,17 @@ namespace Compact_Control
                             //string[] portSettings = readJson(filename);
                             HashPass.PortSettings pSettings = HashPass.readSettingsJson(filename);
                             HashPass.WriteBaudrateToReg(pSettings.Baudrate);
+
+                            GlobalSerialPort.PortName = pSettings.Port;
                             GlobalSerialPort.BaudRate = int.Parse(pSettings.Baudrate);
+                            serialPort1.PortName = pSettings.Port;
+                            serialPort1.BaudRate = int.Parse(pSettings.Baudrate);
+                            clientFrm.serialPort1.PortName = pSettings.Port;
+                            clientFrm.serialPort1.BaudRate = int.Parse(pSettings.Baudrate);
                             ClientControls.curr_baudrate = int.Parse(pSettings.Baudrate);
+                            ClientControls.curr_port = pSettings.Port;
+                            curr_baudRate = pSettings.Baudrate;
+                            portName = pSettings.Port;
                         }
                     }
                     catch
@@ -2084,6 +2093,10 @@ namespace Compact_Control
         private void btn_clearTerminal_oth_Click(object sender, EventArgs e)
         {
             tb_terminal_oth.Clear();
+
+            //MessageBox.Show("global: " + GlobalSerialPort.PortName + "/" + GlobalSerialPort.BaudRate + '\n' +
+            //    "service: " + serialPort1.PortName + "/" + serialPort1.BaudRate + '\n' +
+            //    "client: " + clientFrm.serialPort1.PortName + "/" + clientFrm.serialPort1.BaudRate);
         }
 
         private void btn_learn_Click(object sender, EventArgs e)
@@ -2458,10 +2471,16 @@ namespace Compact_Control
                 {
                     DisconnectPort();
                     Thread.Sleep(200);
+
                     GlobalSerialPort.PortName = portName;
-                    ClientControls.curr_port = portName;
                     GlobalSerialPort.BaudRate = int.Parse(curr_baudRate);
+                    serialPort1.PortName = portName;
+                    serialPort1.BaudRate = int.Parse(curr_baudRate);
+                    clientFrm.serialPort1.PortName = portName;
+                    clientFrm.serialPort1.BaudRate = int.Parse(curr_baudRate);
+                    ClientControls.curr_port = portName;
                     ClientControls.curr_baudrate = int.Parse(curr_baudRate);
+
                     HashPass.WriteBaudrateToReg(curr_baudRate);
                     ConnectToPort();
                 }

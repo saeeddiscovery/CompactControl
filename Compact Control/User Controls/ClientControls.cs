@@ -75,7 +75,7 @@ namespace Compact_Control
 
         string adc;
 
-        public static int curr_baudrate = 19200;
+        public static int curr_baudrate = 57600;
         public static string curr_port;
 
         public ClientControls()
@@ -145,9 +145,14 @@ namespace Compact_Control
         {
             try
             {
-                serialPort1.BaudRate = curr_baudrate;
+                
                 if (serialPort1.IsOpen == false)
+                {
+                    serialPort1.BaudRate = curr_baudrate;
+                    serialPort1.PortName = curr_port;
                     serialPort1.Open();
+                }
+                    
                 //serialPort1.Open();
                 string gant_tol0_t = Math.Round(Math.Abs((double.Parse(gant_tol0) - gant_offset) / gant_gain)).ToString();
                 string gant_tol1_t = Math.Round(Math.Abs((double.Parse(gant_tol1) - gant_offset) / gant_gain)).ToString();
@@ -242,6 +247,8 @@ namespace Compact_Control
         {
             tb_terminal_out.Clear();
             lbl_out_cnt.Text = "0";
+
+            MessageBox.Show("client: " + serialPort1.PortName + "/" + serialPort1.BaudRate);
         }
 
         private void btn_clearTerminal_in_Click(object sender, EventArgs e)
@@ -460,7 +467,7 @@ namespace Compact_Control
             txt_y1_a.Text = x2_dv;
             txt_x2_a.Text = y1_dv;
             txt_x1_a.Text = y2_dv;
-            
+
             bool y1Valid = double.TryParse(y1_dv, out y1dv);
             bool y2Valid = double.TryParse(y2_dv, out y2dv);
             if (y1Valid && y2Valid)
@@ -671,7 +678,17 @@ namespace Compact_Control
                     else
                     {
                         decimal y12;
-                        decimal.TryParse(txt_y_s.Text, out y12);
+                        try
+                        {
+                            y12 = decimal.Parse(txt_y_s.Text);
+                        }
+                        catch
+                        {
+                            txt_y_s.SelectAll();
+                            pictureBox14.BackgroundImage = Resources.Error;
+                            pictureBox14.Show();
+                            return;
+                        }
                         y12 = y12 / 2;
                         y12 = decimal.Round(y12, 2);
                         txt_y2_s.Text = y12.ToString();
@@ -706,7 +723,17 @@ namespace Compact_Control
                     else
                     {
                         decimal x12;
-                        decimal.TryParse(txt_x_s.Text, out x12);
+                        try
+                        {
+                            x12 = decimal.Parse(txt_x_s.Text);
+                        }
+                        catch
+                        {
+                            txt_x_s.SelectAll();
+                            pictureBox15.BackgroundImage = Resources.Error;
+                            pictureBox15.Show();
+                            return;
+                        }
                         x12 = x12 / 2;
                         x12 = decimal.Round(x12, 2);
                         txt_x2_s.Text = x12.ToString();
@@ -728,6 +755,17 @@ namespace Compact_Control
 
         private void txt_y1_s_KeyPress(object sender, KeyPressEventArgs e)
         {
+            try
+            {
+                var tmp = decimal.Parse(txt_y1_s.Text);
+            }
+            catch
+            {
+                txt_y1_s.SelectAll();
+                pictureBox4.BackgroundImage = Resources.Error;
+                pictureBox4.Show();
+                return;
+            }
             if (!string.IsNullOrWhiteSpace(txt_y1_s.Text))
             {
                 y1Set();
@@ -782,7 +820,6 @@ namespace Compact_Control
             catch
             {
                 x2_set = "0";
-                txt_y1_s.Text = "0";
                 pictureBox4.BackgroundImage = Resources.Error;
                 y1err = true;
                 pictureBox4.Show();
@@ -839,6 +876,17 @@ namespace Compact_Control
 
         private void txt_y2_s_KeyPress(object sender, KeyPressEventArgs e)
         {
+            try
+            {
+                var tmp = decimal.Parse(txt_y2_s.Text);
+            }
+            catch
+            {
+                txt_y2_s.SelectAll();
+                pictureBox3.BackgroundImage = Resources.Error;
+                pictureBox3.Show();
+                return;
+            }
             if (!string.IsNullOrWhiteSpace(txt_y2_s.Text))
             {
                 y2Set();
@@ -893,7 +941,6 @@ namespace Compact_Control
             catch
             {
                 x1_set = "0";
-                txt_y2_s.Text = "0";
                 pictureBox3.BackgroundImage = Resources.Error;
                 y2err = true;
                 pictureBox3.Show();
@@ -954,6 +1001,17 @@ namespace Compact_Control
 
         private void txt_x1_s_KeyPress(object sender, KeyPressEventArgs e)
         {
+            try
+            {
+                var tmp = decimal.Parse(txt_x1_s.Text);
+            }
+            catch
+            {
+                txt_x1_s.SelectAll();
+                pictureBox6.BackgroundImage = Resources.Error;
+                pictureBox6.Show();
+                return;
+            }
             if (!string.IsNullOrWhiteSpace(txt_x1_s.Text))
             {
                 x1Set();
@@ -1008,7 +1066,6 @@ namespace Compact_Control
             catch
             {
                 y2_set = "0";
-                txt_x1_s.Text = "0";
                 pictureBox6.BackgroundImage = Resources.Error;
                 x1err = true;
                 pictureBox6.Show();
@@ -1072,6 +1129,17 @@ namespace Compact_Control
 
         private void txt_x2_s_KeyPress(object sender, KeyPressEventArgs e)
         {
+            try
+            {
+                var tmp = decimal.Parse(txt_x2_s.Text);
+            }
+            catch
+            {
+                txt_x2_s.SelectAll();
+                pictureBox5.BackgroundImage = Resources.Error;
+                pictureBox5.Show();
+                return;
+            }
             if (!string.IsNullOrWhiteSpace(txt_x2_s.Text))
             {
                 x2Set();
@@ -1126,7 +1194,6 @@ namespace Compact_Control
             catch
             {
                 y1_set = "0";
-                txt_x2_s.Text = "0";
                 pictureBox5.BackgroundImage = Resources.Error;
                 x2err = true;
                 pictureBox5.Show();
@@ -1204,8 +1271,8 @@ namespace Compact_Control
                 }
                 catch
                 {
+                    txt_gant_s.SelectAll();
                     gant_set = "0";
-                    txt_gant_s.Text = gant_set;
                     pictureBox1.BackgroundImage = Resources.Error;
                     pictureBox1.Show();
                     return;
@@ -1252,7 +1319,7 @@ namespace Compact_Control
                 //    a = 180.05;
                 if (a > 180)
                     a = a - 360;
-                gant_set = Math.Abs((int)((a - gant_offset) / gant_gain)).ToString();
+                gant_set =((int)((a - gant_offset) / gant_gain)).ToString();
                 double gant_t2 = double.Parse(txt_gant_s.Text);
                 double gant_d2 = double.Parse(gant_dv);
                 if (gant_t2 > 180)
@@ -1303,7 +1370,6 @@ namespace Compact_Control
             catch
             {
                 collim_set = "0";
-                txt_coli_s.Text = collim_set;
                 pictureBox2.BackgroundImage = Resources.Error;
                 pictureBox2.Show();
                 return;
@@ -1319,7 +1385,7 @@ namespace Compact_Control
             {
                 if (a > 180)
                     a = a - 360;
-                collim_set = Math.Abs((int)((a - collim_offset) / collim_gain)).ToString();
+                collim_set = ((int)((a - collim_offset) / collim_gain)).ToString();
                 double collim_t2 = double.Parse(txt_coli_s.Text);
                 double collim_d2 = double.Parse(collim_dv);
                 if (collim_t2 > 180)
