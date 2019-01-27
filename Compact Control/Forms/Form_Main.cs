@@ -1004,6 +1004,8 @@ namespace Compact_Control
             groupBox4.Enabled = true;
             comboBox1.Enabled = true;
             label11.Enabled = true;
+            btn_cancelLearn.Enabled = true;
+            btn_save.Enabled = true;
         }
 
         private void textBox42_TextChanged(object sender, EventArgs e)
@@ -1390,6 +1392,9 @@ namespace Compact_Control
                 SaveCalibFile();
                 SaveLearnFile();
             }
+
+            btn_cancelLearn.Enabled = false;
+            btn_save.Enabled = false;
             groupBox4.Enabled = false;
         }
 
@@ -2141,6 +2146,8 @@ namespace Compact_Control
                 ReadCalibFile();
                 ReadLearnFile();
 
+                btn_cancelLearn.Enabled = false;
+                btn_save.Enabled = false;
                 MessageBox.Show("Learn process is cancelled\nAll parameters reverted back to their previous values");
             }
         }
@@ -2446,8 +2453,9 @@ namespace Compact_Control
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Connection error!", "An error occured during connection!\n" + Environment.NewLine + ex.ToString().Split('\n')[0], MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ConnectToPort();
+                MessageBox.Show("Connection error!" + Environment.NewLine + ex.ToString().Split('\n')[0] , "An error occured during connection!\n", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                label_ConnectStatus.Text = "Connection error!";
+                //ConnectToPort();
             }
         }
 

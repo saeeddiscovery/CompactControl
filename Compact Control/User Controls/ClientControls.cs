@@ -757,7 +757,8 @@ namespace Compact_Control
         {
             try
             {
-                var tmp = decimal.Parse(txt_y1_s.Text);
+                if (!string.IsNullOrEmpty(txt_y1_s.Text) && !string.IsNullOrWhiteSpace(txt_y1_s.Text))
+                    decimal.Parse(txt_y1_s.Text);
             }
             catch
             {
@@ -878,7 +879,8 @@ namespace Compact_Control
         {
             try
             {
-                var tmp = decimal.Parse(txt_y2_s.Text);
+                if (!string.IsNullOrEmpty(txt_y2_s.Text) && !string.IsNullOrWhiteSpace(txt_y2_s.Text))
+                    decimal.Parse(txt_y2_s.Text);
             }
             catch
             {
@@ -1003,7 +1005,8 @@ namespace Compact_Control
         {
             try
             {
-                var tmp = decimal.Parse(txt_x1_s.Text);
+                if (!string.IsNullOrEmpty(txt_x1_s.Text) && !string.IsNullOrWhiteSpace(txt_x1_s.Text))
+                    decimal.Parse(txt_x1_s.Text);
             }
             catch
             {
@@ -1131,7 +1134,8 @@ namespace Compact_Control
         {
             try
             {
-                var tmp = decimal.Parse(txt_x2_s.Text);
+                if (!string.IsNullOrEmpty(txt_x2_s.Text) && !string.IsNullOrWhiteSpace(txt_x2_s.Text))
+                    decimal.Parse(txt_x2_s.Text);
             }
             catch
             {

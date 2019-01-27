@@ -921,6 +921,7 @@
             // 
             // btn_cancelLearn
             // 
+            this.btn_cancelLearn.Enabled = false;
             this.btn_cancelLearn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btn_cancelLearn.Location = new System.Drawing.Point(353, 482);
             this.btn_cancelLearn.Name = "btn_cancelLearn";
@@ -1245,6 +1246,7 @@
             // 
             // btn_save
             // 
+            this.btn_save.Enabled = false;
             this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btn_save.Location = new System.Drawing.Point(436, 482);
             this.btn_save.Name = "btn_save";
