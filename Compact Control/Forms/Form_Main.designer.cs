@@ -256,17 +256,20 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel_AdminControls = new System.Windows.Forms.Panel();
             this.panel_Toolbar = new System.Windows.Forms.Panel();
-            this.picBtn_Setting = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.picBtn_Exit = new System.Windows.Forms.PictureBox();
+            this.picBtn_LogOff = new System.Windows.Forms.PictureBox();
+            this.picBtn_Setting = new System.Windows.Forms.PictureBox();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.picBtn_Restart = new System.Windows.Forms.PictureBox();
             this.splitter3 = new System.Windows.Forms.Splitter();
             this.picBtn_Shutdown = new System.Windows.Forms.PictureBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
-            this.picBtn_LogOff = new System.Windows.Forms.PictureBox();
             this.picBtn_Connect = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
             this.lbl_init = new System.Windows.Forms.Label();
             this.label_shamsiDate = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
@@ -323,11 +326,11 @@
             this.gb_parameters.SuspendLayout();
             this.panel_AdminControls.SuspendLayout();
             this.panel_Toolbar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Restart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Shutdown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Connect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.panel1.SuspendLayout();
@@ -2852,14 +2855,15 @@
             // 
             this.panel_Toolbar.BackColor = System.Drawing.SystemColors.Control;
             this.panel_Toolbar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel_Toolbar.Controls.Add(this.picBtn_Setting);
+            this.panel_Toolbar.Controls.Add(this.panel2);
             this.panel_Toolbar.Controls.Add(this.picBtn_Exit);
+            this.panel_Toolbar.Controls.Add(this.picBtn_LogOff);
+            this.panel_Toolbar.Controls.Add(this.picBtn_Setting);
             this.panel_Toolbar.Controls.Add(this.splitter2);
             this.panel_Toolbar.Controls.Add(this.picBtn_Restart);
             this.panel_Toolbar.Controls.Add(this.splitter3);
             this.panel_Toolbar.Controls.Add(this.picBtn_Shutdown);
             this.panel_Toolbar.Controls.Add(this.splitter1);
-            this.panel_Toolbar.Controls.Add(this.picBtn_LogOff);
             this.panel_Toolbar.Controls.Add(this.picBtn_Connect);
             this.panel_Toolbar.Controls.Add(this.pictureBox14);
             this.panel_Toolbar.Controls.Add(this.panel1);
@@ -2868,6 +2872,47 @@
             this.panel_Toolbar.Name = "panel_Toolbar";
             this.panel_Toolbar.Size = new System.Drawing.Size(1122, 103);
             this.panel_Toolbar.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel2.Location = new System.Drawing.Point(224, 36);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(662, 31);
+            this.panel2.TabIndex = 20;
+            // 
+            // picBtn_Exit
+            // 
+            this.picBtn_Exit.BackgroundImage = global::Compact_Control.Properties.Resources.Exit2;
+            this.picBtn_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtn_Exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBtn_Exit.Dock = System.Windows.Forms.DockStyle.Left;
+            this.picBtn_Exit.Location = new System.Drawing.Point(160, 36);
+            this.picBtn_Exit.Name = "picBtn_Exit";
+            this.picBtn_Exit.Size = new System.Drawing.Size(64, 63);
+            this.picBtn_Exit.TabIndex = 11;
+            this.picBtn_Exit.TabStop = false;
+            this.picBtnToolTip.SetToolTip(this.picBtn_Exit, " Exit");
+            this.picBtn_Exit.Click += new System.EventHandler(this.picBtn_Exit_Click);
+            this.picBtn_Exit.MouseEnter += new System.EventHandler(this.picBtn_Exit_MouseEnter);
+            this.picBtn_Exit.MouseLeave += new System.EventHandler(this.picBtn_Exit_MouseLeave);
+            // 
+            // picBtn_LogOff
+            // 
+            this.picBtn_LogOff.BackgroundImage = global::Compact_Control.Properties.Resources.Logout;
+            this.picBtn_LogOff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtn_LogOff.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBtn_LogOff.Dock = System.Windows.Forms.DockStyle.Left;
+            this.picBtn_LogOff.Location = new System.Drawing.Point(96, 36);
+            this.picBtn_LogOff.Name = "picBtn_LogOff";
+            this.picBtn_LogOff.Size = new System.Drawing.Size(64, 63);
+            this.picBtn_LogOff.TabIndex = 9;
+            this.picBtn_LogOff.TabStop = false;
+            this.picBtnToolTip.SetToolTip(this.picBtn_LogOff, " Log out");
+            this.picBtn_LogOff.Click += new System.EventHandler(this.picBtn_LogOff_Click);
+            this.picBtn_LogOff.MouseEnter += new System.EventHandler(this.picBtn_LogOff_MouseEnter);
+            this.picBtn_LogOff.MouseLeave += new System.EventHandler(this.picBtn_LogOff_MouseLeave);
             // 
             // picBtn_Setting
             // 
@@ -2884,21 +2929,6 @@
             this.picBtn_Setting.Click += new System.EventHandler(this.picBtn_Setting_Click);
             this.picBtn_Setting.MouseEnter += new System.EventHandler(this.picBtn_Setting_MouseEnter);
             this.picBtn_Setting.MouseLeave += new System.EventHandler(this.picBtn_Setting_MouseLeave);
-            // 
-            // picBtn_Exit
-            // 
-            this.picBtn_Exit.BackgroundImage = global::Compact_Control.Properties.Resources.Exit2;
-            this.picBtn_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtn_Exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBtn_Exit.Location = new System.Drawing.Point(166, 38);
-            this.picBtn_Exit.Name = "picBtn_Exit";
-            this.picBtn_Exit.Size = new System.Drawing.Size(64, 59);
-            this.picBtn_Exit.TabIndex = 11;
-            this.picBtn_Exit.TabStop = false;
-            this.picBtnToolTip.SetToolTip(this.picBtn_Exit, " Exit");
-            this.picBtn_Exit.Click += new System.EventHandler(this.picBtn_Exit_Click);
-            this.picBtn_Exit.MouseEnter += new System.EventHandler(this.picBtn_Exit_MouseEnter);
-            this.picBtn_Exit.MouseLeave += new System.EventHandler(this.picBtn_Exit_MouseLeave);
             // 
             // splitter2
             // 
@@ -2962,21 +2992,6 @@
             this.splitter1.TabIndex = 15;
             this.splitter1.TabStop = false;
             // 
-            // picBtn_LogOff
-            // 
-            this.picBtn_LogOff.BackgroundImage = global::Compact_Control.Properties.Resources.Logout;
-            this.picBtn_LogOff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtn_LogOff.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBtn_LogOff.Location = new System.Drawing.Point(96, 38);
-            this.picBtn_LogOff.Name = "picBtn_LogOff";
-            this.picBtn_LogOff.Size = new System.Drawing.Size(64, 59);
-            this.picBtn_LogOff.TabIndex = 9;
-            this.picBtn_LogOff.TabStop = false;
-            this.picBtnToolTip.SetToolTip(this.picBtn_LogOff, " Log out");
-            this.picBtn_LogOff.Click += new System.EventHandler(this.picBtn_LogOff_Click);
-            this.picBtn_LogOff.MouseEnter += new System.EventHandler(this.picBtn_LogOff_MouseEnter);
-            this.picBtn_LogOff.MouseLeave += new System.EventHandler(this.picBtn_LogOff_MouseLeave);
-            // 
             // picBtn_Connect
             // 
             this.picBtn_Connect.BackgroundImage = global::Compact_Control.Properties.Resources.ConnectButton;
@@ -3016,6 +3031,8 @@
             this.panel1.Controls.Add(this.label_time);
             this.panel1.Controls.Add(this.label_ConnectStatus);
             this.panel1.Controls.Add(this.label_title);
+            this.panel1.Controls.Add(this.label70);
+            this.panel1.Controls.Add(this.label71);
             this.panel1.Controls.Add(this.picBtn_Close);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -3023,6 +3040,34 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1118, 36);
             this.panel1.TabIndex = 14;
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label71.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label71.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label71.Location = new System.Drawing.Point(913, 0);
+            this.label71.Name = "label71";
+            this.label71.Padding = new System.Windows.Forms.Padding(0, 3, 1, 4);
+            this.label71.Size = new System.Drawing.Size(155, 31);
+            this.label71.TabIndex = 20;
+            this.label71.Text = "Golestan Hospital";
+            this.label71.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label70.Enabled = false;
+            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label70.Location = new System.Drawing.Point(898, 0);
+            this.label70.Name = "label70";
+            this.label70.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label70.Size = new System.Drawing.Size(15, 28);
+            this.label70.TabIndex = 21;
+            this.label70.Text = "|";
             // 
             // lbl_init
             // 
@@ -3045,13 +3090,14 @@
             // 
             this.label_shamsiDate.AutoSize = true;
             this.label_shamsiDate.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_shamsiDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_shamsiDate.Location = new System.Drawing.Point(870, 0);
+            this.label_shamsiDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_shamsiDate.Location = new System.Drawing.Point(745, 0);
             this.label_shamsiDate.Name = "label_shamsiDate";
-            this.label_shamsiDate.Padding = new System.Windows.Forms.Padding(0, 8, 5, 0);
-            this.label_shamsiDate.Size = new System.Drawing.Size(48, 26);
+            this.label_shamsiDate.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label_shamsiDate.Size = new System.Drawing.Size(40, 28);
             this.label_shamsiDate.TabIndex = 8;
             this.label_shamsiDate.Text = "Date";
+            this.label_shamsiDate.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label46
             // 
@@ -3059,10 +3105,10 @@
             this.label46.Dock = System.Windows.Forms.DockStyle.Right;
             this.label46.Enabled = false;
             this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label46.Location = new System.Drawing.Point(918, 0);
+            this.label46.Location = new System.Drawing.Point(785, 0);
             this.label46.Name = "label46";
-            this.label46.Padding = new System.Windows.Forms.Padding(0, 8, 5, 0);
-            this.label46.Size = new System.Drawing.Size(19, 26);
+            this.label46.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label46.Size = new System.Drawing.Size(15, 28);
             this.label46.TabIndex = 9;
             this.label46.Text = "|";
             // 
@@ -3070,13 +3116,14 @@
             // 
             this.label_date.AutoSize = true;
             this.label_date.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_date.Location = new System.Drawing.Point(937, 0);
+            this.label_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_date.Location = new System.Drawing.Point(800, 0);
             this.label_date.Name = "label_date";
-            this.label_date.Padding = new System.Windows.Forms.Padding(0, 8, 5, 0);
-            this.label_date.Size = new System.Drawing.Size(48, 26);
+            this.label_date.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label_date.Size = new System.Drawing.Size(40, 28);
             this.label_date.TabIndex = 7;
             this.label_date.Text = "Date";
+            this.label_date.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label47
             // 
@@ -3084,10 +3131,10 @@
             this.label47.Dock = System.Windows.Forms.DockStyle.Right;
             this.label47.Enabled = false;
             this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label47.Location = new System.Drawing.Point(985, 0);
+            this.label47.Location = new System.Drawing.Point(840, 0);
             this.label47.Name = "label47";
-            this.label47.Padding = new System.Windows.Forms.Padding(0, 8, 0, 0);
-            this.label47.Size = new System.Drawing.Size(14, 26);
+            this.label47.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label47.Size = new System.Drawing.Size(15, 28);
             this.label47.TabIndex = 10;
             this.label47.Text = "|";
             // 
@@ -3095,13 +3142,14 @@
             // 
             this.label_time.AutoSize = true;
             this.label_time.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_time.Location = new System.Drawing.Point(999, 0);
+            this.label_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_time.Location = new System.Drawing.Point(855, 0);
             this.label_time.Name = "label_time";
-            this.label_time.Padding = new System.Windows.Forms.Padding(11, 8, 27, 0);
-            this.label_time.Size = new System.Drawing.Size(83, 26);
+            this.label_time.Padding = new System.Windows.Forms.Padding(1, 5, 1, 5);
+            this.label_time.Size = new System.Drawing.Size(43, 28);
             this.label_time.TabIndex = 6;
             this.label_time.Text = "Time";
+            this.label_time.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label_ConnectStatus
             // 
@@ -3122,10 +3170,11 @@
             // label_title
             // 
             this.label_title.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label_title.Location = new System.Drawing.Point(0, 0);
             this.label_title.Name = "label_title";
-            this.label_title.Size = new System.Drawing.Size(1082, 34);
+            this.label_title.Padding = new System.Windows.Forms.Padding(70, 0, 0, 0);
+            this.label_title.Size = new System.Drawing.Size(898, 34);
             this.label_title.TabIndex = 5;
             this.label_title.Text = "Service";
             this.label_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3133,13 +3182,14 @@
             // picBtn_Close
             // 
             this.picBtn_Close.BackgroundImage = global::Compact_Control.Properties.Resources.Error;
-            this.picBtn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picBtn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picBtn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBtn_Close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.picBtn_Close.Location = new System.Drawing.Point(1082, 0);
+            this.picBtn_Close.Location = new System.Drawing.Point(1068, 0);
             this.picBtn_Close.Margin = new System.Windows.Forms.Padding(2);
             this.picBtn_Close.Name = "picBtn_Close";
-            this.picBtn_Close.Size = new System.Drawing.Size(34, 34);
+            this.picBtn_Close.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.picBtn_Close.Size = new System.Drawing.Size(48, 34);
             this.picBtn_Close.TabIndex = 18;
             this.picBtn_Close.TabStop = false;
             this.picBtnToolTip.SetToolTip(this.picBtn_Close, "Exit");
@@ -3275,11 +3325,11 @@
             this.gb_parameters.PerformLayout();
             this.panel_AdminControls.ResumeLayout(false);
             this.panel_Toolbar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Restart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Shutdown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Connect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -3365,7 +3415,6 @@
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Label label_date;
         private System.Windows.Forms.Label label_time;
-        private System.Windows.Forms.Label label_title;
         private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Label label_shamsiDate;
         private System.Windows.Forms.Label label46;
@@ -3545,6 +3594,10 @@
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.Button btn_cancelLearn;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Label label_title;
+        private System.Windows.Forms.Label label71;
     }
 }
 

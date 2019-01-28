@@ -183,9 +183,9 @@ namespace Compact_Control
                             portName = pSettings.Port;
                         }
                     }
-                    catch
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Error reading Baudrate from file!");
+                        MessageBox.Show("Error reading Baudrate from file!" + Environment.NewLine + ex.ToString());
                     }
                     //if (int.TryParse(HashPass.ReadBaudRateFromReg(), out BaudRate) == true && BaudRate != 0)
                     //    GlobalSerialPort.BaudRate = BaudRate;
