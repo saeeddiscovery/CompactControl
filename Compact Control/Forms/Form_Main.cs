@@ -61,8 +61,8 @@ namespace Compact_Control
         string x1_co;
         double x1_co_temp1;
         double x1_co_temp2;
-        double x1_gain;
-        double x1_offset;
+        double x1_gain = 0;
+        double x1_offset = 0;
         double x1_gain_temp;
         double x1_offset_temp;
         string x1_dv;
@@ -71,8 +71,8 @@ namespace Compact_Control
         string x2_co;
         double x2_co_temp1;
         double x2_co_temp2;
-        double x2_gain;
-        double x2_offset;
+        double x2_gain = 0;
+        double x2_offset = 0;
         double x2_gain_temp;
         double x2_offset_temp;
         string x2_dv;
@@ -81,7 +81,7 @@ namespace Compact_Control
         string y1_co;
         double y1_co_temp1;
         double y1_co_temp2;
-        double y1_gain;
+        double y1_gain = 0;
         double y1_offset;
         double y1_gain_temp;
         double y1_offset_temp;
@@ -92,19 +92,19 @@ namespace Compact_Control
         string y2_co;
         double y2_co_temp1;
         double y2_co_temp2;
-        double y2_gain;
-        double y2_offset;
+        double y2_gain = 0;
+        double y2_offset = 0;
         double y2_gain_temp;
         double y2_offset_temp;
         string y2_dv;
         string y2d;
 
-        string gant_set;
-        string collim_set;
-        string x1_set;
-        string x2_set;
-        string y1_set;
-        string y2_set;
+        string gant_set = "0";
+        string collim_set = "0";
+        string x1_set = "0";
+        string x2_set = "0";
+        string y1_set = "0";
+        string y2_set = "0";
 
         string adc;
 
@@ -1010,7 +1010,14 @@ namespace Compact_Control
 
         private void textBox42_TextChanged(object sender, EventArgs e)
         {
-            if (textBox42.Text == "")
+            if (string.IsNullOrEmpty(textBox42.Text) || string.IsNullOrWhiteSpace(textBox42.Text))
+            {
+                gant_set = "0";
+                pictureBox1.Hide();
+                pictureBox1.BackgroundImage = requestImage;
+                return;
+            }
+            else if (textBox42.Text == "")
             {
                 gant_set = "0";
                 pictureBox1.Hide();
@@ -1021,7 +1028,13 @@ namespace Compact_Control
             double a;
             try
             {
-                a = double.Parse(textBox42.Text);
+                if (double.TryParse(textBox42.Text, out a) == false)
+                {
+                    gant_set = "0";
+                    pictureBox1.Hide();
+                    pictureBox1.BackgroundImage = requestImage;
+                    return;
+                }
             }
             catch
             {
@@ -1037,7 +1050,7 @@ namespace Compact_Control
                 pictureBox1.Show();
                 return;
             }
-            if (gant_dv != null)
+            else if (gant_dv != null && !string.IsNullOrEmpty(textBox42.Text))
             {
                 gant_set = ((int)((a - gant_offset) / gant_gain)).ToString();
                 pictureBox1.BackgroundImage = requestImage;
@@ -1056,7 +1069,14 @@ namespace Compact_Control
 
         private void textBox41_TextChanged(object sender, EventArgs e)
         {
-            if (textBox41.Text == "")
+            if (string.IsNullOrEmpty(textBox41.Text) || string.IsNullOrWhiteSpace(textBox41.Text))
+            {
+                collim_set = "0";
+                pictureBox2.Hide();
+                pictureBox2.BackgroundImage = requestImage;
+                return;
+            }
+            else if (textBox41.Text == "")
             {
                 collim_set = "0";
                 pictureBox2.Hide();
@@ -1067,7 +1087,13 @@ namespace Compact_Control
             double a;
             try
             {
-                a = double.Parse(textBox41.Text);
+                if (double.TryParse(textBox41.Text, out a) == false)
+                {
+                    collim_set = "0";
+                    pictureBox2.Hide();
+                    pictureBox2.BackgroundImage = requestImage;
+                    return;
+                }
             }
             catch
             {
@@ -1083,7 +1109,7 @@ namespace Compact_Control
                 pictureBox2.Show();
                 return;
             }
-            if (collim_dv != null)
+            else if (collim_dv != null && !string.IsNullOrEmpty(textBox41.Text))
             {
                 collim_set = ((int)((a - collim_offset) / collim_gain)).ToString();
                 pictureBox2.BackgroundImage = requestImage;
@@ -1102,7 +1128,14 @@ namespace Compact_Control
 
         private void textBox40_TextChanged(object sender, EventArgs e)
         {
-            if (textBox40.Text == "")
+            if (string.IsNullOrEmpty(textBox40.Text) || string.IsNullOrWhiteSpace(textBox40.Text))
+            {
+                x1_set = "0";
+                pictureBox3.Hide();
+                pictureBox3.BackgroundImage = requestImage;
+                return;
+            }
+            else if (textBox40.Text == "")
             {
                 x1_set = "0";
                 pictureBox3.Hide();
@@ -1112,7 +1145,13 @@ namespace Compact_Control
             double a;
             try
             {
-                a = double.Parse(textBox40.Text);
+                if (double.TryParse(textBox40.Text, out a) == false)
+                {
+                    x1_set = "0";
+                    pictureBox3.Hide();
+                    pictureBox3.BackgroundImage = requestImage;
+                    return;
+                }
             }
             catch
             {
@@ -1128,14 +1167,14 @@ namespace Compact_Control
                 pictureBox3.Show();
                 return;
             }
-            if (-a > double.Parse(x2_dv) - 1)
+            else if (-a > double.Parse(x2_dv) - 1)
             {
                 x1_set = "0";
                 pictureBox6.BackgroundImage = Resources.Error;
                 pictureBox6.Show();
                 return;
             }
-            if (x2_set != "0")
+            else if (x2_set != "0" && !string.IsNullOrEmpty(textBox39.Text))
                 if (-a > double.Parse(textBox39.Text) - 1)
                 {
                     x1_set = "0";
@@ -1143,7 +1182,7 @@ namespace Compact_Control
                     pictureBox6.Show();
                     return;
                 }
-            if (x1_dv != null)
+            else if (x1_dv != null && !string.IsNullOrEmpty(textBox40.Text))
             {
                 x1_set = ((int)((a - x1_offset) / x1_gain)).ToString();
                 pictureBox3.BackgroundImage = requestImage;
@@ -1162,7 +1201,14 @@ namespace Compact_Control
 
         private void textBox39_TextChanged(object sender, EventArgs e)
         {
-            if (textBox39.Text == "")
+            if (string.IsNullOrEmpty(textBox39.Text) || string.IsNullOrWhiteSpace(textBox39.Text))
+            {
+                x2_set = "0";
+                pictureBox4.Hide();
+                pictureBox4.BackgroundImage = requestImage;
+                return;
+            }
+            else if (textBox39.Text == "")
             {
                 x2_set = "0";
                 pictureBox4.Hide();
@@ -1173,7 +1219,13 @@ namespace Compact_Control
             double a;
             try
             {
-                a = double.Parse(textBox39.Text);
+                if (double.TryParse(textBox39.Text, out a) == false)
+                {
+                    x2_set = "0";
+                    pictureBox4.Hide();
+                    pictureBox4.BackgroundImage = requestImage;
+                    return;
+                }
             }
             catch
             {
@@ -1198,7 +1250,7 @@ namespace Compact_Control
                 pictureBox6.Show();
                 return;
             }
-            if (x1_set != "0")
+            else if (x1_set != "0" && !string.IsNullOrEmpty(textBox40.Text))
             {
                 double textBox40double;
                 double.TryParse(textBox40.Text, out textBox40double);
@@ -1210,7 +1262,7 @@ namespace Compact_Control
                     return;
                 }
             }
-            if (x2_dv != null)
+            else if (x2_dv != null && !string.IsNullOrEmpty(textBox39.Text))
             {
                 x2_set = ((int)((a - x2_offset) / x2_gain)).ToString();
                 pictureBox4.BackgroundImage = requestImage;
@@ -1229,7 +1281,14 @@ namespace Compact_Control
 
         private void textBox38_TextChanged(object sender, EventArgs e)
         {
-            if (textBox38.Text == "")
+            if (string.IsNullOrEmpty(textBox38.Text) || string.IsNullOrWhiteSpace(textBox38.Text))
+            {
+                y1_set = "0";
+                pictureBox5.Hide();
+                pictureBox5.BackgroundImage = requestImage;
+                return;
+            }
+            else if (textBox38.Text == "")
             {
                 y1_set = "0";
                 pictureBox5.Hide();
@@ -1240,7 +1299,13 @@ namespace Compact_Control
             double a;
             try
             {
-                a = double.Parse(textBox38.Text);
+                if (double.TryParse(textBox38.Text, out a) == false)
+                {
+                    y1_set = "0";
+                    pictureBox5.Hide();
+                    pictureBox5.BackgroundImage = requestImage;
+                    return;
+                }
             }
             catch
             {
@@ -1256,14 +1321,14 @@ namespace Compact_Control
                 pictureBox5.Show();
                 return;
             }
-            if (-a > double.Parse(y2_dv) - 1)
+            else if (-a > double.Parse(y2_dv) - 1)
             {
                 y1_set = "0";
                 pictureBox6.BackgroundImage = Resources.Error;
                 pictureBox6.Show();
                 return;
             }
-            if (y2_set != "0")
+            else if (y2_set != "0" && !string.IsNullOrEmpty(textBox37.Text))
                 if (-a > double.Parse(textBox37.Text) - 1)
                 {
                     y1_set = "0";
@@ -1271,7 +1336,7 @@ namespace Compact_Control
                     pictureBox6.Show();
                     return;
                 }
-            if (y1_dv != null)
+            else if (y1_dv != null && !string.IsNullOrEmpty(textBox38.Text))
             {
                 y1_set = ((int)((a - y1_offset) / y1_gain)).ToString();
                 pictureBox5.BackgroundImage = requestImage;
@@ -1290,7 +1355,14 @@ namespace Compact_Control
 
         private void textBox37_TextChanged(object sender, EventArgs e)
         {
-            if (textBox37.Text == "")
+            if (string.IsNullOrEmpty(textBox37.Text) || string.IsNullOrWhiteSpace(textBox37.Text))
+            {
+                y2_set = "0";
+                pictureBox6.Hide();
+                pictureBox6.BackgroundImage = requestImage;
+                return;
+            }
+            else if (textBox37.Text == "")
             {
                 y2_set = "0";
                 pictureBox6.Hide();
@@ -1301,7 +1373,13 @@ namespace Compact_Control
             double a;
             try
             {
-                a = double.Parse(textBox37.Text);
+                if (double.TryParse(textBox37.Text, out a) == false)
+                {
+                    y2_set = "0";
+                    pictureBox6.Hide();
+                    pictureBox6.BackgroundImage = requestImage;
+                    return;
+                }
             }
             catch
             {
@@ -1317,14 +1395,14 @@ namespace Compact_Control
                 pictureBox6.Show();
                 return;
             }
-            if (-a > double.Parse(y1_dv) - 1)
+            else if (-a > double.Parse(y1_dv) - 1)
             {
                 y2_set = "0";
                 pictureBox6.BackgroundImage = Resources.Error;
                 pictureBox6.Show();
                 return;
             }
-            if (y1_set != "0")
+            else if (y1_set != "0" && !string.IsNullOrEmpty(textBox38.Text))
                 if (-a > double.Parse(textBox38.Text) - 1)
                 {
                     y2_set = "0";
@@ -1332,7 +1410,7 @@ namespace Compact_Control
                     pictureBox6.Show();
                     return;
                 }
-            if (y2_dv != null)
+            else if (y2_dv != null && !string.IsNullOrEmpty(textBox37.Text))
             {
                 y2_set = ((int)((a - y2_offset) / y2_gain)).ToString();
                 pictureBox6.BackgroundImage = requestImage;
@@ -1495,29 +1573,29 @@ namespace Compact_Control
         {
             try
             {
-                string gant_tol0_t = Math.Round(double.Parse(gant_tol0)/ gant_gain).ToString();
-                string gant_tol1_t = Math.Round(double.Parse(gant_tol1) / gant_gain).ToString();
-                string gant_tol2_t = Math.Round(double.Parse(gant_tol2)/ gant_gain).ToString();
+                string gant_tol0_t = Math.Abs(Math.Round(double.Parse(gant_tol0)/ gant_gain)).ToString();
+                string gant_tol1_t = Math.Abs(Math.Round(double.Parse(gant_tol1) / gant_gain)).ToString();
+                string gant_tol2_t = Math.Abs(Math.Round(double.Parse(gant_tol2)/ gant_gain)).ToString();
                  
-                string collim_tol0_t = Math.Round(double.Parse(collim_tol0) / collim_gain).ToString();
-                string collim_tol1_t = Math.Round(double.Parse(collim_tol1) / collim_gain).ToString();
-                string collim_tol2_t = Math.Round(double.Parse(collim_tol2) / collim_gain).ToString();
+                string collim_tol0_t = Math.Abs(Math.Round(double.Parse(collim_tol0) / collim_gain)).ToString();
+                string collim_tol1_t = Math.Abs(Math.Round(double.Parse(collim_tol1) / collim_gain)).ToString();
+                string collim_tol2_t = Math.Abs(Math.Round(double.Parse(collim_tol2) / collim_gain)).ToString();
                 
-                string x1_tol0_t = Math.Round(double.Parse(x1_tol0) / x1_gain).ToString();
-                string x1_tol1_t = Math.Round(double.Parse(x1_tol1) / x1_gain).ToString();
-                string x1_tol2_t = Math.Round(double.Parse(x1_tol2) / x1_gain).ToString();
+                string x1_tol0_t = Math.Abs(Math.Round(double.Parse(x1_tol0) / x1_gain)).ToString();
+                string x1_tol1_t = Math.Abs(Math.Round(double.Parse(x1_tol1) / x1_gain)).ToString();
+                string x1_tol2_t = Math.Abs(Math.Round(double.Parse(x1_tol2) / x1_gain)).ToString();
                                                                    
-                string x2_tol0_t = Math.Round(double.Parse(x2_tol0) / x2_gain).ToString();
-                string x2_tol1_t = Math.Round(double.Parse(x2_tol1) / x2_gain).ToString();
-                string x2_tol2_t = Math.Round(double.Parse(x2_tol2) / x2_gain).ToString();
+                string x2_tol0_t = Math.Abs(Math.Round(double.Parse(x2_tol0) / x2_gain)).ToString();
+                string x2_tol1_t = Math.Abs(Math.Round(double.Parse(x2_tol1) / x2_gain)).ToString();
+                string x2_tol2_t = Math.Abs(Math.Round(double.Parse(x2_tol2) / x2_gain)).ToString();
                                                                    
-                string y1_tol0_t = Math.Round(double.Parse(y1_tol0) / y1_gain).ToString();
-                string y1_tol1_t = Math.Round(double.Parse(y1_tol1) / y1_gain).ToString();
-                string y1_tol2_t = Math.Round(double.Parse(y1_tol2) / y1_gain).ToString();
+                string y1_tol0_t = Math.Abs(Math.Round(double.Parse(y1_tol0) / y1_gain)).ToString();
+                string y1_tol1_t = Math.Abs(Math.Round(double.Parse(y1_tol1) / y1_gain)).ToString();
+                string y1_tol2_t = Math.Abs(Math.Round(double.Parse(y1_tol2) / y1_gain)).ToString();
                                                                    
-                string y2_tol0_t = Math.Round(double.Parse(y2_tol0) / y2_gain).ToString();
-                string y2_tol1_t = Math.Round(double.Parse(y2_tol1) / y2_gain).ToString();
-                string y2_tol2_t = Math.Round(double.Parse(y2_tol2) / y2_gain).ToString();
+                string y2_tol0_t = Math.Abs(Math.Round(double.Parse(y2_tol0) / y2_gain)).ToString();
+                string y2_tol1_t = Math.Abs(Math.Round(double.Parse(y2_tol1) / y2_gain)).ToString();
+                string y2_tol2_t = Math.Abs(Math.Round(double.Parse(y2_tol2) / y2_gain)).ToString();
 
                 ourSum = double.Parse(gant_tol0_t) + double.Parse(gant_tol1_t) + double.Parse(gant_tol2_t) +
                          double.Parse(collim_tol0_t) + double.Parse(collim_tol1_t) + double.Parse(collim_tol2_t) +

@@ -268,8 +268,6 @@
             this.picBtn_Connect = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label71 = new System.Windows.Forms.Label();
-            this.label70 = new System.Windows.Forms.Label();
             this.lbl_init = new System.Windows.Forms.Label();
             this.label_shamsiDate = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
@@ -278,6 +276,8 @@
             this.label_time = new System.Windows.Forms.Label();
             this.label_ConnectStatus = new System.Windows.Forms.Label();
             this.label_title = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
             this.picBtn_Close = new System.Windows.Forms.PictureBox();
             this.picBtnToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.label39 = new System.Windows.Forms.Label();
@@ -3041,34 +3041,6 @@
             this.panel1.Size = new System.Drawing.Size(1118, 36);
             this.panel1.TabIndex = 14;
             // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label71.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label71.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label71.Location = new System.Drawing.Point(913, 0);
-            this.label71.Name = "label71";
-            this.label71.Padding = new System.Windows.Forms.Padding(0, 3, 1, 4);
-            this.label71.Size = new System.Drawing.Size(155, 31);
-            this.label71.TabIndex = 20;
-            this.label71.Text = "Golestan Hospital";
-            this.label71.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label70.Enabled = false;
-            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label70.Location = new System.Drawing.Point(898, 0);
-            this.label70.Name = "label70";
-            this.label70.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label70.Size = new System.Drawing.Size(15, 28);
-            this.label70.TabIndex = 21;
-            this.label70.Text = "|";
-            // 
             // lbl_init
             // 
             this.lbl_init.AutoSize = true;
@@ -3178,6 +3150,34 @@
             this.label_title.TabIndex = 5;
             this.label_title.Text = "Service";
             this.label_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label70.Enabled = false;
+            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label70.Location = new System.Drawing.Point(898, 0);
+            this.label70.Name = "label70";
+            this.label70.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label70.Size = new System.Drawing.Size(15, 28);
+            this.label70.TabIndex = 21;
+            this.label70.Text = "|";
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label71.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label71.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label71.Location = new System.Drawing.Point(913, 0);
+            this.label71.Name = "label71";
+            this.label71.Padding = new System.Windows.Forms.Padding(0, 3, 1, 4);
+            this.label71.Size = new System.Drawing.Size(155, 31);
+            this.label71.TabIndex = 20;
+            this.label71.Text = "Golestan Hospital";
+            this.label71.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // picBtn_Close
             // 
