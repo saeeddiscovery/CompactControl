@@ -168,7 +168,7 @@
             this.label36 = new System.Windows.Forms.Label();
             this.textBox33 = new System.Windows.Forms.TextBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.textBox40 = new System.Windows.Forms.TextBox();
+            this.tb_x1_set = new System.Windows.Forms.TextBox();
             this.textBox34 = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -177,20 +177,20 @@
             this.label30 = new System.Windows.Forms.Label();
             this.textBox35 = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
-            this.textBox39 = new System.Windows.Forms.TextBox();
+            this.tb_x2_set = new System.Windows.Forms.TextBox();
             this.textBox36 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label33 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox31 = new System.Windows.Forms.TextBox();
             this.textBox32 = new System.Windows.Forms.TextBox();
-            this.textBox41 = new System.Windows.Forms.TextBox();
-            this.textBox38 = new System.Windows.Forms.TextBox();
-            this.textBox42 = new System.Windows.Forms.TextBox();
+            this.tb_coli_set = new System.Windows.Forms.TextBox();
+            this.tb_y1_set = new System.Windows.Forms.TextBox();
+            this.tb_gant_set = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.textBox37 = new System.Windows.Forms.TextBox();
+            this.tb_y2_set = new System.Windows.Forms.TextBox();
             this.tb_terminal_oth = new System.Windows.Forms.TextBox();
             this.label64 = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
@@ -437,6 +437,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(72, 24);
             this.textBox7.TabIndex = 2;
+            this.textBox7.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // label38
             // 
@@ -455,6 +456,7 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(72, 24);
             this.textBox8.TabIndex = 3;
+            this.textBox8.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // textBox1
             // 
@@ -463,6 +465,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(72, 24);
             this.textBox1.TabIndex = 1;
+            this.textBox1.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // textBox9
             // 
@@ -471,6 +474,7 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(72, 24);
             this.textBox9.TabIndex = 6;
+            this.textBox9.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // textBox44
             // 
@@ -479,6 +483,7 @@
             this.textBox44.Name = "textBox44";
             this.textBox44.Size = new System.Drawing.Size(72, 24);
             this.textBox44.TabIndex = 8;
+            this.textBox44.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // textBox10
             // 
@@ -487,6 +492,7 @@
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(72, 24);
             this.textBox10.TabIndex = 7;
+            this.textBox10.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // textBox2
             // 
@@ -495,6 +501,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(72, 24);
             this.textBox2.TabIndex = 5;
+            this.textBox2.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // label8
             // 
@@ -513,6 +520,7 @@
             this.textBox43.Name = "textBox43";
             this.textBox43.Size = new System.Drawing.Size(72, 24);
             this.textBox43.TabIndex = 4;
+            this.textBox43.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // label1
             // 
@@ -590,6 +598,7 @@
             this.adcheck.Name = "adcheck";
             this.adcheck.Size = new System.Drawing.Size(72, 24);
             this.adcheck.TabIndex = 13;
+            this.adcheck.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // tb_y2_co
             // 
@@ -598,6 +607,7 @@
             this.tb_y2_co.Name = "tb_y2_co";
             this.tb_y2_co.Size = new System.Drawing.Size(72, 24);
             this.tb_y2_co.TabIndex = 10;
+            this.tb_y2_co.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // label5
             // 
@@ -616,6 +626,7 @@
             this.tb_y1_co.Name = "tb_y1_co";
             this.tb_y1_co.Size = new System.Drawing.Size(72, 24);
             this.tb_y1_co.TabIndex = 9;
+            this.tb_y1_co.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // label3
             // 
@@ -634,6 +645,7 @@
             this.tb_x1_co.Name = "tb_x1_co";
             this.tb_x1_co.Size = new System.Drawing.Size(72, 24);
             this.tb_x1_co.TabIndex = 11;
+            this.tb_x1_co.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // label4
             // 
@@ -652,6 +664,7 @@
             this.tb_x2_co.Name = "tb_x2_co";
             this.tb_x2_co.Size = new System.Drawing.Size(72, 24);
             this.tb_x2_co.TabIndex = 12;
+            this.tb_x2_co.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // btn_start_stop
             // 
@@ -1308,6 +1321,7 @@
             this.tb_coli_flen.ReadOnly = true;
             this.tb_coli_flen.Size = new System.Drawing.Size(72, 24);
             this.tb_coli_flen.TabIndex = 50;
+            this.tb_coli_flen.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // tb_coli_len
             // 
@@ -1318,6 +1332,7 @@
             this.tb_coli_len.ReadOnly = true;
             this.tb_coli_len.Size = new System.Drawing.Size(72, 24);
             this.tb_coli_len.TabIndex = 49;
+            this.tb_coli_len.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // tb_coli_zpnt
             // 
@@ -1328,6 +1343,7 @@
             this.tb_coli_zpnt.ReadOnly = true;
             this.tb_coli_zpnt.Size = new System.Drawing.Size(72, 24);
             this.tb_coli_zpnt.TabIndex = 48;
+            this.tb_coli_zpnt.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // label69
             // 
@@ -1358,6 +1374,7 @@
             this.tb_gant_flen.ReadOnly = true;
             this.tb_gant_flen.Size = new System.Drawing.Size(72, 24);
             this.tb_gant_flen.TabIndex = 45;
+            this.tb_gant_flen.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // tb_gant_len
             // 
@@ -1368,6 +1385,7 @@
             this.tb_gant_len.ReadOnly = true;
             this.tb_gant_len.Size = new System.Drawing.Size(72, 24);
             this.tb_gant_len.TabIndex = 44;
+            this.tb_gant_len.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // groupBox13
             // 
@@ -1413,6 +1431,7 @@
             this.textBox53.ReadOnly = true;
             this.textBox53.Size = new System.Drawing.Size(105, 24);
             this.textBox53.TabIndex = 32;
+            this.textBox53.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // textBox54
             // 
@@ -1423,6 +1442,7 @@
             this.textBox54.ReadOnly = true;
             this.textBox54.Size = new System.Drawing.Size(105, 24);
             this.textBox54.TabIndex = 31;
+            this.textBox54.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // label44
             // 
@@ -1443,6 +1463,7 @@
             this.textBox51.ReadOnly = true;
             this.textBox51.Size = new System.Drawing.Size(105, 24);
             this.textBox51.TabIndex = 29;
+            this.textBox51.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // textBox52
             // 
@@ -1453,6 +1474,7 @@
             this.textBox52.ReadOnly = true;
             this.textBox52.Size = new System.Drawing.Size(105, 24);
             this.textBox52.TabIndex = 28;
+            this.textBox52.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // label43
             // 
@@ -1493,6 +1515,7 @@
             this.textBox50.ReadOnly = true;
             this.textBox50.Size = new System.Drawing.Size(105, 24);
             this.textBox50.TabIndex = 25;
+            this.textBox50.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // textBox49
             // 
@@ -1503,6 +1526,7 @@
             this.textBox49.ReadOnly = true;
             this.textBox49.Size = new System.Drawing.Size(105, 24);
             this.textBox49.TabIndex = 24;
+            this.textBox49.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // textBox48
             // 
@@ -1513,6 +1537,7 @@
             this.textBox48.ReadOnly = true;
             this.textBox48.Size = new System.Drawing.Size(105, 24);
             this.textBox48.TabIndex = 23;
+            this.textBox48.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // textBox47
             // 
@@ -1523,6 +1548,7 @@
             this.textBox47.ReadOnly = true;
             this.textBox47.Size = new System.Drawing.Size(105, 24);
             this.textBox47.TabIndex = 22;
+            this.textBox47.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // textBox46
             // 
@@ -1533,6 +1559,7 @@
             this.textBox46.ReadOnly = true;
             this.textBox46.Size = new System.Drawing.Size(105, 24);
             this.textBox46.TabIndex = 21;
+            this.textBox46.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // textBox45
             // 
@@ -1543,6 +1570,7 @@
             this.textBox45.ReadOnly = true;
             this.textBox45.Size = new System.Drawing.Size(105, 24);
             this.textBox45.TabIndex = 20;
+            this.textBox45.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // tb_y2_offset
             // 
@@ -1553,6 +1581,7 @@
             this.tb_y2_offset.ReadOnly = true;
             this.tb_y2_offset.Size = new System.Drawing.Size(105, 24);
             this.tb_y2_offset.TabIndex = 17;
+            this.tb_y2_offset.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // tb_gant_zpnt
             // 
@@ -1563,6 +1592,7 @@
             this.tb_gant_zpnt.ReadOnly = true;
             this.tb_gant_zpnt.Size = new System.Drawing.Size(72, 24);
             this.tb_gant_zpnt.TabIndex = 43;
+            this.tb_gant_zpnt.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // tb_y1_offset
             // 
@@ -1573,6 +1603,7 @@
             this.tb_y1_offset.ReadOnly = true;
             this.tb_y1_offset.Size = new System.Drawing.Size(105, 24);
             this.tb_y1_offset.TabIndex = 16;
+            this.tb_y1_offset.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // tb_x2_offset
             // 
@@ -1583,6 +1614,7 @@
             this.tb_x2_offset.ReadOnly = true;
             this.tb_x2_offset.Size = new System.Drawing.Size(105, 24);
             this.tb_x2_offset.TabIndex = 19;
+            this.tb_x2_offset.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // label65
             // 
@@ -1603,6 +1635,7 @@
             this.tb_x1_offset.ReadOnly = true;
             this.tb_x1_offset.Size = new System.Drawing.Size(105, 24);
             this.tb_x1_offset.TabIndex = 18;
+            this.tb_x1_offset.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // tb_coli_offset
             // 
@@ -1613,6 +1646,7 @@
             this.tb_coli_offset.ReadOnly = true;
             this.tb_coli_offset.Size = new System.Drawing.Size(105, 24);
             this.tb_coli_offset.TabIndex = 15;
+            this.tb_coli_offset.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // label66
             // 
@@ -1633,6 +1667,7 @@
             this.tb_gant_offset.ReadOnly = true;
             this.tb_gant_offset.Size = new System.Drawing.Size(105, 24);
             this.tb_gant_offset.TabIndex = 14;
+            this.tb_gant_offset.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // tb_y2_gain
             // 
@@ -1643,6 +1678,7 @@
             this.tb_y2_gain.ReadOnly = true;
             this.tb_y2_gain.Size = new System.Drawing.Size(105, 24);
             this.tb_y2_gain.TabIndex = 11;
+            this.tb_y2_gain.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // label67
             // 
@@ -1663,6 +1699,7 @@
             this.tb_y1_gain.ReadOnly = true;
             this.tb_y1_gain.Size = new System.Drawing.Size(105, 24);
             this.tb_y1_gain.TabIndex = 10;
+            this.tb_y1_gain.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // tb_x2_gain
             // 
@@ -1673,6 +1710,7 @@
             this.tb_x2_gain.ReadOnly = true;
             this.tb_x2_gain.Size = new System.Drawing.Size(105, 24);
             this.tb_x2_gain.TabIndex = 13;
+            this.tb_x2_gain.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // tb_x1_gain
             // 
@@ -1683,6 +1721,7 @@
             this.tb_x1_gain.ReadOnly = true;
             this.tb_x1_gain.Size = new System.Drawing.Size(105, 24);
             this.tb_x1_gain.TabIndex = 12;
+            this.tb_x1_gain.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // tb_coli_gain
             // 
@@ -1693,6 +1732,7 @@
             this.tb_coli_gain.ReadOnly = true;
             this.tb_coli_gain.Size = new System.Drawing.Size(105, 24);
             this.tb_coli_gain.TabIndex = 9;
+            this.tb_coli_gain.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // tb_gant_gain
             // 
@@ -1703,6 +1743,7 @@
             this.tb_gant_gain.ReadOnly = true;
             this.tb_gant_gain.Size = new System.Drawing.Size(105, 24);
             this.tb_gant_gain.TabIndex = 8;
+            this.tb_gant_gain.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // label29
             // 
@@ -1845,7 +1886,7 @@
             this.groupBox8.Controls.Add(this.label36);
             this.groupBox8.Controls.Add(this.textBox33);
             this.groupBox8.Controls.Add(this.pictureBox6);
-            this.groupBox8.Controls.Add(this.textBox40);
+            this.groupBox8.Controls.Add(this.tb_x1_set);
             this.groupBox8.Controls.Add(this.textBox34);
             this.groupBox8.Controls.Add(this.label32);
             this.groupBox8.Controls.Add(this.pictureBox3);
@@ -1854,20 +1895,20 @@
             this.groupBox8.Controls.Add(this.label30);
             this.groupBox8.Controls.Add(this.textBox35);
             this.groupBox8.Controls.Add(this.label31);
-            this.groupBox8.Controls.Add(this.textBox39);
+            this.groupBox8.Controls.Add(this.tb_x2_set);
             this.groupBox8.Controls.Add(this.textBox36);
             this.groupBox8.Controls.Add(this.pictureBox2);
             this.groupBox8.Controls.Add(this.label33);
             this.groupBox8.Controls.Add(this.pictureBox1);
             this.groupBox8.Controls.Add(this.textBox31);
             this.groupBox8.Controls.Add(this.textBox32);
-            this.groupBox8.Controls.Add(this.textBox41);
-            this.groupBox8.Controls.Add(this.textBox38);
-            this.groupBox8.Controls.Add(this.textBox42);
+            this.groupBox8.Controls.Add(this.tb_coli_set);
+            this.groupBox8.Controls.Add(this.tb_y1_set);
+            this.groupBox8.Controls.Add(this.tb_gant_set);
             this.groupBox8.Controls.Add(this.label37);
             this.groupBox8.Controls.Add(this.label34);
             this.groupBox8.Controls.Add(this.label35);
-            this.groupBox8.Controls.Add(this.textBox37);
+            this.groupBox8.Controls.Add(this.tb_y2_set);
             this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.groupBox8.Location = new System.Drawing.Point(3, 3);
             this.groupBox8.Name = "groupBox8";
@@ -1906,14 +1947,16 @@
             this.pictureBox6.TabIndex = 26;
             this.pictureBox6.TabStop = false;
             // 
-            // textBox40
+            // tb_x1_set
             // 
-            this.textBox40.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox40.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox40.Location = new System.Drawing.Point(207, 211);
-            this.textBox40.Name = "textBox40";
-            this.textBox40.Size = new System.Drawing.Size(80, 24);
-            this.textBox40.TabIndex = 5;
+            this.tb_x1_set.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_x1_set.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tb_x1_set.Location = new System.Drawing.Point(207, 211);
+            this.tb_x1_set.Name = "tb_x1_set";
+            this.tb_x1_set.Size = new System.Drawing.Size(80, 24);
+            this.tb_x1_set.TabIndex = 5;
+            this.tb_x1_set.Enter += new System.EventHandler(this.txtBox_Enter);
+            this.tb_x1_set.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_x1_set_KeyPress);
             // 
             // textBox34
             // 
@@ -1997,14 +2040,16 @@
             this.label31.TabIndex = 1;
             this.label31.Text = "Collimator Angle";
             // 
-            // textBox39
+            // tb_x2_set
             // 
-            this.textBox39.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox39.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox39.Location = new System.Drawing.Point(206, 251);
-            this.textBox39.Name = "textBox39";
-            this.textBox39.Size = new System.Drawing.Size(80, 24);
-            this.textBox39.TabIndex = 6;
+            this.tb_x2_set.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_x2_set.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tb_x2_set.Location = new System.Drawing.Point(206, 251);
+            this.tb_x2_set.Name = "tb_x2_set";
+            this.tb_x2_set.Size = new System.Drawing.Size(80, 24);
+            this.tb_x2_set.TabIndex = 6;
+            this.tb_x2_set.Enter += new System.EventHandler(this.txtBox_Enter);
+            this.tb_x2_set.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_x2_set_KeyPress);
             // 
             // textBox36
             // 
@@ -2069,32 +2114,38 @@
             this.textBox32.Size = new System.Drawing.Size(80, 24);
             this.textBox32.TabIndex = 7;
             // 
-            // textBox41
+            // tb_coli_set
             // 
-            this.textBox41.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox41.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox41.Location = new System.Drawing.Point(207, 91);
-            this.textBox41.Name = "textBox41";
-            this.textBox41.Size = new System.Drawing.Size(80, 24);
-            this.textBox41.TabIndex = 2;
+            this.tb_coli_set.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_coli_set.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tb_coli_set.Location = new System.Drawing.Point(207, 91);
+            this.tb_coli_set.Name = "tb_coli_set";
+            this.tb_coli_set.Size = new System.Drawing.Size(80, 24);
+            this.tb_coli_set.TabIndex = 2;
+            this.tb_coli_set.Enter += new System.EventHandler(this.txtBox_Enter);
+            this.tb_coli_set.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_coli_set_KeyPress);
             // 
-            // textBox38
+            // tb_y1_set
             // 
-            this.textBox38.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox38.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox38.Location = new System.Drawing.Point(207, 131);
-            this.textBox38.Name = "textBox38";
-            this.textBox38.Size = new System.Drawing.Size(80, 24);
-            this.textBox38.TabIndex = 3;
+            this.tb_y1_set.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_y1_set.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tb_y1_set.Location = new System.Drawing.Point(207, 131);
+            this.tb_y1_set.Name = "tb_y1_set";
+            this.tb_y1_set.Size = new System.Drawing.Size(80, 24);
+            this.tb_y1_set.TabIndex = 3;
+            this.tb_y1_set.Enter += new System.EventHandler(this.txtBox_Enter);
+            this.tb_y1_set.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_y1_set_KeyPress);
             // 
-            // textBox42
+            // tb_gant_set
             // 
-            this.textBox42.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox42.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox42.Location = new System.Drawing.Point(207, 51);
-            this.textBox42.Name = "textBox42";
-            this.textBox42.Size = new System.Drawing.Size(80, 24);
-            this.textBox42.TabIndex = 1;
+            this.tb_gant_set.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_gant_set.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tb_gant_set.Location = new System.Drawing.Point(207, 51);
+            this.tb_gant_set.Name = "tb_gant_set";
+            this.tb_gant_set.Size = new System.Drawing.Size(80, 24);
+            this.tb_gant_set.TabIndex = 1;
+            this.tb_gant_set.Enter += new System.EventHandler(this.txtBox_Enter);
+            this.tb_gant_set.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_gant_set_KeyPress);
             // 
             // label37
             // 
@@ -2126,14 +2177,16 @@
             this.label35.TabIndex = 5;
             this.label35.Text = "Diaphragm Y2";
             // 
-            // textBox37
+            // tb_y2_set
             // 
-            this.textBox37.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox37.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox37.Location = new System.Drawing.Point(207, 171);
-            this.textBox37.Name = "textBox37";
-            this.textBox37.Size = new System.Drawing.Size(80, 24);
-            this.textBox37.TabIndex = 4;
+            this.tb_y2_set.BackColor = System.Drawing.SystemColors.Window;
+            this.tb_y2_set.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tb_y2_set.Location = new System.Drawing.Point(207, 171);
+            this.tb_y2_set.Name = "tb_y2_set";
+            this.tb_y2_set.Size = new System.Drawing.Size(80, 24);
+            this.tb_y2_set.TabIndex = 4;
+            this.tb_y2_set.Enter += new System.EventHandler(this.txtBox_Enter);
+            this.tb_y2_set.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_y2_set_KeyPress);
             // 
             // tb_terminal_oth
             // 
@@ -2343,6 +2396,7 @@
             this.textBox79.Name = "textBox79";
             this.textBox79.Size = new System.Drawing.Size(50, 24);
             this.textBox79.TabIndex = 30;
+            this.textBox79.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox79.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox80
@@ -2353,6 +2407,7 @@
             this.textBox80.Name = "textBox80";
             this.textBox80.Size = new System.Drawing.Size(50, 24);
             this.textBox80.TabIndex = 24;
+            this.textBox80.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox80.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox81
@@ -2363,6 +2418,7 @@
             this.textBox81.Name = "textBox81";
             this.textBox81.Size = new System.Drawing.Size(50, 24);
             this.textBox81.TabIndex = 42;
+            this.textBox81.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox81.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox82
@@ -2373,6 +2429,7 @@
             this.textBox82.Name = "textBox82";
             this.textBox82.Size = new System.Drawing.Size(50, 24);
             this.textBox82.TabIndex = 36;
+            this.textBox82.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox82.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox83
@@ -2383,6 +2440,7 @@
             this.textBox83.Name = "textBox83";
             this.textBox83.Size = new System.Drawing.Size(50, 24);
             this.textBox83.TabIndex = 18;
+            this.textBox83.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox83.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox84
@@ -2393,6 +2451,7 @@
             this.textBox84.Name = "textBox84";
             this.textBox84.Size = new System.Drawing.Size(50, 24);
             this.textBox84.TabIndex = 12;
+            this.textBox84.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox84.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox85
@@ -2403,6 +2462,7 @@
             this.textBox85.Name = "textBox85";
             this.textBox85.Size = new System.Drawing.Size(50, 24);
             this.textBox85.TabIndex = 29;
+            this.textBox85.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox85.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox86
@@ -2413,6 +2473,7 @@
             this.textBox86.Name = "textBox86";
             this.textBox86.Size = new System.Drawing.Size(50, 24);
             this.textBox86.TabIndex = 23;
+            this.textBox86.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox86.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox87
@@ -2423,6 +2484,7 @@
             this.textBox87.Name = "textBox87";
             this.textBox87.Size = new System.Drawing.Size(50, 24);
             this.textBox87.TabIndex = 41;
+            this.textBox87.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox87.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox88
@@ -2433,6 +2495,7 @@
             this.textBox88.Name = "textBox88";
             this.textBox88.Size = new System.Drawing.Size(50, 24);
             this.textBox88.TabIndex = 35;
+            this.textBox88.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox88.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox89
@@ -2443,6 +2506,7 @@
             this.textBox89.Name = "textBox89";
             this.textBox89.Size = new System.Drawing.Size(50, 24);
             this.textBox89.TabIndex = 17;
+            this.textBox89.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox89.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox90
@@ -2453,6 +2517,7 @@
             this.textBox90.Name = "textBox90";
             this.textBox90.Size = new System.Drawing.Size(50, 24);
             this.textBox90.TabIndex = 11;
+            this.textBox90.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox90.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // label52
@@ -2483,6 +2548,7 @@
             this.textBox55.Name = "textBox55";
             this.textBox55.Size = new System.Drawing.Size(50, 24);
             this.textBox55.TabIndex = 28;
+            this.textBox55.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox55.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox56
@@ -2493,6 +2559,7 @@
             this.textBox56.Name = "textBox56";
             this.textBox56.Size = new System.Drawing.Size(50, 24);
             this.textBox56.TabIndex = 22;
+            this.textBox56.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox56.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox57
@@ -2503,6 +2570,7 @@
             this.textBox57.Name = "textBox57";
             this.textBox57.Size = new System.Drawing.Size(50, 24);
             this.textBox57.TabIndex = 40;
+            this.textBox57.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox57.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox58
@@ -2513,6 +2581,7 @@
             this.textBox58.Name = "textBox58";
             this.textBox58.Size = new System.Drawing.Size(50, 24);
             this.textBox58.TabIndex = 34;
+            this.textBox58.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox58.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox59
@@ -2523,6 +2592,7 @@
             this.textBox59.Name = "textBox59";
             this.textBox59.Size = new System.Drawing.Size(50, 24);
             this.textBox59.TabIndex = 16;
+            this.textBox59.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox59.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox60
@@ -2533,6 +2603,7 @@
             this.textBox60.Name = "textBox60";
             this.textBox60.Size = new System.Drawing.Size(50, 24);
             this.textBox60.TabIndex = 10;
+            this.textBox60.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox60.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox61
@@ -2543,6 +2614,7 @@
             this.textBox61.Name = "textBox61";
             this.textBox61.Size = new System.Drawing.Size(50, 24);
             this.textBox61.TabIndex = 27;
+            this.textBox61.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox61.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox61.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
@@ -2554,6 +2626,7 @@
             this.textBox62.Name = "textBox62";
             this.textBox62.Size = new System.Drawing.Size(50, 24);
             this.textBox62.TabIndex = 21;
+            this.textBox62.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox62.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox62.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
@@ -2565,6 +2638,7 @@
             this.textBox63.Name = "textBox63";
             this.textBox63.Size = new System.Drawing.Size(50, 24);
             this.textBox63.TabIndex = 39;
+            this.textBox63.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox63.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox63.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
@@ -2576,6 +2650,7 @@
             this.textBox64.Name = "textBox64";
             this.textBox64.Size = new System.Drawing.Size(50, 24);
             this.textBox64.TabIndex = 33;
+            this.textBox64.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox64.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox64.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
@@ -2587,6 +2662,7 @@
             this.textBox77.Name = "textBox77";
             this.textBox77.Size = new System.Drawing.Size(50, 24);
             this.textBox77.TabIndex = 15;
+            this.textBox77.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox77.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox77.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
@@ -2598,6 +2674,7 @@
             this.textBox78.Name = "textBox78";
             this.textBox78.Size = new System.Drawing.Size(50, 24);
             this.textBox78.TabIndex = 9;
+            this.textBox78.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox78.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox78.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
@@ -2629,6 +2706,7 @@
             this.textBox65.Name = "textBox65";
             this.textBox65.Size = new System.Drawing.Size(50, 24);
             this.textBox65.TabIndex = 26;
+            this.textBox65.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox65.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox65.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
@@ -2640,6 +2718,7 @@
             this.textBox66.Name = "textBox66";
             this.textBox66.Size = new System.Drawing.Size(50, 24);
             this.textBox66.TabIndex = 20;
+            this.textBox66.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox66.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox66.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
@@ -2651,6 +2730,7 @@
             this.textBox67.Name = "textBox67";
             this.textBox67.Size = new System.Drawing.Size(50, 24);
             this.textBox67.TabIndex = 38;
+            this.textBox67.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox67.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox67.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
@@ -2662,6 +2742,7 @@
             this.textBox68.Name = "textBox68";
             this.textBox68.Size = new System.Drawing.Size(50, 24);
             this.textBox68.TabIndex = 32;
+            this.textBox68.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox68.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox68.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
@@ -2673,6 +2754,7 @@
             this.textBox69.Name = "textBox69";
             this.textBox69.Size = new System.Drawing.Size(50, 24);
             this.textBox69.TabIndex = 14;
+            this.textBox69.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox69.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox69.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
@@ -2684,6 +2766,7 @@
             this.textBox70.Name = "textBox70";
             this.textBox70.Size = new System.Drawing.Size(50, 24);
             this.textBox70.TabIndex = 8;
+            this.textBox70.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox70.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox70.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
@@ -2695,6 +2778,7 @@
             this.textBox71.Name = "textBox71";
             this.textBox71.Size = new System.Drawing.Size(50, 24);
             this.textBox71.TabIndex = 25;
+            this.textBox71.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox71.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox71.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
@@ -2706,6 +2790,7 @@
             this.textBox72.Name = "textBox72";
             this.textBox72.Size = new System.Drawing.Size(50, 24);
             this.textBox72.TabIndex = 19;
+            this.textBox72.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox72.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox72.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
@@ -2717,6 +2802,7 @@
             this.textBox73.Name = "textBox73";
             this.textBox73.Size = new System.Drawing.Size(50, 24);
             this.textBox73.TabIndex = 37;
+            this.textBox73.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox73.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox73.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
@@ -2728,6 +2814,7 @@
             this.textBox74.Name = "textBox74";
             this.textBox74.Size = new System.Drawing.Size(50, 24);
             this.textBox74.TabIndex = 31;
+            this.textBox74.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox74.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox74.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
@@ -2739,6 +2826,7 @@
             this.textBox75.Name = "textBox75";
             this.textBox75.Size = new System.Drawing.Size(50, 24);
             this.textBox75.TabIndex = 13;
+            this.textBox75.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox75.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox75.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
@@ -2750,6 +2838,7 @@
             this.textBox76.Name = "textBox76";
             this.textBox76.Size = new System.Drawing.Size(50, 24);
             this.textBox76.TabIndex = 7;
+            this.textBox76.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox76.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox76.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
@@ -2877,9 +2966,9 @@
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel2.Location = new System.Drawing.Point(224, 36);
+            this.panel2.Location = new System.Drawing.Point(240, 36);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(662, 31);
+            this.panel2.Size = new System.Drawing.Size(646, 31);
             this.panel2.TabIndex = 20;
             // 
             // picBtn_Exit
@@ -2890,7 +2979,7 @@
             this.picBtn_Exit.Dock = System.Windows.Forms.DockStyle.Left;
             this.picBtn_Exit.Location = new System.Drawing.Point(160, 36);
             this.picBtn_Exit.Name = "picBtn_Exit";
-            this.picBtn_Exit.Size = new System.Drawing.Size(64, 63);
+            this.picBtn_Exit.Size = new System.Drawing.Size(80, 63);
             this.picBtn_Exit.TabIndex = 11;
             this.picBtn_Exit.TabStop = false;
             this.picBtnToolTip.SetToolTip(this.picBtn_Exit, " Exit");
@@ -2904,9 +2993,9 @@
             this.picBtn_LogOff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picBtn_LogOff.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBtn_LogOff.Dock = System.Windows.Forms.DockStyle.Left;
-            this.picBtn_LogOff.Location = new System.Drawing.Point(96, 36);
+            this.picBtn_LogOff.Location = new System.Drawing.Point(90, 36);
             this.picBtn_LogOff.Name = "picBtn_LogOff";
-            this.picBtn_LogOff.Size = new System.Drawing.Size(64, 63);
+            this.picBtn_LogOff.Size = new System.Drawing.Size(70, 63);
             this.picBtn_LogOff.TabIndex = 9;
             this.picBtn_LogOff.TabStop = false;
             this.picBtnToolTip.SetToolTip(this.picBtn_LogOff, " Log out");
@@ -3000,7 +3089,7 @@
             this.picBtn_Connect.Dock = System.Windows.Forms.DockStyle.Left;
             this.picBtn_Connect.Location = new System.Drawing.Point(11, 36);
             this.picBtn_Connect.Name = "picBtn_Connect";
-            this.picBtn_Connect.Size = new System.Drawing.Size(85, 63);
+            this.picBtn_Connect.Size = new System.Drawing.Size(79, 63);
             this.picBtn_Connect.TabIndex = 3;
             this.picBtn_Connect.TabStop = false;
             this.picBtn_Connect.Click += new System.EventHandler(this.picBtn_Connect_Click);
@@ -3492,7 +3581,7 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.TextBox textBox33;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.TextBox textBox40;
+        private System.Windows.Forms.TextBox tb_x1_set;
         private System.Windows.Forms.TextBox textBox34;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -3501,20 +3590,20 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox textBox35;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox textBox39;
+        private System.Windows.Forms.TextBox tb_x2_set;
         private System.Windows.Forms.TextBox textBox36;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBox31;
         private System.Windows.Forms.TextBox textBox32;
-        private System.Windows.Forms.TextBox textBox41;
-        private System.Windows.Forms.TextBox textBox38;
-        private System.Windows.Forms.TextBox textBox42;
+        private System.Windows.Forms.TextBox tb_coli_set;
+        private System.Windows.Forms.TextBox tb_y1_set;
+        private System.Windows.Forms.TextBox tb_gant_set;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TextBox textBox37;
+        private System.Windows.Forms.TextBox tb_y2_set;
         private System.Windows.Forms.GroupBox gb_parameters;
         private System.Windows.Forms.Button btn_saveParameters;
         private System.Windows.Forms.TextBox textBox79;

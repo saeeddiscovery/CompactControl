@@ -260,7 +260,7 @@ namespace Compact_Control
         public void write(string data)
         {
             serialPort1.Write(data);
-            //tb_terminal_out.AppendText(data + Environment.NewLine);
+            tb_terminal_out.AppendText(data + Environment.NewLine);
         }
 
         private void btn_clearTerminal_oth_Click(object sender, EventArgs e)
@@ -283,7 +283,7 @@ namespace Compact_Control
                 return;
             string currData = receiveQ.Dequeue();
             //string[] lines = currData.Split('\n');
-            //tb_terminal_in.AppendText(currData + Environment.NewLine);
+            tb_terminal_in.AppendText(currData + Environment.NewLine);
             string a = currData;
             //foreach (string a in lines)
             //{
@@ -400,8 +400,8 @@ namespace Compact_Control
                     case "cf2":
                         break;
                     default:
-                            //tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
-                            break;
+                        tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
+                        break;
                     }
                     if (Class_PatientData.isBoardReadWrite)
                     {
@@ -665,116 +665,122 @@ namespace Compact_Control
 
         private void txt_y_s_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txt_y_s.Text))
-            {
-                if (!XY_isTextChangedFromCode)
-                {
-                    xy_isTextChangedFromCode = true;
-                    if (string.IsNullOrEmpty(txt_y_s.Text) || string.IsNullOrWhiteSpace(txt_y_s.Text))
-                    {
-                        txt_y1_s.Clear();
-                        txt_y2_s.Clear();
-                    }
-                    else
-                    {
-                        decimal y12;
-                        try
-                        {
-                            y12 = decimal.Parse(txt_y_s.Text);
-                        }
-                        catch
-                        {
-                            txt_y_s.SelectAll();
-                            pictureBox14.BackgroundImage = Resources.Error;
-                            pictureBox14.Show();
-                            return;
-                        }
-                        y12 = y12 / 2;
-                        y12 = decimal.Round(y12, 2);
-                        txt_y2_s.Text = y12.ToString();
-                        y12 = y12 * -1;
-                        txt_y1_s.Text = y12.ToString();
-                        y1Set();
-                        y2Set();
-                        txt_y_s.BackColor = Color.LightGreen;
-                        txt_y1_s.BackColor = Color.LightGreen;
-                        txt_y2_s.BackColor = Color.LightGreen;
-                    }
-                    xy_isTextChangedFromCode = false;
-                }
-                
-            }
             if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (!string.IsNullOrWhiteSpace(txt_y_s.Text))
+                {
+                    if (!XY_isTextChangedFromCode)
+                    {
+                        xy_isTextChangedFromCode = true;
+                        if (string.IsNullOrEmpty(txt_y_s.Text) || string.IsNullOrWhiteSpace(txt_y_s.Text))
+                        {
+                            txt_y1_s.Clear();
+                            txt_y2_s.Clear();
+                        }
+                        else
+                        {
+                            decimal y12;
+                            try
+                            {
+                                y12 = decimal.Parse(txt_y_s.Text);
+                            }
+                            catch
+                            {
+                                txt_y_s.SelectAll();
+                                pictureBox14.BackgroundImage = Resources.Error;
+                                pictureBox14.Show();
+                                return;
+                            }
+                            y12 = y12 / 2;
+                            y12 = decimal.Round(y12, 2);
+                            txt_y2_s.Text = y12.ToString();
+                            y12 = y12 * -1;
+                            txt_y1_s.Text = y12.ToString();
+                            y1Set();
+                            y2Set();
+                            txt_y_s.BackColor = Color.LightGreen;
+                            txt_y1_s.BackColor = Color.LightGreen;
+                            txt_y2_s.BackColor = Color.LightGreen;
+                        }
+                        xy_isTextChangedFromCode = false;
+                    }
+
+                }
                 txt_x_s.Focus();
+            }
         }
 
         private void txt_x_s_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txt_x_s.Text))
-            {
-                if (!XY_isTextChangedFromCode)
-                {
-                    xy_isTextChangedFromCode = true;
-                    if (string.IsNullOrEmpty(txt_x_s.Text) || string.IsNullOrWhiteSpace(txt_x_s.Text))
-                    {
-                        txt_x1_s.Clear();
-                        txt_x2_s.Clear();
-                    }
-                    else
-                    {
-                        decimal x12;
-                        try
-                        {
-                            x12 = decimal.Parse(txt_x_s.Text);
-                        }
-                        catch
-                        {
-                            txt_x_s.SelectAll();
-                            pictureBox15.BackgroundImage = Resources.Error;
-                            pictureBox15.Show();
-                            return;
-                        }
-                        x12 = x12 / 2;
-                        x12 = decimal.Round(x12, 2);
-                        txt_x2_s.Text = x12.ToString();
-                        x12 = x12 * -1;
-                        txt_x1_s.Text = x12.ToString();
-                        x1Set();
-                        x2Set();
-                        txt_x_s.BackColor = Color.LightGreen;
-                        txt_x1_s.BackColor = Color.LightGreen;
-                        txt_x2_s.BackColor = Color.LightGreen;
-                    }
-                    xy_isTextChangedFromCode = false;
-                }
-               
-            }
             if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (!string.IsNullOrWhiteSpace(txt_x_s.Text))
+                {
+                    if (!XY_isTextChangedFromCode)
+                    {
+                        xy_isTextChangedFromCode = true;
+                        if (string.IsNullOrEmpty(txt_x_s.Text) || string.IsNullOrWhiteSpace(txt_x_s.Text))
+                        {
+                            txt_x1_s.Clear();
+                            txt_x2_s.Clear();
+                        }
+                        else
+                        {
+                            decimal x12;
+                            try
+                            {
+                                x12 = decimal.Parse(txt_x_s.Text);
+                            }
+                            catch
+                            {
+                                txt_x_s.SelectAll();
+                                pictureBox15.BackgroundImage = Resources.Error;
+                                pictureBox15.Show();
+                                return;
+                            }
+                            x12 = x12 / 2;
+                            x12 = decimal.Round(x12, 2);
+                            txt_x2_s.Text = x12.ToString();
+                            x12 = x12 * -1;
+                            txt_x1_s.Text = x12.ToString();
+                            x1Set();
+                            x2Set();
+                            txt_x_s.BackColor = Color.LightGreen;
+                            txt_x1_s.BackColor = Color.LightGreen;
+                            txt_x2_s.BackColor = Color.LightGreen;
+                        }
+                        xy_isTextChangedFromCode = false;
+                    }
+
+                }
                 txt_y1_s.Focus();
+            }
         }
 
         private void txt_y1_s_KeyPress(object sender, KeyPressEventArgs e)
         {
-            try
-            {
-                if (!string.IsNullOrEmpty(txt_y1_s.Text) && !string.IsNullOrWhiteSpace(txt_y1_s.Text))
-                    decimal.Parse(txt_y1_s.Text);
-            }
-            catch
-            {
-                txt_y1_s.SelectAll();
-                pictureBox4.BackgroundImage = Resources.Error;
-                pictureBox4.Show();
-                return;
-            }
-            if (!string.IsNullOrWhiteSpace(txt_y1_s.Text))
-            {
-                y1Set();
-                txt_y1_s.BackColor = Color.LightGreen;
-                
-            }
             if (e.KeyChar == (char)Keys.Enter)
+            {
+                try
+                {
+                    if (!string.IsNullOrEmpty(txt_y1_s.Text) && !string.IsNullOrWhiteSpace(txt_y1_s.Text))
+                        decimal.Parse(txt_y1_s.Text);
+                }
+                catch
+                {
+                    txt_y1_s.SelectAll();
+                    pictureBox4.BackgroundImage = Resources.Error;
+                    pictureBox4.Show();
+                    return;
+                }
+                if (!string.IsNullOrWhiteSpace(txt_y1_s.Text))
+                {
+                    y1Set();
+                    txt_y1_s.BackColor = Color.LightGreen;
+
+                }
                 txt_y2_s.Focus();
+            }
         }
 
         private void y1Set()
@@ -877,26 +883,28 @@ namespace Compact_Control
 
         private void txt_y2_s_KeyPress(object sender, KeyPressEventArgs e)
         {
-            try
-            {
-                if (!string.IsNullOrEmpty(txt_y2_s.Text) && !string.IsNullOrWhiteSpace(txt_y2_s.Text))
-                    decimal.Parse(txt_y2_s.Text);
-            }
-            catch
-            {
-                txt_y2_s.SelectAll();
-                pictureBox3.BackgroundImage = Resources.Error;
-                pictureBox3.Show();
-                return;
-            }
-            if (!string.IsNullOrWhiteSpace(txt_y2_s.Text))
-            {
-                y2Set();
-                txt_y2_s.BackColor = Color.LightGreen;
-                
-            }
             if (e.KeyChar == (char)Keys.Enter)
+            {
+                try
+                {
+                    if (!string.IsNullOrEmpty(txt_y2_s.Text) && !string.IsNullOrWhiteSpace(txt_y2_s.Text))
+                        decimal.Parse(txt_y2_s.Text);
+                }
+                catch
+                {
+                    txt_y2_s.SelectAll();
+                    pictureBox3.BackgroundImage = Resources.Error;
+                    pictureBox3.Show();
+                    return;
+                }
+                if (!string.IsNullOrWhiteSpace(txt_y2_s.Text))
+                {
+                    y2Set();
+                    txt_y2_s.BackColor = Color.LightGreen;
+
+                }
                 txt_x1_s.Focus();
+            }
         }
 
         private void y2Set()
@@ -1003,26 +1011,28 @@ namespace Compact_Control
 
         private void txt_x1_s_KeyPress(object sender, KeyPressEventArgs e)
         {
-            try
-            {
-                if (!string.IsNullOrEmpty(txt_x1_s.Text) && !string.IsNullOrWhiteSpace(txt_x1_s.Text))
-                    decimal.Parse(txt_x1_s.Text);
-            }
-            catch
-            {
-                txt_x1_s.SelectAll();
-                pictureBox6.BackgroundImage = Resources.Error;
-                pictureBox6.Show();
-                return;
-            }
-            if (!string.IsNullOrWhiteSpace(txt_x1_s.Text))
-            {
-                x1Set();
-                txt_x1_s.BackColor = Color.LightGreen;
-                
-            }
             if (e.KeyChar == (char)Keys.Enter)
+            {
+                try
+                {
+                    if (!string.IsNullOrEmpty(txt_x1_s.Text) && !string.IsNullOrWhiteSpace(txt_x1_s.Text))
+                        decimal.Parse(txt_x1_s.Text);
+                }
+                catch
+                {
+                    txt_x1_s.SelectAll();
+                    pictureBox6.BackgroundImage = Resources.Error;
+                    pictureBox6.Show();
+                    return;
+                }
+                if (!string.IsNullOrWhiteSpace(txt_x1_s.Text))
+                {
+                    x1Set();
+                    txt_x1_s.BackColor = Color.LightGreen;
+
+                }
                 txt_x2_s.Focus();
+            }
         }
 
         private void x1Set()
@@ -1132,26 +1142,28 @@ namespace Compact_Control
 
         private void txt_x2_s_KeyPress(object sender, KeyPressEventArgs e)
         {
-            try
-            {
-                if (!string.IsNullOrEmpty(txt_x2_s.Text) && !string.IsNullOrWhiteSpace(txt_x2_s.Text))
-                    decimal.Parse(txt_x2_s.Text);
-            }
-            catch
-            {
-                txt_x2_s.SelectAll();
-                pictureBox5.BackgroundImage = Resources.Error;
-                pictureBox5.Show();
-                return;
-            }
-            if (!string.IsNullOrWhiteSpace(txt_x2_s.Text))
-            {
-                x2Set();
-                txt_x2_s.BackColor = Color.LightGreen;
-                
-            }
             if (e.KeyChar == (char)Keys.Enter)
+            {
+                try
+                {
+                    if (!string.IsNullOrEmpty(txt_x2_s.Text) && !string.IsNullOrWhiteSpace(txt_x2_s.Text))
+                        decimal.Parse(txt_x2_s.Text);
+                }
+                catch
+                {
+                    txt_x2_s.SelectAll();
+                    pictureBox5.BackgroundImage = Resources.Error;
+                    pictureBox5.Show();
+                    return;
+                }
+                if (!string.IsNullOrWhiteSpace(txt_x2_s.Text))
+                {
+                    x2Set();
+                    txt_x2_s.BackColor = Color.LightGreen;
+
+                }
                 txt_gant_s.Focus();
+            }
         }
 
         private void x2Set()
@@ -1257,33 +1269,36 @@ namespace Compact_Control
 
         private void txt_gant_s_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txt_gant_s.Text))
-            {
-                try
-                {
-                    double aa = double.Parse(txt_gant_s.Text);
-                    double gentValueActual = double.Parse(gant_dv);
-                    if (gentValueActual > 180 && aa == 180)
-                    {
-                        gant_isTextChangedFromCode = true;
-                        txt_gant_s.Text = "180.05";
-                        gant_isTextChangedFromCode = false;
-                    }
-                    gantSet();
-                    txt_gant_s.BackColor = Color.LightGreen;
-
-                }
-                catch
-                {
-                    txt_gant_s.SelectAll();
-                    gant_set = "0";
-                    pictureBox1.BackgroundImage = Resources.Error;
-                    pictureBox1.Show();
-                    return;
-                }
-            }
             if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (!string.IsNullOrWhiteSpace(txt_gant_s.Text))
+                {
+                    try
+                    {
+                        double aa = double.Parse(txt_gant_s.Text);
+                        double gentValueActual = double.Parse(gant_dv);
+                        if (gentValueActual > 180 && aa == 180)
+                        {
+                            gant_isTextChangedFromCode = true;
+                            txt_gant_s.Text = "180.05";
+                            gant_isTextChangedFromCode = false;
+                        }
+                        gantSet();
+                        txt_gant_s.BackColor = Color.LightGreen;
+
+                    }
+                    catch
+                    {
+                        txt_gant_s.SelectAll();
+                        gant_set = "0";
+                        pictureBox1.BackgroundImage = Resources.Error;
+                        pictureBox1.Show();
+                        return;
+                    }
+                }
+
                 txt_coli_s.Focus();
+            }
         }
 
         private void gantSet()
@@ -1345,14 +1360,17 @@ namespace Compact_Control
 
         private void txt_coli_s_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txt_coli_s.Text))
-            {
-                coliSet();
-                txt_coli_s.BackColor = Color.LightGreen;
-                
-            }
             if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (!string.IsNullOrWhiteSpace(txt_coli_s.Text))
+                {
+                    coliSet();
+                    txt_coli_s.BackColor = Color.LightGreen;
+
+                }
+
                 txt_y_s.Focus();
+            }
         }
 
         private void coliSet()

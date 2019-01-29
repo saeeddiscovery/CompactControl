@@ -515,12 +515,12 @@ namespace Compact_Control
             textBox36.Text = y2_dv;
             adcheck.Text = adc;
 
-            textBox42_TextChanged(sender, e);
-            textBox41_TextChanged(sender, e);
-            textBox40_TextChanged(sender, e);
-            textBox39_TextChanged(sender, e);
-            textBox38_TextChanged(sender, e);
-            textBox37_TextChanged(sender, e);
+            //textBox42_TextChanged(sender, e);
+            //textBox41_TextChanged(sender, e);
+            //textBox40_TextChanged(sender, e);
+            //textBox39_TextChanged(sender, e);
+            //textBox38_TextChanged(sender, e);
+            //textBox37_TextChanged(sender, e);
 
 
             switch (comboBox1.Text)
@@ -1006,425 +1006,6 @@ namespace Compact_Control
             label11.Enabled = true;
             btn_cancelLearn.Enabled = true;
             btn_save.Enabled = true;
-        }
-
-        private void textBox42_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBox42.Text) || string.IsNullOrWhiteSpace(textBox42.Text))
-            {
-                gant_set = "0";
-                pictureBox1.Hide();
-                pictureBox1.BackgroundImage = requestImage;
-                return;
-            }
-            else if (textBox42.Text == "")
-            {
-                gant_set = "0";
-                pictureBox1.Hide();
-                pictureBox1.BackgroundImage = requestImage;
-                return;
-            }
-
-            double a;
-            try
-            {
-                if (double.TryParse(textBox42.Text, out a) == false)
-                {
-                    gant_set = "0";
-                    pictureBox1.Hide();
-                    pictureBox1.BackgroundImage = requestImage;
-                    return;
-                }
-            }
-            catch
-            {
-                gant_set = "0";
-                pictureBox1.BackgroundImage = errorImage;
-                pictureBox1.Show();
-                return;
-            }
-            if (a < -180 | a > 180)
-            {
-                gant_set = "0";
-                pictureBox1.BackgroundImage = errorImage;
-                pictureBox1.Show();
-                return;
-            }
-            else if (gant_dv != null && !string.IsNullOrEmpty(textBox42.Text))
-            {
-                gant_set = ((int)((a - gant_offset) / gant_gain)).ToString();
-                pictureBox1.BackgroundImage = requestImage;
-
-                if (Math.Abs(double.Parse(textBox42.Text) - double.Parse(gant_dv)) > 1)
-                {
-                    pictureBox1.Show();
-                }
-                else
-                {
-                    pictureBox1.Hide();
-                    pictureBox1.BackgroundImage = requestImage;
-                }
-            }
-        }
-
-        private void textBox41_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBox41.Text) || string.IsNullOrWhiteSpace(textBox41.Text))
-            {
-                collim_set = "0";
-                pictureBox2.Hide();
-                pictureBox2.BackgroundImage = requestImage;
-                return;
-            }
-            else if (textBox41.Text == "")
-            {
-                collim_set = "0";
-                pictureBox2.Hide();
-                pictureBox2.BackgroundImage = requestImage;
-                return;
-            }
-
-            double a;
-            try
-            {
-                if (double.TryParse(textBox41.Text, out a) == false)
-                {
-                    collim_set = "0";
-                    pictureBox2.Hide();
-                    pictureBox2.BackgroundImage = requestImage;
-                    return;
-                }
-            }
-            catch
-            {
-                collim_set = "0";
-                pictureBox2.BackgroundImage = errorImage;
-                pictureBox2.Show();
-                return;
-            }
-            if (a < -180 | a > 180)
-            {
-                collim_set = "0";
-                pictureBox2.BackgroundImage = errorImage;
-                pictureBox2.Show();
-                return;
-            }
-            else if (collim_dv != null && !string.IsNullOrEmpty(textBox41.Text))
-            {
-                collim_set = ((int)((a - collim_offset) / collim_gain)).ToString();
-                pictureBox2.BackgroundImage = requestImage;
-
-                if (Math.Abs(double.Parse(textBox41.Text) - double.Parse(collim_dv)) > 1)
-                {
-                    pictureBox2.Show();
-                }
-                else
-                {
-                    pictureBox2.Hide();
-                    pictureBox2.BackgroundImage = requestImage;
-                }
-            }
-        }
-
-        private void textBox40_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBox40.Text) || string.IsNullOrWhiteSpace(textBox40.Text))
-            {
-                x1_set = "0";
-                pictureBox3.Hide();
-                pictureBox3.BackgroundImage = requestImage;
-                return;
-            }
-            else if (textBox40.Text == "")
-            {
-                x1_set = "0";
-                pictureBox3.Hide();
-                pictureBox3.BackgroundImage = requestImage;
-                return;
-            }
-            double a;
-            try
-            {
-                if (double.TryParse(textBox40.Text, out a) == false)
-                {
-                    x1_set = "0";
-                    pictureBox3.Hide();
-                    pictureBox3.BackgroundImage = requestImage;
-                    return;
-                }
-            }
-            catch
-            {
-                x1_set = "0";
-                pictureBox3.BackgroundImage = errorImage;
-                pictureBox3.Show();
-                return;
-            }
-            if (a < 0 | a > 20)
-            {
-                x1_set = "0";
-                pictureBox3.BackgroundImage = errorImage;
-                pictureBox3.Show();
-                return;
-            }
-            else if (-a > double.Parse(x2_dv) - 1)
-            {
-                x1_set = "0";
-                pictureBox6.BackgroundImage = Resources.Error;
-                pictureBox6.Show();
-                return;
-            }
-            else if (x2_set != "0" && !string.IsNullOrEmpty(textBox39.Text))
-                if (-a > double.Parse(textBox39.Text) - 1)
-                {
-                    x1_set = "0";
-                    pictureBox6.BackgroundImage = Resources.Error;
-                    pictureBox6.Show();
-                    return;
-                }
-            else if (x1_dv != null && !string.IsNullOrEmpty(textBox40.Text))
-            {
-                x1_set = ((int)((a - x1_offset) / x1_gain)).ToString();
-                pictureBox3.BackgroundImage = requestImage;
-
-                if (Math.Abs(double.Parse(textBox40.Text) - double.Parse(x1_dv)) > .1)
-                {
-                    pictureBox3.Show();
-                }
-                else
-                {
-                    pictureBox3.Hide();
-                    pictureBox3.BackgroundImage = requestImage;
-                }
-            }
-        }
-
-        private void textBox39_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBox39.Text) || string.IsNullOrWhiteSpace(textBox39.Text))
-            {
-                x2_set = "0";
-                pictureBox4.Hide();
-                pictureBox4.BackgroundImage = requestImage;
-                return;
-            }
-            else if (textBox39.Text == "")
-            {
-                x2_set = "0";
-                pictureBox4.Hide();
-                pictureBox4.BackgroundImage = requestImage;
-                return;
-            }
-
-            double a;
-            try
-            {
-                if (double.TryParse(textBox39.Text, out a) == false)
-                {
-                    x2_set = "0";
-                    pictureBox4.Hide();
-                    pictureBox4.BackgroundImage = requestImage;
-                    return;
-                }
-            }
-            catch
-            {
-                x2_set = "0";
-                pictureBox4.BackgroundImage = errorImage;
-                pictureBox4.Show();
-                return;
-            }
-            if (a < 0 | a > 20)
-            {
-                x2_set = "0";
-                pictureBox4.BackgroundImage = errorImage;
-                pictureBox4.Show();
-                return;
-            }
-            double x1double;
-            double.TryParse(x1_dv, out x1double);
-            if (-a > x1double - 1)
-            {
-                x2_set = "0";
-                pictureBox6.BackgroundImage = Resources.Error;
-                pictureBox6.Show();
-                return;
-            }
-            else if (x1_set != "0" && !string.IsNullOrEmpty(textBox40.Text))
-            {
-                double textBox40double;
-                double.TryParse(textBox40.Text, out textBox40double);
-                if (-a > textBox40double - 1)
-                {
-                    x2_set = "0";
-                    pictureBox6.BackgroundImage = Resources.Error;
-                    pictureBox6.Show();
-                    return;
-                }
-            }
-            else if (x2_dv != null && !string.IsNullOrEmpty(textBox39.Text))
-            {
-                x2_set = ((int)((a - x2_offset) / x2_gain)).ToString();
-                pictureBox4.BackgroundImage = requestImage;
-
-                if (Math.Abs(double.Parse(textBox39.Text) - double.Parse(x2_dv)) > .1)
-                {
-                    pictureBox4.Show();
-                }
-                else
-                {
-                    pictureBox4.Hide();
-                    pictureBox4.BackgroundImage = requestImage;
-                }
-            }
-        }
-
-        private void textBox38_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBox38.Text) || string.IsNullOrWhiteSpace(textBox38.Text))
-            {
-                y1_set = "0";
-                pictureBox5.Hide();
-                pictureBox5.BackgroundImage = requestImage;
-                return;
-            }
-            else if (textBox38.Text == "")
-            {
-                y1_set = "0";
-                pictureBox5.Hide();
-                pictureBox5.BackgroundImage = requestImage;
-                return;
-            }
-
-            double a;
-            try
-            {
-                if (double.TryParse(textBox38.Text, out a) == false)
-                {
-                    y1_set = "0";
-                    pictureBox5.Hide();
-                    pictureBox5.BackgroundImage = requestImage;
-                    return;
-                }
-            }
-            catch
-            {
-                y1_set = "0";
-                pictureBox5.BackgroundImage = errorImage;
-                pictureBox5.Show();
-                return;
-            }
-            if (a < -12.5 | a > 20)
-            {
-                y1_set = "0";
-                pictureBox5.BackgroundImage = errorImage;
-                pictureBox5.Show();
-                return;
-            }
-            else if (-a > double.Parse(y2_dv) - 1)
-            {
-                y1_set = "0";
-                pictureBox6.BackgroundImage = Resources.Error;
-                pictureBox6.Show();
-                return;
-            }
-            else if (y2_set != "0" && !string.IsNullOrEmpty(textBox37.Text))
-                if (-a > double.Parse(textBox37.Text) - 1)
-                {
-                    y1_set = "0";
-                    pictureBox6.BackgroundImage = Resources.Error;
-                    pictureBox6.Show();
-                    return;
-                }
-            else if (y1_dv != null && !string.IsNullOrEmpty(textBox38.Text))
-            {
-                y1_set = ((int)((a - y1_offset) / y1_gain)).ToString();
-                pictureBox5.BackgroundImage = requestImage;
-
-                if (Math.Abs(double.Parse(textBox38.Text) - double.Parse(y1_dv)) > .1)
-                {
-                    pictureBox5.Show();
-                }
-                else
-                {
-                    pictureBox5.Hide();
-                    pictureBox5.BackgroundImage = requestImage;
-                }
-            }
-        }
-
-        private void textBox37_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(textBox37.Text) || string.IsNullOrWhiteSpace(textBox37.Text))
-            {
-                y2_set = "0";
-                pictureBox6.Hide();
-                pictureBox6.BackgroundImage = requestImage;
-                return;
-            }
-            else if (textBox37.Text == "")
-            {
-                y2_set = "0";
-                pictureBox6.Hide();
-                pictureBox6.BackgroundImage = requestImage;
-                return;
-            }
-
-            double a;
-            try
-            {
-                if (double.TryParse(textBox37.Text, out a) == false)
-                {
-                    y2_set = "0";
-                    pictureBox6.Hide();
-                    pictureBox6.BackgroundImage = requestImage;
-                    return;
-                }
-            }
-            catch
-            {
-                y2_set = "0";
-                pictureBox6.BackgroundImage = errorImage;
-                pictureBox6.Show();
-                return;
-            }
-            if (a < -12.5 | a > 20)
-            {
-                y2_set = "0";
-                pictureBox6.BackgroundImage = errorImage;
-                pictureBox6.Show();
-                return;
-            }
-            else if (-a > double.Parse(y1_dv) - 1)
-            {
-                y2_set = "0";
-                pictureBox6.BackgroundImage = Resources.Error;
-                pictureBox6.Show();
-                return;
-            }
-            else if (y1_set != "0" && !string.IsNullOrEmpty(textBox38.Text))
-                if (-a > double.Parse(textBox38.Text) - 1)
-                {
-                    y2_set = "0";
-                    pictureBox6.BackgroundImage = Resources.Error;
-                    pictureBox6.Show();
-                    return;
-                }
-            else if (y2_dv != null && !string.IsNullOrEmpty(textBox37.Text))
-            {
-                y2_set = ((int)((a - y2_offset) / y2_gain)).ToString();
-                pictureBox6.BackgroundImage = requestImage;
-
-                if (Math.Abs(double.Parse(textBox37.Text) - double.Parse(y2_dv)) > .1)
-                {
-                    pictureBox6.Show();
-                }
-                else
-                {
-                    pictureBox6.Hide();
-                    pictureBox6.BackgroundImage = requestImage;
-                }
-            }
         }
 
         void SaveCalibFile()
@@ -2254,6 +1835,397 @@ namespace Compact_Control
             {
                 initState = -1;
                 SetConnection(false);
+            }
+        }
+
+        private void tb_gant_set_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (string.IsNullOrEmpty(tb_gant_set.Text) || string.IsNullOrWhiteSpace(tb_gant_set.Text))
+                {
+                    gant_set = "0";
+                    pictureBox1.Hide();
+                    pictureBox1.BackgroundImage = requestImage;
+                    tb_gant_set.SelectAll();
+                    return;
+                }
+                double a;
+                try
+                {
+                    a = double.Parse(tb_gant_set.Text);
+                }
+                catch
+                {
+                    gant_set = "0";
+                    pictureBox1.BackgroundImage = errorImage;
+                    pictureBox1.Show();
+                    tb_gant_set.SelectAll();
+                    return;
+                }
+                if (a < -180 | a > 180)
+                {
+                    gant_set = "0";
+                    pictureBox1.BackgroundImage = errorImage;
+                    pictureBox1.Show();
+                    tb_gant_set.SelectAll();
+                    return;
+                }
+                else if (gant_dv != null)
+                {
+                    gant_set = ((int)((a - gant_offset) / gant_gain)).ToString();
+                    pictureBox1.BackgroundImage = requestImage;
+
+                    if (Math.Abs(double.Parse(tb_gant_set.Text) - double.Parse(gant_dv)) > 1)
+                    {
+                        pictureBox1.Show();
+                    }
+                    else
+                    {
+                        pictureBox1.Hide();
+                        pictureBox1.BackgroundImage = requestImage;
+                    }
+                }
+                tb_coli_set.Focus();
+            }
+        }
+
+        private void tb_coli_set_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (string.IsNullOrEmpty(tb_coli_set.Text) || string.IsNullOrWhiteSpace(tb_coli_set.Text))
+                {
+                    collim_set = "0";
+                    pictureBox2.Hide();
+                    pictureBox2.BackgroundImage = requestImage;
+                    tb_coli_set.SelectAll();
+                    return;
+                }
+
+                double a;
+                try
+                {
+                    a = double.Parse(tb_coli_set.Text);
+                }
+                catch
+                {
+                    collim_set = "0";
+                    pictureBox2.BackgroundImage = errorImage;
+                    pictureBox2.Show();
+                    tb_coli_set.SelectAll();
+                    return;
+                }
+                if (a < -180 | a > 180)
+                {
+                    collim_set = "0";
+                    pictureBox2.BackgroundImage = errorImage;
+                    pictureBox2.Show();
+                    tb_coli_set.SelectAll();
+                    return;
+                }
+                else if (collim_dv != null)
+                {
+                    collim_set = ((int)((a - collim_offset) / collim_gain)).ToString();
+                    pictureBox2.BackgroundImage = requestImage;
+
+                    if (Math.Abs(double.Parse(tb_coli_set.Text) - double.Parse(collim_dv)) > 1)
+                    {
+                        pictureBox2.Show();
+                    }
+                    else
+                    {
+                        pictureBox2.Hide();
+                        pictureBox2.BackgroundImage = requestImage;
+                    }
+                }
+                tb_y1_set.Focus();
+            }
+        }
+
+        private void tb_y1_set_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (string.IsNullOrEmpty(tb_y1_set.Text) || string.IsNullOrWhiteSpace(tb_y1_set.Text))
+                {
+                    y1_set = "0";
+                    pictureBox5.Hide();
+                    pictureBox5.BackgroundImage = requestImage;
+                    tb_y1_set.SelectAll();
+                    return;
+                }
+
+                double a;
+                try
+                {
+                    a = double.Parse(tb_y1_set.Text);
+                }
+                catch
+                {
+                    y1_set = "0";
+                    pictureBox5.BackgroundImage = errorImage;
+                    pictureBox5.Show();
+                    tb_y1_set.SelectAll();
+                    return;
+                }
+                if (a < -12.5 | a > 20)
+                {
+                    y1_set = "0";
+                    pictureBox5.BackgroundImage = errorImage;
+                    pictureBox5.Show();
+                    tb_y1_set.SelectAll();
+                    return;
+                }
+                else if (y2_dv != null && (- a > double.Parse(y2_dv) - 1))
+                {
+                    y1_set = "0";
+                    pictureBox6.BackgroundImage = Resources.Error;
+                    pictureBox6.Show();
+                    tb_y1_set.SelectAll();
+                    return;
+                }
+                else if (y2_set != "0")
+                {
+                    if (-a > double.Parse(tb_y2_set.Text) - 1)
+                    {
+                        y1_set = "0";
+                        pictureBox6.BackgroundImage = Resources.Error;
+                        pictureBox6.Show();
+                        tb_y1_set.SelectAll();
+                        return;
+                    }
+                    else if (y1_dv != null)
+                    {
+                        y1_set = ((int)((a - y1_offset) / y1_gain)).ToString();
+                        pictureBox5.BackgroundImage = requestImage;
+
+                        if (Math.Abs(double.Parse(tb_y1_set.Text) - double.Parse(y1_dv)) > .1)
+                        {
+                            pictureBox5.Show();
+                        }
+                        else
+                        {
+                            pictureBox5.Hide();
+                            pictureBox5.BackgroundImage = requestImage;
+                        }
+                    }
+                }
+                tb_y2_set.Focus();
+            }
+        }
+
+        private void tb_y2_set_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (string.IsNullOrEmpty(tb_y2_set.Text) || string.IsNullOrWhiteSpace(tb_y2_set.Text))
+                {
+                    y2_set = "0";
+                    pictureBox6.Hide();
+                    pictureBox6.BackgroundImage = requestImage;
+                    tb_y2_set.SelectAll();
+                    return;
+                }
+
+                double a;
+                try
+                {
+                    a = double.Parse(tb_y2_set.Text);
+                }
+                catch
+                {
+                    y2_set = "0";
+                    pictureBox6.BackgroundImage = errorImage;
+                    pictureBox6.Show();
+                    tb_y2_set.SelectAll();
+                    return;
+                }
+                if (a < -12.5 | a > 20)
+                {
+                    y2_set = "0";
+                    pictureBox6.BackgroundImage = errorImage;
+                    pictureBox6.Show();
+                    tb_y2_set.SelectAll();
+                    return;
+                }
+                else if (y1_dv != null && (-a > double.Parse(y1_dv) - 1))
+                {
+                    y2_set = "0";
+                    pictureBox6.BackgroundImage = Resources.Error;
+                    pictureBox6.Show();
+                    tb_y2_set.SelectAll();
+                    return;
+                }
+                else if (y1_set != "0")
+                {
+                    if (-a > double.Parse(tb_y1_set.Text) - 1)
+                    {
+                        y2_set = "0";
+                        pictureBox6.BackgroundImage = Resources.Error;
+                        pictureBox6.Show();
+                        return;
+                    }
+                    else if (y2_dv != null && !string.IsNullOrEmpty(tb_y2_set.Text))
+                    {
+                        y2_set = ((int)((a - y2_offset) / y2_gain)).ToString();
+                        pictureBox6.BackgroundImage = requestImage;
+
+                        if (Math.Abs(double.Parse(tb_y2_set.Text) - double.Parse(y2_dv)) > .1)
+                        {
+                            pictureBox6.Show();
+                        }
+                        else
+                        {
+                            pictureBox6.Hide();
+                            pictureBox6.BackgroundImage = requestImage;
+                        }
+                    }
+                }
+                tb_x1_set.Focus();
+            }
+        }
+
+        private void tb_x1_set_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (string.IsNullOrEmpty(tb_x1_set.Text) || string.IsNullOrWhiteSpace(tb_x1_set.Text))
+                {
+                    x1_set = "0";
+                    pictureBox3.Hide();
+                    pictureBox3.BackgroundImage = requestImage;
+                    tb_x1_set.Select();
+                    return;
+                }
+                double a;
+                try
+                {
+                    a = double.Parse(tb_x1_set.Text);
+                }
+                catch
+                {
+                    x1_set = "0";
+                    pictureBox3.BackgroundImage = errorImage;
+                    pictureBox3.Show();
+                    tb_x1_set.Select();
+                    return;
+                }
+                if (a < 0 | a > 20)
+                {
+                    x1_set = "0";
+                    pictureBox3.BackgroundImage = errorImage;
+                    pictureBox3.Show();
+                    tb_x1_set.Select();
+                    return;
+                }
+                else if (x2_dv != null && (-a > double.Parse(x2_dv) - 1))
+                {
+                    x1_set = "0";
+                    pictureBox6.BackgroundImage = Resources.Error;
+                    pictureBox6.Show();
+                    tb_x1_set.Select();
+                    return;
+                }
+                else if (x2_set != "0")
+                {
+                    if (-a > double.Parse(tb_x2_set.Text) - 1)
+                    {
+                        x1_set = "0";
+                        pictureBox6.BackgroundImage = Resources.Error;
+                        pictureBox6.Show();
+                        tb_x1_set.Select();
+                        return;
+                    }
+                    else if (x1_dv != null && !string.IsNullOrEmpty(tb_x1_set.Text))
+                    {
+                        x1_set = ((int)((a - x1_offset) / x1_gain)).ToString();
+                        pictureBox3.BackgroundImage = requestImage;
+
+                        if (Math.Abs(double.Parse(tb_x1_set.Text) - double.Parse(x1_dv)) > .1)
+                        {
+                            pictureBox3.Show();
+                        }
+                        else
+                        {
+                            pictureBox3.Hide();
+                            pictureBox3.BackgroundImage = requestImage;
+                        }
+                    }
+                }
+                tb_x2_set.Focus();
+            }
+        }
+
+        private void tb_x2_set_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (string.IsNullOrEmpty(tb_x2_set.Text) || string.IsNullOrWhiteSpace(tb_x2_set.Text))
+                {
+                    x2_set = "0";
+                    pictureBox4.Hide();
+                    pictureBox4.BackgroundImage = requestImage;
+                    tb_x2_set.SelectAll();
+                    return;
+                }
+
+                double a;
+                try
+                {
+                    a = double.Parse(tb_x2_set.Text);
+                }
+                catch
+                {
+                    x2_set = "0";
+                    pictureBox4.BackgroundImage = errorImage;
+                    pictureBox4.Show();
+                    tb_x2_set.SelectAll();
+                    return;
+                }
+                if (a < 0 | a > 20)
+                {
+                    x2_set = "0";
+                    pictureBox4.BackgroundImage = errorImage;
+                    pictureBox4.Show();
+                    tb_x2_set.SelectAll();
+                    return;
+                }
+                if (x1_dv != null && (-a > double.Parse(x1_dv) - 1))
+                {
+                    x2_set = "0";
+                    pictureBox6.BackgroundImage = Resources.Error;
+                    pictureBox6.Show();
+                    tb_x2_set.SelectAll();
+                    return;
+                }
+                else if (x1_set != "0")
+                {
+                    if (-a > double.Parse(tb_x1_set.Text) - 1)
+                    {
+                        x2_set = "0";
+                        pictureBox6.BackgroundImage = Resources.Error;
+                        pictureBox6.Show();
+                        tb_x2_set.SelectAll();
+                        return;
+                    }
+                }
+                else if (x2_dv != null)
+                {
+                    x2_set = ((int)((a - x2_offset) / x2_gain)).ToString();
+                    pictureBox4.BackgroundImage = requestImage;
+
+                    if (Math.Abs(double.Parse(tb_x2_set.Text) - double.Parse(x2_dv)) > .1)
+                    {
+                        pictureBox4.Show();
+                    }
+                    else
+                    {
+                        pictureBox4.Hide();
+                        pictureBox4.BackgroundImage = requestImage;
+                    }
+                }
+                tb_gant_set.Focus();
             }
         }
 
