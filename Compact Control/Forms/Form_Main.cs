@@ -1680,7 +1680,7 @@ namespace Compact_Control
                     gant_set = ((int)((aa - gant_offset) / gant_gain)).ToString();
                     pictureBox1.BackgroundImage = requestImage;
 
-                    if (Math.Abs(double.Parse(tb_gant_set.Text) - double.Parse(gant_dv)) > 1)
+                    if (Math.Abs(double.Parse(tb_gant_set.Text) - double.Parse(gant_dv)) > .1)
                     {
                         isGantSet = true;
                         pictureBox1.Show();
@@ -1710,7 +1710,7 @@ namespace Compact_Control
             {
                 try
                 {
-                    if (Math.Abs(double.Parse(tb_gant_set.Text) - double.Parse(gant_dv)) <= 1)
+                    if (Math.Abs(double.Parse(tb_gant_set.Text) - double.Parse(gant_dv)) <= .1)
                     {
                         pictureBox1.Hide();
                         isGantSet = false;
@@ -1747,7 +1747,7 @@ namespace Compact_Control
                     collim_set = ((int)((a - collim_offset) / collim_gain)).ToString();
                     pictureBox2.BackgroundImage = requestImage;
 
-                    if (Math.Abs(double.Parse(tb_coli_set.Text) - double.Parse(collim_dv)) > 1)
+                    if (Math.Abs(double.Parse(tb_coli_set.Text) - double.Parse(collim_dv)) > .1)
                     {
                         pictureBox2.Show();
                     }
@@ -1775,7 +1775,7 @@ namespace Compact_Control
             {
                 try
                 {
-                    if (Math.Abs(double.Parse(tb_coli_set.Text) - double.Parse(collim_dv)) <= 1)
+                    if (Math.Abs(double.Parse(tb_coli_set.Text) - double.Parse(collim_dv)) <= .1)
                     {
                         isColiSet = false;
                         pictureBox2.Hide();
@@ -1842,7 +1842,6 @@ namespace Compact_Control
                         pictureBox5.Hide();
                         pictureBox5.BackgroundImage = requestImage;
                     }
-
 
                     tb_y1_set.BackColor = Color.LightGreen;
                     tb_y2_set.Focus();
