@@ -1372,6 +1372,12 @@ namespace Compact_Control
         {
             if (isGantSet)
             {
+                gant_t2 = double.Parse(txt_gant_s.Text);
+                gant_d2 = double.Parse(gant_dv);
+                if (gant_t2 > 180)
+                    gant_t2 = gant_t2 - 360;
+                if (gant_d2 > 180)
+                    gant_d2 = gant_d2 - 360;
                 if (Math.Abs(gant_t2 - gant_d2) < .4)
                 {
                     pictureBox1.Hide();
@@ -1444,6 +1450,12 @@ namespace Compact_Control
         {
             if (isColiSet)
             {
+                collim_t2 = double.Parse(txt_coli_s.Text);
+                collim_d2 = double.Parse(collim_dv);
+                if (collim_t2 > 180)
+                    collim_t2 = collim_t2 - 360;
+                if (collim_d2 > 180)
+                    collim_d2 = collim_d2 - 360;
                 if (Math.Abs(collim_t2 - collim_d2) < .4)
                 {
                     pictureBox2.Hide();
