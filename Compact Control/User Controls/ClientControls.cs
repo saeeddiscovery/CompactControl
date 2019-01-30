@@ -905,7 +905,7 @@ namespace Compact_Control
             {
                 try
                 {
-                    if (Math.Abs(double.Parse(txt_y1_s.Text) - double.Parse(x2_dv)) < .1)
+                    if (Math.Abs(double.Parse(txt_y1_s.Text) - double.Parse(x2_dv)) <= .1)
                     {
                         pictureBox4.Hide();
                         isY1Set = false;
@@ -1032,7 +1032,7 @@ namespace Compact_Control
             {
                 try
                 {
-                    if (Math.Abs(double.Parse(txt_y2_s.Text) - double.Parse(x1_dv)) < .1)
+                    if (Math.Abs(double.Parse(txt_y2_s.Text) - double.Parse(x1_dv)) <= .1)
                     {
                         pictureBox3.Hide();
                         isY2Set = false;
@@ -1164,7 +1164,7 @@ namespace Compact_Control
             {
                 try
                 {
-                    if (Math.Abs(double.Parse(txt_x1_s.Text) - double.Parse(y2_dv)) < .1)
+                    if (Math.Abs(double.Parse(txt_x1_s.Text) - double.Parse(y2_dv)) <= .1)
                     {
                         pictureBox6.Hide();
                         isX1Set = false;
@@ -1292,7 +1292,7 @@ namespace Compact_Control
             {
                 try
                 {
-                    if (Math.Abs(double.Parse(txt_x2_s.Text) - double.Parse(y1_dv)) < .1)
+                    if (Math.Abs(double.Parse(txt_x2_s.Text) - double.Parse(y1_dv)) <= .1)
                     {
                         isX2Set = false;
                         pictureBox5.Hide();
@@ -1379,7 +1379,7 @@ namespace Compact_Control
                     gant_t2 = gant_t2 - 360;
                 if (gant_d2 > 180)
                     gant_d2 = gant_d2 - 360;
-                if (Math.Abs(gant_t2 - gant_d2) < .4)
+                if (Math.Abs(gant_t2 - gant_d2) <= .4)
                 {
                     pictureBox1.Hide();
                     isGantSet = false;
@@ -1391,7 +1391,6 @@ namespace Compact_Control
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                isColiSet = true;
                 if (string.IsNullOrEmpty(txt_coli_s.Text) || string.IsNullOrWhiteSpace(txt_coli_s.Text))
                 {
                     collim_set = "0";
@@ -1457,7 +1456,7 @@ namespace Compact_Control
                     collim_t2 = collim_t2 - 360;
                 if (collim_d2 > 180)
                     collim_d2 = collim_d2 - 360;
-                if (Math.Abs(collim_t2 - collim_d2) < .4)
+                if (Math.Abs(collim_t2 - collim_d2) <= .4)
                 {
                     pictureBox2.Hide();
                     isColiSet = false;

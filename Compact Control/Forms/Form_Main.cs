@@ -447,10 +447,6 @@ namespace Compact_Control
                 //    MessageBox.Show("Parameters Save & Send successful!");
                 //}
             }
-            //if (initState == 1)
-            //{
-            //    timer2.Enabled = true;
-            //}
 
 
             double m;
@@ -470,43 +466,6 @@ namespace Compact_Control
             tb_y1_co.Text = y1_co;
             tb_y2_co.Text = y2_co;
 
-            //tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
-            //tb_coli_gain.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
-            //tb_x1_gain.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
-            //tb_x2_gain.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
-            //tb_y1_gain.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
-            //tb_y2_gain.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
-
-            //tb_gant_offset.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
-            //tb_coli_offset.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
-            //tb_x1_offset.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
-            //tb_x2_offset.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
-            //tb_y1_offset.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
-            //tb_y2_offset.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
-
-            try
-            {
-                if (gant_cofin != null)
-                {
-                    gant_dv = Math.Round((gant_gain * double.Parse(gant_cofin) + gant_offset), 2, MidpointRounding.ToEven).ToString();
-                }
-                if (collim_cofin != null)
-                {
-                    collim_dv = Math.Round((collim_gain * double.Parse(collim_cofin) + collim_offset), 2, MidpointRounding.ToEven).ToString();
-                }
-                if (x1_co != null)
-                    x1_dv = Math.Round(((x1_gain * double.Parse(x1_co)) + x1_offset), 1, MidpointRounding.ToEven).ToString();
-                if (x2_co != null)
-                    x2_dv = Math.Round(((x2_gain * double.Parse(x2_co)) + x2_offset), 1, MidpointRounding.ToEven).ToString();
-                if (y1_co != null)
-                    y1_dv = Math.Round(((y1_gain * double.Parse(y1_co)) + y1_offset), 1, MidpointRounding.ToEven).ToString();
-                if (y2_co != null)
-                    y2_dv = Math.Round(((y2_gain * double.Parse(y2_co)) + y2_offset), 1, MidpointRounding.ToEven).ToString();
-            }
-            catch
-            {
-            }
-
             textBox31.Text = gant_dv;
             textBox32.Text = collim_dv;
             textBox33.Text = x1_dv;
@@ -514,6 +473,19 @@ namespace Compact_Control
             textBox35.Text = y1_dv;
             textBox36.Text = y2_dv;
             adcheck.Text = adc;
+
+            if (isGantSet)
+                gantSet();
+            if (isColiSet)
+                coliSet();
+            if (isY1Set)
+                y1Set();
+            if (isY2Set)
+                y2Set();
+            if (isX1Set)
+                x1Set();
+            if (isX2Set)
+                x2Set();
 
             //textBox42_TextChanged(sender, e);
             //textBox41_TextChanged(sender, e);
@@ -1388,178 +1360,7 @@ namespace Compact_Control
                             //sendParameters();
                         }
                         break;
-                    //case "c01":
-                    //    microParameters[0] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[0], ourParameters[0]);
-                    //    break;
-                    //case "c02":
-                    //    microParameters[1] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[1], ourParameters[1]);
-                    //    break;
-                    //case "c03":
-                    //    microParameters[2] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[2], ourParameters[2]);
-                    //    break;
-                    //case "c04":
-                    //    microParameters[3] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[3], ourParameters[3]);
-                    //    break;
-                    //case "c05":
-                    //    microParameters[4] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[4], ourParameters[4]);
-                    //    break;
-                    //case "c06":
-                    //    microParameters[5] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[5], ourParameters[5]);
-                    //    break;
-                    //case "c07":
-                    //    microParameters[6] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[6], ourParameters[6]);
-                    //    break;
-                    //case "c08":
-                    //    microParameters[7] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[7], ourParameters[7]);
-                    //    break;
-                    //case "c09":
-                    //    microParameters[8] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[8], ourParameters[8]);
-                    //    break;
-                    //case "c10":
-                    //    microParameters[9] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[9], ourParameters[9]);
-                    //    break;
-                    //case "c11":
-                    //    microParameters[10] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[10], ourParameters[10]); 
-                    //    break;
-                    //case "c12":
-                    //    microParameters[11] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[11], ourParameters[11]);
-                    //    break;
-                    //case "c13":
-                    //    microParameters[12] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[12], ourParameters[12]);
-                    //    break;
-                    //case "c14":
-                    //    microParameters[13] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[13], ourParameters[13]);
-                    //    break;
-                    //case "c15":
-                    //    microParameters[14] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[14], ourParameters[14]);
-                    //    break;
-                    //case "c16":
-                    //    microParameters[15] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[15], ourParameters[15]);
-                    //    break;
-                    //case "c17":
-                    //    microParameters[16] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[16], ourParameters[16]);
-                    //    break;
-                    //case "c18":
-                    //    microParameters[17] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[17], ourParameters[17]);
-                    //    break;
-                    //case "c19":
-                    //    microParameters[18] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[18], ourParameters[18]);
-                    //    break;
-                    //case "c20":
-                    //    microParameters[19] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[19], ourParameters[19]);
-                    //    break;
-                    //case "c21":
-                    //    microParameters[20] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[20], ourParameters[20]);
-                    //    break;
-                    //case "c22":
-                    //    microParameters[21] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[21], ourParameters[21]);
-                    //    break;
-                    //case "c23":
-                    //    microParameters[22] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[22], ourParameters[22]);
-                    //    break;
-                    //case "c24":
-                    //    microParameters[23] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[23], ourParameters[23]);
-                    //    break;
-                    //case "c25":
-                    //    microParameters[24] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[24], ourParameters[24]);
-                    //    break;
-                    //case "c26":
-                    //    microParameters[25] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[25], ourParameters[25]);
-                    //    break;
-                    //case "c27":
-                    //    microParameters[26] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[26], ourParameters[26]);
-                    //    break;
-                    //case "c28":
-                    //    microParameters[27] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[27], ourParameters[27]);
-                    //    break;
-                    //case "c29":
-                    //    microParameters[28] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[28], ourParameters[28]);
-                    //    break;
-                    //case "c30":
-                    //    microParameters[29] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[29], ourParameters[29]);
-                    //    break;
-                    //case "c31":
-                    //    microParameters[30] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[30], ourParameters[30]);
-                    //    break;
-                    //case "c32":
-                    //    microParameters[31] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[31], ourParameters[31]);
-                    //    break;
-                    //case "c33":
-                    //    microParameters[32] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[32], ourParameters[32]);
-                    //    break;
-                    //case "c34":
-                    //    microParameters[33] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[33], ourParameters[33]);
-                    //    break;
-                    //case "c35":
-                    //    microParameters[34] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[34], ourParameters[34]);
-                    //    break;
-                    //case "c36":
-                    //    microParameters[35] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[35], ourParameters[35]);
-                    //    break;
-                    //case "c37":
-                    //    microParameters[36] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[36], ourParameters[36]);
-                    //    break;
-                    //case "c38":
-                    //    microParameters[37] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[37], ourParameters[37]);
-                    //    break;
-                    //case "c39":
-                    //    microParameters[38] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[38], ourParameters[38]);
-                    //    break;
-                    //case "c40":
-                    //    microParameters[39] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[39], ourParameters[39]);
-                    //    break;
-                    //case "c41":
-                    //    microParameters[40] = a.Substring(3, a.Length - 3);
-                    //    compareData(microParameters[40], ourParameters[40]);
-                    //    break;
-                    //case "c42":
-                    //    microParameters[41] = a.Substring(3, a.Length - 3);
-                    //    if (compareData(microParameters[41], ourParameters[41]) == true)
-                    //    {
-                    //        initState = 1;
-                    //        timer2.Enabled = true;
-                    //    }
-                    //    break;
+             
                     case "gco":
                         gant_co = a.Substring(3, a.Length - 3);
                         break;
@@ -1571,6 +1372,7 @@ namespace Compact_Control
                         break;
                     case "gfn":
                         gant_cofin = a.Substring(3, a.Length - 3);
+                        gant_dv = Math.Round((gant_gain * double.Parse(gant_cofin) + gant_offset), 2, MidpointRounding.ToEven).ToString();
                         break;
                     case "cco":
                         collim_co = a.Substring(3, a.Length - 3);
@@ -1583,18 +1385,23 @@ namespace Compact_Control
                         break;
                     case "cfn":
                         collim_cofin = a.Substring(3, a.Length - 3);
+                        collim_dv = Math.Round((collim_gain * double.Parse(collim_cofin) + collim_offset), 2, MidpointRounding.ToEven).ToString();
                         break;
                     case "wco":
                         x1_co = a.Substring(3, a.Length - 3);
+                        x1_dv = Math.Round(((x1_gain * double.Parse(x1_co)) + x1_offset), 1, MidpointRounding.ToEven).ToString();
                         break;
                     case "xco":
                         x2_co = a.Substring(3, a.Length - 3);
+                        x2_dv = Math.Round(((x2_gain * double.Parse(x2_co)) + x2_offset), 1, MidpointRounding.ToEven).ToString();
                         break;
                     case "yco":
                         y1_co = a.Substring(3, a.Length - 3);
+                        y1_dv = Math.Round(((y1_gain * double.Parse(y1_co)) + y1_offset), 1, MidpointRounding.ToEven).ToString();
                         break;
                     case "zco":
                         y2_co = a.Substring(3, a.Length - 3);
+                        y2_dv = Math.Round(((y2_gain * double.Parse(y2_co)) + y2_offset), 1, MidpointRounding.ToEven).ToString();
                         break;
                     case "lok":
                         tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
@@ -1838,6 +1645,13 @@ namespace Compact_Control
             }
         }
 
+        bool isGantSet = false;
+        bool isColiSet = false;
+        bool isY1Set = false;
+        bool isY2Set = false;
+        bool isX1Set = false;
+        bool isX2Set = false;
+
         private void tb_gant_set_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
@@ -1846,47 +1660,63 @@ namespace Compact_Control
                 {
                     gant_set = "0";
                     pictureBox1.Hide();
-                    pictureBox1.BackgroundImage = requestImage;
-                    tb_gant_set.SelectAll();
+                    pictureBox1.BackgroundImage = Resources.Request;
                     return;
                 }
-                double a;
+
+                double aa;
                 try
                 {
-                    a = double.Parse(tb_gant_set.Text);
-                }
-                catch
-                {
-                    gant_set = "0";
-                    pictureBox1.BackgroundImage = errorImage;
-                    pictureBox1.Show();
-                    tb_gant_set.SelectAll();
-                    return;
-                }
-                if (a < -180 | a > 180)
-                {
-                    gant_set = "0";
-                    pictureBox1.BackgroundImage = errorImage;
-                    pictureBox1.Show();
-                    tb_gant_set.SelectAll();
-                    return;
-                }
-                else if (gant_dv != null)
-                {
-                    gant_set = ((int)((a - gant_offset) / gant_gain)).ToString();
+                    aa = double.Parse(tb_gant_set.Text);
+                    if (aa < -180 || aa > 180)
+                    {
+                        gant_set = "0";
+                        pictureBox1.BackgroundImage = Resources.Error;
+                        pictureBox1.Show();
+                        return;
+                    }
+                    double gentValueActual = double.Parse(gant_dv);
+
+                    gant_set = ((int)((aa - gant_offset) / gant_gain)).ToString();
                     pictureBox1.BackgroundImage = requestImage;
 
                     if (Math.Abs(double.Parse(tb_gant_set.Text) - double.Parse(gant_dv)) > 1)
                     {
+                        isGantSet = true;
                         pictureBox1.Show();
                     }
                     else
                     {
                         pictureBox1.Hide();
-                        pictureBox1.BackgroundImage = requestImage;
+                        isGantSet = false;
+                    }
+                    tb_gant_set.BackColor = Color.LightGreen;
+                    tb_coli_set.Focus();
+                }
+                catch
+                {
+                    tb_gant_set.SelectAll();
+                    gant_set = "0";
+                    pictureBox1.BackgroundImage = Resources.Error;
+                    pictureBox1.Show();
+                    return;
+                }
+            }
+        }
+
+        private void gantSet()
+        {
+            if (isGantSet)
+            {
+                try
+                {
+                    if (Math.Abs(double.Parse(tb_gant_set.Text) - double.Parse(gant_dv)) <= 1)
+                    {
+                        pictureBox1.Hide();
+                        isGantSet = false;
                     }
                 }
-                tb_coli_set.Focus();
+                catch { }
             }
         }
 
@@ -1898,8 +1728,7 @@ namespace Compact_Control
                 {
                     collim_set = "0";
                     pictureBox2.Hide();
-                    pictureBox2.BackgroundImage = requestImage;
-                    tb_coli_set.SelectAll();
+                    pictureBox2.BackgroundImage = Resources.Request;
                     return;
                 }
 
@@ -1907,25 +1736,14 @@ namespace Compact_Control
                 try
                 {
                     a = double.Parse(tb_coli_set.Text);
-                }
-                catch
-                {
-                    collim_set = "0";
-                    pictureBox2.BackgroundImage = errorImage;
-                    pictureBox2.Show();
-                    tb_coli_set.SelectAll();
-                    return;
-                }
-                if (a < -180 | a > 180)
-                {
-                    collim_set = "0";
-                    pictureBox2.BackgroundImage = errorImage;
-                    pictureBox2.Show();
-                    tb_coli_set.SelectAll();
-                    return;
-                }
-                else if (collim_dv != null)
-                {
+                    if (a < -180 || a > 180)
+                    {
+                        collim_set = "0";
+                        pictureBox2.BackgroundImage = Resources.Error;
+                        pictureBox2.Show();
+                        return;
+                    }
+
                     collim_set = ((int)((a - collim_offset) / collim_gain)).ToString();
                     pictureBox2.BackgroundImage = requestImage;
 
@@ -1938,8 +1756,32 @@ namespace Compact_Control
                         pictureBox2.Hide();
                         pictureBox2.BackgroundImage = requestImage;
                     }
+                    tb_coli_set.BackColor = Color.LightGreen;
+                    tb_y1_set.Focus();
                 }
-                tb_y1_set.Focus();
+                catch
+                {
+                    collim_set = "0";
+                    pictureBox2.BackgroundImage = Resources.Error;
+                    pictureBox2.Show();
+                    return;
+                }
+            }
+        }
+
+        private void coliSet()
+        {
+            if (isColiSet)
+            {
+                try
+                {
+                    if (Math.Abs(double.Parse(tb_coli_set.Text) - double.Parse(collim_dv)) <= 1)
+                    {
+                        isColiSet = false;
+                        pictureBox2.Hide();
+                    }
+                }
+                catch { }
             }
         }
 
@@ -1947,47 +1789,26 @@ namespace Compact_Control
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                if (string.IsNullOrEmpty(tb_y1_set.Text) || string.IsNullOrWhiteSpace(tb_y1_set.Text))
-                {
-                    y1_set = "0";
-                    pictureBox5.Hide();
-                    pictureBox5.BackgroundImage = requestImage;
-                    tb_y1_set.SelectAll();
-                    return;
-                }
-
-                double a;
                 try
                 {
-                    a = double.Parse(tb_y1_set.Text);
-                }
-                catch
-                {
-                    y1_set = "0";
-                    pictureBox5.BackgroundImage = errorImage;
-                    pictureBox5.Show();
-                    tb_y1_set.SelectAll();
-                    return;
-                }
-                if (a < -12.5 | a > 20)
-                {
-                    y1_set = "0";
-                    pictureBox5.BackgroundImage = errorImage;
-                    pictureBox5.Show();
-                    tb_y1_set.SelectAll();
-                    return;
-                }
-                else if (y2_dv != null && (- a > double.Parse(y2_dv) - 1))
-                {
-                    y1_set = "0";
-                    pictureBox6.BackgroundImage = Resources.Error;
-                    pictureBox6.Show();
-                    tb_y1_set.SelectAll();
-                    return;
-                }
-                else if (y2_set != "0")
-                {
-                    if (-a > double.Parse(tb_y2_set.Text) - 1)
+                    if (string.IsNullOrEmpty(tb_y1_set.Text) || string.IsNullOrWhiteSpace(tb_y1_set.Text))
+                    {
+                        y1_set = "0";
+                        pictureBox4.Hide();
+                        return;
+                    }
+
+                    double a = double.Parse(tb_y1_set.Text);
+
+                    if (a < -12.5 || a > 20)
+                    {
+                        y1_set = "0";
+                        pictureBox5.BackgroundImage = errorImage;
+                        pictureBox5.Show();
+                        tb_y1_set.SelectAll();
+                        return;
+                    }
+                    else if (-a > double.Parse(y2_dv) - 1)
                     {
                         y1_set = "0";
                         pictureBox6.BackgroundImage = Resources.Error;
@@ -1995,165 +1816,244 @@ namespace Compact_Control
                         tb_y1_set.SelectAll();
                         return;
                     }
-                    else if (y1_dv != null)
+                    else if (y2_set != "0")
+                    {
+                        if (-a > double.Parse(tb_y2_set.Text) - 1)
+                        {
+                            y1_set = "0";
+                            pictureBox6.BackgroundImage = Resources.Error;
+                            pictureBox6.Show();
+                            tb_y1_set.SelectAll();
+                            return;
+                        }
+                    }
+                    else
                     {
                         y1_set = ((int)((a - y1_offset) / y1_gain)).ToString();
                         pictureBox5.BackgroundImage = requestImage;
 
                         if (Math.Abs(double.Parse(tb_y1_set.Text) - double.Parse(y1_dv)) > .1)
                         {
+                            isY1Set = true;
                             pictureBox5.Show();
                         }
                         else
                         {
+                            isY1Set = false;
                             pictureBox5.Hide();
                             pictureBox5.BackgroundImage = requestImage;
                         }
                     }
+
+                    tb_y1_set.BackColor = Color.LightGreen;
+                    tb_y2_set.Focus();
                 }
-                tb_y2_set.Focus();
+                catch
+                {
+                    tb_y1_set.SelectAll();
+                    y1_set = "0";
+                    pictureBox5.BackgroundImage = Resources.Error;
+                    pictureBox5.Show();
+                    return;
+                }
             }
         }
 
+        private void y1Set()
+        {
+            if (isY1Set)
+            {
+                try
+                {
+                    if (Math.Abs(double.Parse(tb_y1_set.Text) - double.Parse(y1_dv)) <= .1)
+                    {
+                        pictureBox5.Hide();
+                        isY1Set = false;
+                    }
+                }
+                catch { }
+            }
+        }
         private void tb_y2_set_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                if (string.IsNullOrEmpty(tb_y2_set.Text) || string.IsNullOrWhiteSpace(tb_y2_set.Text))
-                {
-                    y2_set = "0";
-                    pictureBox6.Hide();
-                    pictureBox6.BackgroundImage = requestImage;
-                    tb_y2_set.SelectAll();
-                    return;
-                }
-
-                double a;
                 try
                 {
-                    a = double.Parse(tb_y2_set.Text);
-                }
-                catch
-                {
-                    y2_set = "0";
-                    pictureBox6.BackgroundImage = errorImage;
-                    pictureBox6.Show();
-                    tb_y2_set.SelectAll();
-                    return;
-                }
-                if (a < -12.5 | a > 20)
-                {
-                    y2_set = "0";
-                    pictureBox6.BackgroundImage = errorImage;
-                    pictureBox6.Show();
-                    tb_y2_set.SelectAll();
-                    return;
-                }
-                else if (y1_dv != null && (-a > double.Parse(y1_dv) - 1))
-                {
-                    y2_set = "0";
-                    pictureBox6.BackgroundImage = Resources.Error;
-                    pictureBox6.Show();
-                    tb_y2_set.SelectAll();
-                    return;
-                }
-                else if (y1_set != "0")
-                {
-                    if (-a > double.Parse(tb_y1_set.Text) - 1)
+                    if (string.IsNullOrEmpty(tb_y2_set.Text) || string.IsNullOrWhiteSpace(tb_y2_set.Text))
+                    {
+                        y2_set = "0";
+                        pictureBox3.Hide();
+                        pictureBox3.BackgroundImage = Resources.Request;
+                        return;
+                    }
+
+                    double a = double.Parse(tb_y2_set.Text);
+
+                    if (a < -12.5 || a > 20)
+                    {
+                        y2_set = "0";
+                        pictureBox6.BackgroundImage = errorImage;
+                        pictureBox6.Show();
+                        tb_y2_set.SelectAll();
+                        return;
+                    }
+                    else if (-a > double.Parse(y1_dv) - 1)
                     {
                         y2_set = "0";
                         pictureBox6.BackgroundImage = Resources.Error;
                         pictureBox6.Show();
+                        tb_y2_set.SelectAll();
                         return;
                     }
-                    else if (y2_dv != null && !string.IsNullOrEmpty(tb_y2_set.Text))
+                    else if (y1_set != "0")
+                    {
+                        if (-a > double.Parse(tb_y1_set.Text) - 1)
+                        {
+                            y2_set = "0";
+                            pictureBox6.BackgroundImage = Resources.Error;
+                            pictureBox6.Show();
+                            tb_y2_set.SelectAll();
+                            return;
+                        }
+                    }
+                    else
                     {
                         y2_set = ((int)((a - y2_offset) / y2_gain)).ToString();
                         pictureBox6.BackgroundImage = requestImage;
 
                         if (Math.Abs(double.Parse(tb_y2_set.Text) - double.Parse(y2_dv)) > .1)
                         {
+                            isY2Set = true;
                             pictureBox6.Show();
                         }
                         else
                         {
+                            isY2Set = false;
                             pictureBox6.Hide();
                             pictureBox6.BackgroundImage = requestImage;
                         }
                     }
+                    
+                    tb_y2_set.BackColor = Color.LightGreen;
+                    tb_x1_set.Focus();
                 }
-                tb_x1_set.Focus();
+                catch
+                {
+                    y2_set = "0";
+                    tb_y2_set.SelectAll();
+                    pictureBox6.BackgroundImage = Resources.Error;
+                    pictureBox6.Show();
+                    return;
+                }
             }
+        }
+
+        private void y2Set()
+        {
+            if (isY2Set)
+            {
+                try
+                {
+                    if (Math.Abs(double.Parse(tb_y2_set.Text) - double.Parse(y2_dv)) <= .1)
+                    {
+                        pictureBox6.Hide();
+                        isY2Set = false;
+                    }
+                }
+                catch { }
+            }
+
         }
 
         private void tb_x1_set_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                if (string.IsNullOrEmpty(tb_x1_set.Text) || string.IsNullOrWhiteSpace(tb_x1_set.Text))
-                {
-                    x1_set = "0";
-                    pictureBox3.Hide();
-                    pictureBox3.BackgroundImage = requestImage;
-                    tb_x1_set.Select();
-                    return;
-                }
-                double a;
                 try
                 {
-                    a = double.Parse(tb_x1_set.Text);
-                }
-                catch
-                {
-                    x1_set = "0";
-                    pictureBox3.BackgroundImage = errorImage;
-                    pictureBox3.Show();
-                    tb_x1_set.Select();
-                    return;
-                }
-                if (a < 0 | a > 20)
-                {
-                    x1_set = "0";
-                    pictureBox3.BackgroundImage = errorImage;
-                    pictureBox3.Show();
-                    tb_x1_set.Select();
-                    return;
-                }
-                else if (x2_dv != null && (-a > double.Parse(x2_dv) - 1))
-                {
-                    x1_set = "0";
-                    pictureBox6.BackgroundImage = Resources.Error;
-                    pictureBox6.Show();
-                    tb_x1_set.Select();
-                    return;
-                }
-                else if (x2_set != "0")
-                {
-                    if (-a > double.Parse(tb_x2_set.Text) - 1)
+                    if (string.IsNullOrEmpty(tb_x1_set.Text) || string.IsNullOrWhiteSpace(tb_x1_set.Text))
+                    {
+                        x1_set = "0";
+                        pictureBox6.Hide();
+                        pictureBox6.BackgroundImage = Resources.Request;
+                        return;
+                    }
+
+                    double a = double.Parse(tb_x1_set.Text);
+
+                    if (a < 0 || a > 20)
+                    {
+                        x1_set = "0";
+                        pictureBox3.BackgroundImage = errorImage;
+                        pictureBox3.Show();
+                        tb_x1_set.SelectAll();
+                        return;
+                    }
+                    else if (-a > double.Parse(x2_dv) - 1)
                     {
                         x1_set = "0";
                         pictureBox6.BackgroundImage = Resources.Error;
                         pictureBox6.Show();
-                        tb_x1_set.Select();
+                        tb_x1_set.SelectAll();
                         return;
                     }
-                    else if (x1_dv != null && !string.IsNullOrEmpty(tb_x1_set.Text))
+                    else if (x2_set != "0")
+                    {
+                        if (-a > double.Parse(tb_x2_set.Text) - 1)
+                        {
+                            x1_set = "0";
+                            pictureBox6.BackgroundImage = Resources.Error;
+                            pictureBox6.Show();
+                            tb_x1_set.SelectAll();
+                            return;
+                        }
+                    }
+                    else
                     {
                         x1_set = ((int)((a - x1_offset) / x1_gain)).ToString();
                         pictureBox3.BackgroundImage = requestImage;
 
                         if (Math.Abs(double.Parse(tb_x1_set.Text) - double.Parse(x1_dv)) > .1)
                         {
+                            isX1Set = true;
                             pictureBox3.Show();
                         }
                         else
                         {
+                            isX1Set = false;
                             pictureBox3.Hide();
                             pictureBox3.BackgroundImage = requestImage;
                         }
                     }
+
+                    tb_x1_set.BackColor = Color.LightGreen;
+                    tb_x2_set.Focus();
                 }
-                tb_x2_set.Focus();
+                catch
+                {
+                    x1_set = "0";
+                    tb_x1_set.SelectAll();
+                    pictureBox3.BackgroundImage = Resources.Error;
+                    pictureBox3.Show();
+                    return;
+                }
+            }
+        }
+
+        private void x1Set()
+        {
+            if (isX1Set)
+            {
+                try
+                {
+                    if (Math.Abs(double.Parse(tb_x1_set.Text) - double.Parse(x1_dv)) <= .1)
+                    {
+                        pictureBox3.Hide();
+                        isX1Set = false;
+                    }
+                }
+                catch { }
             }
         }
 
@@ -2161,48 +2061,28 @@ namespace Compact_Control
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                if (string.IsNullOrEmpty(tb_x2_set.Text) || string.IsNullOrWhiteSpace(tb_x2_set.Text))
-                {
-                    x2_set = "0";
-                    pictureBox4.Hide();
-                    pictureBox4.BackgroundImage = requestImage;
-                    tb_x2_set.SelectAll();
-                    return;
-                }
-
-                double a;
                 try
                 {
-                    a = double.Parse(tb_x2_set.Text);
-                }
-                catch
-                {
-                    x2_set = "0";
-                    pictureBox4.BackgroundImage = errorImage;
-                    pictureBox4.Show();
-                    tb_x2_set.SelectAll();
-                    return;
-                }
-                if (a < 0 | a > 20)
-                {
-                    x2_set = "0";
-                    pictureBox4.BackgroundImage = errorImage;
-                    pictureBox4.Show();
-                    tb_x2_set.SelectAll();
-                    return;
-                }
-                //if (x1_dv != null && (-a > double.Parse(x1_dv) - 1))
-                if (-a > double.Parse(x1_dv) - 1)
-                {
-                    x2_set = "0";
-                    pictureBox6.BackgroundImage = Resources.Error;
-                    pictureBox6.Show();
-                    tb_x2_set.SelectAll();
-                    return;
-                }
-                else if (x1_set != "0")
-                {
-                    if (-a > double.Parse(tb_x1_set.Text) - 1)
+                    if (string.IsNullOrEmpty(tb_x2_set.Text) || string.IsNullOrWhiteSpace(tb_x2_set.Text))
+                    {
+                        x2_set = "0";
+                        pictureBox5.Hide();
+                        pictureBox5.BackgroundImage = Resources.Request;
+                        return;
+                    }
+
+                    double a = double.Parse(tb_x2_set.Text);
+
+                    if (a < 0 || a > 20)
+                    {
+                        x2_set = "0";
+                        pictureBox4.BackgroundImage = errorImage;
+                        pictureBox4.Show();
+                        tb_x2_set.SelectAll();
+                        return;
+                    }
+                    //if (x1_dv != null && (-a > double.Parse(x1_dv) - 1))
+                    if (-a > double.Parse(x1_dv) - 1)
                     {
                         x2_set = "0";
                         pictureBox6.BackgroundImage = Resources.Error;
@@ -2210,23 +2090,62 @@ namespace Compact_Control
                         tb_x2_set.SelectAll();
                         return;
                     }
-                }
-                else //if (x2_dv != null)
-                {
-                    x2_set = ((int)((a - x2_offset) / x2_gain)).ToString();
-                    pictureBox4.BackgroundImage = requestImage;
-
-                    if (Math.Abs(double.Parse(tb_x2_set.Text) - double.Parse(x2_dv)) > .1)
+                    else if (x1_set != "0")
                     {
-                        pictureBox4.Show();
+                        if (-a > double.Parse(tb_x1_set.Text) - 1)
+                        {
+                            x2_set = "0";
+                            pictureBox6.BackgroundImage = Resources.Error;
+                            pictureBox6.Show();
+                            tb_x2_set.SelectAll();
+                            return;
+                        }
                     }
                     else
                     {
-                        pictureBox4.Hide();
+                        x2_set = ((int)((a - x2_offset) / x2_gain)).ToString();
                         pictureBox4.BackgroundImage = requestImage;
+
+                        if (Math.Abs(double.Parse(tb_x2_set.Text) - double.Parse(x2_dv)) > .1)
+                        {
+                            isX2Set = true;
+                            pictureBox4.Show();
+                        }
+                        else
+                        {
+                            isX2Set = false;
+                            pictureBox4.Hide();
+                            pictureBox4.BackgroundImage = requestImage;
+                        }
+                    }
+
+                    tb_x2_set.BackColor = Color.LightGreen;
+                    tb_gant_set.Focus();
+                }
+                catch
+                {
+                    x2_set = "0";
+                    tb_x2_set.SelectAll();
+                    pictureBox4.BackgroundImage = Resources.Error;
+                    pictureBox4.Show();
+                    return;
+                }
+            }
+        }
+
+        private void x2Set()
+        {
+            if (isX2Set)
+            {
+                try
+                {
+                    if (Math.Abs(double.Parse(tb_x2_set.Text) - double.Parse(x2_dv)) <= .1)
+                    {
+                        isX2Set = false;
+                        pictureBox4.Hide();
                     }
                 }
-                tb_gant_set.Focus();
+                catch { }
             }
         }
 

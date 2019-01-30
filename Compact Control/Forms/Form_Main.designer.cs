@@ -346,7 +346,7 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Interval = 5;
+            this.timer1.Interval = 50;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // tabControl1
@@ -3330,7 +3330,7 @@
             // 
             // timer3
             // 
-            this.timer3.Interval = 5;
+            this.timer3.Interval = 20;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // timer4
