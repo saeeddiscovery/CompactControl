@@ -538,19 +538,25 @@ namespace Compact_Control
         {
             if (gant_isTextChangedFromCode == false)
             {
-                isGantSet = false;
-                txt_gant_s.BackColor = Color.White;
-                pictureBox1.Hide();
-                gant_set = "0";
+                //if (string.IsNullOrEmpty(txt_gant_s.Text) || string.IsNullOrWhiteSpace(txt_gant_s.Text))
+                {
+                    isGantSet = false;
+                    txt_gant_s.BackColor = Color.White;
+                    gant_set = "0";
+                    pictureBox1.Hide();
+                }
             }
         }
 
         private void textBox41_TextChanged(object sender, EventArgs e)
         {
-            isColiSet = false;
-            txt_coli_s.BackColor = Color.White;
-            pictureBox2.Hide();
-            collim_set = "0";
+            //if (string.IsNullOrEmpty(txt_coli_s.Text) || string.IsNullOrWhiteSpace(txt_coli_s.Text))
+            {
+                isColiSet = false;
+                txt_coli_s.BackColor = Color.White;
+                collim_set = "0";
+                pictureBox2.Hide();
+            }
         }
 
         private bool x1err = false;
@@ -586,13 +592,16 @@ namespace Compact_Control
         {
             if (!xy_isTextChangedFromCode)
             {
-                isY1Set = false;
-                txt_y1_s.BackColor = Color.White;
-                txt_y_s.BackColor = Color.White;
-                txt_y_s.Clear();
-                pictureBox4.Hide();
-                pictureBox14.Hide();
-                x2_set = "0";
+                //if (string.IsNullOrEmpty(txt_y1_s.Text) || string.IsNullOrWhiteSpace(txt_y1_s.Text))
+                {
+                    isY1Set = false;
+                    txt_y1_s.BackColor = Color.White;
+                    txt_y_s.BackColor = Color.White;
+                    txt_y_s.Clear();
+                    pictureBox4.Hide();
+                    pictureBox14.Hide();
+                    x2_set = "0";
+                }
             }
         }
 
@@ -640,17 +649,20 @@ namespace Compact_Control
         {
             if (!XY_isTextChangedFromCode)
             {
-                isY1Set = false;
-                isY2Set = false;
-                txt_y_s.BackColor = Color.White;
-                txt_y1_s.BackColor = Color.White;
-                txt_y2_s.BackColor = Color.White;
-                XY_isTextChangedFromCode = false;
-                pictureBox14.Hide();
-                pictureBox4.Hide();
-                pictureBox3.Hide();
-                x2_set = "0";
-                x1_set = "0";
+                //if (string.IsNullOrEmpty(txt_y_s.Text) || string.IsNullOrWhiteSpace(txt_y_s.Text))
+                {
+                    isY1Set = false;
+                    isY2Set = false;
+                    txt_y_s.BackColor = Color.White;
+                    txt_y1_s.BackColor = Color.White;
+                    txt_y2_s.BackColor = Color.White;
+                    XY_isTextChangedFromCode = false;
+                    pictureBox14.Hide();
+                    pictureBox4.Hide();
+                    pictureBox3.Hide();
+                    x2_set = "0";
+                    x1_set = "0";
+                }
             }
         }
 
@@ -658,17 +670,20 @@ namespace Compact_Control
         {
             if (!XY_isTextChangedFromCode)
             {
-                isX1Set = false;
-                isX2Set = false;
-                txt_x_s.BackColor = Color.White;
-                txt_x1_s.BackColor = Color.White;
-                txt_x2_s.BackColor = Color.White;
-                XY_isTextChangedFromCode = false;
-                pictureBox15.Hide();
-                pictureBox6.Hide();
-                pictureBox5.Hide();
-                y2_set = "0";
-                y1_set = "0";
+                //if (string.IsNullOrEmpty(txt_x_s.Text) || string.IsNullOrWhiteSpace(txt_x_s.Text))
+                {
+                    isX1Set = false;
+                    isX2Set = false;
+                    txt_x_s.BackColor = Color.White;
+                    txt_x1_s.BackColor = Color.White;
+                    txt_x2_s.BackColor = Color.White;
+                    XY_isTextChangedFromCode = false;
+                    pictureBox15.Hide();
+                    pictureBox6.Hide();
+                    pictureBox5.Hide();
+                    y2_set = "0";
+                    y1_set = "0";
+                }
             }
         }
 

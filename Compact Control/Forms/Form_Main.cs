@@ -1794,7 +1794,7 @@ namespace Compact_Control
                     if (string.IsNullOrEmpty(tb_y1_set.Text) || string.IsNullOrWhiteSpace(tb_y1_set.Text))
                     {
                         y1_set = "0";
-                        pictureBox4.Hide();
+                        pictureBox5.Hide();
                         return;
                     }
 
@@ -1811,8 +1811,8 @@ namespace Compact_Control
                     else if (-a > double.Parse(y2_dv) - 1)
                     {
                         y1_set = "0";
-                        pictureBox6.BackgroundImage = Resources.Error;
-                        pictureBox6.Show();
+                        pictureBox5.BackgroundImage = Resources.Error;
+                        pictureBox5.Show();
                         tb_y1_set.SelectAll();
                         return;
                     }
@@ -1821,8 +1821,8 @@ namespace Compact_Control
                         if (-a > double.Parse(tb_y2_set.Text) - 1)
                         {
                             y1_set = "0";
-                            pictureBox6.BackgroundImage = Resources.Error;
-                            pictureBox6.Show();
+                            pictureBox5.BackgroundImage = Resources.Error;
+                            pictureBox5.Show();
                             tb_y1_set.SelectAll();
                             return;
                         }
@@ -1993,8 +1993,8 @@ namespace Compact_Control
                     else if (-a > double.Parse(x2_dv) - 1)
                     {
                         x1_set = "0";
-                        pictureBox6.BackgroundImage = Resources.Error;
-                        pictureBox6.Show();
+                        pictureBox3.BackgroundImage = Resources.Error;
+                        pictureBox3.Show();
                         tb_x1_set.SelectAll();
                         return;
                     }
@@ -2003,8 +2003,8 @@ namespace Compact_Control
                         if (-a > double.Parse(tb_x2_set.Text) - 1)
                         {
                             x1_set = "0";
-                            pictureBox6.BackgroundImage = Resources.Error;
-                            pictureBox6.Show();
+                            pictureBox3.BackgroundImage = Resources.Error;
+                            pictureBox3.Show();
                             tb_x1_set.SelectAll();
                             return;
                         }
@@ -2085,8 +2085,8 @@ namespace Compact_Control
                     if (-a > double.Parse(x1_dv) - 1)
                     {
                         x2_set = "0";
-                        pictureBox6.BackgroundImage = Resources.Error;
-                        pictureBox6.Show();
+                        pictureBox4.BackgroundImage = Resources.Error;
+                        pictureBox4.Show();
                         tb_x2_set.SelectAll();
                         return;
                     }
@@ -2095,8 +2095,8 @@ namespace Compact_Control
                         if (-a > double.Parse(tb_x1_set.Text) - 1)
                         {
                             x2_set = "0";
-                            pictureBox6.BackgroundImage = Resources.Error;
-                            pictureBox6.Show();
+                            pictureBox4.BackgroundImage = Resources.Error;
+                            pictureBox4.Show();
                             tb_x2_set.SelectAll();
                             return;
                         }
@@ -2146,6 +2146,66 @@ namespace Compact_Control
                     }
                 }
                 catch { }
+            }
+        }
+
+        private void tb_gant_set_TextChanged(object sender, EventArgs e)
+        {
+            //if (string.IsNullOrEmpty(tb_gant_set.Text) || string.IsNullOrWhiteSpace(tb_gant_set.Text))
+            {
+                gant_set = "0";
+                pictureBox1.Hide();
+                return;
+            }
+        }
+
+        private void tb_coli_set_TextChanged(object sender, EventArgs e)
+        {
+            //if (string.IsNullOrEmpty(tb_coli_set.Text) || string.IsNullOrWhiteSpace(tb_coli_set.Text))
+            {
+                collim_set = "0";
+                pictureBox2.Hide();
+                return;
+            }
+        }
+
+        private void tb_y1_set_TextChanged(object sender, EventArgs e)
+        {
+            //if (string.IsNullOrEmpty(tb_y1_set.Text) || string.IsNullOrWhiteSpace(tb_y1_set.Text))
+            {
+                y1_set = "0";
+                pictureBox5.Hide();
+                return;
+            }
+        }
+
+        private void tb_y2_set_TextChanged(object sender, EventArgs e)
+        {
+            //if (string.IsNullOrEmpty(tb_y2_set.Text) || string.IsNullOrWhiteSpace(tb_y2_set.Text))
+            {
+                y2_set = "0";
+                pictureBox6.Hide();
+                return;
+            }
+        }
+
+        private void tb_x1_set_TextChanged(object sender, EventArgs e)
+        {
+            //if (string.IsNullOrEmpty(tb_x1_set.Text) || string.IsNullOrWhiteSpace(tb_x1_set.Text))
+            {
+                x1_set = "0";
+                pictureBox3.Hide();
+                return;
+            }
+        }
+
+        private void tb_x2_set_TextChanged(object sender, EventArgs e)
+        {
+            //if (string.IsNullOrEmpty(tb_x2_set.Text) || string.IsNullOrWhiteSpace(tb_x2_set.Text))
+            {
+                x2_set = "0";
+                pictureBox4.Hide();
+                return;
             }
         }
 

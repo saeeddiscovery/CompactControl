@@ -1955,6 +1955,7 @@
             this.tb_x1_set.Name = "tb_x1_set";
             this.tb_x1_set.Size = new System.Drawing.Size(80, 24);
             this.tb_x1_set.TabIndex = 5;
+            this.tb_x1_set.TextChanged += new System.EventHandler(this.tb_x1_set_TextChanged);
             this.tb_x1_set.Enter += new System.EventHandler(this.txtBox_Enter);
             this.tb_x1_set.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_x1_set_KeyPress);
             // 
@@ -2048,6 +2049,7 @@
             this.tb_x2_set.Name = "tb_x2_set";
             this.tb_x2_set.Size = new System.Drawing.Size(80, 24);
             this.tb_x2_set.TabIndex = 6;
+            this.tb_x2_set.TextChanged += new System.EventHandler(this.tb_x2_set_TextChanged);
             this.tb_x2_set.Enter += new System.EventHandler(this.txtBox_Enter);
             this.tb_x2_set.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_x2_set_KeyPress);
             // 
@@ -2122,6 +2124,7 @@
             this.tb_coli_set.Name = "tb_coli_set";
             this.tb_coli_set.Size = new System.Drawing.Size(80, 24);
             this.tb_coli_set.TabIndex = 2;
+            this.tb_coli_set.TextChanged += new System.EventHandler(this.tb_coli_set_TextChanged);
             this.tb_coli_set.Enter += new System.EventHandler(this.txtBox_Enter);
             this.tb_coli_set.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_coli_set_KeyPress);
             // 
@@ -2133,6 +2136,7 @@
             this.tb_y1_set.Name = "tb_y1_set";
             this.tb_y1_set.Size = new System.Drawing.Size(80, 24);
             this.tb_y1_set.TabIndex = 3;
+            this.tb_y1_set.TextChanged += new System.EventHandler(this.tb_y1_set_TextChanged);
             this.tb_y1_set.Enter += new System.EventHandler(this.txtBox_Enter);
             this.tb_y1_set.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_y1_set_KeyPress);
             // 
@@ -2144,6 +2148,7 @@
             this.tb_gant_set.Name = "tb_gant_set";
             this.tb_gant_set.Size = new System.Drawing.Size(80, 24);
             this.tb_gant_set.TabIndex = 1;
+            this.tb_gant_set.TextChanged += new System.EventHandler(this.tb_gant_set_TextChanged);
             this.tb_gant_set.Enter += new System.EventHandler(this.txtBox_Enter);
             this.tb_gant_set.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_gant_set_KeyPress);
             // 
@@ -2185,6 +2190,7 @@
             this.tb_y2_set.Name = "tb_y2_set";
             this.tb_y2_set.Size = new System.Drawing.Size(80, 24);
             this.tb_y2_set.TabIndex = 4;
+            this.tb_y2_set.TextChanged += new System.EventHandler(this.tb_y2_set_TextChanged);
             this.tb_y2_set.Enter += new System.EventHandler(this.txtBox_Enter);
             this.tb_y2_set.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_y2_set_KeyPress);
             // 
@@ -3330,7 +3336,7 @@
             // 
             // timer3
             // 
-            this.timer3.Interval = 20;
+            this.timer3.Interval = 5;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // timer4
