@@ -362,7 +362,7 @@ namespace Compact_Control
 
             ////Temporary login in Service mode directly!
             //cmbBx_User.SelectedIndex = 1;
-            //txtBx_Pass.Text = "service";
+            //txtBx_Pass.Text = "";
 
         }
 

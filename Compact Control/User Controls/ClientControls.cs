@@ -48,22 +48,22 @@ namespace Compact_Control
 
         string x1_co;
         public static double x1_gain, x1_offset;
-        string x1_dv = "0";
+        string x1_dv;
         string x1d;
 
         string x2_co;
         public static double x2_gain, x2_offset;
-        string x2_dv = "0";
+        string x2_dv;
         string x2d;
 
         string y1_co;
         public static double y1_gain, y1_offset;
-        string y1_dv = "0";
+        string y1_dv;
         string y1d;
 
         string y2_co;
         public static double y2_gain, y2_offset;
-        string y2_dv = "0";
+        string y2_dv;
         string y2d;
 
         string gant_set="0";
@@ -247,8 +247,6 @@ namespace Compact_Control
         {
             tb_terminal_out.Clear();
             lbl_out_cnt.Text = "0";
-
-            MessageBox.Show("client: " + serialPort1.PortName + "/" + serialPort1.BaudRate);
         }
 
         private void btn_clearTerminal_in_Click(object sender, EventArgs e)
@@ -278,7 +276,7 @@ namespace Compact_Control
         }
         private void timer3_Tick(object sender, EventArgs e)
         {
-            bool noWrite = false;
+            bool noWrite = true;
             if (receiveQ.Count == 0)
                 return;
             string currData = receiveQ.Dequeue();
@@ -367,19 +365,35 @@ namespace Compact_Control
                             Reading_Error.Text = "";
                         }
                         if (int.Parse(gant_set) != int.Parse(gnd))
+                        {
                             write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
-                        else if (int.Parse(collim_set) != int.Parse(cld))
+                            noWrite = false;
+                        }
+                        if (int.Parse(collim_set) != int.Parse(cld))
+                        { 
                             write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
-                        else if (int.Parse(x1_set) != int.Parse(x1d))
+                            noWrite = false;
+                        }
+                        if (int.Parse(x1_set) != int.Parse(x1d))
+                        { 
                             write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
-                        else if (int.Parse(x2_set) != int.Parse(x2d))
+                            noWrite = false;
+                        }
+                        if (int.Parse(x2_set) != int.Parse(x2d))
+                        { 
                             write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
-                        else if (int.Parse(y1_set) != int.Parse(y1d))
+                            noWrite = false;
+                        }
+                        if (int.Parse(y1_set) != int.Parse(y1d))
+                        { 
                             write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
-                        else if (int.Parse(y2_set) != int.Parse(y2d))
+                            noWrite = false;
+                        }
+                        if (int.Parse(y2_set) != int.Parse(y2d))
+                        { 
                             write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
-                        else
-                            noWrite = true;
+                            noWrite = false;
+                        }
                         if (noWrite == false)
                         {
                             int o = int.Parse(lbl_out_cnt.Text);
