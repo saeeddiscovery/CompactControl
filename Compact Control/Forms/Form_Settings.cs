@@ -78,7 +78,7 @@ namespace Compact_Control
             Form1.portName = portName;
             ClientControls.curr_port = portName;
 
-            string filename = "portSettings.json";
+            string filename = "Settings.json";
             string baudrate = comboBox_Baudrate.Text;
             string clinicalTerminals = "0";
             if (checkBox_clinicalTerminals.Checked)
@@ -213,11 +213,11 @@ namespace Compact_Control
 
         private void Form_Settings_Load(object sender, EventArgs e)
         {
-            string filename = "portSettings.json";
+            string filename = "Settings.json";
             if (File.Exists(filename))
             {
                 //string[] portSettings = readJson(filename);
-                HashPass.PortSettings pSettings = HashPass.readSettingsJson(filename);
+                HashPass.AppSettings pSettings = HashPass.readSettingsJson(filename);
                 comboBox_Ports.Text = pSettings.Port;
                 comboBox_Baudrate.Text = pSettings.Baudrate;
                 if (pSettings.clinicalTerminals == "1")

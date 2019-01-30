@@ -452,7 +452,7 @@ namespace Compact_Control
             public string y2_v3 { get; set; }
         }
 
-        public class PortSettings
+        public class AppSettings
         {
             public string Port { get; set; }
             public string Baudrate { get; set; }
@@ -488,12 +488,12 @@ namespace Compact_Control
             }
         }
 
-        public static PortSettings readSettingsJson(string fileName)
+        public static AppSettings readSettingsJson(string fileName)
         {
             using (StreamReader r = new StreamReader(fileName))
             {
                 var json = r.ReadToEnd();
-                PortSettings deserializedSettings = JsonConvert.DeserializeObject<PortSettings>(json);
+                AppSettings deserializedSettings = JsonConvert.DeserializeObject<AppSettings>(json);
                 return deserializedSettings;
             }
         }

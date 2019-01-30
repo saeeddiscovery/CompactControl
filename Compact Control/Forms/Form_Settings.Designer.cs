@@ -400,9 +400,9 @@
             this.checkBox_clinicalTerminals.Location = new System.Drawing.Point(26, 94);
             this.checkBox_clinicalTerminals.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox_clinicalTerminals.Name = "checkBox_clinicalTerminals";
-            this.checkBox_clinicalTerminals.Size = new System.Drawing.Size(127, 17);
+            this.checkBox_clinicalTerminals.Size = new System.Drawing.Size(132, 17);
             this.checkBox_clinicalTerminals.TabIndex = 27;
-            this.checkBox_clinicalTerminals.Text = "Show clinical terminal";
+            this.checkBox_clinicalTerminals.Text = "Show clinical terminals";
             this.checkBox_clinicalTerminals.UseVisualStyleBackColor = true;
             // 
             // Form_Settings

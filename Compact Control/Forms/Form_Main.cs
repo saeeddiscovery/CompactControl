@@ -162,13 +162,13 @@ namespace Compact_Control
                         GlobalSerialPort.PortName = ports[0];
                         ClientControls.curr_port = ports[0];
                     }
-                    string filename = "portSettings.json";
+                    string filename = "Settings.json";
                     try
                     {
                         if (System.IO.File.Exists(filename))
                         {
                             //string[] portSettings = readJson(filename);
-                            HashPass.PortSettings pSettings = HashPass.readSettingsJson(filename);
+                            HashPass.AppSettings pSettings = HashPass.readSettingsJson(filename);
                             HashPass.WriteBaudrateToReg(pSettings.Baudrate);
 
                             GlobalSerialPort.PortName = pSettings.Port;
