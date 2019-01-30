@@ -730,8 +730,8 @@ namespace Compact_Control
                             txt_y2_s.Text = y12.ToString();
                             y12 = y12 * -1;
                             txt_y1_s.Text = y12.ToString();
-                            y1Set();
-                            y2Set();
+                            y1Act();
+                            y2Act();
                             txt_y_s.BackColor = Color.LightGreen;
                             txt_y1_s.BackColor = Color.LightGreen;
                             txt_y2_s.BackColor = Color.LightGreen;
@@ -777,8 +777,8 @@ namespace Compact_Control
                             txt_x2_s.Text = x12.ToString();
                             x12 = x12 * -1;
                             txt_x1_s.Text = x12.ToString();
-                            x1Set();
-                            x2Set();
+                            x1Act();
+                            x2Act();
                             txt_x_s.BackColor = Color.LightGreen;
                             txt_x1_s.BackColor = Color.LightGreen;
                             txt_x2_s.BackColor = Color.LightGreen;
@@ -791,113 +791,76 @@ namespace Compact_Control
             }
         }
 
-        private void txt_y1_s_KeyPress(object sender, KeyPressEventArgs e)
+        private void y1Act()
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            try
             {
-                try
+                if (string.IsNullOrEmpty(txt_y1_s.Text) || string.IsNullOrWhiteSpace(txt_y1_s.Text))
                 {
-                    if (!string.IsNullOrEmpty(txt_y1_s.Text) && !string.IsNullOrWhiteSpace(txt_y1_s.Text))
-                        decimal.Parse(txt_y1_s.Text);
+                    XY_isTextChangedFromCode = true;
+                    txt_y_s.Clear();
+                    XY_isTextChangedFromCode = false;
+                    x2_set = "0";
+                    pictureBox4.Hide();
+                    pictureBox4.BackgroundImage = Resources.Request;
+                    y1err = false;
+                    return;
                 }
-                catch
+                else if (!xy_isTextChangedFromCode)
                 {
-                    txt_y1_s.SelectAll();
+                    XY_isTextChangedFromCode = true;
+                    decimal y1, y2;
+                    bool isY1Valid = decimal.TryParse(txt_y1_s.Text, out y1);
+                    bool isY2Valid = decimal.TryParse(txt_y2_s.Text, out y2);
+                    if (isY1Valid && isY2Valid && (y2 + y1 == 0))
+                    {
+                        decimal y = y2 - y1;
+                        y = decimal.Round(y, 2);
+                        XY_isTextChangedFromCode = true;
+                        txt_y_s.Text = y.ToString();
+                        XY_isTextChangedFromCode = false;
+                        isYSymmetric = true;
+                    }
+                    else
+                    {
+                        isYSymmetric = false;
+                        XY_isTextChangedFromCode = false;
+                    }
+                }
+
+                double a = double.Parse(txt_y1_s.Text);
+
+                if (a < -20 || a > 0)
+                {
+                    x2_set = "0";
                     pictureBox4.BackgroundImage = Resources.Error;
+                    y1err = true;
                     pictureBox4.Show();
                     return;
                 }
-                if (!string.IsNullOrWhiteSpace(txt_y1_s.Text))
+                if (a > double.Parse(x1_dv) - 1)
                 {
-                    y1Set();
-                    txt_y1_s.BackColor = Color.LightGreen;
-
+                    x2_set = "0";
+                    pictureBox6.BackgroundImage = Resources.Error;
+                    x1err = true;
+                    pictureBox6.Show();
+                    return;
                 }
-                txt_y2_s.Focus();
-            }
-        }
-
-        private void y1Set()
-        {
-            isY1Set = true;
-            if (string.IsNullOrEmpty(txt_y1_s.Text) || string.IsNullOrWhiteSpace(txt_y1_s.Text))
-            {
-                XY_isTextChangedFromCode = true;
-                txt_y_s.Clear();
-                XY_isTextChangedFromCode = false;
-                x2_set = "0";
-                pictureBox4.Hide();
-                pictureBox4.BackgroundImage = Resources.Request;
-                y1err = false;
-                return;
-            }
-            else if (!xy_isTextChangedFromCode)
-            {
-                XY_isTextChangedFromCode = true;
-                decimal y1, y2;
-                bool isY1Valid = decimal.TryParse(txt_y1_s.Text, out y1);
-                bool isY2Valid = decimal.TryParse(txt_y2_s.Text, out y2);
-                if (isY1Valid && isY2Valid && (y2 + y1 == 0))
-                {
-                    decimal y = y2 - y1;
-                    y = decimal.Round(y, 2);
-                    XY_isTextChangedFromCode = true;
-                    txt_y_s.Text = y.ToString();
-                    XY_isTextChangedFromCode = false;
-                    isYSymmetric = true;
-                }
-                else
-                {
-                    isYSymmetric = false;
-                    XY_isTextChangedFromCode = false;
-                }
-            }
-
-            double a;
-            try
-            {
-                a = double.Parse(txt_y1_s.Text);
-            }
-            catch
-            {
-                x2_set = "0";
-                pictureBox4.BackgroundImage = Resources.Error;
-                y1err = true;
-                pictureBox4.Show();
-                return;
-            }
-            if (a < -20 || a > 0)
-            {
-                x2_set = "0";
-                pictureBox4.BackgroundImage = Resources.Error;
-                y1err = true;
-                pictureBox4.Show();
-                return;
-            }
-            if (a > double.Parse(x1_dv) - 1)
-            {
-                x2_set = "0";
-                pictureBox6.BackgroundImage = Resources.Error;
-                x1err = true;
-                pictureBox6.Show();
-                return;
-            }
-            if (x1_set != "0")
-                try
-                {
-                    if (a > double.Parse(txt_y2_s.Text) - 1)
+                if (x1_set != "0")
+                    try
                     {
-                        x2_set = "0";
-                        pictureBox6.BackgroundImage = Resources.Error;
-                        x1err = true;
-                        pictureBox6.Show();
-                        return;
+                        if (a > double.Parse(txt_y2_s.Text) - 1)
+                        {
+                            x2_set = "0";
+                            pictureBox6.BackgroundImage = Resources.Error;
+                            x1err = true;
+                            pictureBox6.Show();
+                            return;
+                        }
                     }
-                }
-            catch
-                { return; }
-            if (x2_dv != null)
-            {
+                    catch
+                    { return; }
+
                 x2_set = Math.Abs((int)((-a - x2_offset) / x2_gain)).ToString();
                 if (int.Parse(x2_set) > 65534 | int.Parse(y2_set) < 0)
                     x2_set = "0";
@@ -905,230 +868,220 @@ namespace Compact_Control
                 y1err = false;
                 if (Math.Abs(double.Parse(txt_y1_s.Text) - double.Parse(x2_dv)) > .1)
                 {
+                    isY1Set = true;
                     pictureBox4.Show();
                 }
                 else
                 {
                     pictureBox4.Hide();
+                    isY1Set = false;
                     pictureBox4.BackgroundImage = Resources.Request;
                 }
+
+                txt_y1_s.BackColor = Color.LightGreen;
+                txt_y2_s.Focus();
+            }
+            catch
+            {
+                txt_y1_s.SelectAll();
+                x2_set = "0";
+                pictureBox4.BackgroundImage = Resources.Error;
+                pictureBox4.Show();
+                return;
             }
         }
 
+        private void txt_y1_s_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                y1Act();
+            }
+        }
+
+        private void y1Set()
+        {
+            if (isY1Set)
+            {
+                try
+                {
+                    if (Math.Abs(double.Parse(txt_y1_s.Text) - double.Parse(x2_dv)) < .1)
+                    {
+                        pictureBox4.Hide();
+                        isY1Set = false;
+                    }
+                }
+                catch { }
+            }
+        }
+
+        private void y2Act()
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txt_y2_s.Text) || string.IsNullOrWhiteSpace(txt_y2_s.Text))
+                {
+                    XY_isTextChangedFromCode = true;
+                    txt_y_s.Clear();
+                    XY_isTextChangedFromCode = false;
+                    x1_set = "0";
+                    pictureBox3.Hide();
+                    pictureBox3.BackgroundImage = Resources.Request;
+                    y2err = false;
+                    return;
+                }
+                else if (!xy_isTextChangedFromCode)
+                {
+                    XY_isTextChangedFromCode = true;
+                    decimal y1, y2;
+                    bool isY1Valid = decimal.TryParse(txt_y1_s.Text, out y1);
+                    bool isY2Valid = decimal.TryParse(txt_y2_s.Text, out y2);
+                    if (isY1Valid && isY2Valid && (y2 + y1 == 0))
+                    {
+                        decimal y = y2 - y1;
+                        y = decimal.Round(y, 2);
+                        XY_isTextChangedFromCode = true;
+                        txt_y_s.Text = y.ToString();
+                        XY_isTextChangedFromCode = false;
+                        isYSymmetric = true;
+                    }
+                    else
+                    {
+                        isYSymmetric = false;
+                        XY_isTextChangedFromCode = false;
+                    }
+                }
+
+                double a = double.Parse(txt_y2_s.Text);
+
+                if (a < 0 || a > 20)
+                {
+                    x1_set = "0";
+                    pictureBox3.BackgroundImage = Resources.Error;
+                    y2err = true;
+                    pictureBox3.Show();
+                    return;
+                }
+                double x2_dvo;
+                double.TryParse(x2_dv, out x2_dvo);
+                if (a < x2_dvo + 1)
+                {
+                    x1_set = "0";
+                    pictureBox6.BackgroundImage = Resources.Error;
+                    x1err = true;
+                    pictureBox6.Show();
+                    return;
+                }
+                if (x2_set != "0")
+                    try
+                    {
+                        if (a < double.Parse(txt_y1_s.Text) + 1)
+                        {
+                            x1_set = "0";
+                            pictureBox6.BackgroundImage = Resources.Error;
+                            x1err = true;
+                            pictureBox6.Show();
+                            return;
+                        }
+                    }
+                    catch
+                    { return; }
+                if (x1_dv != null)
+                {
+                    x1_set = Math.Abs((int)((a - x1_offset) / x1_gain)).ToString();
+                    if (int.Parse(x1_set) > 65534 | int.Parse(y2_set) < 0)
+                        x1_set = "0";
+                    pictureBox3.BackgroundImage = Resources.Request;
+                    y2err = false;
+
+                    if (Math.Abs(double.Parse(txt_y2_s.Text) - double.Parse(x1_dv)) > .1)
+                    {
+                        isY2Set = true;
+                        pictureBox3.Show();
+                    }
+                    else
+                    {
+                        pictureBox3.Hide();
+                        isY2Set = false;
+                        pictureBox3.BackgroundImage = Resources.Request;
+                    }
+                }
+                txt_y2_s.BackColor = Color.LightGreen;
+                txt_x1_s.Focus();
+            }
+            catch
+            {
+                x1_set = "0";
+                txt_y2_s.SelectAll();
+                pictureBox3.BackgroundImage = Resources.Error;
+                pictureBox3.Show();
+                return;
+            }
+        }
         private void txt_y2_s_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                try
-                {
-                    if (!string.IsNullOrEmpty(txt_y2_s.Text) && !string.IsNullOrWhiteSpace(txt_y2_s.Text))
-                        decimal.Parse(txt_y2_s.Text);
-                }
-                catch
-                {
-                    txt_y2_s.SelectAll();
-                    pictureBox3.BackgroundImage = Resources.Error;
-                    pictureBox3.Show();
-                    return;
-                }
-                if (!string.IsNullOrWhiteSpace(txt_y2_s.Text))
-                {
-                    y2Set();
-                    txt_y2_s.BackColor = Color.LightGreen;
-
-                }
-                txt_x1_s.Focus();
+                y2Act();
             }
         }
 
         private void y2Set()
         {
-            isY2Set = true;
-            if (string.IsNullOrEmpty(txt_y2_s.Text) || string.IsNullOrWhiteSpace(txt_y2_s.Text))
+            if (isY2Set)
             {
-                XY_isTextChangedFromCode = true;
-                txt_y_s.Clear();
-                XY_isTextChangedFromCode = false;
-                x1_set = "0";
-                pictureBox3.Hide();
-                pictureBox3.BackgroundImage = Resources.Request;
-                y2err = false;
-                return;
-            }
-            else if (!xy_isTextChangedFromCode)
-            {
-                XY_isTextChangedFromCode = true;
-                decimal y1, y2;
-                bool isY1Valid = decimal.TryParse(txt_y1_s.Text, out y1);
-                bool isY2Valid = decimal.TryParse(txt_y2_s.Text, out y2);
-                if (isY1Valid && isY2Valid && (y2 + y1 == 0))
-                {
-                    decimal y = y2 - y1;
-                    y = decimal.Round(y, 2);
-                    XY_isTextChangedFromCode = true;
-                    txt_y_s.Text = y.ToString();
-                    XY_isTextChangedFromCode = false;
-                    isYSymmetric = true;
-                }
-                else
-                {
-                    isYSymmetric = false;
-                    XY_isTextChangedFromCode = false;
-                }
-            }
-
-            double a;
-            try
-            {
-                a = double.Parse(txt_y2_s.Text);
-            }
-            catch
-            {
-                x1_set = "0";
-                pictureBox3.BackgroundImage = Resources.Error;
-                y2err = true;
-                pictureBox3.Show();
-                return;
-            }
-            if (a < 0 || a > 20)
-            {
-                x1_set = "0";
-                pictureBox3.BackgroundImage = Resources.Error;
-                y2err = true;
-                pictureBox3.Show();
-                return;
-            }
-            double x2_dvo;
-            double.TryParse(x2_dv, out x2_dvo);
-            if (a < x2_dvo + 1)
-            {
-                x1_set = "0";
-                pictureBox6.BackgroundImage = Resources.Error;
-                x1err = true;
-                pictureBox6.Show();
-                return;
-            }
-            if (x2_set != "0")
                 try
                 {
-                    if (a < double.Parse(txt_y1_s.Text) + 1)
+                    if (Math.Abs(double.Parse(txt_y2_s.Text) - double.Parse(x1_dv)) < .1)
                     {
-                        x1_set = "0";
-                        pictureBox6.BackgroundImage = Resources.Error;
-                        x1err = true;
-                        pictureBox6.Show();
-                        return;
+                        pictureBox3.Hide();
+                        isY2Set = false;
                     }
                 }
-            catch
-                { return; }
-            if (x1_dv != null)
-            {
-                x1_set = Math.Abs((int)((a - x1_offset) / x1_gain)).ToString();
-                if (int.Parse(x1_set) > 65534 | int.Parse(y2_set) < 0)
-                    x1_set = "0";
-                pictureBox3.BackgroundImage = Resources.Request;
-                y2err = false;
-
-                if (Math.Abs(double.Parse(txt_y2_s.Text) - double.Parse(x1_dv)) > .1)
-                {
-                    pictureBox3.Show();
-                }
-                else
-                {
-                    pictureBox3.Hide();
-                    pictureBox3.BackgroundImage = Resources.Request;
-                }
+                catch { }
             }
 
         }
 
-        private void txt_x1_s_KeyPress(object sender, KeyPressEventArgs e)
+        private void x1Act()
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            try
             {
-                try
+                if (string.IsNullOrEmpty(txt_x1_s.Text) || string.IsNullOrWhiteSpace(txt_x1_s.Text))
                 {
-                    if (!string.IsNullOrEmpty(txt_x1_s.Text) && !string.IsNullOrWhiteSpace(txt_x1_s.Text))
-                        decimal.Parse(txt_x1_s.Text);
-                }
-                catch
-                {
-                    txt_x1_s.SelectAll();
-                    pictureBox6.BackgroundImage = Resources.Error;
-                    pictureBox6.Show();
+                    XY_isTextChangedFromCode = true;
+                    txt_x_s.Clear();
+                    XY_isTextChangedFromCode = false;
+                    y2_set = "0";
+                    pictureBox6.Hide();
+                    pictureBox6.BackgroundImage = Resources.Request;
+                    x1err = false;
                     return;
                 }
-                if (!string.IsNullOrWhiteSpace(txt_x1_s.Text))
+                else if (!xy_isTextChangedFromCode)
                 {
-                    x1Set();
-                    txt_x1_s.BackColor = Color.LightGreen;
-
-                }
-                txt_x2_s.Focus();
-            }
-        }
-
-        private void x1Set()
-        {
-            isX1Set = true;
-            if (string.IsNullOrEmpty(txt_x1_s.Text) || string.IsNullOrWhiteSpace(txt_x1_s.Text))
-            {
-                XY_isTextChangedFromCode = true;
-                txt_x_s.Clear();
-                XY_isTextChangedFromCode = false;
-                y2_set = "0";
-                pictureBox6.Hide();
-                pictureBox6.BackgroundImage = Resources.Request;
-                x1err = false;
-                return;
-            }
-            else if (!xy_isTextChangedFromCode)
-            {
-                XY_isTextChangedFromCode = true;
-                decimal x1, x2;
-                bool isX1Valid = decimal.TryParse(txt_x1_s.Text, out x1);
-                bool isX2Valid = decimal.TryParse(txt_x2_s.Text, out x2);
-                if (isX1Valid && isX2Valid && (x2 + x1 == 0))
-                {
-                    decimal x = x2 - x1;
-                    x = decimal.Round(x, 2);
                     XY_isTextChangedFromCode = true;
-                    txt_x_s.Text = x.ToString();
-                    XY_isTextChangedFromCode = false;
-                    isXSymmetric = true;
+                    decimal x1, x2;
+                    bool isX1Valid = decimal.TryParse(txt_x1_s.Text, out x1);
+                    bool isX2Valid = decimal.TryParse(txt_x2_s.Text, out x2);
+                    if (isX1Valid && isX2Valid && (x2 + x1 == 0))
+                    {
+                        decimal x = x2 - x1;
+                        x = decimal.Round(x, 2);
+                        XY_isTextChangedFromCode = true;
+                        txt_x_s.Text = x.ToString();
+                        XY_isTextChangedFromCode = false;
+                        isXSymmetric = true;
+                    }
+                    else
+                    {
+                        isXSymmetric = false;
+                        XY_isTextChangedFromCode = false;
+                    }
                 }
-                else
-                {
-                    isXSymmetric = false;
-                    XY_isTextChangedFromCode = false;
-                }
-            }
 
-            double a;
-            try
-            {
-                a = double.Parse(txt_x1_s.Text);
-            }
-            catch
-            {
-                y2_set = "0";
-                pictureBox6.BackgroundImage = Resources.Error;
-                x1err = true;
-                pictureBox6.Show();
-                return;
-            }
-            if (a < -20 || a > 12.5)
-            {
-                y2_set = "0";
-                pictureBox6.BackgroundImage = Resources.Error;
-                x1err = true;
-                pictureBox6.Show();
-                return;
-            }
-            try
-            {
-                if (a > double.Parse(y1_dv) - 1)
+                double a = double.Parse(txt_x1_s.Text);
+                if (a < -20 || a > 12.5)
                 {
                     y2_set = "0";
                     pictureBox6.BackgroundImage = Resources.Error;
@@ -1136,14 +1089,9 @@ namespace Compact_Control
                     pictureBox6.Show();
                     return;
                 }
-            }
-            catch
-            {
-            }
-            if (y1_set != "0")
                 try
                 {
-                    if (a > double.Parse(txt_x2_s.Text) - 1)
+                    if (a > double.Parse(y1_dv) - 1)
                     {
                         y2_set = "0";
                         pictureBox6.BackgroundImage = Resources.Error;
@@ -1152,25 +1100,181 @@ namespace Compact_Control
                         return;
                     }
                 }
-            catch
-                { return; }
-            if (y2_dv != null)
-            {
-                y2_set = Math.Abs((int)((-a - y2_offset) / y2_gain)).ToString();
-                if (int.Parse(y2_set) > 65534 | int.Parse(y2_set) < 0)
-                    y2_set = "0";
-                pictureBox6.BackgroundImage = Resources.Request;
-                x1err = false;
-
-                if (Math.Abs(double.Parse(txt_x1_s.Text) - double.Parse(y2_dv)) > .1)
+                catch
                 {
-                    pictureBox6.Show();
                 }
-                else
+                if (y1_set != "0")
+                    try
+                    {
+                        if (a > double.Parse(txt_x2_s.Text) - 1)
+                        {
+                            y2_set = "0";
+                            pictureBox6.BackgroundImage = Resources.Error;
+                            x1err = true;
+                            pictureBox6.Show();
+                            return;
+                        }
+                    }
+                    catch
+                    { return; }
+                if (y2_dv != null)
                 {
-                    pictureBox6.Hide();
+                    y2_set = Math.Abs((int)((-a - y2_offset) / y2_gain)).ToString();
+                    if (int.Parse(y2_set) > 65534 | int.Parse(y2_set) < 0)
+                        y2_set = "0";
                     pictureBox6.BackgroundImage = Resources.Request;
+                    x1err = false;
+
+                    if (Math.Abs(double.Parse(txt_x1_s.Text) - double.Parse(y2_dv)) > .1)
+                    {
+                        isX1Set = true;
+                        pictureBox6.Show();
+                    }
+                    else
+                    {
+                        isX1Set = false;
+                        pictureBox6.Hide();
+                        pictureBox6.BackgroundImage = Resources.Request;
+                    }
                 }
+                txt_x1_s.BackColor = Color.LightGreen;
+                txt_x2_s.Focus();
+            }
+            catch
+            {
+                y2_set = "0";
+                txt_x1_s.SelectAll();
+                pictureBox6.BackgroundImage = Resources.Error;
+                pictureBox6.Show();
+                return;
+            }
+        }
+
+        private void txt_x1_s_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                x1Act();
+            }
+        }
+
+        private void x1Set()
+        {
+            if (isX1Set)
+            {
+                try
+                {
+                    if (Math.Abs(double.Parse(txt_x1_s.Text) - double.Parse(y2_dv)) < .1)
+                    {
+                        pictureBox6.Hide();
+                        isX1Set = false;
+                    }
+                }
+                catch { }
+            }
+        }
+
+        private void x2Act()
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txt_x2_s.Text) || string.IsNullOrWhiteSpace(txt_x2_s.Text))
+                {
+                    XY_isTextChangedFromCode = true;
+                    txt_x_s.Clear();
+                    XY_isTextChangedFromCode = false;
+                    y1_set = "0";
+                    pictureBox5.Hide();
+                    pictureBox5.BackgroundImage = Resources.Request;
+                    x2err = false;
+                    return;
+                }
+                else if (!xy_isTextChangedFromCode)
+                {
+                    XY_isTextChangedFromCode = true;
+                    decimal x1, x2;
+                    bool isX1Valid = decimal.TryParse(txt_x1_s.Text, out x1);
+                    bool isX2Valid = decimal.TryParse(txt_x2_s.Text, out x2);
+                    if (isX1Valid && isX2Valid && (x2 + x1 == 0))
+                    {
+                        decimal x = x2 - x1;
+                        x = decimal.Round(x, 2);
+                        XY_isTextChangedFromCode = true;
+                        txt_x_s.Text = x.ToString();
+                        XY_isTextChangedFromCode = false;
+                        isXSymmetric = true;
+                    }
+                    else
+                    {
+                        isXSymmetric = false;
+                        XY_isTextChangedFromCode = false;
+                    }
+                }
+
+                double a = double.Parse(txt_x2_s.Text);
+
+                if (a < -12.5 || a > 20)
+                {
+                    y1_set = "0";
+                    pictureBox5.BackgroundImage = Resources.Error;
+                    x2err = true;
+                    pictureBox5.Show();
+                    return;
+                }
+                double y2double;
+                double.TryParse(y2_dv, out y2double);
+                if (a < y2double + 1)
+                {
+                    y1_set = "0";
+                    pictureBox6.BackgroundImage = Resources.Error;
+                    pictureBox6.Show();
+                    x1err = true;
+                    return;
+                }
+                if (y2_set != "0")
+                    try
+                    {
+                        if (a < double.Parse(txt_x1_s.Text) + 1)
+                        {
+                            y1_set = "0";
+                            pictureBox6.BackgroundImage = Resources.Error;
+                            x1err = true;
+                            pictureBox6.Show();
+                            return;
+                        }
+                    }
+                    catch
+                    { return; }
+                if (y1_dv != null)
+                {
+                    y1_set = Math.Abs((int)((a - y1_offset) / y1_gain)).ToString();
+                    if (int.Parse(y1_set) > 65534 | int.Parse(y2_set) < 0)
+                        y1_set = "0";
+                    pictureBox5.BackgroundImage = Resources.Request;
+                    x2err = false;
+
+                    if (Math.Abs(double.Parse(txt_x2_s.Text) - double.Parse(y1_dv)) > .1)
+                    {
+                        isX2Set = true;
+                        pictureBox5.Show();
+                    }
+                    else
+                    {
+                        pictureBox5.Hide();
+                        isX2Set = false;
+                        pictureBox5.BackgroundImage = Resources.Request;
+                    }
+                }
+                txt_x2_s.BackColor = Color.LightGreen;
+                txt_gant_s.Focus();
+            }
+            catch
+            {
+                y1_set = "0";
+                txt_x2_s.SelectAll();
+                pictureBox5.BackgroundImage = Resources.Error;
+                pictureBox5.Show();
+                return;
             }
         }
 
@@ -1178,126 +1282,23 @@ namespace Compact_Control
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                try
-                {
-                    if (!string.IsNullOrEmpty(txt_x2_s.Text) && !string.IsNullOrWhiteSpace(txt_x2_s.Text))
-                        decimal.Parse(txt_x2_s.Text);
-                }
-                catch
-                {
-                    txt_x2_s.SelectAll();
-                    pictureBox5.BackgroundImage = Resources.Error;
-                    pictureBox5.Show();
-                    return;
-                }
-                if (!string.IsNullOrWhiteSpace(txt_x2_s.Text))
-                {
-                    x2Set();
-                    txt_x2_s.BackColor = Color.LightGreen;
-
-                }
-                txt_gant_s.Focus();
+                x2Act();
             }
         }
 
         private void x2Set()
         {
-            isX2Set = true;
-            if (string.IsNullOrEmpty(txt_x2_s.Text) || string.IsNullOrWhiteSpace(txt_x2_s.Text))
+            if (isX2Set)
             {
-                XY_isTextChangedFromCode = true;
-                txt_x_s.Clear();
-                XY_isTextChangedFromCode = false;
-                y1_set = "0";
-                pictureBox5.Hide();
-                pictureBox5.BackgroundImage = Resources.Request;
-                x2err = false;
-                return;
-            }
-            else if (!xy_isTextChangedFromCode)
-            {
-                XY_isTextChangedFromCode = true;
-                decimal x1, x2;
-                bool isX1Valid = decimal.TryParse(txt_x1_s.Text, out x1);
-                bool isX2Valid = decimal.TryParse(txt_x2_s.Text, out x2);
-                if (isX1Valid && isX2Valid && (x2 + x1 == 0))
-                {
-                    decimal x = x2 - x1;
-                    x = decimal.Round(x, 2);
-                    XY_isTextChangedFromCode = true;
-                    txt_x_s.Text = x.ToString();
-                    XY_isTextChangedFromCode = false;
-                    isXSymmetric = true;
-                }
-                else
-                {
-                    isXSymmetric = false;
-                    XY_isTextChangedFromCode = false;
-                }
-            }
-
-            double a;
-            try
-            {
-                a = double.Parse(txt_x2_s.Text);
-            }
-            catch
-            {
-                y1_set = "0";
-                pictureBox5.BackgroundImage = Resources.Error;
-                x2err = true;
-                pictureBox5.Show();
-                return;
-            }
-            if (a < -12.5 || a > 20)
-            {
-                y1_set = "0";
-                pictureBox5.BackgroundImage = Resources.Error;
-                x2err = true;
-                pictureBox5.Show();
-                return;
-            }
-            double y2double;
-            double.TryParse(y2_dv, out y2double);
-            if (a < y2double + 1)
-            {
-                y1_set = "0";
-                pictureBox6.BackgroundImage = Resources.Error;
-                pictureBox6.Show();
-                x1err = true;
-                return;
-            }
-            if (y2_set != "0")
                 try
                 {
-                    if (a < double.Parse(txt_x1_s.Text) + 1)
+                    if (Math.Abs(double.Parse(txt_x2_s.Text) - double.Parse(y1_dv)) < .1)
                     {
-                        y1_set = "0";
-                        pictureBox6.BackgroundImage = Resources.Error;
-                        x1err = true;
-                        pictureBox6.Show();
-                        return;
+                        isX2Set = false;
+                        pictureBox5.Hide();
                     }
                 }
-            catch
-                { return; }
-            if (y1_dv != null)
-            {
-                y1_set = Math.Abs((int)((a - y1_offset) / y1_gain)).ToString();
-                if (int.Parse(y1_set) > 65534 | int.Parse(y2_set) < 0)
-                    y1_set = "0";
-                pictureBox5.BackgroundImage = Resources.Request;
-                x2err = false;
-
-                if (Math.Abs(double.Parse(txt_x2_s.Text) - double.Parse(y1_dv)) > .1)
-                {
-                    pictureBox5.Show();
-                }
-                else
-                {
-                    pictureBox5.Hide();
-                    pictureBox5.BackgroundImage = Resources.Request;
-                }
+                catch { }
             }
         }
 

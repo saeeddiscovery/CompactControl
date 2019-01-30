@@ -3330,7 +3330,7 @@
             // 
             // timer3
             // 
-            this.timer3.Interval = 20;
+            this.timer3.Interval = 5;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // timer4
