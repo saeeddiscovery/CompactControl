@@ -1827,23 +1827,22 @@ namespace Compact_Control
                             return;
                         }
                     }
+
+                    y1_set = ((int)((a - y1_offset) / y1_gain)).ToString();
+                    pictureBox5.BackgroundImage = requestImage;
+
+                    if (Math.Abs(double.Parse(tb_y1_set.Text) - double.Parse(y1_dv)) > .1)
+                    {
+                        isY1Set = true;
+                        pictureBox5.Show();
+                    }
                     else
                     {
-                        y1_set = ((int)((a - y1_offset) / y1_gain)).ToString();
+                        isY1Set = false;
+                        pictureBox5.Hide();
                         pictureBox5.BackgroundImage = requestImage;
-
-                        if (Math.Abs(double.Parse(tb_y1_set.Text) - double.Parse(y1_dv)) > .1)
-                        {
-                            isY1Set = true;
-                            pictureBox5.Show();
-                        }
-                        else
-                        {
-                            isY1Set = false;
-                            pictureBox5.Hide();
-                            pictureBox5.BackgroundImage = requestImage;
-                        }
                     }
+
 
                     tb_y1_set.BackColor = Color.LightGreen;
                     tb_y2_set.Focus();
@@ -1917,24 +1916,22 @@ namespace Compact_Control
                             return;
                         }
                     }
+
+                    y2_set = ((int)((a - y2_offset) / y2_gain)).ToString();
+                    pictureBox6.BackgroundImage = requestImage;
+
+                    if (Math.Abs(double.Parse(tb_y2_set.Text) - double.Parse(y2_dv)) > .1)
+                    {
+                        isY2Set = true;
+                        pictureBox6.Show();
+                    }
                     else
                     {
-                        y2_set = ((int)((a - y2_offset) / y2_gain)).ToString();
+                        isY2Set = false;
+                        pictureBox6.Hide();
                         pictureBox6.BackgroundImage = requestImage;
-
-                        if (Math.Abs(double.Parse(tb_y2_set.Text) - double.Parse(y2_dv)) > .1)
-                        {
-                            isY2Set = true;
-                            pictureBox6.Show();
-                        }
-                        else
-                        {
-                            isY2Set = false;
-                            pictureBox6.Hide();
-                            pictureBox6.BackgroundImage = requestImage;
-                        }
                     }
-                    
+
                     tb_y2_set.BackColor = Color.LightGreen;
                     tb_x1_set.Focus();
                 }
@@ -2009,22 +2006,20 @@ namespace Compact_Control
                             return;
                         }
                     }
+
+                    x1_set = ((int)((a - x1_offset) / x1_gain)).ToString();
+                    pictureBox3.BackgroundImage = requestImage;
+
+                    if (Math.Abs(double.Parse(tb_x1_set.Text) - double.Parse(x1_dv)) > .1)
+                    {
+                        isX1Set = true;
+                        pictureBox3.Show();
+                    }
                     else
                     {
-                        x1_set = ((int)((a - x1_offset) / x1_gain)).ToString();
+                        isX1Set = false;
+                        pictureBox3.Hide();
                         pictureBox3.BackgroundImage = requestImage;
-
-                        if (Math.Abs(double.Parse(tb_x1_set.Text) - double.Parse(x1_dv)) > .1)
-                        {
-                            isX1Set = true;
-                            pictureBox3.Show();
-                        }
-                        else
-                        {
-                            isX1Set = false;
-                            pictureBox3.Hide();
-                            pictureBox3.BackgroundImage = requestImage;
-                        }
                     }
 
                     tb_x1_set.BackColor = Color.LightGreen;
@@ -2101,22 +2096,20 @@ namespace Compact_Control
                             return;
                         }
                     }
+
+                    x2_set = ((int)((a - x2_offset) / x2_gain)).ToString();
+                    pictureBox4.BackgroundImage = requestImage;
+
+                    if (Math.Abs(double.Parse(tb_x2_set.Text) - double.Parse(x2_dv)) > .1)
+                    {
+                        isX2Set = true;
+                        pictureBox4.Show();
+                    }
                     else
                     {
-                        x2_set = ((int)((a - x2_offset) / x2_gain)).ToString();
+                        isX2Set = false;
+                        pictureBox4.Hide();
                         pictureBox4.BackgroundImage = requestImage;
-
-                        if (Math.Abs(double.Parse(tb_x2_set.Text) - double.Parse(x2_dv)) > .1)
-                        {
-                            isX2Set = true;
-                            pictureBox4.Show();
-                        }
-                        else
-                        {
-                            isX2Set = false;
-                            pictureBox4.Hide();
-                            pictureBox4.BackgroundImage = requestImage;
-                        }
                     }
 
                     tb_x2_set.BackColor = Color.LightGreen;
