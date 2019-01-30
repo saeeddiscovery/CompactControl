@@ -2191,7 +2191,8 @@ namespace Compact_Control
                     tb_x2_set.SelectAll();
                     return;
                 }
-                if (x1_dv != null && (-a > double.Parse(x1_dv) - 1))
+                //if (x1_dv != null && (-a > double.Parse(x1_dv) - 1))
+                if (-a > double.Parse(x1_dv) - 1)
                 {
                     x2_set = "0";
                     pictureBox6.BackgroundImage = Resources.Error;
@@ -2210,7 +2211,7 @@ namespace Compact_Control
                         return;
                     }
                 }
-                else if (x2_dv != null)
+                else //if (x2_dv != null)
                 {
                     x2_set = ((int)((a - x2_offset) / x2_gain)).ToString();
                     pictureBox4.BackgroundImage = requestImage;

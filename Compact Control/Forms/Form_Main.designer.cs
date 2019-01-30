@@ -3330,7 +3330,7 @@
             // 
             // timer3
             // 
-            this.timer3.Interval = 5;
+            this.timer3.Interval = 20;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // timer4
@@ -3661,7 +3661,6 @@
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.TextBox tb_terminal_in;
         private System.Windows.Forms.Button btn_clearTerminal_in;
-        private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Label lbl_in_cnt;
@@ -3687,6 +3686,7 @@
         private System.Windows.Forms.Label label70;
         private System.Windows.Forms.Label label_title;
         private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.Timer timer3;
     }
 }
 

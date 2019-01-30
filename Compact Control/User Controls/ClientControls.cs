@@ -28,15 +28,17 @@ namespace Compact_Control
         //}
         string gant_cofin;
         public static double gant_gain, gant_offset;
-        string gant_dv = "0";
+        string gant_dv;
         string gnd;
         public static string gant_zpnt, gant_length, gant_fine_length;
 
         string collim_cofin;
         public static double collim_gain, collim_offset;
-        string collim_dv = "0";
+        string collim_dv;
         string cld;
         public static string collim_zpnt, collim_length, collim_fine_length;
+
+        double gant_t2, gant_d2, collim_t2, collim_d2;
 
         public static string gant_tol0, gant_tol1, gant_tol2, gant_v1, gant_v2, gant_v3;
         public static string collim_tol0, collim_tol1, collim_tol2, collim_v1, collim_v2, collim_v3;
@@ -276,6 +278,7 @@ namespace Compact_Control
         }
         private void timer3_Tick(object sender, EventArgs e)
         {
+            
             bool noWrite = true;
             if (receiveQ.Count == 0)
                 return;
@@ -283,9 +286,10 @@ namespace Compact_Control
             //string[] lines = currData.Split('\n');
             tb_terminal_in.AppendText(currData + Environment.NewLine);
             string a = currData;
+            double c;
             //foreach (string a in lines)
             //{
-                try
+            try
                 {
                     switch (a.Substring(0, 3))
                     {
@@ -310,21 +314,37 @@ namespace Compact_Control
                         break;
                     case "gfn":
                         gant_cofin = a.Substring(3, a.Length - 3);
+                        c = Math.Round((gant_gain * double.Parse(gant_cofin) + gant_offset), 1, MidpointRounding.ToEven);
+                        if (c < 0)
+                        {
+                            c = c + 360;
+                        }
+                        gant_dv = c.ToString();
                         break;
                     case "cfn":
                         collim_cofin = a.Substring(3, a.Length - 3);
+                        c = Math.Round((collim_gain * double.Parse(collim_cofin) + collim_offset), 1, MidpointRounding.ToEven);
+                        if (c < 0)
+                        {
+                            c = c + 360;
+                        }
+                        collim_dv = c.ToString();
                         break;
                     case "wco":
                         x1_co = a.Substring(3, a.Length - 3);
+                        x1_dv = Math.Round(((x1_gain * double.Parse(x1_co)) + x1_offset), 1, MidpointRounding.ToEven).ToString();
                         break;
                     case "xco":
                         x2_co = a.Substring(3, a.Length - 3);
+                        x2_dv = Math.Round(-((x2_gain * double.Parse(x2_co)) + x2_offset), 1, MidpointRounding.ToEven).ToString();
                         break;
                     case "yco":
                         y1_co = a.Substring(3, a.Length - 3);
+                        y1_dv = Math.Round(((y1_gain * double.Parse(y1_co)) + y1_offset), 1, MidpointRounding.ToEven).ToString();
                         break;
                     case "zco":
                         y2_co = a.Substring(3, a.Length - 3);
+                        y2_dv = Math.Round(-((y2_gain * double.Parse(y2_co)) + y2_offset), 1, MidpointRounding.ToEven).ToString();
                         break;
                     case "gnd":
                         gnd = a.Substring(3, a.Length - 3);
@@ -439,41 +459,41 @@ namespace Compact_Control
                 //}
             }
 
-            double a;
-            try
-            {
-                if (gant_cofin != null)
-                {
-                    a = Math.Round((gant_gain * double.Parse(gant_cofin) + gant_offset), 1, MidpointRounding.ToEven);
-                    if (a < 0)
-                    {
-                        a = a + 360;
-                    }
-                    gant_dv = a.ToString();
-                }
+            //double a;
+            //try
+            //{
+            //    if (gant_cofin != null)
+            //    {
+            //        a = Math.Round((gant_gain * double.Parse(gant_cofin) + gant_offset), 1, MidpointRounding.ToEven);
+            //        if (a < 0)
+            //        {
+            //            a = a + 360;
+            //        }
+            //        gant_dv = a.ToString();
+            //    }
 
-                if (collim_cofin != null)
-                {
-                    a = Math.Round((collim_gain * double.Parse(collim_cofin) + collim_offset), 1, MidpointRounding.ToEven);
-                    if (a < 0)
-                    {
-                        a = a + 360;
-                    }
-                    collim_dv = a.ToString();
-                }
+            //    if (collim_cofin != null)
+            //    {
+            //        a = Math.Round((collim_gain * double.Parse(collim_cofin) + collim_offset), 1, MidpointRounding.ToEven);
+            //        if (a < 0)
+            //        {
+            //            a = a + 360;
+            //        }
+            //        collim_dv = a.ToString();
+            //    }
 
-                if (x1_co != null)
-                    x1_dv = Math.Round(((x1_gain * double.Parse(x1_co)) + x1_offset), 1, MidpointRounding.ToEven).ToString();
-                if (x2_co != null)
-                    x2_dv = Math.Round(-((x2_gain * double.Parse(x2_co)) + x2_offset), 1, MidpointRounding.ToEven).ToString();
-                if (y1_co != null)
-                    y1_dv = Math.Round(((y1_gain * double.Parse(y1_co)) + y1_offset), 1, MidpointRounding.ToEven).ToString();
-                if (y2_co != null)
-                    y2_dv = Math.Round(-((y2_gain * double.Parse(y2_co)) + y2_offset), 1, MidpointRounding.ToEven).ToString();                
-            }
-            catch
-            {
-            }
+            //    if (x1_co != null)
+            //        x1_dv = Math.Round(((x1_gain * double.Parse(x1_co)) + x1_offset), 1, MidpointRounding.ToEven).ToString();
+            //    if (x2_co != null)
+            //        x2_dv = Math.Round(-((x2_gain * double.Parse(x2_co)) + x2_offset), 1, MidpointRounding.ToEven).ToString();
+            //    if (y1_co != null)
+            //        y1_dv = Math.Round(((y1_gain * double.Parse(y1_co)) + y1_offset), 1, MidpointRounding.ToEven).ToString();
+            //    if (y2_co != null)
+            //        y2_dv = Math.Round(-((y2_gain * double.Parse(y2_co)) + y2_offset), 1, MidpointRounding.ToEven).ToString();                
+            //}
+            //catch
+            //{
+            //}
 
             txt_gant_a.Text = gant_dv;
             txt_coli_a.Text = collim_dv;
@@ -1285,89 +1305,77 @@ namespace Compact_Control
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                if (!string.IsNullOrWhiteSpace(txt_gant_s.Text))
+                if (string.IsNullOrEmpty(txt_gant_s.Text) || string.IsNullOrWhiteSpace(txt_gant_s.Text))
                 {
-                    try
-                    {
-                        double aa = double.Parse(txt_gant_s.Text);
-                        double gentValueActual = double.Parse(gant_dv);
-                        if (gentValueActual > 180 && aa == 180)
-                        {
-                            gant_isTextChangedFromCode = true;
-                            txt_gant_s.Text = "180.05";
-                            gant_isTextChangedFromCode = false;
-                        }
-                        gantSet();
-                        txt_gant_s.BackColor = Color.LightGreen;
+                    gant_set = "0";
+                    pictureBox1.Hide();
+                    pictureBox1.BackgroundImage = Resources.Request;
+                    return;
+                }
 
-                    }
-                    catch
+                double aa;
+                try
+                {
+                    aa = double.Parse(txt_gant_s.Text);
+                    if (aa < 0 || aa >= 360)
                     {
-                        txt_gant_s.SelectAll();
                         gant_set = "0";
                         pictureBox1.BackgroundImage = Resources.Error;
                         pictureBox1.Show();
                         return;
                     }
+                    double gentValueActual = double.Parse(gant_dv);
+                    if (gentValueActual > 180 && aa == 180)
+                    {
+                        gant_isTextChangedFromCode = true;
+                        txt_gant_s.Text = "180.05";
+                        gant_isTextChangedFromCode = false;
+                    }
+                    //if (gentValueActual > 180 && a == 180)
+                    //    a = 180.05;
+                    if (aa > 180)
+                        aa = aa - 360;
+                    gant_set = ((int)((aa - gant_offset) / gant_gain)).ToString();
+                    gant_t2 = double.Parse(txt_gant_s.Text);
+                    gant_d2 = double.Parse(gant_dv);
+                    if (gant_t2 > 180)
+                        gant_t2 = gant_t2 - 360;
+                    if (gant_d2 > 180)
+                        gant_d2 = gant_d2 - 360;
+                    if (Math.Abs(gant_t2 - gant_d2) > .4)
+                    {
+                        pictureBox1.BackgroundImage = Resources.Request;
+                        isGantSet = true;
+                        pictureBox1.Show();
+                    }
+                    else
+                    {
+                        pictureBox1.Hide();
+                        isGantSet = false;
+                        pictureBox1.BackgroundImage = Resources.Request;
+                    }
+                    txt_gant_s.BackColor = Color.LightGreen;
+                    txt_coli_s.Focus();
                 }
-
-                txt_coli_s.Focus();
+                catch
+                {
+                    txt_gant_s.SelectAll();
+                    gant_set = "0";
+                    pictureBox1.BackgroundImage = Resources.Error;
+                    pictureBox1.Show();
+                    return;
+                }
             }
         }
 
         private void gantSet()
         {
-            isGantSet = true;
-            if (txt_gant_s.Text == "")
+            if (isGantSet)
             {
-                gant_set = "0";
-                pictureBox1.Hide();
-                pictureBox1.BackgroundImage = Resources.Request;
-                return;
-            }
-
-            double a;
-            try
-            {
-                a = double.Parse(txt_gant_s.Text);
-            }
-            catch
-            {
-                gant_set = "0";
-                pictureBox1.BackgroundImage = Resources.Error;
-                pictureBox1.Show();
-                return;
-            }
-            if (a < 0 || a >= 360)
-            {
-                gant_set = "0";
-                pictureBox1.BackgroundImage = Resources.Error;
-                pictureBox1.Show();
-                return;
-            }
-            //if (gant_dv != null)
-            {
-                double gentValueActual = double.Parse(gant_dv);
-                //if (gentValueActual > 180 && a == 180)
-                //    a = 180.05;
-                if (a > 180)
-                    a = a - 360;
-                gant_set =((int)((a - gant_offset) / gant_gain)).ToString();
-                double gant_t2 = double.Parse(txt_gant_s.Text);
-                double gant_d2 = double.Parse(gant_dv);
-                if (gant_t2 > 180)
-                    gant_t2 = gant_t2 - 360;
-                if (gant_d2 > 180)
-                    gant_d2 = gant_d2 - 360;
-                if (Math.Abs(gant_t2 - gant_d2) > .4)
-                {
-                    pictureBox1.BackgroundImage = Resources.Request;
-                    pictureBox1.Show();
-                }
-                else
+                if (Math.Abs(gant_t2 - gant_d2) < .4)
                 {
                     pictureBox1.Hide();
-                    pictureBox1.BackgroundImage = Resources.Request;
+                    isGantSet = false;
                 }
             }
         }
@@ -1376,67 +1384,70 @@ namespace Compact_Control
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                if (!string.IsNullOrWhiteSpace(txt_coli_s.Text))
+                isColiSet = true;
+                if (string.IsNullOrEmpty(txt_coli_s.Text) || string.IsNullOrWhiteSpace(txt_coli_s.Text))
                 {
-                    coliSet();
-                    txt_coli_s.BackColor = Color.LightGreen;
-
+                    collim_set = "0";
+                    pictureBox2.Hide();
+                    pictureBox2.BackgroundImage = Resources.Request;
+                    return;
                 }
 
-                txt_y_s.Focus();
+                double a;
+                try
+                {
+                    a = double.Parse(txt_coli_s.Text);
+                    if (a < 0 || a >= 360)
+                    {
+                        collim_set = "0";
+                        pictureBox2.BackgroundImage = Resources.Error;
+                        pictureBox2.Show();
+                        return;
+                    }
+
+                    if (a > 180)
+                        a = a - 360;
+                    collim_set = ((int)((a - collim_offset) / collim_gain)).ToString();
+                    collim_t2 = double.Parse(txt_coli_s.Text);
+                    collim_d2 = double.Parse(collim_dv);
+                    if (collim_t2 > 180)
+                        collim_t2 = collim_t2 - 360;
+                    if (collim_d2 > 180)
+                        collim_d2 = collim_d2 - 360;
+                    if (Math.Abs(collim_t2 - collim_d2) > .4)
+                    {
+                        pictureBox2.BackgroundImage = Resources.Request;
+                        isColiSet = true;
+                        pictureBox2.Show();
+                    }
+                    else
+                    {
+                        pictureBox2.Hide();
+                        isColiSet = false;
+                        pictureBox2.BackgroundImage = Resources.Request;
+                    }
+                    txt_coli_s.BackColor = Color.LightGreen;
+                    txt_y_s.Focus();
+                }
+                catch
+                {
+                    collim_set = "0";
+                    pictureBox2.BackgroundImage = Resources.Error;
+                    pictureBox2.Show();
+                    return;
+                }
+                
             }
         }
 
         private void coliSet()
         {
-            isColiSet = true;
-            if (txt_coli_s.Text == "")
+            if (isColiSet)
             {
-                collim_set = "0";
-                pictureBox2.Hide();
-                pictureBox2.BackgroundImage = Resources.Request;
-                return;
-            }
-
-            double a;
-            try
-            {
-                a = double.Parse(txt_coli_s.Text);
-            }
-            catch
-            {
-                collim_set = "0";
-                pictureBox2.BackgroundImage = Resources.Error;
-                pictureBox2.Show();
-                return;
-            }
-            if (a < 0 || a >= 360)
-            {
-                collim_set = "0";
-                pictureBox2.BackgroundImage = Resources.Error;
-                pictureBox2.Show();
-                return;
-            }
-            if (collim_dv != null)
-            {
-                if (a > 180)
-                    a = a - 360;
-                collim_set = ((int)((a - collim_offset) / collim_gain)).ToString();
-                double collim_t2 = double.Parse(txt_coli_s.Text);
-                double collim_d2 = double.Parse(collim_dv);
-                if (collim_t2 > 180)
-                    collim_t2 = collim_t2 - 360;
-                if (collim_d2 > 180)
-                    collim_d2 = collim_d2 - 360;
-                if (Math.Abs(collim_t2 - collim_d2) > .4)
-                {
-                    pictureBox2.BackgroundImage = Resources.Request;
-                    pictureBox2.Show();
-                }
-                else
+                if (Math.Abs(collim_t2 - collim_d2) < .4)
                 {
                     pictureBox2.Hide();
-                    pictureBox2.BackgroundImage = Resources.Request;
+                    isColiSet = false;
                 }
             }
         } 
