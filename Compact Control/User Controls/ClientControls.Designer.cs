@@ -85,6 +85,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tb_terminal_oth = new System.Windows.Forms.TextBox();
             this.btn_clearTerminal_oth = new System.Windows.Forms.Button();
+            this.gb_terminals = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -95,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.groupBox3.SuspendLayout();
+            this.gb_terminals.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox6
@@ -245,7 +247,7 @@
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(715, 43);
+            this.label37.Location = new System.Drawing.Point(634, 16);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(56, 20);
             this.label37.TabIndex = 66;
@@ -255,7 +257,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(630, 43);
+            this.label36.Location = new System.Drawing.Point(549, 16);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(34, 20);
             this.label36.TabIndex = 65;
@@ -440,7 +442,7 @@
             this.groupBox2.Controls.Add(this.label32);
             this.groupBox2.Controls.Add(this.txt_y2_a);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(380, 157);
+            this.groupBox2.Location = new System.Drawing.Point(299, 130);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(429, 286);
             this.groupBox2.TabIndex = 106;
@@ -556,7 +558,7 @@
             this.groupBox3.Controls.Add(this.label31);
             this.groupBox3.Controls.Add(this.label30);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(380, 60);
+            this.groupBox3.Location = new System.Drawing.Point(299, 33);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(429, 91);
             this.groupBox3.TabIndex = 107;
@@ -571,7 +573,7 @@
             // btn_clearTerminal_in
             // 
             this.btn_clearTerminal_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_clearTerminal_in.Location = new System.Drawing.Point(977, 380);
+            this.btn_clearTerminal_in.Location = new System.Drawing.Point(149, 359);
             this.btn_clearTerminal_in.Name = "btn_clearTerminal_in";
             this.btn_clearTerminal_in.Size = new System.Drawing.Size(109, 30);
             this.btn_clearTerminal_in.TabIndex = 113;
@@ -583,7 +585,7 @@
             // 
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label51.Location = new System.Drawing.Point(852, 224);
+            this.label51.Location = new System.Drawing.Point(24, 203);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(103, 18);
             this.label51.TabIndex = 112;
@@ -594,7 +596,7 @@
             this.tb_terminal_in.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.tb_terminal_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.tb_terminal_in.ForeColor = System.Drawing.Color.Cyan;
-            this.tb_terminal_in.Location = new System.Drawing.Point(852, 245);
+            this.tb_terminal_in.Location = new System.Drawing.Point(24, 224);
             this.tb_terminal_in.Multiline = true;
             this.tb_terminal_in.Name = "tb_terminal_in";
             this.tb_terminal_in.ReadOnly = true;
@@ -605,7 +607,7 @@
             // btn_clearTerminal
             // 
             this.btn_clearTerminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_clearTerminal.Location = new System.Drawing.Point(978, 202);
+            this.btn_clearTerminal.Location = new System.Drawing.Point(150, 171);
             this.btn_clearTerminal.Name = "btn_clearTerminal";
             this.btn_clearTerminal.Size = new System.Drawing.Size(109, 30);
             this.btn_clearTerminal.TabIndex = 110;
@@ -617,7 +619,7 @@
             // 
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label48.Location = new System.Drawing.Point(852, 46);
+            this.label48.Location = new System.Drawing.Point(24, 12);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(114, 18);
             this.label48.TabIndex = 109;
@@ -628,7 +630,7 @@
             this.tb_terminal_out.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.tb_terminal_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.tb_terminal_out.ForeColor = System.Drawing.Color.Cyan;
-            this.tb_terminal_out.Location = new System.Drawing.Point(852, 67);
+            this.tb_terminal_out.Location = new System.Drawing.Point(24, 36);
             this.tb_terminal_out.Multiline = true;
             this.tb_terminal_out.Name = "tb_terminal_out";
             this.tb_terminal_out.ReadOnly = true;
@@ -640,7 +642,7 @@
             // 
             this.lbl_out_cnt.AutoSize = true;
             this.lbl_out_cnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_out_cnt.Location = new System.Drawing.Point(1127, 180);
+            this.lbl_out_cnt.Location = new System.Drawing.Point(219, 11);
             this.lbl_out_cnt.Name = "lbl_out_cnt";
             this.lbl_out_cnt.Size = new System.Drawing.Size(18, 20);
             this.lbl_out_cnt.TabIndex = 114;
@@ -650,7 +652,7 @@
             // 
             this.lbl_in_cnt.AutoSize = true;
             this.lbl_in_cnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_in_cnt.Location = new System.Drawing.Point(1127, 358);
+            this.lbl_in_cnt.Location = new System.Drawing.Point(219, 202);
             this.lbl_in_cnt.Name = "lbl_in_cnt";
             this.lbl_in_cnt.Size = new System.Drawing.Size(18, 20);
             this.lbl_in_cnt.TabIndex = 115;
@@ -660,7 +662,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1092, 179);
+            this.label1.Location = new System.Drawing.Point(184, 10);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(37, 20);
             this.label1.TabIndex = 116;
@@ -670,7 +672,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1092, 357);
+            this.label2.Location = new System.Drawing.Point(186, 201);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 20);
             this.label2.TabIndex = 117;
@@ -680,7 +682,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label3.Location = new System.Drawing.Point(852, 410);
+            this.label3.Location = new System.Drawing.Point(21, 395);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(129, 18);
             this.label3.TabIndex = 119;
@@ -691,7 +693,7 @@
             this.tb_terminal_oth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.tb_terminal_oth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.tb_terminal_oth.ForeColor = System.Drawing.Color.Cyan;
-            this.tb_terminal_oth.Location = new System.Drawing.Point(852, 431);
+            this.tb_terminal_oth.Location = new System.Drawing.Point(21, 416);
             this.tb_terminal_oth.Multiline = true;
             this.tb_terminal_oth.Name = "tb_terminal_oth";
             this.tb_terminal_oth.ReadOnly = true;
@@ -702,7 +704,7 @@
             // btn_clearTerminal_oth
             // 
             this.btn_clearTerminal_oth.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_clearTerminal_oth.Location = new System.Drawing.Point(977, 492);
+            this.btn_clearTerminal_oth.Location = new System.Drawing.Point(146, 477);
             this.btn_clearTerminal_oth.Name = "btn_clearTerminal_oth";
             this.btn_clearTerminal_oth.Size = new System.Drawing.Size(109, 30);
             this.btn_clearTerminal_oth.TabIndex = 120;
@@ -710,29 +712,41 @@
             this.btn_clearTerminal_oth.UseVisualStyleBackColor = true;
             this.btn_clearTerminal_oth.Click += new System.EventHandler(this.btn_clearTerminal_oth_Click);
             // 
+            // gb_terminals
+            // 
+            this.gb_terminals.Controls.Add(this.btn_clearTerminal_oth);
+            this.gb_terminals.Controls.Add(this.label3);
+            this.gb_terminals.Controls.Add(this.tb_terminal_oth);
+            this.gb_terminals.Controls.Add(this.label2);
+            this.gb_terminals.Controls.Add(this.label1);
+            this.gb_terminals.Controls.Add(this.lbl_in_cnt);
+            this.gb_terminals.Controls.Add(this.lbl_out_cnt);
+            this.gb_terminals.Controls.Add(this.btn_clearTerminal_in);
+            this.gb_terminals.Controls.Add(this.label51);
+            this.gb_terminals.Controls.Add(this.tb_terminal_in);
+            this.gb_terminals.Controls.Add(this.btn_clearTerminal);
+            this.gb_terminals.Controls.Add(this.label48);
+            this.gb_terminals.Controls.Add(this.tb_terminal_out);
+            this.gb_terminals.Dock = System.Windows.Forms.DockStyle.Right;
+            this.gb_terminals.Location = new System.Drawing.Point(904, 0);
+            this.gb_terminals.Name = "gb_terminals";
+            this.gb_terminals.Size = new System.Drawing.Size(284, 525);
+            this.gb_terminals.TabIndex = 121;
+            this.gb_terminals.TabStop = false;
+            this.gb_terminals.Visible = false;
+            // 
             // ClientControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btn_clearTerminal_oth);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.tb_terminal_oth);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lbl_in_cnt);
-            this.Controls.Add(this.lbl_out_cnt);
-            this.Controls.Add(this.btn_clearTerminal_in);
-            this.Controls.Add(this.label51);
-            this.Controls.Add(this.tb_terminal_in);
-            this.Controls.Add(this.btn_clearTerminal);
-            this.Controls.Add(this.label48);
-            this.Controls.Add(this.tb_terminal_out);
+            this.Controls.Add(this.gb_terminals);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label37);
             this.Controls.Add(this.label36);
             this.Name = "ClientControls";
             this.Size = new System.Drawing.Size(1188, 525);
+            this.VisibleChanged += new System.EventHandler(this.ClientControls_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -745,6 +759,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.gb_terminals.ResumeLayout(false);
+            this.gb_terminals.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -807,5 +823,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tb_terminal_oth;
         private System.Windows.Forms.Button btn_clearTerminal_oth;
+        private System.Windows.Forms.GroupBox gb_terminals;
     }
 }

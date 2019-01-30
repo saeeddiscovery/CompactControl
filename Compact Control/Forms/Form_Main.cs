@@ -179,13 +179,14 @@ namespace Compact_Control
                             clientFrm.serialPort1.BaudRate = int.Parse(pSettings.Baudrate);
                             ClientControls.curr_baudrate = int.Parse(pSettings.Baudrate);
                             ClientControls.curr_port = pSettings.Port;
+                            ClientControls.showTerminals = pSettings.clinicalTerminals;
                             curr_baudRate = pSettings.Baudrate;
                             portName = pSettings.Port;
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Error reading Baudrate from file!" + Environment.NewLine + ex.ToString());
+                        MessageBox.Show("Error reading settings from file!" + Environment.NewLine + ex.ToString());
                     }
                     //if (int.TryParse(HashPass.ReadBaudRateFromReg(), out BaudRate) == true && BaudRate != 0)
                     //    GlobalSerialPort.BaudRate = BaudRate;
@@ -1389,19 +1390,19 @@ namespace Compact_Control
                         break;
                     case "wco":
                         x1_co = a.Substring(3, a.Length - 3);
-                        x1_dv = Math.Round(((x1_gain * double.Parse(x1_co)) + x1_offset), 1, MidpointRounding.ToEven).ToString();
+                        x1_dv = Math.Round(((x1_gain * double.Parse(x1_co)) + x1_offset), 2, MidpointRounding.ToEven).ToString();
                         break;
                     case "xco":
                         x2_co = a.Substring(3, a.Length - 3);
-                        x2_dv = Math.Round(((x2_gain * double.Parse(x2_co)) + x2_offset), 1, MidpointRounding.ToEven).ToString();
+                        x2_dv = Math.Round(((x2_gain * double.Parse(x2_co)) + x2_offset), 2, MidpointRounding.ToEven).ToString();
                         break;
                     case "yco":
                         y1_co = a.Substring(3, a.Length - 3);
-                        y1_dv = Math.Round(((y1_gain * double.Parse(y1_co)) + y1_offset), 1, MidpointRounding.ToEven).ToString();
+                        y1_dv = Math.Round(((y1_gain * double.Parse(y1_co)) + y1_offset), 2, MidpointRounding.ToEven).ToString();
                         break;
                     case "zco":
                         y2_co = a.Substring(3, a.Length - 3);
-                        y2_dv = Math.Round(((y2_gain * double.Parse(y2_co)) + y2_offset), 1, MidpointRounding.ToEven).ToString();
+                        y2_dv = Math.Round(((y2_gain * double.Parse(y2_co)) + y2_offset), 2, MidpointRounding.ToEven).ToString();
                         break;
                     case "lok":
                         tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();

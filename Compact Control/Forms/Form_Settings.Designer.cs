@@ -60,6 +60,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.checkBox_clinicalTerminals = new System.Windows.Forms.CheckBox();
             this.groupBox_UserManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_PassConfirm)).BeginInit();
             this.panel1.SuspendLayout();
@@ -238,6 +239,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.checkBox_clinicalTerminals);
             this.tabPage1.Controls.Add(this.checkBox_startup);
             this.tabPage1.Controls.Add(this.groupBox_portSetting);
             this.tabPage1.Controls.Add(this.button3);
@@ -321,9 +323,9 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.lbl_name);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(10, 105);
+            this.groupBox1.Location = new System.Drawing.Point(10, 113);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(229, 100);
+            this.groupBox1.Size = new System.Drawing.Size(229, 92);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "License";
@@ -392,6 +394,17 @@
             // 
             this.openFileDialog1.Filter = "Compact Control License File (*.lic) | *.lic";
             // 
+            // checkBox_clinicalTerminals
+            // 
+            this.checkBox_clinicalTerminals.AutoSize = true;
+            this.checkBox_clinicalTerminals.Location = new System.Drawing.Point(26, 94);
+            this.checkBox_clinicalTerminals.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBox_clinicalTerminals.Name = "checkBox_clinicalTerminals";
+            this.checkBox_clinicalTerminals.Size = new System.Drawing.Size(127, 17);
+            this.checkBox_clinicalTerminals.TabIndex = 27;
+            this.checkBox_clinicalTerminals.Text = "Show clinical terminal";
+            this.checkBox_clinicalTerminals.UseVisualStyleBackColor = true;
+            // 
             // Form_Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -455,5 +468,6 @@
         private System.Windows.Forms.ComboBox comboBox_Baudrate;
         public System.Windows.Forms.GroupBox groupBox_portSetting;
         public System.Windows.Forms.CheckBox checkBox_startup;
+        public System.Windows.Forms.CheckBox checkBox_clinicalTerminals;
     }
 }

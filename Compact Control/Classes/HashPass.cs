@@ -456,6 +456,7 @@ namespace Compact_Control
         {
             public string Port { get; set; }
             public string Baudrate { get; set; }
+            public string clinicalTerminals { get; set; }
         }
 
         public static CalibData readCalibJson(string fileName)
@@ -566,7 +567,7 @@ namespace Compact_Control
             }
         }
 
-        public static void writeSettingsJson(string fileName, string port, string baudrate)
+        public static void writeSettingsJson(string fileName, string port, string baudrate, string clinicalTerminals)
         {
             StreamWriter sw = new StreamWriter(fileName);
 
@@ -579,9 +580,12 @@ namespace Compact_Control
                 writer.WriteValue(port);
                 writer.WritePropertyName("Baudrate");
                 writer.WriteValue(baudrate);
+                writer.WritePropertyName("clinicalTerminals");
+                writer.WriteValue(clinicalTerminals);
                 writer.WriteEndObject();
             }
         }
+
 
         public static string licenseName;
         public static string licenseType;

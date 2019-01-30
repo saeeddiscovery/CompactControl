@@ -80,11 +80,15 @@ namespace Compact_Control
 
             string filename = "portSettings.json";
             string baudrate = comboBox_Baudrate.Text;
+            string clinicalTerminals = "0";
+            if (checkBox_clinicalTerminals.Checked)
+                clinicalTerminals = "1";
             if (File.Exists(filename))
                 File.Delete(filename);
-            HashPass.writeSettingsJson(filename, portName, baudrate);
+            HashPass.writeSettingsJson(filename, portName, baudrate, clinicalTerminals);
             Form1.curr_baudRate = comboBox_Baudrate.Text;
             ClientControls.curr_baudrate = int.Parse(comboBox_Baudrate.Text);
+            ClientControls.showTerminals = clinicalTerminals;
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Close();
         }
@@ -216,6 +220,10 @@ namespace Compact_Control
                 HashPass.PortSettings pSettings = HashPass.readSettingsJson(filename);
                 comboBox_Ports.Text = pSettings.Port;
                 comboBox_Baudrate.Text = pSettings.Baudrate;
+                if (pSettings.clinicalTerminals == "1")
+                    checkBox_clinicalTerminals.Checked = true;
+                else
+                    checkBox_clinicalTerminals.Checked = false;
             }
 
         }

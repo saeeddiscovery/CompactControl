@@ -77,7 +77,8 @@ namespace Compact_Control
 
         string adc;
 
-        public static int curr_baudrate = 57600;
+        public static string showTerminals;
+        public static int curr_baudrate;
         public static string curr_port;
 
         public ClientControls()
@@ -269,6 +270,19 @@ namespace Compact_Control
         }
 
         public double ourSum = 0;
+
+        private void ClientControls_VisibleChanged(object sender, EventArgs e)
+        {
+            if (showTerminals == "1")
+            {
+                gb_terminals.Show();
+            }
+            else
+            {
+                gb_terminals.Hide();
+            }
+        }
+
         private bool checkSum(double microSum, double ourSum)
         {
             bool equal = false;
