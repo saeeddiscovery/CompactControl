@@ -1490,15 +1490,15 @@ namespace Compact_Control
                         adc = a.Substring(3, a.Length - 3);
                         if (int.Parse(gant_set) != int.Parse(gnd))
                             write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
-                        else if (int.Parse(collim_set) != int.Parse(cld))
+                        if (int.Parse(collim_set) != int.Parse(cld))
                             write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
-                        else if (int.Parse(x1_set) != int.Parse(x1d))
+                        if (int.Parse(x1_set) != int.Parse(x1d))
                             write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
-                        else if (int.Parse(x2_set) != int.Parse(x2d))
+                        if (int.Parse(x2_set) != int.Parse(x2d))
                             write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
-                        else if (int.Parse(y1_set) != int.Parse(y1d))
+                        if (int.Parse(y1_set) != int.Parse(y1d))
                             write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
-                        else if (int.Parse(y2_set) != int.Parse(y2d))
+                        if (int.Parse(y2_set) != int.Parse(y2d))
                             write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
                         break;
                     default:
@@ -1750,10 +1750,12 @@ namespace Compact_Control
 
                     if (Math.Abs(double.Parse(tb_coli_set.Text) - double.Parse(collim_dv)) > .1)
                     {
+                        isColiSet = true;
                         pictureBox2.Show();
                     }
                     else
                     {
+                        isColiSet = false;
                         pictureBox2.Hide();
                         pictureBox2.BackgroundImage = requestImage;
                     }
@@ -1778,8 +1780,8 @@ namespace Compact_Control
                 {
                     if (Math.Abs(double.Parse(tb_coli_set.Text) - double.Parse(collim_dv)) <= .1)
                     {
-                        isColiSet = false;
                         pictureBox2.Hide();
+                        isColiSet = false;
                     }
                 }
                 catch { }
