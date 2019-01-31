@@ -537,37 +537,6 @@ namespace Compact_Control
             }
 
 
-            if (initState == 0)
-            {
-                lbl_init.Visible = true;
-                lbl_init.Text = "Initializing";
-                lbl_init.ForeColor = Color.Orange;
-                isLblInitHid = false;
-                
-            }
-            else if (initState == 1)
-            {
-                if (isLblInitHid == false)
-                {
-                    lbl_init.Visible = true;
-                    lbl_init.Text = "Initialized";
-                    lbl_init.ForeColor = Color.Green;
-                    timer4.Start();
-                    isLblInitHid = true;
-                }
-            }
-            else if (initState == 2)
-            {
-                lbl_init.Visible = true;
-                lbl_init.Text = "Initialization Failed";
-                lbl_init.ForeColor = Color.Red;
-            }
-            else if (initState == -1)
-            {
-                lbl_init.Visible = false;
-                initState = -2;
-            }
-
         }
 
         private void button16_Click(object sender, EventArgs e)
@@ -1644,6 +1613,11 @@ namespace Compact_Control
                 initState = -1;
                 SetConnection(false);
             }
+            if (btn_saveParameters.Enabled == false)
+            {
+                initState = -1;
+                btn_saveParameters.Enabled = true;
+            }
         }
 
         bool isGantSet = false;
@@ -2201,6 +2175,39 @@ namespace Compact_Control
                 x2_set = "0";
                 pictureBox4.Hide();
                 return;
+            }
+        }
+
+        private void timer5_Tick(object sender, EventArgs e)
+        {
+            if (initState == 0)
+            {
+                lbl_init.Visible = true;
+                lbl_init.Text = "Initializing";
+                lbl_init.ForeColor = Color.Orange;
+                isLblInitHid = false;
+            }
+            else if (initState == 1)
+            {
+                if (isLblInitHid == false)
+                {
+                    lbl_init.Visible = true;
+                    lbl_init.Text = "Initialized";
+                    lbl_init.ForeColor = Color.Green;
+                    timer4.Start();
+                    isLblInitHid = true;
+                }
+            }
+            else if (initState == 2)
+            {
+                lbl_init.Visible = true;
+                lbl_init.Text = "Initialization Failed";
+                lbl_init.ForeColor = Color.Red;
+            }
+            else if (initState == -1)
+            {
+                lbl_init.Visible = false;
+                initState = -2;
             }
         }
 

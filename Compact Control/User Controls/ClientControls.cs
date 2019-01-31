@@ -157,29 +157,29 @@ namespace Compact_Control
                 }
                     
                 //serialPort1.Open();
-                string gant_tol0_t = Math.Round(Math.Abs((double.Parse(gant_tol0) - gant_offset) / gant_gain)).ToString();
-                string gant_tol1_t = Math.Round(Math.Abs((double.Parse(gant_tol1) - gant_offset) / gant_gain)).ToString();
-                string gant_tol2_t = Math.Round(Math.Abs((double.Parse(gant_tol2) - gant_offset) / gant_gain)).ToString();
+                string gant_tol0_t = Math.Round(Math.Abs(double.Parse(gant_tol0) / gant_gain)).ToString();
+                string gant_tol1_t = Math.Round(Math.Abs(double.Parse(gant_tol1) / gant_gain)).ToString();
+                string gant_tol2_t = Math.Round(Math.Abs(double.Parse(gant_tol2) / gant_gain)).ToString();
 
-                string collim_tol0_t = Math.Round(Math.Abs((double.Parse(collim_tol0) - collim_offset) / collim_gain)).ToString();
-                string collim_tol1_t = Math.Round(Math.Abs((double.Parse(collim_tol1) - collim_offset) / collim_gain)).ToString();
-                string collim_tol2_t = Math.Round(Math.Abs((double.Parse(collim_tol2) - collim_offset) / collim_gain)).ToString();
+                string collim_tol0_t = Math.Round(Math.Abs(double.Parse(collim_tol0) / collim_gain)).ToString();
+                string collim_tol1_t = Math.Round(Math.Abs(double.Parse(collim_tol1) / collim_gain)).ToString();
+                string collim_tol2_t = Math.Round(Math.Abs(double.Parse(collim_tol2) / collim_gain)).ToString();
 
-                string x1_tol0_t = Math.Round(Math.Abs((double.Parse(x1_tol0) - x1_offset) / x1_gain)).ToString();
-                string x1_tol1_t = Math.Round(Math.Abs((double.Parse(x1_tol1) - x1_offset) / x1_gain)).ToString();
-                string x1_tol2_t = Math.Round(Math.Abs((double.Parse(x1_tol2) - x1_offset) / x1_gain)).ToString();
+                string x1_tol0_t = Math.Round(Math.Abs(double.Parse(x1_tol0) / x1_gain)).ToString();
+                string x1_tol1_t = Math.Round(Math.Abs(double.Parse(x1_tol1) / x1_gain)).ToString();
+                string x1_tol2_t = Math.Round(Math.Abs(double.Parse(x1_tol2) / x1_gain)).ToString();
 
-                string x2_tol0_t = Math.Round(Math.Abs((double.Parse(x2_tol0) - x2_offset) / x2_gain)).ToString();
-                string x2_tol1_t = Math.Round(Math.Abs((double.Parse(x2_tol1) - x2_offset) / x2_gain)).ToString();
-                string x2_tol2_t = Math.Round(Math.Abs((double.Parse(x2_tol2) - x2_offset) / x2_gain)).ToString();
+                string x2_tol0_t = Math.Round(Math.Abs(double.Parse(x2_tol0) / x2_gain)).ToString();
+                string x2_tol1_t = Math.Round(Math.Abs(double.Parse(x2_tol1) / x2_gain)).ToString();
+                string x2_tol2_t = Math.Round(Math.Abs(double.Parse(x2_tol2) / x2_gain)).ToString();
 
-                string y1_tol0_t = Math.Round(Math.Abs((double.Parse(y1_tol0) - y1_offset) / y1_gain)).ToString();
-                string y1_tol1_t = Math.Round(Math.Abs((double.Parse(y1_tol1) - y1_offset) / y1_gain)).ToString();
-                string y1_tol2_t = Math.Round(Math.Abs((double.Parse(y1_tol2) - y1_offset) / y1_gain)).ToString();
+                string y1_tol0_t = Math.Round(Math.Abs(double.Parse(y1_tol0) / y1_gain)).ToString();
+                string y1_tol1_t = Math.Round(Math.Abs(double.Parse(y1_tol1) / y1_gain)).ToString();
+                string y1_tol2_t = Math.Round(Math.Abs(double.Parse(y1_tol2) / y1_gain)).ToString();
 
-                string y2_tol0_t = Math.Round(Math.Abs((double.Parse(y2_tol0) - y2_offset) / y2_gain)).ToString();
-                string y2_tol1_t = Math.Round(Math.Abs((double.Parse(y2_tol1) - y2_offset) / y2_gain)).ToString();
-                string y2_tol2_t = Math.Round(Math.Abs((double.Parse(y2_tol2) - y2_offset) / y2_gain)).ToString();
+                string y2_tol0_t = Math.Round(Math.Abs(double.Parse(y2_tol0) / y2_gain)).ToString();
+                string y2_tol1_t = Math.Round(Math.Abs(double.Parse(y2_tol1) / y2_gain)).ToString();
+                string y2_tol2_t = Math.Round(Math.Abs(double.Parse(y2_tol2) / y2_gain)).ToString();
 
                 ourSum = double.Parse(gant_tol0_t) + double.Parse(gant_tol1_t) + double.Parse(gant_tol2_t) +
                          double.Parse(collim_tol0_t) + double.Parse(collim_tol1_t) + double.Parse(collim_tol2_t) +
