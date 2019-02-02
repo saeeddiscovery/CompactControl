@@ -598,7 +598,7 @@ namespace Compact_Control
                 xy_isTextChangedFromCode = true;
                 txt_y_s.Clear();
                 xy_isTextChangedFromCode = false;
-                //pictureBox3.Hide();
+                pictureBox3.Hide();
                 //pictureBox14.Hide();
                 x1_set = "0";
             }
@@ -616,7 +616,7 @@ namespace Compact_Control
                     xy_isTextChangedFromCode = true;
                     txt_y_s.Clear();
                     xy_isTextChangedFromCode = false;
-                    //pictureBox4.Hide();
+                    pictureBox4.Hide();
                     //pictureBox14.Hide();
                     x2_set = "0";
                 }
@@ -636,6 +636,7 @@ namespace Compact_Control
                 //pictureBox5.Hide();
                 //pictureBox15.Hide();
                 y1_set = "0";
+                pictureBox5.Hide();
             }
         }
 
@@ -649,7 +650,7 @@ namespace Compact_Control
                 xy_isTextChangedFromCode = true;
                 txt_x_s.Clear();
                 xy_isTextChangedFromCode = false;
-                //pictureBox6.Hide();
+                pictureBox6.Hide();
                 //pictureBox15.Hide();
                 y2_set = "0";
             }
@@ -909,8 +910,8 @@ namespace Compact_Control
                 if (a > double.Parse(x1_dv) - 1)
                 {
                     x2_set = "0";
-                    pictureBox3.BackgroundImage = Resources.Error;
-                    pictureBox3.Show();
+                    pictureBox4.BackgroundImage = Resources.Error;
+                    pictureBox4.Show();
                     isY1Set = false;
                     y1err = true;
                     return;
@@ -1208,9 +1209,9 @@ namespace Compact_Control
                     if (a > double.Parse(y1_dv) - 1)
                     {
                         y2_set = "0";
-                        pictureBox5.BackgroundImage = Resources.Error;
+                        pictureBox6.BackgroundImage = Resources.Error;
                         isX1Set = false;
-                        pictureBox5.Show();
+                        pictureBox6.Show();
                         x1err = true;
                         return;
                     }
@@ -1362,8 +1363,8 @@ namespace Compact_Control
                 if (a < y2double + 1)
                 {
                     y1_set = "0";
-                    pictureBox6.BackgroundImage = Resources.Error;
-                    pictureBox6.Show();
+                    pictureBox5.BackgroundImage = Resources.Error;
+                    pictureBox5.Show();
                     isX2Set = false;
                     x2err = true;
                     return;
