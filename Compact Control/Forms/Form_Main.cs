@@ -1636,6 +1636,8 @@ namespace Compact_Control
                     gant_set = "0";
                     pictureBox1.Hide();
                     pictureBox1.BackgroundImage = Resources.Request;
+                    tb_coli_set.Focus();
+                    isGantSet = false;
                     return;
                 }
 
@@ -1648,6 +1650,7 @@ namespace Compact_Control
                         gant_set = "0";
                         pictureBox1.BackgroundImage = Resources.Error;
                         pictureBox1.Show();
+                        isGantSet = false;
                         return;
                     }
                     double gentValueActual = double.Parse(gant_dv);
@@ -1674,6 +1677,7 @@ namespace Compact_Control
                     gant_set = "0";
                     pictureBox1.BackgroundImage = Resources.Error;
                     pictureBox1.Show();
+                    isGantSet = false;
                     return;
                 }
             }
@@ -1704,6 +1708,8 @@ namespace Compact_Control
                     collim_set = "0";
                     pictureBox2.Hide();
                     pictureBox2.BackgroundImage = Resources.Request;
+                    tb_y1_set.Focus();
+                    isColiSet = false;
                     return;
                 }
 
@@ -1716,6 +1722,7 @@ namespace Compact_Control
                         collim_set = "0";
                         pictureBox2.BackgroundImage = Resources.Error;
                         pictureBox2.Show();
+                        isColiSet = false;
                         return;
                     }
 
@@ -1741,6 +1748,7 @@ namespace Compact_Control
                     collim_set = "0";
                     pictureBox2.BackgroundImage = Resources.Error;
                     pictureBox2.Show();
+                    isColiSet = false;
                     return;
                 }
             }
@@ -1772,6 +1780,8 @@ namespace Compact_Control
                     {
                         y1_set = "0";
                         pictureBox5.Hide();
+                        tb_y2_set.Focus();
+                        isY1Set = false;
                         return;
                     }
 
@@ -1783,6 +1793,7 @@ namespace Compact_Control
                         pictureBox5.BackgroundImage = errorImage;
                         pictureBox5.Show();
                         tb_y1_set.SelectAll();
+                        isY1Set = false;
                         return;
                     }
                     else if (-a > double.Parse(y2_dv) - 1)
@@ -1791,6 +1802,7 @@ namespace Compact_Control
                         pictureBox5.BackgroundImage = Resources.Error;
                         pictureBox5.Show();
                         tb_y1_set.SelectAll();
+                        isY1Set = false;
                         return;
                     }
                     else if (y2_set != "0")
@@ -1801,6 +1813,7 @@ namespace Compact_Control
                             pictureBox5.BackgroundImage = Resources.Error;
                             pictureBox5.Show();
                             tb_y1_set.SelectAll();
+                            isY1Set = false;
                             return;
                         }
                     }
@@ -1829,6 +1842,7 @@ namespace Compact_Control
                     y1_set = "0";
                     pictureBox5.BackgroundImage = Resources.Error;
                     pictureBox5.Show();
+                    isY1Set = false;
                     return;
                 }
             }
@@ -1859,7 +1873,8 @@ namespace Compact_Control
                     {
                         y2_set = "0";
                         pictureBox3.Hide();
-                        pictureBox3.BackgroundImage = Resources.Request;
+                        tb_x1_set.Focus();
+                        isY2Set = false;
                         return;
                     }
 
@@ -1871,6 +1886,7 @@ namespace Compact_Control
                         pictureBox6.BackgroundImage = errorImage;
                         pictureBox6.Show();
                         tb_y2_set.SelectAll();
+                        isY2Set = false;
                         return;
                     }
                     else if (-a > double.Parse(y1_dv) - 1)
@@ -1879,6 +1895,7 @@ namespace Compact_Control
                         pictureBox6.BackgroundImage = Resources.Error;
                         pictureBox6.Show();
                         tb_y2_set.SelectAll();
+                        isY2Set = false;
                         return;
                     }
                     else if (y1_set != "0")
@@ -1889,6 +1906,7 @@ namespace Compact_Control
                             pictureBox6.BackgroundImage = Resources.Error;
                             pictureBox6.Show();
                             tb_y2_set.SelectAll();
+                            isY2Set = false;
                             return;
                         }
                     }
@@ -1917,6 +1935,7 @@ namespace Compact_Control
                     tb_y2_set.SelectAll();
                     pictureBox6.BackgroundImage = Resources.Error;
                     pictureBox6.Show();
+                    isY2Set = false;
                     return;
                 }
             }
@@ -1949,7 +1968,8 @@ namespace Compact_Control
                     {
                         x1_set = "0";
                         pictureBox6.Hide();
-                        pictureBox6.BackgroundImage = Resources.Request;
+                        tb_x2_set.Focus();
+                        isX1Set = false;
                         return;
                     }
 
@@ -1961,6 +1981,7 @@ namespace Compact_Control
                         pictureBox3.BackgroundImage = errorImage;
                         pictureBox3.Show();
                         tb_x1_set.SelectAll();
+                        isX1Set = false;
                         return;
                     }
                     else if (-a > double.Parse(x2_dv) - 1)
@@ -1969,6 +1990,7 @@ namespace Compact_Control
                         pictureBox3.BackgroundImage = Resources.Error;
                         pictureBox3.Show();
                         tb_x1_set.SelectAll();
+                        isX1Set = false;
                         return;
                     }
                     else if (x2_set != "0")
@@ -1979,6 +2001,7 @@ namespace Compact_Control
                             pictureBox3.BackgroundImage = Resources.Error;
                             pictureBox3.Show();
                             tb_x1_set.SelectAll();
+                            isX1Set = false;
                             return;
                         }
                     }
@@ -2007,6 +2030,7 @@ namespace Compact_Control
                     tb_x1_set.SelectAll();
                     pictureBox3.BackgroundImage = Resources.Error;
                     pictureBox3.Show();
+                    isX1Set = false;
                     return;
                 }
             }
@@ -2038,7 +2062,8 @@ namespace Compact_Control
                     {
                         x2_set = "0";
                         pictureBox5.Hide();
-                        pictureBox5.BackgroundImage = Resources.Request;
+                        tb_gant_set.Focus();
+                        isX2Set = false;
                         return;
                     }
 
@@ -2050,6 +2075,7 @@ namespace Compact_Control
                         pictureBox4.BackgroundImage = errorImage;
                         pictureBox4.Show();
                         tb_x2_set.SelectAll();
+                        isX2Set = false;
                         return;
                     }
                     //if (x1_dv != null && (-a > double.Parse(x1_dv) - 1))
@@ -2059,6 +2085,7 @@ namespace Compact_Control
                         pictureBox4.BackgroundImage = Resources.Error;
                         pictureBox4.Show();
                         tb_x2_set.SelectAll();
+                        isX2Set = false;
                         return;
                     }
                     else if (x1_set != "0")
@@ -2069,6 +2096,7 @@ namespace Compact_Control
                             pictureBox4.BackgroundImage = Resources.Error;
                             pictureBox4.Show();
                             tb_x2_set.SelectAll();
+                            isX2Set = false;
                             return;
                         }
                     }
@@ -2097,6 +2125,7 @@ namespace Compact_Control
                     tb_x2_set.SelectAll();
                     pictureBox4.BackgroundImage = Resources.Error;
                     pictureBox4.Show();
+                    isX2Set = false;
                     return;
                 }
             }
