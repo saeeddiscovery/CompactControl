@@ -108,8 +108,6 @@
             this.pictureBox6.TabIndex = 78;
             this.pictureBox6.TabStop = false;
             this.pictureBox6.Visible = false;
-            this.pictureBox6.BackgroundImageChanged += new System.EventHandler(this.x12ErrorSign_VisibleChanged);
-            this.pictureBox6.VisibleChanged += new System.EventHandler(this.x12ErrorSign_VisibleChanged);
             // 
             // pictureBox5
             // 
@@ -120,8 +118,6 @@
             this.pictureBox5.TabIndex = 77;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Visible = false;
-            this.pictureBox5.BackgroundImageChanged += new System.EventHandler(this.x12ErrorSign_VisibleChanged);
-            this.pictureBox5.VisibleChanged += new System.EventHandler(this.x12ErrorSign_VisibleChanged);
             // 
             // pictureBox4
             // 
@@ -132,8 +128,6 @@
             this.pictureBox4.TabIndex = 76;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Visible = false;
-            this.pictureBox4.BackgroundImageChanged += new System.EventHandler(this.y12ErrorSign_VisibleChanged);
-            this.pictureBox4.VisibleChanged += new System.EventHandler(this.y12ErrorSign_VisibleChanged);
             // 
             // pictureBox3
             // 
@@ -144,8 +138,6 @@
             this.pictureBox3.TabIndex = 75;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Visible = false;
-            this.pictureBox3.BackgroundImageChanged += new System.EventHandler(this.y12ErrorSign_VisibleChanged);
-            this.pictureBox3.VisibleChanged += new System.EventHandler(this.y12ErrorSign_VisibleChanged);
             // 
             // pictureBox2
             // 
