@@ -595,9 +595,9 @@ namespace Compact_Control
                 isY2Set = false;
                 txt_y2_s.BackColor = Color.White;
                 txt_y_s.BackColor = Color.White;
-                xy_isTextChangedFromCode = true;
+                XY_isTextChangedFromCode = true;
                 txt_y_s.Clear();
-                xy_isTextChangedFromCode = false;
+                XY_isTextChangedFromCode = false;
                 pictureBox3.Hide();
                 //pictureBox14.Hide();
                 x1_set = "0";
@@ -613,9 +613,9 @@ namespace Compact_Control
                     isY1Set = false;
                     txt_y1_s.BackColor = Color.White;
                     txt_y_s.BackColor = Color.White;
-                    xy_isTextChangedFromCode = true;
+                    XY_isTextChangedFromCode = true;
                     txt_y_s.Clear();
-                    xy_isTextChangedFromCode = false;
+                    XY_isTextChangedFromCode = false;
                     pictureBox4.Hide();
                     //pictureBox14.Hide();
                     x2_set = "0";
@@ -630,9 +630,9 @@ namespace Compact_Control
                 isX2Set = false;
                 txt_x2_s.BackColor = Color.White;
                 txt_x_s.BackColor = Color.White;
-                xy_isTextChangedFromCode = true;
+                XY_isTextChangedFromCode = true;
                 txt_x_s.Clear();
-                xy_isTextChangedFromCode = false;
+                XY_isTextChangedFromCode = false;
                 //pictureBox5.Hide();
                 //pictureBox15.Hide();
                 y1_set = "0";
@@ -647,9 +647,9 @@ namespace Compact_Control
                 isX1Set = false;
                 txt_x1_s.BackColor = Color.White;
                 txt_x_s.BackColor = Color.White;
-                xy_isTextChangedFromCode = true;
+                XY_isTextChangedFromCode = true;
                 txt_x_s.Clear();
-                xy_isTextChangedFromCode = false;
+                XY_isTextChangedFromCode = false;
                 pictureBox6.Hide();
                 //pictureBox15.Hide();
                 y2_set = "0";
@@ -670,6 +670,7 @@ namespace Compact_Control
 
         private void txt_y_s_TextChanged(object sender, EventArgs e)
         {
+
             if (!XY_isTextChangedFromCode)
             {
                 //if (string.IsNullOrEmpty(txt_y_s.Text) || string.IsNullOrWhiteSpace(txt_y_s.Text))
