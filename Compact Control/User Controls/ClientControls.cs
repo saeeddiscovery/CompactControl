@@ -664,10 +664,7 @@ namespace Compact_Control
                         isY1Set = false;
                         pictureBox4.Show();
                         y1err = true;
-                        lbl_risk.Show();
                     }
-                    else
-                        lbl_risk.Hide();
                 }
                 catch { }
             }
@@ -699,10 +696,7 @@ namespace Compact_Control
                             isY2Set = false;
                             pictureBox3.Show();
                             y2err = true;
-                            lbl_risk.Show();
                         }
-                        else
-                            lbl_risk.Hide();
                     }
                     catch { }
                 }
@@ -734,10 +728,7 @@ namespace Compact_Control
                         isX2Set = false;
                         pictureBox6.Show();
                         x2err = true;
-                        lbl_risk.Show();
                     }
-                    else
-                        lbl_risk.Hide();
                 }
                 catch { }
             }
@@ -768,10 +759,7 @@ namespace Compact_Control
                         isX1Set = false;
                         pictureBox5.Show();
                         x1err = true;
-                        lbl_risk.Show();
                     }
-                    else
-                        lbl_risk.Hide();
                 }
                 catch { }
             }
