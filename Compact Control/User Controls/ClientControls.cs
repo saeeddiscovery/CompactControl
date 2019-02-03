@@ -656,21 +656,18 @@ namespace Compact_Control
 
                 try
                 {
-                    if (string.IsNullOrEmpty(txt_y2_s.Text))
+                    double a = double.Parse(txt_y1_s.Text);
+                    if (Math.Abs(a - double.Parse(x1_dv)) < 1)
                     {
-                        double a = double.Parse(txt_y1_s.Text);
-                        if (Math.Abs(a - double.Parse(x1_dv)) < 1)
-                        {
-                            x2_set = "0";
-                            pictureBox4.BackgroundImage = Resources.Error;
-                            isY1Set = false;
-                            pictureBox4.Show();
-                            y1err = true;
-                            lbl_risk.Show();
-                        }
-                        else
-                            lbl_risk.Hide();
+                        x2_set = "0";
+                        pictureBox4.BackgroundImage = Resources.Error;
+                        isY1Set = false;
+                        pictureBox4.Show();
+                        y1err = true;
+                        lbl_risk.Show();
                     }
+                    else
+                        lbl_risk.Hide();
                 }
                 catch { }
             }
@@ -694,21 +691,18 @@ namespace Compact_Control
 
                     try
                     {
-                        if (string.IsNullOrEmpty(txt_y1_s.Text))
+                        double a = double.Parse(txt_y2_s.Text);
+                        if (Math.Abs(a - double.Parse(x2_dv)) < 1)
                         {
-                            double a = double.Parse(txt_y2_s.Text);
-                            if (Math.Abs(a - double.Parse(x2_dv)) < 1)
-                            {
-                                x1_set = "0";
-                                pictureBox3.BackgroundImage = Resources.Error;
-                                isY2Set = false;
-                                pictureBox3.Show();
-                                y2err = true;
-                                lbl_risk.Show();
-                            }
-                            else
-                                lbl_risk.Hide();
+                            x1_set = "0";
+                            pictureBox3.BackgroundImage = Resources.Error;
+                            isY2Set = false;
+                            pictureBox3.Show();
+                            y2err = true;
+                            lbl_risk.Show();
                         }
+                        else
+                            lbl_risk.Hide();
                     }
                     catch { }
                 }
@@ -732,21 +726,18 @@ namespace Compact_Control
 
                 try
                 {
-                    if (string.IsNullOrEmpty(txt_x2_s.Text))
+                    double a = double.Parse(txt_x1_s.Text);
+                    if (Math.Abs(a - double.Parse(y1_dv)) < 1)
                     {
-                        double a = double.Parse(txt_x1_s.Text);
-                        if (Math.Abs(a - double.Parse(y1_dv)) < 1)
-                        {
-                            y2_set = "0";
-                            pictureBox6.BackgroundImage = Resources.Error;
-                            isX2Set = false;
-                            pictureBox6.Show();
-                            x2err = true;
-                            lbl_risk.Show();
-                        }
-                        else
-                            lbl_risk.Hide();
+                        y2_set = "0";
+                        pictureBox6.BackgroundImage = Resources.Error;
+                        isX2Set = false;
+                        pictureBox6.Show();
+                        x2err = true;
+                        lbl_risk.Show();
                     }
+                    else
+                        lbl_risk.Hide();
                 }
                 catch { }
             }
@@ -769,21 +760,18 @@ namespace Compact_Control
 
                 try
                 {
-                    if (string.IsNullOrEmpty(txt_x1_s.Text))
+                    double a = double.Parse(txt_x2_s.Text);
+                    if (Math.Abs(a - double.Parse(y2_dv)) < 1)
                     {
-                        double a = double.Parse(txt_x2_s.Text);
-                        if (Math.Abs(a - double.Parse(y2_dv)) < 1)
-                        {
-                            y1_set = "0";
-                            pictureBox5.BackgroundImage = Resources.Error;
-                            isX1Set = false;
-                            pictureBox5.Show();
-                            x1err = true;
-                            lbl_risk.Show();
-                        }
-                        else
-                            lbl_risk.Hide();
+                        y1_set = "0";
+                        pictureBox5.BackgroundImage = Resources.Error;
+                        isX1Set = false;
+                        pictureBox5.Show();
+                        x1err = true;
+                        lbl_risk.Show();
                     }
+                    else
+                        lbl_risk.Hide();
                 }
                 catch { }
             }
