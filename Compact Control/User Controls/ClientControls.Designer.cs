@@ -86,6 +86,7 @@
             this.tb_terminal_oth = new System.Windows.Forms.TextBox();
             this.btn_clearTerminal_oth = new System.Windows.Forms.Button();
             this.gb_terminals = new System.Windows.Forms.GroupBox();
+            this.lbl_risk = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -727,10 +728,23 @@
             this.gb_terminals.TabStop = false;
             this.gb_terminals.Visible = false;
             // 
+            // lbl_risk
+            // 
+            this.lbl_risk.AutoSize = true;
+            this.lbl_risk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl_risk.ForeColor = System.Drawing.Color.Red;
+            this.lbl_risk.Location = new System.Drawing.Point(307, 419);
+            this.lbl_risk.Name = "lbl_risk";
+            this.lbl_risk.Size = new System.Drawing.Size(211, 22);
+            this.lbl_risk.TabIndex = 88;
+            this.lbl_risk.Text = "Warning! Risk of collision";
+            this.lbl_risk.Visible = false;
+            // 
             // ClientControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lbl_risk);
             this.Controls.Add(this.gb_terminals);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -816,5 +830,6 @@
         private System.Windows.Forms.TextBox tb_terminal_oth;
         private System.Windows.Forms.Button btn_clearTerminal_oth;
         private System.Windows.Forms.GroupBox gb_terminals;
+        private System.Windows.Forms.Label lbl_risk;
     }
 }
