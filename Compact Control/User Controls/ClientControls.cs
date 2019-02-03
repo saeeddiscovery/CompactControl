@@ -652,21 +652,6 @@ namespace Compact_Control
                 pictureBox3.Hide();
                 //pictureBox14.Hide();
                 x1_set = "0";
-
-
-                try
-                {
-                    double a = double.Parse(txt_y1_s.Text);
-                    if (Math.Abs(a - double.Parse(x1_dv)) < 1)
-                    {
-                        x2_set = "0";
-                        pictureBox4.BackgroundImage = Resources.Error;
-                        isY1Set = false;
-                        pictureBox4.Show();
-                        y1err = true;
-                    }
-                }
-                catch { }
             }
         }
 
@@ -674,32 +659,15 @@ namespace Compact_Control
         {
             if (!xy_isTextChangedFromCode)
             {
-                //if (string.IsNullOrEmpty(txt_y1_s.Text) || string.IsNullOrWhiteSpace(txt_y1_s.Text))
-                {
-                    isY1Set = false;
-                    txt_y1_s.BackColor = Color.White;
-                    txt_y_s.BackColor = Color.White;
-                    XY_isTextChangedFromCode = true;
-                    txt_y_s.Clear();
-                    XY_isTextChangedFromCode = false;
-                    pictureBox4.Hide();
-                    //pictureBox14.Hide();
-                    x2_set = "0";
-
-                    try
-                    {
-                        double a = double.Parse(txt_y2_s.Text);
-                        if (Math.Abs(a - double.Parse(x2_dv)) < 1)
-                        {
-                            x1_set = "0";
-                            pictureBox3.BackgroundImage = Resources.Error;
-                            isY2Set = false;
-                            pictureBox3.Show();
-                            y2err = true;
-                        }
-                    }
-                    catch { }
-                }
+                isY1Set = false;
+                txt_y1_s.BackColor = Color.White;
+                txt_y_s.BackColor = Color.White;
+                XY_isTextChangedFromCode = true;
+                txt_y_s.Clear();
+                XY_isTextChangedFromCode = false;
+                pictureBox4.Hide();
+                //pictureBox14.Hide();
+                x2_set = "0";
             }
         }
 
@@ -717,20 +685,6 @@ namespace Compact_Control
                 //pictureBox15.Hide();
                 y1_set = "0";
                 pictureBox5.Hide();
-
-                try
-                {
-                    double a = double.Parse(txt_x1_s.Text);
-                    if (Math.Abs(a - double.Parse(y1_dv)) < 1)
-                    {
-                        y2_set = "0";
-                        pictureBox6.BackgroundImage = Resources.Error;
-                        isX2Set = false;
-                        pictureBox6.Show();
-                        x2err = true;
-                    }
-                }
-                catch { }
             }
         }
 
@@ -747,21 +701,6 @@ namespace Compact_Control
                 pictureBox6.Hide();
                 //pictureBox15.Hide();
                 y2_set = "0";
-
-
-                try
-                {
-                    double a = double.Parse(txt_x2_s.Text);
-                    if (Math.Abs(a - double.Parse(y2_dv)) < 1)
-                    {
-                        y1_set = "0";
-                        pictureBox5.BackgroundImage = Resources.Error;
-                        isX1Set = false;
-                        pictureBox5.Show();
-                        x1err = true;
-                    }
-                }
-                catch { }
             }
         }
 
