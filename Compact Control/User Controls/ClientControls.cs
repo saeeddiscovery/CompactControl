@@ -269,6 +269,20 @@ namespace Compact_Control
             tb_terminal_oth.Clear();
         }
 
+        bool inputADC = false;
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (inputADC == false)
+            {
+                pb_receiveStatus.BackgroundImage = Resources.led_red;
+            }
+            else
+            {
+                pb_receiveStatus.BackgroundImage = Resources.led_green;
+            }
+            inputADC = false;
+        }
+
         public double ourSum = 0;
 
         private void ClientControls_VisibleChanged(object sender, EventArgs e)
@@ -379,6 +393,7 @@ namespace Compact_Control
                         y2d = a.Substring(3, a.Length - 3);
                         break;
                     case "adc":
+                        inputADC = true;
                         int i = int.Parse(lbl_in_cnt.Text);
                         i = i + 1;
                         lbl_in_cnt.Text = i.ToString();
@@ -508,6 +523,7 @@ namespace Compact_Control
             //catch
             //{
             //}
+
 
             txt_gant_a.Text = gant_dv;
             txt_coli_a.Text = collim_dv;

@@ -1453,6 +1453,7 @@ namespace Compact_Control
                         y2d = a.Substring(3, a.Length - 3);
                         break;
                     case "adc":
+                        inputADC = true;
                         int i = int.Parse(lbl_in_cnt.Text);
                         i = i + 1;
                         lbl_in_cnt.Text = i.ToString();
@@ -2743,6 +2744,7 @@ namespace Compact_Control
             }
         }
 
+        bool inputADC = false;
         private void timer2_Tick_1(object sender, EventArgs e)
         {
             DateTime now = DateTime.Now;
@@ -2757,6 +2759,16 @@ namespace Compact_Control
             label_time.Text = time;
             label_date.Text = miladiDate;
             label_shamsiDate.Text = shamsiDate;
+
+            if (inputADC == false)
+            {
+                pb_receiveStatus.BackgroundImage = Resources.led_red;
+            }
+            else
+            {
+                pb_receiveStatus.BackgroundImage = Resources.led_green;
+            }
+            inputADC = false;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
