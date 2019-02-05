@@ -90,6 +90,12 @@
             this.label72 = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.pb_receiveStatus = new System.Windows.Forms.PictureBox();
+            this.pb_gant_status = new System.Windows.Forms.PictureBox();
+            this.pb_coli_status = new System.Windows.Forms.PictureBox();
+            this.pb_y1_status = new System.Windows.Forms.PictureBox();
+            this.pb_y2_status = new System.Windows.Forms.PictureBox();
+            this.pb_x1_status = new System.Windows.Forms.PictureBox();
+            this.pb_x2_status = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
@@ -102,6 +108,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gb_terminals.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_receiveStatus)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_gant_status)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_coli_status)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_y1_status)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_y2_status)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_x1_status)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_x2_status)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_x1_s
@@ -355,6 +367,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.pb_x2_status);
+            this.groupBox2.Controls.Add(this.pb_x1_status);
+            this.groupBox2.Controls.Add(this.pb_y2_status);
+            this.groupBox2.Controls.Add(this.pb_y1_status);
             this.groupBox2.Controls.Add(this.Reading_Error);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
@@ -383,7 +399,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(299, 130);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(429, 283);
+            this.groupBox2.Size = new System.Drawing.Size(454, 283);
             this.groupBox2.TabIndex = 106;
             this.groupBox2.TabStop = false;
             // 
@@ -392,7 +408,7 @@
             this.Reading_Error.AutoSize = true;
             this.Reading_Error.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Reading_Error.ForeColor = System.Drawing.Color.Red;
-            this.Reading_Error.Location = new System.Drawing.Point(6, 255);
+            this.Reading_Error.Location = new System.Drawing.Point(6, 251);
             this.Reading_Error.Name = "Reading_Error";
             this.Reading_Error.Size = new System.Drawing.Size(16, 22);
             this.Reading_Error.TabIndex = 87;
@@ -528,6 +544,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.pb_coli_status);
+            this.groupBox3.Controls.Add(this.pb_gant_status);
             this.groupBox3.Controls.Add(this.pictureBox2);
             this.groupBox3.Controls.Add(this.pictureBox1);
             this.groupBox3.Controls.Add(this.txt_coli_s);
@@ -539,7 +557,7 @@
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(299, 33);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(429, 91);
+            this.groupBox3.Size = new System.Drawing.Size(454, 91);
             this.groupBox3.TabIndex = 107;
             this.groupBox3.TabStop = false;
             // 
@@ -737,7 +755,7 @@
             this.lbl_risk.AutoSize = true;
             this.lbl_risk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.lbl_risk.ForeColor = System.Drawing.Color.Red;
-            this.lbl_risk.Location = new System.Drawing.Point(307, 412);
+            this.lbl_risk.Location = new System.Drawing.Point(306, 414);
             this.lbl_risk.Name = "lbl_risk";
             this.lbl_risk.Size = new System.Drawing.Size(211, 22);
             this.lbl_risk.TabIndex = 88;
@@ -751,13 +769,13 @@
             this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label72.ForeColor = System.Drawing.Color.Black;
             this.label72.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label72.Location = new System.Drawing.Point(634, 411);
+            this.label72.Location = new System.Drawing.Point(601, 410);
             this.label72.Margin = new System.Windows.Forms.Padding(0);
             this.label72.Name = "label72";
             this.label72.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.label72.Size = new System.Drawing.Size(48, 22);
+            this.label72.Size = new System.Drawing.Size(113, 22);
             this.label72.TabIndex = 128;
-            this.label72.Text = "Input:";
+            this.label72.Text = "Communication:";
             // 
             // timer2
             // 
@@ -769,12 +787,78 @@
             // 
             this.pb_receiveStatus.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
             this.pb_receiveStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_receiveStatus.Location = new System.Drawing.Point(679, 413);
+            this.pb_receiveStatus.Location = new System.Drawing.Point(711, 413);
             this.pb_receiveStatus.Name = "pb_receiveStatus";
             this.pb_receiveStatus.Size = new System.Drawing.Size(25, 25);
             this.pb_receiveStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_receiveStatus.TabIndex = 127;
             this.pb_receiveStatus.TabStop = false;
+            // 
+            // pb_gant_status
+            // 
+            this.pb_gant_status.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
+            this.pb_gant_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_gant_status.Location = new System.Drawing.Point(412, 23);
+            this.pb_gant_status.Name = "pb_gant_status";
+            this.pb_gant_status.Size = new System.Drawing.Size(25, 25);
+            this.pb_gant_status.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_gant_status.TabIndex = 128;
+            this.pb_gant_status.TabStop = false;
+            // 
+            // pb_coli_status
+            // 
+            this.pb_coli_status.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
+            this.pb_coli_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_coli_status.Location = new System.Drawing.Point(412, 58);
+            this.pb_coli_status.Name = "pb_coli_status";
+            this.pb_coli_status.Size = new System.Drawing.Size(25, 25);
+            this.pb_coli_status.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_coli_status.TabIndex = 129;
+            this.pb_coli_status.TabStop = false;
+            // 
+            // pb_y1_status
+            // 
+            this.pb_y1_status.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
+            this.pb_y1_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_y1_status.Location = new System.Drawing.Point(412, 102);
+            this.pb_y1_status.Name = "pb_y1_status";
+            this.pb_y1_status.Size = new System.Drawing.Size(25, 25);
+            this.pb_y1_status.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_y1_status.TabIndex = 130;
+            this.pb_y1_status.TabStop = false;
+            // 
+            // pb_y2_status
+            // 
+            this.pb_y2_status.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
+            this.pb_y2_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_y2_status.Location = new System.Drawing.Point(412, 141);
+            this.pb_y2_status.Name = "pb_y2_status";
+            this.pb_y2_status.Size = new System.Drawing.Size(25, 25);
+            this.pb_y2_status.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_y2_status.TabIndex = 131;
+            this.pb_y2_status.TabStop = false;
+            // 
+            // pb_x1_status
+            // 
+            this.pb_x1_status.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
+            this.pb_x1_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_x1_status.Location = new System.Drawing.Point(412, 182);
+            this.pb_x1_status.Name = "pb_x1_status";
+            this.pb_x1_status.Size = new System.Drawing.Size(25, 25);
+            this.pb_x1_status.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_x1_status.TabIndex = 132;
+            this.pb_x1_status.TabStop = false;
+            // 
+            // pb_x2_status
+            // 
+            this.pb_x2_status.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
+            this.pb_x2_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_x2_status.Location = new System.Drawing.Point(412, 221);
+            this.pb_x2_status.Name = "pb_x2_status";
+            this.pb_x2_status.Size = new System.Drawing.Size(25, 25);
+            this.pb_x2_status.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_x2_status.TabIndex = 133;
+            this.pb_x2_status.TabStop = false;
             // 
             // ClientControls
             // 
@@ -806,6 +890,12 @@
             this.gb_terminals.ResumeLayout(false);
             this.gb_terminals.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_receiveStatus)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_gant_status)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_coli_status)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_y1_status)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_y2_status)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_x1_status)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_x2_status)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -873,5 +963,11 @@
         private System.Windows.Forms.PictureBox pb_receiveStatus;
         private System.Windows.Forms.Label label72;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.PictureBox pb_x2_status;
+        private System.Windows.Forms.PictureBox pb_x1_status;
+        private System.Windows.Forms.PictureBox pb_y2_status;
+        private System.Windows.Forms.PictureBox pb_y1_status;
+        private System.Windows.Forms.PictureBox pb_coli_status;
+        private System.Windows.Forms.PictureBox pb_gant_status;
     }
 }

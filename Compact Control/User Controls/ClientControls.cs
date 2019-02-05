@@ -282,6 +282,15 @@ namespace Compact_Control
             //    pb_receiveStatus.BackgroundImage = Resources.led_green;
             //}
             inputADC = false;
+            if (!serialPort1.IsOpen)
+            {
+                pb_gant_status.BackgroundImage = Resources.led_red;
+                pb_coli_status.BackgroundImage = Resources.led_red;
+                pb_x1_status.BackgroundImage = Resources.led_red;
+                pb_x2_status.BackgroundImage = Resources.led_red;
+                pb_y1_status.BackgroundImage = Resources.led_red;
+                pb_y2_status.BackgroundImage = Resources.led_red;
+            }
         }
 
         public double ourSum = 0;
@@ -423,32 +432,50 @@ namespace Compact_Control
                         {
                             write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
                             noWrite = false;
+                            pb_gant_status.BackgroundImage = Resources.led_red;
                         }
+                        else
+                            pb_gant_status.BackgroundImage = Resources.led_green;
                         if (int.Parse(collim_set) != int.Parse(cld))
                         { 
                             write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
                             noWrite = false;
+                            pb_coli_status.BackgroundImage = Resources.led_red;
                         }
+                        else
+                            pb_coli_status.BackgroundImage = Resources.led_green;
                         if (int.Parse(x1_set) != int.Parse(x1d))
                         { 
                             write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
                             noWrite = false;
+                            pb_y2_status.BackgroundImage = Resources.led_red;
                         }
+                        else
+                            pb_y2_status.BackgroundImage = Resources.led_green;
                         if (int.Parse(x2_set) != int.Parse(x2d))
                         { 
                             write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
                             noWrite = false;
+                            pb_y1_status.BackgroundImage = Resources.led_red;
                         }
+                        else
+                            pb_y1_status.BackgroundImage = Resources.led_green;
                         if (int.Parse(y1_set) != int.Parse(y1d))
                         { 
                             write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
                             noWrite = false;
+                            pb_x2_status.BackgroundImage = Resources.led_red;
                         }
+                        else
+                            pb_x2_status.BackgroundImage = Resources.led_green;
                         if (int.Parse(y2_set) != int.Parse(y2d))
                         { 
                             write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
                             noWrite = false;
+                            pb_x1_status.BackgroundImage = Resources.led_red;
                         }
+                        else
+                            pb_x1_status.BackgroundImage = Resources.led_green;
                         if (noWrite == false && showTerminals == "1")
                         {
                             int o = int.Parse(lbl_out_cnt.Text);
