@@ -165,17 +165,25 @@
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.btn_clearTerminal_oth = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.pb_receiveStatus = new System.Windows.Forms.PictureBox();
+            this.label72 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.textBox33 = new System.Windows.Forms.TextBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.tb_x1_set = new System.Windows.Forms.TextBox();
             this.textBox34 = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label30 = new System.Windows.Forms.Label();
             this.textBox35 = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.tb_x2_set = new System.Windows.Forms.TextBox();
             this.textBox36 = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label33 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox31 = new System.Windows.Forms.TextBox();
             this.textBox32 = new System.Windows.Forms.TextBox();
             this.tb_coli_set = new System.Windows.Forms.TextBox();
@@ -251,9 +259,16 @@
             this.panel_AdminControls = new System.Windows.Forms.Panel();
             this.panel_Toolbar = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.picBtn_Exit = new System.Windows.Forms.PictureBox();
+            this.picBtn_LogOff = new System.Windows.Forms.PictureBox();
+            this.picBtn_Setting = new System.Windows.Forms.PictureBox();
             this.splitter2 = new System.Windows.Forms.Splitter();
+            this.picBtn_Restart = new System.Windows.Forms.PictureBox();
             this.splitter3 = new System.Windows.Forms.Splitter();
+            this.picBtn_Shutdown = new System.Windows.Forms.PictureBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.picBtn_Connect = new System.Windows.Forms.PictureBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_init = new System.Windows.Forms.Label();
             this.label_shamsiDate = new System.Windows.Forms.Label();
@@ -265,6 +280,7 @@
             this.label_title = new System.Windows.Forms.Label();
             this.label70 = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
+            this.picBtn_Close = new System.Windows.Forms.PictureBox();
             this.picBtnToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.label39 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -273,22 +289,6 @@
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
-            this.label72 = new System.Windows.Forms.Label();
-            this.pb_receiveStatus = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.picBtn_Exit = new System.Windows.Forms.PictureBox();
-            this.picBtn_LogOff = new System.Windows.Forms.PictureBox();
-            this.picBtn_Setting = new System.Windows.Forms.PictureBox();
-            this.picBtn_Restart = new System.Windows.Forms.PictureBox();
-            this.picBtn_Shutdown = new System.Windows.Forms.PictureBox();
-            this.picBtn_Connect = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.picBtn_Close = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -320,11 +320,6 @@
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
             this.groupBox8.SuspendLayout();
-            this.gb_parameters.SuspendLayout();
-            this.panel_AdminControls.SuspendLayout();
-            this.panel_Toolbar.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel_ClientControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_receiveStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -332,6 +327,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.gb_parameters.SuspendLayout();
+            this.panel_AdminControls.SuspendLayout();
+            this.panel_Toolbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).BeginInit();
@@ -339,7 +337,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Shutdown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Connect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Close)).BeginInit();
+            this.panel_ClientControls.SuspendLayout();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -1922,6 +1922,32 @@
             this.groupBox8.TabIndex = 28;
             this.groupBox8.TabStop = false;
             // 
+            // pb_receiveStatus
+            // 
+            this.pb_receiveStatus.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
+            this.pb_receiveStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pb_receiveStatus.Location = new System.Drawing.Point(359, 293);
+            this.pb_receiveStatus.Name = "pb_receiveStatus";
+            this.pb_receiveStatus.Size = new System.Drawing.Size(25, 25);
+            this.pb_receiveStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pb_receiveStatus.TabIndex = 125;
+            this.pb_receiveStatus.TabStop = false;
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.BackColor = System.Drawing.Color.Transparent;
+            this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label72.ForeColor = System.Drawing.Color.Black;
+            this.label72.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label72.Location = new System.Drawing.Point(314, 290);
+            this.label72.Margin = new System.Windows.Forms.Padding(0);
+            this.label72.Name = "label72";
+            this.label72.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
+            this.label72.Size = new System.Drawing.Size(48, 22);
+            this.label72.TabIndex = 126;
+            this.label72.Text = "Input:";
+            // 
             // label36
             // 
             this.label36.AutoSize = true;
@@ -1942,6 +1968,16 @@
             this.textBox33.ReadOnly = true;
             this.textBox33.Size = new System.Drawing.Size(80, 24);
             this.textBox33.TabIndex = 8;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox6.Location = new System.Drawing.Point(175, 168);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 26;
+            this.pictureBox6.TabStop = false;
             // 
             // tb_x1_set
             // 
@@ -1975,6 +2011,36 @@
             this.label32.Size = new System.Drawing.Size(114, 18);
             this.label32.TabIndex = 2;
             this.label32.Text = "Diaphragm X1";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Location = new System.Drawing.Point(175, 207);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 23;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox5.Location = new System.Drawing.Point(175, 129);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 25;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox4.Location = new System.Drawing.Point(174, 246);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 24;
+            this.pictureBox4.TabStop = false;
             // 
             // label30
             // 
@@ -2030,6 +2096,16 @@
             this.textBox36.Size = new System.Drawing.Size(80, 24);
             this.textBox36.TabIndex = 11;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(175, 90);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 22;
+            this.pictureBox2.TabStop = false;
+            // 
             // label33
             // 
             this.label33.AutoSize = true;
@@ -2039,6 +2115,16 @@
             this.label33.Size = new System.Drawing.Size(114, 18);
             this.label33.TabIndex = 3;
             this.label33.Text = "Diaphragm X2";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(175, 51);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 21;
+            this.pictureBox1.TabStop = false;
             // 
             // textBox31
             // 
@@ -2923,6 +3009,54 @@
             this.panel2.Size = new System.Drawing.Size(646, 31);
             this.panel2.TabIndex = 20;
             // 
+            // picBtn_Exit
+            // 
+            this.picBtn_Exit.BackgroundImage = global::Compact_Control.Properties.Resources.Exit2;
+            this.picBtn_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtn_Exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBtn_Exit.Dock = System.Windows.Forms.DockStyle.Left;
+            this.picBtn_Exit.Location = new System.Drawing.Point(160, 36);
+            this.picBtn_Exit.Name = "picBtn_Exit";
+            this.picBtn_Exit.Size = new System.Drawing.Size(80, 63);
+            this.picBtn_Exit.TabIndex = 11;
+            this.picBtn_Exit.TabStop = false;
+            this.picBtnToolTip.SetToolTip(this.picBtn_Exit, " Exit");
+            this.picBtn_Exit.Click += new System.EventHandler(this.picBtn_Exit_Click);
+            this.picBtn_Exit.MouseEnter += new System.EventHandler(this.picBtn_Exit_MouseEnter);
+            this.picBtn_Exit.MouseLeave += new System.EventHandler(this.picBtn_Exit_MouseLeave);
+            // 
+            // picBtn_LogOff
+            // 
+            this.picBtn_LogOff.BackgroundImage = global::Compact_Control.Properties.Resources.Logout;
+            this.picBtn_LogOff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtn_LogOff.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBtn_LogOff.Dock = System.Windows.Forms.DockStyle.Left;
+            this.picBtn_LogOff.Location = new System.Drawing.Point(90, 36);
+            this.picBtn_LogOff.Name = "picBtn_LogOff";
+            this.picBtn_LogOff.Size = new System.Drawing.Size(70, 63);
+            this.picBtn_LogOff.TabIndex = 9;
+            this.picBtn_LogOff.TabStop = false;
+            this.picBtnToolTip.SetToolTip(this.picBtn_LogOff, " Log out");
+            this.picBtn_LogOff.Click += new System.EventHandler(this.picBtn_LogOff_Click);
+            this.picBtn_LogOff.MouseEnter += new System.EventHandler(this.picBtn_LogOff_MouseEnter);
+            this.picBtn_LogOff.MouseLeave += new System.EventHandler(this.picBtn_LogOff_MouseLeave);
+            // 
+            // picBtn_Setting
+            // 
+            this.picBtn_Setting.BackgroundImage = global::Compact_Control.Properties.Resources.Setting;
+            this.picBtn_Setting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtn_Setting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBtn_Setting.Dock = System.Windows.Forms.DockStyle.Right;
+            this.picBtn_Setting.Location = new System.Drawing.Point(886, 36);
+            this.picBtn_Setting.Name = "picBtn_Setting";
+            this.picBtn_Setting.Size = new System.Drawing.Size(64, 63);
+            this.picBtn_Setting.TabIndex = 10;
+            this.picBtn_Setting.TabStop = false;
+            this.picBtnToolTip.SetToolTip(this.picBtn_Setting, "Settings");
+            this.picBtn_Setting.Click += new System.EventHandler(this.picBtn_Setting_Click);
+            this.picBtn_Setting.MouseEnter += new System.EventHandler(this.picBtn_Setting_MouseEnter);
+            this.picBtn_Setting.MouseLeave += new System.EventHandler(this.picBtn_Setting_MouseLeave);
+            // 
             // splitter2
             // 
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
@@ -2932,6 +3066,22 @@
             this.splitter2.Size = new System.Drawing.Size(11, 63);
             this.splitter2.TabIndex = 16;
             this.splitter2.TabStop = false;
+            // 
+            // picBtn_Restart
+            // 
+            this.picBtn_Restart.BackgroundImage = global::Compact_Control.Properties.Resources.Restart;
+            this.picBtn_Restart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtn_Restart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBtn_Restart.Dock = System.Windows.Forms.DockStyle.Right;
+            this.picBtn_Restart.Location = new System.Drawing.Point(961, 36);
+            this.picBtn_Restart.Name = "picBtn_Restart";
+            this.picBtn_Restart.Size = new System.Drawing.Size(64, 63);
+            this.picBtn_Restart.TabIndex = 12;
+            this.picBtn_Restart.TabStop = false;
+            this.picBtnToolTip.SetToolTip(this.picBtn_Restart, "Restart Computer");
+            this.picBtn_Restart.Click += new System.EventHandler(this.picBtn_Restart_Click);
+            this.picBtn_Restart.MouseEnter += new System.EventHandler(this.picBtn_Restart_MouseEnter);
+            this.picBtn_Restart.MouseLeave += new System.EventHandler(this.picBtn_Restart_MouseLeave);
             // 
             // splitter3
             // 
@@ -2943,6 +3093,22 @@
             this.splitter3.TabIndex = 17;
             this.splitter3.TabStop = false;
             // 
+            // picBtn_Shutdown
+            // 
+            this.picBtn_Shutdown.BackgroundImage = global::Compact_Control.Properties.Resources.Shutdown;
+            this.picBtn_Shutdown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtn_Shutdown.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBtn_Shutdown.Dock = System.Windows.Forms.DockStyle.Right;
+            this.picBtn_Shutdown.Location = new System.Drawing.Point(1036, 36);
+            this.picBtn_Shutdown.Name = "picBtn_Shutdown";
+            this.picBtn_Shutdown.Size = new System.Drawing.Size(71, 63);
+            this.picBtn_Shutdown.TabIndex = 13;
+            this.picBtn_Shutdown.TabStop = false;
+            this.picBtnToolTip.SetToolTip(this.picBtn_Shutdown, "Shutdown Computer");
+            this.picBtn_Shutdown.Click += new System.EventHandler(this.picBtn_Shutdown_Click);
+            this.picBtn_Shutdown.MouseEnter += new System.EventHandler(this.picBtn_Shutdown_MouseEnter);
+            this.picBtn_Shutdown.MouseLeave += new System.EventHandler(this.picBtn_Shutdown_MouseLeave);
+            // 
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
@@ -2952,6 +3118,34 @@
             this.splitter1.Size = new System.Drawing.Size(11, 63);
             this.splitter1.TabIndex = 15;
             this.splitter1.TabStop = false;
+            // 
+            // picBtn_Connect
+            // 
+            this.picBtn_Connect.BackgroundImage = global::Compact_Control.Properties.Resources.ConnectButton;
+            this.picBtn_Connect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtn_Connect.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBtn_Connect.Dock = System.Windows.Forms.DockStyle.Left;
+            this.picBtn_Connect.Location = new System.Drawing.Point(11, 36);
+            this.picBtn_Connect.Name = "picBtn_Connect";
+            this.picBtn_Connect.Size = new System.Drawing.Size(79, 63);
+            this.picBtn_Connect.TabIndex = 3;
+            this.picBtn_Connect.TabStop = false;
+            this.picBtn_Connect.Click += new System.EventHandler(this.picBtn_Connect_Click);
+            this.picBtn_Connect.MouseEnter += new System.EventHandler(this.picBtn_Connect_MouseEnter);
+            this.picBtn_Connect.MouseLeave += new System.EventHandler(this.picBtn_Connect_MouseLeave);
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox14.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox14.Location = new System.Drawing.Point(0, 36);
+            this.pictureBox14.Margin = new System.Windows.Forms.Padding(5);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Padding = new System.Windows.Forms.Padding(2);
+            this.pictureBox14.Size = new System.Drawing.Size(11, 63);
+            this.pictureBox14.TabIndex = 6;
+            this.pictureBox14.TabStop = false;
             // 
             // panel1
             // 
@@ -3112,6 +3306,23 @@
             this.label71.Text = "Golestan Hospital";
             this.label71.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // picBtn_Close
+            // 
+            this.picBtn_Close.BackgroundImage = global::Compact_Control.Properties.Resources.Error;
+            this.picBtn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBtn_Close.Dock = System.Windows.Forms.DockStyle.Right;
+            this.picBtn_Close.Location = new System.Drawing.Point(1068, 0);
+            this.picBtn_Close.Margin = new System.Windows.Forms.Padding(2);
+            this.picBtn_Close.Name = "picBtn_Close";
+            this.picBtn_Close.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.picBtn_Close.Size = new System.Drawing.Size(48, 34);
+            this.picBtn_Close.TabIndex = 18;
+            this.picBtn_Close.TabStop = false;
+            this.picBtnToolTip.SetToolTip(this.picBtn_Close, "Exit");
+            this.picBtn_Close.Visible = false;
+            this.picBtn_Close.Click += new System.EventHandler(this.picBtn_Close_Click);
+            // 
             // picBtnToolTip
             // 
             this.picBtnToolTip.AutoPopDelay = 5000;
@@ -3171,217 +3382,6 @@
             this.timer5.Enabled = true;
             this.timer5.Interval = 200;
             this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.BackColor = System.Drawing.Color.Transparent;
-            this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label72.ForeColor = System.Drawing.Color.Black;
-            this.label72.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label72.Location = new System.Drawing.Point(314, 290);
-            this.label72.Margin = new System.Windows.Forms.Padding(0);
-            this.label72.Name = "label72";
-            this.label72.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.label72.Size = new System.Drawing.Size(48, 22);
-            this.label72.TabIndex = 126;
-            this.label72.Text = "Input:";
-            // 
-            // pb_receiveStatus
-            // 
-            this.pb_receiveStatus.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
-            this.pb_receiveStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_receiveStatus.Location = new System.Drawing.Point(359, 293);
-            this.pb_receiveStatus.Name = "pb_receiveStatus";
-            this.pb_receiveStatus.Size = new System.Drawing.Size(25, 25);
-            this.pb_receiveStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pb_receiveStatus.TabIndex = 125;
-            this.pb_receiveStatus.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox6.Location = new System.Drawing.Point(175, 168);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 26;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(175, 207);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 23;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox5.Location = new System.Drawing.Point(175, 129);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 25;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox4.Location = new System.Drawing.Point(174, 246);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 24;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(175, 90);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 22;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(175, 51);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 21;
-            this.pictureBox1.TabStop = false;
-            // 
-            // picBtn_Exit
-            // 
-            this.picBtn_Exit.BackgroundImage = global::Compact_Control.Properties.Resources.Exit2;
-            this.picBtn_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtn_Exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBtn_Exit.Dock = System.Windows.Forms.DockStyle.Left;
-            this.picBtn_Exit.Location = new System.Drawing.Point(160, 36);
-            this.picBtn_Exit.Name = "picBtn_Exit";
-            this.picBtn_Exit.Size = new System.Drawing.Size(80, 63);
-            this.picBtn_Exit.TabIndex = 11;
-            this.picBtn_Exit.TabStop = false;
-            this.picBtnToolTip.SetToolTip(this.picBtn_Exit, " Exit");
-            this.picBtn_Exit.Click += new System.EventHandler(this.picBtn_Exit_Click);
-            this.picBtn_Exit.MouseEnter += new System.EventHandler(this.picBtn_Exit_MouseEnter);
-            this.picBtn_Exit.MouseLeave += new System.EventHandler(this.picBtn_Exit_MouseLeave);
-            // 
-            // picBtn_LogOff
-            // 
-            this.picBtn_LogOff.BackgroundImage = global::Compact_Control.Properties.Resources.Logout;
-            this.picBtn_LogOff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtn_LogOff.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBtn_LogOff.Dock = System.Windows.Forms.DockStyle.Left;
-            this.picBtn_LogOff.Location = new System.Drawing.Point(90, 36);
-            this.picBtn_LogOff.Name = "picBtn_LogOff";
-            this.picBtn_LogOff.Size = new System.Drawing.Size(70, 63);
-            this.picBtn_LogOff.TabIndex = 9;
-            this.picBtn_LogOff.TabStop = false;
-            this.picBtnToolTip.SetToolTip(this.picBtn_LogOff, " Log out");
-            this.picBtn_LogOff.Click += new System.EventHandler(this.picBtn_LogOff_Click);
-            this.picBtn_LogOff.MouseEnter += new System.EventHandler(this.picBtn_LogOff_MouseEnter);
-            this.picBtn_LogOff.MouseLeave += new System.EventHandler(this.picBtn_LogOff_MouseLeave);
-            // 
-            // picBtn_Setting
-            // 
-            this.picBtn_Setting.BackgroundImage = global::Compact_Control.Properties.Resources.Setting;
-            this.picBtn_Setting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtn_Setting.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBtn_Setting.Dock = System.Windows.Forms.DockStyle.Right;
-            this.picBtn_Setting.Location = new System.Drawing.Point(886, 36);
-            this.picBtn_Setting.Name = "picBtn_Setting";
-            this.picBtn_Setting.Size = new System.Drawing.Size(64, 63);
-            this.picBtn_Setting.TabIndex = 10;
-            this.picBtn_Setting.TabStop = false;
-            this.picBtnToolTip.SetToolTip(this.picBtn_Setting, "Settings");
-            this.picBtn_Setting.Click += new System.EventHandler(this.picBtn_Setting_Click);
-            this.picBtn_Setting.MouseEnter += new System.EventHandler(this.picBtn_Setting_MouseEnter);
-            this.picBtn_Setting.MouseLeave += new System.EventHandler(this.picBtn_Setting_MouseLeave);
-            // 
-            // picBtn_Restart
-            // 
-            this.picBtn_Restart.BackgroundImage = global::Compact_Control.Properties.Resources.Restart;
-            this.picBtn_Restart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtn_Restart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBtn_Restart.Dock = System.Windows.Forms.DockStyle.Right;
-            this.picBtn_Restart.Location = new System.Drawing.Point(961, 36);
-            this.picBtn_Restart.Name = "picBtn_Restart";
-            this.picBtn_Restart.Size = new System.Drawing.Size(64, 63);
-            this.picBtn_Restart.TabIndex = 12;
-            this.picBtn_Restart.TabStop = false;
-            this.picBtnToolTip.SetToolTip(this.picBtn_Restart, "Restart Computer");
-            this.picBtn_Restart.Click += new System.EventHandler(this.picBtn_Restart_Click);
-            this.picBtn_Restart.MouseEnter += new System.EventHandler(this.picBtn_Restart_MouseEnter);
-            this.picBtn_Restart.MouseLeave += new System.EventHandler(this.picBtn_Restart_MouseLeave);
-            // 
-            // picBtn_Shutdown
-            // 
-            this.picBtn_Shutdown.BackgroundImage = global::Compact_Control.Properties.Resources.Shutdown;
-            this.picBtn_Shutdown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtn_Shutdown.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBtn_Shutdown.Dock = System.Windows.Forms.DockStyle.Right;
-            this.picBtn_Shutdown.Location = new System.Drawing.Point(1036, 36);
-            this.picBtn_Shutdown.Name = "picBtn_Shutdown";
-            this.picBtn_Shutdown.Size = new System.Drawing.Size(71, 63);
-            this.picBtn_Shutdown.TabIndex = 13;
-            this.picBtn_Shutdown.TabStop = false;
-            this.picBtnToolTip.SetToolTip(this.picBtn_Shutdown, "Shutdown Computer");
-            this.picBtn_Shutdown.Click += new System.EventHandler(this.picBtn_Shutdown_Click);
-            this.picBtn_Shutdown.MouseEnter += new System.EventHandler(this.picBtn_Shutdown_MouseEnter);
-            this.picBtn_Shutdown.MouseLeave += new System.EventHandler(this.picBtn_Shutdown_MouseLeave);
-            // 
-            // picBtn_Connect
-            // 
-            this.picBtn_Connect.BackgroundImage = global::Compact_Control.Properties.Resources.ConnectButton;
-            this.picBtn_Connect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtn_Connect.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBtn_Connect.Dock = System.Windows.Forms.DockStyle.Left;
-            this.picBtn_Connect.Location = new System.Drawing.Point(11, 36);
-            this.picBtn_Connect.Name = "picBtn_Connect";
-            this.picBtn_Connect.Size = new System.Drawing.Size(79, 63);
-            this.picBtn_Connect.TabIndex = 3;
-            this.picBtn_Connect.TabStop = false;
-            this.picBtn_Connect.Click += new System.EventHandler(this.picBtn_Connect_Click);
-            this.picBtn_Connect.MouseEnter += new System.EventHandler(this.picBtn_Connect_MouseEnter);
-            this.picBtn_Connect.MouseLeave += new System.EventHandler(this.picBtn_Connect_MouseLeave);
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox14.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox14.Location = new System.Drawing.Point(0, 36);
-            this.pictureBox14.Margin = new System.Windows.Forms.Padding(5);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Padding = new System.Windows.Forms.Padding(2);
-            this.pictureBox14.Size = new System.Drawing.Size(11, 63);
-            this.pictureBox14.TabIndex = 6;
-            this.pictureBox14.TabStop = false;
-            // 
-            // picBtn_Close
-            // 
-            this.picBtn_Close.BackgroundImage = global::Compact_Control.Properties.Resources.Error;
-            this.picBtn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBtn_Close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.picBtn_Close.Location = new System.Drawing.Point(1068, 0);
-            this.picBtn_Close.Margin = new System.Windows.Forms.Padding(2);
-            this.picBtn_Close.Name = "picBtn_Close";
-            this.picBtn_Close.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.picBtn_Close.Size = new System.Drawing.Size(48, 34);
-            this.picBtn_Close.TabIndex = 18;
-            this.picBtn_Close.TabStop = false;
-            this.picBtnToolTip.SetToolTip(this.picBtn_Close, "Exit");
-            this.picBtn_Close.Visible = false;
-            this.picBtn_Close.Click += new System.EventHandler(this.picBtn_Close_Click);
             // 
             // Form1
             // 
@@ -3448,14 +3448,6 @@
             this.splitContainer4.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
-            this.gb_parameters.ResumeLayout(false);
-            this.gb_parameters.PerformLayout();
-            this.panel_AdminControls.ResumeLayout(false);
-            this.panel_Toolbar.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel_ClientControls.ResumeLayout(false);
-            this.panel_ClientControls.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_receiveStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -3463,6 +3455,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.gb_parameters.ResumeLayout(false);
+            this.gb_parameters.PerformLayout();
+            this.panel_AdminControls.ResumeLayout(false);
+            this.panel_Toolbar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).EndInit();
@@ -3470,7 +3466,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Shutdown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Connect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Close)).EndInit();
+            this.panel_ClientControls.ResumeLayout(false);
+            this.panel_ClientControls.PerformLayout();
             this.ResumeLayout(false);
 
         }

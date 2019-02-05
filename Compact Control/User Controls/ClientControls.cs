@@ -261,7 +261,8 @@ namespace Compact_Control
         public void write(string data)
         {
             serialPort1.Write(data);
-            tb_terminal_out.AppendText(data + Environment.NewLine);
+            if (showTerminals == "1")
+                tb_terminal_out.AppendText(data + Environment.NewLine);
         }
 
         private void btn_clearTerminal_oth_Click(object sender, EventArgs e)
@@ -276,10 +277,10 @@ namespace Compact_Control
             {
                 pb_receiveStatus.BackgroundImage = Resources.led_red;
             }
-            else
-            {
-                pb_receiveStatus.BackgroundImage = Resources.led_green;
-            }
+            //else
+            //{
+            //    pb_receiveStatus.BackgroundImage = Resources.led_green;
+            //}
             inputADC = false;
         }
 
@@ -312,7 +313,8 @@ namespace Compact_Control
                 return;
             string currData = receiveQ.Dequeue();
             //string[] lines = currData.Split('\n');
-            tb_terminal_in.AppendText(currData + Environment.NewLine);
+            if (showTerminals == "1")
+                tb_terminal_in.AppendText(currData + Environment.NewLine);
             string a = currData;
             double c;
             //foreach (string a in lines)
@@ -394,9 +396,13 @@ namespace Compact_Control
                         break;
                     case "adc":
                         inputADC = true;
-                        int i = int.Parse(lbl_in_cnt.Text);
-                        i = i + 1;
-                        lbl_in_cnt.Text = i.ToString();
+                        pb_receiveStatus.BackgroundImage = Resources.led_green;
+                        if (showTerminals == "1")
+                        {
+                            int i = int.Parse(lbl_in_cnt.Text);
+                            i = i + 1;
+                            lbl_in_cnt.Text = i.ToString();
+                        }
                         adc = a.Substring(3, a.Length - 3);
                         //adc = "1999";
                         if (int.Parse(adc) < 2000 || int.Parse(adc) > 2100)
@@ -443,7 +449,7 @@ namespace Compact_Control
                             write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
                             noWrite = false;
                         }
-                        if (noWrite == false)
+                        if (noWrite == false && showTerminals == "1")
                         {
                             int o = int.Parse(lbl_out_cnt.Text);
                             o = o + 1;

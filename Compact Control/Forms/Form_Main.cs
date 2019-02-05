@@ -1454,6 +1454,7 @@ namespace Compact_Control
                         break;
                     case "adc":
                         inputADC = true;
+                        pb_receiveStatus.BackgroundImage = Resources.led_green;
                         int i = int.Parse(lbl_in_cnt.Text);
                         i = i + 1;
                         lbl_in_cnt.Text = i.ToString();
@@ -2764,10 +2765,10 @@ namespace Compact_Control
             {
                 pb_receiveStatus.BackgroundImage = Resources.led_red;
             }
-            else
-            {
-                pb_receiveStatus.BackgroundImage = Resources.led_green;
-            }
+            //else
+            //{
+            //    pb_receiveStatus.BackgroundImage = Resources.led_green;
+            //}
             inputADC = false;
         }
 
