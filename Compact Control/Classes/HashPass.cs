@@ -414,36 +414,42 @@ namespace Compact_Control
 
         public class ParametersData
         {
+            public string gant_tol_1 { get; set; }
             public string gant_tol0 { get; set; }
             public string gant_tol1 { get; set; }
             public string gant_tol2 { get; set; }
             public string gant_v1 { get; set; }
             public string gant_v2 { get; set; }
             public string gant_v3 { get; set; }
+            public string collim_tol_1 { get; set; }
             public string collim_tol0 { get; set; }
             public string collim_tol1 { get; set; }
             public string collim_tol2 { get; set; }
             public string collim_v1 { get; set; }
             public string collim_v2 { get; set; }
             public string collim_v3 { get; set; }
+            public string x1_tol_1 { get; set; }
             public string x1_tol0 { get; set; }
             public string x1_tol1 { get; set; }
             public string x1_tol2 { get; set; }
             public string x1_v1 { get; set; }
             public string x1_v2 { get; set; }
             public string x1_v3 { get; set; }
+            public string x2_tol_1 { get; set; }
             public string x2_tol0 { get; set; }
             public string x2_tol1 { get; set; }
             public string x2_tol2 { get; set; }
             public string x2_v1 { get; set; }
             public string x2_v2 { get; set; }
             public string x2_v3 { get; set; }
+            public string y1_tol_1 { get; set; }
             public string y1_tol0 { get; set; }
             public string y1_tol1 { get; set; }
             public string y1_tol2 { get; set; }
             public string y1_v1 { get; set; }
             public string y1_v2 { get; set; }
             public string y1_v3 { get; set; }
+            public string y2_tol_1 { get; set; }
             public string y2_tol0 { get; set; }
             public string y2_tol1 { get; set; }
             public string y2_tol2 { get; set; }
@@ -544,12 +550,12 @@ namespace Compact_Control
         public static void writeParametersJson(string fileName, string[] values)
         {
             StreamWriter sw = new StreamWriter(fileName);
-            string[] lines = {"gant_tol0", "gant_tol1", "gant_tol2", "gant_v1", "gant_v2", "gant_v3",
-                "collim_tol0", "collim_tol1", "collim_tol2", "collim_v1", "collim_v2", "collim_v3",
-                "x1_tol0", "x1_tol1", "x1_tol2", "x1_v1", "x1_v2", "x1_v3",
-                "x2_tol0", "x2_tol1", "x2_tol2", "x2_v1", "x2_v2", "x2_v3",
-                "y1_tol0", "y1_tol1", "y1_tol2", "y1_v1", "y1_v2", "y1_v3",
-                "y2_tol0", "y2_tol1", "y2_tol2", "y2_v1", "y2_v2", "y2_v3" };
+            string[] lines = {"gant_tol_1", "gant_tol0", "gant_tol1", "gant_tol2", "gant_v1", "gant_v2", "gant_v3",
+                "collim_tol_1", "collim_tol0", "collim_tol1", "collim_tol2", "collim_v1", "collim_v2", "collim_v3",
+                "x1_tol_1", "x1_tol0", "x1_tol1", "x1_tol2", "x1_v1", "x1_v2", "x1_v3",
+                "x2_tol_1", "x2_tol0", "x2_tol1", "x2_tol2", "x2_v1", "x2_v2", "x2_v3",
+                "y1_tol_1", "y1_tol0", "y1_tol1", "y1_tol2", "y1_v1", "y1_v2", "y1_v3",
+                "y2_tol_1", "y2_tol0", "y2_tol1", "y2_tol2", "y2_v1", "y2_v2", "y2_v3" };
 
             using (JsonWriter writer = new JsonTextWriter(sw))
             {

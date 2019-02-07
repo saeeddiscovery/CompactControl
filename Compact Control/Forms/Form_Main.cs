@@ -50,12 +50,12 @@ namespace Compact_Control
         string collim_length;
         string collim_fine_length;
 
-        string gant_tol0, gant_tol1, gant_tol2, gant_v1, gant_v2, gant_v3;
-        string collim_tol0, collim_tol1, collim_tol2, collim_v1, collim_v2, collim_v3;
-        string x1_tol0, x1_tol1, x1_tol2, x1_v1, x1_v2, x1_v3;
-        string x2_tol0, x2_tol1, x2_tol2, x2_v1, x2_v2, x2_v3;
-        string y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
-        string y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
+        string gant_tol_1, gant_tol0, gant_tol1, gant_tol2, gant_v1, gant_v2, gant_v3;
+        string collim_tol_1, collim_tol0, collim_tol1, collim_tol2, collim_v1, collim_v2, collim_v3;
+        string x1_tol_1, x1_tol0, x1_tol1, x1_tol2, x1_v1, x1_v2, x1_v3;
+        string x2_tol_1, x2_tol0, x2_tol1, x2_tol2, x2_v1, x2_v2, x2_v3;
+        string y1_tol_1, y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
+        string y2_tol_1, y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
         bool sendParametersFlag = false;
 
         string x1_co;
@@ -1096,36 +1096,42 @@ namespace Compact_Control
         {
             try
             {
+                string gant_tol_1_t = Math.Abs(Math.Round(double.Parse(gant_tol_1) / gant_gain)).ToString();
                 string gant_tol0_t = Math.Abs(Math.Round(double.Parse(gant_tol0)/ gant_gain)).ToString();
                 string gant_tol1_t = Math.Abs(Math.Round(double.Parse(gant_tol1) / gant_gain)).ToString();
                 string gant_tol2_t = Math.Abs(Math.Round(double.Parse(gant_tol2)/ gant_gain)).ToString();
-                 
+
+                string collim_tol_1_t = Math.Abs(Math.Round(double.Parse(collim_tol_1) / collim_gain)).ToString();
                 string collim_tol0_t = Math.Abs(Math.Round(double.Parse(collim_tol0) / collim_gain)).ToString();
                 string collim_tol1_t = Math.Abs(Math.Round(double.Parse(collim_tol1) / collim_gain)).ToString();
                 string collim_tol2_t = Math.Abs(Math.Round(double.Parse(collim_tol2) / collim_gain)).ToString();
-                
+
+                string x1_tol_1_t = Math.Abs(Math.Round(double.Parse(x1_tol_1) / x1_gain)).ToString();
                 string x1_tol0_t = Math.Abs(Math.Round(double.Parse(x1_tol0) / x1_gain)).ToString();
                 string x1_tol1_t = Math.Abs(Math.Round(double.Parse(x1_tol1) / x1_gain)).ToString();
                 string x1_tol2_t = Math.Abs(Math.Round(double.Parse(x1_tol2) / x1_gain)).ToString();
-                                                                   
+
+                string x2_tol_1_t = Math.Abs(Math.Round(double.Parse(x2_tol_1) / x2_gain)).ToString();
                 string x2_tol0_t = Math.Abs(Math.Round(double.Parse(x2_tol0) / x2_gain)).ToString();
                 string x2_tol1_t = Math.Abs(Math.Round(double.Parse(x2_tol1) / x2_gain)).ToString();
                 string x2_tol2_t = Math.Abs(Math.Round(double.Parse(x2_tol2) / x2_gain)).ToString();
-                                                                   
+
+                string y1_tol_1_t = Math.Abs(Math.Round(double.Parse(y1_tol_1) / y1_gain)).ToString();
                 string y1_tol0_t = Math.Abs(Math.Round(double.Parse(y1_tol0) / y1_gain)).ToString();
                 string y1_tol1_t = Math.Abs(Math.Round(double.Parse(y1_tol1) / y1_gain)).ToString();
                 string y1_tol2_t = Math.Abs(Math.Round(double.Parse(y1_tol2) / y1_gain)).ToString();
-                                                                   
+
+                string y2_tol_1_t = Math.Abs(Math.Round(double.Parse(y2_tol_1) / y2_gain)).ToString();
                 string y2_tol0_t = Math.Abs(Math.Round(double.Parse(y2_tol0) / y2_gain)).ToString();
                 string y2_tol1_t = Math.Abs(Math.Round(double.Parse(y2_tol1) / y2_gain)).ToString();
                 string y2_tol2_t = Math.Abs(Math.Round(double.Parse(y2_tol2) / y2_gain)).ToString();
 
-                ourSum = double.Parse(gant_tol0_t) + double.Parse(gant_tol1_t) + double.Parse(gant_tol2_t) +
-                         double.Parse(collim_tol0_t) + double.Parse(collim_tol1_t) + double.Parse(collim_tol2_t) +
-                         double.Parse(x1_tol0_t) + double.Parse(x1_tol1_t) + double.Parse(x1_tol2_t) +
-                         double.Parse(x2_tol0_t) + double.Parse(x2_tol1_t) + double.Parse(x2_tol2_t) +
-                         double.Parse(y1_tol0_t) + double.Parse(y1_tol1_t) + double.Parse(y1_tol2_t) +
-                         double.Parse(y2_tol0_t) + double.Parse(y2_tol1_t) + double.Parse(y2_tol2_t) +
+                ourSum = double.Parse(gant_tol_1_t) + double.Parse(gant_tol0_t) + double.Parse(gant_tol1_t) + double.Parse(gant_tol2_t) +
+                         double.Parse(collim_tol_1_t) + double.Parse(collim_tol0_t) + double.Parse(collim_tol1_t) + double.Parse(collim_tol2_t) +
+                         double.Parse(x1_tol_1_t) + double.Parse(x1_tol0_t) + double.Parse(x1_tol1_t) + double.Parse(x1_tol2_t) +
+                         double.Parse(x2_tol_1_t) + double.Parse(x2_tol0_t) + double.Parse(x2_tol1_t) + double.Parse(x2_tol2_t) +
+                         double.Parse(y1_tol_1_t) + double.Parse(y1_tol0_t) + double.Parse(y1_tol1_t) + double.Parse(y1_tol2_t) +
+                         double.Parse(y2_tol_1_t) + double.Parse(y2_tol0_t) + double.Parse(y2_tol1_t) + double.Parse(y2_tol2_t) +
                          double.Parse(gant_v1) + double.Parse(gant_v2) + double.Parse(gant_v3) +
                          double.Parse(collim_v1) + double.Parse(collim_v2) + double.Parse(collim_v3) +
                          double.Parse(x1_v1) + double.Parse(x1_v2) + double.Parse(x1_v3) +
@@ -1139,17 +1145,17 @@ namespace Compact_Control
                 write("w");
                 write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
                 write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
-                write(gant_tol0_t + "/" + gant_tol1_t + "/" + gant_tol2_t + "/");
+                write(gant_tol_1_t + "/" + gant_tol0_t + "/" + gant_tol1_t + "/" + gant_tol2_t + "/");
                 write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
-                write(collim_tol0_t + "/" + collim_tol1_t + "/" + collim_tol2_t + "/");
+                write(collim_tol_1_t + "/" + collim_tol0_t + "/" + collim_tol1_t + "/" + collim_tol2_t + "/");
                 write(collim_v1 + "/" + collim_v2 + "/" + collim_v3 + "/");
-                write(x1_tol0_t + "/" + x1_tol1_t + "/" + x1_tol2_t + "/");
+                write(x1_tol_1_t + "/" + x1_tol0_t + "/" + x1_tol1_t + "/" + x1_tol2_t + "/");
                 write(x1_v1 + "/" + x1_v2 + "/" + x1_v3 + "/");
-                write(x2_tol0_t + "/" + x2_tol1_t + "/" + x2_tol2_t + "/");
+                write(x2_tol_1_t + "/" + x2_tol0_t + "/" + x2_tol1_t + "/" + x2_tol2_t + "/");
                 write(x2_v1 + "/" + x2_v2 + "/" + x2_v3 + "/");
-                write(y1_tol0_t + "/" + y1_tol1_t + "/" + y1_tol2_t + "/");
+                write(y1_tol_1_t + "/" + y1_tol0_t + "/" + y1_tol1_t + "/" + y1_tol2_t + "/");
                 write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
-                write(y2_tol0_t + "/" + y2_tol1_t + "/" + y2_tol2_t + "/");
+                write(y2_tol_1_t + "/" + y2_tol0_t + "/" + y2_tol1_t + "/" + y2_tol2_t + "/");
                 write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
                 return true;
             }
@@ -2406,45 +2412,50 @@ namespace Compact_Control
                 }
                 HashPass.ParametersData values = HashPass.readParametersJson(dataPath);
 
-                string[] prms = new string[36];
+                string[] prms = new string[42];
 
-
-                prms[0] = gant_tol0 = ClientControls.gant_tol0 = values.gant_tol0;
-                prms[1] = gant_tol1 = ClientControls.gant_tol1 = values.gant_tol1;
-                prms[2] = gant_tol2 = ClientControls.gant_tol2 = values.gant_tol2;
-                prms[3] = gant_v1 = ClientControls.gant_v1 = values.gant_v1;
-                prms[4] = gant_v2 = ClientControls.gant_v2 = values.gant_v2;
-                prms[5] = gant_v3 = ClientControls.gant_v3 = values.gant_v3;
-                prms[6] = collim_tol0 = ClientControls.collim_tol0 = values.collim_tol0;
-                prms[7] = collim_tol1 = ClientControls.collim_tol1 = values.collim_tol1;
-                prms[8] = collim_tol2 = ClientControls.collim_tol2 = values.collim_tol2;
-                prms[9] = collim_v1 = ClientControls.collim_v1 = values.collim_v1;
-                prms[10] = collim_v2 = ClientControls.collim_v2 = values.collim_v2;
-                prms[11] = collim_v3 = ClientControls.collim_v3 = values.collim_v3;
-                prms[12] = x1_tol0 = ClientControls.x1_tol0 = values.x1_tol0;
-                prms[13] = x1_tol1 = ClientControls.x1_tol1 = values.x1_tol1;
-                prms[14] = x1_tol2 = ClientControls.x1_tol2 = values.x1_tol2;
-                prms[15] = x1_v1 = ClientControls.x1_v1 = values.x1_v1;
-                prms[16] = x1_v2 = ClientControls.x1_v2 = values.x1_v2;
-                prms[17] = x1_v3 = ClientControls.x1_v3 = values.x1_v3;
-                prms[18] = x2_tol0 = ClientControls.x2_tol0 = values.x2_tol0;
-                prms[19] = x2_tol1 = ClientControls.x2_tol1 = values.x2_tol1;
-                prms[20] = x2_tol2 = ClientControls.x2_tol2 = values.x2_tol2;
-                prms[21] = x2_v1 = ClientControls.x2_v1 = values.x2_v1;
-                prms[22] = x2_v2 = ClientControls.x2_v2 = values.x2_v2;
-                prms[23] = x2_v3 = ClientControls.x2_v3 = values.x2_v3;
-                prms[24] = y1_tol0 = ClientControls.y1_tol0 = values.y1_tol0;
-                prms[25] = y1_tol1 = ClientControls.y1_tol1 = values.y1_tol1;
-                prms[26] = y1_tol2 = ClientControls.y1_tol2 = values.y1_tol2;
-                prms[27] = y1_v1 = ClientControls.y1_v1 = values.y1_v1;
-                prms[28] = y1_v2 = ClientControls.y1_v2 = values.y1_v2;
-                prms[29] = y1_v3 = ClientControls.y1_v3 = values.y1_v3;
-                prms[30] = y2_tol0 = ClientControls.y2_tol0 = values.y2_tol0;
-                prms[31] = y2_tol1 = ClientControls.y2_tol1 = values.y2_tol1;
-                prms[32] = y2_tol2 = ClientControls.y2_tol2 = values.y2_tol2;
-                prms[33] = y2_v1 = ClientControls.y2_v1 = values.y2_v1;
-                prms[34] = y2_v2 = ClientControls.y2_v2 = values.y2_v2;
-                prms[35] = y2_v3 = ClientControls.y2_v3 = values.y2_v3;
+                prms[0] = gant_tol_1 = ClientControls.gant_tol_1 = values.gant_tol_1;
+                prms[1] = gant_tol0 = ClientControls.gant_tol0 = values.gant_tol0;
+                prms[2] = gant_tol1 = ClientControls.gant_tol1 = values.gant_tol1;
+                prms[3] = gant_tol2 = ClientControls.gant_tol2 = values.gant_tol2;
+                prms[4] = gant_v1 = ClientControls.gant_v1 = values.gant_v1;
+                prms[5] = gant_v2 = ClientControls.gant_v2 = values.gant_v2;
+                prms[6] = gant_v3 = ClientControls.gant_v3 = values.gant_v3;
+                prms[7] = collim_tol_1 = ClientControls.collim_tol_1 = values.collim_tol_1;
+                prms[8] = collim_tol0 = ClientControls.collim_tol0 = values.collim_tol0;
+                prms[9] = collim_tol1 = ClientControls.collim_tol1 = values.collim_tol1;
+                prms[10] = collim_tol2 = ClientControls.collim_tol2 = values.collim_tol2;
+                prms[11] = collim_v1 = ClientControls.collim_v1 = values.collim_v1;
+                prms[12] = collim_v2 = ClientControls.collim_v2 = values.collim_v2;
+                prms[13] = collim_v3 = ClientControls.collim_v3 = values.collim_v3;
+                prms[14] = x1_tol_1 = ClientControls.x1_tol_1 = values.x1_tol_1;
+                prms[15] = x1_tol0 = ClientControls.x1_tol0 = values.x1_tol0;
+                prms[16] = x1_tol1 = ClientControls.x1_tol1 = values.x1_tol1;
+                prms[17] = x1_tol2 = ClientControls.x1_tol2 = values.x1_tol2;
+                prms[18] = x1_v1 = ClientControls.x1_v1 = values.x1_v1;
+                prms[19] = x1_v2 = ClientControls.x1_v2 = values.x1_v2;
+                prms[20] = x1_v3 = ClientControls.x1_v3 = values.x1_v3;
+                prms[21] = x2_tol_1 = ClientControls.x2_tol_1 = values.x2_tol_1;
+                prms[22] = x2_tol0 = ClientControls.x2_tol0 = values.x2_tol0;
+                prms[23] = x2_tol1 = ClientControls.x2_tol1 = values.x2_tol1;
+                prms[24] = x2_tol2 = ClientControls.x2_tol2 = values.x2_tol2;
+                prms[25] = x2_v1 = ClientControls.x2_v1 = values.x2_v1;
+                prms[26] = x2_v2 = ClientControls.x2_v2 = values.x2_v2;
+                prms[27] = x2_v3 = ClientControls.x2_v3 = values.x2_v3;
+                prms[28] = y1_tol_1 = ClientControls.y1_tol_1 = values.y1_tol_1;
+                prms[29] = y1_tol0 = ClientControls.y1_tol0 = values.y1_tol0;
+                prms[30] = y1_tol1 = ClientControls.y1_tol1 = values.y1_tol1;
+                prms[31] = y1_tol2 = ClientControls.y1_tol2 = values.y1_tol2;
+                prms[32] = y1_v1 = ClientControls.y1_v1 = values.y1_v1;
+                prms[33] = y1_v2 = ClientControls.y1_v2 = values.y1_v2;
+                prms[34] = y1_v3 = ClientControls.y1_v3 = values.y1_v3;
+                prms[35] = y2_tol_1 = ClientControls.y2_tol_1 = values.y2_tol_1;
+                prms[36] = y2_tol0 = ClientControls.y2_tol0 = values.y2_tol0;
+                prms[37] = y2_tol1 = ClientControls.y2_tol1 = values.y2_tol1;
+                prms[38] = y2_tol2 = ClientControls.y2_tol2 = values.y2_tol2;
+                prms[39] = y2_v1 = ClientControls.y2_v1 = values.y2_v1;
+                prms[40] = y2_v2 = ClientControls.y2_v2 = values.y2_v2;
+                prms[41] = y2_v3 = ClientControls.y2_v3 = values.y2_v3;
 
                 int i = 0;
                 foreach (Control tb in gb_parameters.Controls)
@@ -2456,7 +2467,7 @@ namespace Compact_Control
                     }
                 }
 
-                string[] ourParams = new string[42];
+                string[] ourParams = new string[48];
                 ourParams[0] = gant_zpnt;
                 ourParams[1] = gant_length;
                 ourParams[2] = gant_fine_length;
@@ -2810,7 +2821,7 @@ namespace Compact_Control
         private void btn_saveParameters_Click(object sender, EventArgs e)
         {
             initState = 0 ;
-            string[] values = new string[36];
+            string[] values = new string[42];
             int i = 0;
             foreach (Control tb in gb_parameters.Controls)
             {
@@ -2820,49 +2831,55 @@ namespace Compact_Control
                     i = i + 1;
                 }
             }
-            gant_tol0 = ClientControls.gant_tol0 = values[0];
-            gant_tol1 = ClientControls.gant_tol1 = values[1];
-            gant_tol2 = ClientControls.gant_tol2 = values[2];
-            gant_v1 = ClientControls.gant_v1 = values[3];
-            gant_v2 = ClientControls.gant_v2 = values[4];
-            gant_v3 = ClientControls.gant_v3 = values[5];
-            collim_tol0 = ClientControls.collim_tol0 = values[6];
-            collim_tol1 = ClientControls.collim_tol1 = values[7];
-            collim_tol2 = ClientControls.collim_tol2 = values[8];
-            collim_v1 = ClientControls.collim_v1 = values[9];
-            collim_v2 = ClientControls.collim_v2 = values[10];
-            collim_v3 = ClientControls.collim_v3 = values[11];
-            x1_tol0 = ClientControls.x1_tol0 = values[12];
-            x1_tol1 = ClientControls.x1_tol1 = values[13];
-            x1_tol2 = ClientControls.x1_tol2 = values[14];
-            x1_v1 = ClientControls.x1_v1 = values[15];
-            x1_v2 = ClientControls.x1_v2 = values[16];
-            x1_v3 = ClientControls.x1_v3 = values[17];
-            x2_tol0 = ClientControls.x2_tol0 = values[18];
-            x2_tol1 = ClientControls.x2_tol1 = values[19];
-            x2_tol2 = ClientControls.x2_tol2 = values[20];
-            x2_v1 = ClientControls.x2_v1 = values[21];
-            x2_v2 = ClientControls.x2_v2 = values[22];
-            x2_v3 = ClientControls.x2_v3 = values[23];
-            y1_tol0 = ClientControls.y1_tol0 = values[24];
-            y1_tol1 = ClientControls.y1_tol1 = values[25];
-            y1_tol2 = ClientControls.y1_tol2 = values[26];
-            y1_v1 = ClientControls.y1_v1 = values[27];
-            y1_v2 = ClientControls.y1_v2 = values[28];
-            y1_v3 = ClientControls.y1_v3 = values[29];
-            y2_tol0 = ClientControls.y2_tol0 = values[30];
-            y2_tol1 = ClientControls.y2_tol1 = values[31];
-            y2_tol2 = ClientControls.y2_tol2 = values[32];
-            y2_v1 = ClientControls.y2_v1 = values[33];
-            y2_v2 = ClientControls.y2_v2 = values[34];
-            y2_v3 = ClientControls.y2_v3 = values[35];
+            gant_tol_1 = ClientControls.gant_tol_1 = values[0];
+            gant_tol0 = ClientControls.gant_tol0 = values[1];
+            gant_tol1 = ClientControls.gant_tol1 = values[2];
+            gant_tol2 = ClientControls.gant_tol2 = values[3];
+            gant_v1 = ClientControls.gant_v1 = values[4];
+            gant_v2 = ClientControls.gant_v2 = values[5];
+            gant_v3 = ClientControls.gant_v3 = values[6];
+            collim_tol_1 = ClientControls.collim_tol_1 = values[7];
+            collim_tol0 = ClientControls.collim_tol0 = values[8];
+            collim_tol1 = ClientControls.collim_tol1 = values[9];
+            collim_tol2 = ClientControls.collim_tol2 = values[10];
+            collim_v1 = ClientControls.collim_v1 = values[11];
+            collim_v2 = ClientControls.collim_v2 = values[12];
+            collim_v3 = ClientControls.collim_v3 = values[13];
+            x1_tol_1 = ClientControls.x1_tol_1 = values[14];
+            x1_tol0 = ClientControls.x1_tol0 = values[15];
+            x1_tol1 = ClientControls.x1_tol1 = values[16];
+            x1_tol2 = ClientControls.x1_tol2 = values[17];
+            x1_v1 = ClientControls.x1_v1 = values[18];
+            x1_v2 = ClientControls.x1_v2 = values[19];
+            x1_v3 = ClientControls.x1_v3 = values[20];
+            x2_tol_1 = ClientControls.x2_tol_1 = values[21];
+            x2_tol0 = ClientControls.x2_tol0 = values[22];
+            x2_tol1 = ClientControls.x2_tol1 = values[23];
+            x2_tol2 = ClientControls.x2_tol2 = values[24];
+            x2_v1 = ClientControls.x2_v1 = values[25];
+            x2_v2 = ClientControls.x2_v2 = values[26];
+            x2_v3 = ClientControls.x2_v3 = values[27];
+            y1_tol_1 = ClientControls.y1_tol_1 = values[28];
+            y1_tol0 = ClientControls.y1_tol0 = values[29];
+            y1_tol1 = ClientControls.y1_tol1 = values[30];
+            y1_tol2 = ClientControls.y1_tol2 = values[31];
+            y1_v1 = ClientControls.y1_v1 = values[32];
+            y1_v2 = ClientControls.y1_v2 = values[33];
+            y1_v3 = ClientControls.y1_v3 = values[34];
+            y2_tol_1 = ClientControls.y2_tol_1 = values[35];
+            y2_tol0 = ClientControls.y2_tol0 = values[36];
+            y2_tol1 = ClientControls.y2_tol1 = values[37];
+            y2_tol2 = ClientControls.y2_tol2 = values[38];
+            y2_v1 = ClientControls.y2_v1 = values[39];
+            y2_v2 = ClientControls.y2_v2 = values[40];
+            y2_v3 = ClientControls.y2_v3 = values[41];
             try
             {
                 string appPath = Application.StartupPath;
                 string dataPath = System.IO.Path.Combine(appPath, "Parameters.dat");
                 HashPass.writeParametersJson(dataPath, values);
 
-                string[] ourParams = new string[42];
+                string[] ourParams = new string[48];
                 ourParams[0] = gant_zpnt;
                 ourParams[1] = gant_length;
                 ourParams[2] = gant_fine_length;

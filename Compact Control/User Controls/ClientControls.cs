@@ -40,12 +40,12 @@ namespace Compact_Control
 
         double gant_t2, gant_d2, collim_t2, collim_d2;
 
-        public static string gant_tol0, gant_tol1, gant_tol2, gant_v1, gant_v2, gant_v3;
-        public static string collim_tol0, collim_tol1, collim_tol2, collim_v1, collim_v2, collim_v3;
-        public static string x1_tol0, x1_tol1, x1_tol2, x1_v1, x1_v2, x1_v3;
-        public static string x2_tol0, x2_tol1, x2_tol2, x2_v1, x2_v2, x2_v3;
-        public static string y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
-        public static string y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
+        public static string gant_tol_1, gant_tol0, gant_tol1, gant_tol2, gant_v1, gant_v2, gant_v3;
+        public static string collim_tol_1, collim_tol0, collim_tol1, collim_tol2, collim_v1, collim_v2, collim_v3;
+        public static string x1_tol_1, x1_tol0, x1_tol1, x1_tol2, x1_v1, x1_v2, x1_v3;
+        public static string x2_tol_1, x2_tol0, x2_tol1, x2_tol2, x2_v1, x2_v2, x2_v3;
+        public static string y1_tol_1, y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
+        public static string y2_tol_1, y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
         bool sendParametersFlag = false;
 
         string x1_co;
@@ -130,7 +130,7 @@ namespace Compact_Control
             btn_ClearField.Enabled = true;
         }
          */
-        public static string[] ourParameters = new string[42];
+        public static string[] ourParameters = new string[48];
         public bool compareParameters(string[] microParams, string[] ourParams)
         {
             bool equal = true;
@@ -155,38 +155,44 @@ namespace Compact_Control
                     serialPort1.PortName = curr_port;
                     serialPort1.Open();
                 }
-                    
+
                 //serialPort1.Open();
-                string gant_tol0_t = Math.Round(Math.Abs(double.Parse(gant_tol0) / gant_gain)).ToString();
-                string gant_tol1_t = Math.Round(Math.Abs(double.Parse(gant_tol1) / gant_gain)).ToString();
-                string gant_tol2_t = Math.Round(Math.Abs(double.Parse(gant_tol2) / gant_gain)).ToString();
+                string gant_tol_1_t = Math.Abs(Math.Round(double.Parse(gant_tol_1) / gant_gain)).ToString();
+                string gant_tol0_t = Math.Abs(Math.Round(double.Parse(gant_tol0) / gant_gain)).ToString();
+                string gant_tol1_t = Math.Abs(Math.Round(double.Parse(gant_tol1) / gant_gain)).ToString();
+                string gant_tol2_t = Math.Abs(Math.Round(double.Parse(gant_tol2) / gant_gain)).ToString();
 
-                string collim_tol0_t = Math.Round(Math.Abs(double.Parse(collim_tol0) / collim_gain)).ToString();
-                string collim_tol1_t = Math.Round(Math.Abs(double.Parse(collim_tol1) / collim_gain)).ToString();
-                string collim_tol2_t = Math.Round(Math.Abs(double.Parse(collim_tol2) / collim_gain)).ToString();
+                string collim_tol_1_t = Math.Abs(Math.Round(double.Parse(collim_tol_1) / collim_gain)).ToString();
+                string collim_tol0_t = Math.Abs(Math.Round(double.Parse(collim_tol0) / collim_gain)).ToString();
+                string collim_tol1_t = Math.Abs(Math.Round(double.Parse(collim_tol1) / collim_gain)).ToString();
+                string collim_tol2_t = Math.Abs(Math.Round(double.Parse(collim_tol2) / collim_gain)).ToString();
 
-                string x1_tol0_t = Math.Round(Math.Abs(double.Parse(x1_tol0) / x1_gain)).ToString();
-                string x1_tol1_t = Math.Round(Math.Abs(double.Parse(x1_tol1) / x1_gain)).ToString();
-                string x1_tol2_t = Math.Round(Math.Abs(double.Parse(x1_tol2) / x1_gain)).ToString();
+                string x1_tol_1_t = Math.Abs(Math.Round(double.Parse(x1_tol_1) / x1_gain)).ToString();
+                string x1_tol0_t = Math.Abs(Math.Round(double.Parse(x1_tol0) / x1_gain)).ToString();
+                string x1_tol1_t = Math.Abs(Math.Round(double.Parse(x1_tol1) / x1_gain)).ToString();
+                string x1_tol2_t = Math.Abs(Math.Round(double.Parse(x1_tol2) / x1_gain)).ToString();
 
-                string x2_tol0_t = Math.Round(Math.Abs(double.Parse(x2_tol0) / x2_gain)).ToString();
-                string x2_tol1_t = Math.Round(Math.Abs(double.Parse(x2_tol1) / x2_gain)).ToString();
-                string x2_tol2_t = Math.Round(Math.Abs(double.Parse(x2_tol2) / x2_gain)).ToString();
+                string x2_tol_1_t = Math.Abs(Math.Round(double.Parse(x2_tol_1) / x2_gain)).ToString();
+                string x2_tol0_t = Math.Abs(Math.Round(double.Parse(x2_tol0) / x2_gain)).ToString();
+                string x2_tol1_t = Math.Abs(Math.Round(double.Parse(x2_tol1) / x2_gain)).ToString();
+                string x2_tol2_t = Math.Abs(Math.Round(double.Parse(x2_tol2) / x2_gain)).ToString();
 
-                string y1_tol0_t = Math.Round(Math.Abs(double.Parse(y1_tol0) / y1_gain)).ToString();
-                string y1_tol1_t = Math.Round(Math.Abs(double.Parse(y1_tol1) / y1_gain)).ToString();
-                string y1_tol2_t = Math.Round(Math.Abs(double.Parse(y1_tol2) / y1_gain)).ToString();
+                string y1_tol_1_t = Math.Abs(Math.Round(double.Parse(y1_tol_1) / y1_gain)).ToString();
+                string y1_tol0_t = Math.Abs(Math.Round(double.Parse(y1_tol0) / y1_gain)).ToString();
+                string y1_tol1_t = Math.Abs(Math.Round(double.Parse(y1_tol1) / y1_gain)).ToString();
+                string y1_tol2_t = Math.Abs(Math.Round(double.Parse(y1_tol2) / y1_gain)).ToString();
 
-                string y2_tol0_t = Math.Round(Math.Abs(double.Parse(y2_tol0) / y2_gain)).ToString();
-                string y2_tol1_t = Math.Round(Math.Abs(double.Parse(y2_tol1) / y2_gain)).ToString();
-                string y2_tol2_t = Math.Round(Math.Abs(double.Parse(y2_tol2) / y2_gain)).ToString();
+                string y2_tol_1_t = Math.Abs(Math.Round(double.Parse(y2_tol_1) / y2_gain)).ToString();
+                string y2_tol0_t = Math.Abs(Math.Round(double.Parse(y2_tol0) / y2_gain)).ToString();
+                string y2_tol1_t = Math.Abs(Math.Round(double.Parse(y2_tol1) / y2_gain)).ToString();
+                string y2_tol2_t = Math.Abs(Math.Round(double.Parse(y2_tol2) / y2_gain)).ToString();
 
-                ourSum = double.Parse(gant_tol0_t) + double.Parse(gant_tol1_t) + double.Parse(gant_tol2_t) +
-                         double.Parse(collim_tol0_t) + double.Parse(collim_tol1_t) + double.Parse(collim_tol2_t) +
-                         double.Parse(x1_tol0_t) + double.Parse(x1_tol1_t) + double.Parse(x1_tol2_t) +
-                         double.Parse(x2_tol0_t) + double.Parse(x2_tol1_t) + double.Parse(x2_tol2_t) +
-                         double.Parse(y1_tol0_t) + double.Parse(y1_tol1_t) + double.Parse(y1_tol2_t) +
-                         double.Parse(y2_tol0_t) + double.Parse(y2_tol1_t) + double.Parse(y2_tol2_t) +
+                ourSum = double.Parse(gant_tol_1_t) + double.Parse(gant_tol0_t) + double.Parse(gant_tol1_t) + double.Parse(gant_tol2_t) +
+                         double.Parse(collim_tol_1_t) + double.Parse(collim_tol0_t) + double.Parse(collim_tol1_t) + double.Parse(collim_tol2_t) +
+                         double.Parse(x1_tol_1_t) + double.Parse(x1_tol0_t) + double.Parse(x1_tol1_t) + double.Parse(x1_tol2_t) +
+                         double.Parse(x2_tol_1_t) + double.Parse(x2_tol0_t) + double.Parse(x2_tol1_t) + double.Parse(x2_tol2_t) +
+                         double.Parse(y1_tol_1_t) + double.Parse(y1_tol0_t) + double.Parse(y1_tol1_t) + double.Parse(y1_tol2_t) +
+                         double.Parse(y2_tol_1_t) + double.Parse(y2_tol0_t) + double.Parse(y2_tol1_t) + double.Parse(y2_tol2_t) +
                          double.Parse(gant_v1) + double.Parse(gant_v2) + double.Parse(gant_v3) +
                          double.Parse(collim_v1) + double.Parse(collim_v2) + double.Parse(collim_v3) +
                          double.Parse(x1_v1) + double.Parse(x1_v2) + double.Parse(x1_v3) +
@@ -196,20 +202,21 @@ namespace Compact_Control
                          double.Parse(gant_zpnt) + double.Parse(gant_length) + double.Parse(gant_fine_length) +
                          double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length);
 
+                //MessageBox.Show(ourSum.ToString());
                 write("w");
                 write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
                 write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
-                write(gant_tol0_t + "/" + gant_tol1_t + "/" + gant_tol2_t + "/");
+                write(gant_tol_1_t + "/" + gant_tol0_t + "/" + gant_tol1_t + "/" + gant_tol2_t + "/");
                 write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
-                write(collim_tol0_t + "/" + collim_tol1_t + "/" + collim_tol2_t + "/");
+                write(collim_tol_1_t + "/" + collim_tol0_t + "/" + collim_tol1_t + "/" + collim_tol2_t + "/");
                 write(collim_v1 + "/" + collim_v2 + "/" + collim_v3 + "/");
-                write(x1_tol0_t + "/" + x1_tol1_t + "/" + x1_tol2_t + "/");
+                write(x1_tol_1_t + "/" + x1_tol0_t + "/" + x1_tol1_t + "/" + x1_tol2_t + "/");
                 write(x1_v1 + "/" + x1_v2 + "/" + x1_v3 + "/");
-                write(x2_tol0_t + "/" + x2_tol1_t + "/" + x2_tol2_t + "/");
+                write(x2_tol_1_t + "/" + x2_tol0_t + "/" + x2_tol1_t + "/" + x2_tol2_t + "/");
                 write(x2_v1 + "/" + x2_v2 + "/" + x2_v3 + "/");
-                write(y1_tol0_t + "/" + y1_tol1_t + "/" + y1_tol2_t + "/");
+                write(y1_tol_1_t + "/" + y1_tol0_t + "/" + y1_tol1_t + "/" + y1_tol2_t + "/");
                 write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
-                write(y2_tol0_t + "/" + y2_tol1_t + "/" + y2_tol2_t + "/");
+                write(y2_tol_1_t + "/" + y2_tol0_t + "/" + y2_tol1_t + "/" + y2_tol2_t + "/");
                 write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
                 return true;
 

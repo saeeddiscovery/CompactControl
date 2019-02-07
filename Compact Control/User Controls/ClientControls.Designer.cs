@@ -853,7 +853,7 @@
             // 
             this.pb_receiveStatus.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
             this.pb_receiveStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_receiveStatus.Location = new System.Drawing.Point(711, 415);
+            this.pb_receiveStatus.Location = new System.Drawing.Point(711, 416);
             this.pb_receiveStatus.Name = "pb_receiveStatus";
             this.pb_receiveStatus.Size = new System.Drawing.Size(18, 18);
             this.pb_receiveStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
