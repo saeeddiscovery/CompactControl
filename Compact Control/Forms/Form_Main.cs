@@ -406,7 +406,7 @@ namespace Compact_Control
         {
             if (btn_start_stop.Text == "Start")
             {
-                write("S");
+                write("S$");
                 btn_start_stop.Text = "Stop";
                 groupBox7.Enabled = true;
                 timer1.Stop();

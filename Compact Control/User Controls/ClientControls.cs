@@ -344,6 +344,9 @@ namespace Compact_Control
                         sendParametersFlag = true;
                         //sendParameters();
                         break;
+                    case "SSS":
+                        write("s");
+                        break;
                     case "sum":
                         string microSum = a.Substring(3, a.Length - 3);
                         if (checkSum(double.Parse(microSum), ourSum) == true)
