@@ -423,6 +423,12 @@ namespace Compact_Control
                             int i = int.Parse(lbl_in_cnt.Text);
                             i = i + 1;
                             lbl_in_cnt.Text = i.ToString();
+
+                            if (int.Parse(lbl_in_cnt.Text) > 100)
+                            {
+                                lbl_in_cnt.Text = "0";
+                                tb_terminal_in.Clear();
+                            }
                         }
                         adc = a.Substring(3, a.Length - 3);
                         //adc = "1999";
@@ -493,6 +499,12 @@ namespace Compact_Control
                             int o = int.Parse(lbl_out_cnt.Text);
                             o = o + 1;
                             lbl_out_cnt.Text = o.ToString();
+
+                            if (int.Parse(lbl_out_cnt.Text) > 100)
+                            {
+                                lbl_out_cnt.Text = "0";
+                                tb_terminal_out.Clear();
+                            }
                         }
                         break;
                     case "gco":
@@ -508,7 +520,12 @@ namespace Compact_Control
                     case "cf2":
                         break;
                     default:
-                        tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
+                        if (showTerminals == "1")
+                        {
+                            tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
+                            if (tb_terminal_oth.Lines.Length > 1000)
+                                tb_terminal_oth.Clear();
+                        }
                         break;
                     }
                     if (Class_PatientData.isBoardReadWrite)

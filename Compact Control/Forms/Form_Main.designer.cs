@@ -263,7 +263,10 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel_AdminControls = new System.Windows.Forms.Panel();
             this.panel_Toolbar = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label_ram = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label_cpu = new System.Windows.Forms.Label();
             this.picBtn_Exit = new System.Windows.Forms.PictureBox();
             this.picBtn_LogOff = new System.Windows.Forms.PictureBox();
             this.picBtn_Setting = new System.Windows.Forms.PictureBox();
@@ -275,9 +278,9 @@
             this.picBtn_Connect = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label_upTime = new System.Windows.Forms.Label();
+            this.label73 = new System.Windows.Forms.Label();
             this.lbl_init = new System.Windows.Forms.Label();
-            this.label_shamsiDate = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
             this.label_date = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label_time = new System.Windows.Forms.Label();
@@ -294,11 +297,6 @@
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
-            this.label_upTime = new System.Windows.Forms.Label();
-            this.label73 = new System.Windows.Forms.Label();
-            this.label_cpu = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label_ram = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -340,6 +338,7 @@
             this.gb_parameters.SuspendLayout();
             this.panel_AdminControls.SuspendLayout();
             this.panel_Toolbar.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
@@ -351,7 +350,6 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Close)).BeginInit();
             this.panel_ClientControls.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -3062,6 +3060,29 @@
             this.panel_Toolbar.Size = new System.Drawing.Size(1122, 103);
             this.panel_Toolbar.TabIndex = 3;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label_ram);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel3.Location = new System.Drawing.Point(240, 68);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(646, 32);
+            this.panel3.TabIndex = 24;
+            // 
+            // label_ram
+            // 
+            this.label_ram.AutoSize = true;
+            this.label_ram.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_ram.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_ram.Location = new System.Drawing.Point(604, 0);
+            this.label_ram.Name = "label_ram";
+            this.label_ram.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label_ram.Size = new System.Drawing.Size(42, 28);
+            this.label_ram.TabIndex = 24;
+            this.label_ram.Text = "RAM";
+            this.label_ram.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.label_cpu);
@@ -3071,6 +3092,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(646, 32);
             this.panel2.TabIndex = 20;
+            // 
+            // label_cpu
+            // 
+            this.label_cpu.AutoSize = true;
+            this.label_cpu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_cpu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_cpu.Location = new System.Drawing.Point(605, 0);
+            this.label_cpu.Name = "label_cpu";
+            this.label_cpu.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label_cpu.Size = new System.Drawing.Size(41, 28);
+            this.label_cpu.TabIndex = 23;
+            this.label_cpu.Text = "CPU";
+            this.label_cpu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // picBtn_Exit
             // 
@@ -3216,8 +3250,6 @@
             this.panel1.Controls.Add(this.label_upTime);
             this.panel1.Controls.Add(this.label73);
             this.panel1.Controls.Add(this.lbl_init);
-            this.panel1.Controls.Add(this.label_shamsiDate);
-            this.panel1.Controls.Add(this.label46);
             this.panel1.Controls.Add(this.label_date);
             this.panel1.Controls.Add(this.label47);
             this.panel1.Controls.Add(this.label_time);
@@ -3232,6 +3264,32 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1118, 36);
             this.panel1.TabIndex = 14;
+            // 
+            // label_upTime
+            // 
+            this.label_upTime.AutoSize = true;
+            this.label_upTime.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_upTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_upTime.Location = new System.Drawing.Point(724, 0);
+            this.label_upTime.Name = "label_upTime";
+            this.label_upTime.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label_upTime.Size = new System.Drawing.Size(61, 28);
+            this.label_upTime.TabIndex = 22;
+            this.label_upTime.Text = "UpTime";
+            this.label_upTime.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label73.Enabled = false;
+            this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label73.Location = new System.Drawing.Point(785, 0);
+            this.label73.Name = "label73";
+            this.label73.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label73.Size = new System.Drawing.Size(15, 28);
+            this.label73.TabIndex = 23;
+            this.label73.Text = "|";
             // 
             // lbl_init
             // 
@@ -3249,32 +3307,6 @@
             this.lbl_init.TabIndex = 18;
             this.lbl_init.Text = "Not Initialized !";
             this.lbl_init.Visible = false;
-            // 
-            // label_shamsiDate
-            // 
-            this.label_shamsiDate.AutoSize = true;
-            this.label_shamsiDate.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_shamsiDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_shamsiDate.Location = new System.Drawing.Point(745, 0);
-            this.label_shamsiDate.Name = "label_shamsiDate";
-            this.label_shamsiDate.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label_shamsiDate.Size = new System.Drawing.Size(40, 28);
-            this.label_shamsiDate.TabIndex = 8;
-            this.label_shamsiDate.Text = "Date";
-            this.label_shamsiDate.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label46.Enabled = false;
-            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label46.Location = new System.Drawing.Point(785, 0);
-            this.label46.Name = "label46";
-            this.label46.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label46.Size = new System.Drawing.Size(15, 28);
-            this.label46.TabIndex = 9;
-            this.label46.Text = "|";
             // 
             // label_date
             // 
@@ -3448,68 +3480,6 @@
             this.timer5.Interval = 200;
             this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
             // 
-            // label_upTime
-            // 
-            this.label_upTime.AutoSize = true;
-            this.label_upTime.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_upTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_upTime.Location = new System.Drawing.Point(669, 0);
-            this.label_upTime.Name = "label_upTime";
-            this.label_upTime.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label_upTime.Size = new System.Drawing.Size(61, 28);
-            this.label_upTime.TabIndex = 22;
-            this.label_upTime.Text = "UpTime";
-            this.label_upTime.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label73.Enabled = false;
-            this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label73.Location = new System.Drawing.Point(730, 0);
-            this.label73.Name = "label73";
-            this.label73.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label73.Size = new System.Drawing.Size(15, 28);
-            this.label73.TabIndex = 23;
-            this.label73.Text = "|";
-            // 
-            // label_cpu
-            // 
-            this.label_cpu.AutoSize = true;
-            this.label_cpu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_cpu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_cpu.Location = new System.Drawing.Point(605, 0);
-            this.label_cpu.Name = "label_cpu";
-            this.label_cpu.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label_cpu.Size = new System.Drawing.Size(41, 28);
-            this.label_cpu.TabIndex = 23;
-            this.label_cpu.Text = "CPU";
-            this.label_cpu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.label_ram);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel3.Location = new System.Drawing.Point(240, 68);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(646, 32);
-            this.panel3.TabIndex = 24;
-            // 
-            // label_ram
-            // 
-            this.label_ram.AutoSize = true;
-            this.label_ram.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_ram.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_ram.Location = new System.Drawing.Point(604, 0);
-            this.label_ram.Name = "label_ram";
-            this.label_ram.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label_ram.Size = new System.Drawing.Size(42, 28);
-            this.label_ram.TabIndex = 24;
-            this.label_ram.Text = "RAM";
-            this.label_ram.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3585,6 +3555,8 @@
             this.gb_parameters.PerformLayout();
             this.panel_AdminControls.ResumeLayout(false);
             this.panel_Toolbar.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).EndInit();
@@ -3599,8 +3571,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Close)).EndInit();
             this.panel_ClientControls.ResumeLayout(false);
             this.panel_ClientControls.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3680,8 +3650,6 @@
         private System.Windows.Forms.Label label_date;
         private System.Windows.Forms.Label label_time;
         private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.Label label_shamsiDate;
-        private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label47;
         public System.IO.Ports.SerialPort serialPort1;
         public System.Windows.Forms.PictureBox picBtn_Close;

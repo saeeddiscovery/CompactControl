@@ -269,10 +269,17 @@ namespace Compact_Control
         public void write(string data)
         {
             GlobalSerialPort.Write(data);
+
             tb_terminal_out.AppendText(data + Environment.NewLine);
             int o = int.Parse(lbl_out_cnt.Text);
             o = o + 1;
             lbl_out_cnt.Text = o.ToString();
+
+            if (int.Parse(lbl_out_cnt.Text) > 100)
+            {
+                lbl_out_cnt.Text = "0";
+                tb_terminal_out.Clear();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -1485,6 +1492,11 @@ namespace Compact_Control
                         int i = int.Parse(lbl_in_cnt.Text);
                         i = i + 1;
                         lbl_in_cnt.Text = i.ToString();
+                        if (int.Parse(lbl_in_cnt.Text) > 100)
+                        {
+                            lbl_in_cnt.Text = "0";
+                            tb_terminal_in.Clear();
+                        }
                         adc = a.Substring(3, a.Length - 3);
                         if (int.Parse(gant_set) != int.Parse(gnd))
                             write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
@@ -1500,6 +1512,8 @@ namespace Compact_Control
                             write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
                         break;
                     default:
+                        if (tb_terminal_oth.Lines.Length > 1000)
+                            tb_terminal_oth.Clear();
                         tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
                         break;
                     }
@@ -2788,7 +2802,7 @@ namespace Compact_Control
             DateTime now = DateTime.Now;
 
             TimeSpan upTime = now - startTime;
-            label_upTime.Text = "UpTime: " + upTime.Hours + ":" + upTime.Minutes;
+            label_upTime.Text = "UpTime: " + upTime.Hours + ":" + upTime.Minutes + ":" + upTime.Seconds;
 
             double cpuUsage = this.theCPUCounter.NextValue();
             label_cpu.Text = "CPU: " + cpuUsage.ToString("00.") + " %";
@@ -2807,14 +2821,14 @@ namespace Compact_Control
 
             string time = now.ToShortTimeString();
             string date = now.ToShortDateString();
-            PersianCalendar pc = new PersianCalendar();
+            //PersianCalendar pc = new PersianCalendar();
             string miladiDate = now.Year + "/" +
                 now.Month + "/" + now.Day;
-            string shamsiDate = pc.GetYear(now) + "/" +
-                pc.GetMonth(now) + "/" + pc.GetDayOfMonth(now);
+            //string shamsiDate = pc.GetYear(now) + "/" +
+            //    pc.GetMonth(now) + "/" + pc.GetDayOfMonth(now);
             label_time.Text = time;
             label_date.Text = miladiDate;
-            label_shamsiDate.Text = shamsiDate;
+            //label_shamsiDate.Text = shamsiDate;
 
             if (inputADC == false)
             {
