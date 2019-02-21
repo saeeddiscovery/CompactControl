@@ -119,6 +119,8 @@ namespace Compact_Control
         private static SerialPort GlobalSerialPort = new SerialPort();
         private ClientControls clientFrm = new ClientControls();
 
+        public DateTime startTime = DateTime.Now;
+
         public Form1()
         {
             InitializeComponent();
@@ -1566,6 +1568,7 @@ namespace Compact_Control
         {
             lbl_init.Hide();
             timer4.Stop();
+
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -2759,6 +2762,10 @@ namespace Compact_Control
         bool inputADC = false;
         private void timer2_Tick_1(object sender, EventArgs e)
         {
+
+            TimeSpan upTime = DateTime.Now - startTime;
+            label_upTime.Text = "UpTime: " + upTime.Hours + ":" + upTime.Minutes;
+
             DateTime now = DateTime.Now;
 
             string time = now.ToShortTimeString();
