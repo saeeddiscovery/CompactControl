@@ -296,6 +296,9 @@
             this.timer5 = new System.Windows.Forms.Timer(this.components);
             this.label_upTime = new System.Windows.Forms.Label();
             this.label73 = new System.Windows.Forms.Label();
+            this.label_cpu = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label_ram = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -337,6 +340,7 @@
             this.gb_parameters.SuspendLayout();
             this.panel_AdminControls.SuspendLayout();
             this.panel_Toolbar.SuspendLayout();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).BeginInit();
@@ -347,6 +351,7 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Close)).BeginInit();
             this.panel_ClientControls.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -3038,6 +3043,7 @@
             // 
             this.panel_Toolbar.BackColor = System.Drawing.SystemColors.Control;
             this.panel_Toolbar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_Toolbar.Controls.Add(this.panel3);
             this.panel_Toolbar.Controls.Add(this.panel2);
             this.panel_Toolbar.Controls.Add(this.picBtn_Exit);
             this.panel_Toolbar.Controls.Add(this.picBtn_LogOff);
@@ -3058,11 +3064,12 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label_cpu);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel2.Location = new System.Drawing.Point(240, 36);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(646, 31);
+            this.panel2.Size = new System.Drawing.Size(646, 32);
             this.panel2.TabIndex = 20;
             // 
             // picBtn_Exit
@@ -3467,6 +3474,42 @@
             this.label73.TabIndex = 23;
             this.label73.Text = "|";
             // 
+            // label_cpu
+            // 
+            this.label_cpu.AutoSize = true;
+            this.label_cpu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_cpu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_cpu.Location = new System.Drawing.Point(605, 0);
+            this.label_cpu.Name = "label_cpu";
+            this.label_cpu.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label_cpu.Size = new System.Drawing.Size(41, 28);
+            this.label_cpu.TabIndex = 23;
+            this.label_cpu.Text = "CPU";
+            this.label_cpu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label_ram);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel3.Location = new System.Drawing.Point(240, 68);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(646, 32);
+            this.panel3.TabIndex = 24;
+            // 
+            // label_ram
+            // 
+            this.label_ram.AutoSize = true;
+            this.label_ram.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_ram.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_ram.Location = new System.Drawing.Point(604, 0);
+            this.label_ram.Name = "label_ram";
+            this.label_ram.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label_ram.Size = new System.Drawing.Size(42, 28);
+            this.label_ram.TabIndex = 24;
+            this.label_ram.Text = "RAM";
+            this.label_ram.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3542,6 +3585,8 @@
             this.gb_parameters.PerformLayout();
             this.panel_AdminControls.ResumeLayout(false);
             this.panel_Toolbar.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).EndInit();
@@ -3554,6 +3599,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Close)).EndInit();
             this.panel_ClientControls.ResumeLayout(false);
             this.panel_ClientControls.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3825,6 +3872,9 @@
         private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Label label_upTime;
         private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.Label label_cpu;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label_ram;
     }
 }
 

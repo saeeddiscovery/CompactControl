@@ -233,6 +233,8 @@ namespace Compact_Control
         public Queue<string> receiveQ = new Queue<string>();
         public void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
+            if (serialPort1.IsOpen == false)
+                return;
             while (serialPort1.BytesToRead > 0)
             {
                 string currReceived = serialPort1.ReadLine();

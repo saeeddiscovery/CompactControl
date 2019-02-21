@@ -12,6 +12,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
+using System.Management;
 
 namespace Compact_Control
 {
@@ -120,10 +121,26 @@ namespace Compact_Control
         private ClientControls clientFrm = new ClientControls();
 
         public DateTime startTime = DateTime.Now;
+        public double TotalVisibleMemorySize;
+        public double FreePhysicalMemory;
+        public double TotalVirtualMemorySize;
+        public double FreeVirtualMemory;
 
         public Form1()
         {
             InitializeComponent();
+
+            ObjectQuery wql = new ObjectQuery("SELECT * FROM Win32_OperatingSystem");
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher(wql);
+            ManagementObjectCollection results = searcher.Get();
+
+            foreach (ManagementObject result in results)
+            {
+                TotalVisibleMemorySize =    double.Parse(result["TotalVisibleMemorySize"].ToString())/1024;
+                FreePhysicalMemory =        double.Parse(result["FreePhysicalMemory"].ToString())/1024;
+                TotalVirtualMemorySize =    double.Parse(result["TotalVirtualMemorySize"].ToString())/1024;
+                FreeVirtualMemory =         double.Parse(result["FreeVirtualMemory"].ToString())/1024;
+            }
 
             if (isInServiceMode == false)
             {
@@ -1181,6 +1198,8 @@ namespace Compact_Control
         string[] microParameters = new string[42];
         private void serialPort1_DataReceived_1(object sender, SerialDataReceivedEventArgs e)
         {
+            if (serialPort1.IsOpen == false)
+                return;
             while (GlobalSerialPort.BytesToRead > 0)
             {
                 string currReceived = GlobalSerialPort.ReadLine();
@@ -2759,14 +2778,32 @@ namespace Compact_Control
             }
         }
 
+
         bool inputADC = false;
+        private PerformanceCounter theCPUCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
+        private PerformanceCounter theMemCounter = new PerformanceCounter("Memory", "Available MBytes");
+
         private void timer2_Tick_1(object sender, EventArgs e)
         {
+            DateTime now = DateTime.Now;
 
-            TimeSpan upTime = DateTime.Now - startTime;
+            TimeSpan upTime = now - startTime;
             label_upTime.Text = "UpTime: " + upTime.Hours + ":" + upTime.Minutes;
 
-            DateTime now = DateTime.Now;
+            double cpuUsage = this.theCPUCounter.NextValue();
+            label_cpu.Text = "CPU: " + cpuUsage.ToString("00.") + " %";
+            double ram = this.theMemCounter.NextValue();
+            double ramUsage = (ram / TotalVisibleMemorySize) * 100;
+            label_ram.Text = "RAM: " + ramUsage.ToString("00.") + " %";
+            if (cpuUsage > 90)
+                label_cpu.ForeColor = Color.Red;
+            else
+                label_cpu.ForeColor = Color.Black;
+            if (ramUsage > 90)
+                label_ram.ForeColor = Color.Red;
+            else
+                label_ram.ForeColor = Color.Black;
+
 
             string time = now.ToShortTimeString();
             string date = now.ToShortDateString();
