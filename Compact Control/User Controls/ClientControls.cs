@@ -608,56 +608,56 @@ namespace Compact_Control
                 ya = x1dv - x2dv;
                 txt_y_a.Text = ya.ToString();
             }
-            if (x1_dv != null && x2_dv != null)
-            {
-                if (Math.Abs(double.Parse(x1_dv) - double.Parse(x2_dv)) < 1)
-                {
-                    lbl_risk.Show();
-                    if (isY1Set)
-                        x2_set = "0";
-                    if (isY2Set)
-                        x1_set = "0";
-                    if (!string.IsNullOrEmpty(txt_y1_s.Text))
-                    {
-                        pictureBox4.BackgroundImage = Resources.Error;
-                        pictureBox4.Show();
-                        isY1Set = false;
-                    }
-                    if (!string.IsNullOrEmpty(txt_y2_s.Text))
-                    {
-                        pictureBox3.BackgroundImage = Resources.Error;
-                        pictureBox3.Show();
-                        isY2Set = false;
-                    }
-                }
-                else
-                    lbl_risk.Hide();
-            }
-            if (y1_dv != null && y2_dv != null)
-            { 
-                if (Math.Abs(double.Parse(y1_dv) - double.Parse(y2_dv)) < 1)
-                {
-                    lbl_risk.Show();
-                    if (isX1Set)
-                        y2_set = "0";
-                    if (isX2Set)
-                        y1_set = "0";
-                    if (!string.IsNullOrEmpty(txt_x1_s.Text))
-                    {
-                        pictureBox6.BackgroundImage = Resources.Error;
-                        pictureBox6.Show();
-                        isX1Set = false;
-                    }
-                    if (!string.IsNullOrEmpty(txt_x2_s.Text))
-                    {
-                        pictureBox5.BackgroundImage = Resources.Error;
-                        pictureBox5.Show();
-                        isX2Set = false;
-                    }
-                }
-                else
-                    lbl_risk.Hide();
-            }
+            //if (x1_dv != null && x2_dv != null)
+            //{
+            //    if (Math.Abs(double.Parse(x1_dv) - double.Parse(x2_dv)) < 1)
+            //    {
+            //        lbl_risk.Show();
+            //        if (isY1Set)
+            //            x2_set = "0";
+            //        if (isY2Set)
+            //            x1_set = "0";
+            //        if (!string.IsNullOrEmpty(txt_y1_s.Text))
+            //        {
+            //            pictureBox4.BackgroundImage = Resources.Error;
+            //            pictureBox4.Show();
+            //            isY1Set = false;
+            //        }
+            //        if (!string.IsNullOrEmpty(txt_y2_s.Text))
+            //        {
+            //            pictureBox3.BackgroundImage = Resources.Error;
+            //            pictureBox3.Show();
+            //            isY2Set = false;
+            //        }
+            //    }
+            //    else
+            //        lbl_risk.Hide();
+            //}
+            //if (y1_dv != null && y2_dv != null)
+            //{
+            //    if (Math.Abs(double.Parse(y1_dv) - double.Parse(y2_dv)) < 1)
+            //    {
+            //        lbl_risk.Show();
+            //        if (isX1Set)
+            //            y2_set = "0";
+            //        if (isX2Set)
+            //            y1_set = "0";
+            //        if (!string.IsNullOrEmpty(txt_x1_s.Text))
+            //        {
+            //            pictureBox6.BackgroundImage = Resources.Error;
+            //            pictureBox6.Show();
+            //            isX1Set = false;
+            //        }
+            //        if (!string.IsNullOrEmpty(txt_x2_s.Text))
+            //        {
+            //            pictureBox5.BackgroundImage = Resources.Error;
+            //            pictureBox5.Show();
+            //            isX2Set = false;
+            //        }
+            //    }
+            //    else
+            //        lbl_risk.Hide();
+            //}
 
             if (isGantSet)
                 gantSet();
