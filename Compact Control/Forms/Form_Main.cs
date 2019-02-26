@@ -475,9 +475,6 @@ namespace Compact_Control
                 //}
             }
 
-
-            double m;
-            double n;
             textBox1.Text = gant_co;
             textBox7.Text = gant_f1;
             textBox8.Text = gant_f2;

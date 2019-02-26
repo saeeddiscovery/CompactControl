@@ -136,7 +136,6 @@ namespace Compact_Control
         }
 
         //Check License
-        private bool codeSentToMicro = false;
         public static string CheckLicense()
         {
             ManagementObjectCollection mbsList = null;
