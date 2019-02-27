@@ -2404,37 +2404,37 @@
             // 
             this.textBox3.BackColor = System.Drawing.SystemColors.Window;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox3.Location = new System.Drawing.Point(129, 176);
+            this.textBox3.Location = new System.Drawing.Point(129, 255);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(50, 24);
-            this.textBox3.TabIndex = 28;
+            this.textBox3.TabIndex = 42;
             // 
             // textBox4
             // 
             this.textBox4.BackColor = System.Drawing.SystemColors.Window;
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox4.Location = new System.Drawing.Point(129, 135);
+            this.textBox4.Location = new System.Drawing.Point(129, 214);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(50, 24);
-            this.textBox4.TabIndex = 21;
+            this.textBox4.TabIndex = 35;
             // 
             // textBox5
             // 
             this.textBox5.BackColor = System.Drawing.SystemColors.Window;
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox5.Location = new System.Drawing.Point(128, 258);
+            this.textBox5.Location = new System.Drawing.Point(129, 174);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(50, 24);
-            this.textBox5.TabIndex = 42;
+            this.textBox5.TabIndex = 28;
             // 
             // textBox6
             // 
             this.textBox6.BackColor = System.Drawing.SystemColors.Window;
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox6.Location = new System.Drawing.Point(128, 217);
+            this.textBox6.Location = new System.Drawing.Point(129, 133);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(50, 24);
-            this.textBox6.TabIndex = 35;
+            this.textBox6.TabIndex = 21;
             // 
             // textBox19
             // 
@@ -2479,10 +2479,10 @@
             // 
             this.textBox79.BackColor = System.Drawing.SystemColors.Window;
             this.textBox79.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox79.Location = new System.Drawing.Point(471, 176);
+            this.textBox79.Location = new System.Drawing.Point(471, 255);
             this.textBox79.Name = "textBox79";
             this.textBox79.Size = new System.Drawing.Size(50, 24);
-            this.textBox79.TabIndex = 34;
+            this.textBox79.TabIndex = 48;
             this.textBox79.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox79.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
@@ -2490,10 +2490,10 @@
             // 
             this.textBox80.BackColor = System.Drawing.SystemColors.Window;
             this.textBox80.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox80.Location = new System.Drawing.Point(471, 135);
+            this.textBox80.Location = new System.Drawing.Point(471, 214);
             this.textBox80.Name = "textBox80";
             this.textBox80.Size = new System.Drawing.Size(50, 24);
-            this.textBox80.TabIndex = 27;
+            this.textBox80.TabIndex = 41;
             this.textBox80.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox80.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
@@ -2501,10 +2501,10 @@
             // 
             this.textBox81.BackColor = System.Drawing.SystemColors.Window;
             this.textBox81.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox81.Location = new System.Drawing.Point(470, 258);
+            this.textBox81.Location = new System.Drawing.Point(471, 174);
             this.textBox81.Name = "textBox81";
             this.textBox81.Size = new System.Drawing.Size(50, 24);
-            this.textBox81.TabIndex = 48;
+            this.textBox81.TabIndex = 34;
             this.textBox81.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox81.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
@@ -2512,10 +2512,10 @@
             // 
             this.textBox82.BackColor = System.Drawing.SystemColors.Window;
             this.textBox82.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox82.Location = new System.Drawing.Point(470, 217);
+            this.textBox82.Location = new System.Drawing.Point(471, 133);
             this.textBox82.Name = "textBox82";
             this.textBox82.Size = new System.Drawing.Size(50, 24);
-            this.textBox82.TabIndex = 41;
+            this.textBox82.TabIndex = 27;
             this.textBox82.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox82.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
@@ -2545,10 +2545,10 @@
             // 
             this.textBox85.BackColor = System.Drawing.SystemColors.Window;
             this.textBox85.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox85.Location = new System.Drawing.Point(413, 176);
+            this.textBox85.Location = new System.Drawing.Point(413, 255);
             this.textBox85.Name = "textBox85";
             this.textBox85.Size = new System.Drawing.Size(50, 24);
-            this.textBox85.TabIndex = 33;
+            this.textBox85.TabIndex = 47;
             this.textBox85.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox85.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
@@ -2556,10 +2556,10 @@
             // 
             this.textBox86.BackColor = System.Drawing.SystemColors.Window;
             this.textBox86.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox86.Location = new System.Drawing.Point(413, 135);
+            this.textBox86.Location = new System.Drawing.Point(413, 214);
             this.textBox86.Name = "textBox86";
             this.textBox86.Size = new System.Drawing.Size(50, 24);
-            this.textBox86.TabIndex = 26;
+            this.textBox86.TabIndex = 40;
             this.textBox86.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox86.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
@@ -2567,10 +2567,10 @@
             // 
             this.textBox87.BackColor = System.Drawing.SystemColors.Window;
             this.textBox87.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox87.Location = new System.Drawing.Point(412, 258);
+            this.textBox87.Location = new System.Drawing.Point(413, 174);
             this.textBox87.Name = "textBox87";
             this.textBox87.Size = new System.Drawing.Size(50, 24);
-            this.textBox87.TabIndex = 47;
+            this.textBox87.TabIndex = 33;
             this.textBox87.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox87.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
@@ -2578,10 +2578,10 @@
             // 
             this.textBox88.BackColor = System.Drawing.SystemColors.Window;
             this.textBox88.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox88.Location = new System.Drawing.Point(412, 217);
+            this.textBox88.Location = new System.Drawing.Point(413, 133);
             this.textBox88.Name = "textBox88";
             this.textBox88.Size = new System.Drawing.Size(50, 24);
-            this.textBox88.TabIndex = 40;
+            this.textBox88.TabIndex = 26;
             this.textBox88.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox88.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
@@ -2631,10 +2631,10 @@
             // 
             this.textBox55.BackColor = System.Drawing.SystemColors.Window;
             this.textBox55.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox55.Location = new System.Drawing.Point(357, 176);
+            this.textBox55.Location = new System.Drawing.Point(357, 255);
             this.textBox55.Name = "textBox55";
             this.textBox55.Size = new System.Drawing.Size(50, 24);
-            this.textBox55.TabIndex = 32;
+            this.textBox55.TabIndex = 46;
             this.textBox55.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox55.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
@@ -2642,10 +2642,10 @@
             // 
             this.textBox56.BackColor = System.Drawing.SystemColors.Window;
             this.textBox56.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox56.Location = new System.Drawing.Point(357, 135);
+            this.textBox56.Location = new System.Drawing.Point(357, 214);
             this.textBox56.Name = "textBox56";
             this.textBox56.Size = new System.Drawing.Size(50, 24);
-            this.textBox56.TabIndex = 25;
+            this.textBox56.TabIndex = 39;
             this.textBox56.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox56.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
@@ -2653,10 +2653,10 @@
             // 
             this.textBox57.BackColor = System.Drawing.SystemColors.Window;
             this.textBox57.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox57.Location = new System.Drawing.Point(356, 258);
+            this.textBox57.Location = new System.Drawing.Point(357, 174);
             this.textBox57.Name = "textBox57";
             this.textBox57.Size = new System.Drawing.Size(50, 24);
-            this.textBox57.TabIndex = 46;
+            this.textBox57.TabIndex = 32;
             this.textBox57.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox57.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
@@ -2664,10 +2664,10 @@
             // 
             this.textBox58.BackColor = System.Drawing.SystemColors.Window;
             this.textBox58.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox58.Location = new System.Drawing.Point(356, 217);
+            this.textBox58.Location = new System.Drawing.Point(357, 133);
             this.textBox58.Name = "textBox58";
             this.textBox58.Size = new System.Drawing.Size(50, 24);
-            this.textBox58.TabIndex = 39;
+            this.textBox58.TabIndex = 25;
             this.textBox58.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox58.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
@@ -2697,10 +2697,10 @@
             // 
             this.textBox61.BackColor = System.Drawing.SystemColors.Window;
             this.textBox61.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox61.Location = new System.Drawing.Point(299, 176);
+            this.textBox61.Location = new System.Drawing.Point(299, 255);
             this.textBox61.Name = "textBox61";
             this.textBox61.Size = new System.Drawing.Size(50, 24);
-            this.textBox61.TabIndex = 31;
+            this.textBox61.TabIndex = 45;
             this.textBox61.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox61.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox61.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
@@ -2709,10 +2709,10 @@
             // 
             this.textBox62.BackColor = System.Drawing.SystemColors.Window;
             this.textBox62.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox62.Location = new System.Drawing.Point(299, 135);
+            this.textBox62.Location = new System.Drawing.Point(299, 214);
             this.textBox62.Name = "textBox62";
             this.textBox62.Size = new System.Drawing.Size(50, 24);
-            this.textBox62.TabIndex = 24;
+            this.textBox62.TabIndex = 38;
             this.textBox62.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox62.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox62.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
@@ -2721,10 +2721,10 @@
             // 
             this.textBox63.BackColor = System.Drawing.SystemColors.Window;
             this.textBox63.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox63.Location = new System.Drawing.Point(298, 258);
+            this.textBox63.Location = new System.Drawing.Point(299, 174);
             this.textBox63.Name = "textBox63";
             this.textBox63.Size = new System.Drawing.Size(50, 24);
-            this.textBox63.TabIndex = 45;
+            this.textBox63.TabIndex = 31;
             this.textBox63.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox63.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox63.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
@@ -2733,10 +2733,10 @@
             // 
             this.textBox64.BackColor = System.Drawing.SystemColors.Window;
             this.textBox64.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox64.Location = new System.Drawing.Point(298, 217);
+            this.textBox64.Location = new System.Drawing.Point(299, 133);
             this.textBox64.Name = "textBox64";
             this.textBox64.Size = new System.Drawing.Size(50, 24);
-            this.textBox64.TabIndex = 38;
+            this.textBox64.TabIndex = 24;
             this.textBox64.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox64.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox64.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
@@ -2789,10 +2789,10 @@
             // 
             this.textBox65.BackColor = System.Drawing.SystemColors.Window;
             this.textBox65.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox65.Location = new System.Drawing.Point(243, 176);
+            this.textBox65.Location = new System.Drawing.Point(243, 255);
             this.textBox65.Name = "textBox65";
             this.textBox65.Size = new System.Drawing.Size(50, 24);
-            this.textBox65.TabIndex = 30;
+            this.textBox65.TabIndex = 44;
             this.textBox65.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox65.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox65.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
@@ -2801,10 +2801,10 @@
             // 
             this.textBox66.BackColor = System.Drawing.SystemColors.Window;
             this.textBox66.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox66.Location = new System.Drawing.Point(243, 135);
+            this.textBox66.Location = new System.Drawing.Point(243, 214);
             this.textBox66.Name = "textBox66";
             this.textBox66.Size = new System.Drawing.Size(50, 24);
-            this.textBox66.TabIndex = 23;
+            this.textBox66.TabIndex = 37;
             this.textBox66.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox66.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox66.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
@@ -2813,10 +2813,10 @@
             // 
             this.textBox67.BackColor = System.Drawing.SystemColors.Window;
             this.textBox67.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox67.Location = new System.Drawing.Point(242, 258);
+            this.textBox67.Location = new System.Drawing.Point(243, 174);
             this.textBox67.Name = "textBox67";
             this.textBox67.Size = new System.Drawing.Size(50, 24);
-            this.textBox67.TabIndex = 44;
+            this.textBox67.TabIndex = 30;
             this.textBox67.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox67.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox67.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
@@ -2825,10 +2825,10 @@
             // 
             this.textBox68.BackColor = System.Drawing.SystemColors.Window;
             this.textBox68.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox68.Location = new System.Drawing.Point(242, 217);
+            this.textBox68.Location = new System.Drawing.Point(243, 133);
             this.textBox68.Name = "textBox68";
             this.textBox68.Size = new System.Drawing.Size(50, 24);
-            this.textBox68.TabIndex = 37;
+            this.textBox68.TabIndex = 23;
             this.textBox68.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox68.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox68.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
@@ -2861,10 +2861,10 @@
             // 
             this.textBox71.BackColor = System.Drawing.SystemColors.Window;
             this.textBox71.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox71.Location = new System.Drawing.Point(185, 176);
+            this.textBox71.Location = new System.Drawing.Point(185, 255);
             this.textBox71.Name = "textBox71";
             this.textBox71.Size = new System.Drawing.Size(50, 24);
-            this.textBox71.TabIndex = 29;
+            this.textBox71.TabIndex = 43;
             this.textBox71.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox71.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox71.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
@@ -2873,10 +2873,10 @@
             // 
             this.textBox72.BackColor = System.Drawing.SystemColors.Window;
             this.textBox72.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox72.Location = new System.Drawing.Point(185, 135);
+            this.textBox72.Location = new System.Drawing.Point(185, 214);
             this.textBox72.Name = "textBox72";
             this.textBox72.Size = new System.Drawing.Size(50, 24);
-            this.textBox72.TabIndex = 22;
+            this.textBox72.TabIndex = 36;
             this.textBox72.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox72.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox72.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
@@ -2885,10 +2885,10 @@
             // 
             this.textBox73.BackColor = System.Drawing.SystemColors.Window;
             this.textBox73.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox73.Location = new System.Drawing.Point(184, 258);
+            this.textBox73.Location = new System.Drawing.Point(185, 174);
             this.textBox73.Name = "textBox73";
             this.textBox73.Size = new System.Drawing.Size(50, 24);
-            this.textBox73.TabIndex = 43;
+            this.textBox73.TabIndex = 29;
             this.textBox73.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox73.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox73.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
@@ -2897,10 +2897,10 @@
             // 
             this.textBox74.BackColor = System.Drawing.SystemColors.Window;
             this.textBox74.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox74.Location = new System.Drawing.Point(184, 217);
+            this.textBox74.Location = new System.Drawing.Point(185, 133);
             this.textBox74.Name = "textBox74";
             this.textBox74.Size = new System.Drawing.Size(50, 24);
-            this.textBox74.TabIndex = 36;
+            this.textBox74.TabIndex = 22;
             this.textBox74.Enter += new System.EventHandler(this.txtBox_Enter);
             this.textBox74.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
             this.textBox74.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
@@ -2933,7 +2933,7 @@
             // 
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label53.Location = new System.Drawing.Point(39, 179);
+            this.label53.Location = new System.Drawing.Point(39, 258);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(68, 18);
             this.label53.TabIndex = 7;
@@ -2943,7 +2943,7 @@
             // 
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label54.Location = new System.Drawing.Point(39, 138);
+            this.label54.Location = new System.Drawing.Point(39, 217);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(68, 18);
             this.label54.TabIndex = 6;
@@ -2953,7 +2953,7 @@
             // 
             this.label55.AutoSize = true;
             this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label55.Location = new System.Drawing.Point(38, 261);
+            this.label55.Location = new System.Drawing.Point(39, 177);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(67, 18);
             this.label55.TabIndex = 5;
@@ -2963,7 +2963,7 @@
             // 
             this.label56.AutoSize = true;
             this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label56.Location = new System.Drawing.Point(38, 220);
+            this.label56.Location = new System.Drawing.Point(39, 136);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(67, 18);
             this.label56.TabIndex = 4;

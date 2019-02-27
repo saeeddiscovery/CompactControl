@@ -2804,7 +2804,7 @@ namespace Compact_Control
             double cpuUsage = this.theCPUCounter.NextValue();
             label_cpu.Text = "CPU: " + cpuUsage.ToString("00.") + " %";
             double ram = this.theMemCounter.NextValue();
-            double ramUsage = (ram / TotalVisibleMemorySize) * 100;
+            double ramUsage = 100 - (ram / TotalVisibleMemorySize) * 100;
             label_ram.Text = "RAM: " + ramUsage.ToString("00.") + " %";
             if (cpuUsage > 90)
                 label_cpu.ForeColor = Color.Red;
