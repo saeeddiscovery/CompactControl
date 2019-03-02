@@ -1204,11 +1204,15 @@ namespace Compact_Control
         {
             if (serialPort1.IsOpen == false)
                 return;
-            while (GlobalSerialPort.BytesToRead > 0)
+            try
             {
-                string currReceived = GlobalSerialPort.ReadLine();
-                receiveQ.Enqueue(currReceived);
+                while (GlobalSerialPort.BytesToRead > 0)
+                {
+                    string currReceived = GlobalSerialPort.ReadLine();
+                    receiveQ.Enqueue(currReceived);
+                }
             }
+            catch { }
             //string currReceived = GlobalSerialPort.ReadExisting();
 
 

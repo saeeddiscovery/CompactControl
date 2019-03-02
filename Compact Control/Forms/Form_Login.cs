@@ -112,7 +112,7 @@ namespace Compact_Control
                 {
                     frm1.panel_AdminControls.Hide();
                     frm1.panel_ClientControls.Dock = DockStyle.Bottom;
-                    frm1.panel_ClientControls.Height = frm1.Height - frm1.panel_Toolbar.Height - 25;
+                    frm1.panel_ClientControls.Height = frm1.Height - frm1.panel_Toolbar.Height - 25 - frm1.panel_status.Height;
                     frm1.Text = cmbBx_User.Text + " Mode";
                     frm1.panel_ClientControls.Show();
                 }
@@ -120,7 +120,7 @@ namespace Compact_Control
                 {
                     frm1.panel_ClientControls.Hide();
                     frm1.panel_AdminControls.Dock = DockStyle.Bottom;
-                    frm1.panel_AdminControls.Height = frm1.Height - frm1.panel_Toolbar.Height - 25;
+                    frm1.panel_AdminControls.Height = frm1.Height - frm1.panel_Toolbar.Height - 25 - frm1.panel_status.Height;
                     frm1.Text = "Service Mode";
                     frm1.panel_AdminControls.Show();
                 }

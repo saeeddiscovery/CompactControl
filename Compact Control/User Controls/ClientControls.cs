@@ -235,11 +235,15 @@ namespace Compact_Control
         {
             if (serialPort1.IsOpen == false)
                 return;
-            while (serialPort1.BytesToRead > 0)
+            try
             {
-                string currReceived = serialPort1.ReadLine();
-                receiveQ.Enqueue(currReceived);
+                while (serialPort1.BytesToRead > 0)
+                {
+                    string currReceived = serialPort1.ReadLine();
+                    receiveQ.Enqueue(currReceived);
+                }
             }
+            catch { }
             //string currReceived = serialPort1.ReadExisting();
 
             //string a = "";
@@ -1623,6 +1627,7 @@ namespace Compact_Control
                     {
                         gant_isTextChangedFromCode = true;
                         txt_gant_s.Text = "180.05";
+                        aa = 180.05;
                         gant_isTextChangedFromCode = false;
                     }
                     //if (gentValueActual > 180 && a == 180)
