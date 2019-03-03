@@ -125,7 +125,7 @@ namespace Compact_Control
         public double FreePhysicalMemory;
         public double TotalVirtualMemorySize;
         public double FreeVirtualMemory;
-
+        public bool validPort = false;
         public Form1()
         {
             InitializeComponent();
@@ -170,17 +170,6 @@ namespace Compact_Control
             {
                 if (GlobalSerialPort.IsOpen == false)
                 {
-                    if (portName != "Null" && portName != "")
-                    {
-                        GlobalSerialPort.PortName = portName;
-                        ClientControls.curr_port = portName;
-                    }
-
-                    else
-                    {
-                        GlobalSerialPort.PortName = ports[0];
-                        ClientControls.curr_port = ports[0];
-                    }
                     string filename = "Settings.json";
                     try
                     {
@@ -206,6 +195,19 @@ namespace Compact_Control
                     catch (Exception ex)
                     {
                         MessageBox.Show("Error reading settings from file!" + Environment.NewLine + ex.ToString());
+                    }
+
+                    foreach (string prt in ports)
+                    {
+                        if (prt == portName)
+                            validPort = true;
+                    }
+                    if (portName == "Null" || portName == "" || validPort == false)
+                    {
+                        MessageBox.Show(portName + " is invalid\nConnected to " + ports[0], "Invalid Port Name", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        portName = ports[0];
+                        GlobalSerialPort.PortName = ports[0];
+                        ClientControls.curr_port = ports[0];
                     }
                     //if (int.TryParse(HashPass.ReadBaudRateFromReg(), out BaudRate) == true && BaudRate != 0)
                     //    GlobalSerialPort.BaudRate = BaudRate;
@@ -2630,52 +2632,6 @@ namespace Compact_Control
             {
                 clientFrm.TimerStatus(true);
             }
-            //ClientControls clientFrm = new ClientControls();
-            if (this.Visible == true)
-            {
-                if (panel_ClientControls.Controls.Count != 3)
-                {
-                    if (isInServiceMode == false)
-                    {
-                        //GlobalSerialPort = clientFrm.serialPort1;
-                        //GlobalSerialPort.DataReceived += clientFrm.serialPort1_DataReceived;
-                        panel_ClientControls.Controls.Add(clientFrm);
-
-                    }
-                    else
-                    {
-
-                        //GlobalSerialPort = serialPort1;
-                        //GlobalSerialPort.DataReceived += serialPort1_DataReceived_1;
-                    }
-                    string[] ports = SerialPort.GetPortNames();
-                    if (ports.Length >= 1)
-                    {
-                        if (GlobalSerialPort.IsOpen == false)
-                        {
-                            if (portName != "Null" && portName != "")
-                            {
-                                GlobalSerialPort.PortName = portName;
-                                ClientControls.curr_port = portName;
-                            }
-                            else
-                            {
-                                GlobalSerialPort.PortName = ports[0];
-                            }
-                                //ConnectToPort();
-                            }
-                    }
-                }
-                else
-                {
-                    //GlobalSerialPort = serialPort1;
-                    //GlobalSerialPort.DataReceived += serialPort1_DataReceived_1;
-                }
-            }
-            else
-            {
-                panel_ClientControls.Controls.Clear();
-            }
         }
 
         private void picBtn_PatientList_Click(object sender, EventArgs e)
@@ -2699,16 +2655,16 @@ namespace Compact_Control
 
         private void Form1_Activated(object sender, EventArgs e)
         {
-            if (isInServiceMode)
-            {
-                this.TopMost = false;
-                EnableCTRLALTDEL();
-            }
-            else
-            {
-                this.TopMost = false;
-                KillCtrlAltDelete();
-            }
+            //if (isInServiceMode)
+            //{
+            //    this.TopMost = false;
+            //    EnableCTRLALTDEL();
+            //}
+            //else
+            //{
+            //    this.TopMost = true;
+            //    KillCtrlAltDelete();
+            //}
             if (Class_PatientData.valuesChanged == true)
             {
                 clientFrm.FillValues();

@@ -294,12 +294,12 @@
             this.timer4 = new System.Windows.Forms.Timer(this.components);
             this.timer5 = new System.Windows.Forms.Timer(this.components);
             this.panel_status = new System.Windows.Forms.Panel();
-            this.lbl_version = new System.Windows.Forms.Label();
-            this.label_cpu = new System.Windows.Forms.Label();
-            this.label_ram = new System.Windows.Forms.Label();
             this.label_upTime = new System.Windows.Forms.Label();
             this.label73 = new System.Windows.Forms.Label();
+            this.label_ram = new System.Windows.Forms.Label();
+            this.lbl_version = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
+            this.label_cpu = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -3259,7 +3259,7 @@
             this.label_date.AutoSize = true;
             this.label_date.Dock = System.Windows.Forms.DockStyle.Right;
             this.label_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_date.Location = new System.Drawing.Point(800, 0);
+            this.label_date.Location = new System.Drawing.Point(802, 0);
             this.label_date.Name = "label_date";
             this.label_date.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
             this.label_date.Size = new System.Drawing.Size(40, 28);
@@ -3273,7 +3273,7 @@
             this.label47.Dock = System.Windows.Forms.DockStyle.Right;
             this.label47.Enabled = false;
             this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label47.Location = new System.Drawing.Point(840, 0);
+            this.label47.Location = new System.Drawing.Point(842, 0);
             this.label47.Name = "label47";
             this.label47.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
             this.label47.Size = new System.Drawing.Size(15, 28);
@@ -3285,7 +3285,7 @@
             this.label_time.AutoSize = true;
             this.label_time.Dock = System.Windows.Forms.DockStyle.Right;
             this.label_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_time.Location = new System.Drawing.Point(855, 0);
+            this.label_time.Location = new System.Drawing.Point(857, 0);
             this.label_time.Name = "label_time";
             this.label_time.Padding = new System.Windows.Forms.Padding(1, 5, 1, 5);
             this.label_time.Size = new System.Drawing.Size(43, 28);
@@ -3316,7 +3316,7 @@
             this.label_title.Location = new System.Drawing.Point(0, 0);
             this.label_title.Name = "label_title";
             this.label_title.Padding = new System.Windows.Forms.Padding(70, 0, 0, 0);
-            this.label_title.Size = new System.Drawing.Size(898, 34);
+            this.label_title.Size = new System.Drawing.Size(900, 34);
             this.label_title.TabIndex = 5;
             this.label_title.Text = "Service";
             this.label_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3327,7 +3327,7 @@
             this.label70.Dock = System.Windows.Forms.DockStyle.Right;
             this.label70.Enabled = false;
             this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label70.Location = new System.Drawing.Point(898, 0);
+            this.label70.Location = new System.Drawing.Point(900, 0);
             this.label70.Name = "label70";
             this.label70.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
             this.label70.Size = new System.Drawing.Size(15, 28);
@@ -3337,14 +3337,13 @@
             // label71
             // 
             this.label71.AutoSize = true;
-            this.label71.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label71.Dock = System.Windows.Forms.DockStyle.Right;
             this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label71.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label71.Location = new System.Drawing.Point(913, 0);
+            this.label71.Location = new System.Drawing.Point(915, 0);
             this.label71.Name = "label71";
             this.label71.Padding = new System.Windows.Forms.Padding(0, 3, 1, 4);
-            this.label71.Size = new System.Drawing.Size(155, 31);
+            this.label71.Size = new System.Drawing.Size(153, 29);
             this.label71.TabIndex = 20;
             this.label71.Text = "Golestan Hospital";
             this.label71.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -3443,45 +3442,6 @@
             this.panel_status.Size = new System.Drawing.Size(1122, 32);
             this.panel_status.TabIndex = 27;
             // 
-            // lbl_version
-            // 
-            this.lbl_version.AutoSize = true;
-            this.lbl_version.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbl_version.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbl_version.Location = new System.Drawing.Point(5, 0);
-            this.lbl_version.Name = "lbl_version";
-            this.lbl_version.Padding = new System.Windows.Forms.Padding(5, 5, 1, 5);
-            this.lbl_version.Size = new System.Drawing.Size(84, 28);
-            this.lbl_version.TabIndex = 26;
-            this.lbl_version.Text = "Ver. 1.3.19";
-            this.lbl_version.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_cpu
-            // 
-            this.label_cpu.AutoSize = true;
-            this.label_cpu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_cpu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_cpu.Location = new System.Drawing.Point(1074, 0);
-            this.label_cpu.Name = "label_cpu";
-            this.label_cpu.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label_cpu.Size = new System.Drawing.Size(41, 28);
-            this.label_cpu.TabIndex = 27;
-            this.label_cpu.Text = "CPU";
-            this.label_cpu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label_ram
-            // 
-            this.label_ram.AutoSize = true;
-            this.label_ram.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_ram.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_ram.Location = new System.Drawing.Point(1017, 0);
-            this.label_ram.Name = "label_ram";
-            this.label_ram.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label_ram.Size = new System.Drawing.Size(42, 28);
-            this.label_ram.TabIndex = 28;
-            this.label_ram.Text = "RAM";
-            this.label_ram.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // label_upTime
             // 
             this.label_upTime.AutoSize = true;
@@ -3508,6 +3468,32 @@
             this.label73.TabIndex = 30;
             this.label73.Text = "|";
             // 
+            // label_ram
+            // 
+            this.label_ram.AutoSize = true;
+            this.label_ram.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_ram.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_ram.Location = new System.Drawing.Point(1017, 0);
+            this.label_ram.Name = "label_ram";
+            this.label_ram.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label_ram.Size = new System.Drawing.Size(42, 28);
+            this.label_ram.TabIndex = 28;
+            this.label_ram.Text = "RAM";
+            this.label_ram.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_version
+            // 
+            this.lbl_version.AutoSize = true;
+            this.lbl_version.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbl_version.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl_version.Location = new System.Drawing.Point(5, 0);
+            this.lbl_version.Name = "lbl_version";
+            this.lbl_version.Padding = new System.Windows.Forms.Padding(5, 5, 1, 5);
+            this.lbl_version.Size = new System.Drawing.Size(84, 28);
+            this.lbl_version.TabIndex = 26;
+            this.lbl_version.Text = "Ver. 1.3.19";
+            this.lbl_version.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label46
             // 
             this.label46.AutoSize = true;
@@ -3520,6 +3506,19 @@
             this.label46.Size = new System.Drawing.Size(15, 28);
             this.label46.TabIndex = 31;
             this.label46.Text = "|";
+            // 
+            // label_cpu
+            // 
+            this.label_cpu.AutoSize = true;
+            this.label_cpu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_cpu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_cpu.Location = new System.Drawing.Point(1074, 0);
+            this.label_cpu.Name = "label_cpu";
+            this.label_cpu.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label_cpu.Size = new System.Drawing.Size(41, 28);
+            this.label_cpu.TabIndex = 27;
+            this.label_cpu.Text = "CPU";
+            this.label_cpu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 

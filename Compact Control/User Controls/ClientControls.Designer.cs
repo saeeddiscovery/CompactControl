@@ -96,6 +96,7 @@
             this.label72 = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.pb_receiveStatus = new System.Windows.Forms.PictureBox();
+            this.txt_fakeADC = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x2_status)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x1_status)).BeginInit();
@@ -450,13 +451,13 @@
             // Reading_Error
             // 
             this.Reading_Error.AutoSize = true;
-            this.Reading_Error.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.Reading_Error.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Reading_Error.ForeColor = System.Drawing.Color.Red;
-            this.Reading_Error.Location = new System.Drawing.Point(6, 251);
+            this.Reading_Error.Location = new System.Drawing.Point(6, 255);
             this.Reading_Error.Name = "Reading_Error";
-            this.Reading_Error.Size = new System.Drawing.Size(16, 22);
+            this.Reading_Error.Size = new System.Drawing.Size(122, 22);
             this.Reading_Error.TabIndex = 87;
-            this.Reading_Error.Text = ".";
+            this.Reading_Error.Text = "Reading Error";
             // 
             // label5
             // 
@@ -860,10 +861,21 @@
             this.pb_receiveStatus.TabIndex = 127;
             this.pb_receiveStatus.TabStop = false;
             // 
+            // txt_fakeADC
+            // 
+            this.txt_fakeADC.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_fakeADC.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_fakeADC.Location = new System.Drawing.Point(773, 385);
+            this.txt_fakeADC.Name = "txt_fakeADC";
+            this.txt_fakeADC.Size = new System.Drawing.Size(80, 27);
+            this.txt_fakeADC.TabIndex = 129;
+            this.txt_fakeADC.Visible = false;
+            // 
             // ClientControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.txt_fakeADC);
             this.Controls.Add(this.pb_receiveStatus);
             this.Controls.Add(this.lbl_risk);
             this.Controls.Add(this.gb_terminals);
@@ -969,5 +981,6 @@
         private System.Windows.Forms.PictureBox pb_y1_status;
         private System.Windows.Forms.PictureBox pb_coli_status;
         private System.Windows.Forms.PictureBox pb_gant_status;
+        private System.Windows.Forms.TextBox txt_fakeADC;
     }
 }
