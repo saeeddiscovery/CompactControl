@@ -337,7 +337,10 @@ namespace Compact_Control
             string currData = receiveQ.Dequeue();
             //string[] lines = currData.Split('\n');
             if (showTerminals == "1")
+            {
                 tb_terminal_in.AppendText(currData + Environment.NewLine);
+                //System.Threading.Thread.Sleep(1000);
+            }
             string a = currData;
             double c;
             //foreach (string a in lines)
@@ -455,17 +458,23 @@ namespace Compact_Control
                             readError = false;
 
                             if (!string.IsNullOrEmpty(txt_gant_s.Text))
-                                gant_set = ((int)((double.Parse(txt_gant_s.Text) - gant_offset) / gant_gain)).ToString();
+                                gantAct();
+                                //gant_set = ((int)((double.Parse(txt_gant_s.Text) - gant_offset) / gant_gain)).ToString();
                             if (!string.IsNullOrEmpty(txt_coli_s.Text))
-                                collim_set = ((int)((double.Parse(txt_coli_s.Text) - collim_offset) / collim_gain)).ToString();
+                                coliAct();
+                                //collim_set = ((int)((double.Parse(txt_coli_s.Text) - collim_offset) / collim_gain)).ToString();
                             if (!string.IsNullOrEmpty(txt_y2_s.Text))
-                                x1_set = Math.Abs((int)((double.Parse(txt_y2_s.Text) - x1_offset) / x1_gain)).ToString();
+                                y2Act();
+                                //x1_set = Math.Abs((int)((double.Parse(txt_y2_s.Text) - x1_offset) / x1_gain)).ToString();
                             if (!string.IsNullOrEmpty(txt_y1_s.Text))
-                                x2_set = Math.Abs((int)((double.Parse(txt_y1_s.Text) - x2_offset) / x2_gain)).ToString();
+                                y1Act();
+                                //x2_set = Math.Abs((int)((double.Parse(txt_y1_s.Text) - x2_offset) / x2_gain)).ToString();
                             if (!string.IsNullOrEmpty(txt_x2_s.Text))
-                                y1_set = Math.Abs((int)((double.Parse(txt_x2_s.Text) - y1_offset) / y1_gain)).ToString();
+                                x2Act();
+                                //y1_set = Math.Abs((int)((double.Parse(txt_x2_s.Text) - y1_offset) / y1_gain)).ToString();
                             if (!string.IsNullOrEmpty(txt_x1_s.Text))
-                                y2_set = Math.Abs((int)((double.Parse(txt_x1_s.Text) - y2_offset) / y2_gain)).ToString();
+                                x1Act();
+                                //y2_set = Math.Abs((int)((double.Parse(txt_x1_s.Text) - y2_offset) / y2_gain)).ToString();
                         }
                         if (int.Parse(gant_set) != int.Parse(gnd))
                         {
@@ -1615,72 +1624,76 @@ namespace Compact_Control
             }
         }
 
-        private void txt_gant_s_KeyPress(object sender, KeyPressEventArgs e)
+        private void gantAct()
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            if (string.IsNullOrEmpty(txt_gant_s.Text) || string.IsNullOrWhiteSpace(txt_gant_s.Text))
             {
-                if (string.IsNullOrEmpty(txt_gant_s.Text) || string.IsNullOrWhiteSpace(txt_gant_s.Text))
-                {
-                    gant_set = "0";
-                    pictureBox1.Hide();
-                    pictureBox1.BackgroundImage = Resources.Request;
-                    txt_coli_s.Focus();
-                    return;
-                }
+                gant_set = "0";
+                pictureBox1.Hide();
+                pictureBox1.BackgroundImage = Resources.Request;
+                txt_coli_s.Focus();
+                return;
+            }
 
-                double aa;
-                try
+            double aa;
+            try
+            {
+                aa = double.Parse(txt_gant_s.Text);
+                if (aa < 0 || aa >= 360)
                 {
-                    aa = double.Parse(txt_gant_s.Text);
-                    if (aa < 0 || aa >= 360)
-                    {
-                        gant_set = "0";
-                        pictureBox1.BackgroundImage = Resources.Error;
-                        pictureBox1.Show();
-                        return;
-                    }
-                    double gentValueActual = double.Parse(gant_dv);
-                    if (gentValueActual > 180 && aa == 180)
-                    {
-                        gant_isTextChangedFromCode = true;
-                        txt_gant_s.Text = "180.05";
-                        aa = 180.05;
-                        gant_isTextChangedFromCode = false;
-                    }
-                    //if (gentValueActual > 180 && a == 180)
-                    //    a = 180.05;
-                    if (aa > 180)
-                        aa = aa - 360;
-                    gant_set = ((int)((aa - gant_offset) / gant_gain)).ToString();
-                    gant_t2 = double.Parse(txt_gant_s.Text);
-                    gant_d2 = double.Parse(gant_dv);
-                    if (gant_t2 > 180)
-                        gant_t2 = gant_t2 - 360;
-                    if (gant_d2 > 180)
-                        gant_d2 = gant_d2 - 360;
-                    if (Math.Abs(gant_t2 - gant_d2) > .1)
-                    {
-                        pictureBox1.BackgroundImage = Resources.Request;
-                        isGantSet = true;
-                        pictureBox1.Show();
-                    }
-                    else
-                    {
-                        pictureBox1.Hide();
-                        isGantSet = false;
-                        pictureBox1.BackgroundImage = Resources.Request;
-                    }
-                    txt_gant_s.BackColor = Color.LightGreen;
-                    txt_coli_s.Focus();
-                }
-                catch
-                {
-                    txt_gant_s.SelectAll();
                     gant_set = "0";
                     pictureBox1.BackgroundImage = Resources.Error;
                     pictureBox1.Show();
                     return;
                 }
+                double gentValueActual = double.Parse(gant_dv);
+                if (gentValueActual > 180 && aa == 180)
+                {
+                    gant_isTextChangedFromCode = true;
+                    txt_gant_s.Text = "180.05";
+                    aa = 180.05;
+                    gant_isTextChangedFromCode = false;
+                }
+                //if (gentValueActual > 180 && a == 180)
+                //    a = 180.05;
+                if (aa > 180)
+                    aa = aa - 360;
+                gant_set = ((int)((aa - gant_offset) / gant_gain)).ToString();
+                gant_t2 = double.Parse(txt_gant_s.Text);
+                gant_d2 = double.Parse(gant_dv);
+                if (gant_t2 > 180)
+                    gant_t2 = gant_t2 - 360;
+                if (gant_d2 > 180)
+                    gant_d2 = gant_d2 - 360;
+                if (Math.Abs(gant_t2 - gant_d2) > .1)
+                {
+                    pictureBox1.BackgroundImage = Resources.Request;
+                    isGantSet = true;
+                    pictureBox1.Show();
+                }
+                else
+                {
+                    pictureBox1.Hide();
+                    isGantSet = false;
+                    pictureBox1.BackgroundImage = Resources.Request;
+                }
+                txt_gant_s.BackColor = Color.LightGreen;
+                txt_coli_s.Focus();
+            }
+            catch
+            {
+                txt_gant_s.SelectAll();
+                gant_set = "0";
+                pictureBox1.BackgroundImage = Resources.Error;
+                pictureBox1.Show();
+                return;
+            }
+        }
+        private void txt_gant_s_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                gantAct();
             }
         }
 
@@ -1702,63 +1715,66 @@ namespace Compact_Control
             }
         }
 
-        private void txt_coli_s_KeyPress(object sender, KeyPressEventArgs e)
+        private void coliAct()
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            if (string.IsNullOrEmpty(txt_coli_s.Text) || string.IsNullOrWhiteSpace(txt_coli_s.Text))
             {
-                if (string.IsNullOrEmpty(txt_coli_s.Text) || string.IsNullOrWhiteSpace(txt_coli_s.Text))
-                {
-                    collim_set = "0";
-                    pictureBox2.Hide();
-                    pictureBox2.BackgroundImage = Resources.Request;
-                    txt_y_s.Focus();
-                    return;
-                }
+                collim_set = "0";
+                pictureBox2.Hide();
+                pictureBox2.BackgroundImage = Resources.Request;
+                txt_y_s.Focus();
+                return;
+            }
 
-                double a;
-                try
-                {
-                    a = double.Parse(txt_coli_s.Text);
-                    if (a < 0 || a >= 360)
-                    {
-                        collim_set = "0";
-                        pictureBox2.BackgroundImage = Resources.Error;
-                        pictureBox2.Show();
-                        return;
-                    }
-
-                    if (a > 180)
-                        a = a - 360;
-                    collim_set = ((int)((a - collim_offset) / collim_gain)).ToString();
-                    collim_t2 = double.Parse(txt_coli_s.Text);
-                    collim_d2 = double.Parse(collim_dv);
-                    if (collim_t2 > 180)
-                        collim_t2 = collim_t2 - 360;
-                    if (collim_d2 > 180)
-                        collim_d2 = collim_d2 - 360;
-                    if (Math.Abs(collim_t2 - collim_d2) > .1)
-                    {
-                        pictureBox2.BackgroundImage = Resources.Request;
-                        isColiSet = true;
-                        pictureBox2.Show();
-                    }
-                    else
-                    {
-                        pictureBox2.Hide();
-                        isColiSet = false;
-                        pictureBox2.BackgroundImage = Resources.Request;
-                    }
-                    txt_coli_s.BackColor = Color.LightGreen;
-                    txt_y_s.Focus();
-                }
-                catch
+            double a;
+            try
+            {
+                a = double.Parse(txt_coli_s.Text);
+                if (a < 0 || a >= 360)
                 {
                     collim_set = "0";
                     pictureBox2.BackgroundImage = Resources.Error;
                     pictureBox2.Show();
                     return;
                 }
-                
+
+                if (a > 180)
+                    a = a - 360;
+                collim_set = ((int)((a - collim_offset) / collim_gain)).ToString();
+                collim_t2 = double.Parse(txt_coli_s.Text);
+                collim_d2 = double.Parse(collim_dv);
+                if (collim_t2 > 180)
+                    collim_t2 = collim_t2 - 360;
+                if (collim_d2 > 180)
+                    collim_d2 = collim_d2 - 360;
+                if (Math.Abs(collim_t2 - collim_d2) > .1)
+                {
+                    pictureBox2.BackgroundImage = Resources.Request;
+                    isColiSet = true;
+                    pictureBox2.Show();
+                }
+                else
+                {
+                    pictureBox2.Hide();
+                    isColiSet = false;
+                    pictureBox2.BackgroundImage = Resources.Request;
+                }
+                txt_coli_s.BackColor = Color.LightGreen;
+                txt_y_s.Focus();
+            }
+            catch
+            {
+                collim_set = "0";
+                pictureBox2.BackgroundImage = Resources.Error;
+                pictureBox2.Show();
+                return;
+            }
+        }
+        private void txt_coli_s_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                coliAct();                
             }
         }
 
