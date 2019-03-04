@@ -372,7 +372,6 @@
             this.groupBox2.Controls.Add(this.pb_x1_status);
             this.groupBox2.Controls.Add(this.pb_y2_status);
             this.groupBox2.Controls.Add(this.pb_y1_status);
-            this.groupBox2.Controls.Add(this.Reading_Error);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.pictureBox15);
@@ -453,11 +452,12 @@
             this.Reading_Error.AutoSize = true;
             this.Reading_Error.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Reading_Error.ForeColor = System.Drawing.Color.Red;
-            this.Reading_Error.Location = new System.Drawing.Point(6, 255);
+            this.Reading_Error.Location = new System.Drawing.Point(607, 440);
             this.Reading_Error.Name = "Reading_Error";
             this.Reading_Error.Size = new System.Drawing.Size(122, 22);
             this.Reading_Error.TabIndex = 87;
             this.Reading_Error.Text = "Reading Error";
+            this.Reading_Error.Visible = false;
             // 
             // label5
             // 
@@ -879,6 +879,7 @@
             this.Controls.Add(this.pb_receiveStatus);
             this.Controls.Add(this.lbl_risk);
             this.Controls.Add(this.gb_terminals);
+            this.Controls.Add(this.Reading_Error);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label37);
