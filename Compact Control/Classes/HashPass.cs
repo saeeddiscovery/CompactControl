@@ -551,10 +551,10 @@ namespace Compact_Control
             StreamWriter sw = new StreamWriter(fileName);
             string[] lines = {"gant_tol_1", "gant_tol0", "gant_tol1", "gant_tol2", "gant_v1", "gant_v2", "gant_v3",
                 "collim_tol_1", "collim_tol0", "collim_tol1", "collim_tol2", "collim_v1", "collim_v2", "collim_v3",
-                "x1_tol_1", "x1_tol0", "x1_tol1", "x1_tol2", "x1_v1", "x1_v2", "x1_v3",
-                "x2_tol_1", "x2_tol0", "x2_tol1", "x2_tol2", "x2_v1", "x2_v2", "x2_v3",
                 "y1_tol_1", "y1_tol0", "y1_tol1", "y1_tol2", "y1_v1", "y1_v2", "y1_v3",
-                "y2_tol_1", "y2_tol0", "y2_tol1", "y2_tol2", "y2_v1", "y2_v2", "y2_v3" };
+                "y2_tol_1", "y2_tol0", "y2_tol1", "y2_tol2", "y2_v1", "y2_v2", "y2_v3",
+                "x1_tol_1", "x1_tol0", "x1_tol1", "x1_tol2", "x1_v1", "x1_v2", "x1_v3",
+                "x2_tol_1", "x2_tol0", "x2_tol1", "x2_tol2", "x2_v1", "x2_v2", "x2_v3" };
 
             using (JsonWriter writer = new JsonTextWriter(sw))
             {
