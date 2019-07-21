@@ -115,12 +115,11 @@ namespace Compact_Control
         Image requestImage = Resources.Request;
 
         public static bool isInServiceMode = false;
-        public static bool isInPhysicMode = false;
 
         private static SerialPort GlobalSerialPort = new SerialPort();
         private ClientControls clientFrm = new ClientControls();
 
-        public DateTime startTime = DateTime.Now;
+        private DateTime startTime = DateTime.Now;
         public double TotalVisibleMemorySize;
         public double FreePhysicalMemory;
         public double TotalVirtualMemorySize;
@@ -204,7 +203,7 @@ namespace Compact_Control
                     }
                     if (portName == "Null" || portName == "" || validPort == false)
                     {
-                        MessageBox.Show(portName + " is invalid\nConnected to " + ports[0], "Invalid Port Name", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Port name is invalid\nConnected to " + ports[0], "Invalid Port Name", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         portName = ports[0];
                         GlobalSerialPort.PortName = ports[0];
                         ClientControls.curr_port = ports[0];
@@ -2634,24 +2633,6 @@ namespace Compact_Control
             }
         }
 
-        private void picBtn_PatientList_Click(object sender, EventArgs e)
-        {
-            HashPass.refreshLicInfo();
-            if (HashPass.isExpired == true)
-            {
-                this.Hide();
-                ClosePort();
-                Form_Login.ShowForm();
-                return;
-            }
-
-            MessageBox.Show("This is a demo version!\nThis item and another useful options will be available in full version!", "Limited version", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            /*
-            Form_PatientList patientsFrm = new Form_PatientList();
-            patientsFrm.ClearSelection();
-            patientsFrm.ShowDialog();
-             */
-        }
 
         private void Form1_Activated(object sender, EventArgs e)
         {

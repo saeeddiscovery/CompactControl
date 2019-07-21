@@ -131,35 +131,11 @@
       <DependentUpon>BarcodeScan.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Class_PatientData.cs" />
-    <Compile Include="Forms\Form_Fields.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Form_Fields.Designer.cs">
-      <DependentUpon>Form_Fields.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Form_Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Form_Login.Designer.cs">
       <DependentUpon>Form_Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Form_NewField.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Form_NewField.Designer.cs">
-      <DependentUpon>Form_NewField.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Form_NewPatient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Form_NewPatient.Designer.cs">
-      <DependentUpon>Form_NewPatient.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Form_PatientList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Form_PatientList.Designer.cs">
-      <DependentUpon>Form_PatientList.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Form_Settings.cs">
       <SubType>Form</SubType>
@@ -190,24 +166,8 @@
     <EmbeddedResource Include="User Controls\BarcodeScan.resx">
       <DependentUpon>BarcodeScan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_Fields.resx">
-      <DependentUpon>Form_Fields.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_Login.resx">
       <DependentUpon>Form_Login.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_NewField.resx">
-      <DependentUpon>Form_NewField.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_NewPatient.resx">
-      <DependentUpon>Form_NewPatient.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form_PatientList.resx">
-      <DependentUpon>Form_PatientList.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_Settings.resx">
@@ -323,6 +283,7 @@
     <None Include="Resources\btn_AcceptPatient_Disabled.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\CC-Logo.png" />
     <Content Include="Resources\CC.ico" />
     <None Include="Resources\led-green.png" />
     <None Include="Resources\led-red.png" />

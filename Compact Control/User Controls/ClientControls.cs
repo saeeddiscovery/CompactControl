@@ -810,12 +810,6 @@ namespace Compact_Control
             }
         }
 
-        private void ShowFields()
-        {
-            Class_PatientData.isFieldsChanged = true;
-            Form_Fields fieldsFrm = new Form_Fields();
-            fieldsFrm.ShowDialog();
-        }
 
         private void txtBox_Enter(object sender, EventArgs e)
         {

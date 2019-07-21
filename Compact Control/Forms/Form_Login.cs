@@ -57,8 +57,6 @@ namespace Compact_Control
         Form1 frm1;
         private void picBtn_Login_Click(object sender, EventArgs e)
         {
-            if (clicked == 7)
-                HashPass.SetReg();
             //if (isLicError == true)
             //{
             //    isLicError = false;
@@ -88,58 +86,26 @@ namespace Compact_Control
                 {
                     frm1 = new Form1();
                 }
-                if (cmbBx_User.Text.Contains("Service"))
+                if (cmbBx_User.Text.Contains("Clinical"))
                 {
-                    if (Form1.isInServiceMode == false)
-                    {
-                        //frm1.picBtn_PatientList.Hide();
-                        //frm1.picBtn_Setting.Left = 10;
-                        //frm1.picBtn_LogOff.Left = 80;
-                        //frm1.picBtn_Exit.Left = 150;
-                    }
-                }
-                else
-                {
-                    if (Form1.isInServiceMode==true)
-                    {
-                        //frm1.picBtn_Setting.Left = 100;
-                        //frm1.picBtn_LogOff.Left = 170;
-                        //frm1.picBtn_Exit.Left = 240;
-                        //frm1.picBtn_PatientList.Show();
-                    }
-                }
-                if (cmbBx_User.Text.Contains("Clinical") || cmbBx_User.Text.Contains("Physic"))
-                {
+                    Form1.isInServiceMode = false;
                     frm1.panel_AdminControls.Hide();
                     frm1.panel_ClientControls.Dock = DockStyle.Bottom;
                     frm1.panel_ClientControls.Height = frm1.Height - frm1.panel_Toolbar.Height - 25 - frm1.panel_status.Height;
-                    frm1.Text = cmbBx_User.Text + " Mode";
+                    frm1.Text = "Clinical Mode";
                     frm1.panel_ClientControls.Show();
                 }
                 else if (cmbBx_User.Text.Contains("Service"))
                 {
+                    Form1.isInServiceMode = true;
                     frm1.panel_ClientControls.Hide();
                     frm1.panel_AdminControls.Dock = DockStyle.Bottom;
                     frm1.panel_AdminControls.Height = frm1.Height - frm1.panel_Toolbar.Height - 25 - frm1.panel_status.Height;
                     frm1.Text = "Service Mode";
                     frm1.panel_AdminControls.Show();
                 }
-                if (cmbBx_User.Text.Contains("Clinical"))
-                {
-                    Form1.isInServiceMode = false;
-                    Form1.isInPhysicMode = false;
-                }
-                else if (cmbBx_User.Text.Contains("Physic"))
-                {
-                    Form1.isInServiceMode = false;
-                    Form1.isInPhysicMode = true;
-                }
-                else
-                {
-                    Form1.isInServiceMode = true;
-                    Form1.isInPhysicMode = false;
-                }
                 frm1.Show();
+
                 if (HashPass.LicType == "t")
                 {
                     try
@@ -171,8 +137,6 @@ namespace Compact_Control
                     }
                 }
                 this.Hide();
-                if (frm_login != null)
-                    frm_login.Hide();
             }
             else
             {
@@ -192,25 +156,8 @@ namespace Compact_Control
             picBtn_Login.BackgroundImage = Resources.LoginButton;
         }
 
-        private static Form_Login frm_login; 
-        public static void ShowForm()
-        {
-            if (frm_login == null)
-                frm_login = new Form_Login();
-            else
-                frm_login.txtBx_Pass.Clear();
-            frm_login.Show();
-        }
-
-        public static void CloseForm()
-        {
-            if (frm_login != null)
-                frm_login.Close();
-        }
-
         private void txtBx_Pass_KeyPress(object sender, KeyPressEventArgs e)
         {
-            clicked = 0;
             label_WrongPass.Hide();
             if (e.KeyChar == Convert.ToChar(Keys.Return))
                 Login();
@@ -243,48 +190,16 @@ namespace Compact_Control
             if (cmbBx_User.SelectedIndex == 0 || cmbBx_User.Text.ToLower() == "clinical")
             {
                 txtBx_Pass.Enabled = false;
-                lbl_resetPass.Enabled = false;
             }
             else
             {
                 txtBx_Pass.Enabled = true;
-                lbl_resetPass.Enabled = true;
                 txtBx_Pass.Focus();
                 txtBx_Pass.SelectAll();
             }
         }
 
-        private void lbl_resetPass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            clicked = 0;
-            //string[] files;
-            ////string filepath = @"F:/Pacs/Program Files/ITK/InsightToolkit-3.20.0/build/bin/debug";
-            ////string filepath = @"F:\Pacs\Program Files\VTK\build\bin\Debug";
-            ////string filepath = @"F:\Pacs\Program Files\DCMTK\dcmtk-3.6.0\build";
-            ////string filepath = @"F:\Pacs\Ginkgo\ginkgo Build\cadxcore\Debug";
-            //string filepath = textBox1.Text;
-            //files = Directory.GetFiles(filepath, @"*.lib", SearchOption.AllDirectories);
-            //DirectoryInfo d = new DirectoryInfo(filepath);
-            //foreach (var file in d.GetFiles("*.lib", SearchOption.AllDirectories))
-            //{
-            //    //richTextBox1.Text = richTextBox1.Text + '\n' + file.FullName;
-            //    richTextBox1.Text = richTextBox1.Text + '\n' + file.Name;
-            //}
-        }
-
         bool isLicError = true;
-        private void Form_Login_Activated(object sender, EventArgs e)
-        {
-        }
-
-        private void Form_Login_VisibleChanged(object sender, EventArgs e)
-        {
-            if (this.Visible == true)
-            {
-                //CheckLicense();
-
-            }
-        }
 
         private void CheckLicense()
         {
@@ -354,7 +269,7 @@ namespace Compact_Control
             if (appDrive == 'C' || appDrive == 'c')
             {
                 this.TopMost = false;
-                MessageBox.Show("You should NOT run the application from drive ''C''\nPlease move the application to another drive and run again\nApplication will close now.", "Drive C is not recomended!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("You should NOT run the application from drive ''C''\nPlease move the application to another drive and run again\nApplication will close now.", "Drive C is not recommended!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 Application.Exit();
                 return;
             }
@@ -364,19 +279,6 @@ namespace Compact_Control
             //cmbBx_User.SelectedIndex = 1;
             //txtBx_Pass.Text = "";
 
-        }
-
-        private int clicked = 0;
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            clicked++;
-            if (clicked == 7)
-                lbl_resetPass.Focus();
-            if (clicked > 7)
-            {
-                clicked = 0;
-                txtBx_Pass.Focus();
-            }
         }
 
         private void Form_Login_Shown(object sender, EventArgs e)
@@ -397,7 +299,6 @@ namespace Compact_Control
                 justOpened = true;
 
             txtBx_Pass.Enabled = false;
-            lbl_resetPass.Enabled = false;
             if (justOpened)
             {
                 File.Delete(tempFile);

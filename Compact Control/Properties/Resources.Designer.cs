@@ -183,6 +183,16 @@ namespace Compact_Control.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap CC_Logo {
+            get {
+                object obj = ResourceManager.GetObject("CC-Logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ConnectButton {
             get {
                 object obj = ResourceManager.GetObject("ConnectButton", resourceCulture);
