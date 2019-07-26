@@ -2665,7 +2665,8 @@ namespace Compact_Control
         {
             if (isInServiceMode)
             {
-                panel1.BackColor = Color.Turquoise;
+                //panel1.BackColor = Color.Turquoise;
+                label_title.ForeColor = Color.Turquoise;
                 label_title.Text = "Service";
                 picBtn_Exit.Show();
                 picBtn_Close.Show();
@@ -2673,7 +2674,8 @@ namespace Compact_Control
             }
             else
             {
-                panel1.BackColor = Color.LightPink;
+                //panel1.BackColor = Color.LightPink;
+                label_title.ForeColor = Color.LightPink;
                 label_title.Text = "Clinical";
                 picBtn_Exit.Hide();
                 picBtn_Close.Hide();
@@ -2748,13 +2750,13 @@ namespace Compact_Control
             double ramUsage = 100 - (ram / TotalVisibleMemorySize) * 100;
             label_ram.Text = "RAM: " + ramUsage.ToString("00.") + " %";
             if (cpuUsage > 90)
-                label_cpu.ForeColor = Color.Red;
+                label_cpu.ForeColor = Color.OrangeRed;
             else
-                label_cpu.ForeColor = Color.Black;
+                label_cpu.ForeColor = Color.LightGreen;
             if (ramUsage > 90)
-                label_ram.ForeColor = Color.Red;
+                label_ram.ForeColor = Color.OrangeRed;
             else
-                label_ram.ForeColor = Color.Black;
+                label_ram.ForeColor = Color.LightGreen;
 
 
             string time = now.ToShortTimeString();
