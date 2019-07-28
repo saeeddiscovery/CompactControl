@@ -284,6 +284,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\CC-Logo.png" />
+    <None Include="Resources\CC-Logo-transparent.png" />
     <Content Include="Resources\CC.ico" />
     <None Include="Resources\led-green.png" />
     <None Include="Resources\led-red.png" />
