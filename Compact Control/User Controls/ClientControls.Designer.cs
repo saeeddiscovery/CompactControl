@@ -95,6 +95,11 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.txt_fakeADC = new System.Windows.Forms.TextBox();
             this.pb_receiveStatus = new System.Windows.Forms.PictureBox();
+            this.timer_coli = new System.Windows.Forms.Timer(this.components);
+            this.timer_x1 = new System.Windows.Forms.Timer(this.components);
+            this.timer_x2 = new System.Windows.Forms.Timer(this.components);
+            this.timer_y1 = new System.Windows.Forms.Timer(this.components);
+            this.timer_y2 = new System.Windows.Forms.Timer(this.components);
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x2_status)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x1_status)).BeginInit();
@@ -863,6 +868,31 @@
             this.pb_receiveStatus.TabIndex = 127;
             this.pb_receiveStatus.TabStop = false;
             // 
+            // timer_coli
+            // 
+            this.timer_coli.Interval = 5000;
+            this.timer_coli.Tick += new System.EventHandler(this.timer_coli_Tick);
+            // 
+            // timer_x1
+            // 
+            this.timer_x1.Interval = 5000;
+            this.timer_x1.Tick += new System.EventHandler(this.timer_x1_Tick);
+            // 
+            // timer_x2
+            // 
+            this.timer_x2.Interval = 5000;
+            this.timer_x2.Tick += new System.EventHandler(this.timer_x2_Tick);
+            // 
+            // timer_y1
+            // 
+            this.timer_y1.Interval = 5000;
+            this.timer_y1.Tick += new System.EventHandler(this.timer_y1_Tick);
+            // 
+            // timer_y2
+            // 
+            this.timer_y2.Interval = 5000;
+            this.timer_y2.Tick += new System.EventHandler(this.timer_y2_Tick);
+            // 
             // ClientControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -974,5 +1004,10 @@
         private System.Windows.Forms.PictureBox pb_coli_status;
         private System.Windows.Forms.PictureBox pb_gant_status;
         private System.Windows.Forms.TextBox txt_fakeADC;
+        private System.Windows.Forms.Timer timer_coli;
+        private System.Windows.Forms.Timer timer_x1;
+        private System.Windows.Forms.Timer timer_x2;
+        private System.Windows.Forms.Timer timer_y1;
+        private System.Windows.Forms.Timer timer_y2;
     }
 }
