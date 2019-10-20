@@ -328,6 +328,7 @@ namespace Compact_Control
             return equal;
         }
         bool readError = false;
+        int adcCheck_counter = 0;
         private void timer3_Tick(object sender, EventArgs e)
         {
             
@@ -441,19 +442,24 @@ namespace Compact_Control
                         adc = a.Substring(3, a.Length - 3);
                         //adc = "100";
                         //adc = txt_fakeADC.Text;
-                        if (int.Parse(adc) < 1950 || int.Parse(adc) > 2150)
+                        if (int.Parse(adc) < 1850 || int.Parse(adc) > 2250)
                         {
-                            gant_set = "0";
-                            collim_set = "0";
-                            x1_set = "0";
-                            x2_set = "0";
-                            y1_set = "0";
-                            y2_set = "0";
-                            Reading_Error.Show();
-                            readError = true;
+                            adcCheck_counter = adcCheck_counter + 1;
+                            if (adcCheck_counter >= 10)
+                            {
+                                gant_set = "0";
+                                collim_set = "0";
+                                x1_set = "0";
+                                x2_set = "0";
+                                y1_set = "0";
+                                y2_set = "0";
+                                Reading_Error.Show();
+                                readError = true;
+                            }
                         }
                         else if (readError)
                         {
+                            adcCheck_counter = 0;
                             Reading_Error.Hide();
                             readError = false;
 
@@ -476,6 +482,8 @@ namespace Compact_Control
                                 x1Act();
                                 //y2_set = Math.Abs((int)((double.Parse(txt_x1_s.Text) - y2_offset) / y2_gain)).ToString();
                         }
+                        else
+                            adcCheck_counter = 0;
                         if (int.Parse(gant_set) != int.Parse(gnd))
                         {
                             write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");

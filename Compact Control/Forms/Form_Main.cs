@@ -1603,7 +1603,6 @@ namespace Compact_Control
         {
             lbl_init.Hide();
             timer4.Stop();
-
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
