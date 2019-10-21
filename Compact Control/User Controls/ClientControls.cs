@@ -456,7 +456,8 @@ namespace Compact_Control
                         break;
                     case "adc":
                         inputADC = true;
-                        pb_receiveStatus.BackgroundImage = Resources.led_green;
+                        if (readError == false)
+                            pb_receiveStatus.BackgroundImage = Resources.led_green;
                         if (showTerminals == "1")
                         {
                             int i = int.Parse(lbl_in_cnt.Text);
@@ -471,7 +472,8 @@ namespace Compact_Control
                         }
                         adc = a.Substring(3, a.Length - 3);
                         //adc = "100";
-                        //adc = txt_fakeADC.Text;
+                        if (txt_fakeADC.Visible == true)
+                            adc = txt_fakeADC.Text;
                         if (int.Parse(adc) < 1850 || int.Parse(adc) > 2250)
                         {
                             adcCheck_counter = adcCheck_counter + 1;
@@ -483,35 +485,36 @@ namespace Compact_Control
                                 x2_set = "0";
                                 y1_set = "0";
                                 y2_set = "0";
-                                Reading_Error.Show();
+                                lbl_readingError.Show();
+                                lbl_pleaseRestart.Show();
                                 readError = true;
                             }
                         }
-                        else if (readError)
-                        {
-                            adcCheck_counter = 0;
-                            Reading_Error.Hide();
-                            readError = false;
+                        //else if (readError)
+                        //{
+                        //    adcCheck_counter = 0;
+                        //    Reading_Error.Hide();
+                        //    readError = false;
 
-                            if (!string.IsNullOrEmpty(txt_gant_s.Text))
-                                gantAct();
-                                //gant_set = ((int)((double.Parse(txt_gant_s.Text) - gant_offset) / gant_gain)).ToString();
-                            if (!string.IsNullOrEmpty(txt_coli_s.Text))
-                                coliAct();
-                                //collim_set = ((int)((double.Parse(txt_coli_s.Text) - collim_offset) / collim_gain)).ToString();
-                            if (!string.IsNullOrEmpty(txt_y2_s.Text))
-                                y2Act();
-                                //x1_set = Math.Abs((int)((double.Parse(txt_y2_s.Text) - x1_offset) / x1_gain)).ToString();
-                            if (!string.IsNullOrEmpty(txt_y1_s.Text))
-                                y1Act();
-                                //x2_set = Math.Abs((int)((double.Parse(txt_y1_s.Text) - x2_offset) / x2_gain)).ToString();
-                            if (!string.IsNullOrEmpty(txt_x2_s.Text))
-                                x2Act();
-                                //y1_set = Math.Abs((int)((double.Parse(txt_x2_s.Text) - y1_offset) / y1_gain)).ToString();
-                            if (!string.IsNullOrEmpty(txt_x1_s.Text))
-                                x1Act();
-                                //y2_set = Math.Abs((int)((double.Parse(txt_x1_s.Text) - y2_offset) / y2_gain)).ToString();
-                        }
+                        //    if (!string.IsNullOrEmpty(txt_gant_s.Text))
+                        //        gantAct();
+                        //        //gant_set = ((int)((double.Parse(txt_gant_s.Text) - gant_offset) / gant_gain)).ToString();
+                        //    if (!string.IsNullOrEmpty(txt_coli_s.Text))
+                        //        coliAct();
+                        //        //collim_set = ((int)((double.Parse(txt_coli_s.Text) - collim_offset) / collim_gain)).ToString();
+                        //    if (!string.IsNullOrEmpty(txt_y2_s.Text))
+                        //        y2Act();
+                        //        //x1_set = Math.Abs((int)((double.Parse(txt_y2_s.Text) - x1_offset) / x1_gain)).ToString();
+                        //    if (!string.IsNullOrEmpty(txt_y1_s.Text))
+                        //        y1Act();
+                        //        //x2_set = Math.Abs((int)((double.Parse(txt_y1_s.Text) - x2_offset) / x2_gain)).ToString();
+                        //    if (!string.IsNullOrEmpty(txt_x2_s.Text))
+                        //        x2Act();
+                        //        //y1_set = Math.Abs((int)((double.Parse(txt_x2_s.Text) - y1_offset) / y1_gain)).ToString();
+                        //    if (!string.IsNullOrEmpty(txt_x1_s.Text))
+                        //        x1Act();
+                        //        //y2_set = Math.Abs((int)((double.Parse(txt_x1_s.Text) - y2_offset) / y2_gain)).ToString();
+                        //}
                         else
                             adcCheck_counter = 0;
                         if (int.Parse(gant_set) != int.Parse(gnd))
@@ -527,14 +530,9 @@ namespace Compact_Control
                             write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
                             noWrite = false;
                             pb_coli_status.BackgroundImage = Resources.led_red;
-                            if (timer_coli.Enabled)
-                            {
-                                timer_coli.Enabled = false;
-                            }
                         }
                         else
                         {
-                            timer_coli.Enabled = true;
                             pb_coli_status.BackgroundImage = Resources.led_green;
                         }
                         if (int.Parse(x1_set) != int.Parse(x1d))
@@ -542,14 +540,9 @@ namespace Compact_Control
                             write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
                             noWrite = false;
                             pb_y2_status.BackgroundImage = Resources.led_red;
-                            if (timer_y2.Enabled)
-                            {
-                                timer_y2.Enabled = false;
-                            }
                         }
                         else
                         {
-                            timer_y2.Enabled = true;
                             pb_y2_status.BackgroundImage = Resources.led_green;
                         }
                         if (int.Parse(x2_set) != int.Parse(x2d))
@@ -557,14 +550,9 @@ namespace Compact_Control
                             write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
                             noWrite = false;
                             pb_y1_status.BackgroundImage = Resources.led_red;
-                            if (timer_y1.Enabled)
-                            {
-                                timer_y1.Enabled = false;
-                            }
                         }
                         else
                         {
-                            timer_y1.Enabled = true;
                             pb_y1_status.BackgroundImage = Resources.led_green;
                         }
                         if (int.Parse(y1_set) != int.Parse(y1d))
@@ -572,14 +560,9 @@ namespace Compact_Control
                             write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
                             noWrite = false;
                             pb_x2_status.BackgroundImage = Resources.led_red;
-                            if (timer_x2.Enabled)
-                            {
-                                timer_x2.Enabled = false;
-                            }
                         }
                         else
                         {
-                            timer_x2.Enabled = true;
                             pb_x2_status.BackgroundImage = Resources.led_green;
                         }
                         if (int.Parse(y2_set) != int.Parse(y2d))
@@ -587,14 +570,9 @@ namespace Compact_Control
                             write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
                             noWrite = false;
                             pb_x1_status.BackgroundImage = Resources.led_red;
-                            if (timer_x1.Enabled)
-                            {
-                                timer_x1.Enabled = false;
-                            }
                         }
                         else
                         {
-                            timer_x1.Enabled = true;
                             pb_x1_status.BackgroundImage = Resources.led_green;
                         }
                         if (noWrite == false && showTerminals == "1")
@@ -1203,7 +1181,10 @@ namespace Compact_Control
                     {
                         pictureBox4.Hide();
                         isY1Set = false;
+                        timer_y1.Enabled = true;
                     }
+                    else if (timer_y1.Enabled)
+                        timer_y1.Enabled = false;
                 }
                 catch { }
             }
@@ -1369,7 +1350,10 @@ namespace Compact_Control
                     {
                         pictureBox3.Hide();
                         isY2Set = false;
+                        timer_y2.Enabled = true;
                     }
+                    else if (timer_y2.Enabled)
+                        timer_y2.Enabled = false;
                 }
                 catch { }
             }
@@ -1539,7 +1523,10 @@ namespace Compact_Control
                     {
                         pictureBox6.Hide();
                         isX1Set = false;
+                        timer_x1.Enabled = true;
                     }
+                    else if (timer_x1.Enabled)
+                        timer_x1.Enabled = false;
                 }
                 catch { }
             }
@@ -1705,7 +1692,10 @@ namespace Compact_Control
                     {
                         isX2Set = false;
                         pictureBox5.Hide();
+                        timer_x2.Enabled = true;
                     }
+                    else if (timer_x2.Enabled)
+                        timer_x2.Enabled = false;
                 }
                 catch { }
             }
@@ -1884,7 +1874,10 @@ namespace Compact_Control
                 {
                     pictureBox2.Hide();
                     isColiSet = false;
+                    timer_coli.Enabled = true;
                 }
+                else if (timer_coli.Enabled)
+                    timer_coli.Enabled = false;
             }
         } 
     }

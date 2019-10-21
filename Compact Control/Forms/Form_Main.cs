@@ -163,6 +163,7 @@ namespace Compact_Control
             if (ports.Length == 0)
             {
                 label_ConnectStatus.Text = "No Serial port detected!";
+                label_ConnectStatus.ForeColor = Color.Red;
                 //MessageBox.Show("No Serial port detected!", "COM Port error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if (ports.Length >= 1)
@@ -2559,13 +2560,14 @@ namespace Compact_Control
                 panel_ClientControls.Enabled = true;
                 picBtn_Connect.BackgroundImage = Resources.ConnectButton_Connected;
                 picBtnToolTip.SetToolTip(picBtn_Connect, "Disconnect");
-                label_ConnectStatus.ForeColor = Color.Green;
+                label_ConnectStatus.ForeColor = Color.LightGreen;
                 label_ConnectStatus.Text = "Connected!";
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Connection error!" + Environment.NewLine + ex.ToString().Split('\n')[0] , "An error occured during connection!\n", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 label_ConnectStatus.Text = "Connection error!";
+                label_ConnectStatus.ForeColor = Color.Red;
                 //ConnectToPort();
             }
         }

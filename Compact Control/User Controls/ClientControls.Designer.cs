@@ -71,7 +71,6 @@
             this.txt_y_s = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.Reading_Error = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pb_coli_status = new System.Windows.Forms.PictureBox();
             this.pb_gant_status = new System.Windows.Forms.PictureBox();
@@ -100,6 +99,9 @@
             this.timer_x2 = new System.Windows.Forms.Timer(this.components);
             this.timer_y1 = new System.Windows.Forms.Timer(this.components);
             this.timer_y2 = new System.Windows.Forms.Timer(this.components);
+            this.lbl_pleaseRestart = new System.Windows.Forms.Label();
+            this.lbl_readingError = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x2_status)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x1_status)).BeginInit();
@@ -588,19 +590,6 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Visible = false;
             // 
-            // Reading_Error
-            // 
-            this.Reading_Error.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.Reading_Error.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Reading_Error.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Reading_Error.ForeColor = System.Drawing.Color.OrangeRed;
-            this.Reading_Error.Location = new System.Drawing.Point(571, 470);
-            this.Reading_Error.Name = "Reading_Error";
-            this.Reading_Error.Size = new System.Drawing.Size(158, 27);
-            this.Reading_Error.TabIndex = 87;
-            this.Reading_Error.Text = "X Reading Error X";
-            this.Reading_Error.Visible = false;
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.pb_coli_status);
@@ -819,7 +808,7 @@
             this.lbl_risk.AutoSize = true;
             this.lbl_risk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.lbl_risk.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lbl_risk.Location = new System.Drawing.Point(306, 443);
+            this.lbl_risk.Location = new System.Drawing.Point(610, 473);
             this.lbl_risk.Name = "lbl_risk";
             this.lbl_risk.Size = new System.Drawing.Size(211, 22);
             this.lbl_risk.TabIndex = 88;
@@ -851,10 +840,11 @@
             // 
             this.txt_fakeADC.BackColor = System.Drawing.SystemColors.Window;
             this.txt_fakeADC.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_fakeADC.Location = new System.Drawing.Point(818, 71);
+            this.txt_fakeADC.Location = new System.Drawing.Point(816, 84);
             this.txt_fakeADC.Name = "txt_fakeADC";
             this.txt_fakeADC.Size = new System.Drawing.Size(80, 27);
             this.txt_fakeADC.TabIndex = 129;
+            this.txt_fakeADC.Text = "2048";
             this.txt_fakeADC.Visible = false;
             // 
             // pb_receiveStatus
@@ -870,39 +860,81 @@
             // 
             // timer_coli
             // 
-            this.timer_coli.Interval = 3000;
+            this.timer_coli.Interval = 1500;
             this.timer_coli.Tick += new System.EventHandler(this.timer_coli_Tick);
             // 
             // timer_x1
             // 
-            this.timer_x1.Interval = 3000;
+            this.timer_x1.Interval = 1500;
             this.timer_x1.Tick += new System.EventHandler(this.timer_x1_Tick);
             // 
             // timer_x2
             // 
-            this.timer_x2.Interval = 3000;
+            this.timer_x2.Interval = 1500;
             this.timer_x2.Tick += new System.EventHandler(this.timer_x2_Tick);
             // 
             // timer_y1
             // 
-            this.timer_y1.Interval = 3000;
+            this.timer_y1.Interval = 1500;
             this.timer_y1.Tick += new System.EventHandler(this.timer_y1_Tick);
             // 
             // timer_y2
             // 
-            this.timer_y2.Interval = 3000;
+            this.timer_y2.Interval = 1500;
             this.timer_y2.Tick += new System.EventHandler(this.timer_y2_Tick);
+            // 
+            // lbl_pleaseRestart
+            // 
+            this.lbl_pleaseRestart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lbl_pleaseRestart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_pleaseRestart.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl_pleaseRestart.ForeColor = System.Drawing.Color.Red;
+            this.lbl_pleaseRestart.Location = new System.Drawing.Point(299, 473);
+            this.lbl_pleaseRestart.Name = "lbl_pleaseRestart";
+            this.lbl_pleaseRestart.Size = new System.Drawing.Size(253, 27);
+            this.lbl_pleaseRestart.TabIndex = 130;
+            this.lbl_pleaseRestart.Text = "Please restart the application";
+            this.lbl_pleaseRestart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_pleaseRestart.Visible = false;
+            // 
+            // lbl_readingError
+            // 
+            this.lbl_readingError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lbl_readingError.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_readingError.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl_readingError.ForeColor = System.Drawing.Color.Red;
+            this.lbl_readingError.Location = new System.Drawing.Point(299, 445);
+            this.lbl_readingError.Name = "lbl_readingError";
+            this.lbl_readingError.Size = new System.Drawing.Size(253, 27);
+            this.lbl_readingError.TabIndex = 87;
+            this.lbl_readingError.Text = "!!  Reading Error  !!";
+            this.lbl_readingError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_readingError.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(812, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 20);
+            this.label1.TabIndex = 131;
+            this.label1.Text = "Fake ADC";
+            this.label1.Visible = false;
             // 
             // ClientControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_pleaseRestart);
             this.Controls.Add(this.txt_fakeADC);
             this.Controls.Add(this.pb_receiveStatus);
             this.Controls.Add(this.lbl_risk);
             this.Controls.Add(this.gb_terminals);
-            this.Controls.Add(this.Reading_Error);
+            this.Controls.Add(this.lbl_readingError);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label37);
@@ -979,7 +1011,6 @@
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.TextBox txt_y_s;
         private System.Windows.Forms.TextBox txt_y_a;
-        private System.Windows.Forms.Label Reading_Error;
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Button btn_clearTerminal_in;
         private System.Windows.Forms.Label label51;
@@ -1009,5 +1040,8 @@
         private System.Windows.Forms.Timer timer_x2;
         private System.Windows.Forms.Timer timer_y1;
         private System.Windows.Forms.Timer timer_y2;
+        private System.Windows.Forms.Label lbl_pleaseRestart;
+        private System.Windows.Forms.Label lbl_readingError;
+        private System.Windows.Forms.Label label1;
     }
 }
