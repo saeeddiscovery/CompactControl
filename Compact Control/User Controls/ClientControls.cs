@@ -75,6 +75,13 @@ namespace Compact_Control
         string y1_set="0";
         string y2_set="0";
 
+        string gant_valid = "0";
+        string collim_valid = "0";
+        string x1_valid = "0";
+        string x2_valid = "0";
+        string y1_valid = "0";
+        string y2_valid = "0";
+
         string adc;
 
         public static string showTerminals;
@@ -306,6 +313,12 @@ namespace Compact_Control
         {
             x1_set = "0";
             timer_y2.Enabled = false;
+        }
+
+        private void timer_gant_Tick(object sender, EventArgs e)
+        {
+            gant_set = "0";
+            timer_gant.Enabled = false;
         }
 
         private void btn_clearTerminal_oth_Click(object sender, EventArgs e)
@@ -740,17 +753,17 @@ namespace Compact_Control
             //        lbl_risk.Hide();
             //}
 
-            if (isGantSet)
+            //if (isGantSet)
                 gantSet();
-            if (isColiSet)
+            //if (isColiSet)
                 coliSet();
-            if (isY1Set)
+            //if (isY1Set)
                 y1Set();
-            if (isY2Set)
+            //if (isY2Set)
                 y2Set();
-            if (isX1Set)
+            //if (isX1Set)
                 x1Set();
-            if (isX2Set)
+            //if (isX2Set)
                 x2Set();        
         }
 
@@ -765,6 +778,7 @@ namespace Compact_Control
                     isGantSet = false;
                     txt_gant_s.BackColor = Color.White;
                     gant_set = "0";
+                    gant_valid = "0";
                     pictureBox1.Hide();
                 }
             }
@@ -777,6 +791,7 @@ namespace Compact_Control
                 isColiSet = false;
                 txt_coli_s.BackColor = Color.White;
                 collim_set = "0";
+                collim_valid = "0";
                 pictureBox2.Hide();
             }
         }
@@ -809,6 +824,7 @@ namespace Compact_Control
                 pictureBox3.Hide();
                 //pictureBox14.Hide();
                 x1_set = "0";
+                x1_valid = "0";
             }
         }
 
@@ -825,6 +841,7 @@ namespace Compact_Control
                 pictureBox4.Hide();
                 //pictureBox14.Hide();
                 x2_set = "0";
+                x2_valid = "0";
             }
         }
 
@@ -841,6 +858,7 @@ namespace Compact_Control
                 //pictureBox5.Hide();
                 //pictureBox15.Hide();
                 y1_set = "0";
+                y1_valid = "0";
                 pictureBox5.Hide();
             }
         }
@@ -858,6 +876,7 @@ namespace Compact_Control
                 pictureBox6.Hide();
                 //pictureBox15.Hide();
                 y2_set = "0";
+                y2_valid = "0";
             }
         }
 
@@ -885,6 +904,8 @@ namespace Compact_Control
                     pictureBox3.Hide();
                     x2_set = "0";
                     x1_set = "0";
+                    x2_valid = "0";
+                    x1_valid = "0";
                 }
             }
         }
@@ -906,6 +927,8 @@ namespace Compact_Control
                     pictureBox5.Hide();
                     y2_set = "0";
                     y1_set = "0";
+                    y1_valid = "0";
+                    y2_valid = "0";
                 }
             }
         }
@@ -1036,6 +1059,7 @@ namespace Compact_Control
                     txt_y_s.Clear();
                     XY_isTextChangedFromCode = false;
                     x2_set = "0";
+                    x2_valid = "0";
                     pictureBox4.Hide();
                     isY1Set = false;
                     y1err = false;
@@ -1051,6 +1075,7 @@ namespace Compact_Control
                         if (a > double.Parse(txt_y2_s.Text) - 1)
                         {
                             x2_set = "0";
+                            x2_valid = "0";
                             pictureBox3.BackgroundImage = Resources.Error;
                             pictureBox3.Show();
                             pictureBox4.BackgroundImage = Resources.Error;
@@ -1102,6 +1127,7 @@ namespace Compact_Control
                 if (a < -20 || a > 0)
                 {
                     x2_set = "0";
+                    x2_valid = "0";
                     pictureBox4.BackgroundImage = Resources.Error;
                     pictureBox4.Show();
                     y1err = true;
@@ -1114,6 +1140,7 @@ namespace Compact_Control
                     if (Math.Abs(a - double.Parse(x1_dv)) < 1)
                     {
                         x2_set = "0";
+                        x2_valid = "0";
                         pictureBox4.BackgroundImage = Resources.Error;
                         pictureBox4.Show();
                         isY1Set = false;
@@ -1129,22 +1156,22 @@ namespace Compact_Control
 
                 x2_set = Math.Abs((int)((-a - x2_offset) / x2_gain)).ToString();
                 if (int.Parse(x2_set) > 65534 | int.Parse(y2_set) < 0)
+                {
                     x2_set = "0";
-                pictureBox4.BackgroundImage = Resources.Request;
+                    x2_valid = "0";
+                }
+                else
+                    x2_valid = a.ToString();
                 y1err = false;
+                pictureBox4.BackgroundImage = Resources.Request;
                 if (Math.Abs(double.Parse(txt_y1_s.Text) - double.Parse(x2_dv)) > .1)
                 {
                     isY1Set = true;
                     pictureBox4.Show();
-                    //if (timer_y1.Enabled)
-                    //{
-                    //    timer_y1.Enabled = false;
-                    //}
                 }
                 else
                 {
                     pictureBox4.Hide();
-                    //timer_y1.Enabled = true;
                     isY1Set = false;
                     pictureBox4.BackgroundImage = Resources.Request;
                 }
@@ -1156,6 +1183,7 @@ namespace Compact_Control
             {
                 txt_y1_s.SelectAll();
                 x2_set = "0";
+                x2_valid = "0";
                 pictureBox4.BackgroundImage = Resources.Error;
                 pictureBox4.Show();
                 y1err = true;
@@ -1173,21 +1201,30 @@ namespace Compact_Control
 
         private void y1Set()
         {
-            if (isY1Set)
+            //if (isY1Set)
+            if (x2_valid != "0")
             {
                 try
                 {
-                    if (Math.Abs(double.Parse(txt_y1_s.Text) - double.Parse(x2_dv)) <= .1)
+                    //if (Math.Abs(double.Parse(txt_y1_s.Text) - double.Parse(x2_dv)) <= .1)
+                    if (Math.Abs(double.Parse(x2_valid) - double.Parse(x2_dv)) <= .1)
                     {
                         pictureBox4.Hide();
                         isY1Set = false;
                         timer_y1.Enabled = true;
                     }
-                    else if (timer_y1.Enabled)
-                        timer_y1.Enabled = false;
+                    else
+                    {
+                        pictureBox4.BackgroundImage = Resources.Request;
+                        pictureBox4.Show();
+                        if (timer_y1.Enabled)
+                            timer_y1.Enabled = false;
+                    }
                 }
                 catch { }
             }
+            else
+                x2_set = x2_valid;
         }
 
         private void y2Act()
@@ -1200,6 +1237,7 @@ namespace Compact_Control
                     txt_y_s.Clear();
                     XY_isTextChangedFromCode = false;
                     x1_set = "0";
+                    x1_valid = "0";
                     pictureBox3.Hide();
                     pictureBox3.BackgroundImage = Resources.Request;
                     isY2Set = false;
@@ -1217,6 +1255,7 @@ namespace Compact_Control
                         if (a < double.Parse(txt_y1_s.Text) + 1)
                         {
                             x1_set = "0";
+                            x1_valid = "0";
                             pictureBox4.BackgroundImage = Resources.Error;
                             pictureBox4.Show();
                             pictureBox3.BackgroundImage = Resources.Error;
@@ -1268,6 +1307,7 @@ namespace Compact_Control
                 if (a < 0 || a > 20)
                 {
                     x1_set = "0";
+                    x1_valid = "0";
                     pictureBox3.BackgroundImage = Resources.Error;
                     isY2Set = false;
                     pictureBox3.Show();
@@ -1280,6 +1320,7 @@ namespace Compact_Control
                     if (Math.Abs(a - double.Parse(x2_dv)) < 1)
                     {
                         x1_set = "0";
+                        x1_valid = "0";
                         pictureBox3.BackgroundImage = Resources.Error;
                         isY2Set = false;
                         pictureBox3.Show();
@@ -1297,7 +1338,12 @@ namespace Compact_Control
                 {
                     x1_set = Math.Abs((int)((a - x1_offset) / x1_gain)).ToString();
                     if (int.Parse(x1_set) > 65534 | int.Parse(y2_set) < 0)
+                    {
                         x1_set = "0";
+                        x1_valid = "0";
+                    }
+                    else
+                        x1_valid = a.ToString();
                     pictureBox3.BackgroundImage = Resources.Request;
                     y2err = false;
 
@@ -1305,15 +1351,10 @@ namespace Compact_Control
                     {
                         isY2Set = true;
                         pictureBox3.Show();
-                        //if (timer_y2.Enabled)
-                        //{
-                        //    timer_y2.Enabled = false;
-                        //}
                     }
                     else
                     {
                         pictureBox3.Hide();
-                        //timer_y2.Enabled = true;
                         isY2Set = false;
                         pictureBox3.BackgroundImage = Resources.Request;
                     }
@@ -1324,6 +1365,7 @@ namespace Compact_Control
             catch
             {
                 x1_set = "0";
+                x1_valid = "0";
                 txt_y2_s.SelectAll();
                 pictureBox3.BackgroundImage = Resources.Error;
                 pictureBox3.Show();
@@ -1342,21 +1384,30 @@ namespace Compact_Control
 
         private void y2Set()
         {
-            if (isY2Set)
+            //if (isY2Set)
+            if (x1_valid != "0")
             {
                 try
                 {
-                    if (Math.Abs(double.Parse(txt_y2_s.Text) - double.Parse(x1_dv)) <= .1)
+                    //if (Math.Abs(double.Parse(txt_y2_s.Text) - double.Parse(x1_dv)) <= .1)
+                    if (Math.Abs(double.Parse(x1_valid) - double.Parse(x1_dv)) <= .1)
                     {
                         pictureBox3.Hide();
                         isY2Set = false;
                         timer_y2.Enabled = true;
                     }
-                    else if (timer_y2.Enabled)
-                        timer_y2.Enabled = false;
+                    else
+                    {
+                        pictureBox3.BackgroundImage = Resources.Request;
+                        pictureBox3.Show();
+                        if (timer_y2.Enabled)
+                            timer_y2.Enabled = false;
+                    }
                 }
                 catch { }
             }
+            else
+                x1_set = x1_valid;
 
         }
 
@@ -1370,6 +1421,7 @@ namespace Compact_Control
                     txt_x_s.Clear();
                     XY_isTextChangedFromCode = false;
                     y2_set = "0";
+                    y2_valid = "0";
                     pictureBox6.Hide();
                     isX1Set = false;
                     txt_x2_s.Focus();
@@ -1385,6 +1437,7 @@ namespace Compact_Control
                         if (a > double.Parse(txt_x2_s.Text) - 1)
                         {
                             y2_set = "0";
+                            y2_valid = "0";
                             pictureBox5.BackgroundImage = Resources.Error;
                             pictureBox5.Show();
                             pictureBox6.BackgroundImage = Resources.Error;
@@ -1437,6 +1490,7 @@ namespace Compact_Control
                 if (a < -20 || a > 12.5)
                 {
                     y2_set = "0";
+                    y2_valid = "0";
                     pictureBox6.BackgroundImage = Resources.Error;
                     isX1Set = false;
                     pictureBox6.Show();
@@ -1450,6 +1504,7 @@ namespace Compact_Control
                         if (Math.Abs(a - double.Parse(y1_dv)) < 1)
                         {
                             y2_set = "0";
+                            y2_valid = "0";
                             pictureBox6.BackgroundImage = Resources.Error;
                             isX1Set = false;
                             pictureBox6.Show();
@@ -1469,7 +1524,12 @@ namespace Compact_Control
 
                 y2_set = Math.Abs((int)((-a - y2_offset) / y2_gain)).ToString();
                 if (int.Parse(y2_set) > 65534 | int.Parse(y2_set) < 0)
+                {
                     y2_set = "0";
+                    y2_valid = "0";
+                }
+                else
+                    y2_valid = a.ToString();
                 pictureBox6.BackgroundImage = Resources.Request;
                 x1err = false;
 
@@ -1477,16 +1537,11 @@ namespace Compact_Control
                 {
                     isX1Set = true;
                     pictureBox6.Show();
-                    //if (timer_x1.Enabled)
-                    //{
-                    //    timer_x1.Enabled = false;
-                    //}
                 }
                 else
                 {
                     isX1Set = false;
                     pictureBox6.Hide();
-                    //timer_x1.Enabled = true;
                     pictureBox6.BackgroundImage = Resources.Request;
                 }
 
@@ -1496,6 +1551,7 @@ namespace Compact_Control
             catch
             {
                 y2_set = "0";
+                y2_valid = "0";
                 txt_x1_s.SelectAll();
                 pictureBox6.BackgroundImage = Resources.Error;
                 pictureBox6.Show();
@@ -1515,21 +1571,30 @@ namespace Compact_Control
 
         private void x1Set()
         {
-            if (isX1Set)
+            //if (isX1Set)
+            if (y2_valid != "0")
             {
                 try
                 {
-                    if (Math.Abs(double.Parse(txt_x1_s.Text) - double.Parse(y2_dv)) <= .1)
+                    //if (Math.Abs(double.Parse(txt_x1_s.Text) - double.Parse(y2_dv)) <= .1)
+                    if (Math.Abs(double.Parse(y2_valid) - double.Parse(y2_dv)) <= .1)
                     {
                         pictureBox6.Hide();
                         isX1Set = false;
                         timer_x1.Enabled = true;
                     }
-                    else if (timer_x1.Enabled)
-                        timer_x1.Enabled = false;
+                    else
+                    {
+                        pictureBox6.BackgroundImage = Resources.Request;
+                        pictureBox6.Show();
+                        if (timer_x1.Enabled)
+                            timer_x1.Enabled = false;
+                    }
                 }
                 catch { }
             }
+            else
+                y2_set = y2_valid;
         }
 
         private void x2Act()
@@ -1542,6 +1607,7 @@ namespace Compact_Control
                     txt_x_s.Clear();
                     XY_isTextChangedFromCode = false;
                     y1_set = "0";
+                    y1_valid = "0";
                     pictureBox5.Hide();
                     pictureBox5.BackgroundImage = Resources.Request;
                     isX2Set = false;
@@ -1558,6 +1624,7 @@ namespace Compact_Control
                         if (a < double.Parse(txt_x1_s.Text) + 1)
                         {
                             y1_set = "0";
+                            y1_valid = "0";
                             pictureBox6.BackgroundImage = Resources.Error;
                             pictureBox6.Show();
                             pictureBox5.BackgroundImage = Resources.Error;
@@ -1609,6 +1676,7 @@ namespace Compact_Control
                 if (a < -12.5 || a > 20)
                 {
                     y1_set = "0";
+                    y1_valid = "0";
                     pictureBox5.BackgroundImage = Resources.Error;
                     pictureBox5.Show();
                     isX2Set = false;
@@ -1621,6 +1689,7 @@ namespace Compact_Control
                     if (Math.Abs(a - double.Parse(y2_dv)) < 1)
                     {
                         y1_set = "0";
+                        y1_valid = "0";
                         pictureBox5.BackgroundImage = Resources.Error;
                         pictureBox5.Show();
                         isX2Set = false;
@@ -1638,7 +1707,12 @@ namespace Compact_Control
                 {
                     y1_set = Math.Abs((int)((a - y1_offset) / y1_gain)).ToString();
                     if (int.Parse(y1_set) > 65534 | int.Parse(y2_set) < 0)
+                    {
                         y1_set = "0";
+                        y1_valid = "0";
+                    }
+                    else
+                        y1_valid = a.ToString();
                     pictureBox5.BackgroundImage = Resources.Request;
                     x2err = false;
 
@@ -1646,15 +1720,10 @@ namespace Compact_Control
                     {
                         isX2Set = true;
                         pictureBox5.Show();
-                        //if (timer_x2.Enabled)
-                        //{
-                        //    timer_x2.Enabled = false;
-                        //}
                     }
                     else
                     {
                         pictureBox5.Hide();
-                        //timer_x2.Enabled = true;
                         isX2Set = false;
                         pictureBox5.BackgroundImage = Resources.Request;
                     }
@@ -1665,6 +1734,7 @@ namespace Compact_Control
             catch
             {
                 y1_set = "0";
+                y1_valid = "0";
                 txt_x2_s.SelectAll();
                 pictureBox5.BackgroundImage = Resources.Error;
                 pictureBox5.Show();
@@ -1684,21 +1754,29 @@ namespace Compact_Control
 
         private void x2Set()
         {
-            if (isX2Set)
+            //if (isX2Set)
+            if (y1_valid != "0")
             {
                 try
                 {
-                    if (Math.Abs(double.Parse(txt_x2_s.Text) - double.Parse(y1_dv)) <= .1)
+                    if (Math.Abs(double.Parse(y1_valid) - double.Parse(y1_dv)) <= .1)
                     {
                         isX2Set = false;
                         pictureBox5.Hide();
                         timer_x2.Enabled = true;
                     }
-                    else if (timer_x2.Enabled)
-                        timer_x2.Enabled = false;
+                    else
+                    {
+                        pictureBox5.BackgroundImage = Resources.Request;
+                        pictureBox5.Show();
+                        if (timer_x2.Enabled)
+                            timer_x2.Enabled = false;
+                    }
                 }
                 catch { }
             }
+            else
+                y1_set = y1_valid;
         }
 
         private void gantAct()
@@ -1706,6 +1784,7 @@ namespace Compact_Control
             if (string.IsNullOrEmpty(txt_gant_s.Text) || string.IsNullOrWhiteSpace(txt_gant_s.Text))
             {
                 gant_set = "0";
+                gant_valid = "0";
                 pictureBox1.Hide();
                 pictureBox1.BackgroundImage = Resources.Request;
                 txt_coli_s.Focus();
@@ -1719,6 +1798,7 @@ namespace Compact_Control
                 if (aa < 0 || aa >= 360)
                 {
                     gant_set = "0";
+                    gant_valid = "0";
                     pictureBox1.BackgroundImage = Resources.Error;
                     pictureBox1.Show();
                     return;
@@ -1733,6 +1813,7 @@ namespace Compact_Control
                 }
                 //if (gentValueActual > 180 && a == 180)
                 //    a = 180.05;
+                gant_valid = aa.ToString();
                 if (aa > 180)
                     aa = aa - 360;
                 gant_set = ((int)((aa - gant_offset) / gant_gain)).ToString();
@@ -1761,6 +1842,7 @@ namespace Compact_Control
             {
                 txt_gant_s.SelectAll();
                 gant_set = "0";
+                gant_valid = "0";
                 pictureBox1.BackgroundImage = Resources.Error;
                 pictureBox1.Show();
                 return;
@@ -1776,9 +1858,11 @@ namespace Compact_Control
 
         private void gantSet()
         {
-            if (isGantSet)
+            //if (isGantSet)
+            if (gant_valid != "0")
             {
-                gant_t2 = double.Parse(txt_gant_s.Text);
+                //gant_t2 = double.Parse(txt_gant_s.Text);
+                gant_t2 = double.Parse(gant_valid);
                 gant_d2 = double.Parse(gant_dv);
                 if (gant_t2 > 180)
                     gant_t2 = gant_t2 - 360;
@@ -1787,9 +1871,19 @@ namespace Compact_Control
                 if (Math.Abs(gant_t2 - gant_d2) <= .1)
                 {
                     pictureBox1.Hide();
+                    timer_gant.Enabled = true;
+                }
+                else
+                {
+                    pictureBox1.BackgroundImage = Resources.Request;
+                    pictureBox1.Show();
                     isGantSet = false;
+                    if (timer_gant.Enabled)
+                        timer_gant.Enabled = false;
                 }
             }
+            else
+                gant_set = gant_valid;
         }
 
         private void coliAct()
@@ -1797,6 +1891,7 @@ namespace Compact_Control
             if (string.IsNullOrEmpty(txt_coli_s.Text) || string.IsNullOrWhiteSpace(txt_coli_s.Text))
             {
                 collim_set = "0";
+                collim_valid = "0";
                 pictureBox2.Hide();
                 pictureBox2.BackgroundImage = Resources.Request;
                 txt_y_s.Focus();
@@ -1810,11 +1905,13 @@ namespace Compact_Control
                 if (a < 0 || a >= 360)
                 {
                     collim_set = "0";
+                    collim_valid = "0";
                     pictureBox2.BackgroundImage = Resources.Error;
                     pictureBox2.Show();
                     return;
                 }
 
+                collim_valid = a.ToString();
                 if (a > 180)
                     a = a - 360;
                 collim_set = ((int)((a - collim_offset) / collim_gain)).ToString();
@@ -1829,15 +1926,10 @@ namespace Compact_Control
                     pictureBox2.BackgroundImage = Resources.Request;
                     isColiSet = true;
                     pictureBox2.Show();
-                    //if (timer_coli.Enabled)
-                    //{
-                    //    timer_coli.Enabled = false;
-                    //}
                 }
                 else
                 {
                     pictureBox2.Hide();
-                    //timer_coli.Enabled = true;
                     isColiSet = false;
                     pictureBox2.BackgroundImage = Resources.Request;
                 }
@@ -1847,6 +1939,7 @@ namespace Compact_Control
             catch
             {
                 collim_set = "0";
+                collim_valid = "0";
                 pictureBox2.BackgroundImage = Resources.Error;
                 pictureBox2.Show();
                 return;
@@ -1862,9 +1955,11 @@ namespace Compact_Control
 
         private void coliSet()
         {
-            if (isColiSet)
+            //if (isColiSet)
+            if (collim_valid != "0")
             {
                 collim_t2 = double.Parse(txt_coli_s.Text);
+                collim_t2 = double.Parse(collim_valid);
                 collim_d2 = double.Parse(collim_dv);
                 if (collim_t2 > 180)
                     collim_t2 = collim_t2 - 360;
@@ -1876,9 +1971,17 @@ namespace Compact_Control
                     isColiSet = false;
                     timer_coli.Enabled = true;
                 }
-                else if (timer_coli.Enabled)
-                    timer_coli.Enabled = false;
+                else
+                {
+                    pictureBox2.BackgroundImage = Resources.Request;
+                    pictureBox2.Show();
+                    collim_set = collim_valid;
+                    if (timer_coli.Enabled)
+                        timer_coli.Enabled = false;
+                }
             }
+            else
+                collim_set = collim_valid;
         } 
     }
 }

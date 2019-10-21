@@ -102,6 +102,7 @@
             this.lbl_pleaseRestart = new System.Windows.Forms.Label();
             this.lbl_readingError = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.timer_gant = new System.Windows.Forms.Timer(this.components);
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x2_status)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x1_status)).BeginInit();
@@ -923,6 +924,11 @@
             this.label1.Text = "Fake ADC";
             this.label1.Visible = false;
             // 
+            // timer_gant
+            // 
+            this.timer_gant.Interval = 1500;
+            this.timer_gant.Tick += new System.EventHandler(this.timer_gant_Tick);
+            // 
             // ClientControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1043,5 +1049,6 @@
         private System.Windows.Forms.Label lbl_pleaseRestart;
         private System.Windows.Forms.Label lbl_readingError;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer timer_gant;
     }
 }
