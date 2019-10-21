@@ -870,27 +870,27 @@
             // 
             // timer_coli
             // 
-            this.timer_coli.Interval = 5000;
+            this.timer_coli.Interval = 3000;
             this.timer_coli.Tick += new System.EventHandler(this.timer_coli_Tick);
             // 
             // timer_x1
             // 
-            this.timer_x1.Interval = 5000;
+            this.timer_x1.Interval = 3000;
             this.timer_x1.Tick += new System.EventHandler(this.timer_x1_Tick);
             // 
             // timer_x2
             // 
-            this.timer_x2.Interval = 5000;
+            this.timer_x2.Interval = 3000;
             this.timer_x2.Tick += new System.EventHandler(this.timer_x2_Tick);
             // 
             // timer_y1
             // 
-            this.timer_y1.Interval = 5000;
+            this.timer_y1.Interval = 3000;
             this.timer_y1.Tick += new System.EventHandler(this.timer_y1_Tick);
             // 
             // timer_y2
             // 
-            this.timer_y2.Interval = 5000;
+            this.timer_y2.Interval = 3000;
             this.timer_y2.Tick += new System.EventHandler(this.timer_y2_Tick);
             // 
             // ClientControls

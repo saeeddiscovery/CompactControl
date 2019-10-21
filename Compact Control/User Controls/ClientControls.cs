@@ -523,45 +523,80 @@ namespace Compact_Control
                         else
                             pb_gant_status.BackgroundImage = Resources.led_green;
                         if (int.Parse(collim_set) != int.Parse(cld))
-                        { 
+                        {
                             write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
                             noWrite = false;
                             pb_coli_status.BackgroundImage = Resources.led_red;
+                            if (timer_coli.Enabled)
+                            {
+                                timer_coli.Enabled = false;
+                            }
                         }
                         else
+                        {
+                            timer_coli.Enabled = true;
                             pb_coli_status.BackgroundImage = Resources.led_green;
+                        }
                         if (int.Parse(x1_set) != int.Parse(x1d))
-                        { 
+                        {
                             write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
                             noWrite = false;
                             pb_y2_status.BackgroundImage = Resources.led_red;
+                            if (timer_y2.Enabled)
+                            {
+                                timer_y2.Enabled = false;
+                            }
                         }
                         else
+                        {
+                            timer_y2.Enabled = true;
                             pb_y2_status.BackgroundImage = Resources.led_green;
+                        }
                         if (int.Parse(x2_set) != int.Parse(x2d))
-                        { 
+                        {
                             write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
                             noWrite = false;
                             pb_y1_status.BackgroundImage = Resources.led_red;
+                            if (timer_y1.Enabled)
+                            {
+                                timer_y1.Enabled = false;
+                            }
                         }
                         else
+                        {
+                            timer_y1.Enabled = true;
                             pb_y1_status.BackgroundImage = Resources.led_green;
+                        }
                         if (int.Parse(y1_set) != int.Parse(y1d))
-                        { 
+                        {
                             write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
                             noWrite = false;
                             pb_x2_status.BackgroundImage = Resources.led_red;
+                            if (timer_x2.Enabled)
+                            {
+                                timer_x2.Enabled = false;
+                            }
                         }
                         else
+                        {
+                            timer_x2.Enabled = true;
                             pb_x2_status.BackgroundImage = Resources.led_green;
+                        }
                         if (int.Parse(y2_set) != int.Parse(y2d))
-                        { 
+                        {
                             write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
                             noWrite = false;
                             pb_x1_status.BackgroundImage = Resources.led_red;
+                            if (timer_x1.Enabled)
+                            {
+                                timer_x1.Enabled = false;
+                            }
                         }
                         else
+                        {
+                            timer_x1.Enabled = true;
                             pb_x1_status.BackgroundImage = Resources.led_green;
+                        }
                         if (noWrite == false && showTerminals == "1")
                         {
                             int o = int.Parse(lbl_out_cnt.Text);
@@ -1123,16 +1158,15 @@ namespace Compact_Control
                 {
                     isY1Set = true;
                     pictureBox4.Show();
-                    if (timer_y1.Enabled)
-                    {
-                        timer_y1.Stop();
-                        timer_y1.Enabled = false;
-                    }
+                    //if (timer_y1.Enabled)
+                    //{
+                    //    timer_y1.Enabled = false;
+                    //}
                 }
                 else
                 {
                     pictureBox4.Hide();
-                    timer_y1.Enabled = true;
+                    //timer_y1.Enabled = true;
                     isY1Set = false;
                     pictureBox4.BackgroundImage = Resources.Request;
                 }
@@ -1290,16 +1324,15 @@ namespace Compact_Control
                     {
                         isY2Set = true;
                         pictureBox3.Show();
-                        if (timer_y2.Enabled)
-                        {
-                            timer_y2.Stop();
-                            timer_y2.Enabled = false;
-                        }
+                        //if (timer_y2.Enabled)
+                        //{
+                        //    timer_y2.Enabled = false;
+                        //}
                     }
                     else
                     {
                         pictureBox3.Hide();
-                        timer_y2.Enabled = true;
+                        //timer_y2.Enabled = true;
                         isY2Set = false;
                         pictureBox3.BackgroundImage = Resources.Request;
                     }
@@ -1460,17 +1493,16 @@ namespace Compact_Control
                 {
                     isX1Set = true;
                     pictureBox6.Show();
-                    if (timer_x1.Enabled)
-                    {
-                        timer_x1.Stop();
-                        timer_x1.Enabled = false;
-                    }
+                    //if (timer_x1.Enabled)
+                    //{
+                    //    timer_x1.Enabled = false;
+                    //}
                 }
                 else
                 {
                     isX1Set = false;
                     pictureBox6.Hide();
-                    timer_x1.Enabled = true;
+                    //timer_x1.Enabled = true;
                     pictureBox6.BackgroundImage = Resources.Request;
                 }
 
@@ -1627,16 +1659,15 @@ namespace Compact_Control
                     {
                         isX2Set = true;
                         pictureBox5.Show();
-                        if (timer_x2.Enabled)
-                        {
-                            timer_x2.Stop();
-                            timer_x2.Enabled = false;
-                        }
+                        //if (timer_x2.Enabled)
+                        //{
+                        //    timer_x2.Enabled = false;
+                        //}
                     }
                     else
                     {
                         pictureBox5.Hide();
-                        timer_x2.Enabled = true;
+                        //timer_x2.Enabled = true;
                         isX2Set = false;
                         pictureBox5.BackgroundImage = Resources.Request;
                     }
@@ -1808,16 +1839,15 @@ namespace Compact_Control
                     pictureBox2.BackgroundImage = Resources.Request;
                     isColiSet = true;
                     pictureBox2.Show();
-                    if (timer_coli.Enabled)
-                    {
-                        timer_coli.Stop();
-                        timer_coli.Enabled = false;
-                    }
+                    //if (timer_coli.Enabled)
+                    //{
+                    //    timer_coli.Enabled = false;
+                    //}
                 }
                 else
                 {
                     pictureBox2.Hide();
-                    timer_coli.Enabled = true;
+                    //timer_coli.Enabled = true;
                     isColiSet = false;
                     pictureBox2.BackgroundImage = Resources.Request;
                 }
