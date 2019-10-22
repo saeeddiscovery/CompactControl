@@ -1886,7 +1886,7 @@ namespace Compact_Control
                     gant_t2 = gant_t2 - 360;
                 if (gant_d2 > 180)
                     gant_d2 = gant_d2 - 360;
-                if (Math.Abs(gant_t2 - gant_d2) > .1)
+                if (Math.Abs(gant_t2 - gant_d2) > .11)
                 {
                     pictureBox1.BackgroundImage = Resources.Request;
                     isGantSet = true;
@@ -1932,7 +1932,7 @@ namespace Compact_Control
                     gant_t2 = gant_t2 - 360;
                 if (gant_d2 > 180)
                     gant_d2 = gant_d2 - 360;
-                if (Math.Abs(gant_t2 - gant_d2) <= .1)
+                if (Math.Abs(gant_t2 - gant_d2) <= .11)
                 {
                     pictureBox1.Hide();
                     timer_gant.Enabled = true;
@@ -1987,7 +1987,7 @@ namespace Compact_Control
                     collim_t2 = collim_t2 - 360;
                 if (collim_d2 > 180)
                     collim_d2 = collim_d2 - 360;
-                if (Math.Abs(collim_t2 - collim_d2) > .1)
+                if (Math.Abs(collim_t2 - collim_d2) > .11)
                 {
                     pictureBox2.BackgroundImage = Resources.Request;
                     isColiSet = true;
@@ -2032,7 +2032,7 @@ namespace Compact_Control
                     collim_t2 = collim_t2 - 360;
                 if (collim_d2 > 180)
                     collim_d2 = collim_d2 - 360;
-                if (Math.Abs(collim_t2 - collim_d2) <= .1)
+                if (Math.Abs(collim_t2 - collim_d2) <= .11)
                 {
                     pictureBox2.Hide();
                     isColiSet = false;
