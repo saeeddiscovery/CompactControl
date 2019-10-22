@@ -846,7 +846,6 @@
             this.txt_fakeADC.Size = new System.Drawing.Size(80, 27);
             this.txt_fakeADC.TabIndex = 129;
             this.txt_fakeADC.Text = "2048";
-            this.txt_fakeADC.Visible = false;
             // 
             // pb_receiveStatus
             // 
@@ -922,7 +921,6 @@
             this.label1.Size = new System.Drawing.Size(86, 20);
             this.label1.TabIndex = 131;
             this.label1.Text = "Fake ADC";
-            this.label1.Visible = false;
             // 
             // timer_gant
             // 

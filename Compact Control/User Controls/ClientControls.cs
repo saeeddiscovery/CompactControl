@@ -508,6 +508,13 @@ namespace Compact_Control
                                 lbl_readingError.Show();
                                 lbl_pleaseRestart.Show();
                                 readError = true;
+                                timer1.Enabled = false;
+                                timer_gant.Enabled = false;
+                                timer_coli.Enabled = false;
+                                timer_x1.Enabled = false;
+                                timer_x2.Enabled = false;
+                                timer_y1.Enabled = false;
+                                timer_y2.Enabled = false;
                             }
                         }
                         //else if (readError)
