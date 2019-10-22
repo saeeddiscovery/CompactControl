@@ -791,7 +791,7 @@ namespace Compact_Control
                 {
                     isGantSet = false;
                     txt_gant_s.BackColor = Color.White;
-                    gant_set = "0";
+                    //gant_set = "0";
                     gant_valid_raw = "0";
                     gant_valid_deg = "0";
                     pictureBox1.Hide();
@@ -805,7 +805,7 @@ namespace Compact_Control
             {
                 isColiSet = false;
                 txt_coli_s.BackColor = Color.White;
-                collim_set = "0";
+                //collim_set = "0";
                 collim_valid_deg = "0";
                 collim_valid_raw = "0";
                 pictureBox2.Hide();
@@ -839,7 +839,7 @@ namespace Compact_Control
                 XY_isTextChangedFromCode = false;
                 pictureBox3.Hide();
                 //pictureBox14.Hide();
-                x1_set = "0";
+                //x1_set = "0";
                 x1_valid_deg = "0";
                 x1_valid_raw = "0";
             }
@@ -857,7 +857,7 @@ namespace Compact_Control
                 XY_isTextChangedFromCode = false;
                 pictureBox4.Hide();
                 //pictureBox14.Hide();
-                x2_set = "0";
+                //x2_set = "0";
                 x2_valid_deg = "0";
                 x2_valid_raw = "0";
             }
@@ -875,7 +875,7 @@ namespace Compact_Control
                 XY_isTextChangedFromCode = false;
                 //pictureBox5.Hide();
                 //pictureBox15.Hide();
-                y1_set = "0";
+                //y1_set = "0";
                 y1_valid_deg = "0";
                 y1_valid_raw = "0";
                 pictureBox5.Hide();
@@ -894,7 +894,7 @@ namespace Compact_Control
                 XY_isTextChangedFromCode = false;
                 pictureBox6.Hide();
                 //pictureBox15.Hide();
-                y2_set = "0";
+                //y2_set = "0";
                 y2_valid_deg = "0";
                 y2_valid_raw = "0";
             }
@@ -922,8 +922,8 @@ namespace Compact_Control
                     //pictureBox14.Hide();
                     pictureBox4.Hide();
                     pictureBox3.Hide();
-                    x2_set = "0";
-                    x1_set = "0";
+                    //x2_set = "0";
+                    //x1_set = "0";
                     x2_valid_deg = "0";
                     x1_valid_deg = "0";
                     x2_valid_raw = "0";
@@ -947,8 +947,8 @@ namespace Compact_Control
                     //pictureBox15.Hide();
                     pictureBox6.Hide();
                     pictureBox5.Hide();
-                    y2_set = "0";
-                    y1_set = "0";
+                    //y2_set = "0";
+                    //y1_set = "0";
                     y1_valid_deg = "0";
                     y2_valid_deg = "0";
                     y1_valid_raw = "0";
@@ -1082,7 +1082,7 @@ namespace Compact_Control
                     XY_isTextChangedFromCode = true;
                     txt_y_s.Clear();
                     XY_isTextChangedFromCode = false;
-                    x2_set = "0";
+                    //x2_set = "0";
                     x2_valid_deg = "0";
                     x2_valid_raw = "0";
                     pictureBox4.Hide();
@@ -1099,7 +1099,7 @@ namespace Compact_Control
                     {
                         if (a > double.Parse(txt_y2_s.Text) - 1)
                         {
-                            x2_set = "0";
+                            //x2_set = "0";
                             x2_valid_deg = "0";
                             x2_valid_raw = "0";
                             pictureBox3.BackgroundImage = Resources.Error;
@@ -1152,7 +1152,7 @@ namespace Compact_Control
 
                 if (a < -20 || a > 0)
                 {
-                    x2_set = "0";
+                    //x2_set = "0";
                     x2_valid_deg = "0";
                     x2_valid_raw = "0";
                     pictureBox4.BackgroundImage = Resources.Error;
@@ -1166,7 +1166,7 @@ namespace Compact_Control
                 {
                     if (Math.Abs(a - double.Parse(x1_dv)) < 1)
                     {
-                        x2_set = "0";
+                        //x2_set = "0";
                         x2_valid_deg = "0";
                         x2_valid_raw = "0";
                         pictureBox4.BackgroundImage = Resources.Error;
@@ -1182,17 +1182,18 @@ namespace Compact_Control
                     }
                 }
 
-                x2_set = Math.Abs((int)((-a - x2_offset) / x2_gain)).ToString();
-                if (int.Parse(x2_set) > 65534 | int.Parse(y2_set) < 0)
+                //x2_set = Math.Abs((int)((-a - x2_offset) / x2_gain)).ToString();
+                x2_valid_raw = Math.Abs((int)((-a - x2_offset) / x2_gain)).ToString();
+                if (int.Parse(x2_valid_raw) > 65534 | int.Parse(x2_valid_raw) < 0)
                 {
-                    x2_set = "0";
+                    //x2_set = "0";
                     x2_valid_deg = "0";
                     x2_valid_raw = "0";
                 }
                 else
                 {
                     x2_valid_deg = a.ToString();
-                    x2_valid_raw = x2_set;
+                    //x2_valid_raw = x2_set;
                 }
                 y1err = false;
                 pictureBox4.BackgroundImage = Resources.Request;
@@ -1214,7 +1215,7 @@ namespace Compact_Control
             catch
             {
                 txt_y1_s.SelectAll();
-                x2_set = "0";
+                //x2_set = "0";
                 x2_valid_deg = "0";
                 x2_valid_raw = "0";
                 pictureBox4.BackgroundImage = Resources.Error;
@@ -1268,7 +1269,7 @@ namespace Compact_Control
                     XY_isTextChangedFromCode = true;
                     txt_y_s.Clear();
                     XY_isTextChangedFromCode = false;
-                    x1_set = "0";
+                    //x1_set = "0";
                     x1_valid_deg = "0";
                     x1_valid_raw = "0";
                     pictureBox3.Hide();
@@ -1287,7 +1288,7 @@ namespace Compact_Control
                     {
                         if (a < double.Parse(txt_y1_s.Text) + 1)
                         {
-                            x1_set = "0";
+                            //x1_set = "0";
                             x1_valid_deg = "0";
                             x1_valid_raw = "0";
                             pictureBox4.BackgroundImage = Resources.Error;
@@ -1340,7 +1341,7 @@ namespace Compact_Control
 
                 if (a < 0 || a > 20)
                 {
-                    x1_set = "0";
+                    //x1_set = "0";
                     x1_valid_deg = "0";
                     x1_valid_raw = "0";
                     pictureBox3.BackgroundImage = Resources.Error;
@@ -1354,7 +1355,7 @@ namespace Compact_Control
                 {
                     if (Math.Abs(a - double.Parse(x2_dv)) < 1)
                     {
-                        x1_set = "0";
+                        //x1_set = "0";
                         x1_valid_deg = "0";
                         x1_valid_raw = "0";
                         pictureBox3.BackgroundImage = Resources.Error;
@@ -1372,17 +1373,18 @@ namespace Compact_Control
 
                 if (x1_dv != null)
                 {
-                    x1_set = Math.Abs((int)((a - x1_offset) / x1_gain)).ToString();
-                    if (int.Parse(x1_set) > 65534 | int.Parse(y2_set) < 0)
+                    //x1_set = Math.Abs((int)((a - x1_offset) / x1_gain)).ToString();
+                    x1_valid_raw = Math.Abs((int)((a - x1_offset) / x1_gain)).ToString();
+                    if (int.Parse(x1_valid_raw) > 65534 | int.Parse(x1_valid_raw) < 0)
                     {
-                        x1_set = "0";
+                        //x1_set = "0";
                         x1_valid_deg = "0";
                         x1_valid_raw = "0";
                     }
                     else
                     {
                         x1_valid_deg = a.ToString();
-                        x1_valid_raw = x1_set;
+                        //x1_valid_raw = x1_set;
                     }
                     pictureBox3.BackgroundImage = Resources.Request;
                     y2err = false;
@@ -1404,7 +1406,7 @@ namespace Compact_Control
             }
             catch
             {
-                x1_set = "0";
+                //x1_set = "0";
                 x1_valid_deg = "0";
                 x1_valid_raw = "0";
                 txt_y2_s.SelectAll();
@@ -1460,7 +1462,7 @@ namespace Compact_Control
                     XY_isTextChangedFromCode = true;
                     txt_x_s.Clear();
                     XY_isTextChangedFromCode = false;
-                    y2_set = "0";
+                    //y2_set = "0";
                     y2_valid_deg = "0";
                     y2_valid_raw = "0";
                     pictureBox6.Hide();
@@ -1477,7 +1479,7 @@ namespace Compact_Control
                     {
                         if (a > double.Parse(txt_x2_s.Text) - 1)
                         {
-                            y2_set = "0";
+                            //y2_set = "0";
                             y2_valid_deg = "0";
                             y2_valid_raw = "0";
                             pictureBox5.BackgroundImage = Resources.Error;
@@ -1531,7 +1533,7 @@ namespace Compact_Control
                 
                 if (a < -20 || a > 12.5)
                 {
-                    y2_set = "0";
+                    //y2_set = "0";
                     y2_valid_deg = "0";
                     y2_valid_raw = "0";
                     pictureBox6.BackgroundImage = Resources.Error;
@@ -1546,7 +1548,7 @@ namespace Compact_Control
                     {
                         if (Math.Abs(a - double.Parse(y1_dv)) < 1)
                         {
-                            y2_set = "0";
+                            //y2_set = "0";
                             y2_valid_deg = "0";
                             y2_valid_raw = "0";
                             pictureBox6.BackgroundImage = Resources.Error;
@@ -1566,17 +1568,18 @@ namespace Compact_Control
                 }
 
 
-                y2_set = Math.Abs((int)((-a - y2_offset) / y2_gain)).ToString();
-                if (int.Parse(y2_set) > 65534 | int.Parse(y2_set) < 0)
+                //y2_set = Math.Abs((int)((-a - y2_offset) / y2_gain)).ToString();
+                y2_valid_raw = Math.Abs((int)((-a - y2_offset) / y2_gain)).ToString();
+                if (int.Parse(y2_valid_raw) > 65534 | int.Parse(y2_valid_raw) < 0)
                 {
-                    y2_set = "0";
+                    //y2_set = "0";
                     y2_valid_deg = "0";
                     y2_valid_raw = "0";
                 }
                 else
                 {
                     y2_valid_deg = a.ToString();
-                    y2_valid_raw = y2_set;
+                    //y2_valid_raw = y2_set;
                 }
                 pictureBox6.BackgroundImage = Resources.Request;
                 x1err = false;
@@ -1598,7 +1601,7 @@ namespace Compact_Control
             }
             catch
             {
-                y2_set = "0";
+                //y2_set = "0";
                 y2_valid_deg = "0";
                 y2_valid_raw = "0";
                 txt_x1_s.SelectAll();
@@ -1654,7 +1657,7 @@ namespace Compact_Control
                     XY_isTextChangedFromCode = true;
                     txt_x_s.Clear();
                     XY_isTextChangedFromCode = false;
-                    y1_set = "0";
+                    //y1_set = "0";
                     y1_valid_deg = "0";
                     y1_valid_raw = "0";
                     pictureBox5.Hide();
@@ -1672,7 +1675,7 @@ namespace Compact_Control
                     {
                         if (a < double.Parse(txt_x1_s.Text) + 1)
                         {
-                            y1_set = "0";
+                            //y1_set = "0";
                             y1_valid_deg = "0";
                             y1_valid_raw = "0";
                             pictureBox6.BackgroundImage = Resources.Error;
@@ -1725,7 +1728,7 @@ namespace Compact_Control
 
                 if (a < -12.5 || a > 20)
                 {
-                    y1_set = "0";
+                    //y1_set = "0";
                     y1_valid_deg = "0";
                     y1_valid_raw = "0";
                     pictureBox5.BackgroundImage = Resources.Error;
@@ -1739,7 +1742,7 @@ namespace Compact_Control
                 {
                     if (Math.Abs(a - double.Parse(y2_dv)) < 1)
                     {
-                        y1_set = "0";
+                        //y1_set = "0";
                         y1_valid_deg = "0";
                         y1_valid_raw = "0";
                         pictureBox5.BackgroundImage = Resources.Error;
@@ -1757,17 +1760,18 @@ namespace Compact_Control
 
                 if (y1_dv != null)
                 {
-                    y1_set = Math.Abs((int)((a - y1_offset) / y1_gain)).ToString();
-                    if (int.Parse(y1_set) > 65534 | int.Parse(y2_set) < 0)
+                    //y1_set = Math.Abs((int)((a - y1_offset) / y1_gain)).ToString();
+                    y1_valid_raw = Math.Abs((int)((a - y1_offset) / y1_gain)).ToString();
+                    if (int.Parse(y1_valid_raw) > 65534 | int.Parse(y1_valid_raw) < 0)
                     {
-                        y1_set = "0";
+                        //y1_set = "0";
                         y1_valid_deg = "0";
                         y1_valid_raw = "0";
                     }
                     else
                     {
                         y1_valid_deg = a.ToString();
-                        y1_valid_raw = y1_set;
+                        //y1_valid_raw = y1_set;
                     }
                     pictureBox5.BackgroundImage = Resources.Request;
                     x2err = false;
@@ -1789,7 +1793,7 @@ namespace Compact_Control
             }
             catch
             {
-                y1_set = "0";
+                //y1_set = "0";
                 y1_valid_deg = "0";
                 y1_valid_raw = "0";
                 txt_x2_s.SelectAll();
@@ -1839,7 +1843,7 @@ namespace Compact_Control
         {
             if (string.IsNullOrEmpty(txt_gant_s.Text) || string.IsNullOrWhiteSpace(txt_gant_s.Text))
             {
-                gant_set = "0";
+                //gant_set = "0";
                 gant_valid_deg = "0";
                 gant_valid_raw = "0";
                 pictureBox1.Hide();
@@ -1854,7 +1858,7 @@ namespace Compact_Control
                 aa = double.Parse(txt_gant_s.Text);
                 if (aa < 0 || aa >= 360)
                 {
-                    gant_set = "0";
+                    //gant_set = "0";
                     gant_valid_deg = "0";
                     gant_valid_raw = "0";
                     pictureBox1.BackgroundImage = Resources.Error;
@@ -1874,8 +1878,8 @@ namespace Compact_Control
                 gant_valid_deg = aa.ToString();
                 if (aa > 180)
                     aa = aa - 360;
-                gant_set = ((int)((aa - gant_offset) / gant_gain)).ToString();
-                gant_valid_raw = gant_set;
+                //gant_set = ((int)((aa - gant_offset) / gant_gain)).ToString();
+                gant_valid_raw = ((int)((aa - gant_offset) / gant_gain)).ToString();
                 gant_t2 = double.Parse(txt_gant_s.Text);
                 gant_d2 = double.Parse(gant_dv);
                 if (gant_t2 > 180)
@@ -1900,7 +1904,7 @@ namespace Compact_Control
             catch
             {
                 txt_gant_s.SelectAll();
-                gant_set = "0";
+                //gant_set = "0";
                 gant_valid_deg = "0";
                 gant_valid_raw = "0";
                 pictureBox1.BackgroundImage = Resources.Error;
@@ -1949,7 +1953,7 @@ namespace Compact_Control
         {
             if (string.IsNullOrEmpty(txt_coli_s.Text) || string.IsNullOrWhiteSpace(txt_coli_s.Text))
             {
-                collim_set = "0";
+                //collim_set = "0";
                 collim_valid_deg = "0";
                 collim_valid_raw = "0";
                 pictureBox2.Hide();
@@ -1964,7 +1968,7 @@ namespace Compact_Control
                 a = double.Parse(txt_coli_s.Text);
                 if (a < 0 || a >= 360)
                 {
-                    collim_set = "0";
+                    //collim_set = "0";
                     collim_valid_deg = "0";
                     collim_valid_raw = "0";
                     pictureBox2.BackgroundImage = Resources.Error;
@@ -1975,8 +1979,8 @@ namespace Compact_Control
                 collim_valid_deg = a.ToString();
                 if (a > 180)
                     a = a - 360;
-                collim_set = ((int)((a - collim_offset) / collim_gain)).ToString();
-                collim_valid_raw = collim_set;
+                //collim_set = ((int)((a - collim_offset) / collim_gain)).ToString();
+                collim_valid_raw = ((int)((a - collim_offset) / collim_gain)).ToString();
                 collim_t2 = double.Parse(txt_coli_s.Text);
                 collim_d2 = double.Parse(collim_dv);
                 if (collim_t2 > 180)
@@ -2000,7 +2004,7 @@ namespace Compact_Control
             }
             catch
             {
-                collim_set = "0";
+                //collim_set = "0";
                 collim_valid_deg = "0";
                 collim_valid_raw = "0";
                 pictureBox2.BackgroundImage = Resources.Error;
