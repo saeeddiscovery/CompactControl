@@ -1197,7 +1197,7 @@ namespace Compact_Control
                 }
                 y1err = false;
                 pictureBox4.BackgroundImage = Resources.Request;
-                if (Math.Abs(double.Parse(txt_y1_s.Text) - double.Parse(x2_dv)) > .1)
+                if (Math.Abs(double.Parse(txt_y1_s.Text) - double.Parse(x2_dv)) > .11)
                 {
                     isY1Set = true;
                     pictureBox4.Show();
@@ -1241,7 +1241,7 @@ namespace Compact_Control
                 try
                 {
                     //if (Math.Abs(double.Parse(txt_y1_s.Text) - double.Parse(x2_dv)) <= .1)
-                    if (Math.Abs(double.Parse(x2_valid_deg) - double.Parse(x2_dv)) <= .1)
+                    if (Math.Abs(double.Parse(x2_valid_deg) - double.Parse(x2_dv)) <= .11)
                     {
                         pictureBox4.Hide();
                         isY1Set = false;
@@ -1389,7 +1389,7 @@ namespace Compact_Control
                     pictureBox3.BackgroundImage = Resources.Request;
                     y2err = false;
 
-                    if (Math.Abs(double.Parse(txt_y2_s.Text) - double.Parse(x1_dv)) > .1)
+                    if (Math.Abs(double.Parse(txt_y2_s.Text) - double.Parse(x1_dv)) > .11)
                     {
                         isY2Set = true;
                         pictureBox3.Show();
@@ -1433,7 +1433,7 @@ namespace Compact_Control
                 try
                 {
                     //if (Math.Abs(double.Parse(txt_y2_s.Text) - double.Parse(x1_dv)) <= .1)
-                    if (Math.Abs(double.Parse(x1_valid_deg) - double.Parse(x1_dv)) <= .1)
+                    if (Math.Abs(double.Parse(x1_valid_deg) - double.Parse(x1_dv)) <= .11)
                     {
                         pictureBox3.Hide();
                         isY2Set = false;
@@ -1584,7 +1584,7 @@ namespace Compact_Control
                 pictureBox6.BackgroundImage = Resources.Request;
                 x1err = false;
 
-                if (Math.Abs(double.Parse(txt_x1_s.Text) - double.Parse(y2_dv)) > .1)
+                if (Math.Abs(double.Parse(txt_x1_s.Text) - double.Parse(y2_dv)) > .11)
                 {
                     isX1Set = true;
                     pictureBox6.Show();
@@ -1629,7 +1629,7 @@ namespace Compact_Control
                 try
                 {
                     //if (Math.Abs(double.Parse(txt_x1_s.Text) - double.Parse(y2_dv)) <= .1)
-                    if (Math.Abs(double.Parse(y2_valid_deg) - double.Parse(y2_dv)) <= .1)
+                    if (Math.Abs(double.Parse(y2_valid_deg) - double.Parse(y2_dv)) <= .11)
                     {
                         pictureBox6.Hide();
                         isX1Set = false;
@@ -1776,7 +1776,7 @@ namespace Compact_Control
                     pictureBox5.BackgroundImage = Resources.Request;
                     x2err = false;
 
-                    if (Math.Abs(double.Parse(txt_x2_s.Text) - double.Parse(y1_dv)) > .1)
+                    if (Math.Abs(double.Parse(txt_x2_s.Text) - double.Parse(y1_dv)) > .11)
                     {
                         isX2Set = true;
                         pictureBox5.Show();
@@ -1820,7 +1820,7 @@ namespace Compact_Control
             {
                 try
                 {
-                    if (Math.Abs(double.Parse(y1_valid_deg) - double.Parse(y1_dv)) <= .1)
+                    if (Math.Abs(double.Parse(y1_valid_deg) - double.Parse(y1_dv)) <= .11)
                     {
                         isX2Set = false;
                         pictureBox5.Hide();
