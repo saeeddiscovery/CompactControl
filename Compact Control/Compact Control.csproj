@@ -20,8 +20,8 @@
     <TargetCulture>en-US</TargetCulture>
     <ProductName>Compact Control</ProductName>
     <PublisherName>Saeed Mohaqeqi</PublisherName>
-    <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>1.03.22.%2a</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.04.05.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
