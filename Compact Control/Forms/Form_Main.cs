@@ -107,6 +107,8 @@ namespace Compact_Control
         string y1_set = "0";
         string y2_set = "0";
 
+        bool in_diag = false;
+
         string adc;
 
         public static bool quit = false;
@@ -435,6 +437,7 @@ namespace Compact_Control
             if (btn_start_stop.Text == "Start")
             {
                 write("S$");
+                in_diag = true;
                 btn_start_stop.Text = "Stop";
                 groupBox7.Enabled = true;
                 timer1.Stop();
@@ -444,6 +447,7 @@ namespace Compact_Control
                 if (GlobalSerialPort.IsOpen == false)
                     GlobalSerialPort.Open();
                 write("s");
+                in_diag = false;
                 btn_start_stop.Text = "Start";
                 groupBox7.Enabled = false;
                 timer1.Start();
@@ -1367,7 +1371,10 @@ namespace Compact_Control
                             //sendParameters();
                         }
                         break;
-             
+                    case "SSS":
+                        if (in_diag == false)
+                            write("s");
+                        break;
                     case "gco":
                         gant_co = a.Substring(3, a.Length - 3);
                         break;
