@@ -275,9 +275,12 @@ namespace Compact_Control
             }
             //CheckLicense();
 
-            ////Temporary login in Service mode directly!
-            //cmbBx_User.SelectedIndex = 1;
-            //txtBx_Pass.Text = "";
+            //Temporary login in Service mode directly!
+            if (Compact_Control.Properties.Settings.Default.start_in_service)
+            {
+                cmbBx_User.SelectedIndex = 1;
+                txtBx_Pass.Text = "";
+            }
 
         }
 
