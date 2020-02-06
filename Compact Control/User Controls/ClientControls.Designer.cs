@@ -671,8 +671,8 @@
             // 
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label51.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label51.Location = new System.Drawing.Point(6, 12);
+            this.label51.ForeColor = System.Drawing.Color.Black;
+            this.label51.Location = new System.Drawing.Point(6, 48);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(26, 18);
             this.label51.TabIndex = 112;
@@ -706,8 +706,8 @@
             // 
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label48.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label48.Location = new System.Drawing.Point(143, 12);
+            this.label48.ForeColor = System.Drawing.Color.Black;
+            this.label48.Location = new System.Drawing.Point(143, 48);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(37, 18);
             this.label48.TabIndex = 109;
@@ -730,8 +730,8 @@
             // 
             this.lbl_out_cnt.AutoSize = true;
             this.lbl_out_cnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_out_cnt.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lbl_out_cnt.Location = new System.Drawing.Point(184, 12);
+            this.lbl_out_cnt.ForeColor = System.Drawing.Color.Black;
+            this.lbl_out_cnt.Location = new System.Drawing.Point(184, 48);
             this.lbl_out_cnt.Name = "lbl_out_cnt";
             this.lbl_out_cnt.Size = new System.Drawing.Size(18, 20);
             this.lbl_out_cnt.TabIndex = 114;
@@ -741,8 +741,8 @@
             // 
             this.lbl_in_cnt.AutoSize = true;
             this.lbl_in_cnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_in_cnt.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lbl_in_cnt.Location = new System.Drawing.Point(38, 12);
+            this.lbl_in_cnt.ForeColor = System.Drawing.Color.Black;
+            this.lbl_in_cnt.Location = new System.Drawing.Point(38, 48);
             this.lbl_in_cnt.Name = "lbl_in_cnt";
             this.lbl_in_cnt.Size = new System.Drawing.Size(18, 20);
             this.lbl_in_cnt.TabIndex = 115;
@@ -809,7 +809,7 @@
             this.lbl_risk.AutoSize = true;
             this.lbl_risk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.lbl_risk.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lbl_risk.Location = new System.Drawing.Point(610, 473);
+            this.lbl_risk.Location = new System.Drawing.Point(605, 468);
             this.lbl_risk.Name = "lbl_risk";
             this.lbl_risk.Size = new System.Drawing.Size(211, 22);
             this.lbl_risk.TabIndex = 88;
