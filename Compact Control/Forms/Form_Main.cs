@@ -1171,7 +1171,7 @@ namespace Compact_Control
                          double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length);
 
                 //MessageBox.Show(ourSum.ToString());
-                //write("w");
+                write("z");
                 write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
                 write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
                 write(gant_tol_1_t + "/" + gant_tol0_t + "/" + gant_tol1_t + "/" + gant_tol2_t + "/");
@@ -1192,7 +1192,7 @@ namespace Compact_Control
             {
                 btn_saveParameters.Enabled = true;
                 initState = 2;
-                MessageBox.Show("Unable to send parameters!" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+                // MessageBox.Show("Unable to send parameters!" + Environment.NewLine + ex.ToString().Split('\n')[0]);                }
                 return false;
             }
         }
@@ -1374,6 +1374,9 @@ namespace Compact_Control
                     case "SSS":
                         if (in_diag == false)
                             write("s");
+                        break;
+                    case "ccc":
+                        write("y");
                         break;
                     case "gco":
                         gant_co = a.Substring(3, a.Length - 3);
@@ -2556,11 +2559,13 @@ namespace Compact_Control
                 {
                     //tabControl1.Enabled = true;
                     //panel_AdminControls.Enabled = true;
+                    write("y");
                     timer1.Enabled = true;
                     timer3.Enabled = true;
                 }
                 else
                 {
+                    write("w");
                     //panel_ClientControls.Enabled = true;
                     timer1.Enabled = false;
                     timer3.Enabled = false;

@@ -217,7 +217,7 @@ namespace Compact_Control
                          double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length);
 
                 //MessageBox.Show(ourSum.ToString());
-                //write("w");
+                write("z");
                 write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
                 write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
                 write(gant_tol_1_t + "/" + gant_tol0_t + "/" + gant_tol1_t + "/" + gant_tol2_t + "/");
@@ -238,7 +238,7 @@ namespace Compact_Control
             catch(Exception ex)
             {
                 Form1.initState = 2;
-                MessageBox.Show("Unable to send parameters!" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+                //MessageBox.Show("Unable to send parameters!" + Environment.NewLine + ex.ToString().Split('\n')[0]);
                 return false;
             }
         }
@@ -407,6 +407,9 @@ namespace Compact_Control
                         break;
                     case "SSS":
                         write("s");
+                        break;
+                    case "sss":
+                        write("w");
                         break;
                     case "sum":
                         string microSum = a.Substring(3, a.Length - 3);
