@@ -659,7 +659,7 @@
             // btn_clearTerminal_in
             // 
             this.btn_clearTerminal_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_clearTerminal_in.Location = new System.Drawing.Point(8, 378);
+            this.btn_clearTerminal_in.Location = new System.Drawing.Point(5, 489);
             this.btn_clearTerminal_in.Name = "btn_clearTerminal_in";
             this.btn_clearTerminal_in.Size = new System.Drawing.Size(131, 30);
             this.btn_clearTerminal_in.TabIndex = 113;
@@ -688,13 +688,13 @@
             this.tb_terminal_in.Name = "tb_terminal_in";
             this.tb_terminal_in.ReadOnly = true;
             this.tb_terminal_in.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_terminal_in.Size = new System.Drawing.Size(133, 301);
+            this.tb_terminal_in.Size = new System.Drawing.Size(133, 412);
             this.tb_terminal_in.TabIndex = 111;
             // 
             // btn_clearTerminal
             // 
             this.btn_clearTerminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_clearTerminal.Location = new System.Drawing.Point(145, 222);
+            this.btn_clearTerminal.Location = new System.Drawing.Point(145, 302);
             this.btn_clearTerminal.Name = "btn_clearTerminal";
             this.btn_clearTerminal.Size = new System.Drawing.Size(132, 30);
             this.btn_clearTerminal.TabIndex = 110;
@@ -723,7 +723,7 @@
             this.tb_terminal_out.Name = "tb_terminal_out";
             this.tb_terminal_out.ReadOnly = true;
             this.tb_terminal_out.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_terminal_out.Size = new System.Drawing.Size(132, 144);
+            this.tb_terminal_out.Size = new System.Drawing.Size(132, 225);
             this.tb_terminal_out.TabIndex = 108;
             // 
             // lbl_out_cnt
@@ -753,7 +753,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(145, 255);
+            this.label3.Location = new System.Drawing.Point(145, 331);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 18);
             this.label3.TabIndex = 119;
@@ -764,18 +764,18 @@
             this.tb_terminal_oth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.tb_terminal_oth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.tb_terminal_oth.ForeColor = System.Drawing.Color.Cyan;
-            this.tb_terminal_oth.Location = new System.Drawing.Point(145, 276);
+            this.tb_terminal_oth.Location = new System.Drawing.Point(145, 352);
             this.tb_terminal_oth.Multiline = true;
             this.tb_terminal_oth.Name = "tb_terminal_oth";
             this.tb_terminal_oth.ReadOnly = true;
             this.tb_terminal_oth.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_terminal_oth.Size = new System.Drawing.Size(132, 96);
+            this.tb_terminal_oth.Size = new System.Drawing.Size(132, 131);
             this.tb_terminal_oth.TabIndex = 118;
             // 
             // btn_clearTerminal_oth
             // 
             this.btn_clearTerminal_oth.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_clearTerminal_oth.Location = new System.Drawing.Point(148, 378);
+            this.btn_clearTerminal_oth.Location = new System.Drawing.Point(145, 489);
             this.btn_clearTerminal_oth.Name = "btn_clearTerminal_oth";
             this.btn_clearTerminal_oth.Size = new System.Drawing.Size(129, 30);
             this.btn_clearTerminal_oth.TabIndex = 120;

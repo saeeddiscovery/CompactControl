@@ -217,7 +217,7 @@ namespace Compact_Control
                          double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length);
 
                 //MessageBox.Show(ourSum.ToString());
-                write("w");
+                //write("w");
                 write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
                 write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
                 write(gant_tol_1_t + "/" + gant_tol0_t + "/" + gant_tol1_t + "/" + gant_tol2_t + "/");
@@ -650,8 +650,8 @@ namespace Compact_Control
         {
             if (sendParametersFlag == true)
             {
-                sendParametersFlag = false;
                 sendParameters();
+                sendParametersFlag = false;
                 //if (sendParameters() == true)
                 //{
                 //    MessageBox.Show("Parameters Save & Send successful!");

@@ -473,8 +473,8 @@ namespace Compact_Control
         {
             if (sendParametersFlag == true)
             {
-                sendParametersFlag = false;
                 sendParameters();
+                sendParametersFlag = false;
                 //if (sendParameters() == true)
                 //{
                 //    MessageBox.Show("Parameters Save & Send successful!");
@@ -1171,7 +1171,7 @@ namespace Compact_Control
                          double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length);
 
                 //MessageBox.Show(ourSum.ToString());
-                write("w");
+                //write("w");
                 write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
                 write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
                 write(gant_tol_1_t + "/" + gant_tol0_t + "/" + gant_tol1_t + "/" + gant_tol2_t + "/");
@@ -2230,6 +2230,11 @@ namespace Compact_Control
             }
         }
 
+        private void txtBox_Enter(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
         private void tb_y2_set_TextChanged(object sender, EventArgs e)
         {
             //if (string.IsNullOrEmpty(tb_y2_set.Text) || string.IsNullOrWhiteSpace(tb_y2_set.Text))
@@ -2355,7 +2360,8 @@ namespace Compact_Control
         {
             //GlobalSerialPort.DiscardInBuffer();
             //GlobalSerialPort.Close();
-            panel_AdminControls.Enabled = false;
+            tabControl1.Enabled = false;
+            //panel_AdminControls.Enabled = false;
             panel_ClientControls.Enabled = false;
             picBtn_Connect.BackgroundImage = Resources.ConnectButton;
             picBtnToolTip.SetToolTip(picBtn_Connect, "Connect");
@@ -2548,13 +2554,14 @@ namespace Compact_Control
                 }
                 if (isInServiceMode == true)
                 {
-                    panel_AdminControls.Enabled = true;
+                    //tabControl1.Enabled = true;
+                    //panel_AdminControls.Enabled = true;
                     timer1.Enabled = true;
                     timer3.Enabled = true;
                 }
                 else
                 {
-                    panel_ClientControls.Enabled = true;
+                    //panel_ClientControls.Enabled = true;
                     timer1.Enabled = false;
                     timer3.Enabled = false;
                 }
@@ -2563,6 +2570,7 @@ namespace Compact_Control
                 ReadLearnFile();
                 ReadParametersFile();
 
+                tabControl1.Enabled = true;
                 panel_AdminControls.Enabled = true;
                 panel_ClientControls.Enabled = true;
                 picBtn_Connect.BackgroundImage = Resources.ConnectButton_Connected;
@@ -2685,8 +2693,8 @@ namespace Compact_Control
                 //panel1.BackColor = Color.LightPink;
                 label_title.ForeColor = Color.LightPink;
                 label_title.Text = "Clinical";
-                picBtn_Exit.Hide();
-                picBtn_Close.Hide();
+                //picBtn_Exit.Hide();
+                //picBtn_Close.Hide();
                 picBtn_Setting.Hide();
             }
             //Form_TrialReport trialFrm = new Form_TrialReport();
@@ -2826,7 +2834,7 @@ namespace Compact_Control
         public static double ourSum = 0;
         private void btn_saveParameters_Click(object sender, EventArgs e)
         {
-            initState = 0 ;
+            //initState = 0 ;
             string[] values = new string[42];
             int i = 0;
             foreach (Control tb in gb_parameters.Controls)
@@ -2900,7 +2908,8 @@ namespace Compact_Control
                 //{
                 //    ourSum = ourSum + double.Parse(param);
                 //}
-                sendParameters();
+                write("w");
+                //sendParameters();
                 btn_saveParameters.Enabled = false;
             }
             catch(Exception ex)
