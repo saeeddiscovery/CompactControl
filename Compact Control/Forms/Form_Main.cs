@@ -1527,7 +1527,8 @@ namespace Compact_Control
                     default:
                         if (tb_terminal_oth.Lines.Length > 1000)
                             tb_terminal_oth.Clear();
-                        tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
+                        if (a.Substring(0, 3) != "sss" && a.Substring(0, 3) != "ccc")
+                            tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
                         break;
                     }
                     if (quit == true)
@@ -2565,7 +2566,7 @@ namespace Compact_Control
                 }
                 else
                 {
-                    write("w");
+                    write("x");
                     //panel_ClientControls.Enabled = true;
                     timer1.Enabled = false;
                     timer3.Enabled = false;

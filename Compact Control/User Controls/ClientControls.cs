@@ -409,7 +409,7 @@ namespace Compact_Control
                         write("s");
                         break;
                     case "sss":
-                        write("w");
+                        write("x");
                         break;
                     case "sum":
                         string microSum = a.Substring(3, a.Length - 3);
@@ -633,7 +633,8 @@ namespace Compact_Control
                     default:
                         if (showTerminals == "1")
                         {
-                            tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
+                            if (a.Substring(0, 3) != "sss" && a.Substring(0, 3) != "ccc")
+                                tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
                             if (tb_terminal_oth.Lines.Length > 1000)
                                 tb_terminal_oth.Clear();
                         }
