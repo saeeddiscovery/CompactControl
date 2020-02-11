@@ -202,8 +202,14 @@ namespace Compact_Control
                 string y2_tol1_t = Math.Abs(Math.Round(double.Parse(y2_tol1) / y2_gain)).ToString();
                 string y2_tol2_t = Math.Abs(Math.Round(double.Parse(y2_tol2) / y2_gain)).ToString();
 
+                double gant_gain_int = Math.Truncate(gant_gain * 100000);
+                double gant_offset_int = Math.Truncate(gant_offset);
+                double collim_gain_int = Math.Truncate(collim_gain * 100000);
+                double collim_offset_int = Math.Truncate(collim_offset);
+
                 ourSum = double.Parse(gant_tol_1_t) + double.Parse(gant_tol0_t) + double.Parse(gant_tol1_t) + double.Parse(gant_tol2_t) +
                          double.Parse(collim_tol_1_t) + double.Parse(collim_tol0_t) + double.Parse(collim_tol1_t) + double.Parse(collim_tol2_t) +
+                         gant_gain_int + gant_offset_int + collim_gain_int + collim_offset_int +
                          double.Parse(x1_tol_1_t) + double.Parse(x1_tol0_t) + double.Parse(x1_tol1_t) + double.Parse(x1_tol2_t) +
                          double.Parse(x2_tol_1_t) + double.Parse(x2_tol0_t) + double.Parse(x2_tol1_t) + double.Parse(x2_tol2_t) +
                          double.Parse(y1_tol_1_t) + double.Parse(y1_tol0_t) + double.Parse(y1_tol1_t) + double.Parse(y1_tol2_t) +
@@ -215,12 +221,13 @@ namespace Compact_Control
                          double.Parse(y1_v1) + double.Parse(y1_v2) + double.Parse(y1_v3) +
                          double.Parse(y2_v1) + double.Parse(y2_v2) + double.Parse(y2_v3) +
                          double.Parse(gant_zpnt) + double.Parse(gant_length) + double.Parse(gant_fine_length) +
-                         double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length);
+                         double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length) +
+                         double.Parse(gravity_up) + double.Parse(gravity_down); ;
 
                 //MessageBox.Show(ourSum.ToString());
                 write("z");
-                write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
-                write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
+                write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/" + gant_gain_int + "/" + gant_offset_int + "/");
+                write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/" + collim_gain_int + "/" + collim_offset_int + "/");
                 write(gant_tol_1_t + "/" + gant_tol0_t + "/" + gant_tol1_t + "/" + gant_tol2_t + "/");
                 write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
                 write(collim_tol_1_t + "/" + collim_tol0_t + "/" + collim_tol1_t + "/" + collim_tol2_t + "/");

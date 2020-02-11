@@ -1180,8 +1180,8 @@ namespace Compact_Control
 
                 //MessageBox.Show(ourSum.ToString());
                 write("z");
-                write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/" + gant_gain + "/" + gant_offset + "/");
-                write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/" + collim_gain + "/" + collim_offset + "/");
+                write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/" + gant_gain_int + "/" + gant_offset_int + "/");
+                write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/" + collim_gain_int + "/" + collim_offset_int + "/");
                 write(gant_tol_1_t + "/" + gant_tol0_t + "/" + gant_tol1_t + "/" + gant_tol2_t + "/");
                 write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
                 write(collim_tol_1_t + "/" + collim_tol0_t + "/" + collim_tol1_t + "/" + collim_tol2_t + "/");
