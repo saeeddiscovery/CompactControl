@@ -46,6 +46,7 @@ namespace Compact_Control
         public static string x2_tol_1, x2_tol0, x2_tol1, x2_tol2, x2_v1, x2_v2, x2_v3;
         public static string y1_tol_1, y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
         public static string y2_tol_1, y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
+        public static string gravity_up, gravity_down;
         bool sendParametersFlag = false;
 
         string x1_co;
