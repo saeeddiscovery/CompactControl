@@ -239,7 +239,7 @@ namespace Compact_Control
                 write(y1_tol_1_t + "/" + y1_tol0_t + "/" + y1_tol1_t + "/" + y1_tol2_t + "/");
                 write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
                 write(y2_tol_1_t + "/" + y2_tol0_t + "/" + y2_tol1_t + "/" + y2_tol2_t + "/");
-                write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
+                write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/" + gravity_up + "/" + gravity_down + "/");
                 return true;
 
             }
