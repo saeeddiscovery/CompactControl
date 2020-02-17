@@ -235,6 +235,11 @@
             this.label35 = new System.Windows.Forms.Label();
             this.tb_y2_set = new System.Windows.Forms.TextBox();
             this.gb_parameters = new System.Windows.Forms.GroupBox();
+            this.label75 = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.textBox21 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -313,11 +318,6 @@
             this.btn_clearTerminal_oth = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label64 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.label63 = new System.Windows.Forms.Label();
-            this.label74 = new System.Windows.Forms.Label();
-            this.label75 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).BeginInit();
@@ -2462,7 +2462,7 @@
             this.splitContainer6.Panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.splitContainer6.Panel2.Controls.Add(this.gb_parameters);
             this.splitContainer6.Size = new System.Drawing.Size(1092, 612);
-            this.splitContainer6.SplitterDistance = 487;
+            this.splitContainer6.SplitterDistance = 486;
             this.splitContainer6.TabIndex = 30;
             // 
             // groupBox8
@@ -2762,7 +2762,7 @@
             this.tb_gant_set.TabIndex = 1;
             this.tb_gant_set.TextChanged += new System.EventHandler(this.tb_gant_set_TextChanged);
             this.tb_gant_set.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.tb_gant_set.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBox_Enter);
+            this.tb_gant_set.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_gant_set_KeyPress);
             // 
             // label37
             // 
@@ -2874,6 +2874,54 @@
             this.gb_parameters.Size = new System.Drawing.Size(544, 377);
             this.gb_parameters.TabIndex = 24;
             this.gb_parameters.TabStop = false;
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label75.Location = new System.Drawing.Point(186, 304);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(47, 18);
+            this.label75.TabIndex = 54;
+            this.label75.Text = "Down";
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label74.Location = new System.Drawing.Point(141, 304);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(27, 18);
+            this.label74.TabIndex = 53;
+            this.label74.Text = "Up";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label63.Location = new System.Drawing.Point(39, 326);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(61, 18);
+            this.label63.TabIndex = 52;
+            this.label63.Text = "Gravity";
+            // 
+            // textBox22
+            // 
+            this.textBox22.BackColor = System.Drawing.SystemColors.Window;
+            this.textBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.textBox22.Location = new System.Drawing.Point(185, 325);
+            this.textBox22.Name = "textBox22";
+            this.textBox22.Size = new System.Drawing.Size(50, 24);
+            this.textBox22.TabIndex = 50;
+            // 
+            // textBox21
+            // 
+            this.textBox21.BackColor = System.Drawing.SystemColors.Window;
+            this.textBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.textBox21.Location = new System.Drawing.Point(129, 325);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(50, 24);
+            this.textBox21.TabIndex = 49;
             // 
             // textBox3
             // 
@@ -3724,54 +3772,6 @@
             this.label64.Size = new System.Drawing.Size(47, 18);
             this.label64.TabIndex = 123;
             this.label64.Text = "other";
-            // 
-            // textBox21
-            // 
-            this.textBox21.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox21.Location = new System.Drawing.Point(129, 325);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(50, 24);
-            this.textBox21.TabIndex = 49;
-            // 
-            // textBox22
-            // 
-            this.textBox22.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox22.Location = new System.Drawing.Point(185, 325);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(50, 24);
-            this.textBox22.TabIndex = 50;
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label63.Location = new System.Drawing.Point(39, 326);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(61, 18);
-            this.label63.TabIndex = 52;
-            this.label63.Text = "Gravity";
-            // 
-            // label74
-            // 
-            this.label74.AutoSize = true;
-            this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label74.Location = new System.Drawing.Point(141, 304);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(27, 18);
-            this.label74.TabIndex = 53;
-            this.label74.Text = "Up";
-            // 
-            // label75
-            // 
-            this.label75.AutoSize = true;
-            this.label75.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label75.Location = new System.Drawing.Point(186, 304);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(47, 18);
-            this.label75.TabIndex = 54;
-            this.label75.Text = "Down";
             // 
             // Form1
             // 

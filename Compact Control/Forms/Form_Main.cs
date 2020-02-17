@@ -1551,15 +1551,6 @@ namespace Compact_Control
             //}
         }
 
-        private void textBox76_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsNumber(e.KeyChar) || e.KeyChar == '.' && ((sender as TextBox).Text.IndexOf('.') == -1))
-            {
-                if (Regex.IsMatch((sender as TextBox).Text, "^\\d*\\.\\d{2}$")) e.Handled = true;
-            }
-            else e.Handled = e.KeyChar != (char)Keys.Back;
-        }
-
         private void Validate_Text_tol(object sender, CancelEventArgs e)
         {
             TextBox tb = sender as TextBox;
@@ -1691,62 +1682,6 @@ namespace Compact_Control
         bool isY2Set = false;
         bool isX1Set = false;
         bool isX2Set = false;
-
-        private void tb_gant_set_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                if (string.IsNullOrEmpty(tb_gant_set.Text) || string.IsNullOrWhiteSpace(tb_gant_set.Text))
-                {
-                    gant_set = "0";
-                    pictureBox1.Hide();
-                    pictureBox1.BackgroundImage = Resources.Request;
-                    tb_coli_set.Focus();
-                    isGantSet = false;
-                    return;
-                }
-
-                double aa;
-                try
-                {
-                    aa = double.Parse(tb_gant_set.Text);
-                    if (aa < -180 || aa > 180)
-                    {
-                        gant_set = "0";
-                        pictureBox1.BackgroundImage = Resources.Error;
-                        pictureBox1.Show();
-                        isGantSet = false;
-                        return;
-                    }
-                    double gentValueActual = double.Parse(gant_dv);
-
-                    gant_set = ((int)((aa - gant_offset) / gant_gain)).ToString();
-                    pictureBox1.BackgroundImage = requestImage;
-
-                    if (Math.Abs(double.Parse(tb_gant_set.Text) - double.Parse(gant_dv)) > .1)
-                    {
-                        isGantSet = true;
-                        pictureBox1.Show();
-                    }
-                    else
-                    {
-                        pictureBox1.Hide();
-                        isGantSet = false;
-                    }
-                    tb_gant_set.BackColor = Color.LightGreen;
-                    tb_coli_set.Focus();
-                }
-                catch
-                {
-                    tb_gant_set.SelectAll();
-                    gant_set = "0";
-                    pictureBox1.BackgroundImage = Resources.Error;
-                    pictureBox1.Show();
-                    isGantSet = false;
-                    return;
-                }
-            }
-        }
 
         private void gantSet()
         {
@@ -2232,6 +2167,62 @@ namespace Compact_Control
             }
         }
 
+        private void tb_gant_set_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (string.IsNullOrEmpty(tb_gant_set.Text) || string.IsNullOrWhiteSpace(tb_gant_set.Text))
+                {
+                    gant_set = "0";
+                    pictureBox1.Hide();
+                    pictureBox1.BackgroundImage = Resources.Request;
+                    tb_coli_set.Focus();
+                    isGantSet = false;
+                    return;
+                }
+
+                double aa;
+                try
+                {
+                    aa = double.Parse(tb_gant_set.Text);
+                    if (aa < -180 || aa > 180)
+                    {
+                        gant_set = "0";
+                        pictureBox1.BackgroundImage = Resources.Error;
+                        pictureBox1.Show();
+                        isGantSet = false;
+                        return;
+                    }
+                    double gentValueActual = double.Parse(gant_dv);
+
+                    gant_set = ((int)((aa - gant_offset) / gant_gain)).ToString();
+                    pictureBox1.BackgroundImage = requestImage;
+
+                    if (Math.Abs(double.Parse(tb_gant_set.Text) - double.Parse(gant_dv)) > .1)
+                    {
+                        isGantSet = true;
+                        pictureBox1.Show();
+                    }
+                    else
+                    {
+                        pictureBox1.Hide();
+                        isGantSet = false;
+                    }
+                    tb_gant_set.BackColor = Color.LightGreen;
+                    tb_coli_set.Focus();
+                }
+                catch
+                {
+                    tb_gant_set.SelectAll();
+                    gant_set = "0";
+                    pictureBox1.BackgroundImage = Resources.Error;
+                    pictureBox1.Show();
+                    isGantSet = false;
+                    return;
+                }
+            }
+        }
+
         private void tb_y1_set_TextChanged(object sender, EventArgs e)
         {
             //if (string.IsNullOrEmpty(tb_y1_set.Text) || string.IsNullOrWhiteSpace(tb_y1_set.Text))
@@ -2240,11 +2231,6 @@ namespace Compact_Control
                 pictureBox5.Hide();
                 return;
             }
-        }
-
-        private void txtBox_Enter(object sender, KeyPressEventArgs e)
-        {
-
         }
 
         private void tb_y2_set_TextChanged(object sender, EventArgs e)
