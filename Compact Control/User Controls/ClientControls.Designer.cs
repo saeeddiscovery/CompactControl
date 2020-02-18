@@ -59,7 +59,6 @@
             this.pb_x1_status = new System.Windows.Forms.PictureBox();
             this.pb_y2_status = new System.Windows.Forms.PictureBox();
             this.pb_y1_status = new System.Windows.Forms.PictureBox();
-            this.Reading_Error = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
@@ -93,8 +92,16 @@
             this.lbl_risk = new System.Windows.Forms.Label();
             this.label72 = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.pb_receiveStatus = new System.Windows.Forms.PictureBox();
             this.txt_fakeADC = new System.Windows.Forms.TextBox();
+            this.pb_receiveStatus = new System.Windows.Forms.PictureBox();
+            this.timer_coli = new System.Windows.Forms.Timer(this.components);
+            this.timer_x1 = new System.Windows.Forms.Timer(this.components);
+            this.timer_x2 = new System.Windows.Forms.Timer(this.components);
+            this.timer_y1 = new System.Windows.Forms.Timer(this.components);
+            this.timer_y2 = new System.Windows.Forms.Timer(this.components);
+            this.lbl_pleaseRestart = new System.Windows.Forms.Label();
+            this.lbl_readingError = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x2_status)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x1_status)).BeginInit();
@@ -197,7 +204,8 @@
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(634, 16);
+            this.label37.ForeColor = System.Drawing.Color.Black;
+            this.label37.Location = new System.Drawing.Point(634, 45);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(56, 20);
             this.label37.TabIndex = 66;
@@ -207,7 +215,8 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(549, 16);
+            this.label36.ForeColor = System.Drawing.Color.Black;
+            this.label36.Location = new System.Drawing.Point(549, 45);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(34, 20);
             this.label36.TabIndex = 65;
@@ -282,60 +291,66 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label35.ForeColor = System.Drawing.Color.Black;
             this.label35.Location = new System.Drawing.Point(8, 183);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(136, 22);
+            this.label35.Size = new System.Drawing.Size(131, 24);
             this.label35.TabIndex = 58;
             this.label35.Text = "Diaphragm X1";
             // 
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label34.ForeColor = System.Drawing.Color.Black;
             this.label34.Location = new System.Drawing.Point(8, 223);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(136, 22);
+            this.label34.Size = new System.Drawing.Size(131, 24);
             this.label34.TabIndex = 57;
             this.label34.Text = "Diaphragm X2";
             // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label33.ForeColor = System.Drawing.Color.Black;
             this.label33.Location = new System.Drawing.Point(8, 104);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(136, 22);
+            this.label33.Size = new System.Drawing.Size(129, 24);
             this.label33.TabIndex = 56;
             this.label33.Text = "Diaphragm Y1";
             // 
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label32.ForeColor = System.Drawing.Color.Black;
             this.label32.Location = new System.Drawing.Point(8, 144);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(136, 22);
+            this.label32.Size = new System.Drawing.Size(129, 24);
             this.label32.TabIndex = 55;
             this.label32.Text = "Diaphragm Y2";
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label31.ForeColor = System.Drawing.Color.Black;
             this.label31.Location = new System.Drawing.Point(8, 58);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(157, 22);
+            this.label31.Size = new System.Drawing.Size(148, 24);
             this.label31.TabIndex = 54;
             this.label31.Text = "Collimator Angle";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label30.ForeColor = System.Drawing.Color.Black;
             this.label30.Location = new System.Drawing.Point(8, 23);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(127, 22);
+            this.label30.Size = new System.Drawing.Size(119, 24);
             this.label30.TabIndex = 53;
             this.label30.Text = "Gantry Angle";
             // 
@@ -395,7 +410,7 @@
             this.groupBox2.Controls.Add(this.label32);
             this.groupBox2.Controls.Add(this.txt_y2_a);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(299, 130);
+            this.groupBox2.Location = new System.Drawing.Point(299, 159);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(441, 283);
             this.groupBox2.TabIndex = 106;
@@ -445,37 +460,27 @@
             this.pb_y1_status.TabIndex = 130;
             this.pb_y1_status.TabStop = false;
             // 
-            // Reading_Error
-            // 
-            this.Reading_Error.AutoSize = true;
-            this.Reading_Error.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.Reading_Error.ForeColor = System.Drawing.Color.Red;
-            this.Reading_Error.Location = new System.Drawing.Point(607, 440);
-            this.Reading_Error.Name = "Reading_Error";
-            this.Reading_Error.Size = new System.Drawing.Size(122, 22);
-            this.Reading_Error.TabIndex = 87;
-            this.Reading_Error.Text = "Reading Error";
-            this.Reading_Error.Visible = false;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(8, 64);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 22);
+            this.label5.Size = new System.Drawing.Size(112, 24);
             this.label5.TabIndex = 86;
-            this.label5.Text = "Fieldsize X";
+            this.label5.Text = "Field Size X";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(8, 25);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 22);
+            this.label4.Size = new System.Drawing.Size(110, 24);
             this.label4.TabIndex = 85;
-            this.label4.Text = "Fieldsize Y";
+            this.label4.Text = "Field Size Y";
             // 
             // pictureBox15
             // 
@@ -598,7 +603,7 @@
             this.groupBox3.Controls.Add(this.label31);
             this.groupBox3.Controls.Add(this.label30);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(299, 33);
+            this.groupBox3.Location = new System.Drawing.Point(299, 62);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(441, 91);
             this.groupBox3.TabIndex = 107;
@@ -653,7 +658,7 @@
             // btn_clearTerminal_in
             // 
             this.btn_clearTerminal_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_clearTerminal_in.Location = new System.Drawing.Point(9, 340);
+            this.btn_clearTerminal_in.Location = new System.Drawing.Point(8, 378);
             this.btn_clearTerminal_in.Name = "btn_clearTerminal_in";
             this.btn_clearTerminal_in.Size = new System.Drawing.Size(131, 30);
             this.btn_clearTerminal_in.TabIndex = 113;
@@ -665,6 +670,7 @@
             // 
             this.label51.AutoSize = true;
             this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label51.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label51.Location = new System.Drawing.Point(6, 12);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(26, 18);
@@ -676,7 +682,7 @@
             this.tb_terminal_in.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.tb_terminal_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.tb_terminal_in.ForeColor = System.Drawing.Color.Cyan;
-            this.tb_terminal_in.Location = new System.Drawing.Point(7, 33);
+            this.tb_terminal_in.Location = new System.Drawing.Point(6, 71);
             this.tb_terminal_in.Multiline = true;
             this.tb_terminal_in.Name = "tb_terminal_in";
             this.tb_terminal_in.ReadOnly = true;
@@ -687,7 +693,7 @@
             // btn_clearTerminal
             // 
             this.btn_clearTerminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_clearTerminal.Location = new System.Drawing.Point(146, 184);
+            this.btn_clearTerminal.Location = new System.Drawing.Point(145, 222);
             this.btn_clearTerminal.Name = "btn_clearTerminal";
             this.btn_clearTerminal.Size = new System.Drawing.Size(132, 30);
             this.btn_clearTerminal.TabIndex = 110;
@@ -699,6 +705,7 @@
             // 
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label48.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label48.Location = new System.Drawing.Point(143, 12);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(37, 18);
@@ -710,7 +717,7 @@
             this.tb_terminal_out.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.tb_terminal_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.tb_terminal_out.ForeColor = System.Drawing.Color.Cyan;
-            this.tb_terminal_out.Location = new System.Drawing.Point(146, 33);
+            this.tb_terminal_out.Location = new System.Drawing.Point(145, 71);
             this.tb_terminal_out.Multiline = true;
             this.tb_terminal_out.Name = "tb_terminal_out";
             this.tb_terminal_out.ReadOnly = true;
@@ -722,6 +729,7 @@
             // 
             this.lbl_out_cnt.AutoSize = true;
             this.lbl_out_cnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_out_cnt.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbl_out_cnt.Location = new System.Drawing.Point(184, 12);
             this.lbl_out_cnt.Name = "lbl_out_cnt";
             this.lbl_out_cnt.Size = new System.Drawing.Size(18, 20);
@@ -732,6 +740,7 @@
             // 
             this.lbl_in_cnt.AutoSize = true;
             this.lbl_in_cnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_in_cnt.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lbl_in_cnt.Location = new System.Drawing.Point(38, 12);
             this.lbl_in_cnt.Name = "lbl_in_cnt";
             this.lbl_in_cnt.Size = new System.Drawing.Size(18, 20);
@@ -742,7 +751,8 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label3.Location = new System.Drawing.Point(146, 217);
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(145, 255);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 18);
             this.label3.TabIndex = 119;
@@ -753,7 +763,7 @@
             this.tb_terminal_oth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.tb_terminal_oth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.tb_terminal_oth.ForeColor = System.Drawing.Color.Cyan;
-            this.tb_terminal_oth.Location = new System.Drawing.Point(146, 238);
+            this.tb_terminal_oth.Location = new System.Drawing.Point(145, 276);
             this.tb_terminal_oth.Multiline = true;
             this.tb_terminal_oth.Name = "tb_terminal_oth";
             this.tb_terminal_oth.ReadOnly = true;
@@ -764,7 +774,7 @@
             // btn_clearTerminal_oth
             // 
             this.btn_clearTerminal_oth.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_clearTerminal_oth.Location = new System.Drawing.Point(149, 340);
+            this.btn_clearTerminal_oth.Location = new System.Drawing.Point(148, 378);
             this.btn_clearTerminal_oth.Name = "btn_clearTerminal_oth";
             this.btn_clearTerminal_oth.Size = new System.Drawing.Size(129, 30);
             this.btn_clearTerminal_oth.TabIndex = 120;
@@ -797,8 +807,8 @@
             // 
             this.lbl_risk.AutoSize = true;
             this.lbl_risk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbl_risk.ForeColor = System.Drawing.Color.Red;
-            this.lbl_risk.Location = new System.Drawing.Point(306, 414);
+            this.lbl_risk.ForeColor = System.Drawing.Color.OrangeRed;
+            this.lbl_risk.Location = new System.Drawing.Point(610, 473);
             this.lbl_risk.Name = "lbl_risk";
             this.lbl_risk.Size = new System.Drawing.Size(211, 22);
             this.lbl_risk.TabIndex = 88;
@@ -812,7 +822,7 @@
             this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label72.ForeColor = System.Drawing.Color.Black;
             this.label72.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label72.Location = new System.Drawing.Point(601, 410);
+            this.label72.Location = new System.Drawing.Point(601, 439);
             this.label72.Margin = new System.Windows.Forms.Padding(0);
             this.label72.Name = "label72";
             this.label72.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
@@ -826,36 +836,105 @@
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // txt_fakeADC
+            // 
+            this.txt_fakeADC.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_fakeADC.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_fakeADC.Location = new System.Drawing.Point(816, 84);
+            this.txt_fakeADC.Name = "txt_fakeADC";
+            this.txt_fakeADC.Size = new System.Drawing.Size(80, 27);
+            this.txt_fakeADC.TabIndex = 129;
+            this.txt_fakeADC.Text = "2048";
+            this.txt_fakeADC.Visible = false;
+            // 
             // pb_receiveStatus
             // 
             this.pb_receiveStatus.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
             this.pb_receiveStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_receiveStatus.Location = new System.Drawing.Point(711, 416);
+            this.pb_receiveStatus.Location = new System.Drawing.Point(711, 444);
             this.pb_receiveStatus.Name = "pb_receiveStatus";
             this.pb_receiveStatus.Size = new System.Drawing.Size(18, 18);
             this.pb_receiveStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pb_receiveStatus.TabIndex = 127;
             this.pb_receiveStatus.TabStop = false;
             // 
-            // txt_fakeADC
+            // timer_coli
             // 
-            this.txt_fakeADC.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_fakeADC.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_fakeADC.Location = new System.Drawing.Point(773, 385);
-            this.txt_fakeADC.Name = "txt_fakeADC";
-            this.txt_fakeADC.Size = new System.Drawing.Size(80, 27);
-            this.txt_fakeADC.TabIndex = 129;
-            this.txt_fakeADC.Visible = false;
+            this.timer_coli.Interval = 1500;
+            this.timer_coli.Tick += new System.EventHandler(this.timer_coli_Tick);
+            // 
+            // timer_x1
+            // 
+            this.timer_x1.Interval = 1500;
+            this.timer_x1.Tick += new System.EventHandler(this.timer_x1_Tick);
+            // 
+            // timer_x2
+            // 
+            this.timer_x2.Interval = 1500;
+            this.timer_x2.Tick += new System.EventHandler(this.timer_x2_Tick);
+            // 
+            // timer_y1
+            // 
+            this.timer_y1.Interval = 1500;
+            this.timer_y1.Tick += new System.EventHandler(this.timer_y1_Tick);
+            // 
+            // timer_y2
+            // 
+            this.timer_y2.Interval = 1500;
+            this.timer_y2.Tick += new System.EventHandler(this.timer_y2_Tick);
+            // 
+            // lbl_pleaseRestart
+            // 
+            this.lbl_pleaseRestart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lbl_pleaseRestart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_pleaseRestart.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl_pleaseRestart.ForeColor = System.Drawing.Color.Red;
+            this.lbl_pleaseRestart.Location = new System.Drawing.Point(299, 473);
+            this.lbl_pleaseRestart.Name = "lbl_pleaseRestart";
+            this.lbl_pleaseRestart.Size = new System.Drawing.Size(253, 27);
+            this.lbl_pleaseRestart.TabIndex = 130;
+            this.lbl_pleaseRestart.Text = "Please restart the application";
+            this.lbl_pleaseRestart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_pleaseRestart.Visible = false;
+            // 
+            // lbl_readingError
+            // 
+            this.lbl_readingError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.lbl_readingError.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbl_readingError.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl_readingError.ForeColor = System.Drawing.Color.Red;
+            this.lbl_readingError.Location = new System.Drawing.Point(299, 445);
+            this.lbl_readingError.Name = "lbl_readingError";
+            this.lbl_readingError.Size = new System.Drawing.Size(253, 27);
+            this.lbl_readingError.TabIndex = 87;
+            this.lbl_readingError.Text = "!!  Reading Error  !!";
+            this.lbl_readingError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_readingError.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(812, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 20);
+            this.label1.TabIndex = 131;
+            this.label1.Text = "Fake ADC";
+            this.label1.Visible = false;
             // 
             // ClientControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_pleaseRestart);
             this.Controls.Add(this.txt_fakeADC);
             this.Controls.Add(this.pb_receiveStatus);
             this.Controls.Add(this.lbl_risk);
             this.Controls.Add(this.gb_terminals);
-            this.Controls.Add(this.Reading_Error);
+            this.Controls.Add(this.lbl_readingError);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label37);
@@ -932,7 +1011,6 @@
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.TextBox txt_y_s;
         private System.Windows.Forms.TextBox txt_y_a;
-        private System.Windows.Forms.Label Reading_Error;
         private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Button btn_clearTerminal_in;
         private System.Windows.Forms.Label label51;
@@ -957,5 +1035,13 @@
         private System.Windows.Forms.PictureBox pb_coli_status;
         private System.Windows.Forms.PictureBox pb_gant_status;
         private System.Windows.Forms.TextBox txt_fakeADC;
+        private System.Windows.Forms.Timer timer_coli;
+        private System.Windows.Forms.Timer timer_x1;
+        private System.Windows.Forms.Timer timer_x2;
+        private System.Windows.Forms.Timer timer_y1;
+        private System.Windows.Forms.Timer timer_y2;
+        private System.Windows.Forms.Label lbl_pleaseRestart;
+        private System.Windows.Forms.Label lbl_readingError;
+        private System.Windows.Forms.Label label1;
     }
 }

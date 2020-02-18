@@ -115,12 +115,11 @@ namespace Compact_Control
         Image requestImage = Resources.Request;
 
         public static bool isInServiceMode = false;
-        public static bool isInPhysicMode = false;
 
         private static SerialPort GlobalSerialPort = new SerialPort();
         private ClientControls clientFrm = new ClientControls();
 
-        public DateTime startTime = DateTime.Now;
+        private DateTime startTime = DateTime.Now;
         public double TotalVisibleMemorySize;
         public double FreePhysicalMemory;
         public double TotalVirtualMemorySize;
@@ -164,6 +163,7 @@ namespace Compact_Control
             if (ports.Length == 0)
             {
                 label_ConnectStatus.Text = "No Serial port detected!";
+                label_ConnectStatus.ForeColor = Color.Red;
                 //MessageBox.Show("No Serial port detected!", "COM Port error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             if (ports.Length >= 1)
@@ -204,7 +204,7 @@ namespace Compact_Control
                     }
                     if (portName == "Null" || portName == "" || validPort == false)
                     {
-                        MessageBox.Show(portName + " is invalid\nConnected to " + ports[0], "Invalid Port Name", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Port name is invalid\nConnected to " + ports[0], "Invalid Port Name", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         portName = ports[0];
                         GlobalSerialPort.PortName = ports[0];
                         ClientControls.curr_port = ports[0];
@@ -1604,7 +1604,6 @@ namespace Compact_Control
         {
             lbl_init.Hide();
             timer4.Stop();
-
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -2561,13 +2560,14 @@ namespace Compact_Control
                 panel_ClientControls.Enabled = true;
                 picBtn_Connect.BackgroundImage = Resources.ConnectButton_Connected;
                 picBtnToolTip.SetToolTip(picBtn_Connect, "Disconnect");
-                label_ConnectStatus.ForeColor = Color.Green;
+                label_ConnectStatus.ForeColor = Color.LightGreen;
                 label_ConnectStatus.Text = "Connected!";
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Connection error!" + Environment.NewLine + ex.ToString().Split('\n')[0] , "An error occured during connection!\n", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 label_ConnectStatus.Text = "Connection error!";
+                label_ConnectStatus.ForeColor = Color.Red;
                 //ConnectToPort();
             }
         }
@@ -2634,24 +2634,6 @@ namespace Compact_Control
             }
         }
 
-        private void picBtn_PatientList_Click(object sender, EventArgs e)
-        {
-            HashPass.refreshLicInfo();
-            if (HashPass.isExpired == true)
-            {
-                this.Hide();
-                ClosePort();
-                Form_Login.ShowForm();
-                return;
-            }
-
-            MessageBox.Show("This is a demo version!\nThis item and another useful options will be available in full version!", "Limited version", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            /*
-            Form_PatientList patientsFrm = new Form_PatientList();
-            patientsFrm.ClearSelection();
-            patientsFrm.ShowDialog();
-             */
-        }
 
         private void Form1_Activated(object sender, EventArgs e)
         {
@@ -2684,7 +2666,8 @@ namespace Compact_Control
         {
             if (isInServiceMode)
             {
-                panel1.BackColor = Color.Turquoise;
+                //panel1.BackColor = Color.Turquoise;
+                label_title.ForeColor = Color.Turquoise;
                 label_title.Text = "Service";
                 picBtn_Exit.Show();
                 picBtn_Close.Show();
@@ -2692,7 +2675,8 @@ namespace Compact_Control
             }
             else
             {
-                panel1.BackColor = Color.LightPink;
+                //panel1.BackColor = Color.LightPink;
+                label_title.ForeColor = Color.LightPink;
                 label_title.Text = "Clinical";
                 picBtn_Exit.Hide();
                 picBtn_Close.Hide();
@@ -2767,13 +2751,13 @@ namespace Compact_Control
             double ramUsage = 100 - (ram / TotalVisibleMemorySize) * 100;
             label_ram.Text = "RAM: " + ramUsage.ToString("00.") + " %";
             if (cpuUsage > 90)
-                label_cpu.ForeColor = Color.Red;
+                label_cpu.ForeColor = Color.OrangeRed;
             else
-                label_cpu.ForeColor = Color.Black;
+                label_cpu.ForeColor = Color.LightGreen;
             if (ramUsage > 90)
-                label_ram.ForeColor = Color.Red;
+                label_ram.ForeColor = Color.OrangeRed;
             else
-                label_ram.ForeColor = Color.Black;
+                label_ram.ForeColor = Color.LightGreen;
 
 
             string time = now.ToShortTimeString();

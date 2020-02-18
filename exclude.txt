@@ -1,0 +1,2 @@
+Compact Control.application
+Compact Control.pdb

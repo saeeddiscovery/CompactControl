@@ -32,6 +32,46 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.picBtnToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.picBtn_Exit = new System.Windows.Forms.PictureBox();
+            this.picBtn_LogOff = new System.Windows.Forms.PictureBox();
+            this.picBtn_Setting = new System.Windows.Forms.PictureBox();
+            this.picBtn_Restart = new System.Windows.Forms.PictureBox();
+            this.picBtn_Shutdown = new System.Windows.Forms.PictureBox();
+            this.picBtn_Close = new System.Windows.Forms.PictureBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel_ClientControls = new System.Windows.Forms.Panel();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.timer4 = new System.Windows.Forms.Timer(this.components);
+            this.timer5 = new System.Windows.Forms.Timer(this.components);
+            this.panel_status = new System.Windows.Forms.Panel();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.label_upTime = new System.Windows.Forms.Label();
+            this.label73 = new System.Windows.Forms.Label();
+            this.label_ram = new System.Windows.Forms.Label();
+            this.lbl_version = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label_cpu = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lbl_init = new System.Windows.Forms.Label();
+            this.label_date = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label_time = new System.Windows.Forms.Label();
+            this.label_ConnectStatus = new System.Windows.Forms.Label();
+            this.label_title = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.panel_Toolbar = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.splitter2 = new System.Windows.Forms.Splitter();
+            this.splitter3 = new System.Windows.Forms.Splitter();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.picBtn_Connect = new System.Windows.Forms.PictureBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -260,46 +300,20 @@
             this.label59 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
             this.lbl_out_cnt = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel_AdminControls = new System.Windows.Forms.Panel();
-            this.panel_Toolbar = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.picBtn_Exit = new System.Windows.Forms.PictureBox();
-            this.picBtn_LogOff = new System.Windows.Forms.PictureBox();
-            this.picBtn_Setting = new System.Windows.Forms.PictureBox();
-            this.splitter2 = new System.Windows.Forms.Splitter();
-            this.picBtn_Restart = new System.Windows.Forms.PictureBox();
-            this.splitter3 = new System.Windows.Forms.Splitter();
-            this.picBtn_Shutdown = new System.Windows.Forms.PictureBox();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.picBtn_Connect = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_init = new System.Windows.Forms.Label();
-            this.label_date = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label_time = new System.Windows.Forms.Label();
-            this.label_ConnectStatus = new System.Windows.Forms.Label();
-            this.label_title = new System.Windows.Forms.Label();
-            this.label70 = new System.Windows.Forms.Label();
-            this.label71 = new System.Windows.Forms.Label();
-            this.picBtn_Close = new System.Windows.Forms.PictureBox();
-            this.picBtnToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.label39 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel_ClientControls = new System.Windows.Forms.Panel();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
-            this.timer4 = new System.Windows.Forms.Timer(this.components);
-            this.timer5 = new System.Windows.Forms.Timer(this.components);
-            this.panel_status = new System.Windows.Forms.Panel();
-            this.label_upTime = new System.Windows.Forms.Label();
-            this.label73 = new System.Windows.Forms.Label();
-            this.label_ram = new System.Windows.Forms.Label();
-            this.lbl_version = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label_cpu = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Restart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Shutdown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Close)).BeginInit();
+            this.panel_ClientControls.SuspendLayout();
+            this.panel_status.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel_Toolbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Connect)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -340,18 +354,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gb_parameters.SuspendLayout();
             this.panel_AdminControls.SuspendLayout();
-            this.panel_Toolbar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Restart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Shutdown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Connect)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Close)).BeginInit();
-            this.panel_ClientControls.SuspendLayout();
-            this.panel_status.SuspendLayout();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -365,17 +367,542 @@
             this.timer1.Interval = 50;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Error2.png");
+            this.imageList1.Images.SetKeyName(1, "Request2.png");
+            // 
+            // picBtnToolTip
+            // 
+            this.picBtnToolTip.AutoPopDelay = 5000;
+            this.picBtnToolTip.BackColor = System.Drawing.Color.White;
+            this.picBtnToolTip.InitialDelay = 500;
+            this.picBtnToolTip.ReshowDelay = 100;
+            // 
+            // picBtn_Exit
+            // 
+            this.picBtn_Exit.BackgroundImage = global::Compact_Control.Properties.Resources.Exit2;
+            this.picBtn_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtn_Exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBtn_Exit.Dock = System.Windows.Forms.DockStyle.Left;
+            this.picBtn_Exit.Location = new System.Drawing.Point(160, 36);
+            this.picBtn_Exit.Name = "picBtn_Exit";
+            this.picBtn_Exit.Size = new System.Drawing.Size(80, 70);
+            this.picBtn_Exit.TabIndex = 11;
+            this.picBtn_Exit.TabStop = false;
+            this.picBtnToolTip.SetToolTip(this.picBtn_Exit, " Exit");
+            this.picBtn_Exit.Click += new System.EventHandler(this.picBtn_Exit_Click);
+            this.picBtn_Exit.MouseEnter += new System.EventHandler(this.picBtn_Exit_MouseEnter);
+            this.picBtn_Exit.MouseLeave += new System.EventHandler(this.picBtn_Exit_MouseLeave);
+            // 
+            // picBtn_LogOff
+            // 
+            this.picBtn_LogOff.BackgroundImage = global::Compact_Control.Properties.Resources.Logout;
+            this.picBtn_LogOff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtn_LogOff.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBtn_LogOff.Dock = System.Windows.Forms.DockStyle.Left;
+            this.picBtn_LogOff.Location = new System.Drawing.Point(90, 36);
+            this.picBtn_LogOff.Name = "picBtn_LogOff";
+            this.picBtn_LogOff.Size = new System.Drawing.Size(70, 70);
+            this.picBtn_LogOff.TabIndex = 9;
+            this.picBtn_LogOff.TabStop = false;
+            this.picBtnToolTip.SetToolTip(this.picBtn_LogOff, " Log out");
+            this.picBtn_LogOff.Click += new System.EventHandler(this.picBtn_LogOff_Click);
+            this.picBtn_LogOff.MouseEnter += new System.EventHandler(this.picBtn_LogOff_MouseEnter);
+            this.picBtn_LogOff.MouseLeave += new System.EventHandler(this.picBtn_LogOff_MouseLeave);
+            // 
+            // picBtn_Setting
+            // 
+            this.picBtn_Setting.BackgroundImage = global::Compact_Control.Properties.Resources.Setting;
+            this.picBtn_Setting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtn_Setting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBtn_Setting.Dock = System.Windows.Forms.DockStyle.Right;
+            this.picBtn_Setting.Location = new System.Drawing.Point(886, 36);
+            this.picBtn_Setting.Name = "picBtn_Setting";
+            this.picBtn_Setting.Size = new System.Drawing.Size(64, 70);
+            this.picBtn_Setting.TabIndex = 10;
+            this.picBtn_Setting.TabStop = false;
+            this.picBtnToolTip.SetToolTip(this.picBtn_Setting, "Settings");
+            this.picBtn_Setting.Click += new System.EventHandler(this.picBtn_Setting_Click);
+            this.picBtn_Setting.MouseEnter += new System.EventHandler(this.picBtn_Setting_MouseEnter);
+            this.picBtn_Setting.MouseLeave += new System.EventHandler(this.picBtn_Setting_MouseLeave);
+            // 
+            // picBtn_Restart
+            // 
+            this.picBtn_Restart.BackgroundImage = global::Compact_Control.Properties.Resources.Restart;
+            this.picBtn_Restart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtn_Restart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBtn_Restart.Dock = System.Windows.Forms.DockStyle.Right;
+            this.picBtn_Restart.Location = new System.Drawing.Point(961, 36);
+            this.picBtn_Restart.Name = "picBtn_Restart";
+            this.picBtn_Restart.Size = new System.Drawing.Size(64, 70);
+            this.picBtn_Restart.TabIndex = 12;
+            this.picBtn_Restart.TabStop = false;
+            this.picBtnToolTip.SetToolTip(this.picBtn_Restart, "Restart Computer");
+            this.picBtn_Restart.Click += new System.EventHandler(this.picBtn_Restart_Click);
+            this.picBtn_Restart.MouseEnter += new System.EventHandler(this.picBtn_Restart_MouseEnter);
+            this.picBtn_Restart.MouseLeave += new System.EventHandler(this.picBtn_Restart_MouseLeave);
+            // 
+            // picBtn_Shutdown
+            // 
+            this.picBtn_Shutdown.BackgroundImage = global::Compact_Control.Properties.Resources.Shutdown;
+            this.picBtn_Shutdown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtn_Shutdown.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBtn_Shutdown.Dock = System.Windows.Forms.DockStyle.Right;
+            this.picBtn_Shutdown.Location = new System.Drawing.Point(1036, 36);
+            this.picBtn_Shutdown.Name = "picBtn_Shutdown";
+            this.picBtn_Shutdown.Size = new System.Drawing.Size(71, 70);
+            this.picBtn_Shutdown.TabIndex = 13;
+            this.picBtn_Shutdown.TabStop = false;
+            this.picBtnToolTip.SetToolTip(this.picBtn_Shutdown, "Shutdown Computer");
+            this.picBtn_Shutdown.Click += new System.EventHandler(this.picBtn_Shutdown_Click);
+            this.picBtn_Shutdown.MouseEnter += new System.EventHandler(this.picBtn_Shutdown_MouseEnter);
+            this.picBtn_Shutdown.MouseLeave += new System.EventHandler(this.picBtn_Shutdown_MouseLeave);
+            // 
+            // picBtn_Close
+            // 
+            this.picBtn_Close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.picBtn_Close.BackgroundImage = global::Compact_Control.Properties.Resources.Error;
+            this.picBtn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBtn_Close.Dock = System.Windows.Forms.DockStyle.Right;
+            this.picBtn_Close.Location = new System.Drawing.Point(1068, 0);
+            this.picBtn_Close.Margin = new System.Windows.Forms.Padding(2);
+            this.picBtn_Close.Name = "picBtn_Close";
+            this.picBtn_Close.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this.picBtn_Close.Size = new System.Drawing.Size(48, 34);
+            this.picBtn_Close.TabIndex = 18;
+            this.picBtn_Close.TabStop = false;
+            this.picBtnToolTip.SetToolTip(this.picBtn_Close, "Exit");
+            this.picBtn_Close.Visible = false;
+            this.picBtn_Close.Click += new System.EventHandler(this.picBtn_Close_Click);
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label39.Location = new System.Drawing.Point(102, -88);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(40, 22);
+            this.label39.TabIndex = 65;
+            this.label39.Text = "Set";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label7.Location = new System.Drawing.Point(199, -88);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 22);
+            this.label7.TabIndex = 66;
+            this.label7.Text = "Actual";
+            // 
+            // panel_ClientControls
+            // 
+            this.panel_ClientControls.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel_ClientControls.Controls.Add(this.label7);
+            this.panel_ClientControls.Controls.Add(this.label39);
+            this.panel_ClientControls.Enabled = false;
+            this.panel_ClientControls.Location = new System.Drawing.Point(969, 94);
+            this.panel_ClientControls.Name = "panel_ClientControls";
+            this.panel_ClientControls.Size = new System.Drawing.Size(39, 10);
+            this.panel_ClientControls.TabIndex = 4;
+            // 
+            // timer2
+            // 
+            this.timer2.Enabled = true;
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick_1);
+            // 
+            // timer3
+            // 
+            this.timer3.Interval = 2;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
+            // timer4
+            // 
+            this.timer4.Enabled = true;
+            this.timer4.Interval = 3000;
+            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
+            // 
+            // timer5
+            // 
+            this.timer5.Enabled = true;
+            this.timer5.Interval = 200;
+            this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
+            // 
+            // panel_status
+            // 
+            this.panel_status.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_status.Controls.Add(this.pictureBox7);
+            this.panel_status.Controls.Add(this.label_upTime);
+            this.panel_status.Controls.Add(this.label73);
+            this.panel_status.Controls.Add(this.label_ram);
+            this.panel_status.Controls.Add(this.lbl_version);
+            this.panel_status.Controls.Add(this.label46);
+            this.panel_status.Controls.Add(this.label_cpu);
+            this.panel_status.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel_status.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel_status.Location = new System.Drawing.Point(0, 756);
+            this.panel_status.Name = "panel_status";
+            this.panel_status.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.panel_status.Size = new System.Drawing.Size(1122, 32);
+            this.panel_status.TabIndex = 27;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackgroundImage = global::Compact_Control.Properties.Resources.CC_Logo_transparent;
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox7.Location = new System.Drawing.Point(89, 0);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(852, 30);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 32;
+            this.pictureBox7.TabStop = false;
+            // 
+            // label_upTime
+            // 
+            this.label_upTime.AutoSize = true;
+            this.label_upTime.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_upTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_upTime.ForeColor = System.Drawing.Color.White;
+            this.label_upTime.Location = new System.Drawing.Point(941, 0);
+            this.label_upTime.Name = "label_upTime";
+            this.label_upTime.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label_upTime.Size = new System.Drawing.Size(61, 28);
+            this.label_upTime.TabIndex = 29;
+            this.label_upTime.Text = "UpTime";
+            this.label_upTime.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label73.Enabled = false;
+            this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label73.ForeColor = System.Drawing.Color.White;
+            this.label73.Location = new System.Drawing.Point(1002, 0);
+            this.label73.Name = "label73";
+            this.label73.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label73.Size = new System.Drawing.Size(15, 28);
+            this.label73.TabIndex = 30;
+            this.label73.Text = "|";
+            // 
+            // label_ram
+            // 
+            this.label_ram.AutoSize = true;
+            this.label_ram.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_ram.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_ram.ForeColor = System.Drawing.Color.White;
+            this.label_ram.Location = new System.Drawing.Point(1017, 0);
+            this.label_ram.Name = "label_ram";
+            this.label_ram.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label_ram.Size = new System.Drawing.Size(42, 28);
+            this.label_ram.TabIndex = 28;
+            this.label_ram.Text = "RAM";
+            this.label_ram.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl_version
+            // 
+            this.lbl_version.AutoSize = true;
+            this.lbl_version.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbl_version.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl_version.ForeColor = System.Drawing.Color.White;
+            this.lbl_version.Location = new System.Drawing.Point(5, 0);
+            this.lbl_version.Name = "lbl_version";
+            this.lbl_version.Padding = new System.Windows.Forms.Padding(5, 5, 1, 5);
+            this.lbl_version.Size = new System.Drawing.Size(84, 28);
+            this.lbl_version.TabIndex = 26;
+            this.lbl_version.Text = "Ver. 1.4.03";
+            this.lbl_version.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label46.Enabled = false;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label46.ForeColor = System.Drawing.Color.White;
+            this.label46.Location = new System.Drawing.Point(1059, 0);
+            this.label46.Name = "label46";
+            this.label46.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label46.Size = new System.Drawing.Size(15, 28);
+            this.label46.TabIndex = 31;
+            this.label46.Text = "|";
+            // 
+            // label_cpu
+            // 
+            this.label_cpu.AutoSize = true;
+            this.label_cpu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_cpu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_cpu.ForeColor = System.Drawing.Color.White;
+            this.label_cpu.Location = new System.Drawing.Point(1074, 0);
+            this.label_cpu.Name = "label_cpu";
+            this.label_cpu.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label_cpu.Size = new System.Drawing.Size(41, 28);
+            this.label_cpu.TabIndex = 27;
+            this.label_cpu.Text = "CPU";
+            this.label_cpu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lbl_init);
+            this.panel1.Controls.Add(this.label_date);
+            this.panel1.Controls.Add(this.label47);
+            this.panel1.Controls.Add(this.label_time);
+            this.panel1.Controls.Add(this.label_ConnectStatus);
+            this.panel1.Controls.Add(this.label_title);
+            this.panel1.Controls.Add(this.label70);
+            this.panel1.Controls.Add(this.label71);
+            this.panel1.Controls.Add(this.picBtn_Close);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1118, 36);
+            this.panel1.TabIndex = 14;
+            // 
+            // lbl_init
+            // 
+            this.lbl_init.AutoSize = true;
+            this.lbl_init.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl_init.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lbl_init.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lbl_init.ForeColor = System.Drawing.Color.Orange;
+            this.lbl_init.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lbl_init.Location = new System.Drawing.Point(125, 0);
+            this.lbl_init.Margin = new System.Windows.Forms.Padding(0);
+            this.lbl_init.Name = "lbl_init";
+            this.lbl_init.Padding = new System.Windows.Forms.Padding(5, 8, 10, 0);
+            this.lbl_init.Size = new System.Drawing.Size(114, 25);
+            this.lbl_init.TabIndex = 18;
+            this.lbl_init.Text = "Not Initialized !";
+            this.lbl_init.Visible = false;
+            // 
+            // label_date
+            // 
+            this.label_date.AutoSize = true;
+            this.label_date.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_date.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_date.ForeColor = System.Drawing.Color.White;
+            this.label_date.Location = new System.Drawing.Point(802, 0);
+            this.label_date.Name = "label_date";
+            this.label_date.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label_date.Size = new System.Drawing.Size(40, 28);
+            this.label_date.TabIndex = 7;
+            this.label_date.Text = "Date";
+            this.label_date.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label47.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label47.Enabled = false;
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label47.ForeColor = System.Drawing.Color.White;
+            this.label47.Location = new System.Drawing.Point(842, 0);
+            this.label47.Name = "label47";
+            this.label47.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label47.Size = new System.Drawing.Size(15, 28);
+            this.label47.TabIndex = 10;
+            this.label47.Text = "|";
+            // 
+            // label_time
+            // 
+            this.label_time.AutoSize = true;
+            this.label_time.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_time.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_time.ForeColor = System.Drawing.Color.White;
+            this.label_time.Location = new System.Drawing.Point(857, 0);
+            this.label_time.Name = "label_time";
+            this.label_time.Padding = new System.Windows.Forms.Padding(1, 5, 1, 5);
+            this.label_time.Size = new System.Drawing.Size(43, 28);
+            this.label_time.TabIndex = 6;
+            this.label_time.Text = "Time";
+            this.label_time.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label_ConnectStatus
+            // 
+            this.label_ConnectStatus.AutoSize = true;
+            this.label_ConnectStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_ConnectStatus.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label_ConnectStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_ConnectStatus.ForeColor = System.Drawing.Color.Red;
+            this.label_ConnectStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label_ConnectStatus.Location = new System.Drawing.Point(0, 0);
+            this.label_ConnectStatus.Margin = new System.Windows.Forms.Padding(0);
+            this.label_ConnectStatus.Name = "label_ConnectStatus";
+            this.label_ConnectStatus.Padding = new System.Windows.Forms.Padding(5, 8, 10, 0);
+            this.label_ConnectStatus.Size = new System.Drawing.Size(125, 25);
+            this.label_ConnectStatus.TabIndex = 4;
+            this.label_ConnectStatus.Text = "Disconnected!";
+            // 
+            // label_title
+            // 
+            this.label_title.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label_title.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_title.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label_title.Location = new System.Drawing.Point(0, 0);
+            this.label_title.Name = "label_title";
+            this.label_title.Padding = new System.Windows.Forms.Padding(110, 0, 0, 0);
+            this.label_title.Size = new System.Drawing.Size(900, 34);
+            this.label_title.TabIndex = 5;
+            this.label_title.Text = "Service";
+            this.label_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label70.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label70.Enabled = false;
+            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label70.ForeColor = System.Drawing.Color.White;
+            this.label70.Location = new System.Drawing.Point(900, 0);
+            this.label70.Name = "label70";
+            this.label70.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label70.Size = new System.Drawing.Size(15, 28);
+            this.label70.TabIndex = 21;
+            this.label70.Text = "|";
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label71.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label71.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label71.Location = new System.Drawing.Point(915, 0);
+            this.label71.Name = "label71";
+            this.label71.Padding = new System.Windows.Forms.Padding(0, 3, 1, 4);
+            this.label71.Size = new System.Drawing.Size(153, 29);
+            this.label71.TabIndex = 20;
+            this.label71.Text = "Golestan Hospital";
+            this.label71.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // panel_Toolbar
+            // 
+            this.panel_Toolbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel_Toolbar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel_Toolbar.Controls.Add(this.panel3);
+            this.panel_Toolbar.Controls.Add(this.panel2);
+            this.panel_Toolbar.Controls.Add(this.picBtn_Exit);
+            this.panel_Toolbar.Controls.Add(this.picBtn_LogOff);
+            this.panel_Toolbar.Controls.Add(this.picBtn_Setting);
+            this.panel_Toolbar.Controls.Add(this.splitter2);
+            this.panel_Toolbar.Controls.Add(this.picBtn_Restart);
+            this.panel_Toolbar.Controls.Add(this.splitter3);
+            this.panel_Toolbar.Controls.Add(this.picBtn_Shutdown);
+            this.panel_Toolbar.Controls.Add(this.splitter1);
+            this.panel_Toolbar.Controls.Add(this.picBtn_Connect);
+            this.panel_Toolbar.Controls.Add(this.pictureBox14);
+            this.panel_Toolbar.Controls.Add(this.panel1);
+            this.panel_Toolbar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_Toolbar.Location = new System.Drawing.Point(0, 0);
+            this.panel_Toolbar.Margin = new System.Windows.Forms.Padding(0);
+            this.panel_Toolbar.Name = "panel_Toolbar";
+            this.panel_Toolbar.Size = new System.Drawing.Size(1122, 110);
+            this.panel_Toolbar.TabIndex = 3;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel3.Location = new System.Drawing.Point(240, 68);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(646, 32);
+            this.panel3.TabIndex = 24;
+            // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panel2.Location = new System.Drawing.Point(240, 36);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(646, 32);
+            this.panel2.TabIndex = 20;
+            // 
+            // splitter2
+            // 
+            this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitter2.Location = new System.Drawing.Point(950, 36);
+            this.splitter2.Margin = new System.Windows.Forms.Padding(2);
+            this.splitter2.Name = "splitter2";
+            this.splitter2.Size = new System.Drawing.Size(11, 70);
+            this.splitter2.TabIndex = 16;
+            this.splitter2.TabStop = false;
+            // 
+            // splitter3
+            // 
+            this.splitter3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitter3.Location = new System.Drawing.Point(1025, 36);
+            this.splitter3.Margin = new System.Windows.Forms.Padding(2);
+            this.splitter3.Name = "splitter3";
+            this.splitter3.Size = new System.Drawing.Size(11, 70);
+            this.splitter3.TabIndex = 17;
+            this.splitter3.TabStop = false;
+            // 
+            // splitter1
+            // 
+            this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.splitter1.Location = new System.Drawing.Point(1107, 36);
+            this.splitter1.Margin = new System.Windows.Forms.Padding(2);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(11, 70);
+            this.splitter1.TabIndex = 15;
+            this.splitter1.TabStop = false;
+            // 
+            // picBtn_Connect
+            // 
+            this.picBtn_Connect.BackgroundImage = global::Compact_Control.Properties.Resources.ConnectButton;
+            this.picBtn_Connect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picBtn_Connect.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picBtn_Connect.Dock = System.Windows.Forms.DockStyle.Left;
+            this.picBtn_Connect.Location = new System.Drawing.Point(11, 36);
+            this.picBtn_Connect.Name = "picBtn_Connect";
+            this.picBtn_Connect.Size = new System.Drawing.Size(79, 70);
+            this.picBtn_Connect.TabIndex = 3;
+            this.picBtn_Connect.TabStop = false;
+            this.picBtn_Connect.Click += new System.EventHandler(this.picBtn_Connect_Click);
+            this.picBtn_Connect.MouseEnter += new System.EventHandler(this.picBtn_Connect_MouseEnter);
+            this.picBtn_Connect.MouseLeave += new System.EventHandler(this.picBtn_Connect_MouseLeave);
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox14.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox14.Location = new System.Drawing.Point(0, 36);
+            this.pictureBox14.Margin = new System.Windows.Forms.Padding(5);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Padding = new System.Windows.Forms.Padding(2);
+            this.pictureBox14.Size = new System.Drawing.Size(11, 70);
+            this.pictureBox14.TabIndex = 6;
+            this.pictureBox14.TabStop = false;
+            // 
             // tabControl1
             // 
+            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1122, 636);
+            this.tabControl1.Size = new System.Drawing.Size(1122, 646);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -384,10 +911,10 @@
             this.tabPage1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.tabPage1.Controls.Add(this.splitContainer1);
             this.tabPage1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tabPage1.Location = new System.Drawing.Point(4, 27);
+            this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1114, 605);
+            this.tabPage1.Size = new System.Drawing.Size(1114, 612);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Diagnose";
             // 
@@ -409,7 +936,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.btn_start_stop);
             this.splitContainer1.Panel2.Controls.Add(this.groupBox7);
-            this.splitContainer1.Size = new System.Drawing.Size(1108, 599);
+            this.splitContainer1.Size = new System.Drawing.Size(1108, 606);
             this.splitContainer1.SplitterDistance = 500;
             this.splitContainer1.TabIndex = 86;
             // 
@@ -918,10 +1445,10 @@
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.tabPage2.Controls.Add(this.splitContainer2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 27);
+            this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1114, 605);
+            this.tabPage2.Size = new System.Drawing.Size(1114, 612);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Calibration";
             // 
@@ -947,7 +1474,7 @@
             this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.splitContainer2.Panel2.Controls.Add(this.groupBox3);
             this.splitContainer2.Panel2MinSize = 500;
-            this.splitContainer2.Size = new System.Drawing.Size(1108, 599);
+            this.splitContainer2.Size = new System.Drawing.Size(1108, 606);
             this.splitContainer2.SplitterDistance = 581;
             this.splitContainer2.TabIndex = 24;
             // 
@@ -1845,9 +2372,9 @@
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.tabPage3.Controls.Add(this.splitContainer4);
-            this.tabPage3.Location = new System.Drawing.Point(4, 27);
+            this.tabPage3.Location = new System.Drawing.Point(4, 30);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1114, 605);
+            this.tabPage3.Size = new System.Drawing.Size(1114, 612);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Parameters";
             // 
@@ -1880,7 +2407,7 @@
             this.splitContainer4.Panel2.Controls.Add(this.tb_terminal_out);
             this.splitContainer4.Panel2.Controls.Add(this.gb_parameters);
             this.splitContainer4.Panel2.Controls.Add(this.lbl_out_cnt);
-            this.splitContainer4.Size = new System.Drawing.Size(1114, 605);
+            this.splitContainer4.Size = new System.Drawing.Size(1114, 612);
             this.splitContainer4.SplitterDistance = 499;
             this.splitContainer4.TabIndex = 30;
             // 
@@ -3021,504 +3548,16 @@
             this.lbl_out_cnt.TabIndex = 118;
             this.lbl_out_cnt.Text = "0";
             // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Error2.png");
-            this.imageList1.Images.SetKeyName(1, "Request2.png");
-            // 
             // panel_AdminControls
             // 
-            this.panel_AdminControls.BackColor = System.Drawing.SystemColors.Control;
+            this.panel_AdminControls.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel_AdminControls.Controls.Add(this.tabControl1);
             this.panel_AdminControls.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_AdminControls.Enabled = false;
-            this.panel_AdminControls.Location = new System.Drawing.Point(0, 103);
+            this.panel_AdminControls.Location = new System.Drawing.Point(0, 110);
             this.panel_AdminControls.Name = "panel_AdminControls";
-            this.panel_AdminControls.Size = new System.Drawing.Size(1122, 653);
-            this.panel_AdminControls.TabIndex = 2;
-            // 
-            // panel_Toolbar
-            // 
-            this.panel_Toolbar.BackColor = System.Drawing.SystemColors.Control;
-            this.panel_Toolbar.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel_Toolbar.Controls.Add(this.panel3);
-            this.panel_Toolbar.Controls.Add(this.panel2);
-            this.panel_Toolbar.Controls.Add(this.picBtn_Exit);
-            this.panel_Toolbar.Controls.Add(this.picBtn_LogOff);
-            this.panel_Toolbar.Controls.Add(this.picBtn_Setting);
-            this.panel_Toolbar.Controls.Add(this.splitter2);
-            this.panel_Toolbar.Controls.Add(this.picBtn_Restart);
-            this.panel_Toolbar.Controls.Add(this.splitter3);
-            this.panel_Toolbar.Controls.Add(this.picBtn_Shutdown);
-            this.panel_Toolbar.Controls.Add(this.splitter1);
-            this.panel_Toolbar.Controls.Add(this.picBtn_Connect);
-            this.panel_Toolbar.Controls.Add(this.pictureBox14);
-            this.panel_Toolbar.Controls.Add(this.panel1);
-            this.panel_Toolbar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_Toolbar.Location = new System.Drawing.Point(0, 0);
-            this.panel_Toolbar.Name = "panel_Toolbar";
-            this.panel_Toolbar.Size = new System.Drawing.Size(1122, 103);
-            this.panel_Toolbar.TabIndex = 3;
-            // 
-            // panel3
-            // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel3.Location = new System.Drawing.Point(240, 68);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(646, 32);
-            this.panel3.TabIndex = 24;
-            // 
-            // panel2
-            // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel2.Location = new System.Drawing.Point(240, 36);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(646, 32);
-            this.panel2.TabIndex = 20;
-            // 
-            // picBtn_Exit
-            // 
-            this.picBtn_Exit.BackgroundImage = global::Compact_Control.Properties.Resources.Exit2;
-            this.picBtn_Exit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtn_Exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBtn_Exit.Dock = System.Windows.Forms.DockStyle.Left;
-            this.picBtn_Exit.Location = new System.Drawing.Point(160, 36);
-            this.picBtn_Exit.Name = "picBtn_Exit";
-            this.picBtn_Exit.Size = new System.Drawing.Size(80, 63);
-            this.picBtn_Exit.TabIndex = 11;
-            this.picBtn_Exit.TabStop = false;
-            this.picBtnToolTip.SetToolTip(this.picBtn_Exit, " Exit");
-            this.picBtn_Exit.Click += new System.EventHandler(this.picBtn_Exit_Click);
-            this.picBtn_Exit.MouseEnter += new System.EventHandler(this.picBtn_Exit_MouseEnter);
-            this.picBtn_Exit.MouseLeave += new System.EventHandler(this.picBtn_Exit_MouseLeave);
-            // 
-            // picBtn_LogOff
-            // 
-            this.picBtn_LogOff.BackgroundImage = global::Compact_Control.Properties.Resources.Logout;
-            this.picBtn_LogOff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtn_LogOff.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBtn_LogOff.Dock = System.Windows.Forms.DockStyle.Left;
-            this.picBtn_LogOff.Location = new System.Drawing.Point(90, 36);
-            this.picBtn_LogOff.Name = "picBtn_LogOff";
-            this.picBtn_LogOff.Size = new System.Drawing.Size(70, 63);
-            this.picBtn_LogOff.TabIndex = 9;
-            this.picBtn_LogOff.TabStop = false;
-            this.picBtnToolTip.SetToolTip(this.picBtn_LogOff, " Log out");
-            this.picBtn_LogOff.Click += new System.EventHandler(this.picBtn_LogOff_Click);
-            this.picBtn_LogOff.MouseEnter += new System.EventHandler(this.picBtn_LogOff_MouseEnter);
-            this.picBtn_LogOff.MouseLeave += new System.EventHandler(this.picBtn_LogOff_MouseLeave);
-            // 
-            // picBtn_Setting
-            // 
-            this.picBtn_Setting.BackgroundImage = global::Compact_Control.Properties.Resources.Setting;
-            this.picBtn_Setting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtn_Setting.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBtn_Setting.Dock = System.Windows.Forms.DockStyle.Right;
-            this.picBtn_Setting.Location = new System.Drawing.Point(886, 36);
-            this.picBtn_Setting.Name = "picBtn_Setting";
-            this.picBtn_Setting.Size = new System.Drawing.Size(64, 63);
-            this.picBtn_Setting.TabIndex = 10;
-            this.picBtn_Setting.TabStop = false;
-            this.picBtnToolTip.SetToolTip(this.picBtn_Setting, "Settings");
-            this.picBtn_Setting.Click += new System.EventHandler(this.picBtn_Setting_Click);
-            this.picBtn_Setting.MouseEnter += new System.EventHandler(this.picBtn_Setting_MouseEnter);
-            this.picBtn_Setting.MouseLeave += new System.EventHandler(this.picBtn_Setting_MouseLeave);
-            // 
-            // splitter2
-            // 
-            this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter2.Location = new System.Drawing.Point(950, 36);
-            this.splitter2.Margin = new System.Windows.Forms.Padding(2);
-            this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(11, 63);
-            this.splitter2.TabIndex = 16;
-            this.splitter2.TabStop = false;
-            // 
-            // picBtn_Restart
-            // 
-            this.picBtn_Restart.BackgroundImage = global::Compact_Control.Properties.Resources.Restart;
-            this.picBtn_Restart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtn_Restart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBtn_Restart.Dock = System.Windows.Forms.DockStyle.Right;
-            this.picBtn_Restart.Location = new System.Drawing.Point(961, 36);
-            this.picBtn_Restart.Name = "picBtn_Restart";
-            this.picBtn_Restart.Size = new System.Drawing.Size(64, 63);
-            this.picBtn_Restart.TabIndex = 12;
-            this.picBtn_Restart.TabStop = false;
-            this.picBtnToolTip.SetToolTip(this.picBtn_Restart, "Restart Computer");
-            this.picBtn_Restart.Click += new System.EventHandler(this.picBtn_Restart_Click);
-            this.picBtn_Restart.MouseEnter += new System.EventHandler(this.picBtn_Restart_MouseEnter);
-            this.picBtn_Restart.MouseLeave += new System.EventHandler(this.picBtn_Restart_MouseLeave);
-            // 
-            // splitter3
-            // 
-            this.splitter3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter3.Location = new System.Drawing.Point(1025, 36);
-            this.splitter3.Margin = new System.Windows.Forms.Padding(2);
-            this.splitter3.Name = "splitter3";
-            this.splitter3.Size = new System.Drawing.Size(11, 63);
-            this.splitter3.TabIndex = 17;
-            this.splitter3.TabStop = false;
-            // 
-            // picBtn_Shutdown
-            // 
-            this.picBtn_Shutdown.BackgroundImage = global::Compact_Control.Properties.Resources.Shutdown;
-            this.picBtn_Shutdown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtn_Shutdown.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBtn_Shutdown.Dock = System.Windows.Forms.DockStyle.Right;
-            this.picBtn_Shutdown.Location = new System.Drawing.Point(1036, 36);
-            this.picBtn_Shutdown.Name = "picBtn_Shutdown";
-            this.picBtn_Shutdown.Size = new System.Drawing.Size(71, 63);
-            this.picBtn_Shutdown.TabIndex = 13;
-            this.picBtn_Shutdown.TabStop = false;
-            this.picBtnToolTip.SetToolTip(this.picBtn_Shutdown, "Shutdown Computer");
-            this.picBtn_Shutdown.Click += new System.EventHandler(this.picBtn_Shutdown_Click);
-            this.picBtn_Shutdown.MouseEnter += new System.EventHandler(this.picBtn_Shutdown_MouseEnter);
-            this.picBtn_Shutdown.MouseLeave += new System.EventHandler(this.picBtn_Shutdown_MouseLeave);
-            // 
-            // splitter1
-            // 
-            this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(1107, 36);
-            this.splitter1.Margin = new System.Windows.Forms.Padding(2);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(11, 63);
-            this.splitter1.TabIndex = 15;
-            this.splitter1.TabStop = false;
-            // 
-            // picBtn_Connect
-            // 
-            this.picBtn_Connect.BackgroundImage = global::Compact_Control.Properties.Resources.ConnectButton;
-            this.picBtn_Connect.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtn_Connect.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBtn_Connect.Dock = System.Windows.Forms.DockStyle.Left;
-            this.picBtn_Connect.Location = new System.Drawing.Point(11, 36);
-            this.picBtn_Connect.Name = "picBtn_Connect";
-            this.picBtn_Connect.Size = new System.Drawing.Size(79, 63);
-            this.picBtn_Connect.TabIndex = 3;
-            this.picBtn_Connect.TabStop = false;
-            this.picBtn_Connect.Click += new System.EventHandler(this.picBtn_Connect_Click);
-            this.picBtn_Connect.MouseEnter += new System.EventHandler(this.picBtn_Connect_MouseEnter);
-            this.picBtn_Connect.MouseLeave += new System.EventHandler(this.picBtn_Connect_MouseLeave);
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox14.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox14.Location = new System.Drawing.Point(0, 36);
-            this.pictureBox14.Margin = new System.Windows.Forms.Padding(5);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Padding = new System.Windows.Forms.Padding(2);
-            this.pictureBox14.Size = new System.Drawing.Size(11, 63);
-            this.pictureBox14.TabIndex = 6;
-            this.pictureBox14.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.lbl_init);
-            this.panel1.Controls.Add(this.label_date);
-            this.panel1.Controls.Add(this.label47);
-            this.panel1.Controls.Add(this.label_time);
-            this.panel1.Controls.Add(this.label_ConnectStatus);
-            this.panel1.Controls.Add(this.label_title);
-            this.panel1.Controls.Add(this.label70);
-            this.panel1.Controls.Add(this.label71);
-            this.panel1.Controls.Add(this.picBtn_Close);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1118, 36);
-            this.panel1.TabIndex = 14;
-            // 
-            // lbl_init
-            // 
-            this.lbl_init.AutoSize = true;
-            this.lbl_init.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_init.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbl_init.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbl_init.ForeColor = System.Drawing.Color.Orange;
-            this.lbl_init.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lbl_init.Location = new System.Drawing.Point(112, 0);
-            this.lbl_init.Margin = new System.Windows.Forms.Padding(0);
-            this.lbl_init.Name = "lbl_init";
-            this.lbl_init.Padding = new System.Windows.Forms.Padding(5, 8, 10, 0);
-            this.lbl_init.Size = new System.Drawing.Size(114, 25);
-            this.lbl_init.TabIndex = 18;
-            this.lbl_init.Text = "Not Initialized !";
-            this.lbl_init.Visible = false;
-            // 
-            // label_date
-            // 
-            this.label_date.AutoSize = true;
-            this.label_date.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_date.Location = new System.Drawing.Point(802, 0);
-            this.label_date.Name = "label_date";
-            this.label_date.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label_date.Size = new System.Drawing.Size(40, 28);
-            this.label_date.TabIndex = 7;
-            this.label_date.Text = "Date";
-            this.label_date.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label47.Enabled = false;
-            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label47.Location = new System.Drawing.Point(842, 0);
-            this.label47.Name = "label47";
-            this.label47.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label47.Size = new System.Drawing.Size(15, 28);
-            this.label47.TabIndex = 10;
-            this.label47.Text = "|";
-            // 
-            // label_time
-            // 
-            this.label_time.AutoSize = true;
-            this.label_time.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_time.Location = new System.Drawing.Point(857, 0);
-            this.label_time.Name = "label_time";
-            this.label_time.Padding = new System.Windows.Forms.Padding(1, 5, 1, 5);
-            this.label_time.Size = new System.Drawing.Size(43, 28);
-            this.label_time.TabIndex = 6;
-            this.label_time.Text = "Time";
-            this.label_time.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label_ConnectStatus
-            // 
-            this.label_ConnectStatus.AutoSize = true;
-            this.label_ConnectStatus.BackColor = System.Drawing.Color.Transparent;
-            this.label_ConnectStatus.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label_ConnectStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_ConnectStatus.ForeColor = System.Drawing.Color.Red;
-            this.label_ConnectStatus.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label_ConnectStatus.Location = new System.Drawing.Point(0, 0);
-            this.label_ConnectStatus.Margin = new System.Windows.Forms.Padding(0);
-            this.label_ConnectStatus.Name = "label_ConnectStatus";
-            this.label_ConnectStatus.Padding = new System.Windows.Forms.Padding(5, 8, 10, 0);
-            this.label_ConnectStatus.Size = new System.Drawing.Size(112, 25);
-            this.label_ConnectStatus.TabIndex = 4;
-            this.label_ConnectStatus.Text = "Disconnected!";
-            // 
-            // label_title
-            // 
-            this.label_title.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_title.Location = new System.Drawing.Point(0, 0);
-            this.label_title.Name = "label_title";
-            this.label_title.Padding = new System.Windows.Forms.Padding(70, 0, 0, 0);
-            this.label_title.Size = new System.Drawing.Size(900, 34);
-            this.label_title.TabIndex = 5;
-            this.label_title.Text = "Service";
-            this.label_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label70.Enabled = false;
-            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label70.Location = new System.Drawing.Point(900, 0);
-            this.label70.Name = "label70";
-            this.label70.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label70.Size = new System.Drawing.Size(15, 28);
-            this.label70.TabIndex = 21;
-            this.label70.Text = "|";
-            // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label71.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.label71.Location = new System.Drawing.Point(915, 0);
-            this.label71.Name = "label71";
-            this.label71.Padding = new System.Windows.Forms.Padding(0, 3, 1, 4);
-            this.label71.Size = new System.Drawing.Size(153, 29);
-            this.label71.TabIndex = 20;
-            this.label71.Text = "Golestan Hospital";
-            this.label71.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // picBtn_Close
-            // 
-            this.picBtn_Close.BackgroundImage = global::Compact_Control.Properties.Resources.Error;
-            this.picBtn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picBtn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picBtn_Close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.picBtn_Close.Location = new System.Drawing.Point(1068, 0);
-            this.picBtn_Close.Margin = new System.Windows.Forms.Padding(2);
-            this.picBtn_Close.Name = "picBtn_Close";
-            this.picBtn_Close.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.picBtn_Close.Size = new System.Drawing.Size(48, 34);
-            this.picBtn_Close.TabIndex = 18;
-            this.picBtn_Close.TabStop = false;
-            this.picBtnToolTip.SetToolTip(this.picBtn_Close, "Exit");
-            this.picBtn_Close.Visible = false;
-            this.picBtn_Close.Click += new System.EventHandler(this.picBtn_Close_Click);
-            // 
-            // picBtnToolTip
-            // 
-            this.picBtnToolTip.AutoPopDelay = 5000;
-            this.picBtnToolTip.BackColor = System.Drawing.Color.White;
-            this.picBtnToolTip.InitialDelay = 500;
-            this.picBtnToolTip.ReshowDelay = 100;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label39.Location = new System.Drawing.Point(102, -88);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(40, 22);
-            this.label39.TabIndex = 65;
-            this.label39.Text = "Set";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label7.Location = new System.Drawing.Point(199, -88);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 22);
-            this.label7.TabIndex = 66;
-            this.label7.Text = "Actual";
-            // 
-            // panel_ClientControls
-            // 
-            this.panel_ClientControls.Controls.Add(this.label7);
-            this.panel_ClientControls.Controls.Add(this.label39);
-            this.panel_ClientControls.Enabled = false;
-            this.panel_ClientControls.Location = new System.Drawing.Point(969, 94);
-            this.panel_ClientControls.Name = "panel_ClientControls";
-            this.panel_ClientControls.Size = new System.Drawing.Size(39, 10);
-            this.panel_ClientControls.TabIndex = 4;
-            // 
-            // timer2
-            // 
-            this.timer2.Enabled = true;
-            this.timer2.Interval = 1000;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick_1);
-            // 
-            // timer3
-            // 
-            this.timer3.Interval = 2;
-            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
-            // 
-            // timer4
-            // 
-            this.timer4.Enabled = true;
-            this.timer4.Interval = 3000;
-            this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
-            // 
-            // timer5
-            // 
-            this.timer5.Enabled = true;
-            this.timer5.Interval = 200;
-            this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
-            // 
-            // panel_status
-            // 
-            this.panel_status.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel_status.Controls.Add(this.label_upTime);
-            this.panel_status.Controls.Add(this.label73);
-            this.panel_status.Controls.Add(this.label_ram);
-            this.panel_status.Controls.Add(this.lbl_version);
-            this.panel_status.Controls.Add(this.label46);
-            this.panel_status.Controls.Add(this.label_cpu);
-            this.panel_status.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_status.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel_status.Location = new System.Drawing.Point(0, 756);
-            this.panel_status.Name = "panel_status";
-            this.panel_status.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.panel_status.Size = new System.Drawing.Size(1122, 32);
-            this.panel_status.TabIndex = 27;
-            // 
-            // label_upTime
-            // 
-            this.label_upTime.AutoSize = true;
-            this.label_upTime.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_upTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_upTime.Location = new System.Drawing.Point(941, 0);
-            this.label_upTime.Name = "label_upTime";
-            this.label_upTime.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label_upTime.Size = new System.Drawing.Size(61, 28);
-            this.label_upTime.TabIndex = 29;
-            this.label_upTime.Text = "UpTime";
-            this.label_upTime.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label73.Enabled = false;
-            this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label73.Location = new System.Drawing.Point(1002, 0);
-            this.label73.Name = "label73";
-            this.label73.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label73.Size = new System.Drawing.Size(15, 28);
-            this.label73.TabIndex = 30;
-            this.label73.Text = "|";
-            // 
-            // label_ram
-            // 
-            this.label_ram.AutoSize = true;
-            this.label_ram.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_ram.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_ram.Location = new System.Drawing.Point(1017, 0);
-            this.label_ram.Name = "label_ram";
-            this.label_ram.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label_ram.Size = new System.Drawing.Size(42, 28);
-            this.label_ram.TabIndex = 28;
-            this.label_ram.Text = "RAM";
-            this.label_ram.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl_version
-            // 
-            this.lbl_version.AutoSize = true;
-            this.lbl_version.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lbl_version.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lbl_version.Location = new System.Drawing.Point(5, 0);
-            this.lbl_version.Name = "lbl_version";
-            this.lbl_version.Padding = new System.Windows.Forms.Padding(5, 5, 1, 5);
-            this.lbl_version.Size = new System.Drawing.Size(84, 28);
-            this.lbl_version.TabIndex = 26;
-            this.lbl_version.Text = "Ver. 1.3.22";
-            this.lbl_version.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label46.Enabled = false;
-            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label46.Location = new System.Drawing.Point(1059, 0);
-            this.label46.Name = "label46";
-            this.label46.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label46.Size = new System.Drawing.Size(15, 28);
-            this.label46.TabIndex = 31;
-            this.label46.Text = "|";
-            // 
-            // label_cpu
-            // 
-            this.label_cpu.AutoSize = true;
-            this.label_cpu.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_cpu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_cpu.Location = new System.Drawing.Point(1074, 0);
-            this.label_cpu.Name = "label_cpu";
-            this.label_cpu.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label_cpu.Size = new System.Drawing.Size(41, 28);
-            this.label_cpu.TabIndex = 27;
-            this.label_cpu.Text = "CPU";
-            this.label_cpu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel_AdminControls.Size = new System.Drawing.Size(1122, 646);
+            this.panel_AdminControls.TabIndex = 5;
             // 
             // Form1
             // 
@@ -3526,9 +3565,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1122, 788);
+            this.Controls.Add(this.panel_ClientControls);
             this.Controls.Add(this.panel_AdminControls);
             this.Controls.Add(this.panel_Toolbar);
-            this.Controls.Add(this.panel_ClientControls);
             this.Controls.Add(this.panel_status);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -3544,6 +3583,22 @@
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.VisibleChanged += new System.EventHandler(this.Form1_VisibleChanged);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Restart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Shutdown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Close)).EndInit();
+            this.panel_ClientControls.ResumeLayout(false);
+            this.panel_ClientControls.PerformLayout();
+            this.panel_status.ResumeLayout(false);
+            this.panel_status.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel_Toolbar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Connect)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -3595,105 +3650,107 @@
             this.gb_parameters.ResumeLayout(false);
             this.gb_parameters.PerformLayout();
             this.panel_AdminControls.ResumeLayout(false);
-            this.panel_Toolbar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Restart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Shutdown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Connect)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBtn_Close)).EndInit();
-            this.panel_ClientControls.ResumeLayout(false);
-            this.panel_ClientControls.PerformLayout();
-            this.panel_status.ResumeLayout(false);
-            this.panel_status.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button btn_start_stop;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        public System.Windows.Forms.TextBox textBox10;
-        public System.Windows.Forms.TextBox textBox9;
-        public System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TrackBar trackBar_y2;
-        private System.Windows.Forms.TrackBar trackBar_y1;
-        private System.Windows.Forms.TrackBar trackBar_x2;
-        public System.Windows.Forms.TrackBar trackBar_x1;
-        private System.Windows.Forms.TrackBar trackBar_coli;
-        private System.Windows.Forms.TrackBar trackBar_gant;
-        private System.Windows.Forms.Button btn_y2_out;
-        private System.Windows.Forms.Button btn_y1_out;
-        private System.Windows.Forms.Button btn_y2_in;
-        private System.Windows.Forms.Button btn_y1_in;
-        private System.Windows.Forms.Button btn_x2_out;
-        private System.Windows.Forms.Button btn_x2_in;
-        private System.Windows.Forms.Button btn_x1_out;
-        private System.Windows.Forms.Button btn_x1_in;
-        private System.Windows.Forms.Button btn_coli_ccw;
-        private System.Windows.Forms.Button btn_coli_cw;
-        private System.Windows.Forms.Button btn_gant_ccw;
-        private System.Windows.Forms.Button btn_gant_cw;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        public System.Windows.Forms.TextBox tb_y2_co;
-        public System.Windows.Forms.TextBox tb_y1_co;
-        public System.Windows.Forms.TextBox tb_x2_co;
-        public System.Windows.Forms.TextBox tb_x1_co;
-        public System.Windows.Forms.TextBox textBox2;
-        public System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        public System.Windows.Forms.TextBox textBox44;
-        public System.Windows.Forms.TextBox textBox43;
-        public System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.PictureBox picBtn_Connect;
         private System.Windows.Forms.ToolTip picBtnToolTip;
-        public System.Windows.Forms.Panel panel_AdminControls;
-        public System.Windows.Forms.Panel panel_Toolbar;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.Panel panel_ClientControls;
-        private System.Windows.Forms.Label label_ConnectStatus;
-        private System.Windows.Forms.PictureBox pictureBox14;
-        private System.Windows.Forms.Label label40;
-        public System.Windows.Forms.TextBox adcheck;
-        private System.Windows.Forms.Label label6;
-        public System.Windows.Forms.PictureBox picBtn_Shutdown;
-        public System.Windows.Forms.PictureBox picBtn_Restart;
-        public System.Windows.Forms.PictureBox picBtn_Exit;
-        public System.Windows.Forms.PictureBox picBtn_Setting;
-        public System.Windows.Forms.PictureBox picBtn_LogOff;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Splitter splitter2;
-        private System.Windows.Forms.Splitter splitter3;
-        private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.Label label_date;
-        private System.Windows.Forms.Label label_time;
         private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.Label label47;
         public System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.Timer timer4;
+        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Timer timer5;
+        public System.Windows.Forms.Panel panel_status;
+        private System.Windows.Forms.Label lbl_version;
+        private System.Windows.Forms.Label label_ram;
+        private System.Windows.Forms.Label label_cpu;
+        private System.Windows.Forms.Label label_upTime;
+        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Label lbl_init;
+        private System.Windows.Forms.Label label_date;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label_time;
+        private System.Windows.Forms.Label label_ConnectStatus;
+        private System.Windows.Forms.Label label_title;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Label label71;
         public System.Windows.Forms.PictureBox picBtn_Close;
+        private System.Windows.Forms.PictureBox pictureBox14;
+        private System.Windows.Forms.PictureBox picBtn_Connect;
+        public System.Windows.Forms.Panel panel_Toolbar;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
+        public System.Windows.Forms.PictureBox picBtn_Exit;
+        public System.Windows.Forms.PictureBox picBtn_LogOff;
+        public System.Windows.Forms.PictureBox picBtn_Setting;
+        private System.Windows.Forms.Splitter splitter2;
+        public System.Windows.Forms.PictureBox picBtn_Restart;
+        private System.Windows.Forms.Splitter splitter3;
+        public System.Windows.Forms.PictureBox picBtn_Shutdown;
+        private System.Windows.Forms.Splitter splitter1;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label38;
+        public System.Windows.Forms.TextBox textBox8;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox textBox9;
+        public System.Windows.Forms.TextBox textBox44;
+        public System.Windows.Forms.TextBox textBox10;
+        public System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label8;
+        public System.Windows.Forms.TextBox textBox43;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.TextBox adcheck;
+        public System.Windows.Forms.TextBox tb_y2_co;
+        private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.TextBox tb_y1_co;
+        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.TextBox tb_x1_co;
+        private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.TextBox tb_x2_co;
+        private System.Windows.Forms.Button btn_start_stop;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button btn_y2_in;
+        private System.Windows.Forms.Button btn_gant_cw;
+        private System.Windows.Forms.Button btn_y1_out;
+        private System.Windows.Forms.TrackBar trackBar_y2;
+        private System.Windows.Forms.Button btn_y1_in;
+        private System.Windows.Forms.Button btn_gant_ccw;
+        private System.Windows.Forms.Button btn_y2_out;
+        private System.Windows.Forms.TrackBar trackBar_y1;
+        private System.Windows.Forms.Button btn_x2_out;
+        private System.Windows.Forms.Button btn_coli_cw;
+        private System.Windows.Forms.Button btn_x2_in;
+        private System.Windows.Forms.TrackBar trackBar_x2;
+        private System.Windows.Forms.TrackBar trackBar_gant;
+        private System.Windows.Forms.Button btn_coli_ccw;
+        private System.Windows.Forms.Button btn_x1_out;
+        public System.Windows.Forms.TrackBar trackBar_x1;
+        private System.Windows.Forms.TrackBar trackBar_coli;
+        private System.Windows.Forms.Button btn_x1_in;
+        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.Button btn_cancelLearn;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btn_learn;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.TextBox textBox12;
@@ -3722,6 +3779,13 @@
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.Button btn_save;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox tb_coli_flen;
+        private System.Windows.Forms.TextBox tb_coli_len;
+        private System.Windows.Forms.TextBox tb_coli_zpnt;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.TextBox tb_gant_flen;
+        private System.Windows.Forms.TextBox tb_gant_len;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.TextBox textBox53;
@@ -3739,12 +3803,16 @@
         private System.Windows.Forms.TextBox textBox46;
         private System.Windows.Forms.TextBox textBox45;
         private System.Windows.Forms.TextBox tb_y2_offset;
+        private System.Windows.Forms.TextBox tb_gant_zpnt;
         private System.Windows.Forms.TextBox tb_y1_offset;
         private System.Windows.Forms.TextBox tb_x2_offset;
+        private System.Windows.Forms.Label label65;
         private System.Windows.Forms.TextBox tb_x1_offset;
         private System.Windows.Forms.TextBox tb_coli_offset;
+        private System.Windows.Forms.Label label66;
         private System.Windows.Forms.TextBox tb_gant_offset;
         private System.Windows.Forms.TextBox tb_y2_gain;
+        private System.Windows.Forms.Label label67;
         private System.Windows.Forms.TextBox tb_y1_gain;
         private System.Windows.Forms.TextBox tb_x2_gain;
         private System.Windows.Forms.TextBox tb_x1_gain;
@@ -3758,8 +3826,11 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.SplitContainer splitContainer4;
         private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.PictureBox pb_receiveStatus;
+        private System.Windows.Forms.Label label72;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.TextBox textBox33;
         private System.Windows.Forms.PictureBox pictureBox6;
@@ -3786,7 +3857,24 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TextBox tb_y2_set;
+        private System.Windows.Forms.Button btn_clearTerminal_oth;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label lbl_in_cnt;
+        private System.Windows.Forms.Button btn_clearTerminal_in;
+        private System.Windows.Forms.TextBox tb_terminal_oth;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.TextBox tb_terminal_in;
+        private System.Windows.Forms.Button btn_clearTerminal;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.TextBox tb_terminal_out;
         private System.Windows.Forms.GroupBox gb_parameters;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.Label label62;
         private System.Windows.Forms.Button btn_saveParameters;
         private System.Windows.Forms.TextBox textBox79;
         private System.Windows.Forms.TextBox textBox80;
@@ -3836,55 +3924,8 @@
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label60;
-        public System.Windows.Forms.Label lbl_init;
-        private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.TextBox tb_terminal_out;
-        private System.Windows.Forms.Button btn_clearTerminal;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.TextBox tb_terminal_in;
-        private System.Windows.Forms.Button btn_clearTerminal_in;
-        private System.Windows.Forms.Label lbl_in_cnt;
         private System.Windows.Forms.Label lbl_out_cnt;
-        private System.Windows.Forms.Button btn_clearTerminal_oth;
-        private System.Windows.Forms.TextBox tb_terminal_oth;
-        private System.Windows.Forms.Label label64;
-        private System.Windows.Forms.Button btn_learn;
-        private System.Windows.Forms.Timer timer4;
-        private System.Windows.Forms.TextBox tb_gant_flen;
-        private System.Windows.Forms.TextBox tb_gant_len;
-        private System.Windows.Forms.TextBox tb_gant_zpnt;
-        private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.Label label66;
-        private System.Windows.Forms.Label label67;
-        private System.Windows.Forms.TextBox tb_coli_flen;
-        private System.Windows.Forms.TextBox tb_coli_len;
-        private System.Windows.Forms.TextBox tb_coli_zpnt;
-        private System.Windows.Forms.Label label69;
-        private System.Windows.Forms.Label label68;
-        private System.Windows.Forms.Button btn_cancelLearn;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.Label label_title;
-        private System.Windows.Forms.Label label71;
-        private System.Windows.Forms.Timer timer3;
-        private System.Windows.Forms.Timer timer5;
-        private System.Windows.Forms.PictureBox pb_receiveStatus;
-        private System.Windows.Forms.Label label72;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.Label label62;
-        private System.Windows.Forms.Panel panel3;
-        public System.Windows.Forms.Panel panel_status;
-        private System.Windows.Forms.Label lbl_version;
-        private System.Windows.Forms.Label label_ram;
-        private System.Windows.Forms.Label label_cpu;
-        private System.Windows.Forms.Label label_upTime;
-        private System.Windows.Forms.Label label73;
-        private System.Windows.Forms.Label label46;
+        public System.Windows.Forms.Panel panel_AdminControls;
     }
 }
 

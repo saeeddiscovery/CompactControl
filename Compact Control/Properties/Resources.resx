@@ -130,8 +130,8 @@
   <data name="Logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Exit_mouseOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Exit_mouseOver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Restart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Restart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="btn_PatientList" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btn_PatientList.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,8 +145,14 @@
   <data name="Exit_mouseOver2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Exit_mouseOver2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="LogOffButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogOffButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="btn_AddPatient" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btn_AddPatient.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="btn_PatientList_MouseOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\btn_PatientList_MouseOver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Exit2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Exit2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,17 +220,14 @@
   <data name="Exit_mouseOver1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Exit_mouseOver1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="btn_PatientList_MouseOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\btn_PatientList_MouseOver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="led-green1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\led-green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="green_sign" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\green_sign.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Barcode_Normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Barcode_Normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="led-green" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\led-green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Error" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Error.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -235,17 +238,20 @@
   <data name="LoginButton_MouseOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\LoginButton_MouseOver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CC-Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CC-Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="btn_DeletePatient_MouseOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btn_DeletePatient_MouseOver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ExitButton_MouseOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ExitButton_MouseOver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LogOffButton" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LogOffButton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Exit_mouseOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Exit_mouseOver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Restart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Restart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="led-green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\led-green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Restart_mouseOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Restart_mouseOver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -256,7 +262,7 @@
   <data name="SettingButton_MouseOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SettingButton_MouseOver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="led-green1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\led-green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CC-Logo-transparent" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CC-Logo-transparent.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
