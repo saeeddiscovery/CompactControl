@@ -57,6 +57,7 @@ namespace Compact_Control
         string x2_tol_1, x2_tol0, x2_tol1, x2_tol2, x2_v1, x2_v2, x2_v3;
         string y1_tol_1, y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
         string y2_tol_1, y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
+        string gravity_up, gravity_down;
         bool sendParametersFlag = false;
 
         string x1_co;
@@ -106,6 +107,8 @@ namespace Compact_Control
         string x2_set = "0";
         string y1_set = "0";
         string y2_set = "0";
+
+        bool in_diag = false;
 
         string adc;
 
@@ -435,6 +438,7 @@ namespace Compact_Control
             if (btn_start_stop.Text == "Start")
             {
                 write("S$");
+                in_diag = true;
                 btn_start_stop.Text = "Stop";
                 groupBox7.Enabled = true;
                 timer1.Stop();
@@ -444,6 +448,7 @@ namespace Compact_Control
                 if (GlobalSerialPort.IsOpen == false)
                     GlobalSerialPort.Open();
                 write("s");
+                in_diag = false;
                 btn_start_stop.Text = "Start";
                 groupBox7.Enabled = false;
                 timer1.Start();
@@ -469,8 +474,8 @@ namespace Compact_Control
         {
             if (sendParametersFlag == true)
             {
-                sendParametersFlag = false;
                 sendParameters();
+                sendParametersFlag = false;
                 //if (sendParameters() == true)
                 //{
                 //    MessageBox.Show("Parameters Save & Send successful!");
@@ -1151,8 +1156,14 @@ namespace Compact_Control
                 string y2_tol1_t = Math.Abs(Math.Round(double.Parse(y2_tol1) / y2_gain)).ToString();
                 string y2_tol2_t = Math.Abs(Math.Round(double.Parse(y2_tol2) / y2_gain)).ToString();
 
+                double gant_gain_int = Math.Round(gant_gain * 100000);
+                double gant_offset_int = Math.Round(gant_offset);
+                double collim_gain_int = Math.Round(collim_gain * 100000);
+                double collim_offset_int = Math.Round(collim_offset);
+
                 ourSum = double.Parse(gant_tol_1_t) + double.Parse(gant_tol0_t) + double.Parse(gant_tol1_t) + double.Parse(gant_tol2_t) +
                          double.Parse(collim_tol_1_t) + double.Parse(collim_tol0_t) + double.Parse(collim_tol1_t) + double.Parse(collim_tol2_t) +
+                         gant_gain_int + gant_offset_int + collim_gain_int + collim_offset_int +
                          double.Parse(x1_tol_1_t) + double.Parse(x1_tol0_t) + double.Parse(x1_tol1_t) + double.Parse(x1_tol2_t) +
                          double.Parse(x2_tol_1_t) + double.Parse(x2_tol0_t) + double.Parse(x2_tol1_t) + double.Parse(x2_tol2_t) +
                          double.Parse(y1_tol_1_t) + double.Parse(y1_tol0_t) + double.Parse(y1_tol1_t) + double.Parse(y1_tol2_t) +
@@ -1164,12 +1175,13 @@ namespace Compact_Control
                          double.Parse(y1_v1) + double.Parse(y1_v2) + double.Parse(y1_v3) +
                          double.Parse(y2_v1) + double.Parse(y2_v2) + double.Parse(y2_v3) +
                          double.Parse(gant_zpnt) + double.Parse(gant_length) + double.Parse(gant_fine_length) +
-                         double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length);
+                         double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length) +
+                         double.Parse(gravity_up) + double.Parse(gravity_down);
 
                 //MessageBox.Show(ourSum.ToString());
-                write("w");
-                write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
-                write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
+                write("z");
+                write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/" + gant_gain_int + "/" + gant_offset_int + "/");
+                write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/" + collim_gain_int + "/" + collim_offset_int + "/");
                 write(gant_tol_1_t + "/" + gant_tol0_t + "/" + gant_tol1_t + "/" + gant_tol2_t + "/");
                 write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
                 write(collim_tol_1_t + "/" + collim_tol0_t + "/" + collim_tol1_t + "/" + collim_tol2_t + "/");
@@ -1181,14 +1193,14 @@ namespace Compact_Control
                 write(y1_tol_1_t + "/" + y1_tol0_t + "/" + y1_tol1_t + "/" + y1_tol2_t + "/");
                 write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
                 write(y2_tol_1_t + "/" + y2_tol0_t + "/" + y2_tol1_t + "/" + y2_tol2_t + "/");
-                write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/");
+                write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/" + gravity_up + "/" + gravity_down + "/");
                 return true;
             }
             catch (Exception ex)
             {
                 btn_saveParameters.Enabled = true;
                 initState = 2;
-                MessageBox.Show("Unable to send parameters!" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+                // MessageBox.Show("Unable to send parameters!" + Environment.NewLine + ex.ToString().Split('\n')[0]);                }
                 return false;
             }
         }
@@ -1367,7 +1379,13 @@ namespace Compact_Control
                             //sendParameters();
                         }
                         break;
-             
+                    case "SSS":
+                        if (in_diag == false)
+                            write("s");
+                        break;
+                    case "ccc":
+                        write("y");
+                        break;
                     case "gco":
                         gant_co = a.Substring(3, a.Length - 3);
                         break;
@@ -1517,7 +1535,8 @@ namespace Compact_Control
                     default:
                         if (tb_terminal_oth.Lines.Length > 1000)
                             tb_terminal_oth.Clear();
-                        tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
+                        if (a.Substring(0, 3) != "sss" && a.Substring(0, 3) != "ccc")
+                            tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
                         break;
                     }
                     if (quit == true)
@@ -1530,15 +1549,6 @@ namespace Compact_Control
                 {
                 }
             //}
-        }
-
-        private void textBox76_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsNumber(e.KeyChar) || e.KeyChar == '.' && ((sender as TextBox).Text.IndexOf('.') == -1))
-            {
-                if (Regex.IsMatch((sender as TextBox).Text, "^\\d*\\.\\d{2}$")) e.Handled = true;
-            }
-            else e.Handled = e.KeyChar != (char)Keys.Back;
         }
 
         private void Validate_Text_tol(object sender, CancelEventArgs e)
@@ -1672,62 +1682,6 @@ namespace Compact_Control
         bool isY2Set = false;
         bool isX1Set = false;
         bool isX2Set = false;
-
-        private void tb_gant_set_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                if (string.IsNullOrEmpty(tb_gant_set.Text) || string.IsNullOrWhiteSpace(tb_gant_set.Text))
-                {
-                    gant_set = "0";
-                    pictureBox1.Hide();
-                    pictureBox1.BackgroundImage = Resources.Request;
-                    tb_coli_set.Focus();
-                    isGantSet = false;
-                    return;
-                }
-
-                double aa;
-                try
-                {
-                    aa = double.Parse(tb_gant_set.Text);
-                    if (aa < -180 || aa > 180)
-                    {
-                        gant_set = "0";
-                        pictureBox1.BackgroundImage = Resources.Error;
-                        pictureBox1.Show();
-                        isGantSet = false;
-                        return;
-                    }
-                    double gentValueActual = double.Parse(gant_dv);
-
-                    gant_set = ((int)((aa - gant_offset) / gant_gain)).ToString();
-                    pictureBox1.BackgroundImage = requestImage;
-
-                    if (Math.Abs(double.Parse(tb_gant_set.Text) - double.Parse(gant_dv)) > .1)
-                    {
-                        isGantSet = true;
-                        pictureBox1.Show();
-                    }
-                    else
-                    {
-                        pictureBox1.Hide();
-                        isGantSet = false;
-                    }
-                    tb_gant_set.BackColor = Color.LightGreen;
-                    tb_coli_set.Focus();
-                }
-                catch
-                {
-                    tb_gant_set.SelectAll();
-                    gant_set = "0";
-                    pictureBox1.BackgroundImage = Resources.Error;
-                    pictureBox1.Show();
-                    isGantSet = false;
-                    return;
-                }
-            }
-        }
 
         private void gantSet()
         {
@@ -2213,6 +2167,62 @@ namespace Compact_Control
             }
         }
 
+        private void tb_gant_set_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (string.IsNullOrEmpty(tb_gant_set.Text) || string.IsNullOrWhiteSpace(tb_gant_set.Text))
+                {
+                    gant_set = "0";
+                    pictureBox1.Hide();
+                    pictureBox1.BackgroundImage = Resources.Request;
+                    tb_coli_set.Focus();
+                    isGantSet = false;
+                    return;
+                }
+
+                double aa;
+                try
+                {
+                    aa = double.Parse(tb_gant_set.Text);
+                    if (aa < -180 || aa > 180)
+                    {
+                        gant_set = "0";
+                        pictureBox1.BackgroundImage = Resources.Error;
+                        pictureBox1.Show();
+                        isGantSet = false;
+                        return;
+                    }
+                    double gentValueActual = double.Parse(gant_dv);
+
+                    gant_set = ((int)((aa - gant_offset) / gant_gain)).ToString();
+                    pictureBox1.BackgroundImage = requestImage;
+
+                    if (Math.Abs(double.Parse(tb_gant_set.Text) - double.Parse(gant_dv)) > .1)
+                    {
+                        isGantSet = true;
+                        pictureBox1.Show();
+                    }
+                    else
+                    {
+                        pictureBox1.Hide();
+                        isGantSet = false;
+                    }
+                    tb_gant_set.BackColor = Color.LightGreen;
+                    tb_coli_set.Focus();
+                }
+                catch
+                {
+                    tb_gant_set.SelectAll();
+                    gant_set = "0";
+                    pictureBox1.BackgroundImage = Resources.Error;
+                    pictureBox1.Show();
+                    isGantSet = false;
+                    return;
+                }
+            }
+        }
+
         private void tb_y1_set_TextChanged(object sender, EventArgs e)
         {
             //if (string.IsNullOrEmpty(tb_y1_set.Text) || string.IsNullOrWhiteSpace(tb_y1_set.Text))
@@ -2348,7 +2358,8 @@ namespace Compact_Control
         {
             //GlobalSerialPort.DiscardInBuffer();
             //GlobalSerialPort.Close();
-            panel_AdminControls.Enabled = false;
+            tabControl1.Enabled = false;
+            //panel_AdminControls.Enabled = false;
             panel_ClientControls.Enabled = false;
             picBtn_Connect.BackgroundImage = Resources.ConnectButton;
             picBtnToolTip.SetToolTip(picBtn_Connect, "Connect");
@@ -2450,7 +2461,7 @@ namespace Compact_Control
                 }
                 HashPass.ParametersData values = HashPass.readParametersJson(dataPath);
 
-                string[] prms = new string[42];
+                string[] prms = new string[44];
 
                 prms[0] = gant_tol_1 = ClientControls.gant_tol_1 = values.gant_tol_1;
                 prms[1] = gant_tol0 = ClientControls.gant_tol0 = values.gant_tol0;
@@ -2494,6 +2505,8 @@ namespace Compact_Control
                 prms[39] = y2_v1 = ClientControls.y2_v1 = values.y2_v1;
                 prms[40] = y2_v2 = ClientControls.y2_v2 = values.y2_v2;
                 prms[41] = y2_v3 = ClientControls.y2_v3 = values.y2_v3;
+                prms[42] = gravity_up = ClientControls.gravity_up = values.gravity_up;
+                prms[43] = gravity_down = ClientControls.gravity_down = values.gravity_down;
 
                 int i = 0;
                 foreach (Control tb in gb_parameters.Controls)
@@ -2505,7 +2518,7 @@ namespace Compact_Control
                     }
                 }
 
-                string[] ourParams = new string[48];
+                string[] ourParams = new string[50];
                 ourParams[0] = gant_zpnt;
                 ourParams[1] = gant_length;
                 ourParams[2] = gant_fine_length;
@@ -2541,13 +2554,16 @@ namespace Compact_Control
                 }
                 if (isInServiceMode == true)
                 {
-                    panel_AdminControls.Enabled = true;
+                    //tabControl1.Enabled = true;
+                    //panel_AdminControls.Enabled = true;
+                    write("y");
                     timer1.Enabled = true;
                     timer3.Enabled = true;
                 }
                 else
                 {
-                    panel_ClientControls.Enabled = true;
+                    write("x");
+                    //panel_ClientControls.Enabled = true;
                     timer1.Enabled = false;
                     timer3.Enabled = false;
                 }
@@ -2556,6 +2572,7 @@ namespace Compact_Control
                 ReadLearnFile();
                 ReadParametersFile();
 
+                tabControl1.Enabled = true;
                 panel_AdminControls.Enabled = true;
                 panel_ClientControls.Enabled = true;
                 picBtn_Connect.BackgroundImage = Resources.ConnectButton_Connected;
@@ -2678,8 +2695,8 @@ namespace Compact_Control
                 //panel1.BackColor = Color.LightPink;
                 label_title.ForeColor = Color.LightPink;
                 label_title.Text = "Clinical";
-                picBtn_Exit.Hide();
-                picBtn_Close.Hide();
+                //picBtn_Exit.Hide();
+                //picBtn_Close.Hide();
                 picBtn_Setting.Hide();
             }
             //Form_TrialReport trialFrm = new Form_TrialReport();
@@ -2819,8 +2836,8 @@ namespace Compact_Control
         public static double ourSum = 0;
         private void btn_saveParameters_Click(object sender, EventArgs e)
         {
-            initState = 0 ;
-            string[] values = new string[42];
+            //initState = 0 ;
+            string[] values = new string[44];
             int i = 0;
             foreach (Control tb in gb_parameters.Controls)
             {
@@ -2872,13 +2889,16 @@ namespace Compact_Control
             x2_v1 = ClientControls.y2_v1 = values[39];
             x2_v2 = ClientControls.y2_v2 = values[40];
             x2_v3 = ClientControls.y2_v3 = values[41];
+            gravity_up = ClientControls.gravity_up = values[42];
+            gravity_down = ClientControls.gravity_down = values[43];
+
             try
             {
                 string appPath = Application.StartupPath;
                 string dataPath = System.IO.Path.Combine(appPath, "Parameters.dat");
                 HashPass.writeParametersJson(dataPath, values);
 
-                string[] ourParams = new string[48];
+                string[] ourParams = new string[50];
                 ourParams[0] = gant_zpnt;
                 ourParams[1] = gant_length;
                 ourParams[2] = gant_fine_length;
@@ -2893,7 +2913,8 @@ namespace Compact_Control
                 //{
                 //    ourSum = ourSum + double.Parse(param);
                 //}
-                sendParameters();
+                write("w");
+                //sendParameters();
                 btn_saveParameters.Enabled = false;
             }
             catch(Exception ex)

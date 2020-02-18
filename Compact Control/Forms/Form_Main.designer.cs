@@ -72,9 +72,11 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.picBtn_Connect = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.panel_AdminControls = new System.Windows.Forms.Panel();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -122,7 +124,7 @@
             this.trackBar_coli = new System.Windows.Forms.TrackBar();
             this.btn_x1_in = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.btn_cancelLearn = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btn_learn = new System.Windows.Forms.Button();
@@ -202,7 +204,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer6 = new System.Windows.Forms.SplitContainer();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.pb_receiveStatus = new System.Windows.Forms.PictureBox();
             this.label72 = new System.Windows.Forms.Label();
@@ -232,17 +234,12 @@
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.tb_y2_set = new System.Windows.Forms.TextBox();
-            this.btn_clearTerminal_oth = new System.Windows.Forms.Button();
-            this.label64 = new System.Windows.Forms.Label();
-            this.lbl_in_cnt = new System.Windows.Forms.Label();
-            this.btn_clearTerminal_in = new System.Windows.Forms.Button();
-            this.tb_terminal_oth = new System.Windows.Forms.TextBox();
-            this.label51 = new System.Windows.Forms.Label();
-            this.tb_terminal_in = new System.Windows.Forms.TextBox();
-            this.btn_clearTerminal = new System.Windows.Forms.Button();
-            this.label48 = new System.Windows.Forms.Label();
-            this.tb_terminal_out = new System.Windows.Forms.TextBox();
             this.gb_parameters = new System.Windows.Forms.GroupBox();
+            this.label75 = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.textBox21 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -299,8 +296,28 @@
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_clearTerminal_in = new System.Windows.Forms.Button();
+            this.tb_terminal_in = new System.Windows.Forms.TextBox();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label51 = new System.Windows.Forms.Label();
+            this.lbl_in_cnt = new System.Windows.Forms.Label();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btn_clearTerminal = new System.Windows.Forms.Button();
+            this.tb_terminal_out = new System.Windows.Forms.TextBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label48 = new System.Windows.Forms.Label();
             this.lbl_out_cnt = new System.Windows.Forms.Label();
-            this.panel_AdminControls = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.tb_terminal_oth = new System.Windows.Forms.TextBox();
+            this.btn_clearTerminal_oth = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label64 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).BeginInit();
@@ -314,12 +331,17 @@
             this.panel_Toolbar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Connect)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.panel_AdminControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -330,20 +352,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_x1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_coli)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox13.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
-            this.splitContainer4.Panel1.SuspendLayout();
-            this.splitContainer4.Panel2.SuspendLayout();
-            this.splitContainer4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).BeginInit();
+            this.splitContainer6.Panel1.SuspendLayout();
+            this.splitContainer6.Panel2.SuspendLayout();
+            this.splitContainer6.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_receiveStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -353,7 +375,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gb_parameters.SuspendLayout();
-            this.panel_AdminControls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
+            this.splitContainer5.Panel1.SuspendLayout();
+            this.splitContainer5.Panel2.SuspendLayout();
+            this.splitContainer5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -419,7 +457,7 @@
             this.picBtn_Setting.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picBtn_Setting.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBtn_Setting.Dock = System.Windows.Forms.DockStyle.Right;
-            this.picBtn_Setting.Location = new System.Drawing.Point(886, 36);
+            this.picBtn_Setting.Location = new System.Drawing.Point(1124, 36);
             this.picBtn_Setting.Name = "picBtn_Setting";
             this.picBtn_Setting.Size = new System.Drawing.Size(64, 70);
             this.picBtn_Setting.TabIndex = 10;
@@ -435,7 +473,7 @@
             this.picBtn_Restart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picBtn_Restart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBtn_Restart.Dock = System.Windows.Forms.DockStyle.Right;
-            this.picBtn_Restart.Location = new System.Drawing.Point(961, 36);
+            this.picBtn_Restart.Location = new System.Drawing.Point(1199, 36);
             this.picBtn_Restart.Name = "picBtn_Restart";
             this.picBtn_Restart.Size = new System.Drawing.Size(64, 70);
             this.picBtn_Restart.TabIndex = 12;
@@ -451,7 +489,7 @@
             this.picBtn_Shutdown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picBtn_Shutdown.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBtn_Shutdown.Dock = System.Windows.Forms.DockStyle.Right;
-            this.picBtn_Shutdown.Location = new System.Drawing.Point(1036, 36);
+            this.picBtn_Shutdown.Location = new System.Drawing.Point(1274, 36);
             this.picBtn_Shutdown.Name = "picBtn_Shutdown";
             this.picBtn_Shutdown.Size = new System.Drawing.Size(71, 70);
             this.picBtn_Shutdown.TabIndex = 13;
@@ -468,7 +506,7 @@
             this.picBtn_Close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picBtn_Close.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBtn_Close.Dock = System.Windows.Forms.DockStyle.Right;
-            this.picBtn_Close.Location = new System.Drawing.Point(1068, 0);
+            this.picBtn_Close.Location = new System.Drawing.Point(1306, 0);
             this.picBtn_Close.Margin = new System.Windows.Forms.Padding(2);
             this.picBtn_Close.Name = "picBtn_Close";
             this.picBtn_Close.Padding = new System.Windows.Forms.Padding(1, 0, 1, 0);
@@ -476,7 +514,6 @@
             this.picBtn_Close.TabIndex = 18;
             this.picBtn_Close.TabStop = false;
             this.picBtnToolTip.SetToolTip(this.picBtn_Close, "Exit");
-            this.picBtn_Close.Visible = false;
             this.picBtn_Close.Click += new System.EventHandler(this.picBtn_Close_Click);
             // 
             // label39
@@ -549,7 +586,7 @@
             this.panel_status.Location = new System.Drawing.Point(0, 756);
             this.panel_status.Name = "panel_status";
             this.panel_status.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.panel_status.Size = new System.Drawing.Size(1122, 32);
+            this.panel_status.Size = new System.Drawing.Size(1360, 32);
             this.panel_status.TabIndex = 27;
             // 
             // pictureBox7
@@ -559,7 +596,7 @@
             this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox7.Location = new System.Drawing.Point(89, 0);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(852, 30);
+            this.pictureBox7.Size = new System.Drawing.Size(1090, 30);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox7.TabIndex = 32;
             this.pictureBox7.TabStop = false;
@@ -570,7 +607,7 @@
             this.label_upTime.Dock = System.Windows.Forms.DockStyle.Right;
             this.label_upTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label_upTime.ForeColor = System.Drawing.Color.White;
-            this.label_upTime.Location = new System.Drawing.Point(941, 0);
+            this.label_upTime.Location = new System.Drawing.Point(1179, 0);
             this.label_upTime.Name = "label_upTime";
             this.label_upTime.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
             this.label_upTime.Size = new System.Drawing.Size(61, 28);
@@ -585,7 +622,7 @@
             this.label73.Enabled = false;
             this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label73.ForeColor = System.Drawing.Color.White;
-            this.label73.Location = new System.Drawing.Point(1002, 0);
+            this.label73.Location = new System.Drawing.Point(1240, 0);
             this.label73.Name = "label73";
             this.label73.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
             this.label73.Size = new System.Drawing.Size(15, 28);
@@ -598,7 +635,7 @@
             this.label_ram.Dock = System.Windows.Forms.DockStyle.Right;
             this.label_ram.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label_ram.ForeColor = System.Drawing.Color.White;
-            this.label_ram.Location = new System.Drawing.Point(1017, 0);
+            this.label_ram.Location = new System.Drawing.Point(1255, 0);
             this.label_ram.Name = "label_ram";
             this.label_ram.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
             this.label_ram.Size = new System.Drawing.Size(42, 28);
@@ -617,7 +654,7 @@
             this.lbl_version.Padding = new System.Windows.Forms.Padding(5, 5, 1, 5);
             this.lbl_version.Size = new System.Drawing.Size(84, 28);
             this.lbl_version.TabIndex = 26;
-            this.lbl_version.Text = "Ver. 1.4.03";
+            this.lbl_version.Text = "Ver. 1.4.08";
             this.lbl_version.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label46
@@ -627,7 +664,7 @@
             this.label46.Enabled = false;
             this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label46.ForeColor = System.Drawing.Color.White;
-            this.label46.Location = new System.Drawing.Point(1059, 0);
+            this.label46.Location = new System.Drawing.Point(1297, 0);
             this.label46.Name = "label46";
             this.label46.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
             this.label46.Size = new System.Drawing.Size(15, 28);
@@ -640,7 +677,7 @@
             this.label_cpu.Dock = System.Windows.Forms.DockStyle.Right;
             this.label_cpu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label_cpu.ForeColor = System.Drawing.Color.White;
-            this.label_cpu.Location = new System.Drawing.Point(1074, 0);
+            this.label_cpu.Location = new System.Drawing.Point(1312, 0);
             this.label_cpu.Name = "label_cpu";
             this.label_cpu.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
             this.label_cpu.Size = new System.Drawing.Size(41, 28);
@@ -665,7 +702,7 @@
             this.panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1118, 36);
+            this.panel1.Size = new System.Drawing.Size(1356, 36);
             this.panel1.TabIndex = 14;
             // 
             // lbl_init
@@ -692,7 +729,7 @@
             this.label_date.Dock = System.Windows.Forms.DockStyle.Right;
             this.label_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label_date.ForeColor = System.Drawing.Color.White;
-            this.label_date.Location = new System.Drawing.Point(802, 0);
+            this.label_date.Location = new System.Drawing.Point(1040, 0);
             this.label_date.Name = "label_date";
             this.label_date.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
             this.label_date.Size = new System.Drawing.Size(40, 28);
@@ -708,7 +745,7 @@
             this.label47.Enabled = false;
             this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label47.ForeColor = System.Drawing.Color.White;
-            this.label47.Location = new System.Drawing.Point(842, 0);
+            this.label47.Location = new System.Drawing.Point(1080, 0);
             this.label47.Name = "label47";
             this.label47.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
             this.label47.Size = new System.Drawing.Size(15, 28);
@@ -722,7 +759,7 @@
             this.label_time.Dock = System.Windows.Forms.DockStyle.Right;
             this.label_time.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label_time.ForeColor = System.Drawing.Color.White;
-            this.label_time.Location = new System.Drawing.Point(857, 0);
+            this.label_time.Location = new System.Drawing.Point(1095, 0);
             this.label_time.Name = "label_time";
             this.label_time.Padding = new System.Windows.Forms.Padding(1, 5, 1, 5);
             this.label_time.Size = new System.Drawing.Size(43, 28);
@@ -755,7 +792,7 @@
             this.label_title.Location = new System.Drawing.Point(0, 0);
             this.label_title.Name = "label_title";
             this.label_title.Padding = new System.Windows.Forms.Padding(110, 0, 0, 0);
-            this.label_title.Size = new System.Drawing.Size(900, 34);
+            this.label_title.Size = new System.Drawing.Size(1138, 34);
             this.label_title.TabIndex = 5;
             this.label_title.Text = "Service";
             this.label_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -768,7 +805,7 @@
             this.label70.Enabled = false;
             this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label70.ForeColor = System.Drawing.Color.White;
-            this.label70.Location = new System.Drawing.Point(900, 0);
+            this.label70.Location = new System.Drawing.Point(1138, 0);
             this.label70.Name = "label70";
             this.label70.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
             this.label70.Size = new System.Drawing.Size(15, 28);
@@ -782,7 +819,7 @@
             this.label71.Dock = System.Windows.Forms.DockStyle.Right;
             this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label71.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label71.Location = new System.Drawing.Point(915, 0);
+            this.label71.Location = new System.Drawing.Point(1153, 0);
             this.label71.Name = "label71";
             this.label71.Padding = new System.Windows.Forms.Padding(0, 3, 1, 4);
             this.label71.Size = new System.Drawing.Size(153, 29);
@@ -811,7 +848,7 @@
             this.panel_Toolbar.Location = new System.Drawing.Point(0, 0);
             this.panel_Toolbar.Margin = new System.Windows.Forms.Padding(0);
             this.panel_Toolbar.Name = "panel_Toolbar";
-            this.panel_Toolbar.Size = new System.Drawing.Size(1122, 110);
+            this.panel_Toolbar.Size = new System.Drawing.Size(1360, 110);
             this.panel_Toolbar.TabIndex = 3;
             // 
             // panel3
@@ -821,7 +858,7 @@
             this.panel3.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel3.Location = new System.Drawing.Point(240, 68);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(646, 32);
+            this.panel3.Size = new System.Drawing.Size(884, 32);
             this.panel3.TabIndex = 24;
             // 
             // panel2
@@ -830,13 +867,13 @@
             this.panel2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.panel2.Location = new System.Drawing.Point(240, 36);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(646, 32);
+            this.panel2.Size = new System.Drawing.Size(884, 32);
             this.panel2.TabIndex = 20;
             // 
             // splitter2
             // 
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter2.Location = new System.Drawing.Point(950, 36);
+            this.splitter2.Location = new System.Drawing.Point(1188, 36);
             this.splitter2.Margin = new System.Windows.Forms.Padding(2);
             this.splitter2.Name = "splitter2";
             this.splitter2.Size = new System.Drawing.Size(11, 70);
@@ -846,7 +883,7 @@
             // splitter3
             // 
             this.splitter3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter3.Location = new System.Drawing.Point(1025, 36);
+            this.splitter3.Location = new System.Drawing.Point(1263, 36);
             this.splitter3.Margin = new System.Windows.Forms.Padding(2);
             this.splitter3.Name = "splitter3";
             this.splitter3.Size = new System.Drawing.Size(11, 70);
@@ -856,7 +893,7 @@
             // splitter1
             // 
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter1.Location = new System.Drawing.Point(1107, 36);
+            this.splitter1.Location = new System.Drawing.Point(1345, 36);
             this.splitter1.Margin = new System.Windows.Forms.Padding(2);
             this.splitter1.Name = "splitter1";
             this.splitter1.Size = new System.Drawing.Size(11, 70);
@@ -891,6 +928,34 @@
             this.pictureBox14.TabIndex = 6;
             this.pictureBox14.TabStop = false;
             // 
+            // panel_AdminControls
+            // 
+            this.panel_AdminControls.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel_AdminControls.Controls.Add(this.splitContainer1);
+            this.panel_AdminControls.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_AdminControls.Enabled = false;
+            this.panel_AdminControls.Location = new System.Drawing.Point(0, 110);
+            this.panel_AdminControls.Name = "panel_AdminControls";
+            this.panel_AdminControls.Size = new System.Drawing.Size(1360, 646);
+            this.panel_AdminControls.TabIndex = 5;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.tabControl1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.splitContainer3);
+            this.splitContainer1.Size = new System.Drawing.Size(1360, 646);
+            this.splitContainer1.SplitterDistance = 1100;
+            this.splitContainer1.TabIndex = 135;
+            // 
             // tabControl1
             // 
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
@@ -902,43 +967,43 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1122, 646);
-            this.tabControl1.TabIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1100, 646);
+            this.tabControl1.TabIndex = 1;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.tabPage1.Controls.Add(this.splitContainer1);
+            this.tabPage1.Controls.Add(this.splitContainer2);
             this.tabPage1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1114, 612);
+            this.tabPage1.Size = new System.Drawing.Size(1092, 612);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Diagnose";
             // 
-            // splitContainer1
+            // splitContainer2
             // 
-            this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.IsSplitterFixed = true;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.IsSplitterFixed = true;
+            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer2.Name = "splitContainer2";
             // 
-            // splitContainer1.Panel1
+            // splitContainer2.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox5);
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox6);
-            this.splitContainer1.Panel1MinSize = 500;
+            this.splitContainer2.Panel1.Controls.Add(this.groupBox5);
+            this.splitContainer2.Panel1.Controls.Add(this.groupBox6);
+            this.splitContainer2.Panel1MinSize = 500;
             // 
-            // splitContainer1.Panel2
+            // splitContainer2.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.btn_start_stop);
-            this.splitContainer1.Panel2.Controls.Add(this.groupBox7);
-            this.splitContainer1.Size = new System.Drawing.Size(1108, 606);
-            this.splitContainer1.SplitterDistance = 500;
-            this.splitContainer1.TabIndex = 86;
+            this.splitContainer2.Panel2.Controls.Add(this.btn_start_stop);
+            this.splitContainer2.Panel2.Controls.Add(this.groupBox7);
+            this.splitContainer2.Size = new System.Drawing.Size(1086, 606);
+            this.splitContainer2.SplitterDistance = 530;
+            this.splitContainer2.TabIndex = 86;
             // 
             // groupBox5
             // 
@@ -1444,39 +1509,39 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.tabPage2.Controls.Add(this.splitContainer2);
+            this.tabPage2.Controls.Add(this.splitContainer4);
             this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1114, 612);
+            this.tabPage2.Size = new System.Drawing.Size(1092, 612);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Calibration";
             // 
-            // splitContainer2
+            // splitContainer4
             // 
-            this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.IsSplitterFixed = true;
-            this.splitContainer2.Location = new System.Drawing.Point(3, 3);
-            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.IsSplitterFixed = true;
+            this.splitContainer4.Location = new System.Drawing.Point(3, 3);
+            this.splitContainer4.Name = "splitContainer4";
             // 
-            // splitContainer2.Panel1
+            // splitContainer4.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.btn_cancelLearn);
-            this.splitContainer2.Panel1.Controls.Add(this.groupBox4);
-            this.splitContainer2.Panel1.Controls.Add(this.btn_edit);
-            this.splitContainer2.Panel1.Controls.Add(this.btn_save);
-            this.splitContainer2.Panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.splitContainer2.Panel1MinSize = 500;
+            this.splitContainer4.Panel1.Controls.Add(this.btn_cancelLearn);
+            this.splitContainer4.Panel1.Controls.Add(this.groupBox4);
+            this.splitContainer4.Panel1.Controls.Add(this.btn_edit);
+            this.splitContainer4.Panel1.Controls.Add(this.btn_save);
+            this.splitContainer4.Panel1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.splitContainer4.Panel1MinSize = 500;
             // 
-            // splitContainer2.Panel2
+            // splitContainer4.Panel2
             // 
-            this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.splitContainer2.Panel2.Controls.Add(this.groupBox3);
-            this.splitContainer2.Panel2MinSize = 500;
-            this.splitContainer2.Size = new System.Drawing.Size(1108, 606);
-            this.splitContainer2.SplitterDistance = 581;
-            this.splitContainer2.TabIndex = 24;
+            this.splitContainer4.Panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.splitContainer4.Panel2.Controls.Add(this.groupBox3);
+            this.splitContainer4.Panel2MinSize = 500;
+            this.splitContainer4.Size = new System.Drawing.Size(1086, 606);
+            this.splitContainer4.SplitterDistance = 550;
+            this.splitContainer4.TabIndex = 24;
             // 
             // btn_cancelLearn
             // 
@@ -2371,45 +2436,34 @@
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.tabPage3.Controls.Add(this.splitContainer4);
+            this.tabPage3.Controls.Add(this.splitContainer6);
             this.tabPage3.Location = new System.Drawing.Point(4, 30);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1114, 612);
+            this.tabPage3.Size = new System.Drawing.Size(1092, 612);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Parameters";
             // 
-            // splitContainer4
+            // splitContainer6
             // 
-            this.splitContainer4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer4.IsSplitterFixed = true;
-            this.splitContainer4.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer4.Name = "splitContainer4";
+            this.splitContainer6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainer6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer6.IsSplitterFixed = true;
+            this.splitContainer6.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer6.Name = "splitContainer6";
             // 
-            // splitContainer4.Panel1
+            // splitContainer6.Panel1
             // 
-            this.splitContainer4.Panel1.Controls.Add(this.groupBox8);
-            this.splitContainer4.Panel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.splitContainer4.Panel1MinSize = 400;
+            this.splitContainer6.Panel1.Controls.Add(this.groupBox8);
+            this.splitContainer6.Panel1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.splitContainer6.Panel1MinSize = 400;
             // 
-            // splitContainer4.Panel2
+            // splitContainer6.Panel2
             // 
-            this.splitContainer4.Panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.splitContainer4.Panel2.Controls.Add(this.btn_clearTerminal_oth);
-            this.splitContainer4.Panel2.Controls.Add(this.label64);
-            this.splitContainer4.Panel2.Controls.Add(this.lbl_in_cnt);
-            this.splitContainer4.Panel2.Controls.Add(this.btn_clearTerminal_in);
-            this.splitContainer4.Panel2.Controls.Add(this.tb_terminal_oth);
-            this.splitContainer4.Panel2.Controls.Add(this.label51);
-            this.splitContainer4.Panel2.Controls.Add(this.tb_terminal_in);
-            this.splitContainer4.Panel2.Controls.Add(this.btn_clearTerminal);
-            this.splitContainer4.Panel2.Controls.Add(this.label48);
-            this.splitContainer4.Panel2.Controls.Add(this.tb_terminal_out);
-            this.splitContainer4.Panel2.Controls.Add(this.gb_parameters);
-            this.splitContainer4.Panel2.Controls.Add(this.lbl_out_cnt);
-            this.splitContainer4.Size = new System.Drawing.Size(1114, 612);
-            this.splitContainer4.SplitterDistance = 499;
-            this.splitContainer4.TabIndex = 30;
+            this.splitContainer6.Panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.splitContainer6.Panel2.Controls.Add(this.gb_parameters);
+            this.splitContainer6.Size = new System.Drawing.Size(1092, 612);
+            this.splitContainer6.SplitterDistance = 486;
+            this.splitContainer6.TabIndex = 30;
             // 
             // groupBox8
             // 
@@ -2752,121 +2806,13 @@
             this.tb_y2_set.Enter += new System.EventHandler(this.txtBox_Enter);
             this.tb_y2_set.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_y2_set_KeyPress);
             // 
-            // btn_clearTerminal_oth
-            // 
-            this.btn_clearTerminal_oth.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_clearTerminal_oth.Location = new System.Drawing.Point(135, 568);
-            this.btn_clearTerminal_oth.Name = "btn_clearTerminal_oth";
-            this.btn_clearTerminal_oth.Size = new System.Drawing.Size(80, 30);
-            this.btn_clearTerminal_oth.TabIndex = 124;
-            this.btn_clearTerminal_oth.Text = "Clear";
-            this.btn_clearTerminal_oth.UseVisualStyleBackColor = true;
-            this.btn_clearTerminal_oth.Click += new System.EventHandler(this.btn_clearTerminal_oth_Click);
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label64.Location = new System.Drawing.Point(42, 416);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(129, 18);
-            this.label64.TabIndex = 123;
-            this.label64.Text = "Terminal (other)";
-            // 
-            // lbl_in_cnt
-            // 
-            this.lbl_in_cnt.AutoSize = true;
-            this.lbl_in_cnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_in_cnt.Location = new System.Drawing.Point(512, 414);
-            this.lbl_in_cnt.Name = "lbl_in_cnt";
-            this.lbl_in_cnt.Size = new System.Drawing.Size(18, 20);
-            this.lbl_in_cnt.TabIndex = 119;
-            this.lbl_in_cnt.Text = "0";
-            // 
-            // btn_clearTerminal_in
-            // 
-            this.btn_clearTerminal_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_clearTerminal_in.Location = new System.Drawing.Point(498, 568);
-            this.btn_clearTerminal_in.Name = "btn_clearTerminal_in";
-            this.btn_clearTerminal_in.Size = new System.Drawing.Size(80, 30);
-            this.btn_clearTerminal_in.TabIndex = 47;
-            this.btn_clearTerminal_in.Text = "Clear";
-            this.btn_clearTerminal_in.UseVisualStyleBackColor = true;
-            this.btn_clearTerminal_in.Click += new System.EventHandler(this.btn_clearTerminal_in_Click);
-            // 
-            // tb_terminal_oth
-            // 
-            this.tb_terminal_oth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.tb_terminal_oth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tb_terminal_oth.ForeColor = System.Drawing.Color.Cyan;
-            this.tb_terminal_oth.Location = new System.Drawing.Point(45, 435);
-            this.tb_terminal_oth.Multiline = true;
-            this.tb_terminal_oth.Name = "tb_terminal_oth";
-            this.tb_terminal_oth.ReadOnly = true;
-            this.tb_terminal_oth.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_terminal_oth.Size = new System.Drawing.Size(170, 132);
-            this.tb_terminal_oth.TabIndex = 122;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label51.Location = new System.Drawing.Point(404, 413);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(113, 18);
-            this.label51.TabIndex = 46;
-            this.label51.Text = "Terminal (in) :";
-            // 
-            // tb_terminal_in
-            // 
-            this.tb_terminal_in.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.tb_terminal_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tb_terminal_in.ForeColor = System.Drawing.Color.Cyan;
-            this.tb_terminal_in.Location = new System.Drawing.Point(408, 435);
-            this.tb_terminal_in.Multiline = true;
-            this.tb_terminal_in.Name = "tb_terminal_in";
-            this.tb_terminal_in.ReadOnly = true;
-            this.tb_terminal_in.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_terminal_in.Size = new System.Drawing.Size(170, 132);
-            this.tb_terminal_in.TabIndex = 45;
-            // 
-            // btn_clearTerminal
-            // 
-            this.btn_clearTerminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_clearTerminal.Location = new System.Drawing.Point(317, 568);
-            this.btn_clearTerminal.Name = "btn_clearTerminal";
-            this.btn_clearTerminal.Size = new System.Drawing.Size(80, 30);
-            this.btn_clearTerminal.TabIndex = 44;
-            this.btn_clearTerminal.Text = "Clear";
-            this.btn_clearTerminal.UseVisualStyleBackColor = true;
-            this.btn_clearTerminal.Click += new System.EventHandler(this.btn_clearTerminal_Click);
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label48.Location = new System.Drawing.Point(227, 414);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(124, 18);
-            this.label48.TabIndex = 26;
-            this.label48.Text = "Terminal (out) :";
-            // 
-            // tb_terminal_out
-            // 
-            this.tb_terminal_out.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.tb_terminal_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tb_terminal_out.ForeColor = System.Drawing.Color.Cyan;
-            this.tb_terminal_out.Location = new System.Drawing.Point(227, 435);
-            this.tb_terminal_out.Multiline = true;
-            this.tb_terminal_out.Name = "tb_terminal_out";
-            this.tb_terminal_out.ReadOnly = true;
-            this.tb_terminal_out.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_terminal_out.Size = new System.Drawing.Size(170, 132);
-            this.tb_terminal_out.TabIndex = 25;
-            this.tb_terminal_out.TextChanged += new System.EventHandler(this.tb_terminal_TextChanged);
-            // 
             // gb_parameters
             // 
+            this.gb_parameters.Controls.Add(this.label75);
+            this.gb_parameters.Controls.Add(this.label74);
+            this.gb_parameters.Controls.Add(this.label63);
+            this.gb_parameters.Controls.Add(this.textBox22);
+            this.gb_parameters.Controls.Add(this.textBox21);
             this.gb_parameters.Controls.Add(this.textBox3);
             this.gb_parameters.Controls.Add(this.textBox4);
             this.gb_parameters.Controls.Add(this.textBox5);
@@ -2929,6 +2875,54 @@
             this.gb_parameters.TabIndex = 24;
             this.gb_parameters.TabStop = false;
             // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label75.Location = new System.Drawing.Point(186, 304);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(47, 18);
+            this.label75.TabIndex = 54;
+            this.label75.Text = "Down";
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label74.Location = new System.Drawing.Point(141, 304);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(27, 18);
+            this.label74.TabIndex = 53;
+            this.label74.Text = "Up";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label63.Location = new System.Drawing.Point(39, 326);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(61, 18);
+            this.label63.TabIndex = 52;
+            this.label63.Text = "Gravity";
+            // 
+            // textBox22
+            // 
+            this.textBox22.BackColor = System.Drawing.SystemColors.Window;
+            this.textBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.textBox22.Location = new System.Drawing.Point(185, 325);
+            this.textBox22.Name = "textBox22";
+            this.textBox22.Size = new System.Drawing.Size(50, 24);
+            this.textBox22.TabIndex = 50;
+            // 
+            // textBox21
+            // 
+            this.textBox21.BackColor = System.Drawing.SystemColors.Window;
+            this.textBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.textBox21.Location = new System.Drawing.Point(129, 325);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(50, 24);
+            this.textBox21.TabIndex = 49;
+            // 
             // textBox3
             // 
             this.textBox3.BackColor = System.Drawing.SystemColors.Window;
@@ -2937,6 +2931,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(50, 24);
             this.textBox3.TabIndex = 42;
+            this.textBox3.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // textBox4
             // 
@@ -2946,6 +2941,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(50, 24);
             this.textBox4.TabIndex = 35;
+            this.textBox4.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // textBox5
             // 
@@ -2955,6 +2951,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(50, 24);
             this.textBox5.TabIndex = 28;
+            this.textBox5.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // textBox6
             // 
@@ -2964,6 +2961,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(50, 24);
             this.textBox6.TabIndex = 21;
+            this.textBox6.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // textBox19
             // 
@@ -2973,6 +2971,7 @@
             this.textBox19.Name = "textBox19";
             this.textBox19.Size = new System.Drawing.Size(50, 24);
             this.textBox19.TabIndex = 14;
+            this.textBox19.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // textBox20
             // 
@@ -2982,6 +2981,7 @@
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(50, 24);
             this.textBox20.TabIndex = 7;
+            this.textBox20.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
             // label62
             // 
@@ -2996,11 +2996,11 @@
             // btn_saveParameters
             // 
             this.btn_saveParameters.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_saveParameters.Location = new System.Drawing.Point(372, 304);
+            this.btn_saveParameters.Location = new System.Drawing.Point(372, 315);
             this.btn_saveParameters.Name = "btn_saveParameters";
-            this.btn_saveParameters.Size = new System.Drawing.Size(150, 30);
-            this.btn_saveParameters.TabIndex = 49;
-            this.btn_saveParameters.Text = "Save && Send";
+            this.btn_saveParameters.Size = new System.Drawing.Size(150, 36);
+            this.btn_saveParameters.TabIndex = 51;
+            this.btn_saveParameters.Text = "Save";
             this.btn_saveParameters.UseVisualStyleBackColor = true;
             this.btn_saveParameters.Click += new System.EventHandler(this.btn_saveParameters_Click);
             // 
@@ -3013,7 +3013,6 @@
             this.textBox79.Size = new System.Drawing.Size(50, 24);
             this.textBox79.TabIndex = 48;
             this.textBox79.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox79.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox80
             // 
@@ -3024,7 +3023,6 @@
             this.textBox80.Size = new System.Drawing.Size(50, 24);
             this.textBox80.TabIndex = 41;
             this.textBox80.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox80.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox81
             // 
@@ -3035,7 +3033,6 @@
             this.textBox81.Size = new System.Drawing.Size(50, 24);
             this.textBox81.TabIndex = 34;
             this.textBox81.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox81.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox82
             // 
@@ -3046,7 +3043,6 @@
             this.textBox82.Size = new System.Drawing.Size(50, 24);
             this.textBox82.TabIndex = 27;
             this.textBox82.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox82.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox83
             // 
@@ -3057,7 +3053,6 @@
             this.textBox83.Size = new System.Drawing.Size(50, 24);
             this.textBox83.TabIndex = 20;
             this.textBox83.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox83.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox84
             // 
@@ -3068,7 +3063,6 @@
             this.textBox84.Size = new System.Drawing.Size(50, 24);
             this.textBox84.TabIndex = 13;
             this.textBox84.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox84.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox85
             // 
@@ -3079,7 +3073,6 @@
             this.textBox85.Size = new System.Drawing.Size(50, 24);
             this.textBox85.TabIndex = 47;
             this.textBox85.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox85.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox86
             // 
@@ -3090,7 +3083,6 @@
             this.textBox86.Size = new System.Drawing.Size(50, 24);
             this.textBox86.TabIndex = 40;
             this.textBox86.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox86.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox87
             // 
@@ -3101,7 +3093,6 @@
             this.textBox87.Size = new System.Drawing.Size(50, 24);
             this.textBox87.TabIndex = 33;
             this.textBox87.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox87.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox88
             // 
@@ -3112,7 +3103,6 @@
             this.textBox88.Size = new System.Drawing.Size(50, 24);
             this.textBox88.TabIndex = 26;
             this.textBox88.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox88.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox89
             // 
@@ -3123,7 +3113,6 @@
             this.textBox89.Size = new System.Drawing.Size(50, 24);
             this.textBox89.TabIndex = 19;
             this.textBox89.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox89.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox90
             // 
@@ -3134,7 +3123,6 @@
             this.textBox90.Size = new System.Drawing.Size(50, 24);
             this.textBox90.TabIndex = 12;
             this.textBox90.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox90.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // label52
             // 
@@ -3165,7 +3153,6 @@
             this.textBox55.Size = new System.Drawing.Size(50, 24);
             this.textBox55.TabIndex = 46;
             this.textBox55.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox55.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox56
             // 
@@ -3176,7 +3163,6 @@
             this.textBox56.Size = new System.Drawing.Size(50, 24);
             this.textBox56.TabIndex = 39;
             this.textBox56.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox56.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox57
             // 
@@ -3187,7 +3173,6 @@
             this.textBox57.Size = new System.Drawing.Size(50, 24);
             this.textBox57.TabIndex = 32;
             this.textBox57.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox57.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox58
             // 
@@ -3198,7 +3183,6 @@
             this.textBox58.Size = new System.Drawing.Size(50, 24);
             this.textBox58.TabIndex = 25;
             this.textBox58.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox58.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox59
             // 
@@ -3209,7 +3193,6 @@
             this.textBox59.Size = new System.Drawing.Size(50, 24);
             this.textBox59.TabIndex = 18;
             this.textBox59.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox59.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox60
             // 
@@ -3220,7 +3203,6 @@
             this.textBox60.Size = new System.Drawing.Size(50, 24);
             this.textBox60.TabIndex = 11;
             this.textBox60.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox60.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_V);
             // 
             // textBox61
             // 
@@ -3231,8 +3213,6 @@
             this.textBox61.Size = new System.Drawing.Size(50, 24);
             this.textBox61.TabIndex = 45;
             this.textBox61.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox61.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
-            this.textBox61.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox62
             // 
@@ -3243,8 +3223,6 @@
             this.textBox62.Size = new System.Drawing.Size(50, 24);
             this.textBox62.TabIndex = 38;
             this.textBox62.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox62.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
-            this.textBox62.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox63
             // 
@@ -3255,8 +3233,6 @@
             this.textBox63.Size = new System.Drawing.Size(50, 24);
             this.textBox63.TabIndex = 31;
             this.textBox63.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox63.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
-            this.textBox63.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox64
             // 
@@ -3267,8 +3243,6 @@
             this.textBox64.Size = new System.Drawing.Size(50, 24);
             this.textBox64.TabIndex = 24;
             this.textBox64.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox64.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
-            this.textBox64.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox77
             // 
@@ -3279,8 +3253,6 @@
             this.textBox77.Size = new System.Drawing.Size(50, 24);
             this.textBox77.TabIndex = 17;
             this.textBox77.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox77.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
-            this.textBox77.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox78
             // 
@@ -3291,8 +3263,6 @@
             this.textBox78.Size = new System.Drawing.Size(50, 24);
             this.textBox78.TabIndex = 10;
             this.textBox78.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox78.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
-            this.textBox78.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // label49
             // 
@@ -3323,8 +3293,6 @@
             this.textBox65.Size = new System.Drawing.Size(50, 24);
             this.textBox65.TabIndex = 44;
             this.textBox65.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox65.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
-            this.textBox65.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox66
             // 
@@ -3335,8 +3303,6 @@
             this.textBox66.Size = new System.Drawing.Size(50, 24);
             this.textBox66.TabIndex = 37;
             this.textBox66.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox66.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
-            this.textBox66.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox67
             // 
@@ -3347,8 +3313,6 @@
             this.textBox67.Size = new System.Drawing.Size(50, 24);
             this.textBox67.TabIndex = 30;
             this.textBox67.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox67.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
-            this.textBox67.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox68
             // 
@@ -3359,8 +3323,6 @@
             this.textBox68.Size = new System.Drawing.Size(50, 24);
             this.textBox68.TabIndex = 23;
             this.textBox68.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox68.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
-            this.textBox68.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox69
             // 
@@ -3371,8 +3333,6 @@
             this.textBox69.Size = new System.Drawing.Size(50, 24);
             this.textBox69.TabIndex = 16;
             this.textBox69.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox69.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
-            this.textBox69.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox70
             // 
@@ -3383,8 +3343,6 @@
             this.textBox70.Size = new System.Drawing.Size(50, 24);
             this.textBox70.TabIndex = 9;
             this.textBox70.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox70.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
-            this.textBox70.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox71
             // 
@@ -3395,8 +3353,6 @@
             this.textBox71.Size = new System.Drawing.Size(50, 24);
             this.textBox71.TabIndex = 43;
             this.textBox71.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox71.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
-            this.textBox71.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox72
             // 
@@ -3407,8 +3363,6 @@
             this.textBox72.Size = new System.Drawing.Size(50, 24);
             this.textBox72.TabIndex = 36;
             this.textBox72.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox72.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
-            this.textBox72.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox73
             // 
@@ -3419,8 +3373,6 @@
             this.textBox73.Size = new System.Drawing.Size(50, 24);
             this.textBox73.TabIndex = 29;
             this.textBox73.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox73.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
-            this.textBox73.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox74
             // 
@@ -3431,8 +3383,6 @@
             this.textBox74.Size = new System.Drawing.Size(50, 24);
             this.textBox74.TabIndex = 22;
             this.textBox74.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox74.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
-            this.textBox74.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox75
             // 
@@ -3443,8 +3393,6 @@
             this.textBox75.Size = new System.Drawing.Size(50, 24);
             this.textBox75.TabIndex = 15;
             this.textBox75.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox75.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
-            this.textBox75.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // textBox76
             // 
@@ -3455,8 +3403,6 @@
             this.textBox76.Size = new System.Drawing.Size(50, 24);
             this.textBox76.TabIndex = 8;
             this.textBox76.Enter += new System.EventHandler(this.txtBox_Enter);
-            this.textBox76.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox76_KeyPress);
-            this.textBox76.Validating += new System.ComponentModel.CancelEventHandler(this.Validate_Text_tol);
             // 
             // label53
             // 
@@ -3538,33 +3484,301 @@
             this.label60.TabIndex = 0;
             this.label60.Text = "Tol 0";
             // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.panel5);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.splitContainer5);
+            this.splitContainer3.Size = new System.Drawing.Size(256, 646);
+            this.splitContainer3.SplitterDistance = 126;
+            this.splitContainer3.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.tableLayoutPanel1);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(126, 646);
+            this.panel5.TabIndex = 135;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.btn_clearTerminal_in, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.tb_terminal_in, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.panel8, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(126, 646);
+            this.tableLayoutPanel1.TabIndex = 89;
+            // 
+            // btn_clearTerminal_in
+            // 
+            this.btn_clearTerminal_in.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_clearTerminal_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_clearTerminal_in.Location = new System.Drawing.Point(3, 616);
+            this.btn_clearTerminal_in.Name = "btn_clearTerminal_in";
+            this.btn_clearTerminal_in.Size = new System.Drawing.Size(120, 27);
+            this.btn_clearTerminal_in.TabIndex = 123;
+            this.btn_clearTerminal_in.Text = "Clear";
+            this.btn_clearTerminal_in.UseVisualStyleBackColor = true;
+            this.btn_clearTerminal_in.Click += new System.EventHandler(this.btn_clearTerminal_in_Click);
+            // 
+            // tb_terminal_in
+            // 
+            this.tb_terminal_in.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.tb_terminal_in.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_terminal_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tb_terminal_in.ForeColor = System.Drawing.Color.Cyan;
+            this.tb_terminal_in.Location = new System.Drawing.Point(3, 35);
+            this.tb_terminal_in.Multiline = true;
+            this.tb_terminal_in.Name = "tb_terminal_in";
+            this.tb_terminal_in.ReadOnly = true;
+            this.tb_terminal_in.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tb_terminal_in.Size = new System.Drawing.Size(120, 575);
+            this.tb_terminal_in.TabIndex = 122;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.SystemColors.Control;
+            this.panel8.Controls.Add(this.label51);
+            this.panel8.Controls.Add(this.lbl_in_cnt);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(120, 26);
+            this.panel8.TabIndex = 121;
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label51.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label51.Location = new System.Drawing.Point(0, 0);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(26, 18);
+            this.label51.TabIndex = 46;
+            this.label51.Text = "in:";
+            // 
+            // lbl_in_cnt
+            // 
+            this.lbl_in_cnt.AutoSize = true;
+            this.lbl_in_cnt.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_in_cnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_in_cnt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl_in_cnt.Location = new System.Drawing.Point(102, 0);
+            this.lbl_in_cnt.Name = "lbl_in_cnt";
+            this.lbl_in_cnt.Size = new System.Drawing.Size(18, 20);
+            this.lbl_in_cnt.TabIndex = 119;
+            this.lbl_in_cnt.Text = "0";
+            // 
+            // splitContainer5
+            // 
+            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer5.Name = "splitContainer5";
+            this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer5.Panel1
+            // 
+            this.splitContainer5.Panel1.Controls.Add(this.panel4);
+            // 
+            // splitContainer5.Panel2
+            // 
+            this.splitContainer5.Panel2.Controls.Add(this.panel6);
+            this.splitContainer5.Size = new System.Drawing.Size(126, 646);
+            this.splitContainer5.SplitterDistance = 400;
+            this.splitContainer5.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.tableLayoutPanel2);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(126, 400);
+            this.panel4.TabIndex = 136;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.Control;
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.btn_clearTerminal, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.tb_terminal_out, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.panel7, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(126, 400);
+            this.tableLayoutPanel2.TabIndex = 89;
+            // 
+            // btn_clearTerminal
+            // 
+            this.btn_clearTerminal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_clearTerminal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_clearTerminal.Location = new System.Drawing.Point(3, 371);
+            this.btn_clearTerminal.Name = "btn_clearTerminal";
+            this.btn_clearTerminal.Size = new System.Drawing.Size(120, 26);
+            this.btn_clearTerminal.TabIndex = 122;
+            this.btn_clearTerminal.Text = "Clear";
+            this.btn_clearTerminal.UseVisualStyleBackColor = true;
+            this.btn_clearTerminal.Click += new System.EventHandler(this.btn_clearTerminal_Click);
+            // 
+            // tb_terminal_out
+            // 
+            this.tb_terminal_out.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.tb_terminal_out.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_terminal_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tb_terminal_out.ForeColor = System.Drawing.Color.Cyan;
+            this.tb_terminal_out.Location = new System.Drawing.Point(3, 35);
+            this.tb_terminal_out.Multiline = true;
+            this.tb_terminal_out.Name = "tb_terminal_out";
+            this.tb_terminal_out.ReadOnly = true;
+            this.tb_terminal_out.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tb_terminal_out.Size = new System.Drawing.Size(120, 330);
+            this.tb_terminal_out.TabIndex = 121;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.SystemColors.Control;
+            this.panel7.Controls.Add(this.label48);
+            this.panel7.Controls.Add(this.lbl_out_cnt);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(3, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(120, 26);
+            this.panel7.TabIndex = 120;
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label48.Location = new System.Drawing.Point(0, 0);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(37, 18);
+            this.label48.TabIndex = 26;
+            this.label48.Text = "out:";
+            // 
             // lbl_out_cnt
             // 
             this.lbl_out_cnt.AutoSize = true;
+            this.lbl_out_cnt.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbl_out_cnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_out_cnt.Location = new System.Drawing.Point(347, 414);
+            this.lbl_out_cnt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl_out_cnt.Location = new System.Drawing.Point(102, 0);
             this.lbl_out_cnt.Name = "lbl_out_cnt";
             this.lbl_out_cnt.Size = new System.Drawing.Size(18, 20);
             this.lbl_out_cnt.TabIndex = 118;
             this.lbl_out_cnt.Text = "0";
             // 
-            // panel_AdminControls
+            // panel6
             // 
-            this.panel_AdminControls.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.panel_AdminControls.Controls.Add(this.tabControl1);
-            this.panel_AdminControls.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_AdminControls.Enabled = false;
-            this.panel_AdminControls.Location = new System.Drawing.Point(0, 110);
-            this.panel_AdminControls.Name = "panel_AdminControls";
-            this.panel_AdminControls.Size = new System.Drawing.Size(1122, 646);
-            this.panel_AdminControls.TabIndex = 5;
+            this.panel6.Controls.Add(this.tableLayoutPanel3);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(126, 242);
+            this.panel6.TabIndex = 137;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.BackColor = System.Drawing.SystemColors.Control;
+            this.tableLayoutPanel3.ColumnCount = 1;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.tb_terminal_oth, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.btn_clearTerminal_oth, 0, 2);
+            this.tableLayoutPanel3.Controls.Add(this.panel9, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 3;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(126, 242);
+            this.tableLayoutPanel3.TabIndex = 89;
+            // 
+            // tb_terminal_oth
+            // 
+            this.tb_terminal_oth.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.tb_terminal_oth.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tb_terminal_oth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.tb_terminal_oth.ForeColor = System.Drawing.Color.Cyan;
+            this.tb_terminal_oth.Location = new System.Drawing.Point(3, 34);
+            this.tb_terminal_oth.Multiline = true;
+            this.tb_terminal_oth.Name = "tb_terminal_oth";
+            this.tb_terminal_oth.ReadOnly = true;
+            this.tb_terminal_oth.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tb_terminal_oth.Size = new System.Drawing.Size(120, 173);
+            this.tb_terminal_oth.TabIndex = 128;
+            // 
+            // btn_clearTerminal_oth
+            // 
+            this.btn_clearTerminal_oth.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btn_clearTerminal_oth.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_clearTerminal_oth.Location = new System.Drawing.Point(3, 213);
+            this.btn_clearTerminal_oth.Name = "btn_clearTerminal_oth";
+            this.btn_clearTerminal_oth.Size = new System.Drawing.Size(120, 26);
+            this.btn_clearTerminal_oth.TabIndex = 127;
+            this.btn_clearTerminal_oth.Text = "Clear";
+            this.btn_clearTerminal_oth.UseVisualStyleBackColor = true;
+            this.btn_clearTerminal_oth.Click += new System.EventHandler(this.btn_clearTerminal_oth_Click);
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.SystemColors.Control;
+            this.panel9.Controls.Add(this.label64);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(3, 3);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(120, 25);
+            this.panel9.TabIndex = 126;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.BackColor = System.Drawing.SystemColors.Control;
+            this.label64.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label64.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label64.Location = new System.Drawing.Point(0, 0);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(47, 18);
+            this.label64.TabIndex = 123;
+            this.label64.Text = "other";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1122, 788);
+            this.ClientSize = new System.Drawing.Size(1360, 788);
             this.Controls.Add(this.panel_ClientControls);
             this.Controls.Add(this.panel_AdminControls);
             this.Controls.Add(this.panel_Toolbar);
@@ -3599,12 +3813,17 @@
             this.panel_Toolbar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Connect)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.panel_AdminControls.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -3618,10 +3837,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_x1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar_coli)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -3633,11 +3852,10 @@
             this.groupBox13.ResumeLayout(false);
             this.groupBox13.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.splitContainer4.Panel1.ResumeLayout(false);
-            this.splitContainer4.Panel2.ResumeLayout(false);
-            this.splitContainer4.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
-            this.splitContainer4.ResumeLayout(false);
+            this.splitContainer6.Panel1.ResumeLayout(false);
+            this.splitContainer6.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).EndInit();
+            this.splitContainer6.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_receiveStatus)).EndInit();
@@ -3649,7 +3867,29 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gb_parameters.ResumeLayout(false);
             this.gb_parameters.PerformLayout();
-            this.panel_AdminControls.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.splitContainer5.Panel1.ResumeLayout(false);
+            this.splitContainer5.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
+            this.splitContainer5.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3697,9 +3937,11 @@
         public System.Windows.Forms.PictureBox picBtn_Shutdown;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.PictureBox pictureBox7;
+        public System.Windows.Forms.Panel panel_AdminControls;
+        private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox textBox7;
@@ -3747,7 +3989,7 @@
         private System.Windows.Forms.TrackBar trackBar_coli;
         private System.Windows.Forms.Button btn_x1_in;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.SplitContainer splitContainer4;
         private System.Windows.Forms.Button btn_cancelLearn;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btn_learn;
@@ -3827,7 +4069,7 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.SplitContainer splitContainer6;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.PictureBox pb_receiveStatus;
         private System.Windows.Forms.Label label72;
@@ -3857,16 +4099,6 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.TextBox tb_y2_set;
-        private System.Windows.Forms.Button btn_clearTerminal_oth;
-        private System.Windows.Forms.Label label64;
-        private System.Windows.Forms.Label lbl_in_cnt;
-        private System.Windows.Forms.Button btn_clearTerminal_in;
-        private System.Windows.Forms.TextBox tb_terminal_oth;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.TextBox tb_terminal_in;
-        private System.Windows.Forms.Button btn_clearTerminal;
-        private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.TextBox tb_terminal_out;
         private System.Windows.Forms.GroupBox gb_parameters;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
@@ -3924,8 +4156,33 @@
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.SplitContainer splitContainer5;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button btn_clearTerminal_in;
+        private System.Windows.Forms.TextBox tb_terminal_in;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label lbl_in_cnt;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button btn_clearTerminal;
+        private System.Windows.Forms.TextBox tb_terminal_out;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label lbl_out_cnt;
-        public System.Windows.Forms.Panel panel_AdminControls;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.TextBox tb_terminal_oth;
+        private System.Windows.Forms.Button btn_clearTerminal_oth;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.Label label63;
     }
 }
 
