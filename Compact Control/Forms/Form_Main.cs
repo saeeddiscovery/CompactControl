@@ -123,6 +123,10 @@ namespace Compact_Control
         private ClientControls clientFrm = new ClientControls();
 
         private DateTime startTime = DateTime.Now;
+        private DateTime connectTime;
+        private DateTime initTime;
+        private int connCounter = 0;
+        private int initCounter = 0;
         public double TotalVisibleMemorySize;
         public double FreePhysicalMemory;
         public double TotalVirtualMemorySize;
@@ -2283,6 +2287,8 @@ namespace Compact_Control
                     lbl_init.ForeColor = Color.Green;
                     timer4.Start();
                     isLblInitHid = true;
+                    initTime = DateTime.Now;
+                    initCounter = initCounter + 1;
                 }
             }
             else if (initState == 2)
@@ -2344,6 +2350,7 @@ namespace Compact_Control
                 DisconnectPort();
                 Thread.Sleep(200);
                 ConnectToPort();
+                
                 //Thread.Sleep(200);
                 //DisconnectPort();
                 //Thread.Sleep(200);
@@ -2581,6 +2588,9 @@ namespace Compact_Control
                 picBtnToolTip.SetToolTip(picBtn_Connect, "Disconnect");
                 label_ConnectStatus.ForeColor = Color.LightGreen;
                 label_ConnectStatus.Text = "Connected!";
+
+                connectTime = DateTime.Now;
+                connCounter = connCounter + 1;
             }
             catch (Exception ex)
             {
@@ -2763,6 +2773,24 @@ namespace Compact_Control
 
             TimeSpan upTime = now - startTime;
             label_upTime.Text = "UpTime: " + upTime.Hours + ":" + upTime.Minutes + ":" + upTime.Seconds;
+
+            if (label_ConnectStatus.Text == "Connected!")
+            {
+                TimeSpan connectedTime = now - connectTime;
+                label_connectTime.Text = "Conn(" + connCounter + "): " + connectedTime.Hours + ":" + connectedTime.Minutes + ":" + connectedTime.Seconds;
+            }
+            else
+                label_connectTime.Text = "Conn(" + connCounter + "): x";
+
+
+            if (initState == 1 || initState == -1)
+            {
+                TimeSpan initializedTime = now - initTime;
+                label_initTime.Text = "Init(" + initCounter + "): " + initializedTime.Hours + ":" + initializedTime.Minutes + ":" + initializedTime.Seconds;
+            }
+            else
+                label_initTime.Text = "Init(" + initCounter + "): x";
+
 
             double cpuUsage = this.theCPUCounter.NextValue();
             label_cpu.Text = "CPU: " + cpuUsage.ToString("00.") + " %";
