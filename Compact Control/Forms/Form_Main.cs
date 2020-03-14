@@ -474,7 +474,6 @@ namespace Compact_Control
         //        GlobalSerialPort.Close();
         //}
 
-        bool isLblInitHid = false;
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (sendParametersFlag == true)
@@ -1204,7 +1203,7 @@ namespace Compact_Control
             catch (Exception ex)
             {
                 btn_saveParameters.Enabled = true;
-                initState = 2;
+                setInitState(2);
                 // MessageBox.Show("Unable to send parameters!" + Environment.NewLine + ex.ToString().Split('\n')[0]);                }
                 return false;
             }
@@ -1364,7 +1363,7 @@ namespace Compact_Control
                     switch (a.Substring(0, 3))
                     {
                     case "ini":
-                        initState = 0;
+                        setInitState(0);
                         btn_saveParameters.Enabled = false;
                         sendParametersFlag = true;
                         //sendParameters();
@@ -1374,7 +1373,7 @@ namespace Compact_Control
                         if (checkSum(double.Parse(microSum), ourSum) == true)
                         {
                             write("{|}~");
-                            initState = 1;
+                            setInitState(1);
                             btn_saveParameters.Enabled = true;
                         }
                         else
@@ -1672,12 +1671,12 @@ namespace Compact_Control
                 SetConnection(true);
             else
             {
-                initState = -1;
+                setInitState(-1);
                 SetConnection(false);
             }
             if (btn_saveParameters.Enabled == false)
             {
-                initState = -1;
+                setInitState(-1);
                 btn_saveParameters.Enabled = true;
             }
         }
@@ -2269,38 +2268,34 @@ namespace Compact_Control
             }
         }
 
-        private void timer5_Tick(object sender, EventArgs e)
+        public void setInitState(int state)
         {
+            initState = state;
             if (initState == 0)
             {
-                lbl_init.Visible = true;
+                lbl_init.Show();
                 lbl_init.Text = "Initializing";
                 lbl_init.ForeColor = Color.Orange;
-                isLblInitHid = false;
             }
             else if (initState == 1)
             {
-                if (isLblInitHid == false)
-                {
-                    lbl_init.Visible = true;
-                    lbl_init.Text = "Initialized";
-                    lbl_init.ForeColor = Color.Green;
-                    timer4.Start();
-                    isLblInitHid = true;
-                    initTime = DateTime.Now;
-                    initCounter = initCounter + 1;
-                }
+                lbl_init.Show();
+                lbl_init.Text = "Initialized";
+                lbl_init.ForeColor = Color.LightGreen;
+                timer4.Start();
+                initTime = DateTime.Now;
+                initCounter = initCounter + 1;
             }
             else if (initState == 2)
             {
-                lbl_init.Visible = true;
+                lbl_init.Show();
                 lbl_init.Text = "Initialization Failed";
                 lbl_init.ForeColor = Color.Red;
+                timer4.Start();
             }
             else if (initState == -1)
             {
-                lbl_init.Visible = false;
-                initState = -2;
+                lbl_init.Hide();
             }
         }
 
@@ -2783,7 +2778,7 @@ namespace Compact_Control
                 label_connectTime.Text = "Conn(" + connCounter + "): x";
 
 
-            if (initState == 1 || initState == -1)
+            if (initState == 1)
             {
                 TimeSpan initializedTime = now - initTime;
                 label_initTime.Text = "Init(" + initCounter + "): " + initializedTime.Hours + ":" + initializedTime.Minutes + ":" + initializedTime.Seconds;

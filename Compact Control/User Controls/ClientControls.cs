@@ -13,6 +13,7 @@ namespace Compact_Control
 {
     public partial class ClientControls : UserControl
     {
+        private Form1 frm1;
         //private SerialPort _serialPort1;
         //public SerialPort serialPort1
         //{
@@ -245,7 +246,7 @@ namespace Compact_Control
             }
             catch(Exception ex)
             {
-                Form1.initState = 2;
+                this.frm1.setInitState(2);
                 //MessageBox.Show("Unable to send parameters!" + Environment.NewLine + ex.ToString().Split('\n')[0]);
                 return false;
             }
@@ -255,6 +256,9 @@ namespace Compact_Control
         public Queue<string> receiveQ = new Queue<string>();
         public void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
+            if (this.frm1 == null)
+                this.frm1 = this.ParentForm as Form1;
+
             if (serialPort1.IsOpen == false)
                 return;
             try
@@ -411,7 +415,7 @@ namespace Compact_Control
                     switch (a.Substring(0, 3))
                     {
                     case "ini":
-                        Form1.initState = 0;
+                        this.frm1.setInitState(0);
                         sendParametersFlag = true;
                         //sendParameters();
                         break;
@@ -426,7 +430,7 @@ namespace Compact_Control
                         if (checkSum(double.Parse(microSum), ourSum) == true)
                         {
                             write("{|}~");
-                            Form1.initState = 1;
+                            this.frm1.setInitState(1);
                         }
                         else
                         {

@@ -46,8 +46,11 @@
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.timer4 = new System.Windows.Forms.Timer(this.components);
-            this.timer5 = new System.Windows.Forms.Timer(this.components);
             this.panel_status = new System.Windows.Forms.Panel();
+            this.label_initTime = new System.Windows.Forms.Label();
+            this.label79 = new System.Windows.Forms.Label();
+            this.label_connectTime = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.label_upTime = new System.Windows.Forms.Label();
             this.label73 = new System.Windows.Forms.Label();
@@ -318,10 +321,6 @@
             this.btn_clearTerminal_oth = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label64 = new System.Windows.Forms.Label();
-            this.label_connectTime = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
-            this.label_initTime = new System.Windows.Forms.Label();
-            this.label79 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).BeginInit();
@@ -568,12 +567,6 @@
             this.timer4.Interval = 3000;
             this.timer4.Tick += new System.EventHandler(this.timer4_Tick);
             // 
-            // timer5
-            // 
-            this.timer5.Enabled = true;
-            this.timer5.Interval = 200;
-            this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
-            // 
             // panel_status
             // 
             this.panel_status.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -596,6 +589,63 @@
             this.panel_status.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.panel_status.Size = new System.Drawing.Size(1360, 32);
             this.panel_status.TabIndex = 27;
+            // 
+            // label_initTime
+            // 
+            this.label_initTime.AutoSize = true;
+            this.label_initTime.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_initTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_initTime.ForeColor = System.Drawing.Color.White;
+            this.label_initTime.Location = new System.Drawing.Point(1032, 0);
+            this.label_initTime.Name = "label_initTime";
+            this.label_initTime.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label_initTime.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label_initTime.Size = new System.Drawing.Size(42, 28);
+            this.label_initTime.TabIndex = 35;
+            this.label_initTime.Text = "Init: x";
+            this.label_initTime.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label79.Enabled = false;
+            this.label79.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label79.ForeColor = System.Drawing.Color.White;
+            this.label79.Location = new System.Drawing.Point(1074, 0);
+            this.label79.Name = "label79";
+            this.label79.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label79.Size = new System.Drawing.Size(15, 28);
+            this.label79.TabIndex = 36;
+            this.label79.Text = "|";
+            // 
+            // label_connectTime
+            // 
+            this.label_connectTime.AutoSize = true;
+            this.label_connectTime.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label_connectTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_connectTime.ForeColor = System.Drawing.Color.White;
+            this.label_connectTime.Location = new System.Drawing.Point(1089, 0);
+            this.label_connectTime.Name = "label_connectTime";
+            this.label_connectTime.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label_connectTime.Size = new System.Drawing.Size(60, 28);
+            this.label_connectTime.TabIndex = 33;
+            this.label_connectTime.Text = "Conn: x";
+            this.label_connectTime.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label77.Enabled = false;
+            this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label77.ForeColor = System.Drawing.Color.White;
+            this.label77.Location = new System.Drawing.Point(1149, 0);
+            this.label77.Name = "label77";
+            this.label77.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
+            this.label77.Size = new System.Drawing.Size(15, 28);
+            this.label77.TabIndex = 34;
+            this.label77.Text = "|";
             // 
             // pictureBox7
             // 
@@ -662,7 +712,7 @@
             this.lbl_version.Padding = new System.Windows.Forms.Padding(5, 5, 1, 5);
             this.lbl_version.Size = new System.Drawing.Size(84, 28);
             this.lbl_version.TabIndex = 26;
-            this.lbl_version.Text = "Ver. 1.4.08";
+            this.lbl_version.Text = "Ver. 1.4.09";
             this.lbl_version.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label46
@@ -3781,63 +3831,6 @@
             this.label64.TabIndex = 123;
             this.label64.Text = "other";
             // 
-            // label_connectTime
-            // 
-            this.label_connectTime.AutoSize = true;
-            this.label_connectTime.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_connectTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_connectTime.ForeColor = System.Drawing.Color.White;
-            this.label_connectTime.Location = new System.Drawing.Point(1089, 0);
-            this.label_connectTime.Name = "label_connectTime";
-            this.label_connectTime.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label_connectTime.Size = new System.Drawing.Size(60, 28);
-            this.label_connectTime.TabIndex = 33;
-            this.label_connectTime.Text = "Conn: x";
-            this.label_connectTime.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label77.Enabled = false;
-            this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label77.ForeColor = System.Drawing.Color.White;
-            this.label77.Location = new System.Drawing.Point(1149, 0);
-            this.label77.Name = "label77";
-            this.label77.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label77.Size = new System.Drawing.Size(15, 28);
-            this.label77.TabIndex = 34;
-            this.label77.Text = "|";
-            // 
-            // label_initTime
-            // 
-            this.label_initTime.AutoSize = true;
-            this.label_initTime.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label_initTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label_initTime.ForeColor = System.Drawing.Color.White;
-            this.label_initTime.Location = new System.Drawing.Point(1032, 0);
-            this.label_initTime.Name = "label_initTime";
-            this.label_initTime.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label_initTime.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label_initTime.Size = new System.Drawing.Size(42, 28);
-            this.label_initTime.TabIndex = 35;
-            this.label_initTime.Text = "Init: x";
-            this.label_initTime.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label79
-            // 
-            this.label79.AutoSize = true;
-            this.label79.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label79.Enabled = false;
-            this.label79.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label79.ForeColor = System.Drawing.Color.White;
-            this.label79.Location = new System.Drawing.Point(1074, 0);
-            this.label79.Name = "label79";
-            this.label79.Padding = new System.Windows.Forms.Padding(0, 5, 1, 5);
-            this.label79.Size = new System.Drawing.Size(15, 28);
-            this.label79.TabIndex = 36;
-            this.label79.Text = "|";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3970,7 +3963,6 @@
         public System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.Timer timer4;
         private System.Windows.Forms.Timer timer3;
-        private System.Windows.Forms.Timer timer5;
         public System.Windows.Forms.Panel panel_status;
         private System.Windows.Forms.Label lbl_version;
         private System.Windows.Forms.Label label_ram;
@@ -3979,7 +3971,6 @@
         private System.Windows.Forms.Label label73;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Panel panel1;
-        public System.Windows.Forms.Label lbl_init;
         private System.Windows.Forms.Label label_date;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label_time;
@@ -4252,6 +4243,7 @@
         private System.Windows.Forms.Label label79;
         private System.Windows.Forms.Label label_connectTime;
         private System.Windows.Forms.Label label77;
+        public System.Windows.Forms.Label lbl_init;
     }
 }
 
