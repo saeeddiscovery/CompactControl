@@ -1671,12 +1671,10 @@ namespace Compact_Control
                 SetConnection(true);
             else
             {
-                setInitState(-1);
                 SetConnection(false);
             }
             if (btn_saveParameters.Enabled == false)
             {
-                setInitState(-1);
                 btn_saveParameters.Enabled = true;
             }
         }
