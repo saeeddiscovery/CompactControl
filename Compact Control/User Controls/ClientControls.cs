@@ -264,6 +264,7 @@ namespace Compact_Control
                     string currReceived = serialPort1.ReadLine();
                     receiveQ.Enqueue(currReceived);
                 }
+                serialPort1.DiscardInBuffer();
             }
             catch { }
             //string currReceived = serialPort1.ReadExisting();
@@ -295,6 +296,7 @@ namespace Compact_Control
 
         public void write(string data)
         {
+            serialPort1.DiscardOutBuffer();
             serialPort1.Write(data);
             if (showTerminals == "1")
                 tb_terminal_out.AppendText(data + Environment.NewLine);

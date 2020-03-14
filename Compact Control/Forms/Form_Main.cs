@@ -273,6 +273,7 @@ namespace Compact_Control
 
         public void write(string data)
         {
+            GlobalSerialPort.DiscardOutBuffer();
             GlobalSerialPort.Write(data);
 
             tb_terminal_out.AppendText(data + Environment.NewLine);
@@ -1225,6 +1226,7 @@ namespace Compact_Control
                     string currReceived = GlobalSerialPort.ReadLine();
                     receiveQ.Enqueue(currReceived);
                 }
+                GlobalSerialPort.DiscardInBuffer();
             }
             catch { }
             //string currReceived = GlobalSerialPort.ReadExisting();
