@@ -345,6 +345,7 @@ namespace Compact_Control
         private void btn_clearTerminal_oth_Click(object sender, EventArgs e)
         {
             tb_terminal_oth.Clear();
+            lbl_oth_cnt.Text = "0";
         }
 
         bool inputADC = false;
@@ -404,7 +405,7 @@ namespace Compact_Control
             //string[] lines = currData.Split('\n');
             if (showTerminals == "1")
             {
-                if ((currData != "") && (currData.Substring(0, 3) == "gco"))
+                if ((currData != "") && (currData.Length >= 3) && (currData.Substring(0, 3) == "gco"))
                     tb_terminal_in.AppendText(Environment.NewLine);
                 tb_terminal_in.AppendText(currData + Environment.NewLine);
                 //System.Threading.Thread.Sleep(1000);
@@ -414,9 +415,9 @@ namespace Compact_Control
             //foreach (string a in lines)
             //{
             try
+            {
+                switch (a.Substring(0, 3))
                 {
-                    switch (a.Substring(0, 3))
-                    {
                     case "ini":
                         this.frm1.setInitState(0);
                         sendParametersFlag = true;
@@ -650,21 +651,42 @@ namespace Compact_Control
                     default:
                         if (showTerminals == "1")
                         {
-                            if (a.Substring(0, 3) != "sss" && a.Substring(0, 3) != "ccc")
-                                tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
-                            if (tb_terminal_oth.Lines.Length > 1000)
-                                tb_terminal_oth.Clear();
+                            writeToOtherTerminal(a, false);
                         }
                         break;
-                    }
-                    if (Class_PatientData.isBoardReadWrite)
-                    {
-                    }
                 }
-                catch
+                if (Class_PatientData.isBoardReadWrite)
                 {
                 }
+            }
+            catch
+            {
+                if (showTerminals == "1")
+                {
+                    writeToOtherTerminal(a, true);
+                }
+            }
             //}
+        }
+
+        private void writeToOtherTerminal(string text, bool isCatch)
+        {
+            if (text.Substring(0, 3) != "sss" && text.Substring(0, 3) != "ccc")
+            {
+                if (isCatch)
+                    tb_terminal_oth.AppendText("* " + text + Environment.NewLine);
+                else
+                    tb_terminal_oth.AppendText(text + Environment.NewLine);
+                int o = int.Parse(lbl_oth_cnt.Text);
+                o = o + 1;
+                lbl_oth_cnt.Text = o.ToString();
+
+                if (o > 100)
+                {
+                    lbl_oth_cnt.Text = "0";
+                    tb_terminal_oth.Clear();
+                }
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)

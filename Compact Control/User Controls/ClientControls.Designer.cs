@@ -103,6 +103,7 @@
             this.lbl_readingError = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timer_gant = new System.Windows.Forms.Timer(this.components);
+            this.lbl_oth_cnt = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x2_status)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x1_status)).BeginInit();
@@ -753,11 +754,11 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(145, 331);
+            this.label3.Location = new System.Drawing.Point(143, 331);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 18);
+            this.label3.Size = new System.Drawing.Size(52, 18);
             this.label3.TabIndex = 119;
-            this.label3.Text = "other";
+            this.label3.Text = "other:";
             // 
             // tb_terminal_oth
             // 
@@ -785,6 +786,7 @@
             // 
             // gb_terminals
             // 
+            this.gb_terminals.Controls.Add(this.lbl_oth_cnt);
             this.gb_terminals.Controls.Add(this.btn_clearTerminal_oth);
             this.gb_terminals.Controls.Add(this.label3);
             this.gb_terminals.Controls.Add(this.tb_terminal_oth);
@@ -929,6 +931,17 @@
             this.timer_gant.Interval = 1500;
             this.timer_gant.Tick += new System.EventHandler(this.timer_gant_Tick);
             // 
+            // lbl_oth_cnt
+            // 
+            this.lbl_oth_cnt.AutoSize = true;
+            this.lbl_oth_cnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_oth_cnt.ForeColor = System.Drawing.Color.Black;
+            this.lbl_oth_cnt.Location = new System.Drawing.Point(193, 331);
+            this.lbl_oth_cnt.Name = "lbl_oth_cnt";
+            this.lbl_oth_cnt.Size = new System.Drawing.Size(18, 20);
+            this.lbl_oth_cnt.TabIndex = 121;
+            this.lbl_oth_cnt.Text = "0";
+            // 
             // ClientControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1050,5 +1063,6 @@
         private System.Windows.Forms.Label lbl_readingError;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer_gant;
+        private System.Windows.Forms.Label lbl_oth_cnt;
     }
 }
