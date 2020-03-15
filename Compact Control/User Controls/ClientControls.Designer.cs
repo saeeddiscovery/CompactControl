@@ -659,7 +659,7 @@
             // btn_clearTerminal_in
             // 
             this.btn_clearTerminal_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_clearTerminal_in.Location = new System.Drawing.Point(5, 489);
+            this.btn_clearTerminal_in.Location = new System.Drawing.Point(6, 483);
             this.btn_clearTerminal_in.Name = "btn_clearTerminal_in";
             this.btn_clearTerminal_in.Size = new System.Drawing.Size(131, 30);
             this.btn_clearTerminal_in.TabIndex = 113;
@@ -688,7 +688,7 @@
             this.tb_terminal_in.Name = "tb_terminal_in";
             this.tb_terminal_in.ReadOnly = true;
             this.tb_terminal_in.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_terminal_in.Size = new System.Drawing.Size(133, 412);
+            this.tb_terminal_in.Size = new System.Drawing.Size(133, 406);
             this.tb_terminal_in.TabIndex = 111;
             // 
             // btn_clearTerminal
@@ -769,13 +769,13 @@
             this.tb_terminal_oth.Name = "tb_terminal_oth";
             this.tb_terminal_oth.ReadOnly = true;
             this.tb_terminal_oth.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tb_terminal_oth.Size = new System.Drawing.Size(132, 131);
+            this.tb_terminal_oth.Size = new System.Drawing.Size(132, 125);
             this.tb_terminal_oth.TabIndex = 118;
             // 
             // btn_clearTerminal_oth
             // 
             this.btn_clearTerminal_oth.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_clearTerminal_oth.Location = new System.Drawing.Point(145, 489);
+            this.btn_clearTerminal_oth.Location = new System.Drawing.Point(146, 483);
             this.btn_clearTerminal_oth.Name = "btn_clearTerminal_oth";
             this.btn_clearTerminal_oth.Size = new System.Drawing.Size(129, 30);
             this.btn_clearTerminal_oth.TabIndex = 120;

@@ -397,12 +397,15 @@ namespace Compact_Control
         {
             
             bool noWrite = true;
+            
             if (receiveQ.Count == 0)
                 return;
             string currData = receiveQ.Dequeue();
             //string[] lines = currData.Split('\n');
             if (showTerminals == "1")
             {
+                if ((currData != "") && (currData.Substring(0, 3) == "gco"))
+                    tb_terminal_in.AppendText(Environment.NewLine);
                 tb_terminal_in.AppendText(currData + Environment.NewLine);
                 //System.Threading.Thread.Sleep(1000);
             }
@@ -1124,6 +1127,7 @@ namespace Compact_Control
                             pictureBox3.Show();
                             pictureBox4.BackgroundImage = Resources.Error;
                             pictureBox4.Show();
+                            txt_y1_s.SelectAll();
                             isY1Set = false;
                             y1err = true;
                             y2err = true;
@@ -1175,6 +1179,7 @@ namespace Compact_Control
                     x2_valid_raw = "0";
                     pictureBox4.BackgroundImage = Resources.Error;
                     pictureBox4.Show();
+                    txt_y1_s.SelectAll();
                     y1err = true;
                     isY1Set = false;
                     return;
@@ -1276,6 +1281,8 @@ namespace Compact_Control
                 }
                 catch { }
             }
+            else
+                x2_set = x2_valid_raw;
         }
 
         private void y2Act()
@@ -1313,6 +1320,7 @@ namespace Compact_Control
                             pictureBox4.Show();
                             pictureBox3.BackgroundImage = Resources.Error;
                             pictureBox3.Show();
+                            txt_y2_s.SelectAll();
                             isY2Set = false;
                             y2err = true;
                             y1err = true;
@@ -1365,6 +1373,7 @@ namespace Compact_Control
                     pictureBox3.BackgroundImage = Resources.Error;
                     isY2Set = false;
                     pictureBox3.Show();
+                    txt_y2_s.SelectAll();
                     y2err = true;
                     return;
                 }
@@ -1379,6 +1388,7 @@ namespace Compact_Control
                         pictureBox3.BackgroundImage = Resources.Error;
                         isY2Set = false;
                         pictureBox3.Show();
+                        txt_y2_s.SelectAll();
                         y2err = true;
                         return;
                     }
@@ -1468,6 +1478,8 @@ namespace Compact_Control
                 }
                 catch { }
             }
+            else
+                x1_set = x1_valid_raw;
 
         }
 
@@ -1504,6 +1516,7 @@ namespace Compact_Control
                             pictureBox5.Show();
                             pictureBox6.BackgroundImage = Resources.Error;
                             pictureBox6.Show();
+                            txt_x1_s.SelectAll();
                             isX1Set = false;
                             x1err = true;
                             x2err = true;
@@ -1557,6 +1570,7 @@ namespace Compact_Control
                     pictureBox6.BackgroundImage = Resources.Error;
                     isX1Set = false;
                     pictureBox6.Show();
+                    txt_x1_s.SelectAll();
                     x1err = true;
                     return;
                 }
@@ -1572,6 +1586,7 @@ namespace Compact_Control
                             pictureBox6.BackgroundImage = Resources.Error;
                             isX1Set = false;
                             pictureBox6.Show();
+                            txt_x1_s.SelectAll();
                             x1err = true;
                             return;
                         }
@@ -1664,6 +1679,8 @@ namespace Compact_Control
                 }
                 catch { }
             }
+            else
+                y2_set = y2_valid_raw;
         }
 
         private void x2Act()
@@ -1700,6 +1717,7 @@ namespace Compact_Control
                             pictureBox6.Show();
                             pictureBox5.BackgroundImage = Resources.Error;
                             pictureBox5.Show();
+                            txt_x2_s.SelectAll();
                             isX2Set = false;
                             x1err = true;
                             x2err = true;
@@ -1751,6 +1769,7 @@ namespace Compact_Control
                     y1_valid_raw = "0";
                     pictureBox5.BackgroundImage = Resources.Error;
                     pictureBox5.Show();
+                    txt_x2_s.SelectAll();
                     isX2Set = false;
                     x2err = true;
                     return;
@@ -1765,6 +1784,7 @@ namespace Compact_Control
                         y1_valid_raw = "0";
                         pictureBox5.BackgroundImage = Resources.Error;
                         pictureBox5.Show();
+                        txt_x2_s.SelectAll();
                         isX2Set = false;
                         x2err = true;
                         return;
@@ -1855,6 +1875,8 @@ namespace Compact_Control
                 }
                 catch { }
             }
+            else
+                y1_set = y1_valid_raw;
         }
 
         private void gantAct()
@@ -1881,6 +1903,7 @@ namespace Compact_Control
                     gant_valid_raw = "0";
                     pictureBox1.BackgroundImage = Resources.Error;
                     pictureBox1.Show();
+                    txt_gant_s.SelectAll();
                     return;
                 }
                 double gentValueActual = double.Parse(gant_dv);
@@ -1965,6 +1988,8 @@ namespace Compact_Control
                     gant_set = gant_valid_raw;
                 }
             }
+            else
+                gant_set = gant_valid_raw;
         }
 
         private void coliAct()
@@ -1991,6 +2016,7 @@ namespace Compact_Control
                     collim_valid_raw = "0";
                     pictureBox2.BackgroundImage = Resources.Error;
                     pictureBox2.Show();
+                    txt_coli_s.SelectAll();
                     return;
                 }
 
@@ -2027,6 +2053,7 @@ namespace Compact_Control
                 collim_valid_raw = "0";
                 pictureBox2.BackgroundImage = Resources.Error;
                 pictureBox2.Show();
+                txt_coli_s.SelectAll();
                 return;
             }
         }
@@ -2065,6 +2092,8 @@ namespace Compact_Control
                         timer_coli.Enabled = false;
                 }
             }
+            else
+                collim_set = collim_valid_raw;
         } 
     }
 }
