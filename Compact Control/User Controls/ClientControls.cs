@@ -405,8 +405,15 @@ namespace Compact_Control
             //string[] lines = currData.Split('\n');
             if (showTerminals == "1")
             {
-                if ((currData != "") && (currData.Length >= 3) && (currData.Substring(0, 3) == "gco"))
-                    tb_terminal_in.AppendText(Environment.NewLine);
+                try
+                {
+                    if ((currData.Length >= 3) && (currData.Substring(0, 3) == "gco"))
+                        tb_terminal_in.Clear();
+                }
+                catch
+                {
+                    tb_terminal_in.AppendText("-- Error --" + Environment.NewLine);
+                }
                 tb_terminal_in.AppendText(currData + Environment.NewLine);
                 //System.Threading.Thread.Sleep(1000);
             }
