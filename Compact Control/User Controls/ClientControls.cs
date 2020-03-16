@@ -405,6 +405,7 @@ namespace Compact_Control
             //string[] lines = currData.Split('\n');
             if (showTerminals == "1")
             {
+                /*
                 try
                 {
                     if ((currData.Length >= 3) && (currData.Substring(0, 3) == "gco"))
@@ -414,6 +415,7 @@ namespace Compact_Control
                 {
                     tb_terminal_in.AppendText("-- Error --" + Environment.NewLine);
                 }
+                */
                 tb_terminal_in.AppendText(currData + Environment.NewLine);
                 //System.Threading.Thread.Sleep(1000);
             }
@@ -658,7 +660,7 @@ namespace Compact_Control
                     default:
                         if (showTerminals == "1")
                         {
-                            writeToOtherTerminal(a, false);
+                            writeToOtherTerminal(currData, false);
                         }
                         break;
                 }
@@ -670,7 +672,7 @@ namespace Compact_Control
             {
                 if (showTerminals == "1")
                 {
-                    writeToOtherTerminal(a, true);
+                    writeToOtherTerminal(currData, true);
                 }
             }
             //}
@@ -678,21 +680,28 @@ namespace Compact_Control
 
         private void writeToOtherTerminal(string text, bool isCatch)
         {
-            if (text.Substring(0, 3) != "sss" && text.Substring(0, 3) != "ccc")
+            try
             {
-                if (isCatch)
-                    tb_terminal_oth.AppendText("* " + text + Environment.NewLine);
-                else
-                    tb_terminal_oth.AppendText(text + Environment.NewLine);
-                int o = int.Parse(lbl_oth_cnt.Text);
-                o = o + 1;
-                lbl_oth_cnt.Text = o.ToString();
-
-                if (o > 100)
+                if ((text.Length >= 3) && (text.Substring(0, 3) != "sss" && text.Substring(0, 3) != "ccc"))
                 {
-                    lbl_oth_cnt.Text = "0";
-                    tb_terminal_oth.Clear();
+                    if (isCatch)
+                        tb_terminal_oth.AppendText("* " + text + Environment.NewLine);
+                    else
+                        tb_terminal_oth.AppendText(text + Environment.NewLine);
+                    int o = int.Parse(lbl_oth_cnt.Text);
+                    o = o + 1;
+                    lbl_oth_cnt.Text = o.ToString();
+
+                    if (o > 100)
+                    {
+                        lbl_oth_cnt.Text = "0";
+                        tb_terminal_oth.Clear();
+                    }
                 }
+            }
+            catch
+            {
+                tb_terminal_oth.AppendText("-- Error --" + Environment.NewLine);
             }
         }
 

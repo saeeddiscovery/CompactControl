@@ -89,6 +89,7 @@
             this.tb_terminal_oth = new System.Windows.Forms.TextBox();
             this.btn_clearTerminal_oth = new System.Windows.Forms.Button();
             this.gb_terminals = new System.Windows.Forms.GroupBox();
+            this.lbl_oth_cnt = new System.Windows.Forms.Label();
             this.lbl_risk = new System.Windows.Forms.Label();
             this.label72 = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
@@ -103,7 +104,6 @@
             this.lbl_readingError = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timer_gant = new System.Windows.Forms.Timer(this.components);
-            this.lbl_oth_cnt = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x2_status)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x1_status)).BeginInit();
@@ -654,7 +654,7 @@
             // timer3
             // 
             this.timer3.Enabled = true;
-            this.timer3.Interval = 2;
+            this.timer3.Interval = 5;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // btn_clearTerminal_in
@@ -806,6 +806,17 @@
             this.gb_terminals.TabStop = false;
             this.gb_terminals.Visible = false;
             // 
+            // lbl_oth_cnt
+            // 
+            this.lbl_oth_cnt.AutoSize = true;
+            this.lbl_oth_cnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_oth_cnt.ForeColor = System.Drawing.Color.Black;
+            this.lbl_oth_cnt.Location = new System.Drawing.Point(193, 331);
+            this.lbl_oth_cnt.Name = "lbl_oth_cnt";
+            this.lbl_oth_cnt.Size = new System.Drawing.Size(18, 20);
+            this.lbl_oth_cnt.TabIndex = 121;
+            this.lbl_oth_cnt.Text = "0";
+            // 
             // lbl_risk
             // 
             this.lbl_risk.AutoSize = true;
@@ -930,17 +941,6 @@
             // 
             this.timer_gant.Interval = 1500;
             this.timer_gant.Tick += new System.EventHandler(this.timer_gant_Tick);
-            // 
-            // lbl_oth_cnt
-            // 
-            this.lbl_oth_cnt.AutoSize = true;
-            this.lbl_oth_cnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_oth_cnt.ForeColor = System.Drawing.Color.Black;
-            this.lbl_oth_cnt.Location = new System.Drawing.Point(193, 331);
-            this.lbl_oth_cnt.Name = "lbl_oth_cnt";
-            this.lbl_oth_cnt.Size = new System.Drawing.Size(18, 20);
-            this.lbl_oth_cnt.TabIndex = 121;
-            this.lbl_oth_cnt.Text = "0";
             // 
             // ClientControls
             // 

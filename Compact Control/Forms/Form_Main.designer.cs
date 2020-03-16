@@ -558,7 +558,7 @@
             // 
             // timer3
             // 
-            this.timer3.Interval = 2;
+            this.timer3.Interval = 5;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // timer4
@@ -712,7 +712,7 @@
             this.lbl_version.Padding = new System.Windows.Forms.Padding(5, 5, 1, 5);
             this.lbl_version.Size = new System.Drawing.Size(84, 28);
             this.lbl_version.TabIndex = 26;
-            this.lbl_version.Text = "Ver. 1.4.09";
+            this.lbl_version.Text = "Ver. 1.4.10";
             this.lbl_version.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label46
