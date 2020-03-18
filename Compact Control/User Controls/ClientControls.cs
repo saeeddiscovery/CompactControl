@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO.Ports;
 using Compact_Control.Properties;
+using System.Threading;
 
 namespace Compact_Control
 {
@@ -300,6 +301,14 @@ namespace Compact_Control
 
         public void write(string data)
         {
+            DateTime now = DateTime.Now;
+            TimeSpan fromLastConnect = now - frm1.connectTime;
+            if (fromLastConnect.Minutes >= 5)
+            {
+                frm1.SetConnection(false);
+                Thread.Sleep(50);
+                frm1.SetConnection(true);
+            }
             serialPort1.DiscardOutBuffer();
             serialPort1.Write(data);
             if (showTerminals == "1")

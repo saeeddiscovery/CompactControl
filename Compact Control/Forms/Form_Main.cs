@@ -123,7 +123,7 @@ namespace Compact_Control
         private ClientControls clientFrm = new ClientControls();
 
         private DateTime startTime = DateTime.Now;
-        private DateTime connectTime;
+        public DateTime connectTime;
         private DateTime initTime;
         private int connCounter = 0;
         private int initCounter = 0;
@@ -277,6 +277,15 @@ namespace Compact_Control
 
         public void write(string data)
         {
+            DateTime now = DateTime.Now;
+            TimeSpan fromLastConnect = now - connectTime;
+            if (fromLastConnect.Minutes >= 5)
+            {
+                SetConnection(false);
+                Thread.Sleep(50);
+                SetConnection(true);
+            }
+
             GlobalSerialPort.DiscardOutBuffer();
             GlobalSerialPort.Write(data);
 
@@ -2297,7 +2306,7 @@ namespace Compact_Control
             }
         }
 
-        private void SetConnection(bool connect)
+        public void SetConnection(bool connect)
         {
             string[] ports = SerialPort.GetPortNames();
             if (ports.Length == 0)
@@ -2340,8 +2349,8 @@ namespace Compact_Control
                 }
 
 
-                DisconnectPort();
-                Thread.Sleep(200);
+                //DisconnectPort();
+                //Thread.Sleep(200);
                 ConnectToPort();
                 
                 //Thread.Sleep(200);
@@ -2547,6 +2556,8 @@ namespace Compact_Control
         {
             try
             {
+                connectTime = DateTime.Now;
+                connCounter = connCounter + 1;
                 //ClosePort();
                 //MessageBox.Show("Connection error!", "An error occured during connection!\n\n");
                 if (!GlobalSerialPort.IsOpen)
@@ -2581,9 +2592,6 @@ namespace Compact_Control
                 picBtnToolTip.SetToolTip(picBtn_Connect, "Disconnect");
                 label_ConnectStatus.ForeColor = Color.LightGreen;
                 label_ConnectStatus.Text = "Connected!";
-
-                connectTime = DateTime.Now;
-                connCounter = connCounter + 1;
             }
             catch (Exception ex)
             {
