@@ -1,18 +1,15 @@
-﻿using System;
-using System.ComponentModel;
-using System.Drawing;
-using System.Windows.Forms;
-using System.IO.Ports;
-using System.Threading;
-using Compact_Control.Properties;
-using System.Diagnostics;
-using System.Globalization;
+﻿using Compact_Control.Properties;
 using Microsoft.Win32;
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text.RegularExpressions;
+using System.ComponentModel;
+using System.Diagnostics;
+using System.Drawing;
+using System.IO.Ports;
 using System.Management;
+using System.Text.RegularExpressions;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace Compact_Control
 {
