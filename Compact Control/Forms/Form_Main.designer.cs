@@ -714,7 +714,7 @@
             this.lbl_version.Padding = new System.Windows.Forms.Padding(5, 5, 1, 5);
             this.lbl_version.Size = new System.Drawing.Size(84, 28);
             this.lbl_version.TabIndex = 26;
-            this.lbl_version.Text = "Ver. 1.4.11";
+            this.lbl_version.Text = "Ver. 1.5.02";
             this.lbl_version.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label46

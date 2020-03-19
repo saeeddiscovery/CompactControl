@@ -126,6 +126,7 @@ namespace Compact_Control
         private DateTime startTime = DateTime.Now;
         public DateTime connectTime;
         private DateTime initTime;
+        private DateTime sendAndTime;
         private int connCounter = 0;
         private int initCounter = 0;
         public double TotalVisibleMemorySize;
@@ -626,6 +627,16 @@ namespace Compact_Control
                     break;
             }
 
+            if (andSent)
+            {
+                TimeSpan fromLastAnd = DateTime.Now - sendAndTime;
+                if (fromLastAnd.Milliseconds > 50)
+                {
+                    write("&");
+                    andSent = false;
+                    sendAnd = false;
+                }
+            }
 
         }
 
@@ -1378,6 +1389,8 @@ namespace Compact_Control
             Application.Restart();
         }
 
+        bool sendAnd = false;
+        bool andSent = false;
         private void timer3_Tick(object sender, EventArgs e)
         {
             if (receiveQ.Count == 0)
@@ -1648,50 +1661,63 @@ namespace Compact_Control
                         }
                         else
                             adcCheck_counter = 0;
+                            
 
-                        adc = a.Substring(3, a.Length - 3);
                         if (int.Parse(gant_set) != int.Parse(gnd))
-                        {
                             gant_stat = false;
-                            write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
-                        }
                         else
                             gant_stat = true;
                         if (int.Parse(collim_set) != int.Parse(cld))
-                        {
                             coli_stat = false;
-                            write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
-                        }
                         else
                             coli_stat = true;
                         if (int.Parse(x1_set) != int.Parse(x1d))
-                        {
                             x1_stat = false; //y2_led
-                            write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
-                        }
                         else
                             x1_stat = true;
                         if (int.Parse(x2_set) != int.Parse(x2d))
-                        {
                             x2_stat = false; //y1_led
-                            write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
-                        }
                         else
                             x2_stat = true;
                         if (int.Parse(y1_set) != int.Parse(y1d))
-                        {
                             y1_stat = false; //x2_led
-                            write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
-                        }
                         else
                             y1_stat = true;
                         if (int.Parse(y2_set) != int.Parse(y2d))
-                        {
                             y2_stat = false; //x1_led
-                            write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
-                        }
                         else
                             y2_stat = true;
+
+                        if ((gant_stat && coli_stat && x1_stat && x2_stat && y1_stat && y2_stat) == false)
+                        {
+                            write("$");
+                            sendAnd = true;
+                        }
+                        break;
+                    case "req":
+                        if (gant_stat == false)
+                            write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
+                        if (coli_stat == false)
+                            write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
+                        if (x1_stat == false)
+                            write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
+                        if (x2_stat == false)
+                            write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
+                        if (y1_stat == false)
+                            write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
+                        if (y2_stat == false)
+                            write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
+
+                        if (sendAnd)
+                        {
+                            write("&");
+                            andSent = true;
+                            sendAndTime = DateTime.Now;
+                        }
+                        break;
+                    case "&&&":
+                        sendAnd = false;
+                        andSent = false;
                         break;
                     default:
                         writeToOtherTerminal(currData, false);
