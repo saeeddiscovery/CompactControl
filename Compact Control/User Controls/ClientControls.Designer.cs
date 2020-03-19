@@ -51,7 +51,6 @@
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.picBtnToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -76,7 +75,6 @@
             this.pb_gant_status = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.btn_clearTerminal_in = new System.Windows.Forms.Button();
             this.label51 = new System.Windows.Forms.Label();
             this.tb_terminal_in = new System.Windows.Forms.TextBox();
@@ -92,7 +90,6 @@
             this.lbl_oth_cnt = new System.Windows.Forms.Label();
             this.lbl_risk = new System.Windows.Forms.Label();
             this.label72 = new System.Windows.Forms.Label();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.txt_fakeADC = new System.Windows.Forms.TextBox();
             this.pb_receiveStatus = new System.Windows.Forms.PictureBox();
             this.timer_coli = new System.Windows.Forms.Timer(this.components);
@@ -358,14 +355,8 @@
             // 
             // timer1
             // 
-            this.timer1.Enabled = true;
             this.timer1.Interval = 50;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // serialPort1
-            // 
-            this.serialPort1.BaudRate = 57600;
-            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
             // imageList1
             // 
@@ -651,12 +642,6 @@
             this.pictureBox1.TabIndex = 73;
             this.pictureBox1.TabStop = false;
             // 
-            // timer3
-            // 
-            this.timer3.Enabled = true;
-            this.timer3.Interval = 5;
-            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
-            // 
             // btn_clearTerminal_in
             // 
             this.btn_clearTerminal_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -844,12 +829,6 @@
             this.label72.TabIndex = 128;
             this.label72.Text = "Communication:";
             // 
-            // timer2
-            // 
-            this.timer2.Enabled = true;
-            this.timer2.Interval = 1000;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
             // txt_fakeADC
             // 
             this.txt_fakeADC.BackColor = System.Drawing.SystemColors.Window;
@@ -961,6 +940,7 @@
             this.Controls.Add(this.label72);
             this.Name = "ClientControls";
             this.Size = new System.Drawing.Size(1188, 525);
+            this.Load += new System.EventHandler(this.ClientControls_Load);
             this.VisibleChanged += new System.EventHandler(this.ClientControls_VisibleChanged);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -1017,7 +997,6 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Timer timer1;
-        public System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ToolTip picBtnToolTip;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -1030,39 +1009,37 @@
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.TextBox txt_y_s;
         private System.Windows.Forms.TextBox txt_y_a;
-        private System.Windows.Forms.Timer timer3;
         private System.Windows.Forms.Button btn_clearTerminal_in;
         private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.TextBox tb_terminal_in;
+        public System.Windows.Forms.TextBox tb_terminal_in;
         private System.Windows.Forms.Button btn_clearTerminal;
         private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.TextBox tb_terminal_out;
-        private System.Windows.Forms.Label lbl_out_cnt;
-        private System.Windows.Forms.Label lbl_in_cnt;
+        public System.Windows.Forms.TextBox tb_terminal_out;
+        public System.Windows.Forms.Label lbl_out_cnt;
+        public System.Windows.Forms.Label lbl_in_cnt;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tb_terminal_oth;
+        public System.Windows.Forms.TextBox tb_terminal_oth;
         private System.Windows.Forms.Button btn_clearTerminal_oth;
         private System.Windows.Forms.GroupBox gb_terminals;
         private System.Windows.Forms.Label lbl_risk;
-        private System.Windows.Forms.PictureBox pb_receiveStatus;
+        public System.Windows.Forms.PictureBox pb_receiveStatus;
         private System.Windows.Forms.Label label72;
-        private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.PictureBox pb_x2_status;
-        private System.Windows.Forms.PictureBox pb_x1_status;
-        private System.Windows.Forms.PictureBox pb_y2_status;
-        private System.Windows.Forms.PictureBox pb_y1_status;
-        private System.Windows.Forms.PictureBox pb_coli_status;
-        private System.Windows.Forms.PictureBox pb_gant_status;
-        private System.Windows.Forms.TextBox txt_fakeADC;
-        private System.Windows.Forms.Timer timer_coli;
-        private System.Windows.Forms.Timer timer_x1;
-        private System.Windows.Forms.Timer timer_x2;
-        private System.Windows.Forms.Timer timer_y1;
-        private System.Windows.Forms.Timer timer_y2;
-        private System.Windows.Forms.Label lbl_pleaseRestart;
-        private System.Windows.Forms.Label lbl_readingError;
+        public System.Windows.Forms.PictureBox pb_x2_status;
+        public System.Windows.Forms.PictureBox pb_x1_status;
+        public System.Windows.Forms.PictureBox pb_y2_status;
+        public System.Windows.Forms.PictureBox pb_y1_status;
+        public System.Windows.Forms.PictureBox pb_coli_status;
+        public System.Windows.Forms.PictureBox pb_gant_status;
+        public System.Windows.Forms.TextBox txt_fakeADC;
+        public System.Windows.Forms.Timer timer_gant;
+        public System.Windows.Forms.Timer timer_coli;
+        public System.Windows.Forms.Timer timer_x1;
+        public System.Windows.Forms.Timer timer_x2;
+        public System.Windows.Forms.Timer timer_y1;
+        public System.Windows.Forms.Timer timer_y2;
+        public System.Windows.Forms.Label lbl_pleaseRestart;
+        public System.Windows.Forms.Label lbl_readingError;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Timer timer_gant;
-        private System.Windows.Forms.Label lbl_oth_cnt;
+        public System.Windows.Forms.Label lbl_oth_cnt;
     }
 }

@@ -16,98 +16,98 @@ namespace Compact_Control
     public partial class Form1 : Form
     {
         public static string portName = "Null";
-        string gant_co;
-        string gant_f1;
-        string gant_f2;
-        string gant_cofin;
-        double gant_cofin_temp1;
-        double gant_cofin_temp2;
-        double gant_gain;
-        double gant_offset;
-        double gant_gain_temp;
-        double gant_offset_temp;
-        string gant_dv;
-        string gnd;
-        string gant_zpnt;
-        string gant_length;
-        string gant_fine_length;
+        public string gant_co;
+        public string gant_f1;
+        public string gant_f2;
+        public string gant_cofin;
+        public double gant_cofin_temp1;
+        public double gant_cofin_temp2;
+        public double gant_gain;
+        public double gant_offset;
+        public double gant_gain_temp;
+        public double gant_offset_temp;
+        public string gant_dv = "";
+        public string gnd;
+        public string gant_zpnt;
+        public string gant_length;
+        public string gant_fine_length;
 
-        string collim_co;
-        string collim_f1;
-        string collim_f2;
-        string collim_cofin;
-        double collim_cofin_temp1;
-        double collim_cofin_temp2;
-        double collim_gain;
-        double collim_offset;
-        double collim_gain_temp;
-        double collim_offset_temp;
-        string collim_dv;
-        string cld;
-        string collim_zpnt;
-        string collim_length;
-        string collim_fine_length;
+        public string collim_co;
+        public string collim_f1;
+        public string collim_f2;
+        public string collim_cofin;
+        public double collim_cofin_temp1;
+        public double collim_cofin_temp2;
+        public double collim_gain;
+        public double collim_offset;
+        public double collim_gain_temp;
+        public double collim_offset_temp;
+        public string collim_dv = "";
+        public string cld;
+        public string collim_zpnt;
+        public string collim_length;
+        public string collim_fine_length;
 
-        string gant_tol_1, gant_tol0, gant_tol1, gant_tol2, gant_v1, gant_v2, gant_v3;
-        string collim_tol_1, collim_tol0, collim_tol1, collim_tol2, collim_v1, collim_v2, collim_v3;
-        string x1_tol_1, x1_tol0, x1_tol1, x1_tol2, x1_v1, x1_v2, x1_v3;
-        string x2_tol_1, x2_tol0, x2_tol1, x2_tol2, x2_v1, x2_v2, x2_v3;
-        string y1_tol_1, y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
-        string y2_tol_1, y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
-        string gravity_up, gravity_down;
-        bool sendParametersFlag = false;
+        public string gant_tol_1, gant_tol0, gant_tol1, gant_tol2, gant_v1, gant_v2, gant_v3;
+        public string collim_tol_1, collim_tol0, collim_tol1, collim_tol2, collim_v1, collim_v2, collim_v3;
+        public string x1_tol_1, x1_tol0, x1_tol1, x1_tol2, x1_v1, x1_v2, x1_v3;
+        public string x2_tol_1, x2_tol0, x2_tol1, x2_tol2, x2_v1, x2_v2, x2_v3;
+        public string y1_tol_1, y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
+        public string y2_tol_1, y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
+        public string gravity_up, gravity_down;
+        public bool sendParametersFlag = false;
 
-        string x1_co;
-        double x1_co_temp1;
-        double x1_co_temp2;
-        double x1_gain = 0;
-        double x1_offset = 0;
-        double x1_gain_temp;
-        double x1_offset_temp;
-        string x1_dv;
-        string x1d;
+        public  string x1_co;
+        public double x1_co_temp1;
+        public double x1_co_temp2;
+        public double x1_gain = 0;
+        public double x1_offset = 0;
+        public double x1_gain_temp;
+        public double x1_offset_temp;
+        public string x1_dv = "";
+        public string x1d;
 
-        string x2_co;
-        double x2_co_temp1;
-        double x2_co_temp2;
-        double x2_gain = 0;
-        double x2_offset = 0;
-        double x2_gain_temp;
-        double x2_offset_temp;
-        string x2_dv;
-        string x2d;
+        public string x2_co;
+        public double x2_co_temp1;
+        public double x2_co_temp2;
+        public double x2_gain = 0;
+        public double x2_offset = 0;
+        public double x2_gain_temp;
+        public double x2_offset_temp;
+        public string x2_dv = "";
+        public string x2d;
 
-        string y1_co;
-        double y1_co_temp1;
-        double y1_co_temp2;
-        double y1_gain = 0;
-        double y1_offset;
-        double y1_gain_temp;
-        double y1_offset_temp;
-        string y1_dv;
-        string y1d;
+        public string y1_co;
+        public double y1_co_temp1;
+        public double y1_co_temp2;
+        public double y1_gain = 0;
+        public double y1_offset;
+        public double y1_gain_temp;
+        public double y1_offset_temp;
+        public string y1_dv = "";
+        public string y1d;
 
 
-        string y2_co;
-        double y2_co_temp1;
-        double y2_co_temp2;
-        double y2_gain = 0;
-        double y2_offset = 0;
-        double y2_gain_temp;
-        double y2_offset_temp;
-        string y2_dv;
-        string y2d;
+        public string y2_co;
+        public double y2_co_temp1;
+        public double y2_co_temp2;
+        public double y2_gain = 0;
+        public double y2_offset = 0;
+        public double y2_gain_temp;
+        public double y2_offset_temp;
+        public string y2_dv = "";
+        public string y2d;
 
-        string gant_set = "0";
-        string collim_set = "0";
-        string x1_set = "0";
-        string x2_set = "0";
-        string y1_set = "0";
-        string y2_set = "0";
+        public string gant_set = "0";
+        public string collim_set = "0";
+        public string x1_set = "0";
+        public string x2_set = "0";
+        public string y1_set = "0";
+        public string y2_set = "0";
 
         bool in_diag = false;
 
-        string adc;
+        public string adc;
 
         public static bool quit = false;
 
@@ -116,7 +116,6 @@ namespace Compact_Control
 
         public static bool isInServiceMode = false;
 
-        private static SerialPort GlobalSerialPort = new SerialPort();
         private ClientControls clientFrm = new ClientControls();
 
         private DateTime startTime = DateTime.Now;
@@ -139,10 +138,10 @@ namespace Compact_Control
 
             foreach (ManagementObject result in results)
             {
-                TotalVisibleMemorySize =    double.Parse(result["TotalVisibleMemorySize"].ToString())/1024;
-                FreePhysicalMemory =        double.Parse(result["FreePhysicalMemory"].ToString())/1024;
-                TotalVirtualMemorySize =    double.Parse(result["TotalVirtualMemorySize"].ToString())/1024;
-                FreeVirtualMemory =         double.Parse(result["FreeVirtualMemory"].ToString())/1024;
+                TotalVisibleMemorySize = double.Parse(result["TotalVisibleMemorySize"].ToString()) / 1024;
+                FreePhysicalMemory = double.Parse(result["FreePhysicalMemory"].ToString()) / 1024;
+                TotalVirtualMemorySize = double.Parse(result["TotalVirtualMemorySize"].ToString()) / 1024;
+                FreeVirtualMemory = double.Parse(result["FreeVirtualMemory"].ToString()) / 1024;
             }
 
             if (isInServiceMode == false)
@@ -152,8 +151,6 @@ namespace Compact_Control
                 {
                     clientFrm = new ClientControls();
                     clientFrm.Dock = DockStyle.Top;
-                    //GlobalSerialPort = clientFrm.serialPort1;
-                    //GlobalSerialPort.DataReceived += clientFrm.serialPort1_DataReceived;
                     panel_ClientControls.Controls.Add(clientFrm);
                 }
             }
@@ -172,7 +169,7 @@ namespace Compact_Control
             }
             if (ports.Length >= 1)
             {
-                if (GlobalSerialPort.IsOpen == false)
+                if (serialPort1.IsOpen == false)
                 {
                     string filename = "Settings.json";
                     try
@@ -183,15 +180,9 @@ namespace Compact_Control
                             HashPass.AppSettings pSettings = HashPass.readSettingsJson(filename);
                             HashPass.WriteBaudrateToReg(pSettings.Baudrate);
 
-                            GlobalSerialPort.PortName = pSettings.Port;
-                            GlobalSerialPort.BaudRate = int.Parse(pSettings.Baudrate);
                             serialPort1.PortName = pSettings.Port;
                             serialPort1.BaudRate = int.Parse(pSettings.Baudrate);
-                            clientFrm.serialPort1.PortName = pSettings.Port;
-                            clientFrm.serialPort1.BaudRate = int.Parse(pSettings.Baudrate);
-                            ClientControls.curr_baudrate = int.Parse(pSettings.Baudrate);
-                            ClientControls.curr_port = pSettings.Port;
-                            ClientControls.showTerminals = pSettings.clinicalTerminals;
+                            Form1.showClinicalTerminals = pSettings.clinicalTerminals;
                             curr_baudRate = pSettings.Baudrate;
                             portName = pSettings.Port;
                         }
@@ -210,8 +201,7 @@ namespace Compact_Control
                     {
                         MessageBox.Show("Port name is invalid\nConnected to " + ports[0], "Invalid Port Name", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         portName = ports[0];
-                        GlobalSerialPort.PortName = ports[0];
-                        ClientControls.curr_port = ports[0];
+                        serialPort1.PortName = ports[0];
                     }
                     //if (int.TryParse(HashPass.ReadBaudRateFromReg(), out BaudRate) == true && BaudRate != 0)
                     //    GlobalSerialPort.BaudRate = BaudRate;
@@ -283,48 +273,93 @@ namespace Compact_Control
                 SetConnection(true);
             }
 
-            GlobalSerialPort.DiscardOutBuffer();
-            GlobalSerialPort.Write(data);
+            serialPort1.DiscardOutBuffer();
+            serialPort1.Write(data);
 
-            tb_terminal_out.AppendText(data + Environment.NewLine);
-            int o = int.Parse(lbl_out_cnt.Text);
-            o = o + 1;
-            lbl_out_cnt.Text = o.ToString();
-
-            if (int.Parse(lbl_out_cnt.Text) > 100)
+            if (isInServiceMode)
             {
-                lbl_out_cnt.Text = "0";
-                tb_terminal_out.Clear();
+                int o = int.Parse(lbl_out_cnt.Text);
+                o = o + 1;
+                lbl_out_cnt.Text = o.ToString();
+
+                if (int.Parse(lbl_out_cnt.Text) > 100)
+                {
+                    lbl_out_cnt.Text = "0";
+                    tb_terminal_out.Clear();
+                }
+                tb_terminal_out.AppendText(data + Environment.NewLine);
+            }
+            else if (showClinicalTerminals == "1")
+            {
+                int o = int.Parse(clientFrm.lbl_out_cnt.Text);
+                o = o + 1;
+                clientFrm.lbl_out_cnt.Text = o.ToString();
+
+                if (int.Parse(clientFrm.lbl_out_cnt.Text) > 100)
+                {
+                    clientFrm.lbl_out_cnt.Text = "0";
+                    clientFrm.tb_terminal_out.Clear();
+                }
+                clientFrm.tb_terminal_out.AppendText(data + Environment.NewLine);
+
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void writeToOtherTerminal_service(string text, bool isCatch)
         {
-            if (GlobalSerialPort.IsOpen == false)
-                GlobalSerialPort.Open();
+            try
+            {
+                if ((text.Length >= 3) && (text.Substring(0, 3) != "sss" && text.Substring(0, 3) != "ccc"))
+                {
+                    if (isCatch)
+                        tb_terminal_oth.AppendText("* " + text + Environment.NewLine);
+                    else
+                        tb_terminal_oth.AppendText(text + Environment.NewLine);
+                    int o = int.Parse(lbl_oth_cnt.Text);
+                    o = o + 1;
+                    lbl_oth_cnt.Text = o.ToString();
+
+                    if (o > 100)
+                    {
+                        lbl_oth_cnt.Text = "0";
+                        tb_terminal_oth.Clear();
+                    }
+                }
+            }
+            catch
+            {
+                tb_terminal_oth.AppendText("-- Error --" + Environment.NewLine);
+            }
         }
 
+        public void writeToOtherTerminal(string text, bool isCatch)
+        {
+            if (isInServiceMode)
+                writeToOtherTerminal_service(text, isCatch);
+            else
+                clientFrm.writeToOtherTerminal(text, isCatch);
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (GlobalSerialPort.IsOpen == false)
-                GlobalSerialPort.Open();
+            if (serialPort1.IsOpen == false)
+                serialPort1.Open();
             write("a");
             write(trackBar_gant.Value.ToString());
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (GlobalSerialPort.IsOpen == false)
-                GlobalSerialPort.Open();
+            if (serialPort1.IsOpen == false)
+                serialPort1.Open();
             write("b");
             write(trackBar_coli.Value.ToString());
         }
 
         private void button6_MouseDown(object sender, MouseEventArgs e)
         {
-            if (GlobalSerialPort.IsOpen == false)
-                GlobalSerialPort.Open();
+            if (serialPort1.IsOpen == false)
+                serialPort1.Open();
             write("c");
             write(trackBar_x1.Value.ToString());
         }
@@ -332,8 +367,8 @@ namespace Compact_Control
 
         private void button8_MouseDown(object sender, MouseEventArgs e)
         {
-            if (GlobalSerialPort.IsOpen == false)
-                GlobalSerialPort.Open();
+            if (serialPort1.IsOpen == false)
+                serialPort1.Open();
             write("d");
             write(trackBar_x2.Value.ToString());
         }
@@ -341,64 +376,64 @@ namespace Compact_Control
 
         private void button10_MouseDown(object sender, MouseEventArgs e)
         {
-            if (GlobalSerialPort.IsOpen == false)
-                GlobalSerialPort.Open();
+            if (serialPort1.IsOpen == false)
+                serialPort1.Open();
             write("e");
             write(trackBar_y1.Value.ToString());
         }
 
         private void button11_MouseDown(object sender, MouseEventArgs e)
         {
-            if (GlobalSerialPort.IsOpen == false)
-                GlobalSerialPort.Open();
+            if (serialPort1.IsOpen == false)
+                serialPort1.Open();
             write("f");
             write(trackBar_y2.Value.ToString());
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            if (GlobalSerialPort.IsOpen == false)
-                GlobalSerialPort.Open();
+            if (serialPort1.IsOpen == false)
+                serialPort1.Open();
             write("g");
             write(trackBar_gant.Value.ToString());
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (GlobalSerialPort.IsOpen == false)
-                GlobalSerialPort.Open();
+            if (serialPort1.IsOpen == false)
+                serialPort1.Open();
             write("h");
             write(trackBar_coli.Value.ToString());
         }
 
         private void button7_MouseDown(object sender, MouseEventArgs e)
         {
-            if (GlobalSerialPort.IsOpen == false)
-                GlobalSerialPort.Open();
+            if (serialPort1.IsOpen == false)
+                serialPort1.Open();
             write("i");
             write(trackBar_x1.Value.ToString());
         }
 
         private void button9_MouseDown(object sender, MouseEventArgs e)
         {
-            if (GlobalSerialPort.IsOpen == false)
-                GlobalSerialPort.Open();
+            if (serialPort1.IsOpen == false)
+                serialPort1.Open();
             write("j");
             write(trackBar_x2.Value.ToString());
         }
 
         private void button12_MouseDown(object sender, MouseEventArgs e)
         {
-            if (GlobalSerialPort.IsOpen == false)
-                GlobalSerialPort.Open();
+            if (serialPort1.IsOpen == false)
+                serialPort1.Open();
             write("k");
             write(trackBar_y1.Value.ToString());
         }
 
         private void button13_MouseDown(object sender, MouseEventArgs e)
         {
-            if (GlobalSerialPort.IsOpen == false)
-                GlobalSerialPort.Open();
+            if (serialPort1.IsOpen == false)
+                serialPort1.Open();
             write("l");
             write(trackBar_y2.Value.ToString());
         }
@@ -456,8 +491,8 @@ namespace Compact_Control
             }
             else
             {
-                if (GlobalSerialPort.IsOpen == false)
-                    GlobalSerialPort.Open();
+                if (serialPort1.IsOpen == false)
+                    serialPort1.Open();
                 write("s");
                 in_diag = false;
                 btn_start_stop.Text = "Start";
@@ -469,15 +504,15 @@ namespace Compact_Control
 
         private void button6_MouseUp_1(object sender, MouseEventArgs e)
         {
-            if (GlobalSerialPort.IsOpen == false)
-                GlobalSerialPort.Open();
+            if (serialPort1.IsOpen == false)
+                serialPort1.Open();
             write("s");
         }
 
         //private void button15_Click(object sender, EventArgs e)
         //{
-        //    if (GlobalSerialPort.IsOpen == true)
-        //        GlobalSerialPort.Close();
+        //    if (serialPort1.IsOpen == true)
+        //        serialPort1.Close();
         //}
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -587,8 +622,8 @@ namespace Compact_Control
                     switch (comboBox1.Text)
                     {
                         case "Gantry":
-                            ClientControls.gant_gain = gant_gain = gant_gain_temp;
-                            ClientControls.gant_offset = gant_offset = gant_offset_temp;
+                            gant_gain = gant_gain_temp;
+                            gant_offset = gant_offset_temp;
                             gant_dv = (gant_gain * double.Parse(gant_cofin) + gant_offset).ToString();
                             textBox11.Text = gant_gain.ToString();
                             textBox12.Text = gant_offset.ToString();
@@ -598,8 +633,8 @@ namespace Compact_Control
 
                             break;
                         case "Collimator":
-                            ClientControls.collim_gain = collim_gain = collim_gain_temp;
-                            ClientControls.collim_offset = collim_offset = collim_offset_temp;
+                            collim_gain = collim_gain_temp;
+                            collim_offset = collim_offset_temp;
                             collim_dv = (collim_gain * double.Parse(collim_cofin) + collim_offset).ToString();
                             textBox11.Text = collim_gain.ToString();
                             textBox12.Text = collim_offset.ToString();
@@ -609,8 +644,8 @@ namespace Compact_Control
 
                             break;
                         case "X1":
-                            ClientControls.x1_gain = x1_gain = x1_gain_temp;
-                            ClientControls.x1_offset = x1_offset = x1_offset_temp;
+                            x1_gain = x1_gain_temp;
+                            x1_offset = x1_offset_temp;
                             x1_dv = (x1_gain * double.Parse(x1_co) + x1_offset).ToString();
                             textBox11.Text = x1_gain.ToString();
                             textBox12.Text = x1_offset.ToString();
@@ -620,8 +655,8 @@ namespace Compact_Control
 
                             break;
                         case "X2":
-                            ClientControls.x2_gain = x2_gain = x2_gain_temp;
-                            ClientControls.x2_offset = x2_offset = x2_offset_temp;
+                            x2_gain = x2_gain_temp;
+                            x2_offset = x2_offset_temp;
                             x2_dv = (x2_gain * double.Parse(x2_co) + x2_offset).ToString();
                             textBox11.Text = x2_gain.ToString();
                             textBox12.Text = x2_offset.ToString();
@@ -631,8 +666,8 @@ namespace Compact_Control
 
                             break;
                         case "Y1":
-                            ClientControls.y1_gain = y1_gain = y1_gain_temp;
-                            ClientControls.y1_offset = y1_offset = y1_offset_temp;
+                            y1_gain = y1_gain_temp;
+                            y1_offset = y1_offset_temp;
                             y1_dv = (y1_gain * double.Parse(y1_co) + y1_offset).ToString();
                             textBox11.Text = y1_gain.ToString();
                             textBox12.Text = y1_offset.ToString();
@@ -642,8 +677,8 @@ namespace Compact_Control
 
                             break;
                         case "Y2":
-                            ClientControls.y2_gain = y2_gain = y2_gain_temp;
-                            ClientControls.y2_offset = y2_offset = y2_offset_temp;
+                            y2_gain = y2_gain_temp;
+                            y2_offset = y2_offset_temp;
                             y2_dv = (y2_gain * double.Parse(y2_co) + y2_offset).ToString();
                             textBox11.Text = y2_gain.ToString();
                             textBox12.Text = y2_offset.ToString();
@@ -1026,8 +1061,8 @@ namespace Compact_Control
 
         private void button18_Click(object sender, EventArgs e)
         {
-            if (GlobalSerialPort.IsOpen == false)
-                GlobalSerialPort.Open();
+            if (serialPort1.IsOpen == false)
+                serialPort1.Open();
             else
             {
                 SaveCalibFile();
@@ -1076,26 +1111,12 @@ namespace Compact_Control
 
         private void ClosePort()
         {
-            if (GlobalSerialPort.IsOpen == true)
-            {
-                GlobalSerialPort.DiscardOutBuffer();
-                GlobalSerialPort.DiscardInBuffer();
-                GlobalSerialPort.Dispose();
-                GlobalSerialPort.Close();
-            }
             if (serialPort1.IsOpen == true)
             {
                 serialPort1.DiscardOutBuffer();
                 serialPort1.DiscardInBuffer();
                 serialPort1.Dispose();
                 serialPort1.Close();
-            }
-            if (clientFrm.serialPort1.IsOpen == true)
-            {
-                clientFrm.serialPort1.DiscardOutBuffer();
-                clientFrm.serialPort1.DiscardInBuffer();
-                clientFrm.serialPort1.Dispose();
-                clientFrm.serialPort1.Close();
             }
         }
 
@@ -1137,9 +1158,9 @@ namespace Compact_Control
             try
             {
                 string gant_tol_1_t = Math.Abs(Math.Round(double.Parse(gant_tol_1) / gant_gain)).ToString();
-                string gant_tol0_t = Math.Abs(Math.Round(double.Parse(gant_tol0)/ gant_gain)).ToString();
+                string gant_tol0_t = Math.Abs(Math.Round(double.Parse(gant_tol0) / gant_gain)).ToString();
                 string gant_tol1_t = Math.Abs(Math.Round(double.Parse(gant_tol1) / gant_gain)).ToString();
-                string gant_tol2_t = Math.Abs(Math.Round(double.Parse(gant_tol2)/ gant_gain)).ToString();
+                string gant_tol2_t = Math.Abs(Math.Round(double.Parse(gant_tol2) / gant_gain)).ToString();
 
                 string collim_tol_1_t = Math.Abs(Math.Round(double.Parse(collim_tol_1) / collim_gain)).ToString();
                 string collim_tol0_t = Math.Abs(Math.Round(double.Parse(collim_tol0) / collim_gain)).ToString();
@@ -1223,38 +1244,26 @@ namespace Compact_Control
             return equal;
         }
         public Queue<string> receiveQ = new Queue<string>();
+        bool gant_stat = false, coli_stat = false,
+            x1_stat = false, x2_stat = false,
+            y1_stat = false, y2_stat = false;
         string[] microParameters = new string[42];
-        private void serialPort1_DataReceived_1(object sender, SerialDataReceivedEventArgs e)
+        private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             if (serialPort1.IsOpen == false)
                 return;
             try
             {
-                while (GlobalSerialPort.BytesToRead > 0)
+                while (serialPort1.BytesToRead > 0)
                 {
-                    string currReceived = GlobalSerialPort.ReadLine();
+                    //string currReceived1 = serialPort1.ReadExisting();
+                    string currReceived = serialPort1.ReadLine();
                     receiveQ.Enqueue(currReceived);
                 }
-                GlobalSerialPort.DiscardInBuffer();
+                serialPort1.DiscardInBuffer();
             }
             catch { }
-            //string currReceived = GlobalSerialPort.ReadExisting();
-
-
-            //string a = "";
-            //try
-            //{
-            //    if (GlobalSerialPort.IsOpen)
-            //    {
-            //        a = GlobalSerialPort.ReadLine();
-            //        tb_terminal_in.AppendText(a + Environment.NewLine);
-            //    }
-
-            //}
-            //catch
-            //{
-            //}
-
+            //string currReceived = serialPort1.ReadExisting();
         }
 
         private void picBtn_Connect_MouseEnter(object sender, EventArgs e)
@@ -1265,7 +1274,7 @@ namespace Compact_Control
 
         private void picBtn_Connect_MouseLeave(object sender, EventArgs e)
         {
-            if (GlobalSerialPort.IsOpen)
+            if (serialPort1.IsOpen)
                 picBtn_Connect.BackgroundImage = Resources.ConnectButton_Connected;
             else
                 picBtn_Connect.BackgroundImage = Resources.ConnectButton;
@@ -1352,7 +1361,7 @@ namespace Compact_Control
             catch { }
             //Form_Login.ShowForm();
             Application.Restart();
-            }
+        }
 
         private void timer3_Tick(object sender, EventArgs e)
         {
@@ -1360,18 +1369,25 @@ namespace Compact_Control
                 return;
             string currData = receiveQ.Dequeue();
             //string[] lines = currData.Split('\n');
-            tb_terminal_in.AppendText(currData + Environment.NewLine);
+            if (isInServiceMode)
+                tb_terminal_in.AppendText(currData + Environment.NewLine);
+            else if (showClinicalTerminals == "1")
+                clientFrm.tb_terminal_in.AppendText(currData + Environment.NewLine);
             string a = currData;
-            //foreach (string a in lines)
-            //{
+            double c;
             try
+            {
+                switch (a.Substring(0, 3))
                 {
-                    switch (a.Substring(0, 3))
-                    {
                     case "ini":
                         setInitState(0);
-                        btn_saveParameters.Enabled = false;
-                        sendParametersFlag = true;
+                        if (isInServiceMode)
+                        {
+                            btn_saveParameters.Enabled = false;
+                            sendParametersFlag = true;
+                        }
+                        else
+                            clientFrm.sendParametersFlag = true;
                         //sendParameters();
                         break;
                     case "sum":
@@ -1391,37 +1407,72 @@ namespace Compact_Control
                         }
                         break;
                     case "SSS":
-                        if (in_diag == false)
-                            write("s");
+                        if (isInServiceMode)
+                            if (in_diag == false)
+                                write("s");
+                            else
+                                write("s");
+                        break;
+                    case "sss":
+                        if (!isInServiceMode)
+                            write("x");
                         break;
                     case "ccc":
-                        write("y");
+                        if (isInServiceMode)
+                            write("y");
                         break;
                     case "gco":
-                        gant_co = a.Substring(3, a.Length - 3);
+                        if (isInServiceMode)
+                            gant_co = a.Substring(3, a.Length - 3);
                         break;
                     case "gf1":
-                        gant_f1 = a.Substring(3, a.Length - 3);
+                        if (isInServiceMode)
+                            gant_f1 = a.Substring(3, a.Length - 3);
                         break;
                     case "gf2":
-                        gant_f2 = a.Substring(3, a.Length - 3);
+                        if (isInServiceMode)
+                            gant_f2 = a.Substring(3, a.Length - 3);
                         break;
                     case "gfn":
+
                         gant_cofin = a.Substring(3, a.Length - 3);
-                        gant_dv = Math.Round((gant_gain * double.Parse(gant_cofin) + gant_offset), 2, MidpointRounding.ToEven).ToString();
+                        if (isInServiceMode)
+                            gant_dv = Math.Round((gant_gain * double.Parse(gant_cofin) + gant_offset), 2, MidpointRounding.ToEven).ToString();
+                        else
+                        {
+                            c = Math.Round((gant_gain * double.Parse(gant_cofin) + gant_offset), 1, MidpointRounding.ToEven);
+                            if (c < 0)
+                            {
+                                c = c + 360;
+                            }
+                            gant_dv = c.ToString();
+                        }
                         break;
                     case "cco":
-                        collim_co = a.Substring(3, a.Length - 3);
+                        if (isInServiceMode)
+                            collim_co = a.Substring(3, a.Length - 3);
                         break;
                     case "cf1":
-                        collim_f1 = a.Substring(3, a.Length - 3);
+                        if (isInServiceMode)
+                            collim_f1 = a.Substring(3, a.Length - 3);
                         break;
                     case "cf2":
-                        collim_f2 = a.Substring(3, a.Length - 3);
+                        if (isInServiceMode)
+                            collim_f2 = a.Substring(3, a.Length - 3);
                         break;
                     case "cfn":
                         collim_cofin = a.Substring(3, a.Length - 3);
-                        collim_dv = Math.Round((collim_gain * double.Parse(collim_cofin) + collim_offset), 2, MidpointRounding.ToEven).ToString();
+                        if (isInServiceMode)
+                            collim_dv = Math.Round((collim_gain * double.Parse(collim_cofin) + collim_offset), 2, MidpointRounding.ToEven).ToString();
+                        else
+                        {
+                            c = Math.Round((collim_gain * double.Parse(collim_cofin) + collim_offset), 1, MidpointRounding.ToEven);
+                            if (c < 0)
+                            {
+                                c = c + 360;
+                            }
+                            collim_dv = c.ToString();
+                        }
                         break;
                     case "wco":
                         x1_co = a.Substring(3, a.Length - 3);
@@ -1429,7 +1480,10 @@ namespace Compact_Control
                         break;
                     case "xco":
                         x2_co = a.Substring(3, a.Length - 3);
-                        x2_dv = Math.Round(((x2_gain * double.Parse(x2_co)) + x2_offset), 2, MidpointRounding.ToEven).ToString();
+                        if (isInServiceMode)
+                            x2_dv = Math.Round(((x2_gain * double.Parse(x2_co)) + x2_offset), 2, MidpointRounding.ToEven).ToString();
+                        else
+                            x2_dv = Math.Round(-((x2_gain * double.Parse(x2_co)) + x2_offset), 1, MidpointRounding.ToEven).ToString();
                         break;
                     case "yco":
                         y1_co = a.Substring(3, a.Length - 3);
@@ -1437,7 +1491,10 @@ namespace Compact_Control
                         break;
                     case "zco":
                         y2_co = a.Substring(3, a.Length - 3);
-                        y2_dv = Math.Round(((y2_gain * double.Parse(y2_co)) + y2_offset), 2, MidpointRounding.ToEven).ToString();
+                        if (isInServiceMode)
+                            y2_dv = Math.Round(((y2_gain * double.Parse(y2_co)) + y2_offset), 2, MidpointRounding.ToEven).ToString();
+                        else
+                            y2_dv = Math.Round(-((y2_gain * double.Parse(y2_co)) + y2_offset), 1, MidpointRounding.ToEven).ToString();
                         break;
                     case "lok":
                         tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
@@ -1520,46 +1577,121 @@ namespace Compact_Control
                         break;
                     case "adc":
                         inputADC = true;
-                        pb_receiveStatus.BackgroundImage = Resources.led_green;
-                        int i = int.Parse(lbl_in_cnt.Text);
-                        i = i + 1;
-                        lbl_in_cnt.Text = i.ToString();
-                        if (int.Parse(lbl_in_cnt.Text) > 100)
+
+                        if (!isInServiceMode)
+                            if (clientFrm.txt_fakeADC.Visible == true)
+                                adc = clientFrm.txt_fakeADC.Text;
+
+                        if (isInServiceMode)
                         {
-                            lbl_in_cnt.Text = "0";
-                            tb_terminal_in.Clear();
+                            int i = int.Parse(lbl_in_cnt.Text);
+                            i = i + 1;
+                            lbl_in_cnt.Text = i.ToString();
+                            if (int.Parse(lbl_in_cnt.Text) > 100)
+                            {
+                                lbl_in_cnt.Text = "0";
+                                tb_terminal_in.Clear();
+                            }
                         }
+                        else if (showClinicalTerminals == "1")
+                        {
+                            int i = int.Parse(clientFrm.lbl_in_cnt.Text);
+                            i = i + 1;
+                            clientFrm.lbl_in_cnt.Text = i.ToString();
+
+                            if (int.Parse(clientFrm.lbl_in_cnt.Text) > 100)
+                            {
+                                clientFrm.lbl_in_cnt.Text = "0";
+                                clientFrm.tb_terminal_in.Clear();
+                            }
+                        }
+
+                        adc = a.Substring(3, a.Length - 3);
+                        if (int.Parse(adc) < 1850 || int.Parse(adc) > 2250)
+                        {
+                            adcCheck_counter = adcCheck_counter + 1;
+                            if (adcCheck_counter >= 10)
+                            {
+                                gant_set = "0";
+                                collim_set = "0";
+                                x1_set = "0";
+                                x2_set = "0";
+                                y1_set = "0";
+                                y2_set = "0";
+                                clientFrm.lbl_readingError.Show();
+                                clientFrm.lbl_pleaseRestart.Show();
+                                readError = true;
+                                timer1.Enabled = false;
+                                clientFrm.timer_gant.Enabled = false;
+                                clientFrm.timer_coli.Enabled = false;
+                                clientFrm.timer_x1.Enabled = false;
+                                clientFrm.timer_x2.Enabled = false;
+                                clientFrm.timer_y1.Enabled = false;
+                                clientFrm.timer_y2.Enabled = false;
+                            }
+                            break;
+                        }
+                        else
+                            adcCheck_counter = 0;
+
                         adc = a.Substring(3, a.Length - 3);
                         if (int.Parse(gant_set) != int.Parse(gnd))
+                        {
+                            gant_stat = false;
                             write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
+                        }
+                        else
+                            gant_stat = true;
                         if (int.Parse(collim_set) != int.Parse(cld))
+                        {
+                            coli_stat = false;
                             write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
+                        }
+                        else
+                            coli_stat = true;
                         if (int.Parse(x1_set) != int.Parse(x1d))
+                        {
+                            x1_stat = false; //y2_led
                             write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
+                        }
+                        else
+                            x1_stat = true;
                         if (int.Parse(x2_set) != int.Parse(x2d))
+                        {
+                            x2_stat = false; //y1_led
                             write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
+                        }
+                        else
+                            x2_stat = true;
                         if (int.Parse(y1_set) != int.Parse(y1d))
+                        {
+                            y1_stat = false; //x2_led
                             write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
+                        }
+                        else
+                            y1_stat = true;
                         if (int.Parse(y2_set) != int.Parse(y2d))
+                        {
+                            y2_stat = false; //x1_led
                             write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
+                        }
+                        else
+                            y2_stat = true;
                         break;
                     default:
-                        if (tb_terminal_oth.Lines.Length > 1000)
-                            tb_terminal_oth.Clear();
-                        if (a.Substring(0, 3) != "sss" && a.Substring(0, 3) != "ccc")
-                            tb_terminal_oth.AppendText(a + "-->" + a.Substring(0, 3) + Environment.NewLine);
+                        writeToOtherTerminal(currData, false);
                         break;
-                    }
-                    if (quit == true)
-                    {
-                        ClosePort();
-                        Application.Exit();
-                    }
                 }
-                catch
+                if (quit == true)
                 {
+                    ClosePort();
+                    Application.Exit();
                 }
-            //}
+            }
+            catch
+            {
+                writeToOtherTerminal(currData, true);
+            }
         }
 
         private void Validate_Text_tol(object sender, CancelEventArgs e)
@@ -1612,8 +1744,8 @@ namespace Compact_Control
             if (MessageBox.Show("Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
                 
-                if (GlobalSerialPort.IsOpen == false)
-                    GlobalSerialPort.Open();
+                if (serialPort1.IsOpen == false)
+                    serialPort1.Open();
                 if (comboBox1.Text == "Gantry")
                     write("t");
                 if (comboBox1.Text == "Collimator")
@@ -1664,16 +1796,18 @@ namespace Compact_Control
 
             quit = true;
             //ClosePort();
-            if (GlobalSerialPort.IsOpen == true)
+            if (serialPort1.IsOpen == true)
                 MessageBox.Show("Please click on ''Disconnect'' button before exit!");
             else
                 Application.Exit();
         }
 
         public static string curr_baudRate = "";
+        public static string showClinicalTerminals = "0";
+
         private void picBtn_Connect_Click(object sender, EventArgs e)
         {
-            if (GlobalSerialPort.IsOpen == false)
+            if (serialPort1.IsOpen == false)
                 SetConnection(true);
             else
             {
@@ -2314,35 +2448,22 @@ namespace Compact_Control
             //else if (ports.Length > 1)
             //    MessageBox.Show("More than one Serial port detected!\n" + portName + " Selected to connect.", "Multiple COM Port", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-            if (isInServiceMode == false)
-            {
-                GlobalSerialPort = clientFrm.serialPort1;
-                GlobalSerialPort.DataReceived += clientFrm.serialPort1_DataReceived;
-            }
-            else
-            {
-                GlobalSerialPort = serialPort1;
-                GlobalSerialPort.DataReceived += serialPort1_DataReceived_1;
-            }
             if (connect)
             {
                 if (portName != "Null" && portName != "")
                 {
-                    GlobalSerialPort.PortName = portName;
-                    ClientControls.curr_port = portName;
+                    serialPort1.PortName = portName;
                 }
                 else
                 {
-                    GlobalSerialPort.PortName = ports[0];
-                    ClientControls.curr_port = ports[0];
+                    serialPort1.PortName = ports[0];
                 }
-                portName = GlobalSerialPort.PortName;
+                portName = serialPort1.PortName;
 
                 int BaudRate = 0;
                 if (int.TryParse(HashPass.ReadBaudRateFromReg(), out BaudRate) == true && BaudRate != 0)
                 {
-                    GlobalSerialPort.BaudRate = BaudRate;
-                    ClientControls.curr_baudrate = BaudRate;
+                    serialPort1.BaudRate = BaudRate;
                 }
 
 
@@ -2354,7 +2475,7 @@ namespace Compact_Control
                 //DisconnectPort();
                 //Thread.Sleep(200);
                 //ConnectToPort();
-                curr_baudRate = GlobalSerialPort.BaudRate.ToString();
+                curr_baudRate = serialPort1.BaudRate.ToString();
             }
             else
             {
@@ -2392,18 +2513,18 @@ namespace Compact_Control
                 }
 
                 HashPass.CalibData values = HashPass.readCalibJson(dataPath);
-                ClientControls.gant_gain = gant_gain = double.Parse(values.gant_gain);
-                ClientControls.gant_offset = gant_offset = double.Parse(values.gant_offset);
-                ClientControls.collim_gain = collim_gain = double.Parse(values.collim_gain);
-                ClientControls.collim_offset = collim_offset = double.Parse(values.collim_offset);
-                ClientControls.x1_gain = x1_gain = double.Parse(values.x1_gain);
-                ClientControls.x1_offset = x1_offset = double.Parse(values.x1_offset);
-                ClientControls.x2_gain = x2_gain = double.Parse(values.x2_gain);
-                ClientControls.x2_offset = x2_offset = double.Parse(values.x2_offset);
-                ClientControls.y1_gain = y1_gain = double.Parse(values.y1_gain);
-                ClientControls.y1_offset = y1_offset = double.Parse(values.y1_offset);
-                ClientControls.y2_gain = y2_gain = double.Parse(values.y2_gain);
-                ClientControls.y2_offset = y2_offset = double.Parse(values.y2_offset);
+                gant_gain = double.Parse(values.gant_gain);
+                gant_offset = double.Parse(values.gant_offset);
+                collim_gain = double.Parse(values.collim_gain);
+                collim_offset = double.Parse(values.collim_offset);
+                x1_gain = double.Parse(values.x1_gain);
+                x1_offset = double.Parse(values.x1_offset);
+                x2_gain = double.Parse(values.x2_gain);
+                x2_offset = double.Parse(values.x2_offset);
+                y1_gain = double.Parse(values.y1_gain);
+                y1_offset = double.Parse(values.y1_offset);
+                y2_gain = double.Parse(values.y2_gain);
+                y2_offset = double.Parse(values.y2_offset);
 
                 tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
                 tb_coli_gain.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
@@ -2440,12 +2561,12 @@ namespace Compact_Control
                     return;
                 }
                 HashPass.LearnData values = HashPass.readLearnJson(dataPath);
-                tb_gant_zpnt.Text = ClientControls.gant_zpnt = gant_zpnt = values.gant_zpnt;
-                tb_gant_len.Text = ClientControls.gant_length = gant_length = values.gant_length;
-                tb_gant_flen.Text = ClientControls.gant_fine_length = gant_fine_length = values.gant_fine_length;
-                tb_coli_zpnt.Text = ClientControls.collim_zpnt = collim_zpnt = values.collim_zpnt;
-                tb_coli_len.Text = ClientControls.collim_length = collim_length = values.collim_length;
-                tb_coli_flen.Text = ClientControls.collim_fine_length = collim_fine_length = values.collim_fine_length;
+                tb_gant_zpnt.Text = gant_zpnt = values.gant_zpnt;
+                tb_gant_len.Text = gant_length = values.gant_length;
+                tb_gant_flen.Text = gant_fine_length = values.gant_fine_length;
+                tb_coli_zpnt.Text = collim_zpnt = values.collim_zpnt;
+                tb_coli_len.Text = collim_length = values.collim_length;
+                tb_coli_flen.Text = collim_fine_length = values.collim_fine_length;
             }
             catch (Exception ex)
             {
@@ -2471,50 +2592,50 @@ namespace Compact_Control
 
                 string[] prms = new string[44];
 
-                prms[0] = gant_tol_1 = ClientControls.gant_tol_1 = values.gant_tol_1;
-                prms[1] = gant_tol0 = ClientControls.gant_tol0 = values.gant_tol0;
-                prms[2] = gant_tol1 = ClientControls.gant_tol1 = values.gant_tol1;
-                prms[3] = gant_tol2 = ClientControls.gant_tol2 = values.gant_tol2;
-                prms[4] = gant_v1 = ClientControls.gant_v1 = values.gant_v1;
-                prms[5] = gant_v2 = ClientControls.gant_v2 = values.gant_v2;
-                prms[6] = gant_v3 = ClientControls.gant_v3 = values.gant_v3;
-                prms[7] = collim_tol_1 = ClientControls.collim_tol_1 = values.collim_tol_1;
-                prms[8] = collim_tol0 = ClientControls.collim_tol0 = values.collim_tol0;
-                prms[9] = collim_tol1 = ClientControls.collim_tol1 = values.collim_tol1;
-                prms[10] = collim_tol2 = ClientControls.collim_tol2 = values.collim_tol2;
-                prms[11] = collim_v1 = ClientControls.collim_v1 = values.collim_v1;
-                prms[12] = collim_v2 = ClientControls.collim_v2 = values.collim_v2;
-                prms[13] = collim_v3 = ClientControls.collim_v3 = values.collim_v3;
-                prms[14] = x1_tol_1 = ClientControls.x1_tol_1 = values.x1_tol_1;
-                prms[15] = x1_tol0 = ClientControls.x1_tol0 = values.x1_tol0;
-                prms[16] = x1_tol1 = ClientControls.x1_tol1 = values.x1_tol1;
-                prms[17] = x1_tol2 = ClientControls.x1_tol2 = values.x1_tol2;
-                prms[18] = x1_v1 = ClientControls.x1_v1 = values.x1_v1;
-                prms[19] = x1_v2 = ClientControls.x1_v2 = values.x1_v2;
-                prms[20] = x1_v3 = ClientControls.x1_v3 = values.x1_v3;
-                prms[21] = x2_tol_1 = ClientControls.x2_tol_1 = values.x2_tol_1;
-                prms[22] = x2_tol0 = ClientControls.x2_tol0 = values.x2_tol0;
-                prms[23] = x2_tol1 = ClientControls.x2_tol1 = values.x2_tol1;
-                prms[24] = x2_tol2 = ClientControls.x2_tol2 = values.x2_tol2;
-                prms[25] = x2_v1 = ClientControls.x2_v1 = values.x2_v1;
-                prms[26] = x2_v2 = ClientControls.x2_v2 = values.x2_v2;
-                prms[27] = x2_v3 = ClientControls.x2_v3 = values.x2_v3;
-                prms[28] = y1_tol_1 = ClientControls.y1_tol_1 = values.y1_tol_1;
-                prms[29] = y1_tol0 = ClientControls.y1_tol0 = values.y1_tol0;
-                prms[30] = y1_tol1 = ClientControls.y1_tol1 = values.y1_tol1;
-                prms[31] = y1_tol2 = ClientControls.y1_tol2 = values.y1_tol2;
-                prms[32] = y1_v1 = ClientControls.y1_v1 = values.y1_v1;
-                prms[33] = y1_v2 = ClientControls.y1_v2 = values.y1_v2;
-                prms[34] = y1_v3 = ClientControls.y1_v3 = values.y1_v3;
-                prms[35] = y2_tol_1 = ClientControls.y2_tol_1 = values.y2_tol_1;
-                prms[36] = y2_tol0 = ClientControls.y2_tol0 = values.y2_tol0;
-                prms[37] = y2_tol1 = ClientControls.y2_tol1 = values.y2_tol1;
-                prms[38] = y2_tol2 = ClientControls.y2_tol2 = values.y2_tol2;
-                prms[39] = y2_v1 = ClientControls.y2_v1 = values.y2_v1;
-                prms[40] = y2_v2 = ClientControls.y2_v2 = values.y2_v2;
-                prms[41] = y2_v3 = ClientControls.y2_v3 = values.y2_v3;
-                prms[42] = gravity_up = ClientControls.gravity_up = values.gravity_up;
-                prms[43] = gravity_down = ClientControls.gravity_down = values.gravity_down;
+                prms[0] = gant_tol_1 = values.gant_tol_1;
+                prms[1] = gant_tol0 = values.gant_tol0;
+                prms[2] = gant_tol1 = values.gant_tol1;
+                prms[3] = gant_tol2 = values.gant_tol2;
+                prms[4] = gant_v1 = values.gant_v1;
+                prms[5] = gant_v2 = values.gant_v2;
+                prms[6] = gant_v3 = values.gant_v3;
+                prms[7] = collim_tol_1 = values.collim_tol_1;
+                prms[8] = collim_tol0 = values.collim_tol0;
+                prms[9] = collim_tol1 = values.collim_tol1;
+                prms[10] = collim_tol2 = values.collim_tol2;
+                prms[11] = collim_v1 = values.collim_v1;
+                prms[12] = collim_v2 = values.collim_v2;
+                prms[13] = collim_v3 = values.collim_v3;
+                prms[14] = x1_tol_1 = values.x1_tol_1;
+                prms[15] = x1_tol0 = values.x1_tol0;
+                prms[16] = x1_tol1 = values.x1_tol1;
+                prms[17] = x1_tol2 = values.x1_tol2;
+                prms[18] = x1_v1 = values.x1_v1;
+                prms[19] = x1_v2 = values.x1_v2;
+                prms[20] = x1_v3 = values.x1_v3;
+                prms[21] = x2_tol_1 = values.x2_tol_1;
+                prms[22] = x2_tol0 = values.x2_tol0;
+                prms[23] = x2_tol1 = values.x2_tol1;
+                prms[24] = x2_tol2 = values.x2_tol2;
+                prms[25] = x2_v1 = values.x2_v1;
+                prms[26] = x2_v2 = values.x2_v2;
+                prms[27] = x2_v3 = values.x2_v3;
+                prms[28] = y1_tol_1 = values.y1_tol_1;
+                prms[29] = y1_tol0 = values.y1_tol0;
+                prms[30] = y1_tol1 = values.y1_tol1;
+                prms[31] = y1_tol2 = values.y1_tol2;
+                prms[32] = y1_v1 = values.y1_v1;
+                prms[33] = y1_v2 = values.y1_v2;
+                prms[34] = y1_v3 = values.y1_v3;
+                prms[35] = y2_tol_1 = values.y2_tol_1;
+                prms[36] = y2_tol0 = values.y2_tol0;
+                prms[37] = y2_tol1 = values.y2_tol1;
+                prms[38] = y2_tol2 = values.y2_tol2;
+                prms[39] = y2_v1 = values.y2_v1;
+                prms[40] = y2_v2 = values.y2_v2;
+                prms[41] = y2_v3 = values.y2_v3;
+                prms[42] = gravity_up = values.gravity_up;
+                prms[43] = gravity_down = values.gravity_down;
 
                 int i = 0;
                 foreach (Control tb in gb_parameters.Controls)
@@ -2557,10 +2678,10 @@ namespace Compact_Control
                 connCounter = connCounter + 1;
                 //ClosePort();
                 //MessageBox.Show("Connection error!", "An error occured during connection!\n\n");
-                if (!GlobalSerialPort.IsOpen)
+                if (!serialPort1.IsOpen)
                 {
-                    GlobalSerialPort.Open();
-                    Thread.Sleep(500);
+                    serialPort1.Open();
+                    Thread.Sleep(200);
                 }
                 if (isInServiceMode == true)
                 {
@@ -2568,14 +2689,12 @@ namespace Compact_Control
                     //panel_AdminControls.Enabled = true;
                     write("y");
                     timer1.Enabled = true;
-                    timer3.Enabled = true;
                 }
                 else
                 {
                     write("x");
                     //panel_ClientControls.Enabled = true;
                     timer1.Enabled = false;
-                    timer3.Enabled = false;
                 }
 
                 ReadCalibFile();
@@ -2608,7 +2727,7 @@ namespace Compact_Control
             }
             else if (this.Text.Contains("Service"))
             {
-                curr_baudRate = GlobalSerialPort.BaudRate.ToString();
+                curr_baudRate = serialPort1.BaudRate.ToString();
                 PrepareSettingForAll(frmSet);
             }
             if (frmSet.ShowDialog() == DialogResult.OK)
@@ -2620,14 +2739,10 @@ namespace Compact_Control
                     DisconnectPort();
                     Thread.Sleep(200);
 
-                    GlobalSerialPort.PortName = portName;
-                    GlobalSerialPort.BaudRate = int.Parse(curr_baudRate);
                     serialPort1.PortName = portName;
                     serialPort1.BaudRate = int.Parse(curr_baudRate);
-                    clientFrm.serialPort1.PortName = portName;
-                    clientFrm.serialPort1.BaudRate = int.Parse(curr_baudRate);
-                    ClientControls.curr_port = portName;
-                    ClientControls.curr_baudrate = int.Parse(curr_baudRate);
+                    serialPort1.PortName = portName;
+                    serialPort1.BaudRate = int.Parse(curr_baudRate);
 
                     HashPass.WriteBaudrateToReg(curr_baudRate);
                     ConnectToPort();
@@ -2761,7 +2876,9 @@ namespace Compact_Control
         }
 
 
-        bool inputADC = false;
+        public bool inputADC = false;
+        public bool readError = false;
+        int adcCheck_counter = 0;
         private PerformanceCounter theCPUCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
         private PerformanceCounter theMemCounter = new PerformanceCounter("Memory", "Available MBytes");
 
@@ -2816,15 +2933,53 @@ namespace Compact_Control
             label_date.Text = miladiDate;
             //label_shamsiDate.Text = shamsiDate;
 
-            if (inputADC == false)
+            if (inputADC == false || readError)
             {
-                pb_receiveStatus.BackgroundImage = Resources.led_red;
+                if (isInServiceMode)
+                    pb_receiveStatus.BackgroundImage = Resources.led_red;
+                else
+                {
+                    clientFrm.pb_receiveStatus.BackgroundImage = Resources.led_red;
+                }
             }
-            //else
-            //{
-            //    pb_receiveStatus.BackgroundImage = Resources.led_green;
-            //}
             inputADC = false;
+            if ((!isInServiceMode) && (!serialPort1.IsOpen))
+            {
+                clientFrm.pb_gant_status.BackgroundImage = Resources.led_red;
+                clientFrm.pb_coli_status.BackgroundImage = Resources.led_red;
+                clientFrm.pb_x1_status.BackgroundImage = Resources.led_red;
+                clientFrm.pb_x2_status.BackgroundImage = Resources.led_red;
+                clientFrm.pb_y1_status.BackgroundImage = Resources.led_red;
+                clientFrm.pb_y2_status.BackgroundImage = Resources.led_red;
+            }
+            if (!isInServiceMode)
+            {
+                if (!gant_stat)
+                    clientFrm.pb_gant_status.BackgroundImage = Resources.led_red;
+                else
+                    clientFrm.pb_gant_status.BackgroundImage = Resources.led_green;
+                if (!coli_stat)
+                    clientFrm.pb_coli_status.BackgroundImage = Resources.led_red;
+                else
+                    clientFrm.pb_coli_status.BackgroundImage = Resources.led_green;
+                if (!x1_stat)
+                    clientFrm.pb_y2_status.BackgroundImage = Resources.led_red;
+                else
+                    clientFrm.pb_y2_status.BackgroundImage = Resources.led_green;
+                if (!x2_stat)
+                    clientFrm.pb_y1_status.BackgroundImage = Resources.led_red;
+                else
+                    clientFrm.pb_y1_status.BackgroundImage = Resources.led_green;
+                if (!y1_stat)
+                    clientFrm.pb_x2_status.BackgroundImage = Resources.led_red;
+                else
+                    clientFrm.pb_x2_status.BackgroundImage = Resources.led_green;
+                if (!y2_stat)
+                    clientFrm.pb_x1_status.BackgroundImage = Resources.led_red;
+                else
+                    clientFrm.pb_x1_status.BackgroundImage = Resources.led_green;
+            }
+
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -2839,7 +2994,7 @@ namespace Compact_Control
         {
             quit = true;
             //ClosePort();
-            if (GlobalSerialPort.IsOpen == true)
+            if (serialPort1.IsOpen == true)
                 MessageBox.Show("Please click on ''Disconnect'' button before exit!");
             else
                 Application.Exit();
@@ -2848,7 +3003,7 @@ namespace Compact_Control
 
         private void Form1_Shown(object sender, EventArgs e)
         {
-            if (GlobalSerialPort.IsOpen == false)
+            if (serialPort1.IsOpen == false)
                 SetConnection(true);
         }
 
@@ -2875,50 +3030,50 @@ namespace Compact_Control
                     i = i + 1;
                 }
             }
-            gant_tol_1 = ClientControls.gant_tol_1 = values[0];
-            gant_tol0 = ClientControls.gant_tol0 = values[1];
-            gant_tol1 = ClientControls.gant_tol1 = values[2];
-            gant_tol2 = ClientControls.gant_tol2 = values[3];
-            gant_v1 = ClientControls.gant_v1 = values[4];
-            gant_v2 = ClientControls.gant_v2 = values[5];
-            gant_v3 = ClientControls.gant_v3 = values[6];
-            collim_tol_1 = ClientControls.collim_tol_1 = values[7];
-            collim_tol0 = ClientControls.collim_tol0 = values[8];
-            collim_tol1 = ClientControls.collim_tol1 = values[9];
-            collim_tol2 = ClientControls.collim_tol2 = values[10];
-            collim_v1 = ClientControls.collim_v1 = values[11];
-            collim_v2 = ClientControls.collim_v2 = values[12];
-            collim_v3 = ClientControls.collim_v3 = values[13];
-            y1_tol_1 = ClientControls.x1_tol_1 = values[14];
-            y1_tol0 = ClientControls.x1_tol0 = values[15];
-            y1_tol1 = ClientControls.x1_tol1 = values[16];
-            y1_tol2 = ClientControls.x1_tol2 = values[17];
-            y1_v1 = ClientControls.x1_v1 = values[18];
-            y1_v2 = ClientControls.x1_v2 = values[19];
-            y1_v3 = ClientControls.x1_v3 = values[20];
-            y2_tol_1 = ClientControls.x2_tol_1 = values[21];
-            y2_tol0 = ClientControls.x2_tol0 = values[22];
-            y2_tol1 = ClientControls.x2_tol1 = values[23];
-            y2_tol2 = ClientControls.x2_tol2 = values[24];
-            y2_v1 = ClientControls.x2_v1 = values[25];
-            y2_v2 = ClientControls.x2_v2 = values[26];
-            y2_v3 = ClientControls.x2_v3 = values[27];
-            x1_tol_1 = ClientControls.y1_tol_1 = values[28];
-            x1_tol0 = ClientControls.y1_tol0 = values[29];
-            x1_tol1 = ClientControls.y1_tol1 = values[30];
-            x1_tol2 = ClientControls.y1_tol2 = values[31];
-            x1_v1 = ClientControls.y1_v1 = values[32];
-            x1_v2 = ClientControls.y1_v2 = values[33];
-            x1_v3 = ClientControls.y1_v3 = values[34];
-            x2_tol_1 = ClientControls.y2_tol_1 = values[35];
-            x2_tol0 = ClientControls.y2_tol0 = values[36];
-            x2_tol1 = ClientControls.y2_tol1 = values[37];
-            x2_tol2 = ClientControls.y2_tol2 = values[38];
-            x2_v1 = ClientControls.y2_v1 = values[39];
-            x2_v2 = ClientControls.y2_v2 = values[40];
-            x2_v3 = ClientControls.y2_v3 = values[41];
-            gravity_up = ClientControls.gravity_up = values[42];
-            gravity_down = ClientControls.gravity_down = values[43];
+            gant_tol_1 = values[0];
+            gant_tol0 = values[1];
+            gant_tol1 = values[2];
+            gant_tol2 = values[3];
+            gant_v1 = values[4];
+            gant_v2 = values[5];
+            gant_v3 = values[6];
+            collim_tol_1 = values[7];
+            collim_tol0 = values[8];
+            collim_tol1 = values[9];
+            collim_tol2 = values[10];
+            collim_v1 = values[11];
+            collim_v2 = values[12];
+            collim_v3 = values[13];
+            y1_tol_1 = values[14];
+            y1_tol0 = values[15];
+            y1_tol1 = values[16];
+            y1_tol2 = values[17];
+            y1_v1 = values[18];
+            y1_v2 = values[19];
+            y1_v3 = values[20];
+            y2_tol_1 = values[21];
+            y2_tol0 = values[22];
+            y2_tol1 = values[23];
+            y2_tol2 = values[24];
+            y2_v1 = values[25];
+            y2_v2 = values[26];
+            y2_v3 = values[27];
+            x1_tol_1 = values[28];
+            x1_tol0 = values[29];
+            x1_tol1 = values[30];
+            x1_tol2 = values[31];
+            x1_v1 = values[32];
+            x1_v2 = values[33];
+            x1_v3 = values[34];
+            x2_tol_1 = values[35];
+            x2_tol0 = values[36];
+            x2_tol1 = values[37];
+            x2_tol2 = values[38];
+            x2_v1 = values[39];
+            x2_v2 = values[40];
+            x2_v3 = values[41];
+            gravity_up = values[42];
+            gravity_down = values[43];
 
             try
             {

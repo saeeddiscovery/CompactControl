@@ -10,68 +10,9 @@ namespace Compact_Control
     public partial class ClientControls : UserControl
     {
         private Form1 frm1;
-        //private SerialPort _serialPort1;
-        //public SerialPort serialPort1
-        //{
-        //    set
-        //    {
-        //        if (_serialPort1 != value)
-        //            _serialPort1 = value;
-        //    }
-        //    get 
-        //    {
-        //        return _serialPort1;
-        //    }
-        //}
-        string gant_cofin;
-        public static double gant_gain, gant_offset;
-        string gant_dv;
-        string gnd;
-        public static string gant_zpnt, gant_length, gant_fine_length;
 
-        string collim_cofin;
-        public static double collim_gain, collim_offset;
-        string collim_dv;
-        string cld;
-        public static string collim_zpnt, collim_length, collim_fine_length;
+        public bool sendParametersFlag = false;
 
-        double gant_t2, gant_d2, collim_t2, collim_d2;
-
-        public static string gant_tol_1, gant_tol0, gant_tol1, gant_tol2, gant_v1, gant_v2, gant_v3;
-        public static string collim_tol_1, collim_tol0, collim_tol1, collim_tol2, collim_v1, collim_v2, collim_v3;
-        public static string x1_tol_1, x1_tol0, x1_tol1, x1_tol2, x1_v1, x1_v2, x1_v3;
-        public static string x2_tol_1, x2_tol0, x2_tol1, x2_tol2, x2_v1, x2_v2, x2_v3;
-        public static string y1_tol_1, y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
-        public static string y2_tol_1, y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
-        public static string gravity_up, gravity_down;
-        bool sendParametersFlag = false;
-
-        string x1_co;
-        public static double x1_gain, x1_offset;
-        string x1_dv;
-        string x1d;
-
-        string x2_co;
-        public static double x2_gain, x2_offset;
-        string x2_dv;
-        string x2d;
-
-        string y1_co;
-        public static double y1_gain, y1_offset;
-        string y1_dv;
-        string y1d;
-
-        string y2_co;
-        public static double y2_gain, y2_offset;
-        string y2_dv;
-        string y2d;
-
-        string gant_set="0";
-        string collim_set="0";
-        string x1_set="0";
-        string x2_set="0";
-        string y1_set="0";
-        string y2_set="0";
 
         string gant_valid_raw = "0";
         string collim_valid_raw = "0";
@@ -87,11 +28,7 @@ namespace Compact_Control
         string y1_valid_deg = "0";
         string y2_valid_deg = "0";
 
-        string adc;
-
-        public static string showTerminals;
-        public static int curr_baudrate;
-        public static string curr_port;
+        double gant_t2, gant_d2, collim_t2, collim_d2;
 
         public ClientControls()
         {
@@ -101,7 +38,6 @@ namespace Compact_Control
         public void TimerStatus(bool enabled)
         {
             timer1.Enabled = enabled;
-            timer3.Enabled = enabled;
         }
 
         public void FillValues()
@@ -156,129 +92,90 @@ namespace Compact_Control
             }
             return equal;
         }
-        public bool sendParameters()
-        {
-            try
-            {
-                
-                if (serialPort1.IsOpen == false)
-                {
-                    serialPort1.BaudRate = curr_baudrate;
-                    serialPort1.PortName = curr_port;
-                    serialPort1.Open();
-                }
+        //public bool sendParameters()
+        //{
+        //    try
+        //    {
+        //        string gant_tol_1_t = Math.Abs(Math.Round(double.Parse(frm1.gant_tol_1) / frm1.gant_gain)).ToString();
+        //        string gant_tol0_t = Math.Abs(Math.Round(double.Parse(frm1.gant_tol0) / frm1.gant_gain)).ToString();
+        //        string gant_tol1_t = Math.Abs(Math.Round(double.Parse(frm1.gant_tol1) / frm1.gant_gain)).ToString();
+        //        string gant_tol2_t = Math.Abs(Math.Round(double.Parse(frm1.gant_tol2) / frm1.gant_gain)).ToString();
 
-                //serialPort1.Open();
-                string gant_tol_1_t = Math.Abs(Math.Round(double.Parse(gant_tol_1) / gant_gain)).ToString();
-                string gant_tol0_t = Math.Abs(Math.Round(double.Parse(gant_tol0) / gant_gain)).ToString();
-                string gant_tol1_t = Math.Abs(Math.Round(double.Parse(gant_tol1) / gant_gain)).ToString();
-                string gant_tol2_t = Math.Abs(Math.Round(double.Parse(gant_tol2) / gant_gain)).ToString();
+        //        string collim_tol_1_t = Math.Abs(Math.Round(double.Parse(frm1.collim_tol_1) / frm1.collim_gain)).ToString();
+        //        string collim_tol0_t = Math.Abs(Math.Round(double.Parse(frm1.collim_tol0) / frm1.collim_gain)).ToString();
+        //        string collim_tol1_t = Math.Abs(Math.Round(double.Parse(frm1.collim_tol1) / frm1.collim_gain)).ToString();
+        //        string collim_tol2_t = Math.Abs(Math.Round(double.Parse(frm1.collim_tol2) / frm1.collim_gain)).ToString();
 
-                string collim_tol_1_t = Math.Abs(Math.Round(double.Parse(collim_tol_1) / collim_gain)).ToString();
-                string collim_tol0_t = Math.Abs(Math.Round(double.Parse(collim_tol0) / collim_gain)).ToString();
-                string collim_tol1_t = Math.Abs(Math.Round(double.Parse(collim_tol1) / collim_gain)).ToString();
-                string collim_tol2_t = Math.Abs(Math.Round(double.Parse(collim_tol2) / collim_gain)).ToString();
+        //        string x1_tol_1_t = Math.Abs(Math.Round(double.Parse(frm1.x1_tol_1) / frm1.x1_gain)).ToString();
+        //        string x1_tol0_t = Math.Abs(Math.Round(double.Parse(frm1.x1_tol0) / frm1.x1_gain)).ToString();
+        //        string x1_tol1_t = Math.Abs(Math.Round(double.Parse(frm1.x1_tol1) / frm1.x1_gain)).ToString();
+        //        string x1_tol2_t = Math.Abs(Math.Round(double.Parse(frm1.x1_tol2) / frm1.x1_gain)).ToString();
 
-                string x1_tol_1_t = Math.Abs(Math.Round(double.Parse(x1_tol_1) / x1_gain)).ToString();
-                string x1_tol0_t = Math.Abs(Math.Round(double.Parse(x1_tol0) / x1_gain)).ToString();
-                string x1_tol1_t = Math.Abs(Math.Round(double.Parse(x1_tol1) / x1_gain)).ToString();
-                string x1_tol2_t = Math.Abs(Math.Round(double.Parse(x1_tol2) / x1_gain)).ToString();
+        //        string x2_tol_1_t = Math.Abs(Math.Round(double.Parse(frm1.x2_tol_1) / frm1.x2_gain)).ToString();
+        //        string x2_tol0_t = Math.Abs(Math.Round(double.Parse(frm1.x2_tol0) / frm1.x2_gain)).ToString();
+        //        string x2_tol1_t = Math.Abs(Math.Round(double.Parse(frm1.x2_tol1) / frm1.x2_gain)).ToString();
+        //        string x2_tol2_t = Math.Abs(Math.Round(double.Parse(frm1.x2_tol2) / frm1.x2_gain)).ToString();
 
-                string x2_tol_1_t = Math.Abs(Math.Round(double.Parse(x2_tol_1) / x2_gain)).ToString();
-                string x2_tol0_t = Math.Abs(Math.Round(double.Parse(x2_tol0) / x2_gain)).ToString();
-                string x2_tol1_t = Math.Abs(Math.Round(double.Parse(x2_tol1) / x2_gain)).ToString();
-                string x2_tol2_t = Math.Abs(Math.Round(double.Parse(x2_tol2) / x2_gain)).ToString();
+        //        string y1_tol_1_t = Math.Abs(Math.Round(double.Parse(frm1.y1_tol_1) / frm1.y1_gain)).ToString();
+        //        string y1_tol0_t = Math.Abs(Math.Round(double.Parse(frm1.y1_tol0) / frm1.y1_gain)).ToString();
+        //        string y1_tol1_t = Math.Abs(Math.Round(double.Parse(frm1.y1_tol1) / frm1.y1_gain)).ToString();
+        //        string y1_tol2_t = Math.Abs(Math.Round(double.Parse(frm1.y1_tol2) / frm1.y1_gain)).ToString();
 
-                string y1_tol_1_t = Math.Abs(Math.Round(double.Parse(y1_tol_1) / y1_gain)).ToString();
-                string y1_tol0_t = Math.Abs(Math.Round(double.Parse(y1_tol0) / y1_gain)).ToString();
-                string y1_tol1_t = Math.Abs(Math.Round(double.Parse(y1_tol1) / y1_gain)).ToString();
-                string y1_tol2_t = Math.Abs(Math.Round(double.Parse(y1_tol2) / y1_gain)).ToString();
+        //        string y2_tol_1_t = Math.Abs(Math.Round(double.Parse(frm1.y2_tol_1) / frm1.y2_gain)).ToString();
+        //        string y2_tol0_t = Math.Abs(Math.Round(double.Parse(frm1.y2_tol0) / frm1.y2_gain)).ToString();
+        //        string y2_tol1_t = Math.Abs(Math.Round(double.Parse(frm1.y2_tol1) / frm1.y2_gain)).ToString();
+        //        string y2_tol2_t = Math.Abs(Math.Round(double.Parse(frm1.y2_tol2) / frm1.y2_gain)).ToString();
 
-                string y2_tol_1_t = Math.Abs(Math.Round(double.Parse(y2_tol_1) / y2_gain)).ToString();
-                string y2_tol0_t = Math.Abs(Math.Round(double.Parse(y2_tol0) / y2_gain)).ToString();
-                string y2_tol1_t = Math.Abs(Math.Round(double.Parse(y2_tol1) / y2_gain)).ToString();
-                string y2_tol2_t = Math.Abs(Math.Round(double.Parse(y2_tol2) / y2_gain)).ToString();
+        //        double gant_gain_int = Math.Round(frm1.gant_gain * 100000);
+        //        double gant_offset_int = Math.Round(frm1.gant_offset);
+        //        double collim_gain_int = Math.Round(frm1.collim_gain * 100000);
+        //        double collim_offset_int = Math.Round(frm1.collim_offset);
 
-                double gant_gain_int = Math.Round(gant_gain * 100000);
-                double gant_offset_int = Math.Round(gant_offset);
-                double collim_gain_int = Math.Round(collim_gain * 100000);
-                double collim_offset_int = Math.Round(collim_offset);
+        //        ourSum = double.Parse(gant_tol_1_t) + double.Parse(gant_tol0_t) + double.Parse(gant_tol1_t) + double.Parse(gant_tol2_t) +
+        //                 double.Parse(collim_tol_1_t) + double.Parse(collim_tol0_t) + double.Parse(collim_tol1_t) + double.Parse(collim_tol2_t) +
+        //                 gant_gain_int + gant_offset_int + collim_gain_int + collim_offset_int +
+        //                 double.Parse(x1_tol_1_t) + double.Parse(x1_tol0_t) + double.Parse(x1_tol1_t) + double.Parse(x1_tol2_t) +
+        //                 double.Parse(x2_tol_1_t) + double.Parse(x2_tol0_t) + double.Parse(x2_tol1_t) + double.Parse(x2_tol2_t) +
+        //                 double.Parse(y1_tol_1_t) + double.Parse(y1_tol0_t) + double.Parse(y1_tol1_t) + double.Parse(y1_tol2_t) +
+        //                 double.Parse(y2_tol_1_t) + double.Parse(y2_tol0_t) + double.Parse(y2_tol1_t) + double.Parse(y2_tol2_t) +
+        //                 double.Parse(frm1.gant_v1) + double.Parse(frm1.gant_v2) + double.Parse(frm1.gant_v3) +
+        //                 double.Parse(frm1.collim_v1) + double.Parse(frm1.collim_v2) + double.Parse(frm1.collim_v3) +
+        //                 double.Parse(frm1.x1_v1) + double.Parse(frm1.x1_v2) + double.Parse(frm1.x1_v3) +
+        //                 double.Parse(frm1.x2_v1) + double.Parse(frm1.x2_v2) + double.Parse(frm1.x2_v3) +
+        //                 double.Parse(frm1.y1_v1) + double.Parse(frm1.y1_v2) + double.Parse(frm1.y1_v3) +
+        //                 double.Parse(frm1.y2_v1) + double.Parse(frm1.y2_v2) + double.Parse(frm1.y2_v3) +
+        //                 double.Parse(frm1.gant_zpnt) + double.Parse(frm1.gant_length) + double.Parse(frm1.gant_fine_length) +
+        //                 double.Parse(frm1.collim_zpnt) + double.Parse(frm1.collim_length) + double.Parse(frm1.collim_fine_length) +
+        //                 double.Parse(frm1.gravity_up) + double.Parse(frm1.gravity_down); ;
 
-                ourSum = double.Parse(gant_tol_1_t) + double.Parse(gant_tol0_t) + double.Parse(gant_tol1_t) + double.Parse(gant_tol2_t) +
-                         double.Parse(collim_tol_1_t) + double.Parse(collim_tol0_t) + double.Parse(collim_tol1_t) + double.Parse(collim_tol2_t) +
-                         gant_gain_int + gant_offset_int + collim_gain_int + collim_offset_int +
-                         double.Parse(x1_tol_1_t) + double.Parse(x1_tol0_t) + double.Parse(x1_tol1_t) + double.Parse(x1_tol2_t) +
-                         double.Parse(x2_tol_1_t) + double.Parse(x2_tol0_t) + double.Parse(x2_tol1_t) + double.Parse(x2_tol2_t) +
-                         double.Parse(y1_tol_1_t) + double.Parse(y1_tol0_t) + double.Parse(y1_tol1_t) + double.Parse(y1_tol2_t) +
-                         double.Parse(y2_tol_1_t) + double.Parse(y2_tol0_t) + double.Parse(y2_tol1_t) + double.Parse(y2_tol2_t) +
-                         double.Parse(gant_v1) + double.Parse(gant_v2) + double.Parse(gant_v3) +
-                         double.Parse(collim_v1) + double.Parse(collim_v2) + double.Parse(collim_v3) +
-                         double.Parse(x1_v1) + double.Parse(x1_v2) + double.Parse(x1_v3) +
-                         double.Parse(x2_v1) + double.Parse(x2_v2) + double.Parse(x2_v3) +
-                         double.Parse(y1_v1) + double.Parse(y1_v2) + double.Parse(y1_v3) +
-                         double.Parse(y2_v1) + double.Parse(y2_v2) + double.Parse(y2_v3) +
-                         double.Parse(gant_zpnt) + double.Parse(gant_length) + double.Parse(gant_fine_length) +
-                         double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length) +
-                         double.Parse(gravity_up) + double.Parse(gravity_down); ;
+        //        //MessageBox.Show(ourSum.ToString());
+        //        write("z");
+        //        write(frm1.gant_zpnt + "/" + frm1.gant_length + "/" + frm1.gant_fine_length + "/" + gant_gain_int + "/" + gant_offset_int + "/");
+        //        write(frm1.collim_zpnt + "/" + frm1.collim_length + "/" + frm1.collim_fine_length + "/" + collim_gain_int + "/" + collim_offset_int + "/");
+        //        write(gant_tol_1_t + "/" + gant_tol0_t + "/" + gant_tol1_t + "/" + gant_tol2_t + "/");
+        //        write(frm1.gant_v1 + "/" + frm1.gant_v2 + "/" + frm1.gant_v3 + "/");
+        //        write(collim_tol_1_t + "/" + collim_tol0_t + "/" + collim_tol1_t + "/" + collim_tol2_t + "/");
+        //        write(frm1.collim_v1 + "/" + frm1.collim_v2 + "/" + frm1.collim_v3 + "/");
+        //        write(x1_tol_1_t + "/" + x1_tol0_t + "/" + x1_tol1_t + "/" + x1_tol2_t + "/");
+        //        write(frm1.x1_v1 + "/" + frm1.x1_v2 + "/" + frm1.x1_v3 + "/");
+        //        write(x2_tol_1_t + "/" + x2_tol0_t + "/" + x2_tol1_t + "/" + x2_tol2_t + "/");
+        //        write(frm1.x2_v1 + "/" + frm1.x2_v2 + "/" + frm1.x2_v3 + "/");
+        //        write(y1_tol_1_t + "/" + y1_tol0_t + "/" + y1_tol1_t + "/" + y1_tol2_t + "/");
+        //        write(frm1.y1_v1 + "/" + frm1.y1_v2 + "/" + frm1.y1_v3 + "/");
+        //        write(y2_tol_1_t + "/" + y2_tol0_t + "/" + y2_tol1_t + "/" + y2_tol2_t + "/");
+        //        write(frm1.y2_v1 + "/" + frm1.y2_v2 + "/" + frm1.y2_v3 + "/" + frm1.gravity_up + "/" + frm1.gravity_down + "/");
+        //        return true;
 
-                //MessageBox.Show(ourSum.ToString());
-                write("z");
-                write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/" + gant_gain_int + "/" + gant_offset_int + "/");
-                write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/" + collim_gain_int + "/" + collim_offset_int + "/");
-                write(gant_tol_1_t + "/" + gant_tol0_t + "/" + gant_tol1_t + "/" + gant_tol2_t + "/");
-                write(gant_v1 + "/" + gant_v2 + "/" + gant_v3 + "/");
-                write(collim_tol_1_t + "/" + collim_tol0_t + "/" + collim_tol1_t + "/" + collim_tol2_t + "/");
-                write(collim_v1 + "/" + collim_v2 + "/" + collim_v3 + "/");
-                write(x1_tol_1_t + "/" + x1_tol0_t + "/" + x1_tol1_t + "/" + x1_tol2_t + "/");
-                write(x1_v1 + "/" + x1_v2 + "/" + x1_v3 + "/");
-                write(x2_tol_1_t + "/" + x2_tol0_t + "/" + x2_tol1_t + "/" + x2_tol2_t + "/");
-                write(x2_v1 + "/" + x2_v2 + "/" + x2_v3 + "/");
-                write(y1_tol_1_t + "/" + y1_tol0_t + "/" + y1_tol1_t + "/" + y1_tol2_t + "/");
-                write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
-                write(y2_tol_1_t + "/" + y2_tol0_t + "/" + y2_tol1_t + "/" + y2_tol2_t + "/");
-                write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/" + gravity_up + "/" + gravity_down + "/");
-                return true;
-
-            }
-            catch(Exception ex)
-            {
-                this.frm1.setInitState(2);
-                //MessageBox.Show("Unable to send parameters!" + Environment.NewLine + ex.ToString().Split('\n')[0]);
-                return false;
-            }
-        }
+        //    }
+        //    catch(Exception ex)
+        //    {
+        //        frm1.setInitState(2);
+        //        //MessageBox.Show("Unable to send parameters!" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+        //        return false;
+        //    }
+        //}
 
         string[] microParameters = new string[42];
-        public Queue<string> receiveQ = new Queue<string>();
-        public void serialPort1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
-        {
-            if (this.frm1 == null)
-                this.frm1 = this.ParentForm as Form1;
-
-            if (serialPort1.IsOpen == false)
-                return;
-            try
-            {
-                while (serialPort1.BytesToRead > 0)
-                {
-                    string currReceived = serialPort1.ReadLine();
-                    receiveQ.Enqueue(currReceived);
-                }
-                serialPort1.DiscardInBuffer();
-            }
-            catch { }
-            //string currReceived = serialPort1.ReadExisting();
-
-            //string a = "";
-            //try
-            //{
-            //    if (serialPort1.IsOpen)
-            //        a = serialPort1.ReadLine();
-            //}
-            //catch
-            //{                               
-            //}
-        }
 
         private double y1dv, y2dv, xa, x1dv, x2dv, ya;
 
@@ -296,54 +193,43 @@ namespace Compact_Control
 
         public void write(string data)
         {
-            DateTime now = DateTime.Now;
-            TimeSpan fromLastConnect = now - frm1.connectTime;
-            if (fromLastConnect.Minutes >= 5)
-            {
-                frm1.SetConnection(false);
-                Thread.Sleep(50);
-                frm1.SetConnection(true);
-            }
-            serialPort1.DiscardOutBuffer();
-            serialPort1.Write(data);
-            if (showTerminals == "1")
-                tb_terminal_out.AppendText(data + Environment.NewLine);
+            frm1.write(data);
         }
 
-        private void timer_coli_Tick(object sender, EventArgs e)
+        public void timer_gant_Tick(object sender, EventArgs e)
         {
-            collim_set = "0";
+            frm1.gant_set = "0";
+            timer_gant.Enabled = false;
+        }
+
+        public void timer_coli_Tick(object sender, EventArgs e)
+        {
+            frm1.collim_set = "0";
             timer_coli.Enabled = false;
         }
 
-        private void timer_x1_Tick(object sender, EventArgs e)
+        public void timer_x1_Tick(object sender, EventArgs e)
         {
-            y2_set = "0";
+            frm1.y2_set = "0";
             timer_x1.Enabled = false;
         }
 
-        private void timer_x2_Tick(object sender, EventArgs e)
+        public void timer_x2_Tick(object sender, EventArgs e)
         {
-            y1_set = "0";
+            frm1.y1_set = "0";
             timer_x2.Enabled = false;
         }
 
-        private void timer_y1_Tick(object sender, EventArgs e)
+        public void timer_y1_Tick(object sender, EventArgs e)
         {
-            x2_set = "0";
+            frm1.x2_set = "0";
             timer_y1.Enabled = false;
         }
 
-        private void timer_y2_Tick(object sender, EventArgs e)
+        public void timer_y2_Tick(object sender, EventArgs e)
         {
-            x1_set = "0";
+            frm1.x1_set = "0";
             timer_y2.Enabled = false;
-        }
-
-        private void timer_gant_Tick(object sender, EventArgs e)
-        {
-            gant_set = "0";
-            timer_gant.Enabled = false;
         }
 
         private void btn_clearTerminal_oth_Click(object sender, EventArgs e)
@@ -352,34 +238,19 @@ namespace Compact_Control
             lbl_oth_cnt.Text = "0";
         }
 
-        bool inputADC = false;
-        private void timer2_Tick(object sender, EventArgs e)
+        private void ClientControls_Load(object sender, EventArgs e)
         {
-            if (inputADC == false || readError)
-            {
-                pb_receiveStatus.BackgroundImage = Resources.led_red;
-            }
-            //else
-            //{
-            //    pb_receiveStatus.BackgroundImage = Resources.led_green;
-            //}
-            inputADC = false;
-            if (!serialPort1.IsOpen)
-            {
-                pb_gant_status.BackgroundImage = Resources.led_red;
-                pb_coli_status.BackgroundImage = Resources.led_red;
-                pb_x1_status.BackgroundImage = Resources.led_red;
-                pb_x2_status.BackgroundImage = Resources.led_red;
-                pb_y1_status.BackgroundImage = Resources.led_red;
-                pb_y2_status.BackgroundImage = Resources.led_red;
-            }
+            if (this.frm1 == null)
+                this.frm1 = this.ParentForm as Form1;
+
+            timer1.Enabled = true;
         }
 
         public double ourSum = 0;
 
         private void ClientControls_VisibleChanged(object sender, EventArgs e)
         {
-            if (showTerminals == "1")
+            if (Form1.showClinicalTerminals == "1")
             {
                 gb_terminals.Show();
             }
@@ -389,300 +260,7 @@ namespace Compact_Control
             }
         }
 
-        private bool checkSum(double microSum, double ourSum)
-        {
-            bool equal = false;
-            if (microSum == ourSum)
-                equal = true;
-            return equal;
-        }
-        bool readError = false;
-        int adcCheck_counter = 0;
-        private void timer3_Tick(object sender, EventArgs e)
-        {
-            
-            bool noWrite = true;
-            
-            if (receiveQ.Count == 0)
-                return;
-            string currData = receiveQ.Dequeue();
-            //string[] lines = currData.Split('\n');
-            if (showTerminals == "1")
-            {
-                /*
-                try
-                {
-                    if ((currData.Length >= 3) && (currData.Substring(0, 3) == "gco"))
-                        tb_terminal_in.Clear();
-                }
-                catch
-                {
-                    tb_terminal_in.AppendText("-- Error --" + Environment.NewLine);
-                }
-                */
-                tb_terminal_in.AppendText(currData + Environment.NewLine);
-                //System.Threading.Thread.Sleep(1000);
-            }
-            string a = currData;
-            double c;
-            //foreach (string a in lines)
-            //{
-            try
-            {
-                switch (a.Substring(0, 3))
-                {
-                    case "ini":
-                        this.frm1.setInitState(0);
-                        sendParametersFlag = true;
-                        //sendParameters();
-                        break;
-                    case "SSS":
-                        write("s");
-                        break;
-                    case "sss":
-                        write("x");
-                        break;
-                    case "sum":
-                        string microSum = a.Substring(3, a.Length - 3);
-                        if (checkSum(double.Parse(microSum), ourSum) == true)
-                        {
-                            write("{|}~");
-                            this.frm1.setInitState(1);
-                        }
-                        else
-                        {
-                            //write("$");
-                            //sendParametersFlag = true;
-                            //sendParameters();
-                        }
-                        break;
-                    case "gfn":
-                        gant_cofin = a.Substring(3, a.Length - 3);
-                        c = Math.Round((gant_gain * double.Parse(gant_cofin) + gant_offset), 1, MidpointRounding.ToEven);
-                        if (c < 0)
-                        {
-                            c = c + 360;
-                        }
-                        gant_dv = c.ToString();
-                        break;
-                    case "cfn":
-                        collim_cofin = a.Substring(3, a.Length - 3);
-                        c = Math.Round((collim_gain * double.Parse(collim_cofin) + collim_offset), 1, MidpointRounding.ToEven);
-                        if (c < 0)
-                        {
-                            c = c + 360;
-                        }
-                        collim_dv = c.ToString();
-                        break;
-                    case "wco":
-                        x1_co = a.Substring(3, a.Length - 3);
-                        x1_dv = Math.Round(((x1_gain * double.Parse(x1_co)) + x1_offset), 1, MidpointRounding.ToEven).ToString();
-                        break;
-                    case "xco":
-                        x2_co = a.Substring(3, a.Length - 3);
-                        x2_dv = Math.Round(-((x2_gain * double.Parse(x2_co)) + x2_offset), 1, MidpointRounding.ToEven).ToString();
-                        break;
-                    case "yco":
-                        y1_co = a.Substring(3, a.Length - 3);
-                        y1_dv = Math.Round(((y1_gain * double.Parse(y1_co)) + y1_offset), 1, MidpointRounding.ToEven).ToString();
-                        break;
-                    case "zco":
-                        y2_co = a.Substring(3, a.Length - 3);
-                        y2_dv = Math.Round(-((y2_gain * double.Parse(y2_co)) + y2_offset), 1, MidpointRounding.ToEven).ToString();
-                        break;
-                    case "gnd":
-                        gnd = a.Substring(3, a.Length - 3);
-                        break;
-                    case "cld":
-                        cld = a.Substring(3, a.Length - 3);
-                        break;
-                    case "x1d":
-                        x1d = a.Substring(3, a.Length - 3);
-                        break;
-                    case "x2d":
-                        x2d = a.Substring(3, a.Length - 3);
-                        break;
-                    case "y1d":
-                        y1d = a.Substring(3, a.Length - 3);
-                        break;
-                    case "y2d":
-                        y2d = a.Substring(3, a.Length - 3);
-                        break;
-                    case "adc":
-                        inputADC = true;
-                        if (readError == false)
-                            pb_receiveStatus.BackgroundImage = Resources.led_green;
-                        if (showTerminals == "1")
-                        {
-                            int i = int.Parse(lbl_in_cnt.Text);
-                            i = i + 1;
-                            lbl_in_cnt.Text = i.ToString();
-
-                            if (int.Parse(lbl_in_cnt.Text) > 100)
-                            {
-                                lbl_in_cnt.Text = "0";
-                                tb_terminal_in.Clear();
-                            }
-                        }
-                        adc = a.Substring(3, a.Length - 3);
-                        //adc = "100";
-                        if (txt_fakeADC.Visible == true)
-                            adc = txt_fakeADC.Text;
-                        if (int.Parse(adc) < 1850 || int.Parse(adc) > 2250)
-                        {
-                            adcCheck_counter = adcCheck_counter + 1;
-                            if (adcCheck_counter >= 10)
-                            {
-                                gant_set = "0";
-                                collim_set = "0";
-                                x1_set = "0";
-                                x2_set = "0";
-                                y1_set = "0";
-                                y2_set = "0";
-                                lbl_readingError.Show();
-                                lbl_pleaseRestart.Show();
-                                readError = true;
-                                timer1.Enabled = false;
-                                timer_gant.Enabled = false;
-                                timer_coli.Enabled = false;
-                                timer_x1.Enabled = false;
-                                timer_x2.Enabled = false;
-                                timer_y1.Enabled = false;
-                                timer_y2.Enabled = false;
-                            }
-                        }
-                        //else if (readError)
-                        //{
-                        //    adcCheck_counter = 0;
-                        //    Reading_Error.Hide();
-                        //    readError = false;
-
-                        //    if (!string.IsNullOrEmpty(txt_gant_s.Text))
-                        //        gantAct();
-                        //        //gant_set = ((int)((double.Parse(txt_gant_s.Text) - gant_offset) / gant_gain)).ToString();
-                        //    if (!string.IsNullOrEmpty(txt_coli_s.Text))
-                        //        coliAct();
-                        //        //collim_set = ((int)((double.Parse(txt_coli_s.Text) - collim_offset) / collim_gain)).ToString();
-                        //    if (!string.IsNullOrEmpty(txt_y2_s.Text))
-                        //        y2Act();
-                        //        //x1_set = Math.Abs((int)((double.Parse(txt_y2_s.Text) - x1_offset) / x1_gain)).ToString();
-                        //    if (!string.IsNullOrEmpty(txt_y1_s.Text))
-                        //        y1Act();
-                        //        //x2_set = Math.Abs((int)((double.Parse(txt_y1_s.Text) - x2_offset) / x2_gain)).ToString();
-                        //    if (!string.IsNullOrEmpty(txt_x2_s.Text))
-                        //        x2Act();
-                        //        //y1_set = Math.Abs((int)((double.Parse(txt_x2_s.Text) - y1_offset) / y1_gain)).ToString();
-                        //    if (!string.IsNullOrEmpty(txt_x1_s.Text))
-                        //        x1Act();
-                        //        //y2_set = Math.Abs((int)((double.Parse(txt_x1_s.Text) - y2_offset) / y2_gain)).ToString();
-                        //}
-                        else
-                            adcCheck_counter = 0;
-                        if (int.Parse(gant_set) != int.Parse(gnd))
-                        {
-                            write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
-                            noWrite = false;
-                            pb_gant_status.BackgroundImage = Resources.led_red;
-                        }
-                        else
-                            pb_gant_status.BackgroundImage = Resources.led_green;
-                        if (int.Parse(collim_set) != int.Parse(cld))
-                        {
-                            write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
-                            noWrite = false;
-                            pb_coli_status.BackgroundImage = Resources.led_red;
-                        }
-                        else
-                        {
-                            pb_coli_status.BackgroundImage = Resources.led_green;
-                        }
-                        if (int.Parse(x1_set) != int.Parse(x1d))
-                        {
-                            write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
-                            noWrite = false;
-                            pb_y2_status.BackgroundImage = Resources.led_red;
-                        }
-                        else
-                        {
-                            pb_y2_status.BackgroundImage = Resources.led_green;
-                        }
-                        if (int.Parse(x2_set) != int.Parse(x2d))
-                        {
-                            write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
-                            noWrite = false;
-                            pb_y1_status.BackgroundImage = Resources.led_red;
-                        }
-                        else
-                        {
-                            pb_y1_status.BackgroundImage = Resources.led_green;
-                        }
-                        if (int.Parse(y1_set) != int.Parse(y1d))
-                        {
-                            write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
-                            noWrite = false;
-                            pb_x2_status.BackgroundImage = Resources.led_red;
-                        }
-                        else
-                        {
-                            pb_x2_status.BackgroundImage = Resources.led_green;
-                        }
-                        if (int.Parse(y2_set) != int.Parse(y2d))
-                        {
-                            write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
-                            noWrite = false;
-                            pb_x1_status.BackgroundImage = Resources.led_red;
-                        }
-                        else
-                        {
-                            pb_x1_status.BackgroundImage = Resources.led_green;
-                        }
-                        if (noWrite == false && showTerminals == "1")
-                        {
-                            int o = int.Parse(lbl_out_cnt.Text);
-                            o = o + 1;
-                            lbl_out_cnt.Text = o.ToString();
-
-                            if (int.Parse(lbl_out_cnt.Text) > 100)
-                            {
-                                lbl_out_cnt.Text = "0";
-                                tb_terminal_out.Clear();
-                            }
-                        }
-                        break;
-                    case "gco":
-                        break;
-                    case "gf1":
-                        break;
-                    case "gf2":
-                        break;
-                    case "cco":
-                        break;
-                    case "cf1":
-                        break;
-                    case "cf2":
-                        break;
-                    default:
-                        if (showTerminals == "1")
-                        {
-                            writeToOtherTerminal(currData, false);
-                        }
-                        break;
-                }
-                if (Class_PatientData.isBoardReadWrite)
-                {
-                }
-            }
-            catch
-            {
-                if (showTerminals == "1")
-                {
-                    writeToOtherTerminal(currData, true);
-                }
-            }
-            //}
-        }
-
-        private void writeToOtherTerminal(string text, bool isCatch)
+        public void writeToOtherTerminal(string text, bool isCatch)
         {
             try
             {
@@ -713,7 +291,7 @@ namespace Compact_Control
         {
             if (sendParametersFlag == true)
             {
-                sendParameters();
+                frm1.sendParameters();
                 sendParametersFlag = false;
                 //if (sendParameters() == true)
                 //{
@@ -721,59 +299,23 @@ namespace Compact_Control
                 //}
             }
 
-            //double a;
-            //try
-            //{
-            //    if (gant_cofin != null)
-            //    {
-            //        a = Math.Round((gant_gain * double.Parse(gant_cofin) + gant_offset), 1, MidpointRounding.ToEven);
-            //        if (a < 0)
-            //        {
-            //            a = a + 360;
-            //        }
-            //        gant_dv = a.ToString();
-            //    }
 
-            //    if (collim_cofin != null)
-            //    {
-            //        a = Math.Round((collim_gain * double.Parse(collim_cofin) + collim_offset), 1, MidpointRounding.ToEven);
-            //        if (a < 0)
-            //        {
-            //            a = a + 360;
-            //        }
-            //        collim_dv = a.ToString();
-            //    }
+            txt_gant_a.Text = frm1.gant_dv;
+            txt_coli_a.Text = frm1.collim_dv;
+            txt_y2_a.Text = frm1.x1_dv;
+            txt_y1_a.Text = frm1.x2_dv;
+            txt_x2_a.Text = frm1.y1_dv;
+            txt_x1_a.Text = frm1.y2_dv;
 
-            //    if (x1_co != null)
-            //        x1_dv = Math.Round(((x1_gain * double.Parse(x1_co)) + x1_offset), 1, MidpointRounding.ToEven).ToString();
-            //    if (x2_co != null)
-            //        x2_dv = Math.Round(-((x2_gain * double.Parse(x2_co)) + x2_offset), 1, MidpointRounding.ToEven).ToString();
-            //    if (y1_co != null)
-            //        y1_dv = Math.Round(((y1_gain * double.Parse(y1_co)) + y1_offset), 1, MidpointRounding.ToEven).ToString();
-            //    if (y2_co != null)
-            //        y2_dv = Math.Round(-((y2_gain * double.Parse(y2_co)) + y2_offset), 1, MidpointRounding.ToEven).ToString();                
-            //}
-            //catch
-            //{
-            //}
-
-
-            txt_gant_a.Text = gant_dv;
-            txt_coli_a.Text = collim_dv;
-            txt_y2_a.Text = x1_dv;
-            txt_y1_a.Text = x2_dv;
-            txt_x2_a.Text = y1_dv;
-            txt_x1_a.Text = y2_dv;
-
-            bool y1Valid = double.TryParse(y1_dv, out y1dv);
-            bool y2Valid = double.TryParse(y2_dv, out y2dv);
+            bool y1Valid = double.TryParse(frm1.y1_dv, out y1dv);
+            bool y2Valid = double.TryParse(frm1.y2_dv, out y2dv);
             if (y1Valid && y2Valid)
             {
                 xa = y1dv - y2dv;
                 txt_x_a.Text = xa.ToString();
             }
-            bool x1Valid = double.TryParse(x1_dv, out x1dv);
-            bool x2Valid = double.TryParse(x2_dv, out x2dv);
+            bool x1Valid = double.TryParse(frm1.x1_dv, out x1dv);
+            bool x2Valid = double.TryParse(frm1.x2_dv, out x2dv);
             if (x1Valid && x2Valid)
             {
                 ya = x1dv - x2dv;
@@ -1229,7 +771,7 @@ namespace Compact_Control
 
                 if (string.IsNullOrEmpty(txt_y2_s.Text))
                 {
-                    if (Math.Abs(a - double.Parse(x1_dv)) < 1)
+                    if (Math.Abs(a - double.Parse(frm1.x1_dv)) < 1)
                     {
                         //x2_set = "0";
                         x2_valid_deg = "0";
@@ -1248,7 +790,7 @@ namespace Compact_Control
                 }
 
                 //x2_set = Math.Abs((int)((-a - x2_offset) / x2_gain)).ToString();
-                x2_valid_raw = Math.Abs((int)((-a - x2_offset) / x2_gain)).ToString();
+                x2_valid_raw = Math.Abs((int)((-a - frm1.x2_offset) / frm1.x2_gain)).ToString();
                 if (int.Parse(x2_valid_raw) > 65534 | int.Parse(x2_valid_raw) < 0)
                 {
                     //x2_set = "0";
@@ -1262,7 +804,7 @@ namespace Compact_Control
                 }
                 y1err = false;
                 pictureBox4.BackgroundImage = Resources.Request;
-                if (Math.Abs(double.Parse(txt_y1_s.Text) - double.Parse(x2_dv)) > .11)
+                if (Math.Abs(double.Parse(txt_y1_s.Text) - double.Parse(frm1.x2_dv)) > .11)
                 {
                     isY1Set = true;
                     pictureBox4.Show();
@@ -1306,7 +848,7 @@ namespace Compact_Control
                 try
                 {
                     //if (Math.Abs(double.Parse(txt_y1_s.Text) - double.Parse(x2_dv)) <= .1)
-                    if (Math.Abs(double.Parse(x2_valid_deg) - double.Parse(x2_dv)) <= .11)
+                    if (Math.Abs(double.Parse(x2_valid_deg) - double.Parse(frm1.x2_dv)) <= .11)
                     {
                         pictureBox4.Hide();
                         isY1Set = false;
@@ -1316,7 +858,7 @@ namespace Compact_Control
                     {
                         pictureBox4.BackgroundImage = Resources.Request;
                         pictureBox4.Show();
-                        x2_set = x2_valid_raw;
+                        frm1.x2_set = x2_valid_raw;
                         if (timer_y1.Enabled)
                             timer_y1.Enabled = false;
                     }
@@ -1324,7 +866,7 @@ namespace Compact_Control
                 catch { }
             }
             else
-                x2_set = x2_valid_raw;
+                frm1.x2_set = x2_valid_raw;
         }
 
         private void y2Act()
@@ -1422,7 +964,7 @@ namespace Compact_Control
 
                 if (string.IsNullOrEmpty(txt_y1_s.Text))
                 {
-                    if (Math.Abs(a - double.Parse(x2_dv)) < 1)
+                    if (Math.Abs(a - double.Parse(frm1.x2_dv)) < 1)
                     {
                         //x1_set = "0";
                         x1_valid_deg = "0";
@@ -1441,10 +983,10 @@ namespace Compact_Control
                     }
                 }
 
-                if (x1_dv != null)
+                if (frm1.x1_dv != null)
                 {
                     //x1_set = Math.Abs((int)((a - x1_offset) / x1_gain)).ToString();
-                    x1_valid_raw = Math.Abs((int)((a - x1_offset) / x1_gain)).ToString();
+                    x1_valid_raw = Math.Abs((int)((a - frm1.x1_offset) / frm1.x1_gain)).ToString();
                     if (int.Parse(x1_valid_raw) > 65534 | int.Parse(x1_valid_raw) < 0)
                     {
                         //x1_set = "0";
@@ -1459,7 +1001,7 @@ namespace Compact_Control
                     pictureBox3.BackgroundImage = Resources.Request;
                     y2err = false;
 
-                    if (Math.Abs(double.Parse(txt_y2_s.Text) - double.Parse(x1_dv)) > .11)
+                    if (Math.Abs(double.Parse(txt_y2_s.Text) - double.Parse(frm1.x1_dv)) > .11)
                     {
                         isY2Set = true;
                         pictureBox3.Show();
@@ -1503,7 +1045,7 @@ namespace Compact_Control
                 try
                 {
                     //if (Math.Abs(double.Parse(txt_y2_s.Text) - double.Parse(x1_dv)) <= .1)
-                    if (Math.Abs(double.Parse(x1_valid_deg) - double.Parse(x1_dv)) <= .11)
+                    if (Math.Abs(double.Parse(x1_valid_deg) - double.Parse(frm1.x1_dv)) <= .11)
                     {
                         pictureBox3.Hide();
                         isY2Set = false;
@@ -1513,7 +1055,7 @@ namespace Compact_Control
                     {
                         pictureBox3.BackgroundImage = Resources.Request;
                         pictureBox3.Show();
-                        x1_set = x1_valid_raw;
+                        frm1.x1_set = x1_valid_raw;
                         if (timer_y2.Enabled)
                             timer_y2.Enabled = false;
                     }
@@ -1521,7 +1063,7 @@ namespace Compact_Control
                 catch { }
             }
             else
-                x1_set = x1_valid_raw;
+                frm1.x1_set = x1_valid_raw;
 
         }
 
@@ -1620,7 +1162,7 @@ namespace Compact_Control
                 {
                     if (string.IsNullOrEmpty(txt_x2_s.Text))
                     {
-                        if (Math.Abs(a - double.Parse(y1_dv)) < 1)
+                        if (Math.Abs(a - double.Parse(frm1.y1_dv)) < 1)
                         {
                             //y2_set = "0";
                             y2_valid_deg = "0";
@@ -1644,7 +1186,7 @@ namespace Compact_Control
 
 
                 //y2_set = Math.Abs((int)((-a - y2_offset) / y2_gain)).ToString();
-                y2_valid_raw = Math.Abs((int)((-a - y2_offset) / y2_gain)).ToString();
+                y2_valid_raw = Math.Abs((int)((-a - frm1.y2_offset) / frm1.y2_gain)).ToString();
                 if (int.Parse(y2_valid_raw) > 65534 | int.Parse(y2_valid_raw) < 0)
                 {
                     //y2_set = "0";
@@ -1659,7 +1201,7 @@ namespace Compact_Control
                 pictureBox6.BackgroundImage = Resources.Request;
                 x1err = false;
 
-                if (Math.Abs(double.Parse(txt_x1_s.Text) - double.Parse(y2_dv)) > .11)
+                if (Math.Abs(double.Parse(txt_x1_s.Text) - double.Parse(frm1.y2_dv)) > .11)
                 {
                     isX1Set = true;
                     pictureBox6.Show();
@@ -1704,7 +1246,7 @@ namespace Compact_Control
                 try
                 {
                     //if (Math.Abs(double.Parse(txt_x1_s.Text) - double.Parse(y2_dv)) <= .1)
-                    if (Math.Abs(double.Parse(y2_valid_deg) - double.Parse(y2_dv)) <= .11)
+                    if (Math.Abs(double.Parse(y2_valid_deg) - double.Parse(frm1.y2_dv)) <= .11)
                     {
                         pictureBox6.Hide();
                         isX1Set = false;
@@ -1714,7 +1256,7 @@ namespace Compact_Control
                     {
                         pictureBox6.BackgroundImage = Resources.Request;
                         pictureBox6.Show();
-                        y2_set = y2_valid_raw;
+                        frm1.y2_set = y2_valid_raw;
                         if (timer_x1.Enabled)
                             timer_x1.Enabled = false;
                     }
@@ -1722,7 +1264,7 @@ namespace Compact_Control
                 catch { }
             }
             else
-                y2_set = y2_valid_raw;
+                frm1.y2_set = y2_valid_raw;
         }
 
         private void x2Act()
@@ -1819,7 +1361,7 @@ namespace Compact_Control
 
                 if (string.IsNullOrEmpty(txt_x1_s.Text))
                 {
-                    if (Math.Abs(a - double.Parse(y2_dv)) < 1)
+                    if (Math.Abs(a - double.Parse(frm1.y2_dv)) < 1)
                     {
                         //y1_set = "0";
                         y1_valid_deg = "0";
@@ -1838,10 +1380,10 @@ namespace Compact_Control
                     }
                 }
 
-                if (y1_dv != null)
+                if (frm1.y1_dv != null)
                 {
                     //y1_set = Math.Abs((int)((a - y1_offset) / y1_gain)).ToString();
-                    y1_valid_raw = Math.Abs((int)((a - y1_offset) / y1_gain)).ToString();
+                    y1_valid_raw = Math.Abs((int)((a - frm1.y1_offset) / frm1.y1_gain)).ToString();
                     if (int.Parse(y1_valid_raw) > 65534 | int.Parse(y1_valid_raw) < 0)
                     {
                         //y1_set = "0";
@@ -1856,7 +1398,7 @@ namespace Compact_Control
                     pictureBox5.BackgroundImage = Resources.Request;
                     x2err = false;
 
-                    if (Math.Abs(double.Parse(txt_x2_s.Text) - double.Parse(y1_dv)) > .11)
+                    if (Math.Abs(double.Parse(txt_x2_s.Text) - double.Parse(frm1.y1_dv)) > .11)
                     {
                         isX2Set = true;
                         pictureBox5.Show();
@@ -1900,7 +1442,7 @@ namespace Compact_Control
             {
                 try
                 {
-                    if (Math.Abs(double.Parse(y1_valid_deg) - double.Parse(y1_dv)) <= .11)
+                    if (Math.Abs(double.Parse(y1_valid_deg) - double.Parse(frm1.y1_dv)) <= .11)
                     {
                         isX2Set = false;
                         pictureBox5.Hide();
@@ -1910,7 +1452,7 @@ namespace Compact_Control
                     {
                         pictureBox5.BackgroundImage = Resources.Request;
                         pictureBox5.Show();
-                        y1_set = y1_valid_raw;
+                        frm1.y1_set = y1_valid_raw;
                         if (timer_x2.Enabled)
                             timer_x2.Enabled = false;
                     }
@@ -1918,7 +1460,7 @@ namespace Compact_Control
                 catch { }
             }
             else
-                y1_set = y1_valid_raw;
+                frm1.y1_set = y1_valid_raw;
         }
 
         private void gantAct()
@@ -1948,7 +1490,7 @@ namespace Compact_Control
                     txt_gant_s.SelectAll();
                     return;
                 }
-                double gentValueActual = double.Parse(gant_dv);
+                double gentValueActual = double.Parse(frm1.gant_dv);
                 if (gentValueActual > 180 && aa == 180)
                 {
                     gant_isTextChangedFromCode = true;
@@ -1962,9 +1504,9 @@ namespace Compact_Control
                 if (aa > 180)
                     aa = aa - 360;
                 //gant_set = ((int)((aa - gant_offset) / gant_gain)).ToString();
-                gant_valid_raw = ((int)((aa - gant_offset) / gant_gain)).ToString();
+                gant_valid_raw = ((int)((aa - frm1.gant_offset) / frm1.gant_gain)).ToString();
                 gant_t2 = double.Parse(txt_gant_s.Text);
-                gant_d2 = double.Parse(gant_dv);
+                gant_d2 = double.Parse(frm1.gant_dv);
                 if (gant_t2 > 180)
                     gant_t2 = gant_t2 - 360;
                 if (gant_d2 > 180)
@@ -2010,7 +1552,7 @@ namespace Compact_Control
             {
                 //gant_t2 = double.Parse(txt_gant_s.Text);
                 gant_t2 = double.Parse(gant_valid_deg);
-                gant_d2 = double.Parse(gant_dv);
+                gant_d2 = double.Parse(frm1.gant_dv);
                 if (gant_t2 > 180)
                     gant_t2 = gant_t2 - 360;
                 if (gant_d2 > 180)
@@ -2027,11 +1569,11 @@ namespace Compact_Control
                     isGantSet = false;
                     if (timer_gant.Enabled)
                         timer_gant.Enabled = false;
-                    gant_set = gant_valid_raw;
+                    frm1.gant_set = gant_valid_raw;
                 }
             }
             else
-                gant_set = gant_valid_raw;
+                frm1.gant_set = gant_valid_raw;
         }
 
         private void coliAct()
@@ -2066,9 +1608,9 @@ namespace Compact_Control
                 if (a > 180)
                     a = a - 360;
                 //collim_set = ((int)((a - collim_offset) / collim_gain)).ToString();
-                collim_valid_raw = ((int)((a - collim_offset) / collim_gain)).ToString();
+                collim_valid_raw = ((int)((a - frm1.collim_offset) / frm1.collim_gain)).ToString();
                 collim_t2 = double.Parse(txt_coli_s.Text);
-                collim_d2 = double.Parse(collim_dv);
+                collim_d2 = double.Parse(frm1.collim_dv);
                 if (collim_t2 > 180)
                     collim_t2 = collim_t2 - 360;
                 if (collim_d2 > 180)
@@ -2114,7 +1656,7 @@ namespace Compact_Control
             {
                 collim_t2 = double.Parse(txt_coli_s.Text);
                 collim_t2 = double.Parse(collim_valid_deg);
-                collim_d2 = double.Parse(collim_dv);
+                collim_d2 = double.Parse(frm1.collim_dv);
                 if (collim_t2 > 180)
                     collim_t2 = collim_t2 - 360;
                 if (collim_d2 > 180)
@@ -2129,13 +1671,13 @@ namespace Compact_Control
                 {
                     pictureBox2.BackgroundImage = Resources.Request;
                     pictureBox2.Show();
-                    collim_set = collim_valid_raw;
+                    frm1.collim_set = collim_valid_raw;
                     if (timer_coli.Enabled)
                         timer_coli.Enabled = false;
                 }
             }
             else
-                collim_set = collim_valid_raw;
+                frm1.collim_set = collim_valid_raw;
         } 
     }
 }

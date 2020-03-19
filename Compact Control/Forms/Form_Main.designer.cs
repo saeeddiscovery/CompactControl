@@ -321,6 +321,7 @@
             this.btn_clearTerminal_oth = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label64 = new System.Windows.Forms.Label();
+            this.lbl_oth_cnt = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).BeginInit();
@@ -399,8 +400,8 @@
             // 
             // serialPort1
             // 
-            this.serialPort1.BaudRate = 57600;
-            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived_1);
+            this.serialPort1.BaudRate = 38400;
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
             // timer1
             // 
@@ -558,6 +559,7 @@
             // 
             // timer3
             // 
+            this.timer3.Enabled = true;
             this.timer3.Interval = 5;
             this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
@@ -3779,6 +3781,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(126, 242);
             this.tableLayoutPanel3.TabIndex = 89;
             // 
@@ -3812,6 +3815,7 @@
             // 
             this.panel9.BackColor = System.Drawing.SystemColors.Control;
             this.panel9.Controls.Add(this.label64);
+            this.panel9.Controls.Add(this.lbl_oth_cnt);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(3, 3);
             this.panel9.Name = "panel9";
@@ -3830,6 +3834,18 @@
             this.label64.Size = new System.Drawing.Size(47, 18);
             this.label64.TabIndex = 123;
             this.label64.Text = "other";
+            // 
+            // lbl_oth_cnt
+            // 
+            this.lbl_oth_cnt.AutoSize = true;
+            this.lbl_oth_cnt.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbl_oth_cnt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_oth_cnt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.lbl_oth_cnt.Location = new System.Drawing.Point(102, 0);
+            this.lbl_oth_cnt.Name = "lbl_oth_cnt";
+            this.lbl_oth_cnt.Size = new System.Drawing.Size(18, 20);
+            this.lbl_oth_cnt.TabIndex = 124;
+            this.lbl_oth_cnt.Text = "0";
             // 
             // Form1
             // 
@@ -4243,6 +4259,7 @@
         private System.Windows.Forms.Label label_connectTime;
         private System.Windows.Forms.Label label77;
         public System.Windows.Forms.Label lbl_init;
+        private System.Windows.Forms.Label lbl_oth_cnt;
     }
 }
 
