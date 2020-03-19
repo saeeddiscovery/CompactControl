@@ -322,6 +322,7 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.label64 = new System.Windows.Forms.Label();
             this.lbl_oth_cnt = new System.Windows.Forms.Label();
+            this.timer5 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).BeginInit();
@@ -3847,6 +3848,11 @@
             this.lbl_oth_cnt.TabIndex = 124;
             this.lbl_oth_cnt.Text = "0";
             // 
+            // timer5
+            // 
+            this.timer5.Enabled = true;
+            this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4260,6 +4266,7 @@
         private System.Windows.Forms.Label label77;
         public System.Windows.Forms.Label lbl_init;
         private System.Windows.Forms.Label lbl_oth_cnt;
+        private System.Windows.Forms.Timer timer5;
     }
 }
 

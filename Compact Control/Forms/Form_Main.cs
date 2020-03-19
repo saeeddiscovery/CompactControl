@@ -633,6 +633,7 @@ namespace Compact_Control
                 if (fromLastAnd.Milliseconds > 50)
                 {
                     write("&");
+                    write(summ.ToString() + "/");
                     andSent = false;
                     sendAnd = false;
                 }
@@ -1391,6 +1392,7 @@ namespace Compact_Control
 
         bool sendAnd = false;
         bool andSent = false;
+        int summ = 0;
         private void timer3_Tick(object sender, EventArgs e)
         {
             if (receiveQ.Count == 0)
@@ -1436,10 +1438,12 @@ namespace Compact_Control
                         break;
                     case "SSS":
                         if (isInServiceMode)
+                        {
                             if (in_diag == false)
                                 write("s");
-                            else
-                                write("s");
+                        }
+                        else
+                            write("s");
                         break;
                     case "sss":
                         if (!isInServiceMode)
@@ -1695,27 +1699,48 @@ namespace Compact_Control
                         }
                         break;
                     case "req":
+                        summ = 0;
                         if (gant_stat == false)
-                            write("m" + gant_set + (gant_set.Length + 1).ToString() + "/");
+                        {
+                            summ = summ + int.Parse(gant_set);
+                            write("m" + gant_set + "/");
+                        }
                         if (coli_stat == false)
-                            write("n" + collim_set + (collim_set.Length + 1).ToString() + "/");
+                        {
+                            summ = summ + int.Parse(collim_set);
+                            write("n" + collim_set + "/");
+                        }
                         if (x1_stat == false)
-                            write("o" + x1_set + (x1_set.Length + 1).ToString() + "/");
+                        {
+                            summ = summ + int.Parse(x1_set);
+                            write("o" + x1_set + "/");
+                        }
                         if (x2_stat == false)
-                            write("p" + x2_set + (x2_set.Length + 1).ToString() + "/");
+                        {
+                            summ = summ + int.Parse(x2_set);
+                            write("p" + x2_set + "/");
+                        }
                         if (y1_stat == false)
-                            write("q" + y1_set + (y1_set.Length + 1).ToString() + "/");
+                        {
+                            summ = summ + int.Parse(y1_set);
+                            write("q" + y1_set + "/");
+                        }
                         if (y2_stat == false)
-                            write("r" + y2_set + (y2_set.Length + 1).ToString() + "/");
+                        {
+                            summ = summ + int.Parse(y2_set);
+                            write("r" + y2_set + "/");
+                        }
 
                         if (sendAnd)
                         {
                             write("&");
+                            write(summ.ToString() + "/");
                             andSent = true;
                             sendAndTime = DateTime.Now;
                         }
                         break;
                     case "&&&":
+                        summ = 0;
                         sendAnd = false;
                         andSent = false;
                         break;
@@ -2328,6 +2353,66 @@ namespace Compact_Control
             }
         }
 
+        private void timer5_Tick(object sender, EventArgs e)
+        {
+            if (inputADC == false || readError)
+            {
+                if (isInServiceMode)
+                    pb_receiveStatus.BackgroundImage = Resources.led_red;
+                else
+                {
+                    clientFrm.pb_receiveStatus.BackgroundImage = Resources.led_red;
+                }
+            }
+            else
+            {
+                if (isInServiceMode)
+                    pb_receiveStatus.BackgroundImage = Resources.led_green;
+                else
+                {
+                    clientFrm.pb_receiveStatus.BackgroundImage = Resources.led_green;
+                }
+            }
+
+            inputADC = false;
+            if ((!isInServiceMode) && (!serialPort1.IsOpen))
+            {
+                clientFrm.pb_gant_status.BackgroundImage = Resources.led_red;
+                clientFrm.pb_coli_status.BackgroundImage = Resources.led_red;
+                clientFrm.pb_x1_status.BackgroundImage = Resources.led_red;
+                clientFrm.pb_x2_status.BackgroundImage = Resources.led_red;
+                clientFrm.pb_y1_status.BackgroundImage = Resources.led_red;
+                clientFrm.pb_y2_status.BackgroundImage = Resources.led_red;
+            }
+            if (!isInServiceMode)
+            {
+                if (!gant_stat)
+                    clientFrm.pb_gant_status.BackgroundImage = Resources.led_red;
+                else
+                    clientFrm.pb_gant_status.BackgroundImage = Resources.led_green;
+                if (!coli_stat)
+                    clientFrm.pb_coli_status.BackgroundImage = Resources.led_red;
+                else
+                    clientFrm.pb_coli_status.BackgroundImage = Resources.led_green;
+                if (!x1_stat)
+                    clientFrm.pb_y2_status.BackgroundImage = Resources.led_red;
+                else
+                    clientFrm.pb_y2_status.BackgroundImage = Resources.led_green;
+                if (!x2_stat)
+                    clientFrm.pb_y1_status.BackgroundImage = Resources.led_red;
+                else
+                    clientFrm.pb_y1_status.BackgroundImage = Resources.led_green;
+                if (!y1_stat)
+                    clientFrm.pb_x2_status.BackgroundImage = Resources.led_red;
+                else
+                    clientFrm.pb_x2_status.BackgroundImage = Resources.led_green;
+                if (!y2_stat)
+                    clientFrm.pb_x1_status.BackgroundImage = Resources.led_red;
+                else
+                    clientFrm.pb_x1_status.BackgroundImage = Resources.led_green;
+            }
+        }
+
         private void tb_gant_set_TextChanged(object sender, EventArgs e)
         {
             //if (string.IsNullOrEmpty(tb_gant_set.Text) || string.IsNullOrWhiteSpace(tb_gant_set.Text))
@@ -2728,12 +2813,12 @@ namespace Compact_Control
                 {
                     //tabControl1.Enabled = true;
                     //panel_AdminControls.Enabled = true;
-                    write("y");
+                    //write("y");
                     timer1.Enabled = true;
                 }
                 else
                 {
-                    write("x");
+                    //write("x");
                     //panel_ClientControls.Enabled = true;
                     timer1.Enabled = false;
                 }
@@ -2978,64 +3063,6 @@ namespace Compact_Control
             label_time.Text = time;
             label_date.Text = miladiDate;
             //label_shamsiDate.Text = shamsiDate;
-
-            if (inputADC == false || readError)
-            {
-                if (isInServiceMode)
-                    pb_receiveStatus.BackgroundImage = Resources.led_red;
-                else
-                {
-                    clientFrm.pb_receiveStatus.BackgroundImage = Resources.led_red;
-                }
-            }
-            else
-            {
-                if (isInServiceMode)
-                    pb_receiveStatus.BackgroundImage = Resources.led_green;
-                else
-                {
-                    clientFrm.pb_receiveStatus.BackgroundImage = Resources.led_green;
-                }
-            }
-
-            inputADC = false;
-            if ((!isInServiceMode) && (!serialPort1.IsOpen))
-            {
-                clientFrm.pb_gant_status.BackgroundImage = Resources.led_red;
-                clientFrm.pb_coli_status.BackgroundImage = Resources.led_red;
-                clientFrm.pb_x1_status.BackgroundImage = Resources.led_red;
-                clientFrm.pb_x2_status.BackgroundImage = Resources.led_red;
-                clientFrm.pb_y1_status.BackgroundImage = Resources.led_red;
-                clientFrm.pb_y2_status.BackgroundImage = Resources.led_red;
-            }
-            if (!isInServiceMode)
-            {
-                if (!gant_stat)
-                    clientFrm.pb_gant_status.BackgroundImage = Resources.led_red;
-                else
-                    clientFrm.pb_gant_status.BackgroundImage = Resources.led_green;
-                if (!coli_stat)
-                    clientFrm.pb_coli_status.BackgroundImage = Resources.led_red;
-                else
-                    clientFrm.pb_coli_status.BackgroundImage = Resources.led_green;
-                if (!x1_stat)
-                    clientFrm.pb_y2_status.BackgroundImage = Resources.led_red;
-                else
-                    clientFrm.pb_y2_status.BackgroundImage = Resources.led_green;
-                if (!x2_stat)
-                    clientFrm.pb_y1_status.BackgroundImage = Resources.led_red;
-                else
-                    clientFrm.pb_y1_status.BackgroundImage = Resources.led_green;
-                if (!y1_stat)
-                    clientFrm.pb_x2_status.BackgroundImage = Resources.led_red;
-                else
-                    clientFrm.pb_x2_status.BackgroundImage = Resources.led_green;
-                if (!y2_stat)
-                    clientFrm.pb_x1_status.BackgroundImage = Resources.led_red;
-                else
-                    clientFrm.pb_x1_status.BackgroundImage = Resources.led_green;
-            }
-
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
