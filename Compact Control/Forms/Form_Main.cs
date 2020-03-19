@@ -2355,35 +2355,6 @@ namespace Compact_Control
 
         private void timer5_Tick(object sender, EventArgs e)
         {
-            if (inputADC == false || readError)
-            {
-                if (isInServiceMode)
-                    pb_receiveStatus.BackgroundImage = Resources.led_red;
-                else
-                {
-                    clientFrm.pb_receiveStatus.BackgroundImage = Resources.led_red;
-                }
-            }
-            else
-            {
-                if (isInServiceMode)
-                    pb_receiveStatus.BackgroundImage = Resources.led_green;
-                else
-                {
-                    clientFrm.pb_receiveStatus.BackgroundImage = Resources.led_green;
-                }
-            }
-
-            inputADC = false;
-            if ((!isInServiceMode) && (!serialPort1.IsOpen))
-            {
-                clientFrm.pb_gant_status.BackgroundImage = Resources.led_red;
-                clientFrm.pb_coli_status.BackgroundImage = Resources.led_red;
-                clientFrm.pb_x1_status.BackgroundImage = Resources.led_red;
-                clientFrm.pb_x2_status.BackgroundImage = Resources.led_red;
-                clientFrm.pb_y1_status.BackgroundImage = Resources.led_red;
-                clientFrm.pb_y2_status.BackgroundImage = Resources.led_red;
-            }
             if (!isInServiceMode)
             {
                 if (!gant_stat)
@@ -3063,6 +3034,36 @@ namespace Compact_Control
             label_time.Text = time;
             label_date.Text = miladiDate;
             //label_shamsiDate.Text = shamsiDate;
+
+            if (inputADC == false || readError)
+            {
+                if (isInServiceMode)
+                    pb_receiveStatus.BackgroundImage = Resources.led_red;
+                else
+                {
+                    clientFrm.pb_receiveStatus.BackgroundImage = Resources.led_red;
+                }
+            }
+            else
+            {
+                if (isInServiceMode)
+                    pb_receiveStatus.BackgroundImage = Resources.led_green;
+                else
+                {
+                    clientFrm.pb_receiveStatus.BackgroundImage = Resources.led_green;
+                }
+            }
+
+            inputADC = false;
+            if ((!isInServiceMode) && (!serialPort1.IsOpen))
+            {
+                clientFrm.pb_gant_status.BackgroundImage = Resources.led_red;
+                clientFrm.pb_coli_status.BackgroundImage = Resources.led_red;
+                clientFrm.pb_x1_status.BackgroundImage = Resources.led_red;
+                clientFrm.pb_x2_status.BackgroundImage = Resources.led_red;
+                clientFrm.pb_y1_status.BackgroundImage = Resources.led_red;
+                clientFrm.pb_y2_status.BackgroundImage = Resources.led_red;
+            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
