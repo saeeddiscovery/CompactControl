@@ -75,17 +75,21 @@ namespace Compact_Control
             string portName = comboBox_Ports.Text;
             if (comboBox_Ports.Text == "" || comboBox_Ports.Text == "No Serial Port!")
                 portName = "Null";
-            Form1.portName = portName;
-
-            string filename = "Settings.json";
             string baudrate = comboBox_Baudrate.Text;
+            string databits = comboBox_DataBits.Text;
+            string parity = comboBox_Parity.Text;
             string clinicalTerminals = "0";
             if (checkBox_clinicalTerminals.Checked)
                 clinicalTerminals = "1";
+
+            string filename = "Settings.json";
             if (File.Exists(filename))
                 File.Delete(filename);
-            HashPass.writeSettingsJson(filename, portName, baudrate, clinicalTerminals);
+            HashPass.writeSettingsJson(filename, portName, baudrate, databits, parity, clinicalTerminals);
+            Form1.portName = portName;
             Form1.curr_baudRate = comboBox_Baudrate.Text;
+            Form1.DataBits = databits;
+            Form1.Parity = parity;
             Form1.showClinicalTerminals = clinicalTerminals;
             this.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.Close();
@@ -166,6 +170,8 @@ namespace Compact_Control
                 //comboBox_Ports.SelectedIndex = 0;
                 comboBox_Ports.Text = Form1.portName;
                 comboBox_Baudrate.Text = Form1.curr_baudRate;
+                comboBox_DataBits.Text = Form1.DataBits;
+                comboBox_Parity.Text = Form1.Parity;
             }
             else
                 comboBox_Ports.Text = "No Serial Port!";
@@ -218,6 +224,8 @@ namespace Compact_Control
                 HashPass.AppSettings pSettings = HashPass.readSettingsJson(filename);
                 comboBox_Ports.Text = pSettings.Port;
                 comboBox_Baudrate.Text = pSettings.Baudrate;
+                comboBox_DataBits.Text = pSettings.DataBits;
+                comboBox_Parity.Text = pSettings.Parity;
                 if (pSettings.clinicalTerminals == "1")
                     checkBox_clinicalTerminals.Checked = true;
                 else

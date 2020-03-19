@@ -400,7 +400,7 @@
             // 
             // serialPort1
             // 
-            this.serialPort1.BaudRate = 38400;
+            this.serialPort1.BaudRate = 19200;
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
             // timer1

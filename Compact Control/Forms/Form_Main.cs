@@ -16,6 +16,11 @@ namespace Compact_Control
     public partial class Form1 : Form
     {
         public static string portName = "Null";
+        public static string curr_baudRate = "";
+        public static string showClinicalTerminals = "0";
+        public static string DataBits = "8";
+        public static string Parity = "None";
+
         public string gant_co;
         public string gant_f1;
         public string gant_f2;
@@ -178,13 +183,23 @@ namespace Compact_Control
                         {
                             //string[] portSettings = readJson(filename);
                             HashPass.AppSettings pSettings = HashPass.readSettingsJson(filename);
-                            HashPass.WriteBaudrateToReg(pSettings.Baudrate);
+                            // HashPass.WriteBaudrateToReg(pSettings.Baudrate);
+
+                            portName = pSettings.Port;
+                            curr_baudRate = pSettings.Baudrate;
+                            DataBits = pSettings.DataBits;
+                            Parity = pSettings.Parity;
 
                             serialPort1.PortName = pSettings.Port;
                             serialPort1.BaudRate = int.Parse(pSettings.Baudrate);
+                            serialPort1.DataBits = int.Parse(pSettings.DataBits);
+                            if (Parity == "None")
+                                serialPort1.Parity = System.IO.Ports.Parity.None;
+                            else if (Parity == "Odd")
+                                serialPort1.Parity = System.IO.Ports.Parity.Odd;
+                            else if (Parity == "Even")
+                                serialPort1.Parity = System.IO.Ports.Parity.Even;
                             Form1.showClinicalTerminals = pSettings.clinicalTerminals;
-                            curr_baudRate = pSettings.Baudrate;
-                            portName = pSettings.Port;
                         }
                     }
                     catch (Exception ex)
@@ -1256,7 +1271,7 @@ namespace Compact_Control
             {
                 while (serialPort1.BytesToRead > 0)
                 {
-                    //string currReceived1 = serialPort1.ReadExisting();
+                    // string currReceived1 = serialPort1.ReadExisting();
                     string currReceived = serialPort1.ReadLine();
                     receiveQ.Enqueue(currReceived);
                 }
@@ -1801,9 +1816,6 @@ namespace Compact_Control
             else
                 Application.Exit();
         }
-
-        public static string curr_baudRate = "";
-        public static string showClinicalTerminals = "0";
 
         private void picBtn_Connect_Click(object sender, EventArgs e)
         {
@@ -2460,22 +2472,25 @@ namespace Compact_Control
                 }
                 portName = serialPort1.PortName;
 
-                int BaudRate = 0;
-                if (int.TryParse(HashPass.ReadBaudRateFromReg(), out BaudRate) == true && BaudRate != 0)
-                {
-                    serialPort1.BaudRate = BaudRate;
-                }
+                serialPort1.BaudRate = int.Parse(curr_baudRate);
+                serialPort1.DataBits = int.Parse(DataBits);
+                if (Parity == "None")
+                    serialPort1.Parity = System.IO.Ports.Parity.None;
+                else if (Parity == "Odd")
+                    serialPort1.Parity = System.IO.Ports.Parity.Odd;
+                else if (Parity == "Even")
+                    serialPort1.Parity = System.IO.Ports.Parity.Even;
 
+                //int BaudRate = 0;
+                //if (int.TryParse(HashPass.ReadBaudRateFromReg(), out BaudRate) == true && BaudRate != 0)
+                //{
+                //    serialPort1.BaudRate = BaudRate;
+                //}
 
                 //DisconnectPort();
                 //Thread.Sleep(200);
                 ConnectToPort();
                 
-                //Thread.Sleep(200);
-                //DisconnectPort();
-                //Thread.Sleep(200);
-                //ConnectToPort();
-                curr_baudRate = serialPort1.BaudRate.ToString();
             }
             else
             {
@@ -2741,10 +2756,15 @@ namespace Compact_Control
 
                     serialPort1.PortName = portName;
                     serialPort1.BaudRate = int.Parse(curr_baudRate);
-                    serialPort1.PortName = portName;
-                    serialPort1.BaudRate = int.Parse(curr_baudRate);
+                    serialPort1.DataBits = int.Parse(DataBits);
+                    if (Parity == "None")
+                        serialPort1.Parity = System.IO.Ports.Parity.None;
+                    else if (Parity == "Odd")
+                        serialPort1.Parity = System.IO.Ports.Parity.Odd;
+                    else if (Parity == "Even")
+                        serialPort1.Parity = System.IO.Ports.Parity.Even;
 
-                    HashPass.WriteBaudrateToReg(curr_baudRate);
+                    // HashPass.WriteBaudrateToReg(curr_baudRate);
                     ConnectToPort();
                 }
             }
@@ -2942,6 +2962,16 @@ namespace Compact_Control
                     clientFrm.pb_receiveStatus.BackgroundImage = Resources.led_red;
                 }
             }
+            else
+            {
+                if (isInServiceMode)
+                    pb_receiveStatus.BackgroundImage = Resources.led_green;
+                else
+                {
+                    clientFrm.pb_receiveStatus.BackgroundImage = Resources.led_green;
+                }
+            }
+
             inputADC = false;
             if ((!isInServiceMode) && (!serialPort1.IsOpen))
             {

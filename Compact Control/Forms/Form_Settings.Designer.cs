@@ -46,6 +46,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.checkBox_clinicalTerminals = new System.Windows.Forms.CheckBox();
             this.checkBox_startup = new System.Windows.Forms.CheckBox();
             this.groupBox_portSetting = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -60,7 +61,10 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.checkBox_clinicalTerminals = new System.Windows.Forms.CheckBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboBox_DataBits = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.comboBox_Parity = new System.Windows.Forms.ComboBox();
             this.groupBox_UserManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_PassConfirm)).BeginInit();
             this.panel1.SuspendLayout();
@@ -73,8 +77,9 @@
             // 
             // comboBox_Ports
             // 
+            this.comboBox_Ports.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox_Ports.FormattingEnabled = true;
-            this.comboBox_Ports.Location = new System.Drawing.Point(74, 24);
+            this.comboBox_Ports.Location = new System.Drawing.Point(69, 24);
             this.comboBox_Ports.Name = "comboBox_Ports";
             this.comboBox_Ports.Size = new System.Drawing.Size(132, 21);
             this.comboBox_Ports.TabIndex = 0;
@@ -253,6 +258,17 @@
             this.tabPage1.Text = "General";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // checkBox_clinicalTerminals
+            // 
+            this.checkBox_clinicalTerminals.AutoSize = true;
+            this.checkBox_clinicalTerminals.Location = new System.Drawing.Point(25, 122);
+            this.checkBox_clinicalTerminals.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBox_clinicalTerminals.Name = "checkBox_clinicalTerminals";
+            this.checkBox_clinicalTerminals.Size = new System.Drawing.Size(132, 17);
+            this.checkBox_clinicalTerminals.TabIndex = 27;
+            this.checkBox_clinicalTerminals.Text = "Show clinical terminals";
+            this.checkBox_clinicalTerminals.UseVisualStyleBackColor = true;
+            // 
             // checkBox_startup
             // 
             this.checkBox_startup.AutoSize = true;
@@ -266,6 +282,10 @@
             // 
             // groupBox_portSetting
             // 
+            this.groupBox_portSetting.Controls.Add(this.label10);
+            this.groupBox_portSetting.Controls.Add(this.comboBox_Parity);
+            this.groupBox_portSetting.Controls.Add(this.label9);
+            this.groupBox_portSetting.Controls.Add(this.comboBox_DataBits);
             this.groupBox_portSetting.Controls.Add(this.label7);
             this.groupBox_portSetting.Controls.Add(this.comboBox_Baudrate);
             this.groupBox_portSetting.Controls.Add(this.label1);
@@ -274,7 +294,7 @@
             this.groupBox_portSetting.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox_portSetting.Name = "groupBox_portSetting";
             this.groupBox_portSetting.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox_portSetting.Size = new System.Drawing.Size(226, 81);
+            this.groupBox_portSetting.Size = new System.Drawing.Size(226, 108);
             this.groupBox_portSetting.TabIndex = 25;
             this.groupBox_portSetting.TabStop = false;
             this.groupBox_portSetting.Text = "Port setting";
@@ -301,7 +321,7 @@
             "57600",
             "115200",
             "128000"});
-            this.comboBox_Baudrate.Location = new System.Drawing.Point(74, 52);
+            this.comboBox_Baudrate.Location = new System.Drawing.Point(69, 52);
             this.comboBox_Baudrate.Name = "comboBox_Baudrate";
             this.comboBox_Baudrate.Size = new System.Drawing.Size(132, 21);
             this.comboBox_Baudrate.TabIndex = 23;
@@ -323,9 +343,9 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.lbl_name);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Location = new System.Drawing.Point(10, 113);
+            this.groupBox1.Location = new System.Drawing.Point(10, 150);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(229, 92);
+            this.groupBox1.Size = new System.Drawing.Size(229, 55);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "License";
@@ -394,16 +414,48 @@
             // 
             this.openFileDialog1.Filter = "Compact Control License File (*.lic) | *.lic";
             // 
-            // checkBox_clinicalTerminals
+            // label9
             // 
-            this.checkBox_clinicalTerminals.AutoSize = true;
-            this.checkBox_clinicalTerminals.Location = new System.Drawing.Point(26, 94);
-            this.checkBox_clinicalTerminals.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBox_clinicalTerminals.Name = "checkBox_clinicalTerminals";
-            this.checkBox_clinicalTerminals.Size = new System.Drawing.Size(132, 17);
-            this.checkBox_clinicalTerminals.TabIndex = 27;
-            this.checkBox_clinicalTerminals.Text = "Show clinical terminals";
-            this.checkBox_clinicalTerminals.UseVisualStyleBackColor = true;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(10, 82);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(50, 13);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "DataBits:";
+            // 
+            // comboBox_DataBits
+            // 
+            this.comboBox_DataBits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_DataBits.FormattingEnabled = true;
+            this.comboBox_DataBits.Items.AddRange(new object[] {
+            "7",
+            "8"});
+            this.comboBox_DataBits.Location = new System.Drawing.Point(69, 79);
+            this.comboBox_DataBits.Name = "comboBox_DataBits";
+            this.comboBox_DataBits.Size = new System.Drawing.Size(38, 21);
+            this.comboBox_DataBits.TabIndex = 25;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(109, 82);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(36, 13);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Parity:";
+            // 
+            // comboBox_Parity
+            // 
+            this.comboBox_Parity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox_Parity.FormattingEnabled = true;
+            this.comboBox_Parity.Items.AddRange(new object[] {
+            "None",
+            "Odd",
+            "Even"});
+            this.comboBox_Parity.Location = new System.Drawing.Point(148, 79);
+            this.comboBox_Parity.Name = "comboBox_Parity";
+            this.comboBox_Parity.Size = new System.Drawing.Size(53, 21);
+            this.comboBox_Parity.TabIndex = 27;
             // 
             // Form_Settings
             // 
@@ -469,5 +521,9 @@
         public System.Windows.Forms.GroupBox groupBox_portSetting;
         public System.Windows.Forms.CheckBox checkBox_startup;
         public System.Windows.Forms.CheckBox checkBox_clinicalTerminals;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox comboBox_Parity;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox comboBox_DataBits;
     }
 }

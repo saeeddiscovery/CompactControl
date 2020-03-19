@@ -463,6 +463,8 @@ namespace Compact_Control
         {
             public string Port { get; set; }
             public string Baudrate { get; set; }
+            public string DataBits { get; set; }
+            public string Parity { get; set; }
             public string clinicalTerminals { get; set; }
         }
 
@@ -574,7 +576,7 @@ namespace Compact_Control
             }
         }
 
-        public static void writeSettingsJson(string fileName, string port, string baudrate, string clinicalTerminals)
+        public static void writeSettingsJson(string fileName, string port, string baudrate, string databits, string parity, string clinicalTerminals)
         {
             StreamWriter sw = new StreamWriter(fileName);
 
@@ -587,6 +589,10 @@ namespace Compact_Control
                 writer.WriteValue(port);
                 writer.WritePropertyName("Baudrate");
                 writer.WriteValue(baudrate);
+                writer.WritePropertyName("DataBits");
+                writer.WriteValue(databits);
+                writer.WritePropertyName("Parity");
+                writer.WriteValue(parity);
                 writer.WritePropertyName("clinicalTerminals");
                 writer.WriteValue(clinicalTerminals);
                 writer.WriteEndObject();
