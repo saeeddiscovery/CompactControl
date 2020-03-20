@@ -1722,13 +1722,13 @@ namespace Compact_Control
                             write("r" + y2_set + "/");
                         }
 
-                        if (sendAnd)
-                        {
-                            write("&");
-                            write(summ.ToString() + "/");
-                            andSent = true;
-                            sendAndTime = DateTime.Now;
-                        }
+                        //if (sendAnd)
+                        //{
+                        write("&");
+                        write(summ.ToString() + "/");
+                        andSent = true;
+                        sendAndTime = DateTime.Now;
+                        //}
                         break;
                     case "&&&":
                         summ = 0;
