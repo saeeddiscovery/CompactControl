@@ -280,15 +280,6 @@ namespace Compact_Control
 
         public void write(string data)
         {
-            DateTime now = DateTime.Now;
-            TimeSpan fromLastConnect = now - connectTime;
-            if (fromLastConnect.Minutes >= 5)
-            {
-                SetConnection(false);
-                Thread.Sleep(50);
-                SetConnection(true);
-            }
-
             serialPort1.DiscardOutBuffer();
             serialPort1.Write(data);
 
@@ -2355,7 +2346,7 @@ namespace Compact_Control
 
         private void timer5_Tick(object sender, EventArgs e)
         {
-            if (!isInServiceMode)
+            if ((!isInServiceMode) && (serialPort1.IsOpen == true))
             {
                 if (!gant_stat)
                     clientFrm.pb_gant_status.BackgroundImage = Resources.led_red;
