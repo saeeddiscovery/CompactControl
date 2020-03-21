@@ -1432,6 +1432,40 @@ namespace Compact_Control
             }
         }
 
+        private void btn_getReceiveQ_Click(object sender, EventArgs e)
+        {
+            string tmp = "-Empty-";
+            int qCount = 0;
+            try
+            {
+                qCount = frm1.receiveQ.Count;
+                tmp = frm1.receiveQ.Dequeue();
+            }
+            catch
+            {
+                qCount = 0;
+                tmp = "-Empty-";
+            }
+            writeToOtherTerminal("Q(" + qCount.ToString() + ")> " + tmp, false);
+        }
+
+        private void btn_getSerialPort_Click(object sender, EventArgs e)
+        {
+            string tmp = "-Empty-";
+            int serialBytes = 0;
+            try
+            {
+                serialBytes = frm1.serialPort1.BytesToRead;
+                tmp = frm1.serialPort1.ReadExisting();
+            }
+            catch
+            {
+                serialBytes = 0;
+                tmp = "-Empty-";
+            }
+            writeToOtherTerminal("S(" + serialBytes.ToString() + ")> " + tmp, false);
+        }
+
         private void txt_x2_s_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)

@@ -101,6 +101,8 @@
             this.lbl_readingError = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timer_gant = new System.Windows.Forms.Timer(this.components);
+            this.btn_getReceiveQ = new System.Windows.Forms.Button();
+            this.btn_getSerialPort = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x2_status)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x1_status)).BeginInit();
@@ -921,11 +923,33 @@
             this.timer_gant.Interval = 1500;
             this.timer_gant.Tick += new System.EventHandler(this.timer_gant_Tick);
             // 
+            // btn_getReceiveQ
+            // 
+            this.btn_getReceiveQ.Location = new System.Drawing.Point(795, 349);
+            this.btn_getReceiveQ.Name = "btn_getReceiveQ";
+            this.btn_getReceiveQ.Size = new System.Drawing.Size(101, 28);
+            this.btn_getReceiveQ.TabIndex = 132;
+            this.btn_getReceiveQ.Text = "Get ReceiveQ";
+            this.btn_getReceiveQ.UseVisualStyleBackColor = true;
+            this.btn_getReceiveQ.Click += new System.EventHandler(this.btn_getReceiveQ_Click);
+            // 
+            // btn_getSerialPort
+            // 
+            this.btn_getSerialPort.Location = new System.Drawing.Point(795, 384);
+            this.btn_getSerialPort.Name = "btn_getSerialPort";
+            this.btn_getSerialPort.Size = new System.Drawing.Size(101, 28);
+            this.btn_getSerialPort.TabIndex = 133;
+            this.btn_getSerialPort.Text = "Get SerialPort";
+            this.btn_getSerialPort.UseVisualStyleBackColor = true;
+            this.btn_getSerialPort.Click += new System.EventHandler(this.btn_getSerialPort_Click);
+            // 
             // ClientControls
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
+            this.Controls.Add(this.btn_getSerialPort);
+            this.Controls.Add(this.btn_getReceiveQ);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_pleaseRestart);
             this.Controls.Add(this.txt_fakeADC);
@@ -1041,5 +1065,7 @@
         public System.Windows.Forms.Label lbl_readingError;
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.Label lbl_oth_cnt;
+        private System.Windows.Forms.Button btn_getReceiveQ;
+        private System.Windows.Forms.Button btn_getSerialPort;
     }
 }

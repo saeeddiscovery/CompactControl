@@ -1325,6 +1325,8 @@ namespace Compact_Control
         string[] microParameters = new string[42];
         private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
+            if (!checkBox3.Checked)
+                return;
             if (serialPort1.IsOpen == false)
                 return;
             try
@@ -2407,6 +2409,7 @@ namespace Compact_Control
             }
         }
 
+
         private void timer5_Tick(object sender, EventArgs e)
         {
             if ((!isInServiceMode) && (serialPort1.IsOpen == true))
@@ -2952,6 +2955,7 @@ namespace Compact_Control
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            lbl_version.Text = Application.ProductVersion;
             if (isInServiceMode)
             {
                 //panel1.BackColor = Color.Turquoise;
