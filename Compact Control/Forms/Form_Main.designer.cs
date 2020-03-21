@@ -3874,7 +3874,6 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Shown += new System.EventHandler(this.Form1_Shown);
-            this.VisibleChanged += new System.EventHandler(this.Form1_VisibleChanged);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).EndInit();

@@ -1417,11 +1417,13 @@ namespace Compact_Control
                         {
                             write("{|}~");
                             setInitState(1);
-                            btn_saveParameters.Enabled = true;
+                            if (isInServiceMode)
+                                btn_saveParameters.Enabled = true;
                         }
                         else
                         {
-                            btn_saveParameters.Enabled = true;
+                            if (isInServiceMode)
+                                btn_saveParameters.Enabled = true;
                             //write("$");
                             //sendParametersFlag = true;
                             //sendParameters();
@@ -2777,12 +2779,14 @@ namespace Compact_Control
                     //panel_AdminControls.Enabled = true;
                     //write("y");
                     timer1.Enabled = true;
+                    clientFrm.timer1.Enabled = false;
                 }
                 else
                 {
                     //write("x");
                     //panel_ClientControls.Enabled = true;
                     timer1.Enabled = false;
+                    clientFrm.timer1.Enabled = true;
                 }
 
                 ReadCalibFile();
@@ -2855,18 +2859,6 @@ namespace Compact_Control
             frmSet.checkBox_startup.Hide();
             frmSet.groupBox_UserManagement.Hide();
             frmSet.groupBox_portSetting.Hide();
-        }
-
-        private void Form1_VisibleChanged(object sender, EventArgs e)
-        {
-            if (isInServiceMode)
-            {
-                clientFrm.TimerStatus(false);
-            }
-            else
-            {
-                clientFrm.TimerStatus(true);
-            }
         }
 
 
