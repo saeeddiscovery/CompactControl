@@ -280,7 +280,7 @@ namespace Compact_Control
 
         public void write(string data)
         {
-            serialPort1.DiscardOutBuffer();
+            //serialPort1.DiscardOutBuffer();
             serialPort1.Write(data);
 
             if (isInServiceMode)
@@ -526,8 +526,9 @@ namespace Compact_Control
         {
             if (sendParametersFlag == true)
             {
-                sendParameters();
-                sendParametersFlag = false;
+                //sendParameters();
+                //sendParametersFlag = false;
+
                 //if (sendParameters() == true)
                 //{
                 //    MessageBox.Show("Parameters Save & Send successful!");
@@ -1227,6 +1228,7 @@ namespace Compact_Control
                          double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length) +
                          double.Parse(gravity_up) + double.Parse(gravity_down);
 
+                serialPort1.DiscardOutBuffer();
                 //MessageBox.Show(ourSum.ToString());
                 write("z");
                 write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/" + gant_gain_int + "/" + gant_offset_int + "/");
@@ -1247,7 +1249,8 @@ namespace Compact_Control
             }
             catch (Exception ex)
             {
-                btn_saveParameters.Enabled = true;
+                if ((isInServiceMode) && (btn_saveParameters.Enabled == false))
+                    btn_saveParameters.Enabled = true;
                 setInitState(2);
                 // MessageBox.Show("Unable to send parameters!" + Environment.NewLine + ex.ToString().Split('\n')[0]);                }
                 return false;
@@ -1390,10 +1393,7 @@ namespace Compact_Control
                 return;
             string currData = receiveQ.Dequeue();
             //string[] lines = currData.Split('\n');
-            if (isInServiceMode)
-                tb_terminal_in.AppendText(currData + Environment.NewLine);
-            else if (showClinicalTerminals == "1")
-                clientFrm.tb_terminal_in.AppendText(currData + Environment.NewLine);
+
             string a = currData;
             double c;
             try
@@ -1401,15 +1401,16 @@ namespace Compact_Control
                 switch (a.Substring(0, 3))
                 {
                     case "ini":
-                        setInitState(0);
-                        if (isInServiceMode)
+                        sendParameters();
+                        if ((isInServiceMode) && (btn_saveParameters.Enabled == true))
                         {
                             btn_saveParameters.Enabled = false;
-                            sendParametersFlag = true;
+                            //sendParametersFlag = true;
                         }
-                        else
-                            clientFrm.sendParametersFlag = true;
+                        //else
+                            //clientFrm.sendParametersFlag = true;
                         //sendParameters();
+                        //setInitState(0);
                         break;
                     case "sum":
                         string microSum = a.Substring(3, a.Length - 3);
@@ -1695,33 +1696,33 @@ namespace Compact_Control
                         summ = 0;
                         if (gant_stat == false)
                         {
-                            summ = summ + int.Parse(gant_set);
                             write("m" + gant_set + "/");
+                            summ = summ + int.Parse(gant_set);
                         }
                         if (coli_stat == false)
                         {
-                            summ = summ + int.Parse(collim_set);
                             write("n" + collim_set + "/");
+                            summ = summ + int.Parse(collim_set);
                         }
                         if (x1_stat == false)
                         {
-                            summ = summ + int.Parse(x1_set);
                             write("o" + x1_set + "/");
+                            summ = summ + int.Parse(x1_set);
                         }
                         if (x2_stat == false)
                         {
-                            summ = summ + int.Parse(x2_set);
                             write("p" + x2_set + "/");
+                            summ = summ + int.Parse(x2_set);
                         }
                         if (y1_stat == false)
                         {
-                            summ = summ + int.Parse(y1_set);
                             write("q" + y1_set + "/");
+                            summ = summ + int.Parse(y1_set);
                         }
                         if (y2_stat == false)
                         {
-                            summ = summ + int.Parse(y2_set);
                             write("r" + y2_set + "/");
+                            summ = summ + int.Parse(y2_set);
                         }
 
                         //if (sendAnd)
@@ -1751,6 +1752,11 @@ namespace Compact_Control
             {
                 writeToOtherTerminal(currData, true);
             }
+
+            if (isInServiceMode)
+                tb_terminal_in.AppendText(currData + Environment.NewLine);
+            else if (showClinicalTerminals == "1")
+                clientFrm.tb_terminal_in.AppendText(currData + Environment.NewLine);
         }
 
         private void Validate_Text_tol(object sender, CancelEventArgs e)

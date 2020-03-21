@@ -291,8 +291,9 @@ namespace Compact_Control
         {
             if (sendParametersFlag == true)
             {
-                frm1.sendParameters();
-                sendParametersFlag = false;
+                //frm1.sendParameters();
+                //sendParametersFlag = false;
+
                 //if (sendParameters() == true)
                 //{
                 //    MessageBox.Show("Parameters Save & Send successful!");
