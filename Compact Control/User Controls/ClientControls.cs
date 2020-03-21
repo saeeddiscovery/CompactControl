@@ -289,16 +289,19 @@ namespace Compact_Control
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            frm1.writeQtoTerminal();
+            
+            frm1.writeInQtoTerminal();
+            frm1.writeOutQtoTerminal();
+
             //if (sendParametersFlag == true)
             //{
-                //frm1.sendParameters();
-                //sendParametersFlag = false;
+            //frm1.sendParameters();
+            //sendParametersFlag = false;
 
-                //if (sendParameters() == true)
-                //{
-                //    MessageBox.Show("Parameters Save & Send successful!");
-                //}
+            //if (sendParameters() == true)
+            //{
+            //    MessageBox.Show("Parameters Save & Send successful!");
+            //}
             //}
 
 

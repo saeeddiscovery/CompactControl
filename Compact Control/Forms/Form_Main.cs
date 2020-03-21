@@ -282,17 +282,32 @@ namespace Compact_Control
         {
             //serialPort1.DiscardOutBuffer();
             serialPort1.Write(data);
-            writeQ.Enqueue(data);
+            writeOutQ.Enqueue(data);
         }
 
-        public void writeQtoTerminal()
+        public void writeInQtoTerminal()
         {
-            if (writeQ.Count == 0)
+            if (writeInQ.Count == 0)
                 return;
 
-            while (writeQ.Count > 0)
+            while (writeInQ.Count > 0)
             {
-                string data = writeQ.Dequeue();
+                string data = writeInQ.Dequeue();
+
+                if (isInServiceMode)
+                    tb_terminal_in.AppendText(data + Environment.NewLine);
+                else if (showClinicalTerminals == "1")
+                    clientFrm.tb_terminal_in.AppendText(data + Environment.NewLine);
+            }
+        }
+        public void writeOutQtoTerminal()
+        {
+            if (writeOutQ.Count == 0)
+                return;
+
+            while (writeOutQ.Count > 0)
+            {
+                string data = writeOutQ.Dequeue();
 
                 if (isInServiceMode)
                 {
@@ -533,18 +548,43 @@ namespace Compact_Control
         //        serialPort1.Close();
         //}
 
+        private System.Diagnostics.Stopwatch watch;
+        private bool watchStarted = false;
+        private long maxTime = 0;
+        private long minTime = 10000;
+        public void startTimeMeasure()
+        {
+            if (!watchStarted)
+                watch = new System.Diagnostics.Stopwatch();
+            watch.Start();
+        }
+
+        public void stopTimeMeasure()
+        {
+            watch.Stop();
+            if (watch.ElapsedMilliseconds > maxTime)
+                maxTime = watch.ElapsedMilliseconds;
+            if (watch.ElapsedMilliseconds < minTime)
+                minTime = watch.ElapsedMilliseconds;
+            writeToOtherTerminal($"Max: {maxTime} ms", false);
+            writeToOtherTerminal($"Min: {minTime} ms", false);
+            writeToOtherTerminal("", false);
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
-            writeQtoTerminal();
+            writeInQtoTerminal();
+            writeOutQtoTerminal();
+
             //if (sendParametersFlag == true)
             //{
-                //sendParameters();
-                //sendParametersFlag = false;
+            //sendParameters();
+            //sendParametersFlag = false;
 
-                //if (sendParameters() == true)
-                //{
-                //    MessageBox.Show("Parameters Save & Send successful!");
-                //}
+            //if (sendParameters() == true)
+            //{
+            //    MessageBox.Show("Parameters Save & Send successful!");
+            //}
             //}
 
             textBox1.Text = gant_co;
@@ -1277,7 +1317,8 @@ namespace Compact_Control
             return equal;
         }
         public Queue<string> receiveQ = new Queue<string>();
-        public Queue<string> writeQ = new Queue<string>();
+        public Queue<string> writeOutQ = new Queue<string>();
+        public Queue<string> writeInQ = new Queue<string>();
         bool gant_stat = false, coli_stat = false,
             x1_stat = false, x2_stat = false,
             y1_stat = false, y2_stat = false;
@@ -1769,10 +1810,8 @@ namespace Compact_Control
                 writeToOtherTerminal(currData, true);
             }
 
-            if (isInServiceMode)
-                tb_terminal_in.AppendText(currData + Environment.NewLine);
-            else if (showClinicalTerminals == "1")
-                clientFrm.tb_terminal_in.AppendText(currData + Environment.NewLine);
+            writeInQ.Enqueue(currData);
+            
         }
 
         private void Validate_Text_tol(object sender, CancelEventArgs e)
