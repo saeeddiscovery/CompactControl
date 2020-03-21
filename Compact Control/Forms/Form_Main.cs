@@ -1410,7 +1410,7 @@ namespace Compact_Control
                         //else
                             //clientFrm.sendParametersFlag = true;
                         //sendParameters();
-                        //setInitState(0);
+                        setInitState(0);
                         break;
                     case "sum":
                         string microSum = a.Substring(3, a.Length - 3);
