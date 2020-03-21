@@ -289,8 +289,9 @@ namespace Compact_Control
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (sendParametersFlag == true)
-            {
+            frm1.writeQtoTerminal();
+            //if (sendParametersFlag == true)
+            //{
                 //frm1.sendParameters();
                 //sendParametersFlag = false;
 
@@ -298,7 +299,7 @@ namespace Compact_Control
                 //{
                 //    MessageBox.Show("Parameters Save & Send successful!");
                 //}
-            }
+            //}
 
 
             txt_gant_a.Text = frm1.gant_dv;

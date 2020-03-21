@@ -282,33 +282,44 @@ namespace Compact_Control
         {
             //serialPort1.DiscardOutBuffer();
             serialPort1.Write(data);
+            writeQ.Enqueue(data);
+        }
 
-            if (isInServiceMode)
+        public void writeQtoTerminal()
+        {
+            if (writeQ.Count == 0)
+                return;
+
+            while (writeQ.Count > 0)
             {
-                int o = int.Parse(lbl_out_cnt.Text);
-                o = o + 1;
-                lbl_out_cnt.Text = o.ToString();
+                string data = writeQ.Dequeue();
 
-                if (int.Parse(lbl_out_cnt.Text) > 100)
+                if (isInServiceMode)
                 {
-                    lbl_out_cnt.Text = "0";
-                    tb_terminal_out.Clear();
-                }
-                tb_terminal_out.AppendText(data + Environment.NewLine);
-            }
-            else if (showClinicalTerminals == "1")
-            {
-                int o = int.Parse(clientFrm.lbl_out_cnt.Text);
-                o = o + 1;
-                clientFrm.lbl_out_cnt.Text = o.ToString();
+                    int o = int.Parse(lbl_out_cnt.Text);
+                    o = o + 1;
+                    lbl_out_cnt.Text = o.ToString();
 
-                if (int.Parse(clientFrm.lbl_out_cnt.Text) > 100)
+                    if (int.Parse(lbl_out_cnt.Text) > 100)
+                    {
+                        lbl_out_cnt.Text = "0";
+                        tb_terminal_out.Clear();
+                    }
+                    tb_terminal_out.AppendText(data + Environment.NewLine);
+                }
+                else if (showClinicalTerminals == "1")
                 {
-                    clientFrm.lbl_out_cnt.Text = "0";
-                    clientFrm.tb_terminal_out.Clear();
-                }
-                clientFrm.tb_terminal_out.AppendText(data + Environment.NewLine);
+                    int o = int.Parse(clientFrm.lbl_out_cnt.Text);
+                    o = o + 1;
+                    clientFrm.lbl_out_cnt.Text = o.ToString();
 
+                    if (int.Parse(clientFrm.lbl_out_cnt.Text) > 100)
+                    {
+                        clientFrm.lbl_out_cnt.Text = "0";
+                        clientFrm.tb_terminal_out.Clear();
+                    }
+                    clientFrm.tb_terminal_out.AppendText(data + Environment.NewLine);
+                }
             }
         }
 
@@ -524,8 +535,9 @@ namespace Compact_Control
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (sendParametersFlag == true)
-            {
+            writeQtoTerminal();
+            //if (sendParametersFlag == true)
+            //{
                 //sendParameters();
                 //sendParametersFlag = false;
 
@@ -533,7 +545,7 @@ namespace Compact_Control
                 //{
                 //    MessageBox.Show("Parameters Save & Send successful!");
                 //}
-            }
+            //}
 
             textBox1.Text = gant_co;
             textBox7.Text = gant_f1;
@@ -1265,6 +1277,7 @@ namespace Compact_Control
             return equal;
         }
         public Queue<string> receiveQ = new Queue<string>();
+        public Queue<string> writeQ = new Queue<string>();
         bool gant_stat = false, coli_stat = false,
             x1_stat = false, x2_stat = false,
             y1_stat = false, y2_stat = false;
@@ -1608,29 +1621,7 @@ namespace Compact_Control
                             if (clientFrm.txt_fakeADC.Visible == true)
                                 adc = clientFrm.txt_fakeADC.Text;
 
-                        if (isInServiceMode)
-                        {
-                            int i = int.Parse(lbl_in_cnt.Text);
-                            i = i + 1;
-                            lbl_in_cnt.Text = i.ToString();
-                            if (int.Parse(lbl_in_cnt.Text) > 100)
-                            {
-                                lbl_in_cnt.Text = "0";
-                                tb_terminal_in.Clear();
-                            }
-                        }
-                        else if (showClinicalTerminals == "1")
-                        {
-                            int i = int.Parse(clientFrm.lbl_in_cnt.Text);
-                            i = i + 1;
-                            clientFrm.lbl_in_cnt.Text = i.ToString();
 
-                            if (int.Parse(clientFrm.lbl_in_cnt.Text) > 100)
-                            {
-                                clientFrm.lbl_in_cnt.Text = "0";
-                                clientFrm.tb_terminal_in.Clear();
-                            }
-                        }
 
                         adc = a.Substring(3, a.Length - 3);
                         if (int.Parse(adc) < 1850 || int.Parse(adc) > 2250)
@@ -1691,6 +1682,31 @@ namespace Compact_Control
                             write("$");
                             sendAnd = true;
                         }
+
+                        if (isInServiceMode)
+                        {
+                            int i = int.Parse(lbl_in_cnt.Text);
+                            i = i + 1;
+                            lbl_in_cnt.Text = i.ToString();
+                            if (int.Parse(lbl_in_cnt.Text) > 100)
+                            {
+                                lbl_in_cnt.Text = "0";
+                                tb_terminal_in.Clear();
+                            }
+                        }
+                        else if (showClinicalTerminals == "1")
+                        {
+                            int i = int.Parse(clientFrm.lbl_in_cnt.Text);
+                            i = i + 1;
+                            clientFrm.lbl_in_cnt.Text = i.ToString();
+
+                            if (int.Parse(clientFrm.lbl_in_cnt.Text) > 100)
+                            {
+                                clientFrm.lbl_in_cnt.Text = "0";
+                                clientFrm.tb_terminal_in.Clear();
+                            }
+                        }
+
                         break;
                     case "req":
                         summ = 0;
