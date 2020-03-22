@@ -219,10 +219,6 @@ namespace Compact_Control
                         portName = ports[0];
                         serialPort1.PortName = ports[0];
                     }
-                    //if (int.TryParse(HashPass.ReadBaudRateFromReg(), out BaudRate) == true && BaudRate != 0)
-                    //    GlobalSerialPort.BaudRate = BaudRate;
-                    //    ClientControls.curr_baudrate = BaudRate;
-                    //ConnectToPort();
                 }
             }
         }
@@ -1323,25 +1319,7 @@ namespace Compact_Control
             x1_stat = false, x2_stat = false,
             y1_stat = false, y2_stat = false;
         string[] microParameters = new string[42];
-        private void serialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
-        {
-            if (!checkBox3.Checked)
-                return;
-            if (serialPort1.IsOpen == false)
-                return;
-            try
-            {
-                while (serialPort1.BytesToRead > 0)
-                {
-                    // string currReceived1 = serialPort1.ReadExisting();
-                    string currReceived = serialPort1.ReadLine();
-                    receiveQ.Enqueue(currReceived);
-                }
-                serialPort1.DiscardInBuffer();
-            }
-            catch { }
-            //string currReceived = serialPort1.ReadExisting();
-        }
+        string currReceived;
 
         private void picBtn_Connect_MouseEnter(object sender, EventArgs e)
         {
@@ -1443,18 +1421,25 @@ namespace Compact_Control
         bool sendAnd = false;
         bool andSent = false;
         int summ = 0;
+        string currData;
         private void timer3_Tick(object sender, EventArgs e)
         {
-            if (receiveQ.Count == 0)
+            //if (receiveQ.Count == 0)
+            //return;
+            try
+            {
+                currData = receiveQ.Dequeue();
+            }
+            catch
+            {
                 return;
-            string currData = receiveQ.Dequeue();
+            }
             //string[] lines = currData.Split('\n');
 
-            string a = currData;
             double c;
             try
             {
-                switch (a.Substring(0, 3))
+                switch (currData.Substring(0, 3))
                 {
                     case "ini":
                         sendParameters();
@@ -1469,7 +1454,7 @@ namespace Compact_Control
                         setInitState(0);
                         break;
                     case "sum":
-                        string microSum = a.Substring(3, a.Length - 3);
+                        string microSum = currData.Substring(3, currData.Length - 3);
                         if (checkSum(double.Parse(microSum), ourSum) == true)
                         {
                             write("{|}~");
@@ -1505,19 +1490,19 @@ namespace Compact_Control
                         break;
                     case "gco":
                         if (isInServiceMode)
-                            gant_co = a.Substring(3, a.Length - 3);
+                            gant_co = currData.Substring(3, currData.Length - 3);
                         break;
                     case "gf1":
                         if (isInServiceMode)
-                            gant_f1 = a.Substring(3, a.Length - 3);
+                            gant_f1 = currData.Substring(3, currData.Length - 3);
                         break;
                     case "gf2":
                         if (isInServiceMode)
-                            gant_f2 = a.Substring(3, a.Length - 3);
+                            gant_f2 = currData.Substring(3, currData.Length - 3);
                         break;
                     case "gfn":
 
-                        gant_cofin = a.Substring(3, a.Length - 3);
+                        gant_cofin = currData.Substring(3, currData.Length - 3);
                         if (isInServiceMode)
                             gant_dv = Math.Round((gant_gain * double.Parse(gant_cofin) + gant_offset), 2, MidpointRounding.ToEven).ToString();
                         else
@@ -1532,18 +1517,18 @@ namespace Compact_Control
                         break;
                     case "cco":
                         if (isInServiceMode)
-                            collim_co = a.Substring(3, a.Length - 3);
+                            collim_co = currData.Substring(3, currData.Length - 3);
                         break;
                     case "cf1":
                         if (isInServiceMode)
-                            collim_f1 = a.Substring(3, a.Length - 3);
+                            collim_f1 = currData.Substring(3, currData.Length - 3);
                         break;
                     case "cf2":
                         if (isInServiceMode)
-                            collim_f2 = a.Substring(3, a.Length - 3);
+                            collim_f2 = currData.Substring(3, currData.Length - 3);
                         break;
                     case "cfn":
-                        collim_cofin = a.Substring(3, a.Length - 3);
+                        collim_cofin = currData.Substring(3, currData.Length - 3);
                         if (isInServiceMode)
                             collim_dv = Math.Round((collim_gain * double.Parse(collim_cofin) + collim_offset), 2, MidpointRounding.ToEven).ToString();
                         else
@@ -1557,22 +1542,22 @@ namespace Compact_Control
                         }
                         break;
                     case "wco":
-                        x1_co = a.Substring(3, a.Length - 3);
+                        x1_co = currData.Substring(3, currData.Length - 3);
                         x1_dv = Math.Round(((x1_gain * double.Parse(x1_co)) + x1_offset), 2, MidpointRounding.ToEven).ToString();
                         break;
                     case "xco":
-                        x2_co = a.Substring(3, a.Length - 3);
+                        x2_co = currData.Substring(3, currData.Length - 3);
                         if (isInServiceMode)
                             x2_dv = Math.Round(((x2_gain * double.Parse(x2_co)) + x2_offset), 2, MidpointRounding.ToEven).ToString();
                         else
                             x2_dv = Math.Round(-((x2_gain * double.Parse(x2_co)) + x2_offset), 1, MidpointRounding.ToEven).ToString();
                         break;
                     case "yco":
-                        y1_co = a.Substring(3, a.Length - 3);
+                        y1_co = currData.Substring(3, currData.Length - 3);
                         y1_dv = Math.Round(((y1_gain * double.Parse(y1_co)) + y1_offset), 2, MidpointRounding.ToEven).ToString();
                         break;
                     case "zco":
-                        y2_co = a.Substring(3, a.Length - 3);
+                        y2_co = currData.Substring(3, currData.Length - 3);
                         if (isInServiceMode)
                             y2_dv = Math.Round(((y2_gain * double.Parse(y2_co)) + y2_offset), 2, MidpointRounding.ToEven).ToString();
                         else
@@ -1616,46 +1601,46 @@ namespace Compact_Control
                         MessageBox.Show("Error: Saving was not succesfull!");
                         break;
                     case "c43":
-                        gant_zpnt = a.Substring(3, a.Length - 3);
+                        gant_zpnt = currData.Substring(3, currData.Length - 3);
                         break;
                     case "c44":
-                        gant_length = a.Substring(3, a.Length - 3);
+                        gant_length = currData.Substring(3, currData.Length - 3);
                         break;
                     case "c45":
-                        gant_fine_length = a.Substring(3, a.Length - 3);
+                        gant_fine_length = currData.Substring(3, currData.Length - 3);
                         //write(gant_zpnt + (gant_zpnt.Length + 1).ToString() + "/" + gant_length + (gant_length.Length + 1).ToString() + "/" + gant_fine_length + (gant_fine_length.Length + 1).ToString() + "/");
                         write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
                         break;
                     case "c46":
-                        collim_zpnt = a.Substring(3, a.Length - 3);
+                        collim_zpnt = currData.Substring(3, currData.Length - 3);
                         break;
                     case "c47":
-                        collim_length = a.Substring(3, a.Length - 3);
+                        collim_length = currData.Substring(3, currData.Length - 3);
                         break;
                     case "c48":
-                        collim_fine_length = a.Substring(3, a.Length - 3);
+                        collim_fine_length = currData.Substring(3, currData.Length - 3);
                         write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
                         //write(collim_zpnt + (collim_zpnt.Length + 1).ToString() + "/");
                         //write(collim_length + (collim_length.Length + 1).ToString() + "/");
                         //write(collim_fine_length + (collim_fine_length.Length + 1).ToString() + "/");
                         break;
                     case "gnd":
-                        gnd = a.Substring(3, a.Length - 3);
+                        gnd = currData.Substring(3, currData.Length - 3);
                         break;
                     case "cld":
-                        cld = a.Substring(3, a.Length - 3);
+                        cld = currData.Substring(3, currData.Length - 3);
                         break;
                     case "x1d":
-                        x1d = a.Substring(3, a.Length - 3);
+                        x1d = currData.Substring(3, currData.Length - 3);
                         break;
                     case "x2d":
-                        x2d = a.Substring(3, a.Length - 3);
+                        x2d = currData.Substring(3, currData.Length - 3);
                         break;
                     case "y1d":
-                        y1d = a.Substring(3, a.Length - 3);
+                        y1d = currData.Substring(3, currData.Length - 3);
                         break;
                     case "y2d":
-                        y2d = a.Substring(3, a.Length - 3);
+                        y2d = currData.Substring(3, currData.Length - 3);
                         break;
                     case "adc":
                         inputADC = true;
@@ -1666,7 +1651,7 @@ namespace Compact_Control
 
 
 
-                        adc = a.Substring(3, a.Length - 3);
+                        adc = currData.Substring(3, currData.Length - 3);
                         if (int.Parse(adc) < 1850 || int.Parse(adc) > 2250)
                         {
                             adcCheck_counter = adcCheck_counter + 1;
@@ -2412,31 +2397,47 @@ namespace Compact_Control
 
         private void timer5_Tick(object sender, EventArgs e)
         {
+            if (!checkBox3.Checked)
+                return;
+            if (serialPort1.IsOpen == false)
+                return;
+            try
+            {
+                while (serialPort1.BytesToRead > 0)
+                {
+                    currReceived = serialPort1.ReadLine();
+                    receiveQ.Enqueue(currReceived);
+                }
+                //serialPort1.DiscardInBuffer();
+            }
+            catch { }
+
+
             if ((!isInServiceMode) && (serialPort1.IsOpen == true))
             {
-                if (!gant_stat)
+                if ((!gant_stat) && (clientFrm.pb_gant_status.BackgroundImage != Resources.led_red))
                     clientFrm.pb_gant_status.BackgroundImage = Resources.led_red;
-                else
+                else if (clientFrm.pb_gant_status.BackgroundImage != Resources.led_green)
                     clientFrm.pb_gant_status.BackgroundImage = Resources.led_green;
-                if (!coli_stat)
+                if ((!coli_stat) && clientFrm.pb_coli_status.BackgroundImage != Resources.led_red)
                     clientFrm.pb_coli_status.BackgroundImage = Resources.led_red;
-                else
+                else if (clientFrm.pb_coli_status.BackgroundImage != Resources.led_green)
                     clientFrm.pb_coli_status.BackgroundImage = Resources.led_green;
-                if (!x1_stat)
+                if ((!x1_stat) && (clientFrm.pb_y2_status.BackgroundImage != Resources.led_red))
                     clientFrm.pb_y2_status.BackgroundImage = Resources.led_red;
-                else
+                else if (clientFrm.pb_y2_status.BackgroundImage != Resources.led_green)
                     clientFrm.pb_y2_status.BackgroundImage = Resources.led_green;
-                if (!x2_stat)
+                if ((!x2_stat) && (clientFrm.pb_y1_status.BackgroundImage != Resources.led_red))
                     clientFrm.pb_y1_status.BackgroundImage = Resources.led_red;
-                else
+                else if (clientFrm.pb_y1_status.BackgroundImage != Resources.led_green)
                     clientFrm.pb_y1_status.BackgroundImage = Resources.led_green;
-                if (!y1_stat)
+                if ((!y1_stat) && (clientFrm.pb_x2_status.BackgroundImage != Resources.led_red))
                     clientFrm.pb_x2_status.BackgroundImage = Resources.led_red;
-                else
+                else if (clientFrm.pb_x2_status.BackgroundImage != Resources.led_green)
                     clientFrm.pb_x2_status.BackgroundImage = Resources.led_green;
-                if (!y2_stat)
+                if ((!y2_stat) && (clientFrm.pb_x1_status.BackgroundImage != Resources.led_red))
                     clientFrm.pb_x1_status.BackgroundImage = Resources.led_red;
-                else
+                else if (clientFrm.pb_x1_status.BackgroundImage != Resources.led_green)
                     clientFrm.pb_x1_status.BackgroundImage = Resources.led_green;
             }
         }
@@ -2830,13 +2831,13 @@ namespace Compact_Control
             {
                 connectTime = DateTime.Now;
                 connCounter = connCounter + 1;
-                //ClosePort();
-                //MessageBox.Show("Connection error!", "An error occured during connection!\n\n");
+
                 if (!serialPort1.IsOpen)
                 {
                     serialPort1.Open();
-                    Thread.Sleep(200);
+                    //Thread.Sleep(200);
                 }
+
                 if (isInServiceMode == true)
                 {
                     //tabControl1.Enabled = true;

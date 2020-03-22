@@ -69,6 +69,7 @@
             this.label71 = new System.Windows.Forms.Label();
             this.panel_Toolbar = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.splitter2 = new System.Windows.Forms.Splitter();
             this.splitter3 = new System.Windows.Forms.Splitter();
@@ -323,7 +324,6 @@
             this.label64 = new System.Windows.Forms.Label();
             this.lbl_oth_cnt = new System.Windows.Forms.Label();
             this.timer5 = new System.Windows.Forms.Timer(this.components);
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).BeginInit();
@@ -404,7 +404,6 @@
             // serialPort1
             // 
             this.serialPort1.BaudRate = 19200;
-            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
             // timer1
             // 
@@ -924,6 +923,19 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(884, 32);
             this.panel3.TabIndex = 24;
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Checked = true;
+            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox3.ForeColor = System.Drawing.Color.White;
+            this.checkBox3.Location = new System.Drawing.Point(6, 6);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(113, 17);
+            this.checkBox3.TabIndex = 0;
+            this.checkBox3.Text = "SerialPort Interrupt";
+            this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -3855,19 +3867,6 @@
             // 
             this.timer5.Enabled = true;
             this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Checked = true;
-            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.ForeColor = System.Drawing.Color.White;
-            this.checkBox3.Location = new System.Drawing.Point(6, 6);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(113, 17);
-            this.checkBox3.TabIndex = 0;
-            this.checkBox3.Text = "SerialPort Interrupt";
-            this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
