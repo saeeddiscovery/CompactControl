@@ -1558,7 +1558,10 @@ namespace Compact_Control
                             break;
                         case "wco":
                             x1_co = currData.Substring(3, currData.Length - 3);
-                            x1_dv = Math.Round(((x1_gain * double.Parse(x1_co)) + x1_offset), 2, MidpointRounding.ToEven).ToString();
+                            if (isInServiceMode)
+                                x1_dv = Math.Round(((x1_gain * double.Parse(x1_co)) + x1_offset), 2, MidpointRounding.ToEven).ToString();
+                            else
+                                x1_dv = Math.Round(((x1_gain * double.Parse(x1_co)) + x1_offset), 1, MidpointRounding.ToEven).ToString();
                             break;
                         case "xco":
                             x2_co = currData.Substring(3, currData.Length - 3);
@@ -1569,7 +1572,10 @@ namespace Compact_Control
                             break;
                         case "yco":
                             y1_co = currData.Substring(3, currData.Length - 3);
-                            y1_dv = Math.Round(((y1_gain * double.Parse(y1_co)) + y1_offset), 2, MidpointRounding.ToEven).ToString();
+                            if (isInServiceMode)
+                                y1_dv = Math.Round(((y1_gain * double.Parse(y1_co)) + y1_offset), 2, MidpointRounding.ToEven).ToString();
+                            else
+                                y1_dv = Math.Round(((y1_gain * double.Parse(y1_co)) + y1_offset), 1, MidpointRounding.ToEven).ToString();
                             break;
                         case "zco":
                             y2_co = currData.Substring(3, currData.Length - 3);
