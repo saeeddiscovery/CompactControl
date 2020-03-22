@@ -931,6 +931,7 @@
             this.btn_getReceiveQ.TabIndex = 132;
             this.btn_getReceiveQ.Text = "Get ReceiveQ";
             this.btn_getReceiveQ.UseVisualStyleBackColor = true;
+            this.btn_getReceiveQ.Visible = false;
             this.btn_getReceiveQ.Click += new System.EventHandler(this.btn_getReceiveQ_Click);
             // 
             // btn_getSerialPort
@@ -941,6 +942,7 @@
             this.btn_getSerialPort.TabIndex = 133;
             this.btn_getSerialPort.Text = "Get SerialPort";
             this.btn_getSerialPort.UseVisualStyleBackColor = true;
+            this.btn_getSerialPort.Visible = false;
             this.btn_getSerialPort.Click += new System.EventHandler(this.btn_getSerialPort_Click);
             // 
             // ClientControls

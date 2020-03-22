@@ -764,9 +764,6 @@ namespace Compact_Control
                 }
         }
 
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-        }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -1424,8 +1421,8 @@ namespace Compact_Control
         string currData;
         private void timer3_Tick(object sender, EventArgs e)
         {
-            if (!checkBox3.Checked)
-                return;
+            //if (!checkBox3.Checked)
+            //    return;
             if (serialPort1.IsOpen == false)
                 return;
             try
