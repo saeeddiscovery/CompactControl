@@ -1424,380 +1424,399 @@ namespace Compact_Control
         string currData;
         private void timer3_Tick(object sender, EventArgs e)
         {
-            //if (receiveQ.Count == 0)
-            //return;
-            try
-            {
-                currData = receiveQ.Dequeue();
-            }
-            catch
-            {
+            if (!checkBox3.Checked)
                 return;
-            }
-            //string[] lines = currData.Split('\n');
-
-            double c;
+            if (serialPort1.IsOpen == false)
+                return;
             try
             {
-                switch (currData.Substring(0, 3))
+                while (serialPort1.BytesToRead > 0)
                 {
-                    case "ini":
-                        sendParameters();
-                        if ((isInServiceMode) && (btn_saveParameters.Enabled == true))
-                        {
-                            btn_saveParameters.Enabled = false;
-                            //sendParametersFlag = true;
-                        }
-                        //else
+                    currReceived = serialPort1.ReadLine();
+                    receiveQ.Enqueue(currReceived);
+                }
+                //serialPort1.DiscardInBuffer();
+            }
+            catch { }
+
+
+            while (true)
+            {
+                //if (receiveQ.Count == 0)
+                //return;
+                try
+                {
+                    currData = receiveQ.Dequeue();
+                }
+                catch
+                {
+                    return;
+                }
+                //string[] lines = currData.Split('\n');
+
+                double c;
+                try
+                {
+                    switch (currData.Substring(0, 3))
+                    {
+                        case "ini":
+                            sendParameters();
+                            if ((isInServiceMode) && (btn_saveParameters.Enabled == true))
+                            {
+                                btn_saveParameters.Enabled = false;
+                                //sendParametersFlag = true;
+                            }
+                            //else
                             //clientFrm.sendParametersFlag = true;
-                        //sendParameters();
-                        setInitState(0);
-                        break;
-                    case "sum":
-                        string microSum = currData.Substring(3, currData.Length - 3);
-                        if (checkSum(double.Parse(microSum), ourSum) == true)
-                        {
-                            write("{|}~");
-                            setInitState(1);
-                            if (isInServiceMode)
-                                btn_saveParameters.Enabled = true;
-                        }
-                        else
-                        {
-                            if (isInServiceMode)
-                                btn_saveParameters.Enabled = true;
-                            //write("$");
-                            //sendParametersFlag = true;
                             //sendParameters();
-                        }
-                        break;
-                    case "SSS":
-                        if (isInServiceMode)
-                        {
-                            if (in_diag == false)
-                                write("s");
-                        }
-                        else
-                            write("s");
-                        break;
-                    case "sss":
-                        if (!isInServiceMode)
-                            write("x");
-                        break;
-                    case "ccc":
-                        if (isInServiceMode)
-                            write("y");
-                        break;
-                    case "gco":
-                        if (isInServiceMode)
-                            gant_co = currData.Substring(3, currData.Length - 3);
-                        break;
-                    case "gf1":
-                        if (isInServiceMode)
-                            gant_f1 = currData.Substring(3, currData.Length - 3);
-                        break;
-                    case "gf2":
-                        if (isInServiceMode)
-                            gant_f2 = currData.Substring(3, currData.Length - 3);
-                        break;
-                    case "gfn":
-
-                        gant_cofin = currData.Substring(3, currData.Length - 3);
-                        if (isInServiceMode)
-                            gant_dv = Math.Round((gant_gain * double.Parse(gant_cofin) + gant_offset), 2, MidpointRounding.ToEven).ToString();
-                        else
-                        {
-                            c = Math.Round((gant_gain * double.Parse(gant_cofin) + gant_offset), 1, MidpointRounding.ToEven);
-                            if (c < 0)
+                            setInitState(0);
+                            break;
+                        case "sum":
+                            string microSum = currData.Substring(3, currData.Length - 3);
+                            if (checkSum(double.Parse(microSum), ourSum) == true)
                             {
-                                c = c + 360;
+                                write("{|}~");
+                                setInitState(1);
+                                if (isInServiceMode)
+                                    btn_saveParameters.Enabled = true;
                             }
-                            gant_dv = c.ToString();
-                        }
-                        break;
-                    case "cco":
-                        if (isInServiceMode)
-                            collim_co = currData.Substring(3, currData.Length - 3);
-                        break;
-                    case "cf1":
-                        if (isInServiceMode)
-                            collim_f1 = currData.Substring(3, currData.Length - 3);
-                        break;
-                    case "cf2":
-                        if (isInServiceMode)
-                            collim_f2 = currData.Substring(3, currData.Length - 3);
-                        break;
-                    case "cfn":
-                        collim_cofin = currData.Substring(3, currData.Length - 3);
-                        if (isInServiceMode)
-                            collim_dv = Math.Round((collim_gain * double.Parse(collim_cofin) + collim_offset), 2, MidpointRounding.ToEven).ToString();
-                        else
-                        {
-                            c = Math.Round((collim_gain * double.Parse(collim_cofin) + collim_offset), 1, MidpointRounding.ToEven);
-                            if (c < 0)
+                            else
                             {
-                                c = c + 360;
-                            }
-                            collim_dv = c.ToString();
-                        }
-                        break;
-                    case "wco":
-                        x1_co = currData.Substring(3, currData.Length - 3);
-                        x1_dv = Math.Round(((x1_gain * double.Parse(x1_co)) + x1_offset), 2, MidpointRounding.ToEven).ToString();
-                        break;
-                    case "xco":
-                        x2_co = currData.Substring(3, currData.Length - 3);
-                        if (isInServiceMode)
-                            x2_dv = Math.Round(((x2_gain * double.Parse(x2_co)) + x2_offset), 2, MidpointRounding.ToEven).ToString();
-                        else
-                            x2_dv = Math.Round(-((x2_gain * double.Parse(x2_co)) + x2_offset), 1, MidpointRounding.ToEven).ToString();
-                        break;
-                    case "yco":
-                        y1_co = currData.Substring(3, currData.Length - 3);
-                        y1_dv = Math.Round(((y1_gain * double.Parse(y1_co)) + y1_offset), 2, MidpointRounding.ToEven).ToString();
-                        break;
-                    case "zco":
-                        y2_co = currData.Substring(3, currData.Length - 3);
-                        if (isInServiceMode)
-                            y2_dv = Math.Round(((y2_gain * double.Parse(y2_co)) + y2_offset), 2, MidpointRounding.ToEven).ToString();
-                        else
-                            y2_dv = Math.Round(-((y2_gain * double.Parse(y2_co)) + y2_offset), 1, MidpointRounding.ToEven).ToString();
-                        break;
-                    case "lok":
-                        tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
-                        tb_coli_gain.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
-                        tb_x1_gain.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
-                        tb_x2_gain.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
-                        tb_y1_gain.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
-                        tb_y2_gain.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
-
-                        tb_gant_offset.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
-                        tb_coli_offset.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
-                        tb_x1_offset.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
-                        tb_x2_offset.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
-                        tb_y1_offset.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
-                        tb_y2_offset.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
-
-                        tb_gant_zpnt.Text = gant_zpnt;
-                        tb_gant_len.Text = gant_length;
-                        tb_gant_flen.Text = gant_fine_length;
-                        tb_coli_zpnt.Text = collim_zpnt;
-                        tb_coli_len.Text = collim_length;
-                        tb_coli_flen.Text = collim_fine_length;
-                        try
-                        {
-                            MessageBox.Show("Learning was succesfull\nUse the Save button to save the results");
-                            btn_cancelLearn.Enabled = true;
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
-                        }
-                        break;
-                    case "sok":
-                        MessageBox.Show("Saving was succesfull!");
-                        break;
-                    case "snk":
-                        MessageBox.Show("Error: Saving was not succesfull!");
-                        break;
-                    case "c43":
-                        gant_zpnt = currData.Substring(3, currData.Length - 3);
-                        break;
-                    case "c44":
-                        gant_length = currData.Substring(3, currData.Length - 3);
-                        break;
-                    case "c45":
-                        gant_fine_length = currData.Substring(3, currData.Length - 3);
-                        //write(gant_zpnt + (gant_zpnt.Length + 1).ToString() + "/" + gant_length + (gant_length.Length + 1).ToString() + "/" + gant_fine_length + (gant_fine_length.Length + 1).ToString() + "/");
-                        write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
-                        break;
-                    case "c46":
-                        collim_zpnt = currData.Substring(3, currData.Length - 3);
-                        break;
-                    case "c47":
-                        collim_length = currData.Substring(3, currData.Length - 3);
-                        break;
-                    case "c48":
-                        collim_fine_length = currData.Substring(3, currData.Length - 3);
-                        write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
-                        //write(collim_zpnt + (collim_zpnt.Length + 1).ToString() + "/");
-                        //write(collim_length + (collim_length.Length + 1).ToString() + "/");
-                        //write(collim_fine_length + (collim_fine_length.Length + 1).ToString() + "/");
-                        break;
-                    case "gnd":
-                        gnd = currData.Substring(3, currData.Length - 3);
-                        break;
-                    case "cld":
-                        cld = currData.Substring(3, currData.Length - 3);
-                        break;
-                    case "x1d":
-                        x1d = currData.Substring(3, currData.Length - 3);
-                        break;
-                    case "x2d":
-                        x2d = currData.Substring(3, currData.Length - 3);
-                        break;
-                    case "y1d":
-                        y1d = currData.Substring(3, currData.Length - 3);
-                        break;
-                    case "y2d":
-                        y2d = currData.Substring(3, currData.Length - 3);
-                        break;
-                    case "adc":
-                        inputADC = true;
-
-                        if (!isInServiceMode)
-                            if (clientFrm.txt_fakeADC.Visible == true)
-                                adc = clientFrm.txt_fakeADC.Text;
-
-
-
-                        adc = currData.Substring(3, currData.Length - 3);
-                        if (int.Parse(adc) < 1850 || int.Parse(adc) > 2250)
-                        {
-                            adcCheck_counter = adcCheck_counter + 1;
-                            if (adcCheck_counter >= 10)
-                            {
-                                gant_set = "0";
-                                collim_set = "0";
-                                x1_set = "0";
-                                x2_set = "0";
-                                y1_set = "0";
-                                y2_set = "0";
-                                clientFrm.lbl_readingError.Show();
-                                clientFrm.lbl_pleaseRestart.Show();
-                                readError = true;
-                                timer1.Enabled = false;
-                                clientFrm.timer_gant.Enabled = false;
-                                clientFrm.timer_coli.Enabled = false;
-                                clientFrm.timer_x1.Enabled = false;
-                                clientFrm.timer_x2.Enabled = false;
-                                clientFrm.timer_y1.Enabled = false;
-                                clientFrm.timer_y2.Enabled = false;
+                                if (isInServiceMode)
+                                    btn_saveParameters.Enabled = true;
+                                //write("$");
+                                //sendParametersFlag = true;
+                                //sendParameters();
                             }
                             break;
-                        }
-                        else
-                            adcCheck_counter = 0;
-                            
-
-                        if (int.Parse(gant_set) != int.Parse(gnd))
-                            gant_stat = false;
-                        else
-                            gant_stat = true;
-                        if (int.Parse(collim_set) != int.Parse(cld))
-                            coli_stat = false;
-                        else
-                            coli_stat = true;
-                        if (int.Parse(x1_set) != int.Parse(x1d))
-                            x1_stat = false; //y2_led
-                        else
-                            x1_stat = true;
-                        if (int.Parse(x2_set) != int.Parse(x2d))
-                            x2_stat = false; //y1_led
-                        else
-                            x2_stat = true;
-                        if (int.Parse(y1_set) != int.Parse(y1d))
-                            y1_stat = false; //x2_led
-                        else
-                            y1_stat = true;
-                        if (int.Parse(y2_set) != int.Parse(y2d))
-                            y2_stat = false; //x1_led
-                        else
-                            y2_stat = true;
-
-                        if ((gant_stat && coli_stat && x1_stat && x2_stat && y1_stat && y2_stat) == false)
-                        {
-                            write("$");
-                            sendAnd = true;
-                        }
-
-                        if (isInServiceMode)
-                        {
-                            int i = int.Parse(lbl_in_cnt.Text);
-                            i = i + 1;
-                            lbl_in_cnt.Text = i.ToString();
-                            if (int.Parse(lbl_in_cnt.Text) > 100)
+                        case "SSS":
+                            if (isInServiceMode)
                             {
-                                lbl_in_cnt.Text = "0";
-                                tb_terminal_in.Clear();
+                                if (in_diag == false)
+                                    write("s");
                             }
-                        }
-                        else if (showClinicalTerminals == "1")
-                        {
-                            int i = int.Parse(clientFrm.lbl_in_cnt.Text);
-                            i = i + 1;
-                            clientFrm.lbl_in_cnt.Text = i.ToString();
+                            else
+                                write("s");
+                            break;
+                        case "sss":
+                            if (!isInServiceMode)
+                                write("x");
+                            break;
+                        case "ccc":
+                            if (isInServiceMode)
+                                write("y");
+                            break;
+                        case "gco":
+                            if (isInServiceMode)
+                                gant_co = currData.Substring(3, currData.Length - 3);
+                            break;
+                        case "gf1":
+                            if (isInServiceMode)
+                                gant_f1 = currData.Substring(3, currData.Length - 3);
+                            break;
+                        case "gf2":
+                            if (isInServiceMode)
+                                gant_f2 = currData.Substring(3, currData.Length - 3);
+                            break;
+                        case "gfn":
 
-                            if (int.Parse(clientFrm.lbl_in_cnt.Text) > 100)
+                            gant_cofin = currData.Substring(3, currData.Length - 3);
+                            if (isInServiceMode)
+                                gant_dv = Math.Round((gant_gain * double.Parse(gant_cofin) + gant_offset), 2, MidpointRounding.ToEven).ToString();
+                            else
                             {
-                                clientFrm.lbl_in_cnt.Text = "0";
-                                clientFrm.tb_terminal_in.Clear();
+                                c = Math.Round((gant_gain * double.Parse(gant_cofin) + gant_offset), 1, MidpointRounding.ToEven);
+                                if (c < 0)
+                                {
+                                    c = c + 360;
+                                }
+                                gant_dv = c.ToString();
                             }
-                        }
+                            break;
+                        case "cco":
+                            if (isInServiceMode)
+                                collim_co = currData.Substring(3, currData.Length - 3);
+                            break;
+                        case "cf1":
+                            if (isInServiceMode)
+                                collim_f1 = currData.Substring(3, currData.Length - 3);
+                            break;
+                        case "cf2":
+                            if (isInServiceMode)
+                                collim_f2 = currData.Substring(3, currData.Length - 3);
+                            break;
+                        case "cfn":
+                            collim_cofin = currData.Substring(3, currData.Length - 3);
+                            if (isInServiceMode)
+                                collim_dv = Math.Round((collim_gain * double.Parse(collim_cofin) + collim_offset), 2, MidpointRounding.ToEven).ToString();
+                            else
+                            {
+                                c = Math.Round((collim_gain * double.Parse(collim_cofin) + collim_offset), 1, MidpointRounding.ToEven);
+                                if (c < 0)
+                                {
+                                    c = c + 360;
+                                }
+                                collim_dv = c.ToString();
+                            }
+                            break;
+                        case "wco":
+                            x1_co = currData.Substring(3, currData.Length - 3);
+                            x1_dv = Math.Round(((x1_gain * double.Parse(x1_co)) + x1_offset), 2, MidpointRounding.ToEven).ToString();
+                            break;
+                        case "xco":
+                            x2_co = currData.Substring(3, currData.Length - 3);
+                            if (isInServiceMode)
+                                x2_dv = Math.Round(((x2_gain * double.Parse(x2_co)) + x2_offset), 2, MidpointRounding.ToEven).ToString();
+                            else
+                                x2_dv = Math.Round(-((x2_gain * double.Parse(x2_co)) + x2_offset), 1, MidpointRounding.ToEven).ToString();
+                            break;
+                        case "yco":
+                            y1_co = currData.Substring(3, currData.Length - 3);
+                            y1_dv = Math.Round(((y1_gain * double.Parse(y1_co)) + y1_offset), 2, MidpointRounding.ToEven).ToString();
+                            break;
+                        case "zco":
+                            y2_co = currData.Substring(3, currData.Length - 3);
+                            if (isInServiceMode)
+                                y2_dv = Math.Round(((y2_gain * double.Parse(y2_co)) + y2_offset), 2, MidpointRounding.ToEven).ToString();
+                            else
+                                y2_dv = Math.Round(-((y2_gain * double.Parse(y2_co)) + y2_offset), 1, MidpointRounding.ToEven).ToString();
+                            break;
+                        case "lok":
+                            tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
+                            tb_coli_gain.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
+                            tb_x1_gain.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
+                            tb_x2_gain.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
+                            tb_y1_gain.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
+                            tb_y2_gain.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
 
-                        break;
-                    case "req":
-                        summ = 0;
-                        if (gant_stat == false)
-                        {
-                            write("m" + gant_set + "/");
-                            summ = summ + int.Parse(gant_set);
-                        }
-                        if (coli_stat == false)
-                        {
-                            write("n" + collim_set + "/");
-                            summ = summ + int.Parse(collim_set);
-                        }
-                        if (x1_stat == false)
-                        {
-                            write("o" + x1_set + "/");
-                            summ = summ + int.Parse(x1_set);
-                        }
-                        if (x2_stat == false)
-                        {
-                            write("p" + x2_set + "/");
-                            summ = summ + int.Parse(x2_set);
-                        }
-                        if (y1_stat == false)
-                        {
-                            write("q" + y1_set + "/");
-                            summ = summ + int.Parse(y1_set);
-                        }
-                        if (y2_stat == false)
-                        {
-                            write("r" + y2_set + "/");
-                            summ = summ + int.Parse(y2_set);
-                        }
+                            tb_gant_offset.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
+                            tb_coli_offset.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
+                            tb_x1_offset.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
+                            tb_x2_offset.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
+                            tb_y1_offset.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
+                            tb_y2_offset.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
 
-                        //if (sendAnd)
-                        //{
-                        write("&");
-                        write(summ.ToString() + "/");
-                        andSent = true;
-                        sendAndTime = DateTime.Now;
-                        //}
-                        break;
-                    case "&&&":
-                        summ = 0;
-                        sendAnd = false;
-                        andSent = false;
-                        break;
-                    default:
-                        writeToOtherTerminal(currData, false);
-                        break;
+                            tb_gant_zpnt.Text = gant_zpnt;
+                            tb_gant_len.Text = gant_length;
+                            tb_gant_flen.Text = gant_fine_length;
+                            tb_coli_zpnt.Text = collim_zpnt;
+                            tb_coli_len.Text = collim_length;
+                            tb_coli_flen.Text = collim_fine_length;
+                            try
+                            {
+                                MessageBox.Show("Learning was succesfull\nUse the Save button to save the results");
+                                btn_cancelLearn.Enabled = true;
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+                            }
+                            break;
+                        case "sok":
+                            MessageBox.Show("Saving was succesfull!");
+                            break;
+                        case "snk":
+                            MessageBox.Show("Error: Saving was not succesfull!");
+                            break;
+                        case "c43":
+                            gant_zpnt = currData.Substring(3, currData.Length - 3);
+                            break;
+                        case "c44":
+                            gant_length = currData.Substring(3, currData.Length - 3);
+                            break;
+                        case "c45":
+                            gant_fine_length = currData.Substring(3, currData.Length - 3);
+                            //write(gant_zpnt + (gant_zpnt.Length + 1).ToString() + "/" + gant_length + (gant_length.Length + 1).ToString() + "/" + gant_fine_length + (gant_fine_length.Length + 1).ToString() + "/");
+                            write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
+                            break;
+                        case "c46":
+                            collim_zpnt = currData.Substring(3, currData.Length - 3);
+                            break;
+                        case "c47":
+                            collim_length = currData.Substring(3, currData.Length - 3);
+                            break;
+                        case "c48":
+                            collim_fine_length = currData.Substring(3, currData.Length - 3);
+                            write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
+                            //write(collim_zpnt + (collim_zpnt.Length + 1).ToString() + "/");
+                            //write(collim_length + (collim_length.Length + 1).ToString() + "/");
+                            //write(collim_fine_length + (collim_fine_length.Length + 1).ToString() + "/");
+                            break;
+                        case "gnd":
+                            gnd = currData.Substring(3, currData.Length - 3);
+                            break;
+                        case "cld":
+                            cld = currData.Substring(3, currData.Length - 3);
+                            break;
+                        case "x1d":
+                            x1d = currData.Substring(3, currData.Length - 3);
+                            break;
+                        case "x2d":
+                            x2d = currData.Substring(3, currData.Length - 3);
+                            break;
+                        case "y1d":
+                            y1d = currData.Substring(3, currData.Length - 3);
+                            break;
+                        case "y2d":
+                            y2d = currData.Substring(3, currData.Length - 3);
+                            break;
+                        case "adc":
+                            inputADC = true;
+
+                            if (!isInServiceMode)
+                                if (clientFrm.txt_fakeADC.Visible == true)
+                                    adc = clientFrm.txt_fakeADC.Text;
+
+
+
+                            adc = currData.Substring(3, currData.Length - 3);
+                            if (int.Parse(adc) < 1850 || int.Parse(adc) > 2250)
+                            {
+                                adcCheck_counter = adcCheck_counter + 1;
+                                if (adcCheck_counter >= 10)
+                                {
+                                    gant_set = "0";
+                                    collim_set = "0";
+                                    x1_set = "0";
+                                    x2_set = "0";
+                                    y1_set = "0";
+                                    y2_set = "0";
+                                    clientFrm.lbl_readingError.Show();
+                                    clientFrm.lbl_pleaseRestart.Show();
+                                    readError = true;
+                                    timer1.Enabled = false;
+                                    clientFrm.timer_gant.Enabled = false;
+                                    clientFrm.timer_coli.Enabled = false;
+                                    clientFrm.timer_x1.Enabled = false;
+                                    clientFrm.timer_x2.Enabled = false;
+                                    clientFrm.timer_y1.Enabled = false;
+                                    clientFrm.timer_y2.Enabled = false;
+                                }
+                                break;
+                            }
+                            else
+                                adcCheck_counter = 0;
+
+
+                            if (int.Parse(gant_set) != int.Parse(gnd))
+                                gant_stat = false;
+                            else
+                                gant_stat = true;
+                            if (int.Parse(collim_set) != int.Parse(cld))
+                                coli_stat = false;
+                            else
+                                coli_stat = true;
+                            if (int.Parse(x1_set) != int.Parse(x1d))
+                                x1_stat = false; //y2_led
+                            else
+                                x1_stat = true;
+                            if (int.Parse(x2_set) != int.Parse(x2d))
+                                x2_stat = false; //y1_led
+                            else
+                                x2_stat = true;
+                            if (int.Parse(y1_set) != int.Parse(y1d))
+                                y1_stat = false; //x2_led
+                            else
+                                y1_stat = true;
+                            if (int.Parse(y2_set) != int.Parse(y2d))
+                                y2_stat = false; //x1_led
+                            else
+                                y2_stat = true;
+
+                            if ((gant_stat && coli_stat && x1_stat && x2_stat && y1_stat && y2_stat) == false)
+                            {
+                                write("$");
+                                sendAnd = true;
+                            }
+
+                            if (isInServiceMode)
+                            {
+                                int i = int.Parse(lbl_in_cnt.Text);
+                                i = i + 1;
+                                lbl_in_cnt.Text = i.ToString();
+                                if (int.Parse(lbl_in_cnt.Text) > 100)
+                                {
+                                    lbl_in_cnt.Text = "0";
+                                    tb_terminal_in.Clear();
+                                }
+                            }
+                            else if (showClinicalTerminals == "1")
+                            {
+                                int i = int.Parse(clientFrm.lbl_in_cnt.Text);
+                                i = i + 1;
+                                clientFrm.lbl_in_cnt.Text = i.ToString();
+
+                                if (int.Parse(clientFrm.lbl_in_cnt.Text) > 100)
+                                {
+                                    clientFrm.lbl_in_cnt.Text = "0";
+                                    clientFrm.tb_terminal_in.Clear();
+                                }
+                            }
+
+                            break;
+                        case "req":
+                            summ = 0;
+                            if (gant_stat == false)
+                            {
+                                write("m" + gant_set + "/");
+                                summ = summ + int.Parse(gant_set);
+                            }
+                            if (coli_stat == false)
+                            {
+                                write("n" + collim_set + "/");
+                                summ = summ + int.Parse(collim_set);
+                            }
+                            if (x1_stat == false)
+                            {
+                                write("o" + x1_set + "/");
+                                summ = summ + int.Parse(x1_set);
+                            }
+                            if (x2_stat == false)
+                            {
+                                write("p" + x2_set + "/");
+                                summ = summ + int.Parse(x2_set);
+                            }
+                            if (y1_stat == false)
+                            {
+                                write("q" + y1_set + "/");
+                                summ = summ + int.Parse(y1_set);
+                            }
+                            if (y2_stat == false)
+                            {
+                                write("r" + y2_set + "/");
+                                summ = summ + int.Parse(y2_set);
+                            }
+
+                            //if (sendAnd)
+                            //{
+                            write("&");
+                            write(summ.ToString() + "/");
+                            andSent = true;
+                            sendAndTime = DateTime.Now;
+                            //}
+                            break;
+                        case "&&&":
+                            summ = 0;
+                            sendAnd = false;
+                            andSent = false;
+                            break;
+                        default:
+                            writeToOtherTerminal(currData, false);
+                            break;
+                    }
+                    if (quit == true)
+                    {
+                        ClosePort();
+                        Application.Exit();
+                    }
                 }
-                if (quit == true)
+                catch
                 {
-                    ClosePort();
-                    Application.Exit();
+                    writeToOtherTerminal(currData, true);
                 }
-            }
-            catch
-            {
-                writeToOtherTerminal(currData, true);
-            }
 
-            writeInQ.Enqueue(currData);
+                writeInQ.Enqueue(currData);
+            }
             
         }
 
@@ -2397,22 +2416,7 @@ namespace Compact_Control
 
         private void timer5_Tick(object sender, EventArgs e)
         {
-            if (!checkBox3.Checked)
-                return;
-            if (serialPort1.IsOpen == false)
-                return;
-            try
-            {
-                while (serialPort1.BytesToRead > 0)
-                {
-                    currReceived = serialPort1.ReadLine();
-                    receiveQ.Enqueue(currReceived);
-                }
-                //serialPort1.DiscardInBuffer();
-            }
-            catch { }
-
-
+            
             if ((!isInServiceMode) && (serialPort1.IsOpen == true))
             {
                 if ((!gant_stat) && (clientFrm.pb_gant_status.BackgroundImage != Resources.led_red))
@@ -2956,7 +2960,8 @@ namespace Compact_Control
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            lbl_version.Text = Application.ProductVersion;
+            String[] versionInfo = Application.ProductVersion.Split('.');
+            lbl_version.Text = versionInfo[0] + '.' + versionInfo[1] + '.' + versionInfo[2];
             if (isInServiceMode)
             {
                 //panel1.BackColor = Color.Turquoise;
