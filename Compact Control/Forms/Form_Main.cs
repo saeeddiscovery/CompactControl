@@ -2087,7 +2087,7 @@ namespace Compact_Control
                     y1_set = ((int)((a - y1_offset) / y1_gain)).ToString();
                     pictureBox5.BackgroundImage = requestImage;
 
-                    if (Math.Abs(double.Parse(tb_y1_set.Text) - double.Parse(y1_dv)) > .1)
+                    if (Math.Abs(double.Parse(tb_y1_set.Text) - double.Parse(y1_dv)) >= .1)
                     {
                         isY1Set = true;
                         pictureBox5.Show();
@@ -2120,7 +2120,7 @@ namespace Compact_Control
             {
                 try
                 {
-                    if (Math.Abs(double.Parse(tb_y1_set.Text) - double.Parse(y1_dv)) <= .1)
+                    if (Math.Abs(double.Parse(tb_y1_set.Text) - double.Parse(y1_dv)) < .1)
                     {
                         pictureBox5.Hide();
                         isY1Set = false;
@@ -2180,7 +2180,7 @@ namespace Compact_Control
                     y2_set = ((int)((a - y2_offset) / y2_gain)).ToString();
                     pictureBox6.BackgroundImage = requestImage;
 
-                    if (Math.Abs(double.Parse(tb_y2_set.Text) - double.Parse(y2_dv)) > .1)
+                    if (Math.Abs(double.Parse(tb_y2_set.Text) - double.Parse(y2_dv)) >= .1)
                     {
                         isY2Set = true;
                         pictureBox6.Show();
@@ -2213,7 +2213,7 @@ namespace Compact_Control
             {
                 try
                 {
-                    if (Math.Abs(double.Parse(tb_y2_set.Text) - double.Parse(y2_dv)) <= .1)
+                    if (Math.Abs(double.Parse(tb_y2_set.Text) - double.Parse(y2_dv)) < .1)
                     {
                         pictureBox6.Hide();
                         isY2Set = false;
@@ -2275,7 +2275,7 @@ namespace Compact_Control
                     x1_set = ((int)((a - x1_offset) / x1_gain)).ToString();
                     pictureBox3.BackgroundImage = requestImage;
 
-                    if (Math.Abs(double.Parse(tb_x1_set.Text) - double.Parse(x1_dv)) > .1)
+                    if (Math.Abs(double.Parse(tb_x1_set.Text) - double.Parse(x1_dv)) >= .1)
                     {
                         isX1Set = true;
                         pictureBox3.Show();
@@ -2308,7 +2308,7 @@ namespace Compact_Control
             {
                 try
                 {
-                    if (Math.Abs(double.Parse(tb_x1_set.Text) - double.Parse(x1_dv)) <= .1)
+                    if (Math.Abs(double.Parse(tb_x1_set.Text) - double.Parse(x1_dv)) < .1)
                     {
                         pictureBox3.Hide();
                         isX1Set = false;
@@ -2370,7 +2370,7 @@ namespace Compact_Control
                     x2_set = ((int)((a - x2_offset) / x2_gain)).ToString();
                     pictureBox4.BackgroundImage = requestImage;
 
-                    if (Math.Abs(double.Parse(tb_x2_set.Text) - double.Parse(x2_dv)) > .1)
+                    if (Math.Abs(double.Parse(tb_x2_set.Text) - double.Parse(x2_dv)) >= .1)
                     {
                         isX2Set = true;
                         pictureBox4.Show();
@@ -2403,7 +2403,7 @@ namespace Compact_Control
             {
                 try
                 {
-                    if (Math.Abs(double.Parse(tb_x2_set.Text) - double.Parse(x2_dv)) <= .1)
+                    if (Math.Abs(double.Parse(tb_x2_set.Text) - double.Parse(x2_dv)) < .1)
                     {
                         isX2Set = false;
                         pictureBox4.Hide();
