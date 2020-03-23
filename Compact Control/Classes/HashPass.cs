@@ -19,6 +19,9 @@ namespace Compact_Control
         private const int PBKDF2SubkeyLength = 256 / 8; // 256 bits
         private const int SaltSize = 128 / 8; // 128 bits
         public static string LicType = "";
+        public static string licenseName;
+        public static string licenseType;
+        public static bool isExpired = false;
 
         public static string HashPassword(string password)
         {
@@ -249,7 +252,6 @@ namespace Compact_Control
             return value;
         }
 
-
         public static string ReadLastDateFromReg()
         {
             string value = "";
@@ -410,7 +412,6 @@ namespace Compact_Control
             public string collim_length { get; set; }
             public string collim_fine_length { get; set; }
         }
-
         public class ParametersData
         {
             public string gant_tol_1 { get; set; }
@@ -458,7 +459,6 @@ namespace Compact_Control
             public string gravity_up { get; set; }
             public string gravity_down { get; set; }
         }
-
         public class AppSettings
         {
             public string Port { get; set; }
@@ -467,7 +467,6 @@ namespace Compact_Control
             public string Parity { get; set; }
             public string clinicalTerminals { get; set; }
         }
-
         public static CalibData readCalibJson(string fileName)
         {
             using (StreamReader r = new StreamReader(fileName))
@@ -486,7 +485,6 @@ namespace Compact_Control
                 return deserializedSettings;
             }
         }
-
         public static ParametersData readParametersJson(string fileName)
         {
             using (StreamReader r = new StreamReader(fileName))
@@ -496,7 +494,6 @@ namespace Compact_Control
                 return deserializedSettings;
             }
         }
-
         public static AppSettings readSettingsJson(string fileName)
         {
             using (StreamReader r = new StreamReader(fileName))
@@ -599,10 +596,6 @@ namespace Compact_Control
             }
         }
 
-
-        public static string licenseName;
-        public static string licenseType;
-        public static bool isExpired = false;
         public static void refreshLicInfo()
         {
             licenseName = ReadFromReg();
@@ -650,6 +643,28 @@ namespace Compact_Control
                 licenseType = "Permanent";
                 Form1.Board(false);
             }
+        }
+
+        public static string checkSum(string text)
+        {
+            // Convert to Hex
+            string hex = "";
+            foreach (char c in text)
+            {
+                int tmp = c;
+                hex += string.Format("{0:X2}", Convert.ToUInt32(tmp.ToString()));
+            }
+
+            // String to Byte array
+            byte[] byteData = Enumerable.Range(0, hex.Length)
+                             .Where(x => x % 2 == 0)
+                             .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+                             .ToArray();
+
+            // Calculate CheckSum
+            int total = byteData.Sum(x => x);
+            total %= 256;
+            return total.ToString();
         }
     }
 

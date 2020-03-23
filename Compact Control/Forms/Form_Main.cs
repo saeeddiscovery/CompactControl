@@ -1402,7 +1402,9 @@ namespace Compact_Control
             Application.Restart();
         }
 
-        int summ = 0;
+        //int summ = 0;
+        string sendString = "";
+        string chSum;
         string currData;
         private void timer3_Tick(object sender, EventArgs e)
         {
@@ -1657,7 +1659,6 @@ namespace Compact_Control
                                     adc = clientFrm.txt_fakeADC.Text;
 
 
-
                             adc = currData.Substring(3, currData.Length - 3);
                             if (int.Parse(adc) < 1850 || int.Parse(adc) > 2250)
                             {
@@ -1743,47 +1744,57 @@ namespace Compact_Control
 
                             break;
                         case "req":
-                            summ = 0;
+                            //summ = 0;
+                            sendString = "";
                             if (gant_stat == false)
                             {
                                 write("m" + gant_set + "/");
-                                summ = summ + int.Parse(gant_set);
+                                //summ = summ + int.Parse(gant_set);
+                                sendString += "m" + gant_set;
                             }
                             if (coli_stat == false)
                             {
                                 write("n" + collim_set + "/");
-                                summ = summ + int.Parse(collim_set);
+                                //summ = summ + int.Parse(collim_set);
+                                sendString += "n" + collim_set;
                             }
                             if (x1_stat == false)
                             {
                                 write("o" + x1_set + "/");
-                                summ = summ + int.Parse(x1_set);
+                                //summ = summ + int.Parse(x1_set);
+                                sendString += "o" + x1_set;
                             }
                             if (x2_stat == false)
                             {
                                 write("p" + x2_set + "/");
-                                summ = summ + int.Parse(x2_set);
+                                //summ = summ + int.Parse(x2_set);
+                                sendString += "p" + x2_set;
                             }
                             if (y1_stat == false)
                             {
                                 write("q" + y1_set + "/");
-                                summ = summ + int.Parse(y1_set);
+                                //summ = summ + int.Parse(y1_set);
+                                sendString += "q" + y1_set;
                             }
                             if (y2_stat == false)
                             {
                                 write("r" + y2_set + "/");
-                                summ = summ + int.Parse(y2_set);
+                                //summ = summ + int.Parse(y2_set);
+                                sendString += "r" + y2_set;
                             }
 
+                            chSum = HashPass.checkSum(sendString);
+                            write(chSum.ToString());
                             write("&");
-                            write(summ.ToString() + "/");
+                            // write(summ.ToString() + "/");
 
                             timer6.Start();
 
                             break;
                         case "&&&":
                             timer6.Stop();
-                            summ = 0;
+                            sendString = "";
+                            // summ = 0;
                             break;
                         default:
                             writeToOtherTerminal(currData, false);
@@ -2401,7 +2412,7 @@ namespace Compact_Control
         private void timer6_Tick(object sender, EventArgs e)
         {
             write("&");
-            write(summ.ToString() + "/");
+            //write(summ.ToString() + "/");
         }
 
         private void timer5_Tick(object sender, EventArgs e)

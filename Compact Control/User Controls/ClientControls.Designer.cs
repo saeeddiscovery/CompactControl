@@ -88,9 +88,12 @@
             this.btn_clearTerminal_oth = new System.Windows.Forms.Button();
             this.gb_terminals = new System.Windows.Forms.GroupBox();
             this.lbl_oth_cnt = new System.Windows.Forms.Label();
+            this.btn_getSerialPort = new System.Windows.Forms.Button();
+            this.btn_getReceiveQ = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_fakeADC = new System.Windows.Forms.TextBox();
             this.lbl_risk = new System.Windows.Forms.Label();
             this.label72 = new System.Windows.Forms.Label();
-            this.txt_fakeADC = new System.Windows.Forms.TextBox();
             this.pb_receiveStatus = new System.Windows.Forms.PictureBox();
             this.timer_coli = new System.Windows.Forms.Timer(this.components);
             this.timer_x1 = new System.Windows.Forms.Timer(this.components);
@@ -99,10 +102,7 @@
             this.timer_y2 = new System.Windows.Forms.Timer(this.components);
             this.lbl_pleaseRestart = new System.Windows.Forms.Label();
             this.lbl_readingError = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.timer_gant = new System.Windows.Forms.Timer(this.components);
-            this.btn_getReceiveQ = new System.Windows.Forms.Button();
-            this.btn_getSerialPort = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x2_status)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x1_status)).BeginInit();
@@ -808,12 +808,57 @@
             this.lbl_oth_cnt.TabIndex = 121;
             this.lbl_oth_cnt.Text = "0";
             // 
+            // btn_getSerialPort
+            // 
+            this.btn_getSerialPort.Location = new System.Drawing.Point(10, 518);
+            this.btn_getSerialPort.Name = "btn_getSerialPort";
+            this.btn_getSerialPort.Size = new System.Drawing.Size(101, 28);
+            this.btn_getSerialPort.TabIndex = 133;
+            this.btn_getSerialPort.Text = "Get SerialPort";
+            this.btn_getSerialPort.UseVisualStyleBackColor = true;
+            this.btn_getSerialPort.Visible = false;
+            this.btn_getSerialPort.Click += new System.EventHandler(this.btn_getSerialPort_Click);
+            // 
+            // btn_getReceiveQ
+            // 
+            this.btn_getReceiveQ.Location = new System.Drawing.Point(10, 484);
+            this.btn_getReceiveQ.Name = "btn_getReceiveQ";
+            this.btn_getReceiveQ.Size = new System.Drawing.Size(101, 28);
+            this.btn_getReceiveQ.TabIndex = 132;
+            this.btn_getReceiveQ.Text = "Get ReceiveQ";
+            this.btn_getReceiveQ.UseVisualStyleBackColor = true;
+            this.btn_getReceiveQ.Visible = false;
+            this.btn_getReceiveQ.Click += new System.EventHandler(this.btn_getReceiveQ_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(6, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(86, 20);
+            this.label1.TabIndex = 131;
+            this.label1.Text = "Fake ADC";
+            this.label1.Visible = false;
+            // 
+            // txt_fakeADC
+            // 
+            this.txt_fakeADC.BackColor = System.Drawing.SystemColors.Window;
+            this.txt_fakeADC.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_fakeADC.Location = new System.Drawing.Point(98, 13);
+            this.txt_fakeADC.Name = "txt_fakeADC";
+            this.txt_fakeADC.Size = new System.Drawing.Size(80, 27);
+            this.txt_fakeADC.TabIndex = 129;
+            this.txt_fakeADC.Text = "2048";
+            this.txt_fakeADC.Visible = false;
+            // 
             // lbl_risk
             // 
             this.lbl_risk.AutoSize = true;
             this.lbl_risk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.lbl_risk.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lbl_risk.Location = new System.Drawing.Point(533, 502);
+            this.lbl_risk.Location = new System.Drawing.Point(523, 507);
             this.lbl_risk.Name = "lbl_risk";
             this.lbl_risk.Size = new System.Drawing.Size(211, 22);
             this.lbl_risk.TabIndex = 88;
@@ -834,17 +879,6 @@
             this.label72.Size = new System.Drawing.Size(128, 25);
             this.label72.TabIndex = 128;
             this.label72.Text = "Communication:";
-            // 
-            // txt_fakeADC
-            // 
-            this.txt_fakeADC.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_fakeADC.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_fakeADC.Location = new System.Drawing.Point(98, 13);
-            this.txt_fakeADC.Name = "txt_fakeADC";
-            this.txt_fakeADC.Size = new System.Drawing.Size(80, 27);
-            this.txt_fakeADC.TabIndex = 129;
-            this.txt_fakeADC.Text = "2048";
-            this.txt_fakeADC.Visible = false;
             // 
             // pb_receiveStatus
             // 
@@ -910,44 +944,10 @@
             this.lbl_readingError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_readingError.Visible = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(6, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 20);
-            this.label1.TabIndex = 131;
-            this.label1.Text = "Fake ADC";
-            this.label1.Visible = false;
-            // 
             // timer_gant
             // 
             this.timer_gant.Interval = 1500;
             this.timer_gant.Tick += new System.EventHandler(this.timer_gant_Tick);
-            // 
-            // btn_getReceiveQ
-            // 
-            this.btn_getReceiveQ.Location = new System.Drawing.Point(10, 484);
-            this.btn_getReceiveQ.Name = "btn_getReceiveQ";
-            this.btn_getReceiveQ.Size = new System.Drawing.Size(101, 28);
-            this.btn_getReceiveQ.TabIndex = 132;
-            this.btn_getReceiveQ.Text = "Get ReceiveQ";
-            this.btn_getReceiveQ.UseVisualStyleBackColor = true;
-            this.btn_getReceiveQ.Visible = false;
-            this.btn_getReceiveQ.Click += new System.EventHandler(this.btn_getReceiveQ_Click);
-            // 
-            // btn_getSerialPort
-            // 
-            this.btn_getSerialPort.Location = new System.Drawing.Point(10, 518);
-            this.btn_getSerialPort.Name = "btn_getSerialPort";
-            this.btn_getSerialPort.Size = new System.Drawing.Size(101, 28);
-            this.btn_getSerialPort.TabIndex = 133;
-            this.btn_getSerialPort.Text = "Get SerialPort";
-            this.btn_getSerialPort.UseVisualStyleBackColor = true;
-            this.btn_getSerialPort.Visible = false;
-            this.btn_getSerialPort.Click += new System.EventHandler(this.btn_getSerialPort_Click);
             // 
             // ClientControls
             // 
