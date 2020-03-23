@@ -206,7 +206,7 @@
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.ForeColor = System.Drawing.Color.Black;
-            this.label37.Location = new System.Drawing.Point(634, 45);
+            this.label37.Location = new System.Drawing.Point(562, 44);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(56, 20);
             this.label37.TabIndex = 66;
@@ -217,7 +217,7 @@
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.ForeColor = System.Drawing.Color.Black;
-            this.label36.Location = new System.Drawing.Point(549, 45);
+            this.label36.Location = new System.Drawing.Point(477, 44);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(34, 20);
             this.label36.TabIndex = 65;
@@ -405,7 +405,7 @@
             this.groupBox2.Controls.Add(this.label32);
             this.groupBox2.Controls.Add(this.txt_y2_a);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(299, 159);
+            this.groupBox2.Location = new System.Drawing.Point(227, 158);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(441, 283);
             this.groupBox2.TabIndex = 106;
@@ -598,7 +598,7 @@
             this.groupBox3.Controls.Add(this.label31);
             this.groupBox3.Controls.Add(this.label30);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(299, 62);
+            this.groupBox3.Location = new System.Drawing.Point(227, 61);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(441, 91);
             this.groupBox3.TabIndex = 107;
@@ -809,7 +809,7 @@
             this.lbl_risk.AutoSize = true;
             this.lbl_risk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.lbl_risk.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lbl_risk.Location = new System.Drawing.Point(605, 468);
+            this.lbl_risk.Location = new System.Drawing.Point(533, 467);
             this.lbl_risk.Name = "lbl_risk";
             this.lbl_risk.Size = new System.Drawing.Size(211, 22);
             this.lbl_risk.TabIndex = 88;
@@ -823,7 +823,7 @@
             this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label72.ForeColor = System.Drawing.Color.Black;
             this.label72.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label72.Location = new System.Drawing.Point(601, 439);
+            this.label72.Location = new System.Drawing.Point(529, 438);
             this.label72.Margin = new System.Windows.Forms.Padding(0);
             this.label72.Name = "label72";
             this.label72.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
@@ -846,7 +846,7 @@
             // 
             this.pb_receiveStatus.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
             this.pb_receiveStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_receiveStatus.Location = new System.Drawing.Point(711, 444);
+            this.pb_receiveStatus.Location = new System.Drawing.Point(639, 444);
             this.pb_receiveStatus.Name = "pb_receiveStatus";
             this.pb_receiveStatus.Size = new System.Drawing.Size(18, 18);
             this.pb_receiveStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -884,7 +884,7 @@
             this.lbl_pleaseRestart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbl_pleaseRestart.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.lbl_pleaseRestart.ForeColor = System.Drawing.Color.Red;
-            this.lbl_pleaseRestart.Location = new System.Drawing.Point(299, 473);
+            this.lbl_pleaseRestart.Location = new System.Drawing.Point(227, 472);
             this.lbl_pleaseRestart.Name = "lbl_pleaseRestart";
             this.lbl_pleaseRestart.Size = new System.Drawing.Size(253, 27);
             this.lbl_pleaseRestart.TabIndex = 130;
@@ -898,7 +898,7 @@
             this.lbl_readingError.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbl_readingError.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.lbl_readingError.ForeColor = System.Drawing.Color.Red;
-            this.lbl_readingError.Location = new System.Drawing.Point(299, 445);
+            this.lbl_readingError.Location = new System.Drawing.Point(227, 444);
             this.lbl_readingError.Name = "lbl_readingError";
             this.lbl_readingError.Size = new System.Drawing.Size(253, 27);
             this.lbl_readingError.TabIndex = 87;

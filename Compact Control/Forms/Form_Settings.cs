@@ -26,9 +26,8 @@ namespace Compact_Control
         {
             RegistryKey rk = Registry.CurrentUser.OpenSubKey
                 ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-
             if (checkBox_startup.Checked)
-                rk.SetValue(Application.ProductName, Application.ExecutablePath.ToString());
+                rk.SetValue(Application.ProductName, Application.ExecutablePath);
             else
                 rk.DeleteValue(Application.ProductName, false);
 

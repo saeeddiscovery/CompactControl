@@ -126,7 +126,6 @@ namespace Compact_Control
         private DateTime startTime = DateTime.Now;
         public DateTime connectTime;
         private DateTime initTime;
-        private DateTime sendAndTime;
         private int connCounter = 0;
         private int initCounter = 0;
         public double TotalVisibleMemorySize;
@@ -665,18 +664,6 @@ namespace Compact_Control
                     //if (textBox16.Enabled & textBox16.ReadOnly == false & checkBox2.Checked == false)
                     textBox16.Text = y2_dv;
                     break;
-            }
-
-            if (andSent)
-            {
-                TimeSpan fromLastAnd = DateTime.Now - sendAndTime;
-                if (fromLastAnd.Milliseconds > 50)
-                {
-                    write("&");
-                    write(summ.ToString() + "/");
-                    andSent = false;
-                    sendAnd = false;
-                }
             }
 
         }
@@ -1415,8 +1402,6 @@ namespace Compact_Control
             Application.Restart();
         }
 
-        bool sendAnd = false;
-        bool andSent = false;
         int summ = 0;
         string currData;
         private void timer3_Tick(object sender, EventArgs e)
@@ -1665,6 +1650,7 @@ namespace Compact_Control
                             break;
                         case "adc":
                             inputADC = true;
+                            timer6.Stop();
 
                             if (!isInServiceMode)
                                 if (clientFrm.txt_fakeADC.Visible == true)
@@ -1729,7 +1715,6 @@ namespace Compact_Control
                             if ((gant_stat && coli_stat && x1_stat && x2_stat && y1_stat && y2_stat) == false)
                             {
                                 write("$");
-                                sendAnd = true;
                             }
 
                             if (isInServiceMode)
@@ -1790,18 +1775,15 @@ namespace Compact_Control
                                 summ = summ + int.Parse(y2_set);
                             }
 
-                            //if (sendAnd)
-                            //{
                             write("&");
                             write(summ.ToString() + "/");
-                            andSent = true;
-                            sendAndTime = DateTime.Now;
-                            //}
+
+                            timer6.Start();
+
                             break;
                         case "&&&":
+                            timer6.Stop();
                             summ = 0;
-                            sendAnd = false;
-                            andSent = false;
                             break;
                         default:
                             writeToOtherTerminal(currData, false);
@@ -2416,6 +2398,11 @@ namespace Compact_Control
             }
         }
 
+        private void timer6_Tick(object sender, EventArgs e)
+        {
+            write("&");
+            write(summ.ToString() + "/");
+        }
 
         private void timer5_Tick(object sender, EventArgs e)
         {
