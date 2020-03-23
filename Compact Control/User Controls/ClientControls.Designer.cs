@@ -126,10 +126,10 @@
             // txt_x1_s
             // 
             this.txt_x1_s.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_x1_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_x1_s.Location = new System.Drawing.Point(227, 181);
+            this.txt_x1_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_x1_s.Location = new System.Drawing.Point(192, 179);
             this.txt_x1_s.Name = "txt_x1_s";
-            this.txt_x1_s.Size = new System.Drawing.Size(80, 27);
+            this.txt_x1_s.Size = new System.Drawing.Size(120, 35);
             this.txt_x1_s.TabIndex = 7;
             this.txt_x1_s.Click += new System.EventHandler(this.txtBox_Enter);
             this.txt_x1_s.TextChanged += new System.EventHandler(this.textBox37_TextChanged);
@@ -139,10 +139,10 @@
             // txt_x2_s
             // 
             this.txt_x2_s.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_x2_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_x2_s.Location = new System.Drawing.Point(227, 220);
+            this.txt_x2_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_x2_s.Location = new System.Drawing.Point(192, 219);
             this.txt_x2_s.Name = "txt_x2_s";
-            this.txt_x2_s.Size = new System.Drawing.Size(80, 27);
+            this.txt_x2_s.Size = new System.Drawing.Size(120, 35);
             this.txt_x2_s.TabIndex = 8;
             this.txt_x2_s.Click += new System.EventHandler(this.txtBox_Enter);
             this.txt_x2_s.TextChanged += new System.EventHandler(this.textBox38_TextChanged);
@@ -152,10 +152,10 @@
             // txt_y1_s
             // 
             this.txt_y1_s.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_y1_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_y1_s.Location = new System.Drawing.Point(227, 101);
+            this.txt_y1_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_y1_s.Location = new System.Drawing.Point(192, 101);
             this.txt_y1_s.Name = "txt_y1_s";
-            this.txt_y1_s.Size = new System.Drawing.Size(80, 27);
+            this.txt_y1_s.Size = new System.Drawing.Size(120, 35);
             this.txt_y1_s.TabIndex = 5;
             this.txt_y1_s.Click += new System.EventHandler(this.txtBox_Enter);
             this.txt_y1_s.TextChanged += new System.EventHandler(this.textBox39_TextChanged);
@@ -165,10 +165,10 @@
             // txt_y2_s
             // 
             this.txt_y2_s.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_y2_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_y2_s.Location = new System.Drawing.Point(227, 140);
+            this.txt_y2_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_y2_s.Location = new System.Drawing.Point(192, 140);
             this.txt_y2_s.Name = "txt_y2_s";
-            this.txt_y2_s.Size = new System.Drawing.Size(80, 27);
+            this.txt_y2_s.Size = new System.Drawing.Size(120, 35);
             this.txt_y2_s.TabIndex = 6;
             this.txt_y2_s.Click += new System.EventHandler(this.txtBox_Enter);
             this.txt_y2_s.TextChanged += new System.EventHandler(this.textBox40_TextChanged);
@@ -178,10 +178,10 @@
             // txt_coli_s
             // 
             this.txt_coli_s.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_coli_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_coli_s.Location = new System.Drawing.Point(229, 57);
+            this.txt_coli_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_coli_s.Location = new System.Drawing.Point(194, 66);
             this.txt_coli_s.Name = "txt_coli_s";
-            this.txt_coli_s.Size = new System.Drawing.Size(80, 27);
+            this.txt_coli_s.Size = new System.Drawing.Size(120, 35);
             this.txt_coli_s.TabIndex = 2;
             this.txt_coli_s.Click += new System.EventHandler(this.txtBox_Enter);
             this.txt_coli_s.TextChanged += new System.EventHandler(this.textBox41_TextChanged);
@@ -191,10 +191,10 @@
             // txt_gant_s
             // 
             this.txt_gant_s.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_gant_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_gant_s.Location = new System.Drawing.Point(229, 23);
+            this.txt_gant_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_gant_s.Location = new System.Drawing.Point(194, 23);
             this.txt_gant_s.Name = "txt_gant_s";
-            this.txt_gant_s.Size = new System.Drawing.Size(80, 27);
+            this.txt_gant_s.Size = new System.Drawing.Size(120, 35);
             this.txt_gant_s.TabIndex = 1;
             this.txt_gant_s.Click += new System.EventHandler(this.txtBox_Enter);
             this.txt_gant_s.TextChanged += new System.EventHandler(this.txt_gant_s_TextChanged);
@@ -204,22 +204,22 @@
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.ForeColor = System.Drawing.Color.Black;
-            this.label37.Location = new System.Drawing.Point(562, 44);
+            this.label37.Location = new System.Drawing.Point(574, 47);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(56, 20);
+            this.label37.Size = new System.Drawing.Size(62, 24);
             this.label37.TabIndex = 66;
             this.label37.Text = "Actual";
             // 
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.ForeColor = System.Drawing.Color.Black;
-            this.label36.Location = new System.Drawing.Point(477, 44);
+            this.label36.Location = new System.Drawing.Point(455, 47);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(34, 20);
+            this.label36.Size = new System.Drawing.Size(37, 24);
             this.label36.TabIndex = 65;
             this.label36.Text = "Set";
             // 
@@ -227,66 +227,66 @@
             // 
             this.txt_x1_a.BackColor = System.Drawing.Color.AliceBlue;
             this.txt_x1_a.Enabled = false;
-            this.txt_x1_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_x1_a.Location = new System.Drawing.Point(324, 181);
+            this.txt_x1_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_x1_a.Location = new System.Drawing.Point(320, 179);
             this.txt_x1_a.Name = "txt_x1_a";
             this.txt_x1_a.ReadOnly = true;
-            this.txt_x1_a.Size = new System.Drawing.Size(80, 27);
+            this.txt_x1_a.Size = new System.Drawing.Size(120, 35);
             this.txt_x1_a.TabIndex = 64;
             // 
             // txt_x2_a
             // 
             this.txt_x2_a.BackColor = System.Drawing.Color.AliceBlue;
             this.txt_x2_a.Enabled = false;
-            this.txt_x2_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_x2_a.Location = new System.Drawing.Point(324, 220);
+            this.txt_x2_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_x2_a.Location = new System.Drawing.Point(320, 219);
             this.txt_x2_a.Name = "txt_x2_a";
             this.txt_x2_a.ReadOnly = true;
-            this.txt_x2_a.Size = new System.Drawing.Size(80, 27);
+            this.txt_x2_a.Size = new System.Drawing.Size(120, 35);
             this.txt_x2_a.TabIndex = 63;
             // 
             // txt_y1_a
             // 
             this.txt_y1_a.BackColor = System.Drawing.Color.AliceBlue;
             this.txt_y1_a.Enabled = false;
-            this.txt_y1_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_y1_a.Location = new System.Drawing.Point(324, 101);
+            this.txt_y1_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_y1_a.Location = new System.Drawing.Point(320, 101);
             this.txt_y1_a.Name = "txt_y1_a";
             this.txt_y1_a.ReadOnly = true;
-            this.txt_y1_a.Size = new System.Drawing.Size(80, 27);
+            this.txt_y1_a.Size = new System.Drawing.Size(120, 35);
             this.txt_y1_a.TabIndex = 62;
             // 
             // txt_y2_a
             // 
             this.txt_y2_a.BackColor = System.Drawing.Color.AliceBlue;
             this.txt_y2_a.Enabled = false;
-            this.txt_y2_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_y2_a.Location = new System.Drawing.Point(324, 140);
+            this.txt_y2_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_y2_a.Location = new System.Drawing.Point(320, 140);
             this.txt_y2_a.Name = "txt_y2_a";
             this.txt_y2_a.ReadOnly = true;
-            this.txt_y2_a.Size = new System.Drawing.Size(80, 27);
+            this.txt_y2_a.Size = new System.Drawing.Size(120, 35);
             this.txt_y2_a.TabIndex = 61;
             // 
             // txt_coli_a
             // 
             this.txt_coli_a.BackColor = System.Drawing.Color.AliceBlue;
             this.txt_coli_a.Enabled = false;
-            this.txt_coli_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_coli_a.Location = new System.Drawing.Point(326, 57);
+            this.txt_coli_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_coli_a.Location = new System.Drawing.Point(320, 67);
             this.txt_coli_a.Name = "txt_coli_a";
             this.txt_coli_a.ReadOnly = true;
-            this.txt_coli_a.Size = new System.Drawing.Size(80, 27);
+            this.txt_coli_a.Size = new System.Drawing.Size(120, 35);
             this.txt_coli_a.TabIndex = 60;
             // 
             // txt_gant_a
             // 
             this.txt_gant_a.BackColor = System.Drawing.Color.AliceBlue;
             this.txt_gant_a.Enabled = false;
-            this.txt_gant_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_gant_a.Location = new System.Drawing.Point(326, 22);
+            this.txt_gant_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_gant_a.Location = new System.Drawing.Point(320, 23);
             this.txt_gant_a.Name = "txt_gant_a";
             this.txt_gant_a.ReadOnly = true;
-            this.txt_gant_a.Size = new System.Drawing.Size(80, 27);
+            this.txt_gant_a.Size = new System.Drawing.Size(120, 35);
             this.txt_gant_a.TabIndex = 59;
             // 
             // label35
@@ -338,7 +338,7 @@
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label31.ForeColor = System.Drawing.Color.Black;
-            this.label31.Location = new System.Drawing.Point(8, 58);
+            this.label31.Location = new System.Drawing.Point(8, 67);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(148, 24);
             this.label31.TabIndex = 54;
@@ -405,9 +405,9 @@
             this.groupBox2.Controls.Add(this.label32);
             this.groupBox2.Controls.Add(this.txt_y2_a);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(227, 158);
+            this.groupBox2.Location = new System.Drawing.Point(227, 193);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(441, 283);
+            this.groupBox2.Size = new System.Drawing.Size(485, 283);
             this.groupBox2.TabIndex = 106;
             this.groupBox2.TabStop = false;
             // 
@@ -415,7 +415,7 @@
             // 
             this.pb_x2_status.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
             this.pb_x2_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_x2_status.Location = new System.Drawing.Point(412, 225);
+            this.pb_x2_status.Location = new System.Drawing.Point(446, 229);
             this.pb_x2_status.Name = "pb_x2_status";
             this.pb_x2_status.Size = new System.Drawing.Size(18, 18);
             this.pb_x2_status.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -426,7 +426,7 @@
             // 
             this.pb_x1_status.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
             this.pb_x1_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_x1_status.Location = new System.Drawing.Point(412, 186);
+            this.pb_x1_status.Location = new System.Drawing.Point(446, 189);
             this.pb_x1_status.Name = "pb_x1_status";
             this.pb_x1_status.Size = new System.Drawing.Size(18, 18);
             this.pb_x1_status.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -437,7 +437,7 @@
             // 
             this.pb_y2_status.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
             this.pb_y2_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_y2_status.Location = new System.Drawing.Point(412, 145);
+            this.pb_y2_status.Location = new System.Drawing.Point(446, 150);
             this.pb_y2_status.Name = "pb_y2_status";
             this.pb_y2_status.Size = new System.Drawing.Size(18, 18);
             this.pb_y2_status.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -448,7 +448,7 @@
             // 
             this.pb_y1_status.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
             this.pb_y1_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_y1_status.Location = new System.Drawing.Point(412, 105);
+            this.pb_y1_status.Location = new System.Drawing.Point(446, 110);
             this.pb_y1_status.Name = "pb_y1_status";
             this.pb_y1_status.Size = new System.Drawing.Size(18, 18);
             this.pb_y1_status.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -480,7 +480,7 @@
             // pictureBox15
             // 
             this.pictureBox15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox15.Location = new System.Drawing.Point(201, 64);
+            this.pictureBox15.Location = new System.Drawing.Point(166, 66);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(20, 27);
             this.pictureBox15.TabIndex = 84;
@@ -490,10 +490,10 @@
             // txt_x_s
             // 
             this.txt_x_s.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_x_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_x_s.Location = new System.Drawing.Point(227, 63);
+            this.txt_x_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_x_s.Location = new System.Drawing.Point(192, 63);
             this.txt_x_s.Name = "txt_x_s";
-            this.txt_x_s.Size = new System.Drawing.Size(80, 27);
+            this.txt_x_s.Size = new System.Drawing.Size(120, 35);
             this.txt_x_s.TabIndex = 4;
             this.txt_x_s.Click += new System.EventHandler(this.txtBox_Enter);
             this.txt_x_s.TextChanged += new System.EventHandler(this.txt_x_s_TextChanged);
@@ -504,17 +504,17 @@
             // 
             this.txt_x_a.BackColor = System.Drawing.Color.AliceBlue;
             this.txt_x_a.Enabled = false;
-            this.txt_x_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_x_a.Location = new System.Drawing.Point(324, 63);
+            this.txt_x_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_x_a.Location = new System.Drawing.Point(320, 63);
             this.txt_x_a.Name = "txt_x_a";
             this.txt_x_a.ReadOnly = true;
-            this.txt_x_a.Size = new System.Drawing.Size(80, 27);
+            this.txt_x_a.Size = new System.Drawing.Size(120, 35);
             this.txt_x_a.TabIndex = 83;
             // 
             // pictureBox14
             // 
             this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox14.Location = new System.Drawing.Point(201, 23);
+            this.pictureBox14.Location = new System.Drawing.Point(166, 27);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(20, 27);
             this.pictureBox14.TabIndex = 81;
@@ -524,7 +524,7 @@
             // pictureBox6
             // 
             this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox6.Location = new System.Drawing.Point(201, 180);
+            this.pictureBox6.Location = new System.Drawing.Point(166, 182);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(20, 29);
             this.pictureBox6.TabIndex = 78;
@@ -535,17 +535,17 @@
             // 
             this.txt_y_a.BackColor = System.Drawing.Color.AliceBlue;
             this.txt_y_a.Enabled = false;
-            this.txt_y_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_y_a.Location = new System.Drawing.Point(324, 24);
+            this.txt_y_a.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_y_a.Location = new System.Drawing.Point(320, 23);
             this.txt_y_a.Name = "txt_y_a";
             this.txt_y_a.ReadOnly = true;
-            this.txt_y_a.Size = new System.Drawing.Size(80, 27);
+            this.txt_y_a.Size = new System.Drawing.Size(120, 35);
             this.txt_y_a.TabIndex = 80;
             // 
             // pictureBox5
             // 
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox5.Location = new System.Drawing.Point(201, 219);
+            this.pictureBox5.Location = new System.Drawing.Point(166, 223);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(20, 29);
             this.pictureBox5.TabIndex = 77;
@@ -555,10 +555,10 @@
             // txt_y_s
             // 
             this.txt_y_s.BackColor = System.Drawing.SystemColors.Window;
-            this.txt_y_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_y_s.Location = new System.Drawing.Point(227, 24);
+            this.txt_y_s.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.txt_y_s.Location = new System.Drawing.Point(192, 24);
             this.txt_y_s.Name = "txt_y_s";
-            this.txt_y_s.Size = new System.Drawing.Size(80, 27);
+            this.txt_y_s.Size = new System.Drawing.Size(120, 35);
             this.txt_y_s.TabIndex = 3;
             this.txt_y_s.Click += new System.EventHandler(this.txtBox_Enter);
             this.txt_y_s.TextChanged += new System.EventHandler(this.txt_y_s_TextChanged);
@@ -568,7 +568,7 @@
             // pictureBox4
             // 
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox4.Location = new System.Drawing.Point(201, 101);
+            this.pictureBox4.Location = new System.Drawing.Point(166, 105);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(20, 29);
             this.pictureBox4.TabIndex = 76;
@@ -578,7 +578,7 @@
             // pictureBox3
             // 
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(201, 140);
+            this.pictureBox3.Location = new System.Drawing.Point(166, 144);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(20, 29);
             this.pictureBox3.TabIndex = 75;
@@ -598,9 +598,9 @@
             this.groupBox3.Controls.Add(this.label31);
             this.groupBox3.Controls.Add(this.label30);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(227, 61);
+            this.groupBox3.Location = new System.Drawing.Point(227, 63);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(441, 91);
+            this.groupBox3.Size = new System.Drawing.Size(485, 124);
             this.groupBox3.TabIndex = 107;
             this.groupBox3.TabStop = false;
             // 
@@ -608,7 +608,7 @@
             // 
             this.pb_coli_status.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
             this.pb_coli_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_coli_status.Location = new System.Drawing.Point(412, 62);
+            this.pb_coli_status.Location = new System.Drawing.Point(446, 75);
             this.pb_coli_status.Name = "pb_coli_status";
             this.pb_coli_status.Size = new System.Drawing.Size(18, 18);
             this.pb_coli_status.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -619,7 +619,7 @@
             // 
             this.pb_gant_status.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
             this.pb_gant_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_gant_status.Location = new System.Drawing.Point(412, 24);
+            this.pb_gant_status.Location = new System.Drawing.Point(446, 33);
             this.pb_gant_status.Name = "pb_gant_status";
             this.pb_gant_status.Size = new System.Drawing.Size(18, 18);
             this.pb_gant_status.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -629,7 +629,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(203, 57);
+            this.pictureBox2.Location = new System.Drawing.Point(168, 70);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(20, 27);
             this.pictureBox2.TabIndex = 74;
@@ -638,7 +638,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(203, 22);
+            this.pictureBox1.Location = new System.Drawing.Point(168, 26);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(20, 27);
             this.pictureBox1.TabIndex = 73;
@@ -775,9 +775,13 @@
             // 
             this.gb_terminals.Controls.Add(this.lbl_oth_cnt);
             this.gb_terminals.Controls.Add(this.btn_clearTerminal_oth);
+            this.gb_terminals.Controls.Add(this.btn_getSerialPort);
             this.gb_terminals.Controls.Add(this.label3);
+            this.gb_terminals.Controls.Add(this.btn_getReceiveQ);
             this.gb_terminals.Controls.Add(this.tb_terminal_oth);
+            this.gb_terminals.Controls.Add(this.label1);
             this.gb_terminals.Controls.Add(this.lbl_in_cnt);
+            this.gb_terminals.Controls.Add(this.txt_fakeADC);
             this.gb_terminals.Controls.Add(this.lbl_out_cnt);
             this.gb_terminals.Controls.Add(this.btn_clearTerminal_in);
             this.gb_terminals.Controls.Add(this.label51);
@@ -786,9 +790,9 @@
             this.gb_terminals.Controls.Add(this.label48);
             this.gb_terminals.Controls.Add(this.tb_terminal_out);
             this.gb_terminals.Dock = System.Windows.Forms.DockStyle.Right;
-            this.gb_terminals.Location = new System.Drawing.Point(904, 0);
+            this.gb_terminals.Location = new System.Drawing.Point(740, 0);
             this.gb_terminals.Name = "gb_terminals";
-            this.gb_terminals.Size = new System.Drawing.Size(284, 525);
+            this.gb_terminals.Size = new System.Drawing.Size(284, 728);
             this.gb_terminals.TabIndex = 121;
             this.gb_terminals.TabStop = false;
             this.gb_terminals.Visible = false;
@@ -809,7 +813,7 @@
             this.lbl_risk.AutoSize = true;
             this.lbl_risk.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.lbl_risk.ForeColor = System.Drawing.Color.OrangeRed;
-            this.lbl_risk.Location = new System.Drawing.Point(533, 467);
+            this.lbl_risk.Location = new System.Drawing.Point(533, 502);
             this.lbl_risk.Name = "lbl_risk";
             this.lbl_risk.Size = new System.Drawing.Size(211, 22);
             this.lbl_risk.TabIndex = 88;
@@ -820,14 +824,14 @@
             // 
             this.label72.AutoSize = true;
             this.label72.BackColor = System.Drawing.Color.Transparent;
-            this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.label72.ForeColor = System.Drawing.Color.Black;
             this.label72.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label72.Location = new System.Drawing.Point(529, 438);
+            this.label72.Location = new System.Drawing.Point(543, 472);
             this.label72.Margin = new System.Windows.Forms.Padding(0);
             this.label72.Name = "label72";
             this.label72.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.label72.Size = new System.Drawing.Size(113, 22);
+            this.label72.Size = new System.Drawing.Size(128, 25);
             this.label72.TabIndex = 128;
             this.label72.Text = "Communication:";
             // 
@@ -835,7 +839,7 @@
             // 
             this.txt_fakeADC.BackColor = System.Drawing.SystemColors.Window;
             this.txt_fakeADC.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.txt_fakeADC.Location = new System.Drawing.Point(816, 84);
+            this.txt_fakeADC.Location = new System.Drawing.Point(98, 13);
             this.txt_fakeADC.Name = "txt_fakeADC";
             this.txt_fakeADC.Size = new System.Drawing.Size(80, 27);
             this.txt_fakeADC.TabIndex = 129;
@@ -846,7 +850,7 @@
             // 
             this.pb_receiveStatus.BackgroundImage = global::Compact_Control.Properties.Resources.led_red;
             this.pb_receiveStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pb_receiveStatus.Location = new System.Drawing.Point(639, 444);
+            this.pb_receiveStatus.Location = new System.Drawing.Point(673, 479);
             this.pb_receiveStatus.Name = "pb_receiveStatus";
             this.pb_receiveStatus.Size = new System.Drawing.Size(18, 18);
             this.pb_receiveStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -884,7 +888,7 @@
             this.lbl_pleaseRestart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbl_pleaseRestart.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.lbl_pleaseRestart.ForeColor = System.Drawing.Color.Red;
-            this.lbl_pleaseRestart.Location = new System.Drawing.Point(227, 472);
+            this.lbl_pleaseRestart.Location = new System.Drawing.Point(227, 507);
             this.lbl_pleaseRestart.Name = "lbl_pleaseRestart";
             this.lbl_pleaseRestart.Size = new System.Drawing.Size(253, 27);
             this.lbl_pleaseRestart.TabIndex = 130;
@@ -898,7 +902,7 @@
             this.lbl_readingError.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lbl_readingError.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.lbl_readingError.ForeColor = System.Drawing.Color.Red;
-            this.lbl_readingError.Location = new System.Drawing.Point(227, 444);
+            this.lbl_readingError.Location = new System.Drawing.Point(227, 479);
             this.lbl_readingError.Name = "lbl_readingError";
             this.lbl_readingError.Size = new System.Drawing.Size(253, 27);
             this.lbl_readingError.TabIndex = 87;
@@ -911,7 +915,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(812, 61);
+            this.label1.Location = new System.Drawing.Point(6, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 20);
             this.label1.TabIndex = 131;
@@ -925,7 +929,7 @@
             // 
             // btn_getReceiveQ
             // 
-            this.btn_getReceiveQ.Location = new System.Drawing.Point(795, 349);
+            this.btn_getReceiveQ.Location = new System.Drawing.Point(10, 484);
             this.btn_getReceiveQ.Name = "btn_getReceiveQ";
             this.btn_getReceiveQ.Size = new System.Drawing.Size(101, 28);
             this.btn_getReceiveQ.TabIndex = 132;
@@ -936,7 +940,7 @@
             // 
             // btn_getSerialPort
             // 
-            this.btn_getSerialPort.Location = new System.Drawing.Point(795, 384);
+            this.btn_getSerialPort.Location = new System.Drawing.Point(10, 518);
             this.btn_getSerialPort.Name = "btn_getSerialPort";
             this.btn_getSerialPort.Size = new System.Drawing.Size(101, 28);
             this.btn_getSerialPort.TabIndex = 133;
@@ -950,22 +954,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.Controls.Add(this.btn_getSerialPort);
-            this.Controls.Add(this.btn_getReceiveQ);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label37);
+            this.Controls.Add(this.label36);
             this.Controls.Add(this.lbl_pleaseRestart);
-            this.Controls.Add(this.txt_fakeADC);
             this.Controls.Add(this.pb_receiveStatus);
             this.Controls.Add(this.lbl_risk);
             this.Controls.Add(this.gb_terminals);
             this.Controls.Add(this.lbl_readingError);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.label37);
-            this.Controls.Add(this.label36);
             this.Controls.Add(this.label72);
             this.Name = "ClientControls";
-            this.Size = new System.Drawing.Size(1188, 525);
+            this.Size = new System.Drawing.Size(1024, 728);
             this.Load += new System.EventHandler(this.ClientControls_Load);
             this.VisibleChanged += new System.EventHandler(this.ClientControls_VisibleChanged);
             this.groupBox2.ResumeLayout(false);
