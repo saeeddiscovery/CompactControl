@@ -516,6 +516,8 @@ namespace Compact_Control
                 btn_start_stop.Text = "Stop";
                 groupBox7.Enabled = true;
                 timer1.Stop();
+                timer3.Stop();
+                timer6.Stop();
             }
             else
             {
@@ -526,6 +528,7 @@ namespace Compact_Control
                 btn_start_stop.Text = "Start";
                 groupBox7.Enabled = false;
                 timer1.Start();
+                timer3.Start();
             }
         }
 
@@ -1674,13 +1677,15 @@ namespace Compact_Control
                                     clientFrm.lbl_readingError.Show();
                                     clientFrm.lbl_pleaseRestart.Show();
                                     readError = true;
-                                    timer1.Enabled = false;
-                                    clientFrm.timer_gant.Enabled = false;
-                                    clientFrm.timer_coli.Enabled = false;
-                                    clientFrm.timer_x1.Enabled = false;
-                                    clientFrm.timer_x2.Enabled = false;
-                                    clientFrm.timer_y1.Enabled = false;
-                                    clientFrm.timer_y2.Enabled = false;
+                                    timer1.Stop();
+                                    timer3.Stop();
+                                    timer6.Stop();
+                                    //clientFrm.timer_gant.Enabled = false;
+                                    //clientFrm.timer_coli.Enabled = false;
+                                    //clientFrm.timer_x1.Enabled = false;
+                                    //clientFrm.timer_x2.Enabled = false;
+                                    //clientFrm.timer_y1.Enabled = false;
+                                    //clientFrm.timer_y2.Enabled = false;
                                 }
                                 break;
                             }
@@ -1748,43 +1753,45 @@ namespace Compact_Control
                             sendString = "";
                             if (gant_stat == false)
                             {
-                                write("m" + gant_set + "/");
+                                //write("m" + gant_set + "/");
                                 //summ = summ + int.Parse(gant_set);
-                                sendString += "m" + gant_set;
+                                sendString += "m" + gant_set + "/";
                             }
                             if (coli_stat == false)
                             {
-                                write("n" + collim_set + "/");
+                                //write("n" + collim_set + "/");
                                 //summ = summ + int.Parse(collim_set);
-                                sendString += "n" + collim_set;
+                                sendString += "n" + collim_set + "/";
                             }
                             if (x1_stat == false)
                             {
-                                write("o" + x1_set + "/");
+                                //write("o" + x1_set + "/");
                                 //summ = summ + int.Parse(x1_set);
-                                sendString += "o" + x1_set;
+                                sendString += "o" + x1_set + "/";
                             }
                             if (x2_stat == false)
                             {
-                                write("p" + x2_set + "/");
+                                //write("p" + x2_set + "/");
                                 //summ = summ + int.Parse(x2_set);
-                                sendString += "p" + x2_set;
+                                sendString += "p" + x2_set + "/";
                             }
                             if (y1_stat == false)
                             {
-                                write("q" + y1_set + "/");
+                                //write("q" + y1_set + "/");
                                 //summ = summ + int.Parse(y1_set);
-                                sendString += "q" + y1_set;
+                                sendString += "q" + y1_set + "/";
                             }
                             if (y2_stat == false)
                             {
-                                write("r" + y2_set + "/");
+                                //write("r" + y2_set + "/");
                                 //summ = summ + int.Parse(y2_set);
-                                sendString += "r" + y2_set;
+                                sendString += "r" + y2_set + "/";
                             }
 
+                            sendString = sendString.Remove(sendString.Length - 1);
                             chSum = HashPass.checkSum(sendString);
-                            write(chSum.ToString());
+                            write(sendString);
+                            write("c" + chSum.ToString());
                             write("&");
                             // write(summ.ToString() + "/");
 
@@ -2645,6 +2652,9 @@ namespace Compact_Control
 
         private void DisconnectPort()
         {
+            timer1.Stop();
+            timer3.Stop();
+            timer6.Stop();
             //GlobalSerialPort.DiscardInBuffer();
             //GlobalSerialPort.Close();
             tabControl1.Enabled = false;
@@ -2666,7 +2676,8 @@ namespace Compact_Control
                 if (!System.IO.File.Exists(dataPath))
                 {
                     timer1.Stop();
-                    timer1.Enabled = false;
+                    timer3.Stop();
+                    timer6.Stop();
                     MessageBox.Show("Can not connect to port!\n''Calib.dat'' file not found!", "Calibration file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Application.Exit();
                     return;
@@ -2715,7 +2726,8 @@ namespace Compact_Control
                 if (!System.IO.File.Exists(dataPath))
                 {
                     timer1.Stop();
-                    timer1.Enabled = false;
+                    timer3.Stop();
+                    timer6.Stop();
                     MessageBox.Show("Can not connect to port!\n''Learn.dat'' file not found!", "Learn file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Application.Exit();
                     return;
@@ -2743,7 +2755,8 @@ namespace Compact_Control
                 if (!System.IO.File.Exists(dataPath))
                 {
                     timer1.Stop();
-                    timer1.Enabled = false;
+                    timer3.Stop();
+                    timer6.Stop();
                     MessageBox.Show("Can not connect to port!\n''Parameters.dat'' file not found!", "Parameters file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     Application.Exit();
                     return;
@@ -2843,21 +2856,6 @@ namespace Compact_Control
                     //Thread.Sleep(200);
                 }
 
-                if (isInServiceMode == true)
-                {
-                    //tabControl1.Enabled = true;
-                    //panel_AdminControls.Enabled = true;
-                    //write("y");
-                    timer1.Enabled = true;
-                    clientFrm.timer1.Enabled = false;
-                }
-                else
-                {
-                    //write("x");
-                    //panel_ClientControls.Enabled = true;
-                    timer1.Enabled = false;
-                    clientFrm.timer1.Enabled = true;
-                }
 
                 ReadCalibFile();
                 ReadLearnFile();
@@ -2870,6 +2868,24 @@ namespace Compact_Control
                 picBtnToolTip.SetToolTip(picBtn_Connect, "Disconnect");
                 label_ConnectStatus.ForeColor = Color.LightGreen;
                 label_ConnectStatus.Text = "Connected!";
+
+                
+                if (isInServiceMode == true)
+                {
+                    //tabControl1.Enabled = true;
+                    //panel_AdminControls.Enabled = true;
+                    //write("y");
+                    timer1.Start();
+                    clientFrm.timer1.Stop();
+                }
+                else
+                {
+                    //write("x");
+                    //panel_ClientControls.Enabled = true;
+                    timer1.Stop();
+                    clientFrm.timer1.Start();
+                }
+                timer3.Start();
             }
             catch (Exception ex)
             {
