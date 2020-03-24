@@ -108,24 +108,18 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tb_x2_co = new System.Windows.Forms.TextBox();
             this.btn_start_stop = new System.Windows.Forms.Button();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.gb_move = new System.Windows.Forms.GroupBox();
             this.btn_y2_in = new System.Windows.Forms.Button();
             this.btn_gant_cw = new System.Windows.Forms.Button();
             this.btn_y1_out = new System.Windows.Forms.Button();
-            this.trackBar_y2 = new System.Windows.Forms.TrackBar();
             this.btn_y1_in = new System.Windows.Forms.Button();
             this.btn_gant_ccw = new System.Windows.Forms.Button();
             this.btn_y2_out = new System.Windows.Forms.Button();
-            this.trackBar_y1 = new System.Windows.Forms.TrackBar();
             this.btn_x2_out = new System.Windows.Forms.Button();
             this.btn_coli_cw = new System.Windows.Forms.Button();
             this.btn_x2_in = new System.Windows.Forms.Button();
-            this.trackBar_x2 = new System.Windows.Forms.TrackBar();
-            this.trackBar_gant = new System.Windows.Forms.TrackBar();
             this.btn_coli_ccw = new System.Windows.Forms.Button();
             this.btn_x1_out = new System.Windows.Forms.Button();
-            this.trackBar_x1 = new System.Windows.Forms.TrackBar();
-            this.trackBar_coli = new System.Windows.Forms.TrackBar();
             this.btn_x1_in = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
@@ -325,6 +319,18 @@
             this.lbl_oth_cnt = new System.Windows.Forms.Label();
             this.timer5 = new System.Windows.Forms.Timer(this.components);
             this.timer6 = new System.Windows.Forms.Timer(this.components);
+            this.btn_gant_stop = new System.Windows.Forms.Button();
+            this.btn_coli_stop = new System.Windows.Forms.Button();
+            this.btn_y2_stop = new System.Windows.Forms.Button();
+            this.btn_y1_stop = new System.Windows.Forms.Button();
+            this.btn_x2_stop = new System.Windows.Forms.Button();
+            this.btn_x1_stop = new System.Windows.Forms.Button();
+            this.textBox_x2_move = new System.Windows.Forms.NumericUpDown();
+            this.textBox_x1_move = new System.Windows.Forms.NumericUpDown();
+            this.textBox_y2_move = new System.Windows.Forms.NumericUpDown();
+            this.textBox_y1_move = new System.Windows.Forms.NumericUpDown();
+            this.textBox_coli_move = new System.Windows.Forms.NumericUpDown();
+            this.textBox_gant_move = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).BeginInit();
@@ -352,13 +358,7 @@
             this.splitContainer2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_y2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_y1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_x2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_gant)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_x1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_coli)).BeginInit();
+            this.gb_move.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
             this.splitContainer4.Panel1.SuspendLayout();
@@ -400,6 +400,12 @@
             this.panel6.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_x2_move)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_x1_move)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_y2_move)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_y1_move)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_coli_move)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_gant_move)).BeginInit();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -1075,8 +1081,14 @@
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.textBox_gant_move);
+            this.splitContainer2.Panel2.Controls.Add(this.textBox_coli_move);
+            this.splitContainer2.Panel2.Controls.Add(this.textBox_y1_move);
+            this.splitContainer2.Panel2.Controls.Add(this.textBox_y2_move);
+            this.splitContainer2.Panel2.Controls.Add(this.textBox_x1_move);
+            this.splitContainer2.Panel2.Controls.Add(this.textBox_x2_move);
             this.splitContainer2.Panel2.Controls.Add(this.btn_start_stop);
-            this.splitContainer2.Panel2.Controls.Add(this.groupBox7);
+            this.splitContainer2.Panel2.Controls.Add(this.gb_move);
             this.splitContainer2.Size = new System.Drawing.Size(1086, 606);
             this.splitContainer2.SplitterDistance = 600;
             this.splitContainer2.TabIndex = 86;
@@ -1353,234 +1365,174 @@
             // btn_start_stop
             // 
             this.btn_start_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_start_stop.Location = new System.Drawing.Point(10, 356);
+            this.btn_start_stop.Location = new System.Drawing.Point(18, 356);
             this.btn_start_stop.Name = "btn_start_stop";
-            this.btn_start_stop.Size = new System.Drawing.Size(149, 30);
+            this.btn_start_stop.Size = new System.Drawing.Size(152, 30);
             this.btn_start_stop.TabIndex = 81;
             this.btn_start_stop.Text = "Start";
             this.btn_start_stop.UseVisualStyleBackColor = true;
-            this.btn_start_stop.Click += new System.EventHandler(this.button14_Click);
+            this.btn_start_stop.Click += new System.EventHandler(this.btn_start_stop_Click);
             // 
-            // groupBox7
+            // gb_move
             // 
-            this.groupBox7.Controls.Add(this.btn_y2_in);
-            this.groupBox7.Controls.Add(this.btn_gant_cw);
-            this.groupBox7.Controls.Add(this.btn_y1_out);
-            this.groupBox7.Controls.Add(this.trackBar_y2);
-            this.groupBox7.Controls.Add(this.btn_y1_in);
-            this.groupBox7.Controls.Add(this.btn_gant_ccw);
-            this.groupBox7.Controls.Add(this.btn_y2_out);
-            this.groupBox7.Controls.Add(this.trackBar_y1);
-            this.groupBox7.Controls.Add(this.btn_x2_out);
-            this.groupBox7.Controls.Add(this.btn_coli_cw);
-            this.groupBox7.Controls.Add(this.btn_x2_in);
-            this.groupBox7.Controls.Add(this.trackBar_x2);
-            this.groupBox7.Controls.Add(this.trackBar_gant);
-            this.groupBox7.Controls.Add(this.btn_coli_ccw);
-            this.groupBox7.Controls.Add(this.btn_x1_out);
-            this.groupBox7.Controls.Add(this.trackBar_x1);
-            this.groupBox7.Controls.Add(this.trackBar_coli);
-            this.groupBox7.Controls.Add(this.btn_x1_in);
-            this.groupBox7.Enabled = false;
-            this.groupBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.groupBox7.Location = new System.Drawing.Point(6, 65);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(295, 289);
-            this.groupBox7.TabIndex = 87;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Move";
+            this.gb_move.Controls.Add(this.btn_x2_stop);
+            this.gb_move.Controls.Add(this.btn_x1_stop);
+            this.gb_move.Controls.Add(this.btn_y2_stop);
+            this.gb_move.Controls.Add(this.btn_y1_stop);
+            this.gb_move.Controls.Add(this.btn_coli_stop);
+            this.gb_move.Controls.Add(this.btn_gant_stop);
+            this.gb_move.Controls.Add(this.btn_y2_in);
+            this.gb_move.Controls.Add(this.btn_gant_cw);
+            this.gb_move.Controls.Add(this.btn_y1_out);
+            this.gb_move.Controls.Add(this.btn_y1_in);
+            this.gb_move.Controls.Add(this.btn_gant_ccw);
+            this.gb_move.Controls.Add(this.btn_y2_out);
+            this.gb_move.Controls.Add(this.btn_x2_out);
+            this.gb_move.Controls.Add(this.btn_coli_cw);
+            this.gb_move.Controls.Add(this.btn_x2_in);
+            this.gb_move.Controls.Add(this.btn_coli_ccw);
+            this.gb_move.Controls.Add(this.btn_x1_out);
+            this.gb_move.Controls.Add(this.btn_x1_in);
+            this.gb_move.Enabled = false;
+            this.gb_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.gb_move.Location = new System.Drawing.Point(14, 65);
+            this.gb_move.Name = "gb_move";
+            this.gb_move.Size = new System.Drawing.Size(239, 289);
+            this.gb_move.TabIndex = 87;
+            this.gb_move.TabStop = false;
+            this.gb_move.Text = "Move";
             // 
             // btn_y2_in
             // 
             this.btn_y2_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btn_y2_in.Location = new System.Drawing.Point(4, 170);
             this.btn_y2_in.Name = "btn_y2_in";
-            this.btn_y2_in.Size = new System.Drawing.Size(72, 30);
+            this.btn_y2_in.Size = new System.Drawing.Size(50, 30);
             this.btn_y2_in.TabIndex = 64;
             this.btn_y2_in.Text = "IN";
             this.btn_y2_in.UseVisualStyleBackColor = true;
-            this.btn_y2_in.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button11_MouseDown);
+            this.btn_y2_in.Click += new System.EventHandler(this.moveButtons_Click);
             // 
             // btn_gant_cw
             // 
             this.btn_gant_cw.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btn_gant_cw.Location = new System.Drawing.Point(4, 27);
             this.btn_gant_cw.Name = "btn_gant_cw";
-            this.btn_gant_cw.Size = new System.Drawing.Size(72, 30);
+            this.btn_gant_cw.Size = new System.Drawing.Size(50, 30);
             this.btn_gant_cw.TabIndex = 55;
             this.btn_gant_cw.Text = "CW";
             this.btn_gant_cw.UseVisualStyleBackColor = true;
-            this.btn_gant_cw.Click += new System.EventHandler(this.button2_Click);
+            this.btn_gant_cw.Click += new System.EventHandler(this.moveButtons_Click);
             // 
             // btn_y1_out
             // 
             this.btn_y1_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_y1_out.Location = new System.Drawing.Point(81, 130);
+            this.btn_y1_out.Location = new System.Drawing.Point(106, 130);
             this.btn_y1_out.Name = "btn_y1_out";
-            this.btn_y1_out.Size = new System.Drawing.Size(72, 30);
+            this.btn_y1_out.Size = new System.Drawing.Size(50, 30);
             this.btn_y1_out.TabIndex = 65;
             this.btn_y1_out.Text = "OUT";
             this.btn_y1_out.UseVisualStyleBackColor = true;
-            this.btn_y1_out.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button12_MouseDown);
-            // 
-            // trackBar_y2
-            // 
-            this.trackBar_y2.Location = new System.Drawing.Point(156, 170);
-            this.trackBar_y2.Maximum = 4;
-            this.trackBar_y2.Minimum = 1;
-            this.trackBar_y2.Name = "trackBar_y2";
-            this.trackBar_y2.Size = new System.Drawing.Size(128, 45);
-            this.trackBar_y2.TabIndex = 73;
-            this.trackBar_y2.Value = 1;
+            this.btn_y1_out.Click += new System.EventHandler(this.moveButtons_Click);
             // 
             // btn_y1_in
             // 
             this.btn_y1_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btn_y1_in.Location = new System.Drawing.Point(4, 130);
             this.btn_y1_in.Name = "btn_y1_in";
-            this.btn_y1_in.Size = new System.Drawing.Size(72, 30);
+            this.btn_y1_in.Size = new System.Drawing.Size(50, 30);
             this.btn_y1_in.TabIndex = 63;
             this.btn_y1_in.Text = "IN";
             this.btn_y1_in.UseVisualStyleBackColor = true;
-            this.btn_y1_in.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button10_MouseDown);
+            this.btn_y1_in.Click += new System.EventHandler(this.moveButtons_Click);
             // 
             // btn_gant_ccw
             // 
             this.btn_gant_ccw.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_gant_ccw.Location = new System.Drawing.Point(81, 27);
+            this.btn_gant_ccw.Location = new System.Drawing.Point(106, 27);
             this.btn_gant_ccw.Name = "btn_gant_ccw";
-            this.btn_gant_ccw.Size = new System.Drawing.Size(72, 30);
+            this.btn_gant_ccw.Size = new System.Drawing.Size(50, 30);
             this.btn_gant_ccw.TabIndex = 56;
             this.btn_gant_ccw.Text = "CCW";
             this.btn_gant_ccw.UseVisualStyleBackColor = true;
-            this.btn_gant_ccw.Click += new System.EventHandler(this.button3_Click);
+            this.btn_gant_ccw.Click += new System.EventHandler(this.moveButtons_Click);
             // 
             // btn_y2_out
             // 
             this.btn_y2_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_y2_out.Location = new System.Drawing.Point(81, 170);
+            this.btn_y2_out.Location = new System.Drawing.Point(106, 170);
             this.btn_y2_out.Name = "btn_y2_out";
-            this.btn_y2_out.Size = new System.Drawing.Size(72, 30);
+            this.btn_y2_out.Size = new System.Drawing.Size(50, 30);
             this.btn_y2_out.TabIndex = 66;
             this.btn_y2_out.Text = "OUT";
             this.btn_y2_out.UseVisualStyleBackColor = true;
-            this.btn_y2_out.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button13_MouseDown);
-            // 
-            // trackBar_y1
-            // 
-            this.trackBar_y1.Location = new System.Drawing.Point(156, 130);
-            this.trackBar_y1.Maximum = 4;
-            this.trackBar_y1.Minimum = 1;
-            this.trackBar_y1.Name = "trackBar_y1";
-            this.trackBar_y1.Size = new System.Drawing.Size(128, 45);
-            this.trackBar_y1.TabIndex = 72;
-            this.trackBar_y1.Value = 1;
+            this.btn_y2_out.Click += new System.EventHandler(this.moveButtons_Click);
             // 
             // btn_x2_out
             // 
             this.btn_x2_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_x2_out.Location = new System.Drawing.Point(81, 250);
+            this.btn_x2_out.Location = new System.Drawing.Point(106, 250);
             this.btn_x2_out.Name = "btn_x2_out";
-            this.btn_x2_out.Size = new System.Drawing.Size(72, 30);
+            this.btn_x2_out.Size = new System.Drawing.Size(50, 30);
             this.btn_x2_out.TabIndex = 62;
             this.btn_x2_out.Text = "OUT";
             this.btn_x2_out.UseVisualStyleBackColor = true;
-            this.btn_x2_out.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button9_MouseDown);
+            this.btn_x2_out.Click += new System.EventHandler(this.moveButtons_Click);
             // 
             // btn_coli_cw
             // 
             this.btn_coli_cw.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btn_coli_cw.Location = new System.Drawing.Point(4, 65);
             this.btn_coli_cw.Name = "btn_coli_cw";
-            this.btn_coli_cw.Size = new System.Drawing.Size(72, 30);
+            this.btn_coli_cw.Size = new System.Drawing.Size(50, 30);
             this.btn_coli_cw.TabIndex = 57;
             this.btn_coli_cw.Text = "CW";
             this.btn_coli_cw.UseVisualStyleBackColor = true;
-            this.btn_coli_cw.Click += new System.EventHandler(this.button4_Click);
+            this.btn_coli_cw.Click += new System.EventHandler(this.moveButtons_Click);
             // 
             // btn_x2_in
             // 
             this.btn_x2_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btn_x2_in.Location = new System.Drawing.Point(4, 250);
             this.btn_x2_in.Name = "btn_x2_in";
-            this.btn_x2_in.Size = new System.Drawing.Size(72, 30);
+            this.btn_x2_in.Size = new System.Drawing.Size(50, 30);
             this.btn_x2_in.TabIndex = 61;
             this.btn_x2_in.Text = "IN";
             this.btn_x2_in.UseVisualStyleBackColor = true;
-            this.btn_x2_in.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button8_MouseDown);
-            // 
-            // trackBar_x2
-            // 
-            this.trackBar_x2.Location = new System.Drawing.Point(156, 250);
-            this.trackBar_x2.Maximum = 4;
-            this.trackBar_x2.Minimum = 1;
-            this.trackBar_x2.Name = "trackBar_x2";
-            this.trackBar_x2.Size = new System.Drawing.Size(128, 45);
-            this.trackBar_x2.TabIndex = 71;
-            this.trackBar_x2.Value = 1;
-            // 
-            // trackBar_gant
-            // 
-            this.trackBar_gant.Location = new System.Drawing.Point(156, 27);
-            this.trackBar_gant.Maximum = 4;
-            this.trackBar_gant.Minimum = 1;
-            this.trackBar_gant.Name = "trackBar_gant";
-            this.trackBar_gant.Size = new System.Drawing.Size(128, 45);
-            this.trackBar_gant.TabIndex = 68;
-            this.trackBar_gant.Value = 1;
+            this.btn_x2_in.Click += new System.EventHandler(this.moveButtons_Click);
             // 
             // btn_coli_ccw
             // 
             this.btn_coli_ccw.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_coli_ccw.Location = new System.Drawing.Point(81, 65);
+            this.btn_coli_ccw.Location = new System.Drawing.Point(106, 65);
             this.btn_coli_ccw.Name = "btn_coli_ccw";
-            this.btn_coli_ccw.Size = new System.Drawing.Size(72, 30);
+            this.btn_coli_ccw.Size = new System.Drawing.Size(50, 30);
             this.btn_coli_ccw.TabIndex = 58;
             this.btn_coli_ccw.Text = "CCW";
             this.btn_coli_ccw.UseVisualStyleBackColor = true;
-            this.btn_coli_ccw.Click += new System.EventHandler(this.button5_Click);
+            this.btn_coli_ccw.Click += new System.EventHandler(this.moveButtons_Click);
             // 
             // btn_x1_out
             // 
             this.btn_x1_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_x1_out.Location = new System.Drawing.Point(81, 210);
+            this.btn_x1_out.Location = new System.Drawing.Point(106, 210);
             this.btn_x1_out.Name = "btn_x1_out";
-            this.btn_x1_out.Size = new System.Drawing.Size(72, 30);
+            this.btn_x1_out.Size = new System.Drawing.Size(50, 30);
             this.btn_x1_out.TabIndex = 60;
             this.btn_x1_out.Text = "OUT";
             this.btn_x1_out.UseVisualStyleBackColor = true;
-            this.btn_x1_out.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button7_MouseDown);
-            // 
-            // trackBar_x1
-            // 
-            this.trackBar_x1.Location = new System.Drawing.Point(156, 210);
-            this.trackBar_x1.Maximum = 4;
-            this.trackBar_x1.Minimum = 1;
-            this.trackBar_x1.Name = "trackBar_x1";
-            this.trackBar_x1.Size = new System.Drawing.Size(128, 45);
-            this.trackBar_x1.TabIndex = 70;
-            this.trackBar_x1.Value = 1;
-            // 
-            // trackBar_coli
-            // 
-            this.trackBar_coli.Location = new System.Drawing.Point(156, 65);
-            this.trackBar_coli.Maximum = 4;
-            this.trackBar_coli.Minimum = 1;
-            this.trackBar_coli.Name = "trackBar_coli";
-            this.trackBar_coli.Size = new System.Drawing.Size(128, 45);
-            this.trackBar_coli.TabIndex = 69;
-            this.trackBar_coli.Value = 1;
+            this.btn_x1_out.Click += new System.EventHandler(this.moveButtons_Click);
             // 
             // btn_x1_in
             // 
             this.btn_x1_in.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.btn_x1_in.Location = new System.Drawing.Point(4, 210);
             this.btn_x1_in.Name = "btn_x1_in";
-            this.btn_x1_in.Size = new System.Drawing.Size(72, 30);
+            this.btn_x1_in.Size = new System.Drawing.Size(50, 30);
             this.btn_x1_in.TabIndex = 59;
             this.btn_x1_in.Text = "IN";
             this.btn_x1_in.UseVisualStyleBackColor = true;
-            this.btn_x1_in.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button6_MouseDown);
+            this.btn_x1_in.Click += new System.EventHandler(this.moveButtons_Click);
             // 
             // tabPage2
             // 
@@ -3868,6 +3820,150 @@
             this.timer6.Interval = 400;
             this.timer6.Tick += new System.EventHandler(this.timer6_Tick);
             // 
+            // btn_gant_stop
+            // 
+            this.btn_gant_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_gant_stop.Location = new System.Drawing.Point(55, 27);
+            this.btn_gant_stop.Name = "btn_gant_stop";
+            this.btn_gant_stop.Size = new System.Drawing.Size(50, 30);
+            this.btn_gant_stop.TabIndex = 67;
+            this.btn_gant_stop.Text = "Stop";
+            this.btn_gant_stop.UseVisualStyleBackColor = true;
+            this.btn_gant_stop.Click += new System.EventHandler(this.moveButtons_Click);
+            // 
+            // btn_coli_stop
+            // 
+            this.btn_coli_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_coli_stop.Location = new System.Drawing.Point(55, 65);
+            this.btn_coli_stop.Name = "btn_coli_stop";
+            this.btn_coli_stop.Size = new System.Drawing.Size(50, 30);
+            this.btn_coli_stop.TabIndex = 68;
+            this.btn_coli_stop.Text = "Stop";
+            this.btn_coli_stop.UseVisualStyleBackColor = true;
+            this.btn_coli_stop.Click += new System.EventHandler(this.moveButtons_Click);
+            // 
+            // btn_y2_stop
+            // 
+            this.btn_y2_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_y2_stop.Location = new System.Drawing.Point(55, 170);
+            this.btn_y2_stop.Name = "btn_y2_stop";
+            this.btn_y2_stop.Size = new System.Drawing.Size(50, 30);
+            this.btn_y2_stop.TabIndex = 70;
+            this.btn_y2_stop.Text = "Stop";
+            this.btn_y2_stop.UseVisualStyleBackColor = true;
+            this.btn_y2_stop.Click += new System.EventHandler(this.moveButtons_Click);
+            // 
+            // btn_y1_stop
+            // 
+            this.btn_y1_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_y1_stop.Location = new System.Drawing.Point(55, 130);
+            this.btn_y1_stop.Name = "btn_y1_stop";
+            this.btn_y1_stop.Size = new System.Drawing.Size(50, 30);
+            this.btn_y1_stop.TabIndex = 69;
+            this.btn_y1_stop.Text = "Stop";
+            this.btn_y1_stop.UseVisualStyleBackColor = true;
+            this.btn_y1_stop.Click += new System.EventHandler(this.moveButtons_Click);
+            // 
+            // btn_x2_stop
+            // 
+            this.btn_x2_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_x2_stop.Location = new System.Drawing.Point(55, 250);
+            this.btn_x2_stop.Name = "btn_x2_stop";
+            this.btn_x2_stop.Size = new System.Drawing.Size(50, 30);
+            this.btn_x2_stop.TabIndex = 72;
+            this.btn_x2_stop.Text = "Stop";
+            this.btn_x2_stop.UseVisualStyleBackColor = true;
+            this.btn_x2_stop.Click += new System.EventHandler(this.moveButtons_Click);
+            // 
+            // btn_x1_stop
+            // 
+            this.btn_x1_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_x1_stop.Location = new System.Drawing.Point(55, 210);
+            this.btn_x1_stop.Name = "btn_x1_stop";
+            this.btn_x1_stop.Size = new System.Drawing.Size(50, 30);
+            this.btn_x1_stop.TabIndex = 71;
+            this.btn_x1_stop.Text = "Stop";
+            this.btn_x1_stop.UseVisualStyleBackColor = true;
+            this.btn_x1_stop.Click += new System.EventHandler(this.moveButtons_Click);
+            // 
+            // textBox_x2_move
+            // 
+            this.textBox_x2_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.textBox_x2_move.Location = new System.Drawing.Point(178, 315);
+            this.textBox_x2_move.Maximum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            0});
+            this.textBox_x2_move.Name = "textBox_x2_move";
+            this.textBox_x2_move.Size = new System.Drawing.Size(55, 29);
+            this.textBox_x2_move.TabIndex = 79;
+            // 
+            // textBox_x1_move
+            // 
+            this.textBox_x1_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.textBox_x1_move.Location = new System.Drawing.Point(178, 276);
+            this.textBox_x1_move.Maximum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            0});
+            this.textBox_x1_move.Name = "textBox_x1_move";
+            this.textBox_x1_move.Size = new System.Drawing.Size(55, 29);
+            this.textBox_x1_move.TabIndex = 88;
+            // 
+            // textBox_y2_move
+            // 
+            this.textBox_y2_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.textBox_y2_move.Location = new System.Drawing.Point(178, 236);
+            this.textBox_y2_move.Maximum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            0});
+            this.textBox_y2_move.Name = "textBox_y2_move";
+            this.textBox_y2_move.Size = new System.Drawing.Size(55, 29);
+            this.textBox_y2_move.TabIndex = 89;
+            // 
+            // textBox_y1_move
+            // 
+            this.textBox_y1_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.textBox_y1_move.Location = new System.Drawing.Point(178, 196);
+            this.textBox_y1_move.Maximum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            0});
+            this.textBox_y1_move.Name = "textBox_y1_move";
+            this.textBox_y1_move.Size = new System.Drawing.Size(55, 29);
+            this.textBox_y1_move.TabIndex = 90;
+            // 
+            // textBox_coli_move
+            // 
+            this.textBox_coli_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.textBox_coli_move.Location = new System.Drawing.Point(178, 130);
+            this.textBox_coli_move.Maximum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            0});
+            this.textBox_coli_move.Name = "textBox_coli_move";
+            this.textBox_coli_move.Size = new System.Drawing.Size(55, 29);
+            this.textBox_coli_move.TabIndex = 91;
+            // 
+            // textBox_gant_move
+            // 
+            this.textBox_gant_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.textBox_gant_move.Location = new System.Drawing.Point(178, 93);
+            this.textBox_gant_move.Maximum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            0});
+            this.textBox_gant_move.Name = "textBox_gant_move";
+            this.textBox_gant_move.Size = new System.Drawing.Size(55, 29);
+            this.textBox_gant_move.TabIndex = 92;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3923,14 +4019,7 @@
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_y2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_y1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_x2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_gant)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_x1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar_coli)).EndInit();
+            this.gb_move.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
             this.splitContainer4.Panel2.ResumeLayout(false);
@@ -3985,6 +4074,12 @@
             this.tableLayoutPanel3.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_x2_move)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_x1_move)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_y2_move)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_y1_move)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_coli_move)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_gant_move)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -4062,24 +4157,18 @@
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.TextBox tb_x2_co;
         private System.Windows.Forms.Button btn_start_stop;
-        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox gb_move;
         private System.Windows.Forms.Button btn_y2_in;
         private System.Windows.Forms.Button btn_gant_cw;
         private System.Windows.Forms.Button btn_y1_out;
-        private System.Windows.Forms.TrackBar trackBar_y2;
         private System.Windows.Forms.Button btn_y1_in;
         private System.Windows.Forms.Button btn_gant_ccw;
         private System.Windows.Forms.Button btn_y2_out;
-        private System.Windows.Forms.TrackBar trackBar_y1;
         private System.Windows.Forms.Button btn_x2_out;
         private System.Windows.Forms.Button btn_coli_cw;
         private System.Windows.Forms.Button btn_x2_in;
-        private System.Windows.Forms.TrackBar trackBar_x2;
-        private System.Windows.Forms.TrackBar trackBar_gant;
         private System.Windows.Forms.Button btn_coli_ccw;
         private System.Windows.Forms.Button btn_x1_out;
-        public System.Windows.Forms.TrackBar trackBar_x1;
-        private System.Windows.Forms.TrackBar trackBar_coli;
         private System.Windows.Forms.Button btn_x1_in;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.SplitContainer splitContainer4;
@@ -4285,6 +4374,18 @@
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label lbl_in_cnt;
         private System.Windows.Forms.Timer timer6;
+        private System.Windows.Forms.Button btn_x2_stop;
+        private System.Windows.Forms.Button btn_x1_stop;
+        private System.Windows.Forms.Button btn_y2_stop;
+        private System.Windows.Forms.Button btn_y1_stop;
+        private System.Windows.Forms.Button btn_coli_stop;
+        private System.Windows.Forms.Button btn_gant_stop;
+        private System.Windows.Forms.NumericUpDown textBox_gant_move;
+        private System.Windows.Forms.NumericUpDown textBox_coli_move;
+        private System.Windows.Forms.NumericUpDown textBox_y1_move;
+        private System.Windows.Forms.NumericUpDown textBox_y2_move;
+        private System.Windows.Forms.NumericUpDown textBox_x1_move;
+        private System.Windows.Forms.NumericUpDown textBox_x2_move;
     }
 }
 

@@ -368,183 +368,108 @@ namespace Compact_Control
                 clientFrm.writeToOtherTerminal(text, isCatch);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void moveButtons_Click(object sender, EventArgs e)
         {
-            if (serialPort1.IsOpen == false)
-                serialPort1.Open();
-            write("a");
-            write(trackBar_gant.Value.ToString());
+            decimal tmp;
+            Button btn = (Button)sender;
+
+            foreach (Button tmpBtn in gb_move.Controls)
+            {
+                if (tmpBtn != btn)
+                {
+                    tmpBtn.FlatStyle = FlatStyle.Standard;
+                }
+            }
+            btn.FlatStyle = FlatStyle.Flat;
+
+            switch (btn.Name)
+            {
+                case "btn_gant_cw":
+                    write("a" + textBox_gant_move.Value.ToString() + "/");
+                    break;
+                case "btn_gant_ccw":
+                    tmp = -textBox_gant_move.Value;
+                    write("a" + tmp.ToString() + "/");
+                    break;
+                case "btn_gant_stop":
+                    write("a0" + "/");
+                    break;
+                case "btn_coli_cw":
+                    tmp = -textBox_coli_move.Value;
+                    write("b" + tmp.ToString() + "/");
+                    break;
+                case "btn_coli_ccw":
+                    write("b" + textBox_coli_move.Value.ToString() + "/");
+                    break;
+                case "btn_coli_stop":
+                    write("b0" + "/");
+                    break;
+                case "btn_x1_in":
+                    write("c" + textBox_x1_move.Value.ToString() + "/");
+                    break;
+                case "btn_x1_out":
+                    tmp = -textBox_x1_move.Value;
+                    write("c" + tmp.ToString() + "/");
+                    break;
+                case "btn_x1_stop":
+                    write("c0" + "/");
+                    break;
+                case "btn_x2_in":
+                    write("d" + textBox_x2_move.Value.ToString() + "/");
+                    break;
+                case "btn_x2_out":
+                    tmp = -textBox_x2_move.Value;
+                    write("d" + tmp.ToString() + "/");
+                    break;
+                case "btn_x2_stop":
+                    write("d0" + "/");
+                    break;
+                case "btn_y1_in":
+                    write("e" + textBox_y1_move.Value.ToString() + "/");
+                    break;
+                case "btn_y1_out":
+                    tmp = -textBox_y1_move.Value;
+                    write("e" + tmp.ToString() + "/");
+                    break;
+                case "btn_y1_stop":
+                    write("e0" + "/");
+                    break;
+                case "btn_y2_in":
+                    write("f" + textBox_y2_move.Value.ToString() + "/");
+                    break;
+                case "btn_y2_out":
+                    tmp = -textBox_y2_move.Value;
+                    write("f" + tmp.ToString() + "/");
+                    break;
+                case "btn_y2_stop":
+                    write("f0" + "/");
+                    break;
+            }
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (serialPort1.IsOpen == false)
-                serialPort1.Open();
-            write("b");
-            write(trackBar_coli.Value.ToString());
-        }
-
-        private void button6_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (serialPort1.IsOpen == false)
-                serialPort1.Open();
-            write("c");
-            write(trackBar_x1.Value.ToString());
-        }
-
-
-        private void button8_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (serialPort1.IsOpen == false)
-                serialPort1.Open();
-            write("d");
-            write(trackBar_x2.Value.ToString());
-        }
-
-
-        private void button10_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (serialPort1.IsOpen == false)
-                serialPort1.Open();
-            write("e");
-            write(trackBar_y1.Value.ToString());
-        }
-
-        private void button11_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (serialPort1.IsOpen == false)
-                serialPort1.Open();
-            write("f");
-            write(trackBar_y2.Value.ToString());
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            if (serialPort1.IsOpen == false)
-                serialPort1.Open();
-            write("g");
-            write(trackBar_gant.Value.ToString());
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            if (serialPort1.IsOpen == false)
-                serialPort1.Open();
-            write("h");
-            write(trackBar_coli.Value.ToString());
-        }
-
-        private void button7_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (serialPort1.IsOpen == false)
-                serialPort1.Open();
-            write("i");
-            write(trackBar_x1.Value.ToString());
-        }
-
-        private void button9_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (serialPort1.IsOpen == false)
-                serialPort1.Open();
-            write("j");
-            write(trackBar_x2.Value.ToString());
-        }
-
-        private void button12_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (serialPort1.IsOpen == false)
-                serialPort1.Open();
-            write("k");
-            write(trackBar_y1.Value.ToString());
-        }
-
-        private void button13_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (serialPort1.IsOpen == false)
-                serialPort1.Open();
-            write("l");
-            write(trackBar_y2.Value.ToString());
-        }
-
-
-        private void button6_MouseUp(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void button7_MouseUp(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void button8_MouseUp(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void button9_MouseUp(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void button10_MouseUp(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void button12_MouseUp(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void button11_MouseUp(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void button13_MouseUp(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void button14_Click(object sender, EventArgs e)
+        private void btn_start_stop_Click(object sender, EventArgs e)
         {
             if (btn_start_stop.Text == "Start")
             {
                 write("S$");
                 in_diag = true;
                 btn_start_stop.Text = "Stop";
-                groupBox7.Enabled = true;
-                timer1.Stop();
-                timer3.Stop();
+                gb_move.Enabled = true;
                 timer6.Stop();
             }
             else
             {
-                if (serialPort1.IsOpen == false)
-                    serialPort1.Open();
+                foreach (Button tmpBtn in gb_move.Controls)
+                {
+                    tmpBtn.FlatStyle = FlatStyle.Standard;
+                }
                 write("s");
                 in_diag = false;
                 btn_start_stop.Text = "Start";
-                groupBox7.Enabled = false;
-                timer1.Start();
-                timer3.Start();
+                gb_move.Enabled = false;
             }
         }
 
-
-        private void button6_MouseUp_1(object sender, MouseEventArgs e)
-        {
-            if (serialPort1.IsOpen == false)
-                serialPort1.Open();
-            write("s");
-        }
-
-        //private void button15_Click(object sender, EventArgs e)
-        //{
-        //    if (serialPort1.IsOpen == true)
-        //        serialPort1.Close();
-        //}
 
         private System.Diagnostics.Stopwatch watch;
         private bool watchStarted = false;
@@ -1386,7 +1311,7 @@ namespace Compact_Control
         {
             if (btn_start_stop.Text == "Stop")
             {
-                button14_Click(sender, e);
+                btn_start_stop_Click(sender, e);
             }
 
             string appPath = Application.StartupPath;
@@ -1790,9 +1715,7 @@ namespace Compact_Control
 
                             sendString = sendString.Remove(sendString.Length - 1);
                             chSum = HashPass.checkSum(sendString);
-                            write(sendString);
-                            write("c" + chSum.ToString());
-                            write("&");
+                            write(sendString + "c" + chSum + "&");
                             // write(summ.ToString() + "/");
 
                             timer6.Start();
@@ -1894,7 +1817,7 @@ namespace Compact_Control
             {
                 if (btn_start_stop.Text == "Stop")
                 {
-                    button14_Click(sender, e);
+                    btn_start_stop_Click(sender, e);
                 }
             }
         }
@@ -1920,7 +1843,7 @@ namespace Compact_Control
         {
             if (btn_start_stop.Text == "Stop")
             {
-                button14_Click(sender, e);
+                btn_start_stop_Click(sender, e);
             }
 
             quit = true;
@@ -3141,7 +3064,7 @@ namespace Compact_Control
         {
             if (btn_start_stop.Text == "Stop")
             {
-                button14_Click(sender, e);
+                btn_start_stop_Click(sender, e);
             }
         }
 
