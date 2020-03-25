@@ -107,8 +107,20 @@
             this.tb_x1_co = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_x2_co = new System.Windows.Forms.TextBox();
+            this.textBox_gant_move = new System.Windows.Forms.NumericUpDown();
+            this.textBox_coli_move = new System.Windows.Forms.NumericUpDown();
+            this.textBox_y1_move = new System.Windows.Forms.NumericUpDown();
+            this.textBox_y2_move = new System.Windows.Forms.NumericUpDown();
+            this.textBox_x1_move = new System.Windows.Forms.NumericUpDown();
+            this.textBox_x2_move = new System.Windows.Forms.NumericUpDown();
             this.btn_start_stop = new System.Windows.Forms.Button();
             this.gb_move = new System.Windows.Forms.GroupBox();
+            this.btn_x2_stop = new System.Windows.Forms.Button();
+            this.btn_x1_stop = new System.Windows.Forms.Button();
+            this.btn_y2_stop = new System.Windows.Forms.Button();
+            this.btn_y1_stop = new System.Windows.Forms.Button();
+            this.btn_coli_stop = new System.Windows.Forms.Button();
+            this.btn_gant_stop = new System.Windows.Forms.Button();
             this.btn_y2_in = new System.Windows.Forms.Button();
             this.btn_gant_cw = new System.Windows.Forms.Button();
             this.btn_y1_out = new System.Windows.Forms.Button();
@@ -319,18 +331,6 @@
             this.lbl_oth_cnt = new System.Windows.Forms.Label();
             this.timer5 = new System.Windows.Forms.Timer(this.components);
             this.timer6 = new System.Windows.Forms.Timer(this.components);
-            this.btn_gant_stop = new System.Windows.Forms.Button();
-            this.btn_coli_stop = new System.Windows.Forms.Button();
-            this.btn_y2_stop = new System.Windows.Forms.Button();
-            this.btn_y1_stop = new System.Windows.Forms.Button();
-            this.btn_x2_stop = new System.Windows.Forms.Button();
-            this.btn_x1_stop = new System.Windows.Forms.Button();
-            this.textBox_x2_move = new System.Windows.Forms.NumericUpDown();
-            this.textBox_x1_move = new System.Windows.Forms.NumericUpDown();
-            this.textBox_y2_move = new System.Windows.Forms.NumericUpDown();
-            this.textBox_y1_move = new System.Windows.Forms.NumericUpDown();
-            this.textBox_coli_move = new System.Windows.Forms.NumericUpDown();
-            this.textBox_gant_move = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).BeginInit();
@@ -358,6 +358,12 @@
             this.splitContainer2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_gant_move)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_coli_move)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_y1_move)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_y2_move)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_x1_move)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_x2_move)).BeginInit();
             this.gb_move.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
@@ -400,12 +406,6 @@
             this.panel6.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox_x2_move)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox_x1_move)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox_y2_move)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox_y1_move)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox_coli_move)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox_gant_move)).BeginInit();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -1362,6 +1362,84 @@
             this.tb_x2_co.TabIndex = 12;
             this.tb_x2_co.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
+            // textBox_gant_move
+            // 
+            this.textBox_gant_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.textBox_gant_move.Location = new System.Drawing.Point(178, 93);
+            this.textBox_gant_move.Maximum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            0});
+            this.textBox_gant_move.Name = "textBox_gant_move";
+            this.textBox_gant_move.Size = new System.Drawing.Size(55, 29);
+            this.textBox_gant_move.TabIndex = 92;
+            // 
+            // textBox_coli_move
+            // 
+            this.textBox_coli_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.textBox_coli_move.Location = new System.Drawing.Point(178, 130);
+            this.textBox_coli_move.Maximum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            0});
+            this.textBox_coli_move.Name = "textBox_coli_move";
+            this.textBox_coli_move.Size = new System.Drawing.Size(55, 29);
+            this.textBox_coli_move.TabIndex = 91;
+            // 
+            // textBox_y1_move
+            // 
+            this.textBox_y1_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.textBox_y1_move.Location = new System.Drawing.Point(178, 196);
+            this.textBox_y1_move.Maximum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            0});
+            this.textBox_y1_move.Name = "textBox_y1_move";
+            this.textBox_y1_move.Size = new System.Drawing.Size(55, 29);
+            this.textBox_y1_move.TabIndex = 90;
+            // 
+            // textBox_y2_move
+            // 
+            this.textBox_y2_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.textBox_y2_move.Location = new System.Drawing.Point(178, 236);
+            this.textBox_y2_move.Maximum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            0});
+            this.textBox_y2_move.Name = "textBox_y2_move";
+            this.textBox_y2_move.Size = new System.Drawing.Size(55, 29);
+            this.textBox_y2_move.TabIndex = 89;
+            // 
+            // textBox_x1_move
+            // 
+            this.textBox_x1_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.textBox_x1_move.Location = new System.Drawing.Point(178, 276);
+            this.textBox_x1_move.Maximum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            0});
+            this.textBox_x1_move.Name = "textBox_x1_move";
+            this.textBox_x1_move.Size = new System.Drawing.Size(55, 29);
+            this.textBox_x1_move.TabIndex = 88;
+            // 
+            // textBox_x2_move
+            // 
+            this.textBox_x2_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.textBox_x2_move.Location = new System.Drawing.Point(178, 315);
+            this.textBox_x2_move.Maximum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            0});
+            this.textBox_x2_move.Name = "textBox_x2_move";
+            this.textBox_x2_move.Size = new System.Drawing.Size(55, 29);
+            this.textBox_x2_move.TabIndex = 79;
+            // 
             // btn_start_stop
             // 
             this.btn_start_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -1401,6 +1479,72 @@
             this.gb_move.TabIndex = 87;
             this.gb_move.TabStop = false;
             this.gb_move.Text = "Move";
+            // 
+            // btn_x2_stop
+            // 
+            this.btn_x2_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_x2_stop.Location = new System.Drawing.Point(55, 250);
+            this.btn_x2_stop.Name = "btn_x2_stop";
+            this.btn_x2_stop.Size = new System.Drawing.Size(50, 30);
+            this.btn_x2_stop.TabIndex = 72;
+            this.btn_x2_stop.Text = "Stop";
+            this.btn_x2_stop.UseVisualStyleBackColor = true;
+            this.btn_x2_stop.Click += new System.EventHandler(this.moveButtons_Click);
+            // 
+            // btn_x1_stop
+            // 
+            this.btn_x1_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_x1_stop.Location = new System.Drawing.Point(55, 210);
+            this.btn_x1_stop.Name = "btn_x1_stop";
+            this.btn_x1_stop.Size = new System.Drawing.Size(50, 30);
+            this.btn_x1_stop.TabIndex = 71;
+            this.btn_x1_stop.Text = "Stop";
+            this.btn_x1_stop.UseVisualStyleBackColor = true;
+            this.btn_x1_stop.Click += new System.EventHandler(this.moveButtons_Click);
+            // 
+            // btn_y2_stop
+            // 
+            this.btn_y2_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_y2_stop.Location = new System.Drawing.Point(55, 170);
+            this.btn_y2_stop.Name = "btn_y2_stop";
+            this.btn_y2_stop.Size = new System.Drawing.Size(50, 30);
+            this.btn_y2_stop.TabIndex = 70;
+            this.btn_y2_stop.Text = "Stop";
+            this.btn_y2_stop.UseVisualStyleBackColor = true;
+            this.btn_y2_stop.Click += new System.EventHandler(this.moveButtons_Click);
+            // 
+            // btn_y1_stop
+            // 
+            this.btn_y1_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_y1_stop.Location = new System.Drawing.Point(55, 130);
+            this.btn_y1_stop.Name = "btn_y1_stop";
+            this.btn_y1_stop.Size = new System.Drawing.Size(50, 30);
+            this.btn_y1_stop.TabIndex = 69;
+            this.btn_y1_stop.Text = "Stop";
+            this.btn_y1_stop.UseVisualStyleBackColor = true;
+            this.btn_y1_stop.Click += new System.EventHandler(this.moveButtons_Click);
+            // 
+            // btn_coli_stop
+            // 
+            this.btn_coli_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_coli_stop.Location = new System.Drawing.Point(55, 65);
+            this.btn_coli_stop.Name = "btn_coli_stop";
+            this.btn_coli_stop.Size = new System.Drawing.Size(50, 30);
+            this.btn_coli_stop.TabIndex = 68;
+            this.btn_coli_stop.Text = "Stop";
+            this.btn_coli_stop.UseVisualStyleBackColor = true;
+            this.btn_coli_stop.Click += new System.EventHandler(this.moveButtons_Click);
+            // 
+            // btn_gant_stop
+            // 
+            this.btn_gant_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_gant_stop.Location = new System.Drawing.Point(55, 27);
+            this.btn_gant_stop.Name = "btn_gant_stop";
+            this.btn_gant_stop.Size = new System.Drawing.Size(50, 30);
+            this.btn_gant_stop.TabIndex = 67;
+            this.btn_gant_stop.Text = "Stop";
+            this.btn_gant_stop.UseVisualStyleBackColor = true;
+            this.btn_gant_stop.Click += new System.EventHandler(this.moveButtons_Click);
             // 
             // btn_y2_in
             // 
@@ -3820,150 +3964,6 @@
             this.timer6.Interval = 400;
             this.timer6.Tick += new System.EventHandler(this.timer6_Tick);
             // 
-            // btn_gant_stop
-            // 
-            this.btn_gant_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_gant_stop.Location = new System.Drawing.Point(55, 27);
-            this.btn_gant_stop.Name = "btn_gant_stop";
-            this.btn_gant_stop.Size = new System.Drawing.Size(50, 30);
-            this.btn_gant_stop.TabIndex = 67;
-            this.btn_gant_stop.Text = "Stop";
-            this.btn_gant_stop.UseVisualStyleBackColor = true;
-            this.btn_gant_stop.Click += new System.EventHandler(this.moveButtons_Click);
-            // 
-            // btn_coli_stop
-            // 
-            this.btn_coli_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_coli_stop.Location = new System.Drawing.Point(55, 65);
-            this.btn_coli_stop.Name = "btn_coli_stop";
-            this.btn_coli_stop.Size = new System.Drawing.Size(50, 30);
-            this.btn_coli_stop.TabIndex = 68;
-            this.btn_coli_stop.Text = "Stop";
-            this.btn_coli_stop.UseVisualStyleBackColor = true;
-            this.btn_coli_stop.Click += new System.EventHandler(this.moveButtons_Click);
-            // 
-            // btn_y2_stop
-            // 
-            this.btn_y2_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_y2_stop.Location = new System.Drawing.Point(55, 170);
-            this.btn_y2_stop.Name = "btn_y2_stop";
-            this.btn_y2_stop.Size = new System.Drawing.Size(50, 30);
-            this.btn_y2_stop.TabIndex = 70;
-            this.btn_y2_stop.Text = "Stop";
-            this.btn_y2_stop.UseVisualStyleBackColor = true;
-            this.btn_y2_stop.Click += new System.EventHandler(this.moveButtons_Click);
-            // 
-            // btn_y1_stop
-            // 
-            this.btn_y1_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_y1_stop.Location = new System.Drawing.Point(55, 130);
-            this.btn_y1_stop.Name = "btn_y1_stop";
-            this.btn_y1_stop.Size = new System.Drawing.Size(50, 30);
-            this.btn_y1_stop.TabIndex = 69;
-            this.btn_y1_stop.Text = "Stop";
-            this.btn_y1_stop.UseVisualStyleBackColor = true;
-            this.btn_y1_stop.Click += new System.EventHandler(this.moveButtons_Click);
-            // 
-            // btn_x2_stop
-            // 
-            this.btn_x2_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_x2_stop.Location = new System.Drawing.Point(55, 250);
-            this.btn_x2_stop.Name = "btn_x2_stop";
-            this.btn_x2_stop.Size = new System.Drawing.Size(50, 30);
-            this.btn_x2_stop.TabIndex = 72;
-            this.btn_x2_stop.Text = "Stop";
-            this.btn_x2_stop.UseVisualStyleBackColor = true;
-            this.btn_x2_stop.Click += new System.EventHandler(this.moveButtons_Click);
-            // 
-            // btn_x1_stop
-            // 
-            this.btn_x1_stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_x1_stop.Location = new System.Drawing.Point(55, 210);
-            this.btn_x1_stop.Name = "btn_x1_stop";
-            this.btn_x1_stop.Size = new System.Drawing.Size(50, 30);
-            this.btn_x1_stop.TabIndex = 71;
-            this.btn_x1_stop.Text = "Stop";
-            this.btn_x1_stop.UseVisualStyleBackColor = true;
-            this.btn_x1_stop.Click += new System.EventHandler(this.moveButtons_Click);
-            // 
-            // textBox_x2_move
-            // 
-            this.textBox_x2_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox_x2_move.Location = new System.Drawing.Point(178, 315);
-            this.textBox_x2_move.Maximum = new decimal(new int[] {
-            127,
-            0,
-            0,
-            0});
-            this.textBox_x2_move.Name = "textBox_x2_move";
-            this.textBox_x2_move.Size = new System.Drawing.Size(55, 29);
-            this.textBox_x2_move.TabIndex = 79;
-            // 
-            // textBox_x1_move
-            // 
-            this.textBox_x1_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox_x1_move.Location = new System.Drawing.Point(178, 276);
-            this.textBox_x1_move.Maximum = new decimal(new int[] {
-            127,
-            0,
-            0,
-            0});
-            this.textBox_x1_move.Name = "textBox_x1_move";
-            this.textBox_x1_move.Size = new System.Drawing.Size(55, 29);
-            this.textBox_x1_move.TabIndex = 88;
-            // 
-            // textBox_y2_move
-            // 
-            this.textBox_y2_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox_y2_move.Location = new System.Drawing.Point(178, 236);
-            this.textBox_y2_move.Maximum = new decimal(new int[] {
-            127,
-            0,
-            0,
-            0});
-            this.textBox_y2_move.Name = "textBox_y2_move";
-            this.textBox_y2_move.Size = new System.Drawing.Size(55, 29);
-            this.textBox_y2_move.TabIndex = 89;
-            // 
-            // textBox_y1_move
-            // 
-            this.textBox_y1_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox_y1_move.Location = new System.Drawing.Point(178, 196);
-            this.textBox_y1_move.Maximum = new decimal(new int[] {
-            127,
-            0,
-            0,
-            0});
-            this.textBox_y1_move.Name = "textBox_y1_move";
-            this.textBox_y1_move.Size = new System.Drawing.Size(55, 29);
-            this.textBox_y1_move.TabIndex = 90;
-            // 
-            // textBox_coli_move
-            // 
-            this.textBox_coli_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox_coli_move.Location = new System.Drawing.Point(178, 130);
-            this.textBox_coli_move.Maximum = new decimal(new int[] {
-            127,
-            0,
-            0,
-            0});
-            this.textBox_coli_move.Name = "textBox_coli_move";
-            this.textBox_coli_move.Size = new System.Drawing.Size(55, 29);
-            this.textBox_coli_move.TabIndex = 91;
-            // 
-            // textBox_gant_move
-            // 
-            this.textBox_gant_move.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox_gant_move.Location = new System.Drawing.Point(178, 93);
-            this.textBox_gant_move.Maximum = new decimal(new int[] {
-            127,
-            0,
-            0,
-            0});
-            this.textBox_gant_move.Name = "textBox_gant_move";
-            this.textBox_gant_move.Size = new System.Drawing.Size(55, 29);
-            this.textBox_gant_move.TabIndex = 92;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4019,6 +4019,12 @@
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_gant_move)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_coli_move)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_y1_move)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_y2_move)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_x1_move)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.textBox_x2_move)).EndInit();
             this.gb_move.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
@@ -4074,12 +4080,6 @@
             this.tableLayoutPanel3.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox_x2_move)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox_x1_move)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox_y2_move)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox_y1_move)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox_coli_move)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textBox_gant_move)).EndInit();
             this.ResumeLayout(false);
 
         }
