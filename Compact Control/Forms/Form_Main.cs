@@ -133,6 +133,8 @@ namespace Compact_Control
         public double TotalVirtualMemorySize;
         public double FreeVirtualMemory;
         public bool validPort = false;
+
+        string diag_demand = "";
         public Form1()
         {
             InitializeComponent();
@@ -385,64 +387,82 @@ namespace Compact_Control
             switch (btn.Name)
             {
                 case "btn_gant_cw":
-                    write("a" + textBox_gant_move.Value.ToString() + "/");
+                    diag_demand = ("a" + textBox_gant_move.Value.ToString() + "/");
+                    write("@");
                     break;
                 case "btn_gant_ccw":
                     tmp = -textBox_gant_move.Value;
-                    write("a" + tmp.ToString() + "/");
+                    diag_demand = ("a" + tmp.ToString() + "/");
+                    write("@");
                     break;
                 case "btn_gant_stop":
-                    write("a0" + "/");
+                    diag_demand = ("a0" + "/");
+                    write("@");
                     break;
                 case "btn_coli_cw":
                     tmp = -textBox_coli_move.Value;
-                    write("b" + tmp.ToString() + "/");
+                    diag_demand = ("b" + tmp.ToString() + "/");
+                    write("@");
                     break;
                 case "btn_coli_ccw":
-                    write("b" + textBox_coli_move.Value.ToString() + "/");
+                    diag_demand = ("b" + textBox_coli_move.Value.ToString() + "/");
+                    write("@");
                     break;
                 case "btn_coli_stop":
-                    write("b0" + "/");
+                    diag_demand = ("b0" + "/");
+                    write("@");
                     break;
                 case "btn_x1_in":
-                    write("c" + textBox_x1_move.Value.ToString() + "/");
+                    diag_demand = ("c" + textBox_x1_move.Value.ToString() + "/");
+                    write("@");
                     break;
                 case "btn_x1_out":
                     tmp = -textBox_x1_move.Value;
-                    write("c" + tmp.ToString() + "/");
+                    diag_demand = ("c" + tmp.ToString() + "/");
+                    write("@");
                     break;
                 case "btn_x1_stop":
-                    write("c0" + "/");
+                    diag_demand = ("c0" + "/");
+                    write("@");
                     break;
                 case "btn_x2_in":
-                    write("d" + textBox_x2_move.Value.ToString() + "/");
+                    diag_demand = ("d" + textBox_x2_move.Value.ToString() + "/");
+                    write("@");
                     break;
                 case "btn_x2_out":
                     tmp = -textBox_x2_move.Value;
-                    write("d" + tmp.ToString() + "/");
+                    diag_demand = ("d" + tmp.ToString() + "/");
+                    write("@");
                     break;
                 case "btn_x2_stop":
-                    write("d0" + "/");
+                    diag_demand = ("d0" + "/");
+                    write("@");
                     break;
                 case "btn_y1_in":
-                    write("e" + textBox_y1_move.Value.ToString() + "/");
+                    diag_demand = ("e" + textBox_y1_move.Value.ToString() + "/");
+                    write("@");
                     break;
                 case "btn_y1_out":
                     tmp = -textBox_y1_move.Value;
-                    write("e" + tmp.ToString() + "/");
+                    diag_demand = ("e" + tmp.ToString() + "/");
+                    write("@");
                     break;
                 case "btn_y1_stop":
-                    write("e0" + "/");
+                    diag_demand = ("e0" + "/");
+                    write("@");
                     break;
                 case "btn_y2_in":
-                    write("f" + textBox_y2_move.Value.ToString() + "/");
+                    diag_demand = ("f" + textBox_y2_move.Value.ToString() + "/");
+                    write("@");
                     break;
                 case "btn_y2_out":
                     tmp = -textBox_y2_move.Value;
-                    write("f" + tmp.ToString() + "/");
+                    diag_demand = ("f" + tmp.ToString() + "/");
+                    write("@");
                     break;
                 case "btn_y2_stop":
-                    write("f0" + "/");
+                    diag_demand = ("f0" + "/");
+                    write("@");
                     break;
             }
         }
@@ -1725,6 +1745,9 @@ namespace Compact_Control
                             timer6.Stop();
                             sendString = "";
                             // summ = 0;
+                            break;
+                        case "dia":
+                            write(diag_demand);
                             break;
                         default:
                             writeToOtherTerminal(currData, false);
