@@ -3973,26 +3973,32 @@
             // timer_coli
             // 
             this.timer_coli.Interval = 1500;
+            this.timer_coli.Tick += new System.EventHandler(this.timer_coli_Tick);
             // 
             // timer_x1
             // 
             this.timer_x1.Interval = 1500;
+            this.timer_x1.Tick += new System.EventHandler(this.timer_x1_Tick);
             // 
             // timer_x2
             // 
             this.timer_x2.Interval = 1500;
+            this.timer_x2.Tick += new System.EventHandler(this.timer_x2_Tick);
             // 
             // timer_y1
             // 
             this.timer_y1.Interval = 1500;
+            this.timer_y1.Tick += new System.EventHandler(this.timer_y1_Tick);
             // 
             // timer_y2
             // 
             this.timer_y2.Interval = 1500;
+            this.timer_y2.Tick += new System.EventHandler(this.timer_y2_Tick);
             // 
             // timer_gant
             // 
             this.timer_gant.Interval = 1500;
+            this.timer_gant.Tick += new System.EventHandler(this.timer_gant_Tick);
             // 
             // Form1
             // 

@@ -385,7 +385,7 @@ namespace Compact_Control
 
         public void timer_x1_Tick(object sender, EventArgs e)
         {
-            x2_set = "0";
+            x1_set = "0";
             timer_x1.Enabled = false;
         }
 
