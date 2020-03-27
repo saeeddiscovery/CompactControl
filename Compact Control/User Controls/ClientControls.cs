@@ -196,41 +196,6 @@ namespace Compact_Control
             frm1.write(data);
         }
 
-        public void timer_gant_Tick(object sender, EventArgs e)
-        {
-            frm1.gant_set = "0";
-            timer_gant.Enabled = false;
-        }
-
-        public void timer_coli_Tick(object sender, EventArgs e)
-        {
-            frm1.collim_set = "0";
-            timer_coli.Enabled = false;
-        }
-
-        public void timer_x1_Tick(object sender, EventArgs e)
-        {
-            frm1.y2_set = "0";
-            timer_x1.Enabled = false;
-        }
-
-        public void timer_x2_Tick(object sender, EventArgs e)
-        {
-            frm1.y1_set = "0";
-            timer_x2.Enabled = false;
-        }
-
-        public void timer_y1_Tick(object sender, EventArgs e)
-        {
-            frm1.x2_set = "0";
-            timer_y1.Enabled = false;
-        }
-
-        public void timer_y2_Tick(object sender, EventArgs e)
-        {
-            frm1.x1_set = "0";
-            timer_y2.Enabled = false;
-        }
 
         private void btn_clearTerminal_oth_Click(object sender, EventArgs e)
         {
@@ -857,15 +822,15 @@ namespace Compact_Control
                     {
                         pictureBox4.Hide();
                         isY1Set = false;
-                        timer_y1.Enabled = true;
+                        frm1.timer_x2.Enabled = true;
                     }
                     else
                     {
                         pictureBox4.BackgroundImage = Resources.Request;
                         pictureBox4.Show();
                         frm1.x2_set = x2_valid_raw;
-                        if (timer_y1.Enabled)
-                            timer_y1.Enabled = false;
+                        if (frm1.timer_x2.Enabled)
+                            frm1.timer_x2.Enabled = false;
                     }
                 }
                 catch { }
@@ -1054,15 +1019,15 @@ namespace Compact_Control
                     {
                         pictureBox3.Hide();
                         isY2Set = false;
-                        timer_y2.Enabled = true;
+                        frm1.timer_x1.Enabled = true;
                     }
                     else
                     {
                         pictureBox3.BackgroundImage = Resources.Request;
                         pictureBox3.Show();
                         frm1.x1_set = x1_valid_raw;
-                        if (timer_y2.Enabled)
-                            timer_y2.Enabled = false;
+                        if (frm1.timer_x1.Enabled)
+                            frm1.timer_x1.Enabled = false;
                     }
                 }
                 catch { }
@@ -1255,15 +1220,15 @@ namespace Compact_Control
                     {
                         pictureBox6.Hide();
                         isX1Set = false;
-                        timer_x1.Enabled = true;
+                        frm1.timer_y2.Enabled = true;
                     }
                     else
                     {
                         pictureBox6.BackgroundImage = Resources.Request;
                         pictureBox6.Show();
                         frm1.y2_set = y2_valid_raw;
-                        if (timer_x1.Enabled)
-                            timer_x1.Enabled = false;
+                        if (frm1.timer_y2.Enabled)
+                            frm1.timer_y2.Enabled = false;
                     }
                 }
                 catch { }
@@ -1485,15 +1450,15 @@ namespace Compact_Control
                     {
                         isX2Set = false;
                         pictureBox5.Hide();
-                        timer_x2.Enabled = true;
+                        frm1.timer_y1.Enabled = true;
                     }
                     else
                     {
                         pictureBox5.BackgroundImage = Resources.Request;
                         pictureBox5.Show();
                         frm1.y1_set = y1_valid_raw;
-                        if (timer_x2.Enabled)
-                            timer_x2.Enabled = false;
+                        if (frm1.timer_y1.Enabled)
+                            frm1.timer_y1.Enabled = false;
                     }
                 }
                 catch { }
@@ -1599,15 +1564,15 @@ namespace Compact_Control
                 if (Math.Abs(gant_t2 - gant_d2) <= .11)
                 {
                     pictureBox1.Hide();
-                    timer_gant.Enabled = true;
+                    frm1.timer_gant.Enabled = true;
                 }
                 else
                 {
                     pictureBox1.BackgroundImage = Resources.Request;
                     pictureBox1.Show();
                     isGantSet = false;
-                    if (timer_gant.Enabled)
-                        timer_gant.Enabled = false;
+                    if (frm1.timer_gant.Enabled)
+                        frm1.timer_gant.Enabled = false;
                     frm1.gant_set = gant_valid_raw;
                 }
             }
@@ -1704,15 +1669,15 @@ namespace Compact_Control
                 {
                     pictureBox2.Hide();
                     isColiSet = false;
-                    timer_coli.Enabled = true;
+                    frm1.timer_coli.Enabled = true;
                 }
                 else
                 {
                     pictureBox2.BackgroundImage = Resources.Request;
                     pictureBox2.Show();
                     frm1.collim_set = collim_valid_raw;
-                    if (timer_coli.Enabled)
-                        timer_coli.Enabled = false;
+                    if (frm1.timer_coli.Enabled)
+                        frm1.timer_coli.Enabled = false;
                 }
             }
             else

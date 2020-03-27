@@ -331,6 +331,12 @@
             this.lbl_oth_cnt = new System.Windows.Forms.Label();
             this.timer5 = new System.Windows.Forms.Timer(this.components);
             this.timer6 = new System.Windows.Forms.Timer(this.components);
+            this.timer_coli = new System.Windows.Forms.Timer(this.components);
+            this.timer_x1 = new System.Windows.Forms.Timer(this.components);
+            this.timer_x2 = new System.Windows.Forms.Timer(this.components);
+            this.timer_y1 = new System.Windows.Forms.Timer(this.components);
+            this.timer_y2 = new System.Windows.Forms.Timer(this.components);
+            this.timer_gant = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).BeginInit();
@@ -3964,6 +3970,30 @@
             this.timer6.Interval = 400;
             this.timer6.Tick += new System.EventHandler(this.timer6_Tick);
             // 
+            // timer_coli
+            // 
+            this.timer_coli.Interval = 1500;
+            // 
+            // timer_x1
+            // 
+            this.timer_x1.Interval = 1500;
+            // 
+            // timer_x2
+            // 
+            this.timer_x2.Interval = 1500;
+            // 
+            // timer_y1
+            // 
+            this.timer_y1.Interval = 1500;
+            // 
+            // timer_y2
+            // 
+            this.timer_y2.Interval = 1500;
+            // 
+            // timer_gant
+            // 
+            this.timer_gant.Interval = 1500;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4386,6 +4416,12 @@
         private System.Windows.Forms.NumericUpDown textBox_y2_move;
         private System.Windows.Forms.NumericUpDown textBox_x1_move;
         private System.Windows.Forms.NumericUpDown textBox_x2_move;
+        public System.Windows.Forms.Timer timer_coli;
+        public System.Windows.Forms.Timer timer_x1;
+        public System.Windows.Forms.Timer timer_x2;
+        public System.Windows.Forms.Timer timer_y1;
+        public System.Windows.Forms.Timer timer_y2;
+        public System.Windows.Forms.Timer timer_gant;
     }
 }
 

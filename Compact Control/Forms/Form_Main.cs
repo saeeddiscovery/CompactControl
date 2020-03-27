@@ -370,6 +370,43 @@ namespace Compact_Control
                 clientFrm.writeToOtherTerminal(text, isCatch);
         }
 
+
+        public void timer_gant_Tick(object sender, EventArgs e)
+        {
+            gant_set = "0";
+            timer_gant.Enabled = false;
+        }
+
+        public void timer_coli_Tick(object sender, EventArgs e)
+        {
+            collim_set = "0";
+            timer_coli.Enabled = false;
+        }
+
+        public void timer_x1_Tick(object sender, EventArgs e)
+        {
+            x2_set = "0";
+            timer_x1.Enabled = false;
+        }
+
+        public void timer_x2_Tick(object sender, EventArgs e)
+        {
+            x2_set = "0";
+            timer_x2.Enabled = false;
+        }
+
+        public void timer_y1_Tick(object sender, EventArgs e)
+        {
+            y1_set = "0";
+            timer_y1.Enabled = false;
+        }
+
+        public void timer_y2_Tick(object sender, EventArgs e)
+        {
+            y2_set = "0";
+            timer_y2.Enabled = false;
+        }
+
         private void moveButtons_Click(object sender, EventArgs e)
         {
             decimal tmp;
@@ -1908,6 +1945,12 @@ namespace Compact_Control
                     {
                         pictureBox1.Hide();
                         isGantSet = false;
+                        timer_gant.Enabled = true;
+                    }
+                    else
+                    {
+                        if (timer_gant.Enabled)
+                            timer_gant.Enabled = false;
                     }
                 }
                 catch { }
@@ -1979,6 +2022,12 @@ namespace Compact_Control
                     {
                         pictureBox2.Hide();
                         isColiSet = false;
+                        timer_coli.Enabled = true;
+                    }
+                    else
+                    {
+                        if (timer_coli.Enabled)
+                            timer_coli.Enabled = false;
                     }
                 }
                 catch { }
@@ -2073,6 +2122,12 @@ namespace Compact_Control
                     {
                         pictureBox5.Hide();
                         isY1Set = false;
+                        timer_y1.Enabled = true;
+                    }
+                    else
+                    {
+                        if (timer_y1.Enabled)
+                            timer_y1.Enabled = false;
                     }
                 }
                 catch { }
@@ -2166,6 +2221,12 @@ namespace Compact_Control
                     {
                         pictureBox6.Hide();
                         isY2Set = false;
+                        timer_y2.Enabled = true;
+                    }
+                    else
+                    {
+                        if (timer_y2.Enabled)
+                            timer_y2.Enabled = false;
                     }
                 }
                 catch { }
@@ -2228,12 +2289,14 @@ namespace Compact_Control
                     {
                         isX1Set = true;
                         pictureBox3.Show();
+                        
                     }
                     else
                     {
                         isX1Set = false;
                         pictureBox3.Hide();
                         pictureBox3.BackgroundImage = requestImage;
+                        
                     }
 
                     tb_x1_set.BackColor = Color.LightGreen;
@@ -2261,6 +2324,12 @@ namespace Compact_Control
                     {
                         pictureBox3.Hide();
                         isX1Set = false;
+                        timer_x1.Enabled = true;
+                    }
+                    else
+                    {
+                        if (timer_x1.Enabled)
+                            timer_x1.Enabled = false;
                     }
                 }
                 catch { }
@@ -2323,12 +2392,14 @@ namespace Compact_Control
                     {
                         isX2Set = true;
                         pictureBox4.Show();
+                        
                     }
                     else
                     {
                         isX2Set = false;
                         pictureBox4.Hide();
                         pictureBox4.BackgroundImage = requestImage;
+                        
                     }
 
                     tb_x2_set.BackColor = Color.LightGreen;
@@ -2356,6 +2427,12 @@ namespace Compact_Control
                     {
                         isX2Set = false;
                         pictureBox4.Hide();
+                        timer_x2.Enabled = true;
+                    }
+                    else
+                    {
+                        if (timer_x2.Enabled)
+                            timer_x2.Enabled = false;
                     }
                 }
                 catch { }

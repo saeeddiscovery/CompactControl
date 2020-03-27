@@ -95,14 +95,8 @@
             this.lbl_risk = new System.Windows.Forms.Label();
             this.label72 = new System.Windows.Forms.Label();
             this.pb_receiveStatus = new System.Windows.Forms.PictureBox();
-            this.timer_coli = new System.Windows.Forms.Timer(this.components);
-            this.timer_x1 = new System.Windows.Forms.Timer(this.components);
-            this.timer_x2 = new System.Windows.Forms.Timer(this.components);
-            this.timer_y1 = new System.Windows.Forms.Timer(this.components);
-            this.timer_y2 = new System.Windows.Forms.Timer(this.components);
             this.lbl_pleaseRestart = new System.Windows.Forms.Label();
             this.lbl_readingError = new System.Windows.Forms.Label();
-            this.timer_gant = new System.Windows.Forms.Timer(this.components);
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x2_status)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_x1_status)).BeginInit();
@@ -891,31 +885,6 @@
             this.pb_receiveStatus.TabIndex = 127;
             this.pb_receiveStatus.TabStop = false;
             // 
-            // timer_coli
-            // 
-            this.timer_coli.Interval = 1500;
-            this.timer_coli.Tick += new System.EventHandler(this.timer_coli_Tick);
-            // 
-            // timer_x1
-            // 
-            this.timer_x1.Interval = 1500;
-            this.timer_x1.Tick += new System.EventHandler(this.timer_x1_Tick);
-            // 
-            // timer_x2
-            // 
-            this.timer_x2.Interval = 1500;
-            this.timer_x2.Tick += new System.EventHandler(this.timer_x2_Tick);
-            // 
-            // timer_y1
-            // 
-            this.timer_y1.Interval = 1500;
-            this.timer_y1.Tick += new System.EventHandler(this.timer_y1_Tick);
-            // 
-            // timer_y2
-            // 
-            this.timer_y2.Interval = 1500;
-            this.timer_y2.Tick += new System.EventHandler(this.timer_y2_Tick);
-            // 
             // lbl_pleaseRestart
             // 
             this.lbl_pleaseRestart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
@@ -943,11 +912,6 @@
             this.lbl_readingError.Text = "!!  Reading Error  !!";
             this.lbl_readingError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbl_readingError.Visible = false;
-            // 
-            // timer_gant
-            // 
-            this.timer_gant.Interval = 1500;
-            this.timer_gant.Tick += new System.EventHandler(this.timer_gant_Tick);
             // 
             // ClientControls
             // 
@@ -1057,12 +1021,6 @@
         public System.Windows.Forms.PictureBox pb_coli_status;
         public System.Windows.Forms.PictureBox pb_gant_status;
         public System.Windows.Forms.TextBox txt_fakeADC;
-        public System.Windows.Forms.Timer timer_gant;
-        public System.Windows.Forms.Timer timer_coli;
-        public System.Windows.Forms.Timer timer_x1;
-        public System.Windows.Forms.Timer timer_x2;
-        public System.Windows.Forms.Timer timer_y1;
-        public System.Windows.Forms.Timer timer_y2;
         public System.Windows.Forms.Label lbl_pleaseRestart;
         public System.Windows.Forms.Label lbl_readingError;
         private System.Windows.Forms.Label label1;
