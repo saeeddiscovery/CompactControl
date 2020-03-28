@@ -13,9 +13,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Zip files
-        working-directory: ./Compact Control/bin/release
-        run: zip CompactControl-${{ github.event.release.tag_name }}.zip *.*
+      # - name: Zip files
+      #   working-directory: ./Compact Control/bin/release
+      #   run: zip CompactControl-${{ github.event.release.tag_name }}.zip *.*
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -35,5 +35,5 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
           asset_path: ./Compact Control/bin/release
           # files: ./Compact Control/bin/release/CompactControl-${{ github.event.release.tag_name }}.zip;bin/release/*.*'
-          asset_name: CompactControl-${{ github.event.release.tag_name }}.zip
+          asset_name: CompactControl.zip
           asset_content_type: application/zip
