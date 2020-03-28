@@ -7,15 +7,15 @@ on:
 name: Upload Release Asset
 
 jobs:
-  build:
+  upload_release:
     name: Upload Release Asset
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Build project # This would actually build your project, using zip for an example artifact
-        run: |
-          zip --junk-paths CompactControl "./Compact Control/bin/Release/*"
+      - name: Zip files
+        working-directory: ./Compact Control/bin/release
+        run: zip CompactControl-${{ github.event.release.tag_name }}.zip *.*
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
@@ -33,6 +33,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-          asset_path: ./CompactControl.zip
-          asset_name: CompactControl.zip
+          asset_path: ./Compact Control/bin/release
+          # files: ./Compact Control/bin/release/CompactControl-${{ github.event.release.tag_name }}.zip;bin/release/*.*'
+          asset_name: CompactControl-${{ github.event.release.tag_name }}.zip
           asset_content_type: application/zip
