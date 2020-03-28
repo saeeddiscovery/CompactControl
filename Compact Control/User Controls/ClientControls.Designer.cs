@@ -50,7 +50,6 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.picBtnToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -60,21 +59,21 @@
             this.pb_y1_status = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
+            this.pic_x_status = new System.Windows.Forms.PictureBox();
             this.txt_x_s = new System.Windows.Forms.TextBox();
             this.txt_x_a = new System.Windows.Forms.TextBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pic_y_status = new System.Windows.Forms.PictureBox();
+            this.pic_x1_status = new System.Windows.Forms.PictureBox();
             this.txt_y_a = new System.Windows.Forms.TextBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pic_x2_status = new System.Windows.Forms.PictureBox();
             this.txt_y_s = new System.Windows.Forms.TextBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pic_y1_status = new System.Windows.Forms.PictureBox();
+            this.pic_y2_status = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pb_coli_status = new System.Windows.Forms.PictureBox();
             this.pb_gant_status = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pic_coli_status = new System.Windows.Forms.PictureBox();
+            this.pic_gant_status = new System.Windows.Forms.PictureBox();
             this.btn_clearTerminal_in = new System.Windows.Forms.Button();
             this.label51 = new System.Windows.Forms.Label();
             this.tb_terminal_in = new System.Windows.Forms.TextBox();
@@ -102,17 +101,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_x1_status)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_y2_status)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_y1_status)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_x_status)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_y_status)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_x1_status)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_x2_status)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_y1_status)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_y2_status)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_coli_status)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_gant_status)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_coli_status)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_gant_status)).BeginInit();
             this.gb_terminals.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_receiveStatus)).BeginInit();
             this.SuspendLayout();
@@ -126,7 +125,7 @@
             this.txt_x1_s.Size = new System.Drawing.Size(120, 35);
             this.txt_x1_s.TabIndex = 7;
             this.txt_x1_s.Click += new System.EventHandler(this.txtBox_Enter);
-            this.txt_x1_s.TextChanged += new System.EventHandler(this.textBox37_TextChanged);
+            this.txt_x1_s.TextChanged += new System.EventHandler(this.txt_x1_s_TextChanged);
             this.txt_x1_s.Enter += new System.EventHandler(this.txtBox_Enter);
             this.txt_x1_s.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_x1_s_KeyPress);
             // 
@@ -139,7 +138,7 @@
             this.txt_x2_s.Size = new System.Drawing.Size(120, 35);
             this.txt_x2_s.TabIndex = 8;
             this.txt_x2_s.Click += new System.EventHandler(this.txtBox_Enter);
-            this.txt_x2_s.TextChanged += new System.EventHandler(this.textBox38_TextChanged);
+            this.txt_x2_s.TextChanged += new System.EventHandler(this.txt_x2_s_TextChanged);
             this.txt_x2_s.Enter += new System.EventHandler(this.txtBox_Enter);
             this.txt_x2_s.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_x2_s_KeyPress);
             // 
@@ -152,7 +151,7 @@
             this.txt_y1_s.Size = new System.Drawing.Size(120, 35);
             this.txt_y1_s.TabIndex = 5;
             this.txt_y1_s.Click += new System.EventHandler(this.txtBox_Enter);
-            this.txt_y1_s.TextChanged += new System.EventHandler(this.textBox39_TextChanged);
+            this.txt_y1_s.TextChanged += new System.EventHandler(this.txt_y1_s_TextChanged);
             this.txt_y1_s.Enter += new System.EventHandler(this.txtBox_Enter);
             this.txt_y1_s.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_y1_s_KeyPress);
             // 
@@ -165,7 +164,7 @@
             this.txt_y2_s.Size = new System.Drawing.Size(120, 35);
             this.txt_y2_s.TabIndex = 6;
             this.txt_y2_s.Click += new System.EventHandler(this.txtBox_Enter);
-            this.txt_y2_s.TextChanged += new System.EventHandler(this.textBox40_TextChanged);
+            this.txt_y2_s.TextChanged += new System.EventHandler(this.txt_y2_s_TextChanged);
             this.txt_y2_s.Enter += new System.EventHandler(this.txtBox_Enter);
             this.txt_y2_s.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_y2_s_KeyPress);
             // 
@@ -178,7 +177,7 @@
             this.txt_coli_s.Size = new System.Drawing.Size(120, 35);
             this.txt_coli_s.TabIndex = 2;
             this.txt_coli_s.Click += new System.EventHandler(this.txtBox_Enter);
-            this.txt_coli_s.TextChanged += new System.EventHandler(this.textBox41_TextChanged);
+            this.txt_coli_s.TextChanged += new System.EventHandler(this.txt_coli_s_TextChanged);
             this.txt_coli_s.Enter += new System.EventHandler(this.txtBox_Enter);
             this.txt_coli_s.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_coli_s_KeyPress);
             // 
@@ -349,11 +348,6 @@
             this.label30.TabIndex = 53;
             this.label30.Text = "Gantry Angle";
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 50;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -376,21 +370,21 @@
             this.groupBox2.Controls.Add(this.pb_y1_status);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.pictureBox15);
+            this.groupBox2.Controls.Add(this.pic_x_status);
             this.groupBox2.Controls.Add(this.txt_x_s);
             this.groupBox2.Controls.Add(this.txt_x_a);
-            this.groupBox2.Controls.Add(this.pictureBox14);
-            this.groupBox2.Controls.Add(this.pictureBox6);
+            this.groupBox2.Controls.Add(this.pic_y_status);
+            this.groupBox2.Controls.Add(this.pic_x1_status);
             this.groupBox2.Controls.Add(this.txt_y_a);
-            this.groupBox2.Controls.Add(this.pictureBox5);
+            this.groupBox2.Controls.Add(this.pic_x2_status);
             this.groupBox2.Controls.Add(this.txt_y_s);
-            this.groupBox2.Controls.Add(this.pictureBox4);
+            this.groupBox2.Controls.Add(this.pic_y1_status);
             this.groupBox2.Controls.Add(this.txt_x2_s);
             this.groupBox2.Controls.Add(this.txt_y1_s);
             this.groupBox2.Controls.Add(this.txt_x1_s);
             this.groupBox2.Controls.Add(this.txt_x2_a);
             this.groupBox2.Controls.Add(this.txt_x1_a);
-            this.groupBox2.Controls.Add(this.pictureBox3);
+            this.groupBox2.Controls.Add(this.pic_y2_status);
             this.groupBox2.Controls.Add(this.label35);
             this.groupBox2.Controls.Add(this.txt_y1_a);
             this.groupBox2.Controls.Add(this.label34);
@@ -471,15 +465,15 @@
             this.label4.TabIndex = 85;
             this.label4.Text = "Field Size Y";
             // 
-            // pictureBox15
+            // pic_x_status
             // 
-            this.pictureBox15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox15.Location = new System.Drawing.Point(166, 66);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(20, 27);
-            this.pictureBox15.TabIndex = 84;
-            this.pictureBox15.TabStop = false;
-            this.pictureBox15.Visible = false;
+            this.pic_x_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_x_status.Location = new System.Drawing.Point(166, 66);
+            this.pic_x_status.Name = "pic_x_status";
+            this.pic_x_status.Size = new System.Drawing.Size(20, 27);
+            this.pic_x_status.TabIndex = 84;
+            this.pic_x_status.TabStop = false;
+            this.pic_x_status.Visible = false;
             // 
             // txt_x_s
             // 
@@ -505,25 +499,25 @@
             this.txt_x_a.Size = new System.Drawing.Size(120, 35);
             this.txt_x_a.TabIndex = 83;
             // 
-            // pictureBox14
+            // pic_y_status
             // 
-            this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox14.Location = new System.Drawing.Point(166, 27);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(20, 27);
-            this.pictureBox14.TabIndex = 81;
-            this.pictureBox14.TabStop = false;
-            this.pictureBox14.Visible = false;
+            this.pic_y_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_y_status.Location = new System.Drawing.Point(166, 27);
+            this.pic_y_status.Name = "pic_y_status";
+            this.pic_y_status.Size = new System.Drawing.Size(20, 27);
+            this.pic_y_status.TabIndex = 81;
+            this.pic_y_status.TabStop = false;
+            this.pic_y_status.Visible = false;
             // 
-            // pictureBox6
+            // pic_x1_status
             // 
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox6.Location = new System.Drawing.Point(166, 182);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(20, 29);
-            this.pictureBox6.TabIndex = 78;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Visible = false;
+            this.pic_x1_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_x1_status.Location = new System.Drawing.Point(166, 182);
+            this.pic_x1_status.Name = "pic_x1_status";
+            this.pic_x1_status.Size = new System.Drawing.Size(20, 29);
+            this.pic_x1_status.TabIndex = 78;
+            this.pic_x1_status.TabStop = false;
+            this.pic_x1_status.Visible = false;
             // 
             // txt_y_a
             // 
@@ -536,15 +530,15 @@
             this.txt_y_a.Size = new System.Drawing.Size(120, 35);
             this.txt_y_a.TabIndex = 80;
             // 
-            // pictureBox5
+            // pic_x2_status
             // 
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox5.Location = new System.Drawing.Point(166, 223);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(20, 29);
-            this.pictureBox5.TabIndex = 77;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Visible = false;
+            this.pic_x2_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_x2_status.Location = new System.Drawing.Point(166, 223);
+            this.pic_x2_status.Name = "pic_x2_status";
+            this.pic_x2_status.Size = new System.Drawing.Size(20, 29);
+            this.pic_x2_status.TabIndex = 77;
+            this.pic_x2_status.TabStop = false;
+            this.pic_x2_status.Visible = false;
             // 
             // txt_y_s
             // 
@@ -559,32 +553,32 @@
             this.txt_y_s.Enter += new System.EventHandler(this.txtBox_Enter);
             this.txt_y_s.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_y_s_KeyPress);
             // 
-            // pictureBox4
+            // pic_y1_status
             // 
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox4.Location = new System.Drawing.Point(166, 105);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(20, 29);
-            this.pictureBox4.TabIndex = 76;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Visible = false;
+            this.pic_y1_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_y1_status.Location = new System.Drawing.Point(166, 105);
+            this.pic_y1_status.Name = "pic_y1_status";
+            this.pic_y1_status.Size = new System.Drawing.Size(20, 29);
+            this.pic_y1_status.TabIndex = 76;
+            this.pic_y1_status.TabStop = false;
+            this.pic_y1_status.Visible = false;
             // 
-            // pictureBox3
+            // pic_y2_status
             // 
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(166, 144);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(20, 29);
-            this.pictureBox3.TabIndex = 75;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Visible = false;
+            this.pic_y2_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_y2_status.Location = new System.Drawing.Point(166, 144);
+            this.pic_y2_status.Name = "pic_y2_status";
+            this.pic_y2_status.Size = new System.Drawing.Size(20, 29);
+            this.pic_y2_status.TabIndex = 75;
+            this.pic_y2_status.TabStop = false;
+            this.pic_y2_status.Visible = false;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.pb_coli_status);
             this.groupBox3.Controls.Add(this.pb_gant_status);
-            this.groupBox3.Controls.Add(this.pictureBox2);
-            this.groupBox3.Controls.Add(this.pictureBox1);
+            this.groupBox3.Controls.Add(this.pic_coli_status);
+            this.groupBox3.Controls.Add(this.pic_gant_status);
             this.groupBox3.Controls.Add(this.txt_coli_s);
             this.groupBox3.Controls.Add(this.txt_gant_s);
             this.groupBox3.Controls.Add(this.txt_coli_a);
@@ -620,23 +614,23 @@
             this.pb_gant_status.TabIndex = 128;
             this.pb_gant_status.TabStop = false;
             // 
-            // pictureBox2
+            // pic_coli_status
             // 
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(168, 70);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(20, 27);
-            this.pictureBox2.TabIndex = 74;
-            this.pictureBox2.TabStop = false;
+            this.pic_coli_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_coli_status.Location = new System.Drawing.Point(168, 70);
+            this.pic_coli_status.Name = "pic_coli_status";
+            this.pic_coli_status.Size = new System.Drawing.Size(20, 27);
+            this.pic_coli_status.TabIndex = 74;
+            this.pic_coli_status.TabStop = false;
             // 
-            // pictureBox1
+            // pic_gant_status
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(168, 26);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(20, 27);
-            this.pictureBox1.TabIndex = 73;
-            this.pictureBox1.TabStop = false;
+            this.pic_gant_status.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pic_gant_status.Location = new System.Drawing.Point(168, 26);
+            this.pic_gant_status.Name = "pic_gant_status";
+            this.pic_gant_status.Size = new System.Drawing.Size(20, 27);
+            this.pic_gant_status.TabIndex = 73;
+            this.pic_gant_status.TabStop = false;
             // 
             // btn_clearTerminal_in
             // 
@@ -938,18 +932,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_x1_status)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_y2_status)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_y1_status)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_x_status)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_y_status)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_x1_status)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_x2_status)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_y1_status)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_y2_status)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_coli_status)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_gant_status)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_coli_status)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_gant_status)).EndInit();
             this.gb_terminals.ResumeLayout(false);
             this.gb_terminals.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_receiveStatus)).EndInit();
@@ -960,45 +954,44 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.TextBox txt_x1_s;
-        private System.Windows.Forms.TextBox txt_x2_s;
-        private System.Windows.Forms.TextBox txt_y1_s;
-        private System.Windows.Forms.TextBox txt_y2_s;
-        private System.Windows.Forms.TextBox txt_coli_s;
-        private System.Windows.Forms.TextBox txt_gant_s;
+        public System.Windows.Forms.PictureBox pic_x1_status;
+        public System.Windows.Forms.PictureBox pic_x2_status;
+        public System.Windows.Forms.PictureBox pic_y1_status;
+        public System.Windows.Forms.PictureBox pic_y2_status;
+        public System.Windows.Forms.PictureBox pic_coli_status;
+        public System.Windows.Forms.PictureBox pic_gant_status;
+        public System.Windows.Forms.TextBox txt_x1_s;
+        public System.Windows.Forms.TextBox txt_x2_s;
+        public System.Windows.Forms.TextBox txt_y1_s;
+        public System.Windows.Forms.TextBox txt_y2_s;
+        public System.Windows.Forms.TextBox txt_coli_s;
+        public System.Windows.Forms.TextBox txt_gant_s;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.TextBox txt_x1_a;
-        private System.Windows.Forms.TextBox txt_x2_a;
-        private System.Windows.Forms.TextBox txt_y1_a;
-        private System.Windows.Forms.TextBox txt_y2_a;
-        private System.Windows.Forms.TextBox txt_coli_a;
-        private System.Windows.Forms.TextBox txt_gant_a;
+        public System.Windows.Forms.TextBox txt_x1_a;
+        public System.Windows.Forms.TextBox txt_x2_a;
+        public System.Windows.Forms.TextBox txt_y1_a;
+        public System.Windows.Forms.TextBox txt_y2_a;
+        public System.Windows.Forms.TextBox txt_coli_a;
+        public System.Windows.Forms.TextBox txt_gant_a;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label30;
-        public System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ToolTip picBtnToolTip;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.PictureBox pictureBox15;
-        private System.Windows.Forms.TextBox txt_x_s;
-        private System.Windows.Forms.TextBox txt_x_a;
-        private System.Windows.Forms.PictureBox pictureBox14;
-        private System.Windows.Forms.TextBox txt_y_s;
-        private System.Windows.Forms.TextBox txt_y_a;
+        private System.Windows.Forms.PictureBox pic_x_status;
+        public System.Windows.Forms.TextBox txt_x_s;
+        public System.Windows.Forms.TextBox txt_x_a;
+        private System.Windows.Forms.PictureBox pic_y_status;
+        public System.Windows.Forms.TextBox txt_y_s;
+        public System.Windows.Forms.TextBox txt_y_a;
         private System.Windows.Forms.Button btn_clearTerminal_in;
         private System.Windows.Forms.Label label51;
         public System.Windows.Forms.TextBox tb_terminal_in;

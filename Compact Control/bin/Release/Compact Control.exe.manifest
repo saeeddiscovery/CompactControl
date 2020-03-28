@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Compact Control.exe" size="2445312">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Compact Control.exe" size="2445824">
       <assemblyIdentity name="Compact Control" version="1.5.6.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>VY/3Hyx7qwYMrcIbggrJjFglgx8=</dsig:DigestValue>
+        <dsig:DigestValue>TWBqN4Bq4Xyc0kAHtkg2tjRuDQI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -66,13 +66,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Compact Control.exe.config" size="947">
+  <file name="Compact Control.exe.config" size="946">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>Qg4UeYMRuaHXzm4xuZgw2xMASgo=</dsig:DigestValue>
+      <dsig:DigestValue>SFMxfKdzdmKnQXLa5QglgL3DIxM=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\CC.ico" size="93054">
