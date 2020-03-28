@@ -15,13 +15,9 @@
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
-[Rr]elease/
-[Rr]eleases/
-[Rr]elease*/
 x64/
 x86/
 bld/
-[Bb]in/
 [Oo]bj/
 [Ll]og/
 
@@ -85,6 +81,7 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
+*.application
 
 # Chutzpah Test files
 _Chutzpah*
@@ -164,6 +161,7 @@ DocProject/Help/html
 
 # Click-Once directory
 publish/
+app.publish/
 
 # Publish Web Output
 *.[Pp]ublish.xml
