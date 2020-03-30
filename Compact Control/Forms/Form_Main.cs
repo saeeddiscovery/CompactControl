@@ -16,7 +16,7 @@ namespace Compact_Control
     public partial class Form1 : Form
     {
         public static string portName = "Null";
-        public static string curr_baudRate = "";
+        public static string curr_baudRate = "19200";
         public static string showClinicalTerminals = "0";
         public static string DataBits = "8";
         public static string Parity = "None";
@@ -1974,6 +1974,72 @@ namespace Compact_Control
         bool isX1Set = false;
         bool isX2Set = false;
 
+        private void txt_gant_s_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                if (string.IsNullOrEmpty(txt_gant_s.Text) || string.IsNullOrWhiteSpace(txt_gant_s.Text))
+                {
+                    //gant_set = "0";
+                    gant_valid_deg = "0";
+                    gant_valid_raw = "0";
+                    pic_gant_status.Hide();
+                    pic_gant_status.BackgroundImage = Resources.Request;
+                    txt_coli_s.Focus();
+                    isGantSet = false;
+                    return;
+                }
+
+                double aa;
+                try
+                {
+                    aa = double.Parse(txt_gant_s.Text);
+                    if (aa < -180 || aa > 180)
+                    {
+                        //gant_set = "0";
+                        gant_valid_deg = "0";
+                        gant_valid_raw = "0";
+                        pic_gant_status.BackgroundImage = Resources.Error;
+                        pic_gant_status.Show();
+                        txt_gant_s.SelectAll();
+                        isGantSet = false;
+                        return;
+                    }
+
+                    gant_valid_deg = aa.ToString();
+                    //gant_set = ((int)((aa - gant_offset) / gant_gain)).ToString();
+                    gant_valid_raw = ((int)((aa - gant_offset) / gant_gain)).ToString();
+                    gant_t2 = double.Parse(txt_gant_s.Text);
+                    gant_d2 = double.Parse(gant_dv);
+
+                    if (Math.Abs(gant_t2 - gant_d2) > .11)
+                    {
+                        pic_gant_status.BackgroundImage = requestImage;
+                        isGantSet = true;
+                        pic_gant_status.Show();
+                    }
+                    else
+                    {
+                        pic_gant_status.Hide();
+                        isGantSet = false;
+                    }
+                    txt_gant_s.BackColor = Color.LightGreen;
+                    txt_coli_s.Focus();
+                }
+                catch
+                {
+                    txt_gant_s.SelectAll();
+                    //gant_set = "0";
+                    gant_valid_deg = "0";
+                    gant_valid_raw = "0";
+                    pic_gant_status.BackgroundImage = Resources.Error;
+                    pic_gant_status.Show();
+                    isGantSet = false;
+                    return;
+                }
+            }
+        }
+       
         private void gantSet()
         {
             if (gant_valid_raw != "0")
@@ -2491,7 +2557,7 @@ namespace Compact_Control
                         }
                     }
 
-                    x1_set = ((int)((a - x1_offset) / x1_gain)).ToString();
+                    //x1_set = ((int)((a - x1_offset) / x1_gain)).ToString();
                     x1_valid_raw = Math.Abs((int)((-a - x1_offset) / x1_gain)).ToString();
                     if (int.Parse(x1_valid_raw) > 65534 | int.Parse(x1_valid_raw) < 0)
                     {
@@ -2551,6 +2617,9 @@ namespace Compact_Control
                         }
                         else
                         {
+                            pic_x1_status.BackgroundImage = Resources.Request;
+                            pic_x1_status.Show();
+                            x1_set = x1_valid_raw;
                             if (timer_x1.Enabled)
                                 timer_x1.Enabled = false;
                         }
@@ -2644,7 +2713,7 @@ namespace Compact_Control
                         }
                     }
 
-                    x2_set = ((int)((a - x2_offset) / x2_gain)).ToString();
+                    //x2_set = ((int)((a - x2_offset) / x2_gain)).ToString();
                     x2_valid_raw = Math.Abs((int)((a - x2_offset) / x2_gain)).ToString();
                     if (int.Parse(x2_valid_raw) > 65534 | int.Parse(x2_valid_raw) < 0)
                     {
@@ -2704,6 +2773,9 @@ namespace Compact_Control
                         }
                         else
                         {
+                            pic_x2_status.BackgroundImage = Resources.Request;
+                            pic_x2_status.Show();
+                            x2_set = x2_valid_raw;
                             if (timer_x2.Enabled)
                                 timer_x2.Enabled = false;
                         }
@@ -2805,71 +2877,6 @@ namespace Compact_Control
             }
         }
 
-        private void txt_gant_s_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                if (string.IsNullOrEmpty(txt_gant_s.Text) || string.IsNullOrWhiteSpace(txt_gant_s.Text))
-                {
-                    //gant_set = "0";
-                    gant_valid_deg = "0";
-                    gant_valid_raw = "0";
-                    pic_gant_status.Hide();
-                    pic_gant_status.BackgroundImage = Resources.Request;
-                    txt_coli_s.Focus();
-                    isGantSet = false;
-                    return;
-                }
-
-                double aa;
-                try
-                {
-                    aa = double.Parse(txt_gant_s.Text);
-                    if (aa < -180 || aa > 180)
-                    {
-                        //gant_set = "0";
-                        gant_valid_deg = "0";
-                        gant_valid_raw = "0";
-                        pic_gant_status.BackgroundImage = Resources.Error;
-                        pic_gant_status.Show();
-                        txt_gant_s.SelectAll();
-                        isGantSet = false;
-                        return;
-                    }
-
-                    gant_valid_deg = aa.ToString();
-                    //gant_set = ((int)((aa - gant_offset) / gant_gain)).ToString();
-                    gant_valid_raw = ((int)((aa - gant_offset) / gant_gain)).ToString();
-                    gant_t2 = double.Parse(txt_gant_s.Text);
-                    gant_d2 = double.Parse(gant_dv);
-
-                    if (Math.Abs(gant_t2 - gant_d2) > .11)
-                    {
-                        pic_gant_status.BackgroundImage = requestImage;
-                        isGantSet = true;
-                        pic_gant_status.Show();
-                    }
-                    else
-                    {
-                        pic_gant_status.Hide();
-                        isGantSet = false;
-                    }
-                    txt_gant_s.BackColor = Color.LightGreen;
-                    txt_coli_s.Focus();
-                }
-                catch
-                {
-                    txt_gant_s.SelectAll();
-                    //gant_set = "0";
-                    gant_valid_deg = "0";
-                    gant_valid_raw = "0";
-                    pic_gant_status.BackgroundImage = Resources.Error;
-                    pic_gant_status.Show();
-                    isGantSet = false;
-                    return;
-                }
-            }
-        }
 
         private void txt_y1_s_TextChanged(object sender, EventArgs e)
         {
