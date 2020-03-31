@@ -1,11 +1,9 @@
-## [1.6.0-rc.4] - 2020-03-31
+## [2.1.0-rc.1] - 2020-03-31
 ### Added
-- Feature A
-- Feature B
+- Added some info (Company name and description)
 
 ### Changed
-- Change A
-- Change B
+- Project renamed from 'Compact Control' to 'CompactControl'
 
 ### Removed
-- Removed A
+- Nothing

@@ -14,8 +14,8 @@ jobs:
       - name: Archive Release
         uses: thedoctor0/zip-release@master
         with:
-          filename: 'CompactControl.zip'
           directory: './CompactControl/bin/Release'
+          filename: 'CompactControl.zip'
           exclusions: '*.pdb* /app.publish/* *.application'
 
       - run: |
@@ -28,7 +28,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # DRAFT_RELEASE: "false"
           # PRE_RELEASE: "false"
-          CHANGELOG_FILE: "CHANGELOG.md"
+          CHANGELOG_FILE: "ChangeLog.md"
           ALLOW_EMPTY_CHANGELOG: "false"
           ALLOW_TAG_PREFIX: "true"
           # RELEASE_NAME_PREFIX: "CompactControl "
