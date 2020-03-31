@@ -1,0 +1,7 @@
+{
+  "Port": "COM4",
+  "Baudrate": "19200",
+  "DataBits": "8",
+  "Parity": "None",
+  "clinicalTerminals": "0"
+}
