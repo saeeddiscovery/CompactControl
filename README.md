@@ -14,3 +14,9 @@ To publish the release automatically:
     ```> git tag v1.0.0 HEAD```
 - push with tag:   
     ```> git push origin --tag v1.0.0```
+
+- to delete a tag:    
+```git tag -d v1.0.0```
+- to delete a tag on the remote:  
+```git push --delete origin v1.0.0```
+
