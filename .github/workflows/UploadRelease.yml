@@ -11,14 +11,8 @@ jobs:
     steps:
       - name: Checkout Release
         uses: actions/checkout@v2
-      - name: Create a Release
-        uses: elgohr/Github-Release-Action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_ACTIONS }}
-        with:
-          args: "CompactControl"
       - name: Upload the artifacts
-        uses: CompactControl/bin/Release@master
+        uses: skx/github-action-publish-binaries@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_ACTIONS }}
         with:
