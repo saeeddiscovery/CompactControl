@@ -34,6 +34,6 @@ jobs:
           # RELEASE_NAME_PREFIX: "CompactControl "
         with:
           args: |
-              CompactControl.zip
+              ./CompactControl/bin/Release/CompactControl.zip
 
 
