@@ -15,7 +15,7 @@ jobs:
         uses: thedoctor0/zip-release@master
         with:
           filename: 'CompactControl.zip'
-          path: './CompactControl/bin/Release'
+          directory: './CompactControl/bin/Release'
           exclusions: '*.pdb* /app.publish/* *.application'
 
       - run: |
