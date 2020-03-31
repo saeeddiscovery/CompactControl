@@ -11,11 +11,11 @@ jobs:
     steps:
       - name: Checkout Release
         uses: actions/checkout@v2
-      - name: Upload the artifacts
-        uses: skx/github-action-publish-binaries@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_ACTIONS }}
+      - name: Archive Release
+        uses: thedoctor0/zip-release@master
         with:
-          args: 'example-*'
+          path: 'CompactControl/bin/release/'
+          filename: 'CompactControl.zip'
+          exclusions: '*.application *.pdb /app.publish/*'
 
 
