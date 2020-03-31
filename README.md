@@ -16,7 +16,7 @@
     - version MUST be in this format: ```1.1.1-rc.1``` (Change the first 3 numbers according to the version set in the Visual Studio)
 3. Commit changes.
 4. Tag the last commit. (Tag MUST be identical to the ChangeLog's version):  
-    ```> git tag v1.1.1-rc.1 HEAD```
+    ```> git tag -a v1.1.1-rc.1 -m "comment"```
 5. Push with the same tag:   
     ```> git push origin --tag v1.1.1-rc.1```
 
