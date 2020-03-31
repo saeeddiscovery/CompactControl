@@ -23,7 +23,7 @@ jobs:
           # PRE_RELEASE: "false"
           CHANGELOG_FILE: "CHANGELOG.md"
           ALLOW_EMPTY_CHANGELOG: "false"
-          ALLOW_TAG_PREFIX: "false"
+          ALLOW_TAG_PREFIX: "true"
           # RELEASE_NAME_PREFIX: "CompactControl "
         with:
           args: |

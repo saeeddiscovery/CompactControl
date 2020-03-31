@@ -1,4 +1,4 @@
-## [1.6.00] - 2020-03-31
+## [v1.6.00]
 ### Added
 - Feature A
 - Feature B
