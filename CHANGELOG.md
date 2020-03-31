@@ -1,4 +1,4 @@
-## [2.1.0-rc.1] - 2020-03-31
+## [2.1.1-rc.1] - 2020-03-31
 ### Added
 - Added some info (Company name and description)
 

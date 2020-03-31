@@ -1,7 +1,14 @@
 # CompactControl
 
-[!["Latest Release"](https://img.shields.io/badge/Release-v1.5.5-9cf.svg)](https://github.com/saeeddiscovery/CompactControl/releases/latest)
-![Publish](https://github.com/saeeddiscovery/CompactControl/workflows/Publish/badge.svg)
+[!["Language"](https://img.shields.io/github/languages/top/saeeddiscovery/CompactControl.svg)](https://github.com/saeeddiscovery/CompactControl/releases/latest)
+[![Publish](https://github.com/saeeddiscovery/CompactControl/workflows/Publish/badge.svg?branch=master)](https://github.com/saeeddiscovery/CompactControl/actions?query=workflow%3APublish)
+
+[!["Latest Release"](https://img.shields.io/github/v/release/saeeddiscovery/CompactControl.svg)](https://github.com/saeeddiscovery/CompactControl/releases/latest)
+[!["Release Date"](https://img.shields.io/github/release-date/saeeddiscovery/CompactControl.svg)](https://github.com/saeeddiscovery/CompactControl/releases/latest)
+
+[!["Contributors"](https://img.shields.io/github/contributors/saeeddiscovery/CompactControl.svg)](https://github.com/saeeddiscovery/CompactControl/graphs/contributors)
+
+
 
 ## Digital remote control for Compact LINAC system
 
