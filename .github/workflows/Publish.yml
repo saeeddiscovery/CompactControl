@@ -11,16 +11,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - run: |
+          export TEXT="CompactControl"
+          echo "::set-env name=RELEASE_NAME::$TEXT"
+
       - name: Release
         uses: docker://antonyurchenko/git-release:latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DRAFT_RELEASE: "false"
-          PRE_RELEASE: "false"
+          # DRAFT_RELEASE: "false"
+          # PRE_RELEASE: "false"
           CHANGELOG_FILE: "CHANGELOG.md"
           ALLOW_EMPTY_CHANGELOG: "false"
           ALLOW_TAG_PREFIX: "true"
-          RELEASE_NAME_PREFIX: "CompactControl "
+          # RELEASE_NAME_PREFIX: "CompactControl "
         with:
           args: |
               CompactControl.zip

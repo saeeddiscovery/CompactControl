@@ -8,7 +8,9 @@
 > This app would only work with our CompactControl board and interface
 
 To publish the release automatically:
-- Tag the last commit:  
+- Update CHANGELOG.md with the correct version and logs
+- Commit changes
+- Tag the last commit (Tag should be identical to Changelog Version):  
     ```> git tag v1.0.0 HEAD```
-- push with tags:   
-    ```> git push --tags```
+- push with tag:   
+    ```> git push origin --tag v1.0.0```
