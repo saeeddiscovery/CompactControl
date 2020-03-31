@@ -1,14 +1,11 @@
-## [1.6.0-rc.1] - 2020-03-31
+## [1.6.0-rc.2] - 2020-03-31
 ### Added
 - Feature A
 - Feature B
-- GitHub Actions as a CI system
-- GitHub Release as an Artifactory system
 
 ### Changed
-- User API
-- Workflow
+- Change A
+- Change B
 
 ### Removed
-- Previous CI build
-- Previous Artifactory
+- Removed A

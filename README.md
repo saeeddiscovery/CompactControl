@@ -10,7 +10,7 @@
 To publish the release automatically:
 - Update CHANGELOG.md with the correct version and logs
 - Commit changes
-- Tag the last commit (Tag should be identical to Changelog Version):  
+- Tag the last commit (Tag MUST be identical to the Changelog's version):  
     ```> git tag v1.0.0 HEAD```
 - push with tag:   
     ```> git push origin --tag v1.0.0```
