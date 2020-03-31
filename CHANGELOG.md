@@ -7,6 +7,7 @@
 
 ### Changed
 - User API
+- Workflow
 
 ### Removed
 - Previous CI build
