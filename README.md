@@ -33,8 +33,8 @@
 
 #### Method1: Using a list
 ``` bash
-> git tag -l "v1*" > tags_to_remove.txt```
-> git tag -d $(cat ./tags_to_remove.txt)```
+> git tag -l "v1*" > tags_to_remove.txt
+> git tag -d $(cat ./tags_to_remove.txt)
 > git push --delete origin $(cat ./tags_to_remove.txt)
 ```
 
