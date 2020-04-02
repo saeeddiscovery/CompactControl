@@ -1158,6 +1158,7 @@ namespace Compact_Control
 
             btn_cancelLearn.Enabled = false;
             btn_save.Enabled = false;
+            comboBox1.SelectedIndex = -1;
             groupBox4.Enabled = false;
         }
 
@@ -1946,6 +1947,7 @@ namespace Compact_Control
         {
             if (MessageBox.Show("Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
+                comboBox1.SelectedIndex = -1;
                 groupBox4.Enabled = false;
                 comboBox1.Enabled = false;
                 label11.Enabled = false;

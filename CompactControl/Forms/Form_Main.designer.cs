@@ -1718,14 +1718,14 @@
             this.splitContainer4.Panel2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.splitContainer4.Panel2.Controls.Add(this.groupBox3);
             this.splitContainer4.Size = new System.Drawing.Size(1086, 606);
-            this.splitContainer4.SplitterDistance = 550;
+            this.splitContainer4.SplitterDistance = 621;
             this.splitContainer4.TabIndex = 24;
             // 
             // btn_cancelLearn
             // 
             this.btn_cancelLearn.Enabled = false;
             this.btn_cancelLearn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_cancelLearn.Location = new System.Drawing.Point(16, 556);
+            this.btn_cancelLearn.Location = new System.Drawing.Point(412, 486);
             this.btn_cancelLearn.Name = "btn_cancelLearn";
             this.btn_cancelLearn.Size = new System.Drawing.Size(77, 30);
             this.btn_cancelLearn.TabIndex = 21;
@@ -1755,7 +1755,7 @@
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.groupBox4.Location = new System.Drawing.Point(16, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(406, 515);
+            this.groupBox4.Size = new System.Drawing.Size(390, 515);
             this.groupBox4.TabIndex = 22;
             this.groupBox4.TabStop = false;
             // 
@@ -2065,7 +2065,7 @@
             // btn_edit
             // 
             this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_edit.Location = new System.Drawing.Point(16, 524);
+            this.btn_edit.Location = new System.Drawing.Point(412, 454);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(160, 30);
             this.btn_edit.TabIndex = 19;
@@ -2077,7 +2077,7 @@
             // 
             this.btn_save.Enabled = false;
             this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_save.Location = new System.Drawing.Point(99, 556);
+            this.btn_save.Location = new System.Drawing.Point(495, 486);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(77, 30);
             this.btn_save.TabIndex = 20;
