@@ -1707,10 +1707,10 @@
             // 
             // splitContainer4.Panel1
             // 
+            this.splitContainer4.Panel1.Controls.Add(this.btn_save);
+            this.splitContainer4.Panel1.Controls.Add(this.btn_edit);
             this.splitContainer4.Panel1.Controls.Add(this.btn_cancelLearn);
             this.splitContainer4.Panel1.Controls.Add(this.groupBox4);
-            this.splitContainer4.Panel1.Controls.Add(this.btn_edit);
-            this.splitContainer4.Panel1.Controls.Add(this.btn_save);
             this.splitContainer4.Panel1.ForeColor = System.Drawing.SystemColors.ControlText;
             // 
             // splitContainer4.Panel2
@@ -1725,9 +1725,9 @@
             // 
             this.btn_cancelLearn.Enabled = false;
             this.btn_cancelLearn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_cancelLearn.Location = new System.Drawing.Point(412, 486);
+            this.btn_cancelLearn.Location = new System.Drawing.Point(332, 482);
             this.btn_cancelLearn.Name = "btn_cancelLearn";
-            this.btn_cancelLearn.Size = new System.Drawing.Size(77, 30);
+            this.btn_cancelLearn.Size = new System.Drawing.Size(59, 30);
             this.btn_cancelLearn.TabIndex = 21;
             this.btn_cancelLearn.Text = "Cancel";
             this.btn_cancelLearn.UseVisualStyleBackColor = true;
@@ -1755,7 +1755,7 @@
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.groupBox4.Location = new System.Drawing.Point(16, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(390, 515);
+            this.groupBox4.Size = new System.Drawing.Size(378, 515);
             this.groupBox4.TabIndex = 22;
             this.groupBox4.TabStop = false;
             // 
@@ -1763,7 +1763,7 @@
             // 
             this.updown_learn_speed.Enabled = false;
             this.updown_learn_speed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.updown_learn_speed.Location = new System.Drawing.Point(183, 444);
+            this.updown_learn_speed.Location = new System.Drawing.Point(178, 444);
             this.updown_learn_speed.Maximum = new decimal(new int[] {
             127,
             0,
@@ -1788,7 +1788,7 @@
             // 
             this.btn_learn.Enabled = false;
             this.btn_learn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_learn.Location = new System.Drawing.Point(183, 479);
+            this.btn_learn.Location = new System.Drawing.Point(178, 479);
             this.btn_learn.Name = "btn_learn";
             this.btn_learn.Size = new System.Drawing.Size(105, 30);
             this.btn_learn.TabIndex = 20;
@@ -1809,7 +1809,7 @@
             "X2",
             "Y1",
             "Y2"});
-            this.comboBox1.Location = new System.Drawing.Point(183, 16);
+            this.comboBox1.Location = new System.Drawing.Point(178, 16);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(105, 26);
             this.comboBox1.TabIndex = 19;
@@ -1819,7 +1819,7 @@
             // 
             this.btn_setRef.Enabled = false;
             this.btn_setRef.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_setRef.Location = new System.Drawing.Point(183, 397);
+            this.btn_setRef.Location = new System.Drawing.Point(178, 397);
             this.btn_setRef.Name = "btn_setRef";
             this.btn_setRef.Size = new System.Drawing.Size(105, 30);
             this.btn_setRef.TabIndex = 18;
@@ -1831,7 +1831,7 @@
             // 
             this.textBox12.Enabled = false;
             this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox12.Location = new System.Drawing.Point(183, 86);
+            this.textBox12.Location = new System.Drawing.Point(178, 86);
             this.textBox12.Name = "textBox12";
             this.textBox12.ReadOnly = true;
             this.textBox12.Size = new System.Drawing.Size(105, 24);
@@ -1841,7 +1841,7 @@
             // 
             this.textBox18.Enabled = false;
             this.textBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox18.Location = new System.Drawing.Point(183, 358);
+            this.textBox18.Location = new System.Drawing.Point(178, 358);
             this.textBox18.Name = "textBox18";
             this.textBox18.ReadOnly = true;
             this.textBox18.Size = new System.Drawing.Size(105, 24);
@@ -1851,7 +1851,7 @@
             // 
             this.textBox17.Enabled = false;
             this.textBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox17.Location = new System.Drawing.Point(183, 328);
+            this.textBox17.Location = new System.Drawing.Point(178, 328);
             this.textBox17.Name = "textBox17";
             this.textBox17.ReadOnly = true;
             this.textBox17.Size = new System.Drawing.Size(105, 24);
@@ -1891,14 +1891,14 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.groupBox2.Location = new System.Drawing.Point(8, 224);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(369, 92);
+            this.groupBox2.Size = new System.Drawing.Size(363, 92);
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Step2";
             // 
             // textBox15
             // 
-            this.textBox15.Location = new System.Drawing.Point(175, 51);
+            this.textBox15.Location = new System.Drawing.Point(170, 51);
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(105, 24);
             this.textBox15.TabIndex = 12;
@@ -1906,7 +1906,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(279, 54);
+            this.label19.Location = new System.Drawing.Point(274, 54);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(35, 18);
             this.label19.TabIndex = 11;
@@ -1915,7 +1915,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(320, 54);
+            this.checkBox2.Location = new System.Drawing.Point(314, 54);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(49, 22);
             this.checkBox2.TabIndex = 10;
@@ -1925,7 +1925,7 @@
             // 
             // textBox16
             // 
-            this.textBox16.Location = new System.Drawing.Point(175, 21);
+            this.textBox16.Location = new System.Drawing.Point(170, 21);
             this.textBox16.Name = "textBox16";
             this.textBox16.ReadOnly = true;
             this.textBox16.Size = new System.Drawing.Size(105, 24);
@@ -1953,7 +1953,7 @@
             // 
             this.textBox11.Enabled = false;
             this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.textBox11.Location = new System.Drawing.Point(183, 56);
+            this.textBox11.Location = new System.Drawing.Point(178, 56);
             this.textBox11.Name = "textBox11";
             this.textBox11.ReadOnly = true;
             this.textBox11.Size = new System.Drawing.Size(105, 24);
@@ -1971,14 +1971,14 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.groupBox1.Location = new System.Drawing.Point(8, 126);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(369, 92);
+            this.groupBox1.Size = new System.Drawing.Size(363, 92);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Step1";
             // 
             // textBox14
             // 
-            this.textBox14.Location = new System.Drawing.Point(175, 51);
+            this.textBox14.Location = new System.Drawing.Point(170, 51);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(105, 24);
             this.textBox14.TabIndex = 12;
@@ -1986,7 +1986,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(279, 54);
+            this.label18.Location = new System.Drawing.Point(274, 54);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(35, 18);
             this.label18.TabIndex = 11;
@@ -1995,7 +1995,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(320, 54);
+            this.checkBox1.Location = new System.Drawing.Point(314, 54);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(49, 22);
             this.checkBox1.TabIndex = 10;
@@ -2005,7 +2005,7 @@
             // 
             // textBox13
             // 
-            this.textBox13.Location = new System.Drawing.Point(175, 21);
+            this.textBox13.Location = new System.Drawing.Point(170, 21);
             this.textBox13.Name = "textBox13";
             this.textBox13.ReadOnly = true;
             this.textBox13.Size = new System.Drawing.Size(105, 24);
@@ -2065,9 +2065,9 @@
             // btn_edit
             // 
             this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_edit.Location = new System.Drawing.Point(412, 454);
+            this.btn_edit.Location = new System.Drawing.Point(332, 450);
             this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(160, 30);
+            this.btn_edit.Size = new System.Drawing.Size(124, 30);
             this.btn_edit.TabIndex = 19;
             this.btn_edit.Text = "Edit";
             this.btn_edit.UseVisualStyleBackColor = true;
@@ -2077,9 +2077,9 @@
             // 
             this.btn_save.Enabled = false;
             this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_save.Location = new System.Drawing.Point(495, 486);
+            this.btn_save.Location = new System.Drawing.Point(397, 482);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(77, 30);
+            this.btn_save.Size = new System.Drawing.Size(59, 30);
             this.btn_save.TabIndex = 20;
             this.btn_save.Text = "Save";
             this.btn_save.UseVisualStyleBackColor = true;
@@ -2129,10 +2129,10 @@
             // 
             this.tb_coli_flen.BackColor = System.Drawing.SystemColors.Window;
             this.tb_coli_flen.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tb_coli_flen.Location = new System.Drawing.Point(312, 325);
+            this.tb_coli_flen.Location = new System.Drawing.Point(275, 325);
             this.tb_coli_flen.Name = "tb_coli_flen";
             this.tb_coli_flen.ReadOnly = true;
-            this.tb_coli_flen.Size = new System.Drawing.Size(72, 24);
+            this.tb_coli_flen.Size = new System.Drawing.Size(52, 24);
             this.tb_coli_flen.TabIndex = 50;
             this.tb_coli_flen.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
@@ -2140,10 +2140,10 @@
             // 
             this.tb_coli_len.BackColor = System.Drawing.SystemColors.Window;
             this.tb_coli_len.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tb_coli_len.Location = new System.Drawing.Point(235, 325);
+            this.tb_coli_len.Location = new System.Drawing.Point(216, 325);
             this.tb_coli_len.Name = "tb_coli_len";
             this.tb_coli_len.ReadOnly = true;
-            this.tb_coli_len.Size = new System.Drawing.Size(72, 24);
+            this.tb_coli_len.Size = new System.Drawing.Size(56, 24);
             this.tb_coli_len.TabIndex = 49;
             this.tb_coli_len.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
@@ -2154,7 +2154,7 @@
             this.tb_coli_zpnt.Location = new System.Drawing.Point(156, 325);
             this.tb_coli_zpnt.Name = "tb_coli_zpnt";
             this.tb_coli_zpnt.ReadOnly = true;
-            this.tb_coli_zpnt.Size = new System.Drawing.Size(72, 24);
+            this.tb_coli_zpnt.Size = new System.Drawing.Size(57, 24);
             this.tb_coli_zpnt.TabIndex = 48;
             this.tb_coli_zpnt.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
@@ -2172,20 +2172,20 @@
             // 
             this.label68.AutoSize = true;
             this.label68.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label68.Location = new System.Drawing.Point(307, 277);
+            this.label68.Location = new System.Drawing.Point(272, 277);
             this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(83, 17);
+            this.label68.Size = new System.Drawing.Size(63, 17);
             this.label68.TabIndex = 46;
-            this.label68.Text = "Fine Length";
+            this.label68.Text = "Fine Len";
             // 
             // tb_gant_flen
             // 
             this.tb_gant_flen.BackColor = System.Drawing.SystemColors.Window;
             this.tb_gant_flen.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tb_gant_flen.Location = new System.Drawing.Point(312, 295);
+            this.tb_gant_flen.Location = new System.Drawing.Point(275, 295);
             this.tb_gant_flen.Name = "tb_gant_flen";
             this.tb_gant_flen.ReadOnly = true;
-            this.tb_gant_flen.Size = new System.Drawing.Size(72, 24);
+            this.tb_gant_flen.Size = new System.Drawing.Size(52, 24);
             this.tb_gant_flen.TabIndex = 45;
             this.tb_gant_flen.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
@@ -2193,10 +2193,10 @@
             // 
             this.tb_gant_len.BackColor = System.Drawing.SystemColors.Window;
             this.tb_gant_len.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tb_gant_len.Location = new System.Drawing.Point(235, 295);
+            this.tb_gant_len.Location = new System.Drawing.Point(216, 295);
             this.tb_gant_len.Name = "tb_gant_len";
             this.tb_gant_len.ReadOnly = true;
-            this.tb_gant_len.Size = new System.Drawing.Size(72, 24);
+            this.tb_gant_len.Size = new System.Drawing.Size(56, 24);
             this.tb_gant_len.TabIndex = 44;
             this.tb_gant_len.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
@@ -2389,10 +2389,10 @@
             // 
             this.tb_y2_offset.BackColor = System.Drawing.SystemColors.Window;
             this.tb_y2_offset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tb_y2_offset.Location = new System.Drawing.Point(275, 159);
+            this.tb_y2_offset.Location = new System.Drawing.Point(258, 159);
             this.tb_y2_offset.Name = "tb_y2_offset";
             this.tb_y2_offset.ReadOnly = true;
-            this.tb_y2_offset.Size = new System.Drawing.Size(105, 24);
+            this.tb_y2_offset.Size = new System.Drawing.Size(70, 24);
             this.tb_y2_offset.TabIndex = 17;
             this.tb_y2_offset.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
@@ -2403,7 +2403,7 @@
             this.tb_gant_zpnt.Location = new System.Drawing.Point(156, 295);
             this.tb_gant_zpnt.Name = "tb_gant_zpnt";
             this.tb_gant_zpnt.ReadOnly = true;
-            this.tb_gant_zpnt.Size = new System.Drawing.Size(72, 24);
+            this.tb_gant_zpnt.Size = new System.Drawing.Size(57, 24);
             this.tb_gant_zpnt.TabIndex = 43;
             this.tb_gant_zpnt.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
@@ -2411,10 +2411,10 @@
             // 
             this.tb_y1_offset.BackColor = System.Drawing.SystemColors.Window;
             this.tb_y1_offset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tb_y1_offset.Location = new System.Drawing.Point(275, 118);
+            this.tb_y1_offset.Location = new System.Drawing.Point(258, 118);
             this.tb_y1_offset.Name = "tb_y1_offset";
             this.tb_y1_offset.ReadOnly = true;
-            this.tb_y1_offset.Size = new System.Drawing.Size(105, 24);
+            this.tb_y1_offset.Size = new System.Drawing.Size(70, 24);
             this.tb_y1_offset.TabIndex = 16;
             this.tb_y1_offset.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
@@ -2422,10 +2422,10 @@
             // 
             this.tb_x2_offset.BackColor = System.Drawing.SystemColors.Window;
             this.tb_x2_offset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tb_x2_offset.Location = new System.Drawing.Point(274, 241);
+            this.tb_x2_offset.Location = new System.Drawing.Point(257, 241);
             this.tb_x2_offset.Name = "tb_x2_offset";
             this.tb_x2_offset.ReadOnly = true;
-            this.tb_x2_offset.Size = new System.Drawing.Size(105, 24);
+            this.tb_x2_offset.Size = new System.Drawing.Size(70, 24);
             this.tb_x2_offset.TabIndex = 19;
             this.tb_x2_offset.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
@@ -2443,10 +2443,10 @@
             // 
             this.tb_x1_offset.BackColor = System.Drawing.SystemColors.Window;
             this.tb_x1_offset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tb_x1_offset.Location = new System.Drawing.Point(274, 200);
+            this.tb_x1_offset.Location = new System.Drawing.Point(257, 200);
             this.tb_x1_offset.Name = "tb_x1_offset";
             this.tb_x1_offset.ReadOnly = true;
-            this.tb_x1_offset.Size = new System.Drawing.Size(105, 24);
+            this.tb_x1_offset.Size = new System.Drawing.Size(70, 24);
             this.tb_x1_offset.TabIndex = 18;
             this.tb_x1_offset.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
@@ -2454,10 +2454,10 @@
             // 
             this.tb_coli_offset.BackColor = System.Drawing.SystemColors.Window;
             this.tb_coli_offset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tb_coli_offset.Location = new System.Drawing.Point(275, 77);
+            this.tb_coli_offset.Location = new System.Drawing.Point(258, 77);
             this.tb_coli_offset.Name = "tb_coli_offset";
             this.tb_coli_offset.ReadOnly = true;
-            this.tb_coli_offset.Size = new System.Drawing.Size(105, 24);
+            this.tb_coli_offset.Size = new System.Drawing.Size(70, 24);
             this.tb_coli_offset.TabIndex = 15;
             this.tb_coli_offset.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
@@ -2465,7 +2465,7 @@
             // 
             this.label66.AutoSize = true;
             this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label66.Location = new System.Drawing.Point(243, 277);
+            this.label66.Location = new System.Drawing.Point(219, 277);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(52, 17);
             this.label66.TabIndex = 41;
@@ -2475,10 +2475,10 @@
             // 
             this.tb_gant_offset.BackColor = System.Drawing.SystemColors.Window;
             this.tb_gant_offset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.tb_gant_offset.Location = new System.Drawing.Point(275, 36);
+            this.tb_gant_offset.Location = new System.Drawing.Point(258, 36);
             this.tb_gant_offset.Name = "tb_gant_offset";
             this.tb_gant_offset.ReadOnly = true;
-            this.tb_gant_offset.Size = new System.Drawing.Size(105, 24);
+            this.tb_gant_offset.Size = new System.Drawing.Size(70, 24);
             this.tb_gant_offset.TabIndex = 14;
             this.tb_gant_offset.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
@@ -2489,7 +2489,7 @@
             this.tb_y2_gain.Location = new System.Drawing.Point(156, 159);
             this.tb_y2_gain.Name = "tb_y2_gain";
             this.tb_y2_gain.ReadOnly = true;
-            this.tb_y2_gain.Size = new System.Drawing.Size(105, 24);
+            this.tb_y2_gain.Size = new System.Drawing.Size(96, 24);
             this.tb_y2_gain.TabIndex = 11;
             this.tb_y2_gain.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
@@ -2497,7 +2497,7 @@
             // 
             this.label67.AutoSize = true;
             this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label67.Location = new System.Drawing.Point(165, 277);
+            this.label67.Location = new System.Drawing.Point(160, 277);
             this.label67.Name = "label67";
             this.label67.Size = new System.Drawing.Size(53, 17);
             this.label67.TabIndex = 40;
@@ -2510,7 +2510,7 @@
             this.tb_y1_gain.Location = new System.Drawing.Point(156, 118);
             this.tb_y1_gain.Name = "tb_y1_gain";
             this.tb_y1_gain.ReadOnly = true;
-            this.tb_y1_gain.Size = new System.Drawing.Size(105, 24);
+            this.tb_y1_gain.Size = new System.Drawing.Size(96, 24);
             this.tb_y1_gain.TabIndex = 10;
             this.tb_y1_gain.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
@@ -2521,7 +2521,7 @@
             this.tb_x2_gain.Location = new System.Drawing.Point(155, 241);
             this.tb_x2_gain.Name = "tb_x2_gain";
             this.tb_x2_gain.ReadOnly = true;
-            this.tb_x2_gain.Size = new System.Drawing.Size(105, 24);
+            this.tb_x2_gain.Size = new System.Drawing.Size(96, 24);
             this.tb_x2_gain.TabIndex = 13;
             this.tb_x2_gain.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
@@ -2532,7 +2532,7 @@
             this.tb_x1_gain.Location = new System.Drawing.Point(155, 200);
             this.tb_x1_gain.Name = "tb_x1_gain";
             this.tb_x1_gain.ReadOnly = true;
-            this.tb_x1_gain.Size = new System.Drawing.Size(105, 24);
+            this.tb_x1_gain.Size = new System.Drawing.Size(96, 24);
             this.tb_x1_gain.TabIndex = 12;
             this.tb_x1_gain.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
@@ -2543,7 +2543,7 @@
             this.tb_coli_gain.Location = new System.Drawing.Point(156, 77);
             this.tb_coli_gain.Name = "tb_coli_gain";
             this.tb_coli_gain.ReadOnly = true;
-            this.tb_coli_gain.Size = new System.Drawing.Size(105, 24);
+            this.tb_coli_gain.Size = new System.Drawing.Size(96, 24);
             this.tb_coli_gain.TabIndex = 9;
             this.tb_coli_gain.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
@@ -2554,7 +2554,7 @@
             this.tb_gant_gain.Location = new System.Drawing.Point(156, 36);
             this.tb_gant_gain.Name = "tb_gant_gain";
             this.tb_gant_gain.ReadOnly = true;
-            this.tb_gant_gain.Size = new System.Drawing.Size(105, 24);
+            this.tb_gant_gain.Size = new System.Drawing.Size(96, 24);
             this.tb_gant_gain.TabIndex = 8;
             this.tb_gant_gain.Enter += new System.EventHandler(this.txtBox_Enter);
             // 
@@ -2622,7 +2622,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.label23.Location = new System.Drawing.Point(296, 15);
+            this.label23.Location = new System.Drawing.Point(273, 15);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(48, 18);
             this.label23.TabIndex = 1;
