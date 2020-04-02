@@ -1,12 +1,10 @@
 # CompactControl
 
 [!["Language"](https://img.shields.io/github/languages/top/saeeddiscovery/CompactControl.svg)](https://docs.microsoft.com/en-us/dotnet/csharp)
-[![Publish](https://github.com/saeeddiscovery/CompactControl/workflows/Publish/badge.svg?branch=master)](https://github.com/saeeddiscovery/CompactControl/actions?query=workflow%3APublish)
-
 [!["Latest Release"](https://img.shields.io/github/v/release/saeeddiscovery/CompactControl.svg)](https://github.com/saeeddiscovery/CompactControl/releases/latest)
 [!["Release Date"](https://img.shields.io/github/release-date/saeeddiscovery/CompactControl.svg)](https://github.com/saeeddiscovery/CompactControl/releases/latest)
-
 [!["Contributors"](https://img.shields.io/github/contributors/saeeddiscovery/CompactControl.svg)](https://github.com/saeeddiscovery/CompactControl/graphs/contributors)
+[![Publish](https://github.com/saeeddiscovery/CompactControl/workflows/Publish/badge.svg?branch=master)](https://github.com/saeeddiscovery/CompactControl/actions?query=workflow%3APublish)
 
 
 
@@ -34,9 +32,11 @@
 ### If you want to remove a tag or multiple tags, it is beter to remove it first from the remote and then from the local repositories
 
 #### Method1: Using a list
-    - ```> git tag -l "v1*" > tags_to_remove.txt```
-    - ```> git tag -d $(cat ./tags_to_remove.txt)```
-    - ```> git push --delete origin $(cat ./tags_to_remove.txt)```
+``` bash
+> git tag -l "v1*" > tags_to_remove.txt```
+> git tag -d $(cat ./tags_to_remove.txt)```
+> git push --delete origin $(cat ./tags_to_remove.txt)
+```
 
 #### Method2: Manual
 - Delete a tag from remote repository:
