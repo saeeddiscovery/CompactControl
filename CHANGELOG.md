@@ -2,9 +2,6 @@
 > **Added**
 >> - Learn Speed in service mode
 
-
-## [2.2.1-rc.1] - 2020-04-01
-
 > **Changed**  
 >> - Application icon 
 
