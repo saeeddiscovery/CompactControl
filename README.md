@@ -1,7 +1,7 @@
 # CompactControl
 
 [!["Language"](https://img.shields.io/github/languages/top/saeeddiscovery/CompactControl.svg)](https://docs.microsoft.com/en-us/dotnet/csharp)
-[![Publish](https://github.com/saeeddiscovery/CompactControl/workflows/Publish/badge.svg?branch=master)](https://github.com/saeeddiscovery/CompactControl/actions?query=workflow%3APublish)
+[![Publish](https://github.com/saeeddiscovery/CompactControl/workflows/Publish/badge.svg?branch=master)](https://github.com/saeeddiscovery/CompactControl/runs/549304837?check_suite_focus=true)
 
 [!["Latest Release"](https://img.shields.io/github/v/release/saeeddiscovery/CompactControl.svg)](https://github.com/saeeddiscovery/CompactControl/releases/latest)
 [!["Release Date"](https://img.shields.io/github/release-date/saeeddiscovery/CompactControl.svg)](https://github.com/saeeddiscovery/CompactControl/releases/latest)
@@ -19,7 +19,7 @@
 
 1. Set the proper version in the Visual Studio.
     - Project (menu) -> CompactControl Properties... -> Application (tab) -> Assembly Information... (button)
-2. Update ```ChangeLog.md``` with the correct version and change logs.
+2. Update ```CHANGELOG.md``` with the correct version and change logs.
     - version MUST be in this format: ```1.1.1-rc.1``` (Change the first 3 numbers according to the version set in the Visual Studio)
 3. Commit changes.
 4. push to the master branch (or your current branch)
@@ -30,8 +30,8 @@
     ```> git push origin --tag v1.1.1-rc.1```
 
 -------------------------
-### Delete a tag from local repository: 
-```> git tag -d v1.1.1-rc.1```
-### Delete a tag from remote repository: 
-```> git push --delete origin v1.1.1-rc.1```
+- Delete a tag from local repository: 
+    - ```> git tag -d v1.1.1-rc.1```
+- Delete a tag from remote repository: 
+    - ```> git push --delete origin v1.1.1-rc.1```
 
