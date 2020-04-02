@@ -3569,6 +3569,9 @@ namespace Compact_Control
             ReadCalibFile();
             ReadLearnFile();
             ReadParametersFile();
+            write("w");
+            write("w");
+            write("w");
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
