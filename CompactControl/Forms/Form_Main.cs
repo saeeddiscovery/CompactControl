@@ -892,13 +892,13 @@ namespace Compact_Control
                         checkBox1.Checked = false;
                         checkBox2.Checked = false;
                     }
-                    button16.Enabled = true;
+                    btn_setRef.Enabled = true;
                 }
             }
             else
             {
                 textBox14.ReadOnly = false;
-                button16.Enabled = false;
+                btn_setRef.Enabled = false;
             }
         }
 
@@ -1019,13 +1019,13 @@ namespace Compact_Control
                         checkBox1.Checked = false;
                         checkBox2.Checked = false;
                     }
-                    button16.Enabled = true;
+                    btn_setRef.Enabled = true;
                 }
             }
             else
             {
                 textBox15.ReadOnly = false;
-                button16.Enabled = false;
+                btn_setRef.Enabled = false;
             }
         }
 
@@ -1060,42 +1060,42 @@ namespace Compact_Control
             {
                 case "Gantry":
                     btn_learn.Enabled = true;
-                    lable_learn_speed.Enabled = true;
+                    label_learn_speed.Enabled = true;
                     updown_learn_speed.Enabled = true;
                     textBox11.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
                     textBox12.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
                     break;
                 case "Collimator":
                     btn_learn.Enabled = true;
-                    lable_learn_speed.Enabled = true;
+                    label_learn_speed.Enabled = true;
                     updown_learn_speed.Enabled = true;
                     textBox11.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
                     textBox12.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
                     break;
                 case "X1":
                     btn_learn.Enabled = false;
-                    lable_learn_speed.Enabled = false;
+                    label_learn_speed.Enabled = false;
                     updown_learn_speed.Enabled = false;
                     textBox11.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
                     textBox12.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
                     break;
                 case "X2":
                     btn_learn.Enabled = false;
-                    lable_learn_speed.Enabled = false;
+                    label_learn_speed.Enabled = false;
                     updown_learn_speed.Enabled = false;
                     textBox11.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
                     textBox12.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
                     break;
                 case "Y1":
                     btn_learn.Enabled = false;
-                    lable_learn_speed.Enabled = false;
+                    label_learn_speed.Enabled = false;
                     updown_learn_speed.Enabled = false;
                     textBox11.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
                     textBox12.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
                     break;
                 case "Y2":
                     btn_learn.Enabled = false;
-                    lable_learn_speed.Enabled = false;
+                    label_learn_speed.Enabled = false;
                     updown_learn_speed.Enabled = false;
                     textBox11.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
                     textBox12.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();

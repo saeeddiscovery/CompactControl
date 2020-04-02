@@ -137,9 +137,11 @@
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
             this.btn_cancelLearn = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.updown_learn_speed = new System.Windows.Forms.NumericUpDown();
+            this.label_learn_speed = new System.Windows.Forms.Label();
             this.btn_learn = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button16 = new System.Windows.Forms.Button();
+            this.btn_setRef = new System.Windows.Forms.Button();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.textBox18 = new System.Windows.Forms.TextBox();
             this.textBox17 = new System.Windows.Forms.TextBox();
@@ -337,8 +339,6 @@
             this.timer_y1 = new System.Windows.Forms.Timer(this.components);
             this.timer_y2 = new System.Windows.Forms.Timer(this.components);
             this.timer_gant = new System.Windows.Forms.Timer(this.components);
-            this.lable_learn_speed = new System.Windows.Forms.Label();
-            this.updown_learn_speed = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).BeginInit();
@@ -379,6 +379,7 @@
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.updown_learn_speed)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -414,7 +415,6 @@
             this.panel6.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.updown_learn_speed)).BeginInit();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -1736,10 +1736,10 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.updown_learn_speed);
-            this.groupBox4.Controls.Add(this.lable_learn_speed);
+            this.groupBox4.Controls.Add(this.label_learn_speed);
             this.groupBox4.Controls.Add(this.btn_learn);
             this.groupBox4.Controls.Add(this.comboBox1);
-            this.groupBox4.Controls.Add(this.button16);
+            this.groupBox4.Controls.Add(this.btn_setRef);
             this.groupBox4.Controls.Add(this.textBox12);
             this.groupBox4.Controls.Add(this.textBox18);
             this.groupBox4.Controls.Add(this.textBox17);
@@ -1758,6 +1758,31 @@
             this.groupBox4.Size = new System.Drawing.Size(406, 515);
             this.groupBox4.TabIndex = 22;
             this.groupBox4.TabStop = false;
+            // 
+            // updown_learn_speed
+            // 
+            this.updown_learn_speed.Enabled = false;
+            this.updown_learn_speed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.updown_learn_speed.Location = new System.Drawing.Point(183, 444);
+            this.updown_learn_speed.Maximum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            0});
+            this.updown_learn_speed.Name = "updown_learn_speed";
+            this.updown_learn_speed.Size = new System.Drawing.Size(58, 29);
+            this.updown_learn_speed.TabIndex = 80;
+            // 
+            // label_learn_speed
+            // 
+            this.label_learn_speed.AutoSize = true;
+            this.label_learn_speed.Enabled = false;
+            this.label_learn_speed.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.label_learn_speed.Location = new System.Drawing.Point(8, 450);
+            this.label_learn_speed.Name = "label_learn_speed";
+            this.label_learn_speed.Size = new System.Drawing.Size(102, 18);
+            this.label_learn_speed.TabIndex = 22;
+            this.label_learn_speed.Text = "Learn Speed";
             // 
             // btn_learn
             // 
@@ -1790,17 +1815,17 @@
             this.comboBox1.TabIndex = 19;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // button16
+            // btn_setRef
             // 
-            this.button16.Enabled = false;
-            this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.button16.Location = new System.Drawing.Point(183, 397);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(105, 30);
-            this.button16.TabIndex = 18;
-            this.button16.Text = "Set Ref";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
+            this.btn_setRef.Enabled = false;
+            this.btn_setRef.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_setRef.Location = new System.Drawing.Point(183, 397);
+            this.btn_setRef.Name = "btn_setRef";
+            this.btn_setRef.Size = new System.Drawing.Size(105, 30);
+            this.btn_setRef.TabIndex = 18;
+            this.btn_setRef.Text = "Set Ref";
+            this.btn_setRef.UseVisualStyleBackColor = true;
+            this.btn_setRef.Click += new System.EventHandler(this.button16_Click);
             // 
             // textBox12
             // 
@@ -4005,31 +4030,6 @@
             this.timer_gant.Interval = 1500;
             this.timer_gant.Tick += new System.EventHandler(this.timer_gant_Tick);
             // 
-            // lable_learn_speed
-            // 
-            this.lable_learn_speed.AutoSize = true;
-            this.lable_learn_speed.Enabled = false;
-            this.lable_learn_speed.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.lable_learn_speed.Location = new System.Drawing.Point(8, 450);
-            this.lable_learn_speed.Name = "lable_learn_speed";
-            this.lable_learn_speed.Size = new System.Drawing.Size(102, 18);
-            this.lable_learn_speed.TabIndex = 22;
-            this.lable_learn_speed.Text = "Learn Speed";
-            // 
-            // updown_learn_speed
-            // 
-            this.updown_learn_speed.Enabled = false;
-            this.updown_learn_speed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.updown_learn_speed.Location = new System.Drawing.Point(183, 444);
-            this.updown_learn_speed.Maximum = new decimal(new int[] {
-            127,
-            0,
-            0,
-            0});
-            this.updown_learn_speed.Name = "updown_learn_speed";
-            this.updown_learn_speed.Size = new System.Drawing.Size(58, 29);
-            this.updown_learn_speed.TabIndex = 80;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4099,6 +4099,7 @@
             this.splitContainer4.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.updown_learn_speed)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -4146,7 +4147,6 @@
             this.tableLayoutPanel3.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.updown_learn_speed)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -4243,7 +4243,7 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btn_learn;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button btn_setRef;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.TextBox textBox17;
@@ -4460,7 +4460,7 @@
         public System.Windows.Forms.Timer timer_y2;
         public System.Windows.Forms.Timer timer_gant;
         private System.Windows.Forms.NumericUpDown updown_learn_speed;
-        private System.Windows.Forms.Label lable_learn_speed;
+        private System.Windows.Forms.Label label_learn_speed;
     }
 }
 
