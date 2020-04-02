@@ -337,6 +337,8 @@
             this.timer_y1 = new System.Windows.Forms.Timer(this.components);
             this.timer_y2 = new System.Windows.Forms.Timer(this.components);
             this.timer_gant = new System.Windows.Forms.Timer(this.components);
+            this.lable_learn_speed = new System.Windows.Forms.Label();
+            this.updown_learn_speed = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).BeginInit();
@@ -412,6 +414,7 @@
             this.panel6.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.updown_learn_speed)).BeginInit();
             this.SuspendLayout();
             // 
             // serialPort1
@@ -1722,7 +1725,7 @@
             // 
             this.btn_cancelLearn.Enabled = false;
             this.btn_cancelLearn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_cancelLearn.Location = new System.Drawing.Point(16, 486);
+            this.btn_cancelLearn.Location = new System.Drawing.Point(16, 556);
             this.btn_cancelLearn.Name = "btn_cancelLearn";
             this.btn_cancelLearn.Size = new System.Drawing.Size(77, 30);
             this.btn_cancelLearn.TabIndex = 21;
@@ -1732,6 +1735,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.updown_learn_speed);
+            this.groupBox4.Controls.Add(this.lable_learn_speed);
             this.groupBox4.Controls.Add(this.btn_learn);
             this.groupBox4.Controls.Add(this.comboBox1);
             this.groupBox4.Controls.Add(this.button16);
@@ -1750,7 +1755,7 @@
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.groupBox4.Location = new System.Drawing.Point(16, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(386, 439);
+            this.groupBox4.Size = new System.Drawing.Size(406, 515);
             this.groupBox4.TabIndex = 22;
             this.groupBox4.TabStop = false;
             // 
@@ -1758,9 +1763,9 @@
             // 
             this.btn_learn.Enabled = false;
             this.btn_learn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_learn.Location = new System.Drawing.Point(138, 401);
+            this.btn_learn.Location = new System.Drawing.Point(183, 479);
             this.btn_learn.Name = "btn_learn";
-            this.btn_learn.Size = new System.Drawing.Size(72, 30);
+            this.btn_learn.Size = new System.Drawing.Size(105, 30);
             this.btn_learn.TabIndex = 20;
             this.btn_learn.Text = "Learn";
             this.btn_learn.UseVisualStyleBackColor = true;
@@ -1789,9 +1794,9 @@
             // 
             this.button16.Enabled = false;
             this.button16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.button16.Location = new System.Drawing.Point(216, 401);
+            this.button16.Location = new System.Drawing.Point(183, 397);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(72, 30);
+            this.button16.Size = new System.Drawing.Size(105, 30);
             this.button16.TabIndex = 18;
             this.button16.Text = "Set Ref";
             this.button16.UseVisualStyleBackColor = true;
@@ -2035,7 +2040,7 @@
             // btn_edit
             // 
             this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_edit.Location = new System.Drawing.Point(16, 454);
+            this.btn_edit.Location = new System.Drawing.Point(16, 524);
             this.btn_edit.Name = "btn_edit";
             this.btn_edit.Size = new System.Drawing.Size(160, 30);
             this.btn_edit.TabIndex = 19;
@@ -2047,7 +2052,7 @@
             // 
             this.btn_save.Enabled = false;
             this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_save.Location = new System.Drawing.Point(99, 486);
+            this.btn_save.Location = new System.Drawing.Point(99, 556);
             this.btn_save.Name = "btn_save";
             this.btn_save.Size = new System.Drawing.Size(77, 30);
             this.btn_save.TabIndex = 20;
@@ -4000,6 +4005,31 @@
             this.timer_gant.Interval = 1500;
             this.timer_gant.Tick += new System.EventHandler(this.timer_gant_Tick);
             // 
+            // lable_learn_speed
+            // 
+            this.lable_learn_speed.AutoSize = true;
+            this.lable_learn_speed.Enabled = false;
+            this.lable_learn_speed.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.lable_learn_speed.Location = new System.Drawing.Point(8, 450);
+            this.lable_learn_speed.Name = "lable_learn_speed";
+            this.lable_learn_speed.Size = new System.Drawing.Size(102, 18);
+            this.lable_learn_speed.TabIndex = 22;
+            this.lable_learn_speed.Text = "Learn Speed";
+            // 
+            // updown_learn_speed
+            // 
+            this.updown_learn_speed.Enabled = false;
+            this.updown_learn_speed.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.updown_learn_speed.Location = new System.Drawing.Point(183, 444);
+            this.updown_learn_speed.Maximum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            0});
+            this.updown_learn_speed.Name = "updown_learn_speed";
+            this.updown_learn_speed.Size = new System.Drawing.Size(58, 29);
+            this.updown_learn_speed.TabIndex = 80;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4116,6 +4146,7 @@
             this.tableLayoutPanel3.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.updown_learn_speed)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -4428,6 +4459,8 @@
         public System.Windows.Forms.Timer timer_y1;
         public System.Windows.Forms.Timer timer_y2;
         public System.Windows.Forms.Timer timer_gant;
+        private System.Windows.Forms.NumericUpDown updown_learn_speed;
+        private System.Windows.Forms.Label lable_learn_speed;
     }
 }
 

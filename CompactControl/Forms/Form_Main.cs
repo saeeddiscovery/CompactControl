@@ -1060,31 +1060,43 @@ namespace Compact_Control
             {
                 case "Gantry":
                     btn_learn.Enabled = true;
+                    lable_learn_speed.Enabled = true;
+                    updown_learn_speed.Enabled = true;
                     textBox11.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
                     textBox12.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
                     break;
                 case "Collimator":
                     btn_learn.Enabled = true;
+                    lable_learn_speed.Enabled = true;
+                    updown_learn_speed.Enabled = true;
                     textBox11.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
                     textBox12.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
                     break;
                 case "X1":
                     btn_learn.Enabled = false;
+                    lable_learn_speed.Enabled = false;
+                    updown_learn_speed.Enabled = false;
                     textBox11.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
                     textBox12.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
                     break;
                 case "X2":
                     btn_learn.Enabled = false;
+                    lable_learn_speed.Enabled = false;
+                    updown_learn_speed.Enabled = false;
                     textBox11.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
                     textBox12.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
                     break;
                 case "Y1":
                     btn_learn.Enabled = false;
+                    lable_learn_speed.Enabled = false;
+                    updown_learn_speed.Enabled = false;
                     textBox11.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
                     textBox12.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
                     break;
                 case "Y2":
                     btn_learn.Enabled = false;
+                    lable_learn_speed.Enabled = false;
+                    updown_learn_speed.Enabled = false;
                     textBox11.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
                     textBox12.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
                     break;
@@ -1825,6 +1837,15 @@ namespace Compact_Control
                         case "dia":
                             write(diag_demand);
                             break;
+                        case "lnv":
+                            if (updown_learn_speed.Enabled==true)
+                            {
+                                write(updown_learn_speed.Value.ToString() + "/");
+                            }
+                            break;
+                        case "lnk":
+                            MessageBox.Show("The learn has been failed!\n Please reduce the learn speed and try again");
+                            break;
                         default:
                             writeToOtherTerminal(currData, false);
                             break;
@@ -1934,7 +1955,7 @@ namespace Compact_Control
 
                 btn_cancelLearn.Enabled = false;
                 btn_save.Enabled = false;
-                MessageBox.Show("Learn process is cancelled\nAll parameters reverted back to their previous values");
+                MessageBox.Show("The Learn has been cancelled\nAll parameters will be reset to their previous values\nPlease \"RESET\" the Hardware");
             }
         }
 
