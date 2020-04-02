@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>res\icon.ico</ApplicationIcon>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
@@ -209,6 +208,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="res\Calib.dat" />
+    <None Include="res\icon.psd" />
+    <None Include="res\Learn.dat" />
+    <None Include="res\Parameters.dat" />
+    <None Include="res\Settings.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Error.png" />
@@ -295,6 +299,10 @@
     <None Include="Resources\btn_AcceptPatient_Disabled.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="res\CC-Logo-transparent.png" />
+    <Content Include="res\CC-Logo.png" />
+    <Content Include="res\icon.ico" />
+    <Content Include="res\icon.png" />
     <None Include="Resources\CC-Logo.png" />
     <None Include="Resources\CC-Logo-transparent.png" />
     <Content Include="Resources\CC.ico" />
@@ -324,6 +332,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
