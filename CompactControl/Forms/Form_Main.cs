@@ -127,6 +127,7 @@ namespace Compact_Control
         public double gant_t2, gant_d2, collim_t2, collim_d2;
 
         bool in_diag = false;
+        bool is_read_file = false;
 
         public string adc;
 
@@ -708,6 +709,7 @@ namespace Compact_Control
 
                             tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
                             tb_gant_offset.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
+                            btn_save.Enabled = true;
 
                             break;
                         case "Collimator":
@@ -719,6 +721,7 @@ namespace Compact_Control
 
                             tb_coli_gain.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
                             tb_coli_offset.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
+                            btn_save.Enabled = true;
 
                             break;
                         case "X1":
@@ -730,6 +733,7 @@ namespace Compact_Control
 
                             tb_x1_gain.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
                             tb_x1_offset.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
+                            btn_save.Enabled = true;
 
                             break;
                         case "X2":
@@ -741,6 +745,7 @@ namespace Compact_Control
 
                             tb_x2_gain.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
                             tb_x2_offset.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
+                            btn_save.Enabled = true;
 
                             break;
                         case "Y1":
@@ -752,6 +757,7 @@ namespace Compact_Control
 
                             tb_y1_gain.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
                             tb_y1_offset.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
+                            btn_save.Enabled = true;
 
                             break;
                         case "Y2":
@@ -763,6 +769,7 @@ namespace Compact_Control
 
                             tb_y2_gain.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
                             tb_y2_offset.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
+                            btn_save.Enabled = true;
 
                             break;
                     }
@@ -1109,7 +1116,7 @@ namespace Compact_Control
             comboBox1.Enabled = true;
             label11.Enabled = true;
             btn_cancelLearn.Enabled = true;
-            btn_save.Enabled = true;
+            //btn_save.Enabled = true;
         }
 
         void SaveCalibFile()
@@ -1154,6 +1161,7 @@ namespace Compact_Control
             {
                 SaveCalibFile();
                 SaveLearnFile();
+                label_learn.Hide();
             }
 
             btn_cancelLearn.Enabled = false;
@@ -1607,44 +1615,7 @@ namespace Compact_Control
                                 y2_dv = Math.Round(((y2_gain * double.Parse(y2_co)) + y2_offset), 2, MidpointRounding.ToEven).ToString();
                             else
                                 y2_dv = Math.Round(-((y2_gain * double.Parse(y2_co)) + y2_offset), 1, MidpointRounding.ToEven).ToString();
-                            break;
-                        case "lok":
-                            tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
-                            tb_coli_gain.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
-                            tb_x1_gain.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
-                            tb_x2_gain.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
-                            tb_y1_gain.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
-                            tb_y2_gain.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
-
-                            tb_gant_offset.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
-                            tb_coli_offset.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
-                            tb_x1_offset.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
-                            tb_x2_offset.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
-                            tb_y1_offset.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
-                            tb_y2_offset.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
-
-                            tb_gant_zpnt.Text = gant_zpnt;
-                            tb_gant_len.Text = gant_length;
-                            tb_gant_flen.Text = gant_fine_length;
-                            tb_coli_zpnt.Text = collim_zpnt;
-                            tb_coli_len.Text = collim_length;
-                            tb_coli_flen.Text = collim_fine_length;
-                            try
-                            {
-                                MessageBox.Show("Learning was succesfull\nUse the Save button to save the results");
-                                btn_cancelLearn.Enabled = true;
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
-                            }
-                            break;
-                        case "sok":
-                            MessageBox.Show("Saving was succesfull!");
-                            break;
-                        case "snk":
-                            MessageBox.Show("Error: Saving was not succesfull!");
-                            break;
+                            break;                        
                         case "c43":
                             gant_zpnt = currData.Substring(3, currData.Length - 3);
                             break;
@@ -1842,10 +1813,52 @@ namespace Compact_Control
                             if (updown_learn_speed.Enabled==true)
                             {
                                 write(updown_learn_speed.Value.ToString() + "/");
+                                label_learn_speed.Enabled = false;
+                                updown_learn_speed.Enabled = false;
+                                btn_learn.Enabled = false;
+                                label_learn.Text = "Learn in progress...";
+                                label_learn.Show();
+                            }
+                            break;
+                        case "lok":
+                            //tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
+                            //tb_coli_gain.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
+                            //tb_x1_gain.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
+                            //tb_x2_gain.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
+                            //tb_y1_gain.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
+                            //tb_y2_gain.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
+
+                            //tb_gant_offset.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
+                            //tb_coli_offset.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
+                            //tb_x1_offset.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
+                            //tb_x2_offset.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
+                            //tb_y1_offset.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
+                            //tb_y2_offset.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
+
+                            tb_gant_zpnt.Text = gant_zpnt;
+                            tb_gant_len.Text = gant_length;
+                            tb_gant_flen.Text = gant_fine_length;
+                            tb_coli_zpnt.Text = collim_zpnt;
+                            tb_coli_len.Text = collim_length;
+                            tb_coli_flen.Text = collim_fine_length;
+                            btn_save.Enabled = true;
+                            try
+                            {
+                                label_learn.Text = "Learn Complete.";
+                                MessageBox.Show("Learning was succesfull\nUse the Save button to save the results");
+                                btn_cancelLearn.Enabled = true;
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
                             }
                             break;
                         case "lnk":
                             MessageBox.Show("The learn has been failed!\n Please reduce the learn speed and try again");
+                            label_learn_speed.Enabled = true;
+                            updown_learn_speed.Enabled = true;
+                            btn_learn.Enabled = true;
+                            label_learn.Hide();
                             break;
                         default:
                             writeToOtherTerminal(currData, false);
@@ -1914,18 +1927,23 @@ namespace Compact_Control
 
         private void btn_learn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            if (btn_save.Enabled == false)
             {
-                
-                if (serialPort1.IsOpen == false)
-                    serialPort1.Open();
-                if (comboBox1.Text == "Gantry")
-                    write("t");
-                if (comboBox1.Text == "Collimator")
-                    write("u");
-            }
-        }
+                if (MessageBox.Show("Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                {
 
+                    if (serialPort1.IsOpen == false)
+                        serialPort1.Open();
+                    if (comboBox1.Text == "Gantry")
+                        write("t");
+                    if (comboBox1.Text == "Collimator")
+                        write("u");
+                }
+            }
+            else            
+                MessageBox.Show("There are some parameters to save\nPlease Save or cancel them first.");
+            
+        }
         private void timer4_Tick(object sender, EventArgs e)
         {
             lbl_init.Hide();
@@ -1946,7 +1964,7 @@ namespace Compact_Control
         private void btn_cancelLearn_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Are you sure?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-            {
+            {                
                 comboBox1.SelectedIndex = -1;
                 groupBox4.Enabled = false;
                 comboBox1.Enabled = false;
@@ -1956,8 +1974,16 @@ namespace Compact_Control
                 ReadLearnFile();
 
                 btn_cancelLearn.Enabled = false;
-                btn_save.Enabled = false;
-                MessageBox.Show("The Learn has been cancelled\nAll parameters will be reset to their previous values\nPlease \"RESET\" the Hardware");
+                btn_save.Enabled = false;                
+                if (label_learn.Visible)
+                {
+                    write("/");
+                    label_learn.Hide();
+                    MessageBox.Show("The Learn has been cancelled\nAll parameters & Hardware will be reset");
+                }
+                else
+                    MessageBox.Show("The Callibration has been cancelled\nAll parameters will be reset");
+
             }
         }
 
@@ -2216,6 +2242,11 @@ namespace Compact_Control
             }
             else
                 collim_set = collim_valid_raw;
+        }
+
+        private void Tb_coli_flen_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void txt_y1_s_KeyPress(object sender, KeyPressEventArgs e)
@@ -3064,18 +3095,30 @@ namespace Compact_Control
                 y2_gain = double.Parse(values.y2_gain);
                 y2_offset = double.Parse(values.y2_offset);
 
+                is_read_file = true;
                 tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
+                is_read_file = true;
                 tb_coli_gain.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
+                is_read_file = true;
                 tb_x1_gain.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
+                is_read_file = true;
                 tb_x2_gain.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
+                is_read_file = true;
                 tb_y1_gain.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
+                is_read_file = true;
                 tb_y2_gain.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
 
+                is_read_file = true;
                 tb_gant_offset.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
+                is_read_file = true;
                 tb_coli_offset.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
+                is_read_file = true;
                 tb_x1_offset.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
+                is_read_file = true;
                 tb_x2_offset.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
+                is_read_file = true;
                 tb_y1_offset.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
+                is_read_file = true;
                 tb_y2_offset.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
             }
             catch (Exception ex)
@@ -3221,12 +3264,7 @@ namespace Compact_Control
                 {
                     serialPort1.Open();
                     //Thread.Sleep(200);
-                }
-
-
-                ReadCalibFile();
-                ReadLearnFile();
-                ReadParametersFile();
+                }                
 
                 tabControl1.Enabled = true;
                 panel_AdminControls.Enabled = true;
@@ -3528,6 +3566,9 @@ namespace Compact_Control
         {
             if (serialPort1.IsOpen == false)
                 SetConnection(true);
+            ReadCalibFile();
+            ReadLearnFile();
+            ReadParametersFile();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -3627,6 +3668,6 @@ namespace Compact_Control
             {
                 MessageBox.Show("Error saving parameters to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
             }
-        }
+        }   
     }
 }

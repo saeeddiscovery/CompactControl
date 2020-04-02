@@ -135,6 +135,8 @@
             this.btn_x1_in = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.btn_save = new System.Windows.Forms.Button();
+            this.btn_edit = new System.Windows.Forms.Button();
             this.btn_cancelLearn = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.updown_learn_speed = new System.Windows.Forms.NumericUpDown();
@@ -165,8 +167,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.btn_edit = new System.Windows.Forms.Button();
-            this.btn_save = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tb_coli_flen = new System.Windows.Forms.TextBox();
             this.tb_coli_len = new System.Windows.Forms.TextBox();
@@ -339,6 +339,7 @@
             this.timer_y1 = new System.Windows.Forms.Timer(this.components);
             this.timer_y2 = new System.Windows.Forms.Timer(this.components);
             this.timer_gant = new System.Windows.Forms.Timer(this.components);
+            this.label_learn = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Exit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_LogOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBtn_Setting)).BeginInit();
@@ -1707,6 +1708,7 @@
             // 
             // splitContainer4.Panel1
             // 
+            this.splitContainer4.Panel1.Controls.Add(this.label_learn);
             this.splitContainer4.Panel1.Controls.Add(this.btn_save);
             this.splitContainer4.Panel1.Controls.Add(this.btn_edit);
             this.splitContainer4.Panel1.Controls.Add(this.btn_cancelLearn);
@@ -1720,6 +1722,29 @@
             this.splitContainer4.Size = new System.Drawing.Size(1086, 606);
             this.splitContainer4.SplitterDistance = 621;
             this.splitContainer4.TabIndex = 24;
+            // 
+            // btn_save
+            // 
+            this.btn_save.Enabled = false;
+            this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_save.Location = new System.Drawing.Point(397, 482);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(59, 30);
+            this.btn_save.TabIndex = 20;
+            this.btn_save.Text = "Save";
+            this.btn_save.UseVisualStyleBackColor = true;
+            this.btn_save.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // btn_edit
+            // 
+            this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.btn_edit.Location = new System.Drawing.Point(332, 450);
+            this.btn_edit.Name = "btn_edit";
+            this.btn_edit.Size = new System.Drawing.Size(124, 30);
+            this.btn_edit.TabIndex = 19;
+            this.btn_edit.Text = "Edit";
+            this.btn_edit.UseVisualStyleBackColor = true;
+            this.btn_edit.Click += new System.EventHandler(this.button17_Click);
             // 
             // btn_cancelLearn
             // 
@@ -2061,29 +2086,6 @@
             this.label11.Size = new System.Drawing.Size(125, 18);
             this.label11.TabIndex = 1;
             this.label11.Text = "Calibration Part";
-            // 
-            // btn_edit
-            // 
-            this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_edit.Location = new System.Drawing.Point(332, 450);
-            this.btn_edit.Name = "btn_edit";
-            this.btn_edit.Size = new System.Drawing.Size(124, 30);
-            this.btn_edit.TabIndex = 19;
-            this.btn_edit.Text = "Edit";
-            this.btn_edit.UseVisualStyleBackColor = true;
-            this.btn_edit.Click += new System.EventHandler(this.button17_Click);
-            // 
-            // btn_save
-            // 
-            this.btn_save.Enabled = false;
-            this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.btn_save.Location = new System.Drawing.Point(397, 482);
-            this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(59, 30);
-            this.btn_save.TabIndex = 20;
-            this.btn_save.Text = "Save";
-            this.btn_save.UseVisualStyleBackColor = true;
-            this.btn_save.Click += new System.EventHandler(this.button18_Click);
             // 
             // groupBox3
             // 
@@ -4030,6 +4032,17 @@
             this.timer_gant.Interval = 1500;
             this.timer_gant.Tick += new System.EventHandler(this.timer_gant_Tick);
             // 
+            // label_learn
+            // 
+            this.label_learn.AutoSize = true;
+            this.label_learn.ForeColor = System.Drawing.Color.LimeGreen;
+            this.label_learn.Location = new System.Drawing.Point(191, 521);
+            this.label_learn.Name = "label_learn";
+            this.label_learn.Size = new System.Drawing.Size(135, 18);
+            this.label_learn.TabIndex = 23;
+            this.label_learn.Text = "Learn in progress...";
+            this.label_learn.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4094,6 +4107,7 @@
             this.gb_move.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel1.PerformLayout();
             this.splitContainer4.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
@@ -4461,6 +4475,7 @@
         public System.Windows.Forms.Timer timer_gant;
         private System.Windows.Forms.NumericUpDown updown_learn_speed;
         private System.Windows.Forms.Label label_learn_speed;
+        private System.Windows.Forms.Label label_learn;
     }
 }
 
