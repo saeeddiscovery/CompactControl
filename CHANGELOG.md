@@ -1,3 +1,8 @@
+## [2.3.1-rc.1] - 2020-04-03
+> **Changed**  
+>> - Calibration process
+>> - Learn process
+
 ## [2.2.1-rc.1] - 2020-04-02
 > **Added**
 >> - Learn Speed in service mode
