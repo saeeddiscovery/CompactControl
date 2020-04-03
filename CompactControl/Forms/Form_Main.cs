@@ -1977,7 +1977,7 @@ namespace Compact_Control
                 btn_save.Enabled = false;                
                 if (label_learn.Visible)
                 {
-                    write("/");
+                    write("w");
                     label_learn.Hide();
                     MessageBox.Show("The Learn has been cancelled\nAll parameters & Hardware will be reset");
                 }
