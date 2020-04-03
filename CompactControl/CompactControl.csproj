@@ -299,8 +299,6 @@
     <None Include="Resources\btn_AcceptPatient_Disabled.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="res\CC-Logo-transparent.png" />
-    <Content Include="res\CC-Logo.png" />
     <Content Include="res\icon.ico" />
     <Content Include="res\icon.png" />
     <None Include="Resources\CC-Logo.png" />
