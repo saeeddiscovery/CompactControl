@@ -124,10 +124,7 @@ namespace Compact_Control
         public string y1_valid_deg = "0";
         public string y2_valid_deg = "0";
 
-        public double gant_t2, gant_d2, collim_t2, collim_d2;
-
-        bool in_diag = false;
-        bool is_read_file = false;
+        public double gant_t2, gant_d2, collim_t2, collim_d2;        
 
         public string adc;
 
@@ -137,6 +134,9 @@ namespace Compact_Control
         Image requestImage = Resources.Request;
 
         public static bool isInServiceMode = false;
+        public bool in_diag = false;
+        public bool in_calib = false;
+        public bool in_learn = false;
 
         private ClientControls clientFrm = new ClientControls();
 
@@ -1615,30 +1615,36 @@ namespace Compact_Control
                                 y2_dv = Math.Round(((y2_gain * double.Parse(y2_co)) + y2_offset), 2, MidpointRounding.ToEven).ToString();
                             else
                                 y2_dv = Math.Round(-((y2_gain * double.Parse(y2_co)) + y2_offset), 1, MidpointRounding.ToEven).ToString();
-                            break;                        
+                            break;
                         case "c43":
-                            gant_zpnt = currData.Substring(3, currData.Length - 3);
+                            if(isInServiceMode)
+                                gant_zpnt = currData.Substring(3, currData.Length - 3);
                             break;
                         case "c44":
-                            gant_length = currData.Substring(3, currData.Length - 3);
+                            if (isInServiceMode)
+                                gant_length = currData.Substring(3, currData.Length - 3);
                             break;
                         case "c45":
-                            gant_fine_length = currData.Substring(3, currData.Length - 3);
-                            //write(gant_zpnt + (gant_zpnt.Length + 1).ToString() + "/" + gant_length + (gant_length.Length + 1).ToString() + "/" + gant_fine_length + (gant_fine_length.Length + 1).ToString() + "/");
-                            write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
+                            if (isInServiceMode)
+                            {
+                                gant_fine_length = currData.Substring(3, currData.Length - 3);
+                                write(gant_zpnt + "/" + gant_length + "/" + gant_fine_length + "/");
+                            }
                             break;
                         case "c46":
-                            collim_zpnt = currData.Substring(3, currData.Length - 3);
+                            if (isInServiceMode)
+                                collim_zpnt = currData.Substring(3, currData.Length - 3);
                             break;
                         case "c47":
-                            collim_length = currData.Substring(3, currData.Length - 3);
+                            if (isInServiceMode)
+                                collim_length = currData.Substring(3, currData.Length - 3);
                             break;
                         case "c48":
-                            collim_fine_length = currData.Substring(3, currData.Length - 3);
-                            write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
-                            //write(collim_zpnt + (collim_zpnt.Length + 1).ToString() + "/");
-                            //write(collim_length + (collim_length.Length + 1).ToString() + "/");
-                            //write(collim_fine_length + (collim_fine_length.Length + 1).ToString() + "/");
+                            if (isInServiceMode)
+                            {
+                                collim_fine_length = currData.Substring(3, currData.Length - 3);
+                                write(collim_zpnt + "/" + collim_length + "/" + collim_fine_length + "/");
+                            }
                             break;
                         case "gnd":
                             gnd = currData.Substring(3, currData.Length - 3);
@@ -1807,59 +1813,72 @@ namespace Compact_Control
                             // summ = 0;
                             break;
                         case "dia":
-                            write(diag_demand);
+                            if (isInServiceMode & in_diag)
+                                write(diag_demand);
                             break;
                         case "lnv":
-                            if (updown_learn_speed.Enabled==true)
+                            if (isInServiceMode)
                             {
-                                write(updown_learn_speed.Value.ToString() + "/");
-                                label_learn_speed.Enabled = false;
-                                updown_learn_speed.Enabled = false;
-                                btn_learn.Enabled = false;
-                                label_learn.Text = "Learn in progress...";
-                                label_learn.Show();
+                                if (updown_learn_speed.Enabled == true)
+                                {
+                                    write(updown_learn_speed.Value.ToString() + "/");
+                                    label_learn_speed.Enabled = false;
+                                    updown_learn_speed.Enabled = false;
+                                    btn_learn.Enabled = false;
+                                    label_learn.Text = "Learn in progress...";
+                                    label_learn.Show();
+                                    in_learn = true;
+                                }
                             }
                             break;
                         case "lok":
-                            //tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
-                            //tb_coli_gain.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
-                            //tb_x1_gain.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
-                            //tb_x2_gain.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
-                            //tb_y1_gain.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
-                            //tb_y2_gain.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
-
-                            //tb_gant_offset.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
-                            //tb_coli_offset.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
-                            //tb_x1_offset.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
-                            //tb_x2_offset.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
-                            //tb_y1_offset.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
-                            //tb_y2_offset.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
-
-                            tb_gant_zpnt.Text = gant_zpnt;
-                            tb_gant_len.Text = gant_length;
-                            tb_gant_flen.Text = gant_fine_length;
-                            tb_coli_zpnt.Text = collim_zpnt;
-                            tb_coli_len.Text = collim_length;
-                            tb_coli_flen.Text = collim_fine_length;
-                            btn_save.Enabled = true;
-                            try
+                            if (isInServiceMode)
                             {
-                                label_learn.Text = "Learn Complete.";
-                                MessageBox.Show("Learning was succesfull\nUse the Save button to save the results");
-                                btn_cancelLearn.Enabled = true;
+                                //tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
+                                //tb_coli_gain.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
+                                //tb_x1_gain.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
+                                //tb_x2_gain.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
+                                //tb_y1_gain.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
+                                //tb_y2_gain.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
+
+                                //tb_gant_offset.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
+                                //tb_coli_offset.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
+                                //tb_x1_offset.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
+                                //tb_x2_offset.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
+                                //tb_y1_offset.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
+                                //tb_y2_offset.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
+
+                                tb_gant_zpnt.Text = gant_zpnt;
+                                tb_gant_len.Text = gant_length;
+                                tb_gant_flen.Text = gant_fine_length;
+                                tb_coli_zpnt.Text = collim_zpnt;
+                                tb_coli_len.Text = collim_length;
+                                tb_coli_flen.Text = collim_fine_length;
+                                btn_save.Enabled = true;
+                                try
+                                {
+                                    label_learn.Text = "Learn Complete.";
+                                    in_learn = false;
+                                    MessageBox.Show("Learning was succesfull\nUse the Save button to save the results");
+                                    btn_cancelLearn.Enabled = true;
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+                                }
                             }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
-                            }
-                            break;
+                                break;                            
                         case "lnk":
-                            MessageBox.Show("The learn has been failed!\n Please reduce the learn speed and try again");
-                            label_learn_speed.Enabled = true;
-                            updown_learn_speed.Enabled = true;
-                            btn_learn.Enabled = true;
-                            label_learn.Hide();
-                            break;
+                            if (isInServiceMode)
+                            {
+                                label_learn.Hide();
+                                in_learn = false;
+                                MessageBox.Show("The learn has been failed!\n Please reduce the learn speed and try again");
+                                label_learn_speed.Enabled = true;
+                                updown_learn_speed.Enabled = true;
+                                btn_learn.Enabled = true;                                
+                            }
+                            break;                    
                         default:
                             writeToOtherTerminal(currData, false);
                             break;
@@ -3095,30 +3114,18 @@ namespace Compact_Control
                 y2_gain = double.Parse(values.y2_gain);
                 y2_offset = double.Parse(values.y2_offset);
 
-                is_read_file = true;
                 tb_gant_gain.Text = Math.Round(gant_gain, 7, MidpointRounding.ToEven).ToString();
-                is_read_file = true;
                 tb_coli_gain.Text = Math.Round(collim_gain, 7, MidpointRounding.ToEven).ToString();
-                is_read_file = true;
                 tb_x1_gain.Text = Math.Round(x1_gain, 7, MidpointRounding.ToEven).ToString();
-                is_read_file = true;
                 tb_x2_gain.Text = Math.Round(x2_gain, 7, MidpointRounding.ToEven).ToString();
-                is_read_file = true;
                 tb_y1_gain.Text = Math.Round(y1_gain, 7, MidpointRounding.ToEven).ToString();
-                is_read_file = true;
                 tb_y2_gain.Text = Math.Round(y2_gain, 7, MidpointRounding.ToEven).ToString();
 
-                is_read_file = true;
                 tb_gant_offset.Text = Math.Round(gant_offset, 3, MidpointRounding.ToEven).ToString();
-                is_read_file = true;
                 tb_coli_offset.Text = Math.Round(collim_offset, 3, MidpointRounding.ToEven).ToString();
-                is_read_file = true;
                 tb_x1_offset.Text = Math.Round(x1_offset, 3, MidpointRounding.ToEven).ToString();
-                is_read_file = true;
                 tb_x2_offset.Text = Math.Round(x2_offset, 3, MidpointRounding.ToEven).ToString();
-                is_read_file = true;
                 tb_y1_offset.Text = Math.Round(y1_offset, 3, MidpointRounding.ToEven).ToString();
-                is_read_file = true;
                 tb_y2_offset.Text = Math.Round(y2_offset, 3, MidpointRounding.ToEven).ToString();
             }
             catch (Exception ex)
