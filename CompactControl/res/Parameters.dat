@@ -41,6 +41,7 @@
   "x2_v1": "43",
   "x2_v2": "80",
   "x2_v3": "120",
-  "gravity_up": "1",
-  "gravity_down": "2"
+  "gravity_up": "15",
+  "jaws_c": "0.5",
+  "end_c": "0.2"
 }

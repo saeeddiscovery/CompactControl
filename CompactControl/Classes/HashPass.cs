@@ -457,7 +457,8 @@ namespace Compact_Control
             public string y2_v2 { get; set; }
             public string y2_v3 { get; set; }
             public string gravity_up { get; set; }
-            public string gravity_down { get; set; }
+            public string jaws_c { get; set; }
+            public string end_c { get; set; }
         }
         public class AppSettings
         {
@@ -555,7 +556,7 @@ namespace Compact_Control
                 "y1_tol_1", "y1_tol0", "y1_tol1", "y1_tol2", "y1_v1", "y1_v2", "y1_v3",
                 "y2_tol_1", "y2_tol0", "y2_tol1", "y2_tol2", "y2_v1", "y2_v2", "y2_v3",
                 "x1_tol_1", "x1_tol0", "x1_tol1", "x1_tol2", "x1_v1", "x1_v2", "x1_v3",
-                "x2_tol_1", "x2_tol0", "x2_tol1", "x2_tol2", "x2_v1", "x2_v2", "x2_v3", "gravity_up", "gravity_down" };
+                "x2_tol_1", "x2_tol0", "x2_tol1", "x2_tol2", "x2_v1", "x2_v2", "x2_v3", "gravity_up", "jaws_c","end_c" };
 
             using (JsonWriter writer = new JsonTextWriter(sw))
             {

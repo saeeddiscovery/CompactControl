@@ -59,7 +59,8 @@ namespace Compact_Control
         public string x2_tol_1, x2_tol0, x2_tol1, x2_tol2, x2_v1, x2_v2, x2_v3;
         public string y1_tol_1, y1_tol0, y1_tol1, y1_tol2, y1_v1, y1_v2, y1_v3;
         public string y2_tol_1, y2_tol0, y2_tol1, y2_tol2, y2_v1, y2_v2, y2_v3;
-        public string gravity_up, gravity_down;
+        public string gravity_up;
+        public string jaws_c, end_c;      
         public bool sendParametersFlag = false;
 
         public  string x1_co;
@@ -1216,7 +1217,7 @@ namespace Compact_Control
             }
         }
 
-        public static string[] ourParameters = new string[42];
+        public static string[] ourParameters = new string[45];
         //public bool compareParameters(string[] microParams, string[] ourParams)
         //{
         //    bool equal = true;
@@ -1303,7 +1304,8 @@ namespace Compact_Control
                          double.Parse(y2_v1) + double.Parse(y2_v2) + double.Parse(y2_v3) +
                          double.Parse(gant_zpnt) + double.Parse(gant_length) + double.Parse(gant_fine_length) +
                          double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length) +
-                         double.Parse(gravity_up) + double.Parse(gravity_down);
+                         double.Parse(gravity_up) +
+                         double.Parse(jaws_c) + double.Parse(end_c);
 
                 serialPort1.DiscardOutBuffer();
                 //MessageBox.Show(ourSum.ToString());
@@ -1321,7 +1323,8 @@ namespace Compact_Control
                 write(y1_tol_1_t + "/" + y1_tol0_t + "/" + y1_tol1_t + "/" + y1_tol2_t + "/");
                 write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
                 write(y2_tol_1_t + "/" + y2_tol0_t + "/" + y2_tol1_t + "/" + y2_tol2_t + "/");
-                write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/" + gravity_up + "/" + gravity_down + "/");
+                write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/" + gravity_up + "/");
+                write(jaws_c + "/" + end_c + "/");
                 return true;
             }
             catch (Exception ex)
@@ -1347,7 +1350,7 @@ namespace Compact_Control
         bool gant_stat = false, coli_stat = false,
             x1_stat = false, x2_stat = false,
             y1_stat = false, y2_stat = false;
-        string[] microParameters = new string[42];
+        string[] microParameters = new string[45];
         string currReceived;
 
         private void picBtn_Connect_MouseEnter(object sender, EventArgs e)
@@ -3180,7 +3183,7 @@ namespace Compact_Control
                 }
                 HashPass.ParametersData values = HashPass.readParametersJson(dataPath);
 
-                string[] prms = new string[44];
+                string[] prms = new string[45];
 
                 prms[0] = gant_tol_1 = values.gant_tol_1;
                 prms[1] = gant_tol0 = values.gant_tol0;
@@ -3225,7 +3228,8 @@ namespace Compact_Control
                 prms[40] = x2_v2 = values.x2_v2;
                 prms[41] = x2_v3 = values.x2_v3;
                 prms[42] = gravity_up = values.gravity_up;
-                prms[43] = gravity_down = values.gravity_down;
+                prms[43] = jaws_c = values.jaws_c;
+                prms[44] = end_c = values.end_c;
 
                 int i = 0;
                 foreach (Control tb in gb_parameters.Controls)
@@ -3594,7 +3598,7 @@ namespace Compact_Control
         private void btn_saveParameters_Click(object sender, EventArgs e)
         {
             //initState = 0 ;
-            string[] values = new string[44];
+            string[] values = new string[45];
             int i = 0;
             foreach (Control tb in gb_parameters.Controls)
             {
@@ -3647,7 +3651,8 @@ namespace Compact_Control
             x2_v2 = values[40];
             x2_v3 = values[41];
             gravity_up = values[42];
-            gravity_down = values[43];
+            jaws_c = values[43];
+            end_c = values[44];
 
             try
             {
