@@ -2631,7 +2631,7 @@ namespace Compact_Control
                     }
 
                     //x1_set = ((int)((a - x1_offset) / x1_gain)).ToString();
-                    x1_valid_raw = Math.Abs((int)((-a - x1_offset) / x1_gain)).ToString();
+                    x1_valid_raw = Math.Abs((int)((a - x1_offset) / x1_gain)).ToString();
                     if (int.Parse(x1_valid_raw) > 65534 | int.Parse(x1_valid_raw) < 0)
                     {
                         //x1_set = "0";
