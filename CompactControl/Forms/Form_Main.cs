@@ -1284,6 +1284,23 @@ namespace Compact_Control
                 string y2_tol1_t = Math.Abs(Math.Round(double.Parse(y2_tol1) / y2_gain)).ToString();
                 string y2_tol2_t = Math.Abs(Math.Round(double.Parse(y2_tol2) / y2_gain)).ToString();
 
+                string x_jaws_c_t = Math.Abs(Math.Round(double.Parse(jaws_c) / x1_gain)).ToString();
+                string y_jaws_c_t = Math.Abs(Math.Round(double.Parse(jaws_c) / y1_gain)).ToString();
+
+                string x1_in_end_c_t = Math.Abs(Math.Round((0 - double.Parse(end_c) - x1_offset) / x1_gain)).ToString();
+                string x1_out_end_c_t = Math.Abs(Math.Round((20 + double.Parse(end_c) - x1_offset) / x1_gain)).ToString();
+
+                string x2_in_end_c_t = Math.Abs(Math.Round((0 - double.Parse(end_c) - x2_offset) / x2_gain)).ToString();
+                string x2_out_end_c_t = Math.Abs(Math.Round((20 + double.Parse(end_c) - x2_offset) / x2_gain)).ToString();
+
+                string y1_in_end_c_t = Math.Abs(Math.Round((-12.5 - double.Parse(end_c) - y1_offset) / y1_gain)).ToString();
+                string y1_out_end_c_t = Math.Abs(Math.Round((20 + double.Parse(end_c) - y1_offset) / y1_gain)).ToString();
+
+                string y2_in_end_c_t = Math.Abs(Math.Round((-12.5 - double.Parse(end_c) - y2_offset) / y2_gain)).ToString();
+                string y2_out_end_c_t = Math.Abs(Math.Round((20 + double.Parse(end_c) - y2_offset) / y2_gain)).ToString();
+
+
+
                 double gant_gain_int = Math.Round(gant_gain * 100000);
                 double gant_offset_int = Math.Round(gant_offset);
                 double collim_gain_int = Math.Round(collim_gain * 100000);
@@ -1304,7 +1321,12 @@ namespace Compact_Control
                          double.Parse(y2_v1) + double.Parse(y2_v2) + double.Parse(y2_v3) +
                          double.Parse(gant_zpnt) + double.Parse(gant_length) + double.Parse(gant_fine_length) +
                          double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length) +
-                         double.Parse(gravity_up) + double.Parse(jaws_c) + double.Parse(end_c);
+                         double.Parse(gravity_up) +
+                         double.Parse(y_jaws_c_t) + double.Parse(x_jaws_c_t) +
+                         double.Parse(y1_in_end_c_t) + double.Parse(y1_out_end_c_t) +
+                         double.Parse(y2_in_end_c_t) + double.Parse(y2_out_end_c_t) +
+                         double.Parse(x1_in_end_c_t) + double.Parse(x1_out_end_c_t) +
+                         double.Parse(x2_in_end_c_t) + double.Parse(x2_out_end_c_t);
 
                 serialPort1.DiscardOutBuffer();
                 //MessageBox.Show(ourSum.ToString());
@@ -1323,7 +1345,11 @@ namespace Compact_Control
                 write(y1_v1 + "/" + y1_v2 + "/" + y1_v3 + "/");
                 write(y2_tol_1_t + "/" + y2_tol0_t + "/" + y2_tol1_t + "/" + y2_tol2_t + "/");
                 write(y2_v1 + "/" + y2_v2 + "/" + y2_v3 + "/" + gravity_up + "/");
-                write(jaws_c + "/" + end_c + "/");
+                write(y_jaws_c_t + "/" + x_jaws_c_t + "/");
+                write(y1_in_end_c_t + "/" + y1_out_end_c_t + "/");
+                write(y2_in_end_c_t + "/" + y2_out_end_c_t + "/");
+                write(x1_in_end_c_t + "/" + x1_out_end_c_t + "/");
+                write(x2_in_end_c_t + "/" + x2_out_end_c_t + "/");
                 return true;
             }
             catch (Exception ex)
