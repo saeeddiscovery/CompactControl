@@ -1217,7 +1217,7 @@ namespace Compact_Control
             }
         }
 
-        public static string[] ourParameters = new string[45];
+        public static string[] ourParameters = new string[44];
         //public bool compareParameters(string[] microParams, string[] ourParams)
         //{
         //    bool equal = true;
@@ -1304,8 +1304,7 @@ namespace Compact_Control
                          double.Parse(y2_v1) + double.Parse(y2_v2) + double.Parse(y2_v3) +
                          double.Parse(gant_zpnt) + double.Parse(gant_length) + double.Parse(gant_fine_length) +
                          double.Parse(collim_zpnt) + double.Parse(collim_length) + double.Parse(collim_fine_length) +
-                         double.Parse(gravity_up) +
-                         double.Parse(jaws_c) + double.Parse(end_c);
+                         double.Parse(gravity_up) + double.Parse(jaws_c) + double.Parse(end_c);
 
                 serialPort1.DiscardOutBuffer();
                 //MessageBox.Show(ourSum.ToString());
@@ -1350,7 +1349,6 @@ namespace Compact_Control
         bool gant_stat = false, coli_stat = false,
             x1_stat = false, x2_stat = false,
             y1_stat = false, y2_stat = false;
-        string[] microParameters = new string[45];
         string currReceived;
 
         private void picBtn_Connect_MouseEnter(object sender, EventArgs e)
@@ -3241,7 +3239,7 @@ namespace Compact_Control
                     }
                 }
 
-                string[] ourParams = new string[50];
+                string[] ourParams = new string[51];
                 ourParams[0] = gant_zpnt;
                 ourParams[1] = gant_length;
                 ourParams[2] = gant_fine_length;
@@ -3250,7 +3248,7 @@ namespace Compact_Control
                 ourParams[5] = collim_fine_length;
                 Array.Copy(prms, 0, ourParams, 6, prms.Length);
                 ourParameters = ourParams;
-                ClientControls.ourParameters = ourParams;
+
                 //ourSum = 0;
                 //foreach (string param in ourParams)
                 //{
@@ -3660,7 +3658,7 @@ namespace Compact_Control
                 string dataPath = System.IO.Path.Combine(appPath, "Parameters.dat");
                 HashPass.writeParametersJson(dataPath, values);
 
-                string[] ourParams = new string[50];
+                string[] ourParams = new string[51];
                 ourParams[0] = gant_zpnt;
                 ourParams[1] = gant_length;
                 ourParams[2] = gant_fine_length;
@@ -3669,7 +3667,7 @@ namespace Compact_Control
                 ourParams[5] = collim_fine_length;
                 Array.Copy(values, 0, ourParams, 6, values.Length);
                 ourParameters = ourParams;
-                ClientControls.ourParameters = ourParams;
+
                 //ourSum = 0;
                 //foreach (string param in ourParams)
                 //{

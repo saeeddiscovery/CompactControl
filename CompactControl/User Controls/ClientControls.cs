@@ -56,7 +56,7 @@ namespace Compact_Control
             btn_ClearField.Enabled = true;
         }
          */
-        public static string[] ourParameters = new string[48];
+
         public bool compareParameters(string[] microParams, string[] ourParams)
         {
             bool equal = true;

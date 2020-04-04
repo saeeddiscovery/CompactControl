@@ -1,3 +1,7 @@
+## [2.4.1-rc.1] - 2020-04-05
+> **Changed**  
+>> - Parameters changed (removed "gravity down" / added "jaws c" and "end c")
+
 ## [2.3.1-rc.1] - 2020-04-03
 > **Changed**  
 >> - Calibration process
