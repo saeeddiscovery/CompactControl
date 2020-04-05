@@ -1886,12 +1886,12 @@ namespace Compact_Control
                                 {
                                     label_learn.Text = "Learn Complete.";
                                     in_learn = false;
-                                    MessageBox.Show("Learning was succesfull\nUse the Save button to save the results");
+                                    MessageBox.Show("Learning was succesfull\nUse the Save button to save the results", "Succesfull", MessageBoxButtons.OK,MessageBoxIcon.Information);
                                     btn_cancelLearn.Enabled = true;
                                 }
                                 catch (Exception ex)
                                 {
-                                    MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0]);
+                                    MessageBox.Show("Error saving to file" + Environment.NewLine + ex.ToString().Split('\n')[0],"",MessageBoxButtons.OK,MessageBoxIcon.Error);
                                 }
                             }
                                 break;                            
@@ -1900,7 +1900,7 @@ namespace Compact_Control
                             {
                                 label_learn.Hide();
                                 in_learn = false;
-                                MessageBox.Show("The learn has been failed!\n Please reduce the learn speed and try again");
+                                MessageBox.Show("The learn has been failed!\n Please reduce the learn speed and try again","Failed",MessageBoxButtons.OK,MessageBoxIcon.Error);
                                 label_learn_speed.Enabled = true;
                                 updown_learn_speed.Enabled = true;
                                 btn_learn.Enabled = true;                                
@@ -3620,7 +3620,7 @@ namespace Compact_Control
         public static int initState = -1;
         public static double ourSum = 0;
         private void btn_saveParameters_Click(object sender, EventArgs e)
-        {
+        {            
             //initState = 0 ;
             string[] values = new string[45];
             int i = 0;
