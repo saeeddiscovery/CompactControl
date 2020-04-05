@@ -683,14 +683,14 @@ namespace Compact_Control
                 gantSet();
             //if (isColiSet)
                 coliSet();
-            //if (isY1Set)
-                //y1Set();
-            //if (isY2Set)
-                //y2Set();
-            //if (isX1Set)
-                //x1Set();
-            //if (isX2Set)
-                //x2Set();
+            if (isY1Set)
+                y1Set();
+            if (isY2Set)
+                y2Set();
+            if (isX1Set)
+                x1Set();
+            if (isX2Set)
+                x2Set();
 
         }
 
