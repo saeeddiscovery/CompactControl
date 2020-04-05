@@ -2331,7 +2331,7 @@ namespace Compact_Control
                         //isY1Set = false;
                         return;
                     }
-                    else if (-a > double.Parse(y2_dv) - 1)
+                    /*else if (-a > double.Parse(y2_dv) - 1)
                     {
                         //y1_set = "0";
                         y1_valid_deg = "0";
@@ -2342,7 +2342,7 @@ namespace Compact_Control
                         txt_y1_s.SelectAll();
                         //isY1Set = false;
                         return;
-                    }
+                    }*/
                     else if (!string.IsNullOrEmpty(txt_y2_s.Text))
                     {
                         if (-a > double.Parse(txt_y2_s.Text) - 1)
@@ -2490,7 +2490,7 @@ namespace Compact_Control
                         //isY2Set = false;
                         return;
                     }
-                    else if (-a > double.Parse(y1_dv) - 1)
+                    /*else if (-a > double.Parse(y1_dv) - 1)
                     {
                         //y2_set = "0";
                         y2_valid_deg = "0";
@@ -2501,7 +2501,7 @@ namespace Compact_Control
                         txt_y2_s.SelectAll();
                         //isY2Set = false;
                         return;
-                    }
+                    }*/
                     else if (!string.IsNullOrEmpty(txt_y1_s.Text))
                     {
                         if (-a > double.Parse(txt_y1_s.Text) - 1)
@@ -2649,7 +2649,7 @@ namespace Compact_Control
                         //isX1Set = false;
                         return;
                     }
-                    else if (-a > double.Parse(x2_dv) - 1)
+                    /*else if (-a > double.Parse(x2_dv) - 1)
                     {
                         //x1_set = "0";
                         x1_valid_deg = "0";
@@ -2660,7 +2660,7 @@ namespace Compact_Control
                         txt_x1_s.SelectAll();
                         //isX1Set = false;
                         return;
-                    }
+                    }*/
                     else if (!string.IsNullOrEmpty(txt_x2_s.Text))
                     {
                         if (-a > double.Parse(txt_x2_s.Text) - 1)
@@ -2811,8 +2811,7 @@ namespace Compact_Control
                         //isX2Set = false;
                         return;
                     }
-                    //if (x1_dv != null && (-a > double.Parse(x1_dv) - 1))
-                    if (-a > double.Parse(x1_dv) - 1)
+                    /*else if (-a > double.Parse(x1_dv) - 1)
                     {
                         //x2_set = "0";
                         x2_valid_deg = "0";
@@ -2823,7 +2822,7 @@ namespace Compact_Control
                         txt_x2_s.SelectAll();
                         //isX2Set = false;
                         return;
-                    }
+                    }*/
                     else if (!string.IsNullOrEmpty(txt_x1_s.Text))
                     {
                         if (-a > double.Parse(txt_x1_s.Text) - 1)
