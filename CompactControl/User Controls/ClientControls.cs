@@ -149,12 +149,6 @@ namespace Compact_Control
         private bool xy_isTextChangedFromCode = false;
         private bool XY_isTextChangedFromCode = false;
         private bool gant_isTextChangedFromCode = false;
-        bool isGantSet = false;
-        bool isColiSet = false;
-        bool isY1Set = false;
-        bool isY2Set = false;
-        bool isX1Set = false;
-        bool isX2Set = false;
         bool isYSymmetric = false;
         bool isXSymmetric = false;
         private void txtBox_Enter(object sender, EventArgs e)
@@ -168,7 +162,6 @@ namespace Compact_Control
             {
                 //if (string.IsNullOrEmpty(txt_gant_s.Text) || string.IsNullOrWhiteSpace(txt_gant_s.Text))
                 {
-                    isGantSet = false;
                     txt_gant_s.BackColor = Color.White;
                     //gant_set = "0";
                     frm1.gant_valid_raw = "0";
@@ -182,7 +175,6 @@ namespace Compact_Control
         {
             //if (string.IsNullOrEmpty(txt_coli_s.Text) || string.IsNullOrWhiteSpace(txt_coli_s.Text))
             {
-                isColiSet = false;
                 txt_coli_s.BackColor = Color.White;
                 //collim_set = "0";
                 frm1.collim_valid_deg = "0";
@@ -195,7 +187,8 @@ namespace Compact_Control
         {
             if (!xy_isTextChangedFromCode)
             {
-                isY1Set = false;
+                frm1.isY1Set = true;
+                //isY1Set = false;
                 txt_y1_s.BackColor = Color.White;
                 txt_y_s.BackColor = Color.White;
                 XY_isTextChangedFromCode = true;
@@ -213,7 +206,8 @@ namespace Compact_Control
         {
             if (!xy_isTextChangedFromCode)
             {
-                isY2Set = false;
+                frm1.isY2Set = true;
+                //isY2Set = false;
                 txt_y2_s.BackColor = Color.White;
                 txt_y_s.BackColor = Color.White;
                 XY_isTextChangedFromCode = true;
@@ -231,7 +225,8 @@ namespace Compact_Control
         {
             if (!xy_isTextChangedFromCode)
             {
-                isX1Set = false;
+                frm1.isX1Set = true;
+                //isX1Set = false;
                 txt_x1_s.BackColor = Color.White;
                 txt_x_s.BackColor = Color.White;
                 XY_isTextChangedFromCode = true;
@@ -249,7 +244,8 @@ namespace Compact_Control
         {
             if (!xy_isTextChangedFromCode)
             {
-                isX2Set = false;
+                frm1.isX2Set = true;
+                //isX2Set = false;
                 txt_x2_s.BackColor = Color.White;
                 txt_x_s.BackColor = Color.White;
                 XY_isTextChangedFromCode = true;
@@ -286,8 +282,9 @@ namespace Compact_Control
                     //gant_set = "0";
                     frm1.gant_valid_deg = "0";
                     frm1.gant_valid_raw = "0";
-                    pic_gant_status.BackgroundImage = Resources.Error;
+                    pic_gant_status.BackgroundImage = frm1.errorImage;
                     pic_gant_status.Show();
+                    txt_gant_s.BackColor = Color.White;
                     txt_gant_s.SelectAll();
                     return;
                 }
@@ -315,13 +312,11 @@ namespace Compact_Control
                 if (Math.Abs(frm1.gant_t2 - frm1.gant_d2) > .11)
                 {
                     pic_gant_status.BackgroundImage = Resources.Request;
-                    isGantSet = true;
                     pic_gant_status.Show();
                 }
                 else
                 {
                     pic_gant_status.Hide();
-                    isGantSet = false;
                 }
                 txt_gant_s.BackColor = Color.LightGreen;
                 txt_coli_s.Focus();
@@ -332,8 +327,9 @@ namespace Compact_Control
                 //gant_set = "0";
                 frm1.gant_valid_deg = "0";
                 frm1.gant_valid_raw = "0";
-                pic_gant_status.BackgroundImage = Resources.Error;
+                pic_gant_status.BackgroundImage = frm1.errorImage;
                 pic_gant_status.Show();
+                txt_gant_s.BackColor = Color.White;
                 return;
             }
         }
@@ -368,8 +364,9 @@ namespace Compact_Control
                     //collim_set = "0";
                     frm1.collim_valid_deg = "0";
                     frm1.collim_valid_raw = "0";
-                    pic_coli_status.BackgroundImage = Resources.Error;
+                    pic_coli_status.BackgroundImage = frm1.errorImage;
                     pic_coli_status.Show();
+                    txt_coli_s.BackColor = Color.White;
                     txt_coli_s.SelectAll();
                     return;
                 }
@@ -388,13 +385,11 @@ namespace Compact_Control
                 if (Math.Abs(frm1.collim_t2 - frm1.collim_d2) > .11)
                 {
                     pic_coli_status.BackgroundImage = Resources.Request;
-                    isColiSet = true;
                     pic_coli_status.Show();
                 }
                 else
                 {
                     pic_coli_status.Hide();
-                    isColiSet = false;
                 }
                 txt_coli_s.BackColor = Color.LightGreen;
                 txt_y_s.Focus();
@@ -404,8 +399,9 @@ namespace Compact_Control
                 //collim_set = "0";
                 frm1.collim_valid_deg = "0";
                 frm1.collim_valid_raw = "0";
-                pic_coli_status.BackgroundImage = Resources.Error;
+                pic_coli_status.BackgroundImage = frm1.errorImage;
                 pic_coli_status.Show();
+                txt_coli_s.BackColor = Color.White;
                 txt_coli_s.SelectAll();
                 return;
             }
@@ -423,10 +419,12 @@ namespace Compact_Control
         {
             if (!XY_isTextChangedFromCode)
             {
+                frm1.isX1Set = true;
+                frm1.isX2Set = true;
                 //if (string.IsNullOrEmpty(txt_x_s.Text) || string.IsNullOrWhiteSpace(txt_x_s.Text))
                 {
-                    isX1Set = false;
-                    isX2Set = false;
+                    //isX1Set = false;
+                    //isX2Set = false;
                     txt_x_s.BackColor = Color.White;
                     txt_x1_s.BackColor = Color.White;
                     txt_x2_s.BackColor = Color.White;
@@ -449,10 +447,12 @@ namespace Compact_Control
 
             if (!XY_isTextChangedFromCode)
             {
+                frm1.isY1Set = true;
+                frm1.isY2Set = true;
                 //if (string.IsNullOrEmpty(txt_y_s.Text) || string.IsNullOrWhiteSpace(txt_y_s.Text))
                 {
-                    isY1Set = false;
-                    isY2Set = false;
+                    //isY1Set = false;
+                    //isY2Set = false;
                     txt_y_s.BackColor = Color.White;
                     txt_y1_s.BackColor = Color.White;
                     txt_y2_s.BackColor = Color.White;
@@ -588,6 +588,7 @@ namespace Compact_Control
 
         private void y1Act()
         {
+            frm1.isY1Set = true;
             try
             {
                 if (string.IsNullOrEmpty(txt_y1_s.Text) || string.IsNullOrWhiteSpace(txt_y1_s.Text))
@@ -599,7 +600,7 @@ namespace Compact_Control
                     frm1.x2_valid_deg = "0";
                     frm1.x2_valid_raw = "0";
                     pic_y1_status.Hide();
-                    isY1Set = false;
+                    //isY1Set = false;
                     y1err = false;
                     txt_y2_s.Focus();
                     return;
@@ -615,12 +616,14 @@ namespace Compact_Control
                             //x2_set = "0";
                             frm1.x2_valid_deg = "0";
                             frm1.x2_valid_raw = "0";
-                            pic_y2_status.BackgroundImage = Resources.Error;
+                            pic_y2_status.BackgroundImage = frm1.errorImage;
                             pic_y2_status.Show();
-                            pic_y1_status.BackgroundImage = Resources.Error;
+                            pic_y1_status.BackgroundImage = frm1.errorImage;
                             pic_y1_status.Show();
+                            txt_y1_s.BackColor = Color.White;
+                            txt_y2_s.BackColor = Color.White;
                             txt_y1_s.SelectAll();
-                            isY1Set = false;
+                            //isY1Set = false;
                             y1err = true;
                             y2err = true;
                             return;
@@ -669,11 +672,12 @@ namespace Compact_Control
                     //x2_set = "0";
                     frm1.x2_valid_deg = "0";
                     frm1.x2_valid_raw = "0";
-                    pic_y1_status.BackgroundImage = Resources.Error;
+                    pic_y1_status.BackgroundImage = frm1.errorImage;
                     pic_y1_status.Show();
+                    txt_y1_s.BackColor = Color.White;
                     txt_y1_s.SelectAll();
                     y1err = true;
-                    isY1Set = false;
+                    //isY1Set = false;
                     return;
                 }
 
@@ -684,9 +688,10 @@ namespace Compact_Control
                         //x2_set = "0";
                         frm1.x2_valid_deg = "0";
                         frm1.x2_valid_raw = "0";
-                        pic_y1_status.BackgroundImage = Resources.Error;
+                        pic_y1_status.BackgroundImage = frm1.errorImage;
                         pic_y1_status.Show();
-                        isY1Set = false;
+                        txt_y1_s.BackColor = Color.White;
+                        //isY1Set = false;
                         y1err = true;
                         return;
                     }
@@ -712,14 +717,14 @@ namespace Compact_Control
                 y1err = false;
                 if (Math.Abs(double.Parse(txt_y1_s.Text) - double.Parse(frm1.x2_dv)) >= .09)
                 {
-                    isY1Set = true;
+                    //isY1Set = true;
                     pic_y1_status.BackgroundImage = Resources.Request;
                     pic_y1_status.Show();
                 }
                 else
                 {
                     pic_y1_status.Hide();
-                    isY1Set = false;
+                    //isY1Set = false;
                 }
 
                 txt_y1_s.BackColor = Color.LightGreen;
@@ -731,11 +736,13 @@ namespace Compact_Control
                 //x2_set = "0";
                 frm1.x2_valid_deg = "0";
                 frm1.x2_valid_raw = "0";
-                pic_y1_status.BackgroundImage = Resources.Error;
+                pic_y1_status.BackgroundImage = frm1.errorImage;
                 pic_y1_status.Show();
+                txt_y1_s.BackColor = Color.White;
                 y1err = true;
                 return;
             }
+            frm1.y1Set();
         }
 
         private void txt_y1_s_KeyPress(object sender, KeyPressEventArgs e)
@@ -750,6 +757,7 @@ namespace Compact_Control
         {
             try
             {
+                frm1.isY2Set = true;
                 if (string.IsNullOrEmpty(txt_y2_s.Text) || string.IsNullOrWhiteSpace(txt_y2_s.Text))
                 {
                     XY_isTextChangedFromCode = true;
@@ -760,7 +768,7 @@ namespace Compact_Control
                     frm1.x1_valid_raw = "0";
                     pic_y2_status.Hide();
                     pic_y2_status.BackgroundImage = Resources.Request;
-                    isY2Set = false;
+                    //isY2Set = false;
                     txt_x1_s.Focus();
                     y2err = false;
                     y1err = true;
@@ -777,12 +785,14 @@ namespace Compact_Control
                             //x1_set = "0";
                             frm1.x1_valid_deg = "0";
                             frm1.x1_valid_raw = "0";
-                            pic_y1_status.BackgroundImage = Resources.Error;
+                            pic_y1_status.BackgroundImage = frm1.errorImage;
                             pic_y1_status.Show();
-                            pic_y2_status.BackgroundImage = Resources.Error;
+                            pic_y2_status.BackgroundImage = frm1.errorImage;
                             pic_y2_status.Show();
+                            txt_y1_s.BackColor = Color.White;
+                            txt_y2_s.BackColor = Color.White;
                             txt_y2_s.SelectAll();
-                            isY2Set = false;
+                            //isY2Set = false;
                             y2err = true;
                             y1err = true;
                             return;
@@ -831,9 +841,10 @@ namespace Compact_Control
                     //x1_set = "0";
                     frm1.x1_valid_deg = "0";
                     frm1.x1_valid_raw = "0";
-                    pic_y2_status.BackgroundImage = Resources.Error;
-                    isY2Set = false;
+                    pic_y2_status.BackgroundImage = frm1.errorImage;
+                    //isY2Set = false;
                     pic_y2_status.Show();
+                    txt_y2_s.BackColor = Color.White;
                     txt_y2_s.SelectAll();
                     y2err = true;
                     return;
@@ -846,9 +857,10 @@ namespace Compact_Control
                         //x1_set = "0";
                         frm1.x1_valid_deg = "0";
                         frm1.x1_valid_raw = "0";
-                        pic_y2_status.BackgroundImage = Resources.Error;
-                        isY2Set = false;
+                        pic_y2_status.BackgroundImage = frm1.errorImage;
+                        //isY2Set = false;
                         pic_y2_status.Show();
+                        txt_y2_s.BackColor = Color.White;
                         txt_y2_s.SelectAll();
                         y2err = true;
                         return;
@@ -879,14 +891,14 @@ namespace Compact_Control
 
                     if (Math.Abs(double.Parse(txt_y2_s.Text) - double.Parse(frm1.x1_dv)) >= .09)
                     {
-                        isY2Set = true;
-                    pic_y2_status.BackgroundImage = Resources.Request;
+                        //isY2Set = true;
+                        pic_y2_status.BackgroundImage = Resources.Request;
                         pic_y2_status.Show();
                     }
                     else
                     {
                         pic_y2_status.Hide();
-                        isY2Set = false;
+                        //isY2Set = false;
                     }
                 }
                 txt_y2_s.BackColor = Color.LightGreen;
@@ -898,12 +910,14 @@ namespace Compact_Control
                 frm1.x1_valid_deg = "0";
                 frm1.x1_valid_raw = "0";
                 txt_y2_s.SelectAll();
-                pic_y2_status.BackgroundImage = Resources.Error;
+                pic_y2_status.BackgroundImage = frm1.errorImage;
                 pic_y2_status.Show();
-                isY2Set = false;
+                txt_y2_s.BackColor = Color.White;
+                //isY2Set = false;
                 y2err = true;
                 return;
             }
+            frm1.y2Set();
         }
       
         private void txt_y2_s_KeyPress(object sender, KeyPressEventArgs e)
@@ -916,6 +930,7 @@ namespace Compact_Control
 
         private void x1Act()
         {
+            frm1.isX1Set = true;
             try
             {
                 if (string.IsNullOrEmpty(txt_x1_s.Text) || string.IsNullOrWhiteSpace(txt_x1_s.Text))
@@ -927,7 +942,7 @@ namespace Compact_Control
                     frm1.y2_valid_deg = "0";
                     frm1.y2_valid_raw = "0";
                     pic_x1_status.Hide();
-                    isX1Set = false;
+                    //isX1Set = false;
                     txt_x2_s.Focus();
                     x1err = false;
                     return;
@@ -943,12 +958,14 @@ namespace Compact_Control
                             //y2_set = "0";
                             frm1.y2_valid_deg = "0";
                             frm1.y2_valid_raw = "0";
-                            pic_x2_status.BackgroundImage = Resources.Error;
+                            pic_x2_status.BackgroundImage = frm1.errorImage;
                             pic_x2_status.Show();
-                            pic_x1_status.BackgroundImage = Resources.Error;
+                            pic_x1_status.BackgroundImage = frm1.errorImage;
                             pic_x1_status.Show();
+                            txt_x1_s.BackColor = Color.White;
+                            txt_x2_s.BackColor = Color.White;
                             txt_x1_s.SelectAll();
-                            isX1Set = false;
+                            //isX1Set = false;
                             x1err = true;
                             x2err = true;
                             return;
@@ -998,9 +1015,10 @@ namespace Compact_Control
                     //y2_set = "0";
                     frm1.y2_valid_deg = "0";
                     frm1.y2_valid_raw = "0";
-                    pic_x1_status.BackgroundImage = Resources.Error;
-                    isX1Set = false;
+                    pic_x1_status.BackgroundImage = frm1.errorImage;
+                    //isX1Set = false;
                     pic_x1_status.Show();
+                    txt_x1_s.BackColor = Color.White;
                     txt_x1_s.SelectAll();
                     x1err = true;
                     return;
@@ -1014,9 +1032,10 @@ namespace Compact_Control
                             //y2_set = "0";
                             frm1.y2_valid_deg = "0";
                             frm1.y2_valid_raw = "0";
-                            pic_x1_status.BackgroundImage = Resources.Error;
-                            isX1Set = false;
+                            pic_x1_status.BackgroundImage = frm1.errorImage;
+                            //isX1Set = false;
                             pic_x1_status.Show();
+                            txt_x1_s.BackColor = Color.White;
                             txt_x1_s.SelectAll();
                             x1err = true;
                             return;
@@ -1049,13 +1068,13 @@ namespace Compact_Control
 
                 if (Math.Abs(double.Parse(txt_x1_s.Text) - double.Parse(frm1.y2_dv)) >= .09)
                 {
-                    isX1Set = true;
+                    //isX1Set = true;
                     pic_x1_status.BackgroundImage = Resources.Request;
                     pic_x1_status.Show();
                 }
                 else
                 {
-                    isX1Set = false;
+                    //isX1Set = false;
                     pic_x1_status.Hide();
                 }
 
@@ -1068,9 +1087,10 @@ namespace Compact_Control
                 frm1.y2_valid_deg = "0";
                 frm1.y2_valid_raw = "0";
                 txt_x1_s.SelectAll();
-                pic_x1_status.BackgroundImage = Resources.Error;
+                pic_x1_status.BackgroundImage = frm1.errorImage;
                 pic_x1_status.Show();
-                isX1Set = false;
+                txt_x1_s.BackColor = Color.White;
+                //isX1Set = false;
                 x1err = true;
                 return;
             }
@@ -1086,6 +1106,7 @@ namespace Compact_Control
 
         private void x2Act()
         {
+            frm1.isX2Set = true;
             try
             {
                 if (string.IsNullOrEmpty(txt_x2_s.Text) || string.IsNullOrWhiteSpace(txt_x2_s.Text))
@@ -1098,7 +1119,7 @@ namespace Compact_Control
                     frm1.y1_valid_raw = "0";
                     pic_x2_status.Hide();
                     pic_x2_status.BackgroundImage = Resources.Request;
-                    isX2Set = false;
+                    //isX2Set = false;
                     txt_gant_s.Focus();
                     x2err = false;
                     return;
@@ -1114,12 +1135,14 @@ namespace Compact_Control
                             //y1_set = "0";
                             frm1.y1_valid_deg = "0";
                             frm1.y1_valid_raw = "0";
-                            pic_x1_status.BackgroundImage = Resources.Error;
+                            pic_x1_status.BackgroundImage = frm1.errorImage;
                             pic_x1_status.Show();
-                            pic_x2_status.BackgroundImage = Resources.Error;
+                            pic_x2_status.BackgroundImage = frm1.errorImage;
                             pic_x2_status.Show();
+                            txt_x1_s.BackColor = Color.White;
+                            txt_x2_s.BackColor = Color.White;
                             txt_x2_s.SelectAll();
-                            isX2Set = false;
+                            //isX2Set = false;
                             x1err = true;
                             x2err = true;
                             return;
@@ -1168,10 +1191,11 @@ namespace Compact_Control
                     //y1_set = "0";
                     frm1.y1_valid_deg = "0";
                     frm1.y1_valid_raw = "0";
-                    pic_x2_status.BackgroundImage = Resources.Error;
+                    pic_x2_status.BackgroundImage = frm1.errorImage;
                     pic_x2_status.Show();
+                    txt_x2_s.BackColor = Color.White;
                     txt_x2_s.SelectAll();
-                    isX2Set = false;
+                    //isX2Set = false;
                     x2err = true;
                     return;
                 }
@@ -1183,10 +1207,11 @@ namespace Compact_Control
                         //y1_set = "0";
                         frm1.y1_valid_deg = "0";
                         frm1.y1_valid_raw = "0";
-                        pic_x2_status.BackgroundImage = Resources.Error;
+                        pic_x2_status.BackgroundImage = frm1.errorImage;
                         pic_x2_status.Show();
+                        txt_x2_s.BackColor = Color.White;
                         txt_x2_s.SelectAll();
-                        isX2Set = false;
+                        //isX2Set = false;
                         x2err = true;
                         return;
                     }
@@ -1216,14 +1241,14 @@ namespace Compact_Control
 
                     if (Math.Abs(double.Parse(txt_x2_s.Text) - double.Parse(frm1.y1_dv)) >= .09)
                     {
-                        isX2Set = true;
+                        //isX2Set = true;
                         pic_x2_status.BackgroundImage = Resources.Request;
                         pic_x2_status.Show();
                     }
                     else
                     {
                         pic_x2_status.Hide();
-                        isX2Set = false;
+                        //isX2Set = false;
                     }
                 }
                 txt_x2_s.BackColor = Color.LightGreen;
@@ -1235,9 +1260,10 @@ namespace Compact_Control
                 frm1.y1_valid_deg = "0";
                 frm1.y1_valid_raw = "0";
                 txt_x2_s.SelectAll();
-                pic_x2_status.BackgroundImage = Resources.Error;
+                pic_x2_status.BackgroundImage = frm1.errorImage;
                 pic_x2_status.Show();
-                isX2Set = false;
+                txt_x2_s.BackColor = Color.White;
+                //isX2Set = false;
                 x2err = true;
                 return;
             }
