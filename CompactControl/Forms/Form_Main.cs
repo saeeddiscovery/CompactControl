@@ -1294,8 +1294,8 @@ namespace Compact_Control
                 string y2_tol1_t = Math.Abs(Math.Round(double.Parse(y2_tol1) / y2_gain)).ToString();
                 string y2_tol2_t = Math.Abs(Math.Round(double.Parse(y2_tol2) / y2_gain)).ToString();
 
-                string x_jaws_c_t = Math.Abs(Math.Round(double.Parse(jaws_c) / x1_gain)).ToString();
-                string y_jaws_c_t = Math.Abs(Math.Round(double.Parse(jaws_c) / y1_gain)).ToString();
+                string x_jaws_c_t = Math.Abs(Math.Round((double.Parse(jaws_c)-(x1_offset+x2_offset)) / x1_gain)).ToString();
+                string y_jaws_c_t = Math.Abs(Math.Round((double.Parse(jaws_c)-(y1_offset+y2_offset)) / y1_gain)).ToString();
 
                 string x1_in_end_c_t = Math.Abs(Math.Round((0 - double.Parse(end_c) - x1_offset) / x1_gain)).ToString();
                 string x1_out_end_c_t = Math.Abs(Math.Round((20 + double.Parse(end_c) - x1_offset) / x1_gain)).ToString();
