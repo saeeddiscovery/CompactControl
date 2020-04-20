@@ -3,7 +3,6 @@
 [!["Language"](https://img.shields.io/github/languages/top/saeeddiscovery/CompactControl.svg?style=for-the-badge)](https://docs.microsoft.com/en-us/dotnet/csharp)
 [!["Latest Release"](https://img.shields.io/github/v/release/saeeddiscovery/CompactControl.svg?style=for-the-badge)](https://github.com/saeeddiscovery/CompactControl/releases/latest)
 [!["Release Date"](https://img.shields.io/github/release-date/saeeddiscovery/CompactControl.svg?style=for-the-badge)](https://github.com/saeeddiscovery/CompactControl/releases/latest)
-[![Publish](https://github.com/saeeddiscovery/CompactControl/workflows/Publish/badge.svg?branch=master?style=for-the-badge)](https://github.com/saeeddiscovery/CompactControl/actions?query=workflow%3APublish)
 
 [![Generic badge](https://img.shields.io/badge/Company-AitinTech-blue.svg?style=for-the-badge)](http://AitinTech.ir/)
 [!["Contributors"](https://img.shields.io/github/contributors/saeeddiscovery/CompactControl.svg?style=for-the-badge)](https://github.com/saeeddiscovery/CompactControl/graphs/contributors)
