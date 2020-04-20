@@ -4,8 +4,9 @@
 [!["Latest Release"](https://img.shields.io/github/v/release/saeeddiscovery/CompactControl.svg?style=for-the-badge)](https://github.com/saeeddiscovery/CompactControl/releases/latest)
 [!["Release Date"](https://img.shields.io/github/release-date/saeeddiscovery/CompactControl.svg?style=for-the-badge)](https://github.com/saeeddiscovery/CompactControl/releases/latest)
 
-[![Generic badge](https://img.shields.io/badge/Company-AitinTech-blue.svg?style=for-the-badge)](http://AitinTech.ir/)
-[!["Contributors"](https://img.shields.io/github/contributors/saeeddiscovery/CompactControl.svg?style=for-the-badge)](https://github.com/saeeddiscovery/CompactControl/graphs/contributors)
+[![Company](https://img.shields.io/badge/Company-AitinTech-blue.svg?style=social&logo=c)](http://AitinTech.ir/)
+[!["Contributors"](https://img.shields.io/github/contributors/saeeddiscovery/CompactControl.svg?style=social&logo=visual%20studio)](https://github.com/saeeddiscovery/CompactControl/graphs/contributors)
+[!["GUI-WinForms"](https://img.shields.io/badge/Made%20with-WinForms-brightgreen.svg?style=social&logo=windows)]()
 
 
 
